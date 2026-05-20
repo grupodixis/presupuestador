@@ -1,0 +1,100 @@
+producto: Cerramiento de aluminio
+unidad_base: metro_cuadrado
+
+materiales_principales:
+  - nombre: Perfiles de aluminio estructurales
+    tipo: extrusion_serie_cerramiento / RPT / muro_cortina
+  - nombre: Vidrio
+    tipo: doble_acristalamiento / laminar / templado / bajo_emisivo / serigrafiado / reflectante
+  - nombre: Paneles ciegos
+    tipo: composite_aluminio (Dibond/Alucobond) / chapa_aluminio_lacada / panel_PVC
+  - nombre: Premarco estructural
+    tipo: acero_galvanizado / aluminio_reforzado
+
+materiales_auxiliares:
+  - nombre: Anclajes estructurales
+    tipo: regulables / fijos / expansion_mecanica
+  - nombre: Juntas estructurales
+    tipo: EPDM / silicona_estructural / TPE
+  - nombre: Sellado exterior e interior
+    tipo: silicona_neutra / sellador_autoexpandible
+  - nombre: Tornillería de fijación
+    tipo: acero_inoxidable_A2 / A4
+  - nombre: Tapas y embellecedores
+    tipo: aluminio_extruido / PVC_coextruido
+  - nombre: Drenajes ocultos
+    tipo: poliamida / aluminio
+  - nombre: Espaciadores de vidrio
+    tipo: aluminio_con_rotura_termica
+
+procesos:
+  - medicion_y_replanteo_en_obra
+  - diseño_estructural_con_calculo_de_cargas
+  - corte_y_mecanizado_de_perfiles
+  - ensamblaje_de_modulos_en_taller
+  - colocacion_de_juntas_y_sellados
+  - acristalamiento
+  - embalaje_y_proteccion
+  - transporte_con_gondola
+  - montaje_en_obra_con_plataforma
+  - fijacion_estructural_a_forjado
+  - sellado_final
+  - prueba_de_estanqueidad
+
+variables_tecnicas:
+  - tipo: cerramiento_acristalado / fachada_ventilada / muro_cortina / lucernario / toldo / pergola
+  - superficie_total_m2
+  - altura_maxima
+  - ancho_tramo
+  - carga_de_viento_segun_zona
+  - tipo_perfileria: vista / semivista / oculta / estructural
+  - material_relleno: vidrio / panel / mixto
+  - espesor_vidrio_o_panel
+  - acabado_perfiles: lacado_RAL / anodizado / imitacion_madera
+  - RPT: si / no
+  - ubicacion: fachada / cubierta / interior
+  - altura_de_montaje
+
+factores_complejidad:
+  - geometria_no_rectangular
+  - fachada_con_angulos_entrantes_y_salientes
+  - grandes_paneles_de_vidrio_de_mas_3m
+  - muro_cortina_estructural
+  - integracion_con_persianas_motorizadas
+  - iluminacion_integrada_en_perfileria
+  - montaje_en_altura_superior_a_20m
+  - condiciones_de_viento_extremo
+
+costes_a_considerar:
+  perfiles_aluminio: true
+  acristalamiento: true
+  paneles_cierres: true
+  anclajes_estructurales: true
+  premarco_estructural: true
+  juntas_y_sellados: true
+  calculo_estructural: true
+  mano_obra_taller: true
+  mano_obra_montaje: true
+  plataforma_elevadora: true
+  transporte: true
+  riesgo: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  perfiles_aluminio: 0.06
+  vidrio_templado: 0.03
+  paneles_composite: 0.05
+  consumibles: 0.03
+
+tolerancias:
+  fabricacion_modulos: plus_minus_1mm
+  montaje_en_obra: plus_minus_5mm
+  nivelacion: plus_minus_3mm
+
+controles_calidad:
+  - prueba_de_estanquedad_al_agua
+  - prueba_de_resistencia_al_viento
+  - inspeccion_de_acristalamiento
+  - verificacion_de_fijaciones_estructurales
+  - control_dimensional_de_modulos

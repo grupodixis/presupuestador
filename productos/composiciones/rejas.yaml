@@ -1,0 +1,90 @@
+producto: Rejas de protección
+unidad_base: unidad / metro_cuadrado / metro_lineal
+
+materiales_principales:
+  - nombre: Barrotes de reja
+    tipo: barra_cuadrada / barra_redonda / tubo_cuadrado / pletina / perfil_especial_seguridad
+  - nombre: Cerco / marco
+    tipo: angular / tubo_rectangular / perfil_plegado
+  - nombre: Anclajes a fachada / muro
+    tipo: patillas_empotradas / espárragos_quimicos / expansivos / pasantes
+
+materiales_auxiliares:
+  - nombre: Bisagras de seguridad
+    tipo: acero_galvanizado / inoxidable / tipo_punta_de_lanza_antisoldadura
+  - nombre: Cerradura de reja
+    tipo: de_llave / de_llave_maestra / de_embutir / de_sobreponer
+  - nombre: Pletina de cierre
+    tipo: acero / inoxidable
+  - nombre: Tornillería
+    tipo: acero_inoxidable / acero_cincado / antisoldadura
+  - nombre: Discos de corte
+    tipo: acero / inoxidable
+  - nombre: Electrodo / hilo soldadura
+    tipo: MIG_MAG / electrodo
+  - nombre: Pintura / imprimación
+    tipo: esmalte / poliuretano / epoxi / intumescente_si_cortafuego
+  - nombre: Tapones decorativos para barrotes
+    tipo: PVC / metal / fundicion
+
+procesos:
+  - medicion_de_hueco_o_ventana
+  - diseño_y_despiece
+  - corte_de_perfiles_y_barrotes
+  - soldadura_de_conjunto
+  - montaje_de_bisagras_y_cerradura
+  - tratamiento_superficial
+  - transporte
+  - montaje_en_obra
+  - fijacion_a_fachada
+  - prueba_de_funcionamiento
+
+variables_tecnicas:
+  - tipo: fija / abatible / corredera / desmontable / enrollable
+  - dimensiones: alto_x_ancho
+  - tipo_barrote: macizo / tubular / liso / helicoidal / decorativo
+  - separacion_entre_barrotes
+  - material: acero / inoxidable / hierro_forjado / aluminio
+  - acabado: pintado / galvanizado / inoxidable / envejecido
+  - nivel_seguridad: basico / medio / alto
+  - ubicacion: ventana / puerta / balcon / patio / local_comercial / escaparate
+  - apertura: hacia_dentro / hacia_fuera / abatible / corredera
+
+factores_complejidad:
+  - geometria_de_hueco_irregular
+  - barrotes_con_diseño_decorativo
+  - reja_abatible_de_grandes_dimensiones
+  - reja_corredera_oculta_en_fachada
+  - cerradura_con_sistema_maestro
+  - bisagras_antisoldadura_ocultas
+  - montaje_en_fachada_protegida
+  - reja_para_vano_no_rectangular
+
+costes_a_considerar:
+  materiales_barrotes: true
+  cerco_y_anclajes: true
+  bisagras_y_cerradura: true
+  soldadura: true
+  tratamiento_superficial: true
+  mano_obra_taller: true
+  mano_obra_montaje: true
+  transporte: true
+  riesgo: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  acero: 0.05
+  inoxidable: 0.08
+  consumibles: 0.03
+
+tolerancias:
+  fabricacion: plus_minus_2mm
+  montaje_en_hueco: plus_minus_5mm
+
+controles_calidad:
+  - verificacion_de_medidas_respecto_al_hueco
+  - prueba_de_apertura_y_cierre
+  - inspeccion_de_cerradura
+  - inspeccion_de_soldaduras
+  - verificacion_de_anclajes

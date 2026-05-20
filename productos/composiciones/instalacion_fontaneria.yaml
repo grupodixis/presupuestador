@@ -1,0 +1,96 @@
+producto: Instalación de fontanería
+unidad_base: punto_de_agua / baño / cocina / metro_lineal_tuberia / conjunto
+
+materiales_principales:
+  - nombre: Tubería de agua fría / caliente
+    tipo: cobre / multicapa_PEX_Al_PEX / polipropileno / acero_inoxidable / PVC
+  - nombre: Tubería de saneamiento / desagüe
+    tipo: PVC / polipropileno / fundicion / PEAD
+  - nombre: Grifería
+    tipo: monomando / bimando / termostática / electronica / empotrar / mural
+  - nombre: Sanitarios
+    tipo: inodoro / lavabo / bidé / ducha / bañera / urinario / fregadero
+  - nombre: Calentador de agua / caldera
+    tipo: eléctrico / gas_natural / gas_propano / bomba_calor_ACS / termosolar
+
+materiales_auxiliares:
+  - nombre: Llaves de corte
+    tipo: esfera / compuerta / retencion / vaciado
+  - nombre: Válvulas
+    tipo: seguridad / mezcladora / equilibrado / antirretorno
+  - nombre: Abrazaderas y soportes
+    tipo: metal / plástico / acero_galvanizado
+  - nombre: Cinta de teflón / pasta selladora
+    tipo: PTFE / masilla
+  - nombre: Aislamiento térmico de tubería
+    tipo: espuma_caucho / lana_mineral / polietileno_expandido
+  - nombre: Sifones y botes sifónicos
+    tipo: PVC / polipropileno / acero_inoxidable
+  - nombre: Manguitos y codos
+    tipo: segun_material_de_tuberia
+
+procesos:
+  - visita_de_replanteo
+  - proyecto_tecnico_si_procede
+  - rozas_y_canalizacion
+  - tendido_de_tuberias
+  - soldadura_de_cobre / termofusion_multicapa / pegado_PVC
+  - colocacion_de_aislamiento
+  - montaje_de_griferia_y_sanitarios
+  - conexion_a_red_general
+  - prueba_de_estanqueidad
+  - prueba_de_presion
+  - certificado_de_instalacion
+
+variables_tecnicas:
+  - tipo_inmueble: vivienda / local / nave / oficina
+  - tipo_instalacion: reforma / obra_nueva
+  - numero_de_baños
+  - numero_de_cocinas
+  - material_tuberia: cobre / multicapa / polipropileno / PVC
+  - tipo_acometida: red_municipal / pozo / grupo_presion
+  - necesidad_caldera: si / no / tipo
+  - necesidad_termo: si / no / capacidad
+  - calidad_griferia: basica / estandar / alta / diseno
+  - calidad_sanitarios: basica / estandar / alta / porcelanico / roca
+
+factores_complejidad:
+  - reforma_con_obra_civil_asociada
+  - gran_distancia_desde_acometida
+  - tuberias_vistas_por_exigencia_decorativa
+  - instalacion_solar_termica
+  - sistemas_de_automatizacion_de_riego
+  - grupo_de_presion_comunitario
+  - red_de_incendios_BiE
+
+costes_a_considerar:
+  proyecto_tecnico: true
+  tuberias_y_conexiones: true
+  griferia: true
+  sanitarios: true
+  calentador_caldera: true
+  aislamiento_termico: true
+  valvulas_y_llaves: true
+  mano_obra_instalacion: true
+  mano_obra_obra_civil_reforma: true
+  legalizacion: true
+  transporte: true
+  riesgo: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  tuberias: 0.08
+  conexiones: 0.05
+  sanitarios: 0.02
+  griferia: 0.02
+
+tolerancias:
+  instalacion: segun_CTE_DB_HS
+
+controles_calidad:
+  - prueba_de_estanqueidad
+  - prueba_de_presion_a_6_bar
+  - verificacion_de_aislamiento_termico
+  - prueba_de_caudal_en_puntos
+  - prueba_de_funcionamiento_de_caldera_o_termo

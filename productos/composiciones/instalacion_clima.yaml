@@ -1,0 +1,105 @@
+producto: Instalación de climatización
+unidad_base: conjunto / equipo / m2_de_superficie
+
+materiales_principales:
+  - nombre: Unidad interior
+    tipo: split_mural / split_cassette / split_conductos / fancoil / suelo_techo / cortina
+  - nombre: Unidad exterior
+    tipo: monobloc / bomba_calor / condensador_remoto / aerotermia
+  - nombre: Tubería de refrigerante
+    tipo: cobre_aislado_acero_inoxidable / linea_de_liquido / linea_de_gas
+  - nombre: Conductos de aire
+    tipo: chapa_galvanizada / flexible_aislado / panel_sándwich / lana_mineral
+  - nombre: Rejillas y difusores
+    tipo: impulsión / retorno / extracción / lamas_regulables
+  - nombre: Calefacción
+    tipo: radiador_aluminio / toallero / suelo_radiante / fancoil_calefaccion
+
+materiales_auxiliares:
+  - nombre: Aislamiento de tubería
+    tipo: espuma_caucho_elastomerico / polietileno_expandido
+  - nombre: Soportes y abrazaderas
+    tipo: nylon / metal_con_goma_antivibratoria
+  - nombre: Bandeja de condensados
+    tipo: PVC / polipropileno / acero_inoxidable
+  - nombre: Bomba de condensados
+    tipo: segun_altura_de_elevacion
+  - nombre: Cable de conexión
+    tipo: RV-K_multipolar / manguera_señal_termopar
+  - nombre: Kit de instalación
+    tipo: tuberia_aislada / cable_mando / soportes
+  - nombre: Refrigerante
+    tipo: R32 / R410A / R290 / segun_equipo
+
+procesos:
+  - visita_de_replanteo
+  - diseño_de_carga_termica
+  - colocacion_de_conductos
+  - tendido_de_tuberia_refrigerante
+  - conexion_de_unidades
+  - vacio_y_prueba_de_estanqueidad
+  - carga_de_refrigerante
+  - montaje_de_rejillas_y_difusores
+  - conexion_electrica
+  - puesta_en_marcha_y_reglaje
+  - prueba_de_funcionamiento
+  - certificado_de_instalacion
+
+variables_tecnicas:
+  - tipo_sistema: split / multisplit / conductos / aerotermia / VRV / fancoils / suelo_radiante
+  - potencia_kW: refrigeracion / calefaccion
+  - superficie_a_climatizar_m2
+  - numero_de_estancias
+  - altura_del_local
+  - tipo_estructura: vivienda / local / oficina / nave
+  - necesidad_conductos: si / no
+  - falso_techo_disponible: si / no
+  - ubicacion_unidad_exterior: terraza / fachada / cubierta / patio
+  - tipo_refrigerante: R32 / R410A / R290
+  - calefaccion_auxiliar: si / no / tipo
+  - clima_zona: fria / templada / cálida
+
+factores_complejidad:
+  - grande_distancia_entre_unidades
+  - dificultad_de_acceso_a_ubicacion_exterior
+  - integracion_en_edificio_protegido
+  - sistema_por_conductos_gran_extension
+  - suelo_radiante_con_reforma_de_pavimento
+  - climatizacion_por_zonas_automatizada
+  - necesidad_de_andamio_o_plataforma_para_exterior
+  - obra_nueva_sin_falso_techo_previsto
+
+costes_a_considerar:
+  equipos_climatizacion: true
+  tuberia_refrigerante: true
+  conductos_y_rejillas: true
+  aislamiento_termico: true
+  soportes_y_antivibratorios: true
+  material_electrico_conexion: true
+  refrigerante: true
+  mano_obra_instalacion: true
+  mano_obra_obra_civil_conductos: true
+  puesta_en_marcha_y_reglaje: true
+  certificado_instalacion: true
+  transporte: true
+  riesgo: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  tuberia_refrigerante: 0.05
+  conductos: 0.08
+  aislamiento: 0.05
+  consumibles: 0.03
+
+tolerancias:
+  instalacion: segun_RITE_y_fabricante
+
+controles_calidad:
+  - prueba_de_estanqueidad_del_circuito
+  - prueba_de_vacio
+  - verificacion_de_carga_de_refrigerante
+  - medicion_de_caudal_de_aire
+  - prueba_de_funcionamiento_en_frio_y_calor
+  - verificacion_de_consumo_electrico
+  - certificado_RITE

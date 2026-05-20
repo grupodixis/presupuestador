@@ -1,0 +1,109 @@
+producto: Portón / Cancela metálica
+unidad_base: unidad
+
+materiales_principales:
+  - nombre: Cerco / pilares de soporte
+    tipo: tubo_rectangular / perfiles_plegados / IPE / HEB
+  - nombre: Bastidor de hoja
+    tipo: tubo_rectangular / angular / perfil_plegado
+  - nombre: Relleno de hoja
+    tipo: barrotes / malla_electrosoldada / chapa_ciega / lamas / panel_composite / rejilla
+  - nombre: Guías y carriles (correderas)
+    tipo: perfil_en_U / carril_sobre_rasante / carril_enterrado
+
+materiales_auxiliares:
+  - nombre: Bisagras / pivotes (abatibles)
+    tipo: tipo_pesado / rodamiento / regulable
+  - nombre: Ruedas / rodamientos (correderas)
+    tipo: nylon / acero / rodamiento_industrial
+  - nombre: Cerradura de seguridad
+    tipo: embutir / sobreponer / multipunto / electrocerradura
+  - nombre: Automatización
+    tipo: motor_abatible / motor_corredera / cuadro_mando / fotocelulas / lampara_intermitente
+  - nombre: Topes y finales de carrera
+    tipo: mecanicos / magneticos
+  - nombre: Tomillería estructural
+    tipo: acero_galvanizado / inoxidable / alta_resistencia_TR
+  - nombre: Anclajes a obra civil
+    tipo: pernos_quimicos / expansivos / placa_base_nivelada
+  - nombre: Pintura / imprimación
+    tipo: esmalte / poliuretano / epoxi / galvanizado
+
+procesos:
+  - medicion_y_replanteo_en_obra
+  - diseño_y_calculo_estructural
+  - despiece_y_planos
+  - corte_de_perfiles
+  - soldadura_de_bastidores
+  - montaje_de_barrotes_o_relleno
+  - tratamiento_superficial
+  - montaje_de_automatizacion
+  - montaje_de_cerradura
+  - transporte_con_gondola
+  - montaje_en_obra
+  - fijacion_de_pilares
+  - nivelacion_y_ajuste
+  - conexion_electrica_de_automatismo
+  - prueba_de_funcionamiento
+  - programacion_de_cuadro_de_mando
+
+variables_tecnicas:
+  - tipo: abatible_1_hoja / abatible_2_hojas / corredera_sobre_rasante / corredera_enterrada / batiente / deslizante / plegable
+  - dimensiones: ancho_x_alto
+  - peso_estimado
+  - material: acero / inoxidable / aluminio / hierro_forja
+  - relleno: barrotes / malla / chapa / lamas / panel
+  - acabado: pintado / galvanizado / lacado / inoxidable
+  - automatizado: si / no
+  - tipo_motor: abatible / corredera / enterrado
+  - acceso_vehiculos: si / no / dimensiones
+  - acceso_peatonal_integrado: si / no
+  - ubicacion: entrada_vehiculos / entrada_peatonal / industrial / residencial
+
+factores_complejidad:
+  - porton_corredera_de_gran_luz_mas_6m
+  - automatizacion_con_sistema_de_acceso_remoto
+  - integracion_con_control_de_accesos
+  - suelo_con_pendiente
+  - pilares_existentes_no_alineados
+  - porton_abatible_de_gran_peso
+  - viento_elevado_en_zona
+  - necesidad_de_obra_civil_para_carril
+
+costes_a_considerar:
+  calculo_estructural: true
+  materiales_bastidor: true
+  materiales_relleno: true
+  automatizacion: true
+  cerradura_seguridad: true
+  soldadura: true
+  tratamiento_superficial: true
+  mano_obra_taller: true
+  mano_obra_montaje: true
+  grúa_o_camion_pluma: true
+  obra_civil_si_aplica: true
+  conexion_electrica: true
+  transporte: true
+  riesgo: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  perfiles_acero: 0.05
+  tubo: 0.05
+  chapa: 0.08
+  consumibles: 0.03
+
+tolerancias:
+  fabricacion: plus_minus_3mm
+  montaje_nivelacion: plus_minus_5mm
+  carril_corredera: plus_minus_2mm_en_2000mm
+
+controles_calidad:
+  - prueba_de_apertura_total
+  - prueba_de_cierre_hermetico
+  - verificacion_de_nivelacion
+  - prueba_de_automatismo_ciclos
+  - verificacion_de_fotocelulas
+  - medicion_de_holguras
+  - prueba_de_parada_de_emergencia

@@ -1,0 +1,105 @@
+producto: Estructura metálica
+unidad_base: kg_o_Tn_de_acero / metros_lineales / unidad_segun_tipo
+
+materiales_principales:
+  - nombre: Perfiles laminados
+    tipo: IPE / HEB / HEA / UPN / L / T
+  - nombre: Tubos estructurales
+    tipo: circular / cuadrado / rectangular
+  - nombre: Chapa
+    tipo: chapa_plegada / chapa_conformada / grecada
+  - nombre: Acero
+    tipo: S235 / S275 / S355 / S460 / inoxidable
+  - nombre: Pernos de anclaje
+    tipo: roscados / doblados / quimicos
+  - nombre: Tornillería estructural
+    tipo: alta_resistencia_TR / galvanizada / inoxidable
+
+materiales_auxiliares:
+  - nombre: Casquillos y arandelas
+    tipo: acero_galvanizado / acero_inoxidable
+  - nombre: Chapas de unión
+    tipo: cortadas_laser / mecanizadas
+  - nombre: Elecrodo / hilo soldadura
+    tipo: acero / inoxidable / fundente
+  - nombre: Gas de protección
+    tipo: CO2 / argon / mezcla_MAG
+  - nombre: Disco de corte y desbaste
+    tipo: compatible_segun_material
+  - nombre: Pintura / imprimación
+    tipo: epoxi / poliuretano / intumescente
+  - nombre: Diluyentes y limpiadores
+    tipo: segun_tipo_de_pintura
+
+procesos:
+  - calculo_estructural
+  - elaboracion_planos_taller
+  - corte_perfiles
+  - preparacion_bordes_y_chaflanes
+  - soldadura
+  - taladrado_de_agujeros
+  - montaje_en_taller_prueba
+  - tratamiento_superficial
+  - transporte_con_gondola
+  - montaje_en_obra_con_grúa
+  - apriete_tornilleria
+  - pruebas_de_carga
+  - proteccion_contra_incendio
+
+variables_tecnicas:
+  - tipo_estructura: portico_viga_pilar / cercha / nave / marquesina / pasarela / escalera
+  - luces_entre_apoyos
+  - altura_total
+  - separacion_entre_porticos
+  - cargas: cubierta / viento / nieve / sobrecarga_uso / sismica
+  - perfiles_principales: tipo_y_dimensiones
+  - tipo_uniones: soldadas / atornilladas / mixtas
+  - ambiente: C1 / C2 / C3 / C4 / C5
+  - proteccion_incendio: requerida / no_requerida / clase_R
+  - ubicacion_obra: urbana / rural / industrial / interior
+
+factores_complejidad:
+  - grandes_luces_y_cargas
+  - geometria_irregular
+  - uniones_complejas_multiples_piezas
+  - tolerancias_muy_ajustadas_plus_minus_2mm
+  - estructura_espacial_3d
+  - montaje_en_fabrica_en_funcionamiento
+  - certificaciones_de_soldadura_ISO_3834
+  - controles_no_destructivos_obligatorios
+
+costes_a_considerar:
+  calculo_estructural: true
+  materiales_acero: true
+  mecanizados_corte_taladrado: true
+  soldadura: true
+  tornilleria_y_anclajes: true
+  tratamiento_superficial: true
+  proteccion_incendio: true
+  controles_calidad: true
+  transporte_gondola: true
+  montaje_obra_grúa: true
+  medios_auxiliares: true
+  riesgo: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  acero_laminado: 0.05
+  acero_tubo: 0.10
+  chapa: 0.08
+  consumibles: 0.03
+
+tolerancias:
+  fabricacion: plus_minus_3mm
+  montaje: plus_minus_10mm
+  nivelacion: plus_minus_5mm
+
+controles_calidad:
+  - inspeccion_visual_soldaduras
+  - liquidos_penetrantes_si_especifica
+  - ultrasonidos_si_especifica
+  - verificacion_de_escuadria
+  - control_de_pernos_alta_resistencia
+  - certificado_de_materiales
+  - prueba_de_carga_si_procede

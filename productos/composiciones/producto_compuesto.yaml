@@ -1,0 +1,94 @@
+producto: Producto compuesto a medida
+unidad_base: unidad / conjunto
+
+materiales_principales:
+  - nombre: Componente_estructural_1
+    tipo: acero / inoxidable / aluminio / madera / hormigón
+  - nombre: Componente_estructural_2
+    tipo: acero / inoxidable / aluminio / madera / hormigón
+  - nombre: Componente_de_relleno_o_acabado
+    tipo: vidrio / policarbonato / panel_composite / piedra / cerámica / laminado
+  - nombre: Subestructura_de_soporte
+    tipo: perfiles / anclajes / soportes_regulables
+
+materiales_auxiliares:
+  - nombre: Tornillería específica multi-material
+    tipo: acero_inoxidable / laton / nylon / expansiva
+  - nombre: Adhesivos estructurales
+    tipo: poliuretano / epoxi / silicona_estructural / acrilico
+  - nombre: Juntas de dilatación entre materiales
+    tipo: neopreno / EPDM / perfil_aluminio
+  - nombre: Sellados
+    tipo: silicona_neutra / masilla / cinta_expansiva
+  - nombre: Elementos_de_transicion
+    tipo: perfil_en_T / junta_entregas / tapeta / embellecedor
+  - nombre: Tratamientos_superficiales
+    tipo: segun_cada_material
+
+procesos:
+  - recepcion_de_necesidad_del_cliente
+  - diseño_conceptual
+  - cálculo_estructural_multimaterial
+  - seleccion_de_materiales_y_compatibilidad
+  - planos_de_taller_y_montaje
+  - fabricacion_de_cada_componente_por_separado
+  - premontaje_en_taller
+  - tratamiento_superficial_de_cada_componente
+  - transporte_coordinado
+  - montaje_en_obra
+  - integracion_de_subsistemas
+  - ajustes_y_retoques
+  - entrega_al_cliente
+
+variables_tecnicas:
+  - descripcion_funcional: texto_libre
+  - materiales_involucrados: lista_de_materiales
+  - oficios_involucrados: lista_de_oficios
+  - dimensiones_generales
+  - peso_estimado
+  - ubicacion: interior / exterior / intemperie
+
+  ## Campos específicos según el producto compuesto
+  - requiere_calculo_estructural: si / no
+  - requiere_proyecto_arquitectura: si / no
+  - requiere_varios_oficios: si / no / lista
+  - nivel_de_integracion: simple / medio / alto
+  - plazos_de_fabricacion_por_componente
+
+factores_complejidad:
+  - coordinacion_de_varios_oficios_diferentes
+  - materiales_con_tratamientos_incompatibles
+  - tolerancias_de_conjunto_muy_ajustadas
+  - integracion_de_elementos_comerciales_con_fabricados
+  - plazos_de_entrega_desincronizados_entre_proveedores
+  - montaje_con_secuencia_critica
+  - retoques_en_obra_multimaterial
+  - responsabilidad_unica_sobre_conjunto_multidisciplinar
+
+costes_a_considerar:
+  diseño_y_coordinacion: true
+  materiales_cada_componente: true
+  fabricacion_cada_componente: true
+  tratamientos_superficiales: true
+  ensamblaje_en_taller: true
+  mano_obra_multioficio: true
+  montaje_en_obra: true
+  transporte: true
+  riesgo_por_integracion: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  material_mas_desfavorable: 0.10
+  consumibles: 0.05
+
+tolerancias:
+  definidas_por_el_disenno_de_conjunto
+
+controles_calidad:
+  - verificacion_de_compatibilidad_de_materiales
+  - inspeccion_de_ensamblaje_en_taller
+  - prueba_de_conjunto_completo
+  - verificacion_de_medidas_en_obra
+  - prueba_de_funcionamiento_integral
+  - control_de_calidad_por_cada_componente

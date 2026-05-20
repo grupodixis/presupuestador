@@ -1,0 +1,98 @@
+producto: Puerta metálica
+unidad_base: unidad
+
+materiales_principales:
+  - nombre: Chapa de acero
+    tipo: laminado_en_frio / laminado_en_caliente / inoxidable
+  - nombre: Perfiles de refuerzo
+    tipo: tubo / perfil_abierto / angular
+  - nombre: Cerco / premarcho
+    tipo: chapa_plegada / perfil_conformado
+  - nombre: Relleno
+    tipo: panel_acero / panel_alveolar / lana_mineral / poliuretano
+
+materiales_auxiliares:
+  - nombre: Bisagras
+    tipo: acero / inoxidable / tipo industrial / tipo_blindada
+  - nombre: Cerradura
+    tipo: embutir / sobreponer / multipunto / seguridad
+  - nombre: Manilla / maneton
+    tipo: acero / inoxidable / aluminio
+  - nombre: Cierrapuertas
+    tipo: aéreo / empotrado / de_piso
+  - nombre: Topes y retenedores
+    tipo: goma / metal
+  - nombre: Junta perimetral
+    tipo: fieltro / silicona / intumescente
+  - nombre: Sellado
+    tipo: poliuretano / silicona_neutra
+  - nombre: Pintura / imprimación
+    tipo: esmalte / epoxi / poliuretano / intumescente
+  - nombre: Tornillería
+    tipo: acero_inoxidable / acero_galvanizado
+
+procesos:
+  - medicion_de_hueco
+  - diseño_y_despiece
+  - corte_de_chapa
+  - plegado_de_perfiles
+  - soldadura_de_marco_y_hoja
+  - refuerzos_y_costillas
+  - preparacion_superficial
+  - imprimacion_y_pintura
+  - montaje_de_herrajes
+  - montaje_de_cerradura
+  - transporte
+  - instalacion_en_obra
+  - ajuste_y_pruebas
+
+variables_tecnicas:
+  - dimensiones: alto_x_ancho
+  - tipo: peatonal / industrial / cortafuego / blindada / garaje
+  - apertura: abatible / corredera / basculante / enrollable
+  - material: acero / inoxidable / chapa_plegada
+  - acabado: pintado / galvanizado / inoxidable
+  - resistencia_fuego: EI30 / EI60 / EI120 / ninguna
+  - aislamiento: acustico / termico / ninguno
+  - automatizacion: manual / motorizada
+  - acristalamiento: si / no
+  - ubicacion: interior / exterior
+
+factores_complejidad:
+  - dimension_no_estandar
+  - puerta_cortafuego_con_certificado
+  - puerta_blindada_alta_seguridad
+  - integracion_con_control_accesos
+  - hueco_irregular_en_obra
+  - puerta_corredera_gran_peso
+  - acabado_decorativo_especial
+
+costes_a_considerar:
+  materiales: true
+  mano_obra_taller: true
+  mano_obra_montaje: true
+  maquinaria: true
+  herrajes: true
+  cerradura: true
+  tratamiento_superficial: true
+  certificaciones: true
+  transporte: true
+  riesgo: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  chapa_acero: 0.08
+  perfiles: 0.05
+  consumibles: 0.03
+
+tolerancias:
+  fabricacion: plus_minus_2mm
+  montaje: plus_minus_5mm
+
+controles_calidad:
+  - verificacion_escuadra_y_nivel
+  - prueba_de_funcionamiento
+  - cierre_hermetico
+  - espesor_pintura
+  - certificado_cortafuego_si_aplica

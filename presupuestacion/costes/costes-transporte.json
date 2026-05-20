@@ -1,0 +1,31 @@
+{
+  "fecha_actualizacion": "2026-05-01",
+  "moneda": "EUR",
+  "rutas_fijas": {
+    "barcelona_a_menorca": {
+      "descripcion": "Porte marítimo Barcelona → Menorca (ida)",
+      "coste_por_kg": 0.20,
+      "coste_minimo": 60.00,
+      "tipo_carga": "palet / bulto / perfiles",
+      "notas": "Incluye transporte a puerto de Barcelona + travesía + descarga en Menorca. No incluye transporte local en Menorca (consultar)."
+    },
+    "menorca_a_barcelona": {
+      "descripcion": "Porte marítimo Menorca → Barcelona (vuelta, si aplica)",
+      "coste_por_kg": 0.20,
+      "coste_minimo": 60.00,
+      "notas": "Para materiales que vienen de proveedores de Menorca."
+    }
+  },
+  "tarifas_orientativas_peninsulares": {
+    "1_a_50_kg": 15.00,
+    "51_a_200_kg": 0.25_por_kg,
+    "201_a_1000_kg": 0.18_por_kg,
+    "mas_de_1000_kg": 0.12_por_kg
+  },
+  "reglas": {
+    "peso_volumetrico": "Si el volumen (m3) x 250 > peso real, usar peso volumétrico",
+    "coste_minimo_peninsular": 12.00,
+    "coste_minimo_baleares": 60.00
+  },
+  "notas": "Para presupuestos, calcular peso estimado del material y multiplicar por el coste/kg de la ruta. Si el pedido es pequeño (< 50 kg), aplicar coste mínimo."
+}

@@ -1,0 +1,103 @@
+producto: Marquesina / Pérgola / Toldo
+unidad_base: unidad / metro_cuadrado
+
+materiales_principales:
+  - nombre: Perfiles estructurales
+    tipo: tubo_rectangular_acero / tubo_aluminio / HEA / IPE / perfil_aluminio_extruido_pergola
+  - nombre: Pilares / soportes verticales
+    tipo: tubo / HEB / perfil_aluminio_cuadrado
+  - nombre: Cubierta
+    tipo: panel_alveolar_policarbonato / chapa_metálica / panel_sandwich / lona_tensada / vidrio_lamina / panel_microperforado
+  - nombre: Cerramiento lateral
+    tipo: lamas_orientables_aluminio / cortina_vidrio / panel_cegado / malla
+
+materiales_auxiliares:
+  - nombre: Anclajes a forjado / suelo / fachada
+    tipo: placa_base / pernos_quimicos / expansivos / empotrados
+  - nombre: Tornillería estructural
+    tipo: acero_inoxidable_A2_A4 / galvanizado
+  - nombre: Juntas y sellados
+    tipo: EPDM / silicona_estructural / neopreno
+  - nombre: Canalones y bajantes
+    tipo: aluminio / PVC / acero_galvanizado
+  - nombre: Pintura / imprimación
+    tipo: esmalte / poliuretano / lacado_aluminio
+  - nombre: Tensor y cable de acero (si lona)
+    tipo: cable_inoxidable / tensor_regulable
+
+procesos:
+  - medicion_y_replanteo_en_obra
+  - calculo_estructural
+  - diseño_y_despiece
+  - corte_de_perfiles
+  - soldadura_o_ensamblaje_mecanico
+  - preparacion_superficial
+  - tratamiento_superficial
+  - transporte
+  - montaje_en_obra_con_grúa
+  - fijacion_de_pilares
+  - montaje_de_estructura
+  - colocacion_de_cubierta
+  - canalones_y_drenaje
+  - remates_y_sellados
+
+variables_tecnicas:
+  - tipo: marquesina_entrada / marquesina_comercial / pergola_autoportante / pergola_adosada / pergola_bioclimatica / toldo_vela / toldo_coiron
+  - dimensiones: largo_x_ancho_x_alto
+  - material_estructura: acero / aluminio / acero_inoxidable
+  - material_cubierta: policarbonato / chapa / lona / vidrio / panel_composite
+  - fijacion: pared / suelo / mixto / autoportante
+  - cubierta: fija / movil / retractil / lamas_orientables
+  - cerramiento_lateral: abierto / vidrio / lamas / panel
+  - impermeabilizacion: si / no / parcial
+  - evacuacion_aguas: si / no / integrada
+  - ubicacion: exterior_interior / terraza / jardin / fachada_calle
+  - carga_nieve: segun_ubicacion_geografica
+
+factores_complejidad:
+  - grandes_luces_superiores_a_6m
+  - estructura_autoportante_con_calculo_de_vuelco
+  - cubierta_movil_o_retractil_motorizada
+  - pergola_bioclimatica_con_lamas_motorizadas
+  - integracion_con_iluminacion_LED
+  - evacuacion_de_aguas_integrada_en_pilares
+  - montaje_en_altura_sin_acceso_de_grúa
+  - combinacion_con_cerraimiento_de_cristal
+
+costes_a_considerar:
+  calculo_estructural: true
+  estructura_principal: true
+  cubierta: true
+  cerramiento_lateral_si_aplica: true
+  anclajes_y_placas_base: true
+  canalones_y_drenaje: true
+  motorizacion_si_aplica: true
+  soldadura: true
+  tratamiento_superficial: true
+  mano_obra_taller: true
+  mano_obra_montaje: true
+  grúa_o_plataforma: true
+  transporte: true
+  riesgo: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  perfiles_acero: 0.05
+  perfiles_aluminio: 0.05
+  policarbonato: 0.08
+  chapa: 0.05
+  consumibles: 0.03
+
+tolerancias:
+  fabricacion: plus_minus_3mm
+  montaje_nivelacion: plus_minus_5mm
+  montaje_pilares: plus_minus_3mm_vertical
+
+controles_calidad:
+  - verificacion_de_nivelacion_de_estructura
+  - prueba_de_estabilidad
+  - prueba_de_impermeabilizacion
+  - prueba_de_funcionamiento_lamas_si_aplica
+  - verificacion_de_anclajes
+  - inspeccion_de_soldaduras

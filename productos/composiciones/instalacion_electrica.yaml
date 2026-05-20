@@ -1,0 +1,97 @@
+producto: Instalación eléctrica
+unidad_base: punto_de_luz / toma_de_corriente / m2_de_superficie / conjunto_segun_alcance
+
+materiales_principales:
+  - nombre: Cableado eléctrico
+    tipo: RV-K / RZ1-K / H07Z1 / ES07Z1 / manguera_multi_conductor
+  - nombre: Tubos protectores
+    tipo: PVC_rígido / PVC_flexible / acero / bandeja_portacables / rejilla
+  - nombre: Cuadro eléctrico
+    tipo: empotrar / superficie / de_poliester / de_acero
+  - nombre: Mecanismos de protección
+    tipo: PIA / diferencial / sobretensiones / relé / contactor
+  - nombre: Mecanismos de mando y control
+    tipo: interruptor / conmutador / toma_corriente / pulsador / regulador
+  - nombre: Luminarias
+    tipo: downlight / plafón / tubo_LED / proyector / pantalla_estanca / emergencia
+
+materiales_auxiliares:
+  - nombre: Cajas de derivación
+    tipo: empotrar / superficie / estanca
+  - nombre: Bornes y conectores
+    tipo: regleta / conector_rapido / clema
+  - nombre: Bridas y sujeciones
+    tipo: nylon / acero_galvanizado / abrazadera
+  - nombre: Cinta aislante
+    tipo: PVC / auto_vulcanizable
+  - nombre: Pequeño material
+    tipo: tacos / tornillos / clavijas / pasta_de_revestir
+
+procesos:
+  - visita_de_replanteo
+  - proyecto_tecnico_o_memoria
+  - rozas_en_paredes
+  - canalizacion_de_tubos
+  - tendido_de_cables
+  - colocacion_de_cajas
+  - montaje_de_cuadro
+  - conexionado_de_mecanismos
+  - conexion_de_luminarias
+  - pruebas_de_continuidad
+  - prueba_de_diferenciales
+  - certificado_de_instalacion
+  - legalizacion_industria
+
+variables_tecnicas:
+  - tipo_inmueble: vivienda / local / nave / oficina / urbanizacion
+  - superficie_m2
+  - numero_de_puntos_luz
+  - numero_de_tomas_corriente
+  - potencia_prevista_kW
+  - tipo_cuadro: basico / con_domótica / industrial
+  - tipo_mecanismos: gama_basica / estandar / alta
+  - necesidad_proyecto: si / no
+  - reforma_u_obra_nueva: reforma / obra_nueva
+  - tipo_acometida: monofasica / trifasica
+
+factores_complejidad:
+  - reforma_en_vivienda_ocupada
+  - edificio_protegido_sin_rozas
+  - necesidad_de_bandejas_vistas
+  - integracion_con_domótica
+  - cuadro_complejo_con_automátas
+  - gran_distancia_desde_acometida
+  - instalacion_en_zona_humeda_o_exterior
+
+costes_a_considerar:
+  proyecto_tecnico: true
+  material_electrico: true
+  cableado_y_canalizacion: true
+  cuadro_y_protecciones: true
+  mecanismos: true
+  luminarias: true
+  mano_obra_instalacion: true
+  mano_obra_rozas_y_reposicion: true
+  legalizacion_y_tasas: true
+  certificado_instalacion: true
+  transporte: true
+  riesgo: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  cableado: 0.05
+  tubos_y_bandejas: 0.05
+  mecanismos: 0.03
+  luminarias: 0.02
+
+tolerancias:
+  instalacion: segun_REBT
+
+controles_calidad:
+  - prueba_de_continuidad
+  - prueba_de_aislamiento
+  - prueba_de_diferenciales
+  - verificacion_de_tierras
+  - medicion_de_impedancia_de_bucle
+  - certificado_OCA

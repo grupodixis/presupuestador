@@ -1,0 +1,106 @@
+producto: Escalera metálica
+unidad_base: unidad / tramo / peldaño
+
+materiales_principales:
+  - nombre: Zancas / largueros
+    tipo: IPE / UPN / tubo_rectangular / chapa_plegada
+  - nombre: Peldaños
+    tipo: chapa_trepadora / chapa_lisa / rejilla / madera / hormigón_prefabricado
+  - nombre: Mesillas / descansillos
+    tipo: chapa / perfiles / rejilla
+  - nombre: Barandilla
+    tipo: tubo / pletina / barrotes / vidrio (ver composición barandilla)
+  - nombre: Pasamanos
+    tipo: tubo_redondo / perfil / madera
+
+materiales_auxiliares:
+  - nombre: Tornillería de unión
+    tipo: acero_galvanizado / inoxidable / alta_resistencia
+  - nombre: Anclajes a forjado / losa
+    tipo: pernos_quimicos / expansivos / empotrados
+  - nombre: Chapas de unión
+    tipo: acero_S275 / S355 / inoxidable
+  - nombre: Tacos niveladores
+    tipo: neopreno / metal
+  - nombre: Pintura / imprimación
+    tipo: antideslizante / epoxi / poliuretano
+  - nombre: Discos de corte / desbaste
+    tipo: compatible_segun_material
+  - nombre: Hilo / electrodo de soldadura
+    tipo: MIG_MAG / TIG / electrodo
+  - nombre: Antideslizante para peldaños
+    tipo: cinta / pintura / perfil_aluminio
+
+procesos:
+  - medicion_y_replanteo_en_obra
+  - diseño_y_calculo_estructural
+  - despiece_y_planos_de_taller
+  - corte_de_perfiles_y_chapa
+  - plegado_de_chapa_si_aplica
+  - soldadura_de_conjunto
+  - montaje_en_taller_en_seco
+  - tratamiento_superficial
+  - transporte
+  - montaje_en_obra_con_grúa
+  - nivelacion_y_aplomado
+  - fijacion_a_forjado
+  - montaje_de_barandilla
+  - proteccion_antideslizante
+
+variables_tecnicas:
+  - tipo: recta / caracol / tramo_con_mesilla / industrial / marinera / de_gato / emergencia
+  - altura_total_a_salvar
+  - numero_de_tramos
+  - numero_de_peldaños_por_tramo
+  - huella_y_contrahuella
+  - ancho_de_escalera
+  - material_peldaños: chapa / rejilla / madera / hormigón
+  - tipo_barandilla: integrda_en_zanca / independiente
+  - carga_de_uso: 2kN/m2 (escaleras) / 4kN/m2 (industrial)
+  - ubicacion: interior / exterior
+  - proteccion_anticorrosion: segun_ambiente
+  - proteccion_antideslizante: si / no
+
+factores_complejidad:
+  - escalera_de_caracol_con_geometria_compleja
+  - altura_mayor_de_6m
+  - varios_descansillos_con_giro
+  - integracion_en_edificio_existente
+  - tolerancias_ajustadas_con_forjados
+  - peldaños_de_material_especial_madera_vidrio
+  - barandilla_integrada_con_forma_de_escalera
+  - montaje_en_altura_sin_medios_auxiliares
+
+costes_a_considerar:
+  calculo_estructural: true
+  materiales_acero_perfiles: true
+  materiales_peldaños: true
+  materiales_barandilla: true
+  soldadura_y_mecanizado: true
+  tratamiento_superficial: true
+  proteccion_antideslizante: true
+  mano_obra_taller: true
+  mano_obra_montaje: true
+  grúa_medios_elevacion: true
+  transporte: true
+  riesgo: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  acero_perfiles: 0.05
+  chapa: 0.08
+  tubo_barandilla: 0.05
+  consumibles: 0.03
+
+tolerancias:
+  fabricacion_conjunto: plus_minus_3mm
+  montaje_nivelacion: plus_minus_5mm
+  peldaños_huella_contrahuella: plus_minus_2mm
+
+controles_calidad:
+  - verificacion_de_escuadra_y_nivel
+  - prueba_de_carga_si_especifica
+  - inspeccion_de_soldaduras
+  - verificacion_de_medidas_en_obra
+  - prueba_de_balanceo_y_estabilidad

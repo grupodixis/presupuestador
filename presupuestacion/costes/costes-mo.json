@@ -1,0 +1,47 @@
+{
+  "fecha_actualizacion": "2026-05-01",
+  "moneda": "EUR",
+  "incluye_cargas_sociales": true,
+  "categorias": {
+    "oficial_1_taller": {
+      "coste_hora": 40.00,
+      "descripcion": "Oficial de primera en taller (soldadura, mecanizado)"
+    },
+    "oficial_2_taller": {
+      "coste_hora": 35.00,
+      "descripcion": "Oficial de segunda en taller (corte, preparación)"
+    },
+    "ayudante_taller": {
+      "coste_hora": 28.00,
+      "descripcion": "Ayudante de taller"
+    },
+    "oficial_montaje_obra": {
+      "coste_hora": 45.00,
+      "descripcion": "Oficial de montaje en obra (incluye dietas)"
+    },
+    "ayudante_montaje_obra": {
+      "coste_hora": 35.00,
+      "descripcion": "Ayudante de montaje en obra"
+    },
+    "electricista_oficial": {
+      "coste_hora": 42.00,
+      "descripcion": "Oficial electricista instalador"
+    },
+    "fontanero_oficial": {
+      "coste_hora": 42.00,
+      "descripcion": "Oficial fontanero instalador"
+    },
+    "tecnico_clima": {
+      "coste_hora": 45.00,
+      "descripcion": "Técnico de climatización"
+    },
+    "ingeniero_oficina_tecnica": {
+      "coste_hora": 55.00,
+      "descripcion": "Ingeniero/Delineante de oficina técnica"
+    }
+  },
+  "horas_estandar": {
+    "jornada_laboral": 8,
+    "horas_anuales": 1760
+  }
+}

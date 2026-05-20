@@ -1,0 +1,99 @@
+producto: Ventana de aluminio
+unidad_base: unidad
+
+materiales_principales:
+  - nombre: Perfiles de aluminio
+    tipo: extrusion_serie_especifica / RPT / sin_RPT
+  - nombre: Vidrio
+    tipo: doble_acristalamiento / triple / laminar_seguridad / bajo_emisivo / templado
+  - nombre: Premarco
+    tipo: aluminio / acero_galvanizado / PVC
+
+materiales_auxiliares:
+  - nombre: Herrajes
+    tipo: bisagras / cierre_multipunto / manilla_cremona / brazo_mantener
+  - nombre: Juntas de estanqueidad
+    tipo: EPDM / silicona / TPE
+  - nombre: Sellado exterior
+    tipo: silicona_neutra / masilla / cinta_de_expansion
+  - nombre: Escuadras y conectores
+    tipo: aluminio / acero_inyectado
+  - nombre: Tapetas embellecedoras
+    tipo: PVC / aluminio
+  - nombre: Tornillería específica
+    tipo: acero_inoxidable / aluminio
+  - nombre: Drenajes y tapas
+    tipo: PVC / poliamida
+  - nombre: Espaciador de vidrio
+    tipo: aluminio / poliamida
+
+procesos:
+  - medicion_de_hueco
+  - diseño_y_despiece
+  - corte_de_perfiles
+  - mecanizado_taladros_fresados_ranuras
+  - ensamblaje_de_perfiles
+  - colocacion_de_juntas
+  - montaje_de_herrajes
+  - acristalamiento_en_taller
+  - embalaje_y_proteccion
+  - transporte
+  - montaje_en_obra
+  - sellado_perimetral
+  - ajuste_y_regulacion
+
+variables_tecnicas:
+  - tipo_producto: ventana_fija / abatible / oscilobatiente / corredera / proyectante
+  - dimensiones: ancho_x_alto
+  - serie_de_perfiles: nombre_o_referencia
+  - marca_preferida: opcional
+  - rotura_puente_termico: si / no
+  - color_perfil: RAL_liso / imitacion_madera / anodizado_natural
+  - tipo_vidrio: doble / triple / laminar / bajo_emisivo / templado
+  - espesor_vidrio: mm
+  - permeabilidad_aire: clase_2 / clase_3 / clase_4
+  - persiana_integrada: si / no / motorizada
+  - mosquitera: si / no / enrollable
+  - ubicacion: interior / exterior
+  - altura_de_montaje
+
+factores_complejidad:
+  - geometria_no_rectangular_arco_trapecio
+  - grandes_dimesiones_o_peso_elevado
+  - color_lacado_especial_ral_fuera_de_carta
+  - rehabilitacion_con_medidas_irregulares
+  - vidrio_triple_o_especial_de_gran_formato
+  - muro_cortina_con_calculo_estructural
+  - montaje_a_gran_altura_con_plataforma
+
+costes_a_considerar:
+  perfiles_aluminio: true
+  acristalamiento: true
+  herrajes: true
+  premarco: true
+  persiana_mosquitera: true
+  juntas_y_sellados: true
+  mano_obra_taller: true
+  mano_obra_montaje: true
+  transporte: true
+  medios_auxiliares_montaje: true
+  riesgo: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  perfiles_aluminio: 0.05
+  vidrio: 0.03
+  consumibles: 0.03
+
+tolerancias:
+  corte_perfiles: plus_minus_0_5mm
+  montaje_en_obra: plus_minus_3mm
+  nivelacion: plus_minus_2mm
+
+controles_calidad:
+  - prueba_de_apertura_y_cierre
+  - verificacion_de_estanquedad
+  - inspeccion_de_acristalamiento
+  - control_de_escuadra
+  - regulacion_de_herrajes

@@ -1,0 +1,40 @@
+{
+  "fecha_actualizacion": "2026-05-01",
+  "moneda": "EUR",
+  "materiales": {
+    "acero_carbono": {
+      "S235_IPE": { "unidad": "kg", "precio": 1.20 },
+      "S275_IPE": { "unidad": "kg", "precio": 1.35 },
+      "S355_IPE": { "unidad": "kg", "precio": 1.60 },
+      "tubo_acero_carbono": { "unidad": "kg", "precio": 1.80 },
+      "chapa_6mm": { "unidad": "kg", "precio": 1.10 },
+      "pletina": { "unidad": "kg", "precio": 1.40 }
+    },
+    "acero_inoxidable": {
+      "AISI_304_tubo": { "unidad": "kg", "precio": 5.50 },
+      "AISI_316_tubo": { "unidad": "kg", "precio": 8.20 },
+      "AISI_304_pletina": { "unidad": "kg", "precio": 6.00 },
+      "AISI_316_pletina": { "unidad": "kg", "precio": 9.00 }
+    },
+    "aluminio": {
+      "perfil_extrusion_sin_RPT": { "unidad": "kg", "precio": 4.50 },
+      "perfil_extrusion_con_RPT": { "unidad": "kg", "precio": 6.50 },
+      "lacado_color_RAL": { "unidad": "kg", "precio": 1.50 },
+      "anodizado": { "unidad": "kg", "precio": 1.00 }
+    },
+    "vidrio": {
+      "doble_acristalamiento_4_12_4": { "unidad": "m2", "precio": 45.00 },
+      "doble_bajo_emisivo": { "unidad": "m2", "precio": 65.00 },
+      "triple_acristalamiento": { "unidad": "m2", "precio": 95.00 },
+      "templado_seguridad_6mm": { "unidad": "m2", "precio": 55.00 },
+      "laminar_seguridad": { "unidad": "m2", "precio": 70.00 }
+    },
+    "consumibles": {
+      "disco_corte_acero": { "unidad": "ud", "precio": 3.50 },
+      "disco_corte_inox": { "unidad": "ud", "precio": 8.00 },
+      "hilo_MIG_1mm": { "unidad": "kg", "precio": 4.00 },
+      "hilo_TIG_inox": { "unidad": "kg", "precio": 18.00 },
+      "electrodo_rutilico": { "unidad": "kg", "precio": 5.00 }
+    }
+  }
+}

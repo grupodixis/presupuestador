@@ -1,0 +1,93 @@
+producto: Herrería (forja artística y funcional)
+unidad_base: unidad / metro_lineal / metro_cuadrado / kg
+
+materiales_principales:
+  - nombre: Perfiles de hierro forjado / acero
+    tipo: barra_cuadrada / barra_redonda / pletina / angular / perfil_especial_forja
+  - nombre: Chapa decorativa
+    tipo: chapa_recortada_laser / chapa_troquelada / chapa_con_diseño
+  - nombre: Tubo
+    tipo: tubo_redondo / tubo_cuadrado / tubo_decorativo_retorcido
+  - nombre: Elementos decorativos prefabricados
+    tipo: hojas / volutas / lanzas / anillas / remates / bolas / escarapelas
+
+materiales_auxiliares:
+  - nombre: Tornillería decorativa
+    tipo: acero_inoxidable / acero_envejecido / laton
+  - nombre: Anclajes y fijaciones
+    tipo: tacos_quimicos / expansivos / empotrados
+  - nombre: Discos de corte / desbaste
+    tipo: acero / inoxidable
+  - nombre: Hilo de soldadura
+    tipo: MIG_MAG / electrodo_rutilico
+  - nombre: Pintura
+    tipo: esmalte_satinado / forja_envejecida / efecto_hierro_oxidado / poliuretano
+  - nombre: Imprimación
+    tipo: anticorrosiva_minio / fosfatante
+  - nombre: Cera / barniz protector
+    tipo: cera_incolora / barniz_mate
+  - nombre: Oxidante / pátina
+    tipo: para_efecto_envejecido
+
+procesos:
+  - diseño_artistico_y_tecnico
+  - corte_de_barras_y_perfiles
+  - forja_en_caliente_si_aplica
+  - soldadura
+  - ensamblaje_de_elementos_decorativos
+  - repasado_y_limpieza
+  - tratamiento_de_envejecimiento_si_aplica
+  - imprimacion_y_pintura
+  - transporte_con_proteccion
+  - montaje_en_obra
+  - retoques_finales
+
+variables_tecnicas:
+  - tipo_producto: reja_decorativa / verja / porton_forja / balconada / elemento_decorativo / jardineria / mueble_urbano
+  - dimensiones: alto_x_ancho
+  - material_base: hierro_forjado / acero_laminado / acero_corten
+  - acabado: pintura_esmalte / envejecido / oxidacion_controlada / galvanizado / pátina
+  - ubicacion: interior / exterior
+  - estilo: clasico / moderno / minimalista / rustico / art_deco
+  - complejidad_diseño: simple / medio / alto / muy_alto
+  - protegida_integridad_estructural: si / no
+
+factores_complejidad:
+  - diseño_con_muchos_elementos_decorativos_unicos
+  - forja_en_caliente_de_piezas_especiales
+  - acabado_envejecido_con_patina_quimica
+  - combinacion_de_materiales_forja_madera_vidrio
+  - pieza_de_gran_tamaño_o_peso
+  - replicar_diseño_historico_existente
+  - soldaduras_invisibles_ocultas
+
+costes_a_considerar:
+  diseño_artistico: true
+  materiales_perfiles: true
+  elementos_decorativos: true
+  forja_en_caliente: true
+  soldadura: true
+  tratamiento_superficial: true
+  mano_obra_taller: true
+  mano_obra_montaje: true
+  transporte: true
+  riesgo: true
+  margen: true
+  mermas: true
+
+mermas_recomendadas:
+  perfiles_acero: 0.08
+  tubo: 0.05
+  chapa: 0.10
+  consumibles: 0.05
+
+tolerancias:
+  fabricacion: plus_minus_2mm
+  montaje: plus_minus_5mm
+
+controles_calidad:
+  - inspeccion_de_soldaduras
+  - verificacion_de_medidas
+  - control_de_acabado_superficial
+  - prueba_de_estabilidad
+  - verificacion_de_apertura_si_porton_o_puerta
