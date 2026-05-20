@@ -1,0 +1,234 @@
+# Resumen de Continuación
+
+Este documento resume el estado del repositorio para continuar el trabajo desde otro ordenador u otra sesión de OpenCode.
+
+## Objetivo del repositorio
+
+Crear un entorno documental, no una aplicación, para ayudar a un agente IA a presupuestar trabajos técnicos y comerciales de artículos industriales fabricados a medida.
+
+El repositorio contiene conocimiento estructurado en Markdown, YAML y JSON para razonar sobre:
+
+- Composición técnica real del producto.
+- Materiales, mano de obra, maquinaria, tratamientos, transporte y montaje.
+- Complejidad de fabricación.
+- Riesgo técnico.
+- Capacidad productiva.
+- Oferta y demanda.
+- Margen objetivo.
+- Urgencia del cliente.
+- Tipo de cliente.
+- Histórico de reglas y criterios de presupuestación.
+
+## Estructura creada
+
+Carpetas principales:
+
+- `skills/`: habilidades de presupuestación por tipo de producto y situación.
+- `productos/composiciones/`: composiciones YAML de productos.
+- `productos/reglas-tecnicas/`: reglas técnicas y normativas.
+- `presupuestacion/costes/`: precios, proveedores, costes de MO, transporte e histórico.
+- `presupuestacion/margenes/`: política de márgenes.
+- `presupuestacion/oferta-demanda/`: ajustes por mercado y carga de trabajo.
+- `presupuestacion/complejidad/`: evaluación de complejidad.
+- `presupuestacion/checklists/`: revisiones técnicas, comerciales y de presentación.
+- `plantillas/`: plantillas de presupuesto.
+- `ejemplos/`: ejemplos completos de presupuestación.
+- `glosario/`: términos técnicos.
+
+## Skills existentes
+
+Las skills principales están en `skills/`:
+
+- `skill_presupuestacion_general.md`
+- `skill_barandillas.md`
+- `skill_puertas_metalicas.md`
+- `skill_estructuras_metalicas.md`
+- `skill_carpinteria_aluminio.md`
+- `skill_instalaciones.md`
+- `skill_montaje_en_obra.md`
+- `skill_tratamientos_superficiales.md`
+- `skill_oferta_demanda.md`
+- `skill_complejidad.md`
+- `skill_revision_presupuesto.md`
+- `skill_escaleras.md`
+- `skill_herreria.md`
+- `skill_rejas.md`
+- `skill_portones_cancelas.md`
+- `skill_marquesinas_pergolas.md`
+- `skill_productos_compuestos.md`
+
+## Composiciones existentes
+
+Las composiciones YAML están en `productos/composiciones/`:
+
+- `barandilla.yaml`
+- `puerta_metalica.yaml`
+- `estructura_metalica.yaml`
+- `ventana_aluminio.yaml`
+- `cerramiento_aluminio.yaml`
+- `instalacion_electrica.yaml`
+- `instalacion_fontaneria.yaml`
+- `instalacion_clima.yaml`
+- `escalera_metalica.yaml`
+- `herreria.yaml`
+- `rejas.yaml`
+- `porton_cancela.yaml`
+- `marquesina_pergola.yaml`
+- `producto_compuesto.yaml`
+
+## Fases mentales del presupuesto
+
+Se acordó este flujo mental:
+
+1. Recepción y análisis de la solicitud.
+2. Desarrollo de la idea de producto.
+3. Desarrollo del tipo de materiales.
+4. Definición de procesos de fabricación.
+5. Cálculo de horas de montaje y fabricación.
+6. Petición de precio a proveedores, si hace falta.
+7. Evaluación de complejidad y riesgo.
+8. Cálculo del coste técnico base.
+9. Aplicación de margen y ajuste comercial.
+10. Revisión y documentación.
+11. Presentación y negociación.
+
+## Reglas importantes acordadas
+
+### No depender siempre de proveedores
+
+El sistema debe poder presupuestar rápido usando históricos y reglas internas, sin esperar presupuesto de proveedores, salvo trabajos especiales.
+
+Se pide presupuesto real solo cuando:
+
+- El importe estimado es alto.
+- Hay geometría o soldadura especial.
+- Hay galvanizado real no tabulado.
+- El montaje es complejo o requiere grúa.
+- Hay tolerancias críticas.
+- El cliente exige precio cerrado contractual.
+
+### Margen rápido en subcontratación
+
+Para presupuesto rápido con subcontratación conocida, aplicar:
+
+```text
+Precio rápido al cliente = coste estimado proveedor x 1,10
+```
+
+Este 10% se documentó en:
+
+- `presupuestacion/costes/proveedores-conocidos.md`
+- `presupuestacion/costes/historico-ferros-puig.md`
+
+### Transporte Barcelona → Menorca
+
+Se acordó que los portes desde Barcelona a Menorca se estiman en:
+
+```text
+0,20 €/kg
+```
+
+Está documentado en:
+
+- `presupuestacion/costes/costes-transporte.json`
+- `presupuestacion/costes/costes-materiales.md`
+- `presupuestacion/costes/README.md`
+
+### Medidas estándar de materiales
+
+El sistema debe considerar medidas comerciales reales, por ejemplo:
+
+- Perfiles, tubos, pletinas y barras: normalmente 6 m.
+- Perfiles laminados: 6 m / 12 m / 15 m según perfil.
+- Chapa: formatos habituales como 1,5 x 3 m o 2 x 4 m.
+
+Esto afecta directamente a mermas y coste real de compra.
+
+Ver `presupuestacion/costes/costes-materiales.md`.
+
+## Ferros Puig Sallent
+
+Proveedor/taller subcontratado habitual para:
+
+- Hierro grande.
+- Cerrajería de acero negro.
+- Estructuras que suelen ir a galvanizado en caliente.
+
+Contactos extraídos de presupuestos:
+
+- Tomas Tejero: `ttejero@ferrospuig.com`, 661 909 920.
+- Josep Bramon: `jbramon@ferrospuig.com`.
+- Técnicos Sallent: `tecnicsallent@ferrospuig.com`.
+- Teléfono general: 936 33 37 93.
+
+Reglas extraídas de presupuestos reales:
+
+| Concepto | Regla usable |
+|---|---:|
+| Perfil laminado S275 tipo IPN/IPE/HEB | 1,40 €/kg |
+| Redondo / plano acero negro | 0,87 €/kg |
+| Tubo cuadrado S235 50x50x4 | 5,80 €/ml |
+| Placa S275 10 mm cortada pequeña | 2,20 - 5,00 €/ud |
+| Corte recto | 15 €/corte |
+| Taladro / perforación | 3 €/ud |
+| Escote | 40 €/ud |
+| G+I rojo | 0,10 €/kg |
+| Montaje sencillo | 400 €/servicio |
+| Montaje grande | 4.000 €/servicio |
+| Envío pequeño | 32-60 € mínimo |
+
+Ver:
+
+- `presupuestacion/costes/proveedores-conocidos.md`
+- `presupuestacion/costes/historico-ferros-puig.md`
+
+## Notion y proveedores
+
+Se planteó una futura integración con Notion:
+
+- Base de datos de proveedores con emails, categorías, contactos, plazos y valoración.
+- El agente debe consultar proveedores cuando falten precios.
+- Primero debe preparar borradores de email.
+- El usuario debe confirmar antes de enviar.
+- Puede crearse una casilla de correo específica para presupuestos.
+
+Ver `presupuestacion/costes/proveedores.md`.
+
+## Estado de GitHub
+
+Repositorio remoto:
+
+```text
+https://github.com/grupodixis/presupuestador.git
+```
+
+Rama usada:
+
+```text
+master
+```
+
+Primer commit subido:
+
+```text
+7ba1e9e Crear entorno documental de presupuestacion
+```
+
+## Archivos locales no subidos
+
+En el equipo original existían dos HTML no incluidos en el commit porque no forman parte del entorno documental:
+
+- `presupuesto-cliente-pergola-terraza-01.html`
+- `presupuesto-pergola-terraza-01.html`
+
+No modificarlos ni asumir que forman parte del repositorio salvo que el usuario lo pida.
+
+## Próximos pasos sugeridos
+
+1. Convertir más presupuestos históricos en reglas de estimación.
+2. Crear una plantilla de entrada para nuevos presupuestos históricos.
+3. Completar proveedores conocidos con emails reales y categorías.
+4. Crear la estructura exacta de la base de datos de Notion.
+5. Añadir reglas de precios para corte láser inoxidable.
+6. Añadir reglas de galvanizado en caliente con tarifa real.
+7. Crear ejemplos adicionales de presupuestos rápidos usando Ferros Puig.
