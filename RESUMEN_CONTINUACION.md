@@ -252,6 +252,24 @@ Ver `presupuestacion/costes/proveedores.md` y `presupuestacion/costes/notion-pro
 
 - FAM significa Fabricacion, Acabados y Montaje.
 - La vista de partidas de obra de Notion se consulta como referencia operativa, no como fuente de costes base.
+- Base de datos `Partidas de obra`: `1ce598ce45458038b16ef344424e0dae`.
+- Vista consultada: `1ce598ce45458027b2e9000c16abc6a6`.
+- Endpoint validado: `POST /v1/views/{view_id}/queries` con `Notion-Version: 2026-03-11`.
+- Total leido correctamente: 514 partidas.
+
+Resumen global leido de Notion:
+
+| Campo | Valores principales |
+|---|---|
+| Estado Partida | 402 No iniciado; 31 ANULADO; 26 Pausado; 25 Completado; 14 En curso; 12 ENTREGADO |
+| Situacion de partida | 219 Factura/Completo; 73 Control de Costes; 60 Novedad; 48 Sistema interno; 38 Anulado |
+| Estado en Tecnico | 325 Completado; 77 vacio; 39 Medicion; 24 No aplica |
+| Estado FAM | 373 Terminado; 85 vacio; 36 Pendiente |
+| Estado Compras | 311 vacio; 101 Comprado; 67 No aplica; 21 Comprar |
+| Estado en Logistica | 292 Finalizado; 84 vacio; 44 No aplica; 41 Pendiente escandallo |
+| Estado Administrativo | 240 Facturar; 97 Controlar costes; 85 vacio; 36 Novedad |
+| Estado Comercial | 402 Adjudicado; 75 Cancelado; 14 No aplica |
+| Team | 409 HAM; 58 ALUFAC; 47 vacio |
 
 ## Estado de GitHub
 
@@ -273,6 +291,19 @@ Primer commit subido:
 7ba1e9e Crear entorno documental de presupuestacion
 ```
 
+Ultimos commits subidos:
+
+```text
+9d387e3 Documentar criterios Menorca y aluminio
+f0b0f56 Documentar criterios comerciales y proveedores
+3386d81 soporte a notion
+```
+
+Estado tras el ultimo push:
+
+- Rama `master` pusheada a `origin/master` hasta `9d387e3`.
+- El commit `9d387e3` contiene criterios ambientales Menorca, historico aluminio EXTRUAL, reglas EXTRUAL E110 y definicion de FAM.
+
 ## Archivos locales no subidos
 
 En el equipo original existían dos HTML no incluidos en el commit porque no forman parte del entorno documental:
@@ -287,7 +318,7 @@ No modificarlos ni asumir que forman parte del repositorio salvo que el usuario 
 1. Convertir más presupuestos históricos en reglas de estimación.
 2. Crear una plantilla de entrada para nuevos presupuestos históricos.
 3. Completar proveedores conocidos con emails reales y categorías.
-4. Crear la estructura exacta de la base de datos de Notion.
-5. Añadir reglas de precios para corte láser inoxidable.
-6. Añadir reglas de galvanizado en caliente con tarifa real.
-7. Crear ejemplos adicionales de presupuestos rápidos usando Ferros Puig.
+4. Añadir reglas de precios para corte láser inoxidable.
+5. Añadir reglas de galvanizado en caliente con tarifa real.
+6. Crear ejemplos adicionales de presupuestos rápidos usando Ferros Puig.
+7. Si se usa Notion operativamente, documentar consultas utiles sobre partidas por estado, equipo y fase.
