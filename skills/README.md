@@ -23,6 +23,7 @@ Cada archivo Markdown en esta carpeta define una habilidad (skill) que el agente
 | `skill_portones_cancelas.md` | Portones y cancelas metálicas (vehiculares, peatonales) |
 | `skill_marquesinas_pergolas.md` | Marquesinas, pérgolas y toldos |
 | `skill_productos_compuestos.md` | Productos que combinan múltiples materiales y oficios |
+| `skill_solicitud_presupuestos_proveedores.md` | Redacción de emails y WhatsApps para pedir precios a proveedores |
 
 ## Estructura de cada skill
 

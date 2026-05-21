@@ -12,6 +12,13 @@ Lógica, criterios y datos para la generación de presupuestos técnicos.
 | `complejidad/` | Evaluación de la complejidad de fabricación y montaje |
 | `checklists/` | Listas de verificación previas a enviar un presupuesto |
 
+## Documentos de criterios
+
+| Archivo | Propósito |
+|---|---|
+| `criterios-comerciales.md` | Reglas comerciales, formato cliente/PDF y condiciones por defecto |
+| `criterios-productos-aprendidos.md` | Criterios prácticos aprendidos por producto durante presupuestación |
+
 ## Flujo de uso
 
 El agente sigue este orden al calcular un presupuesto:

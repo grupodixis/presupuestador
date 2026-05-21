@@ -29,6 +29,12 @@ Siempre. Es la skill base que se aplica a cualquier presupuesto. Debe cargarse p
 - Las mediciones deben ser verificables y basadas en planos o visita.
 - Los precios unitarios deben ser coherentes con el mercado local.
 
+## Condiciones comerciales por defecto
+
+- Validez del presupuesto: 30 días desde la fecha de emisión.
+- Forma de pago: 100% a la aceptación del presupuesto.
+- Cualquier condición distinta debe indicarse expresamente en la solicitud o en el documento comercial.
+
 ## Composición habitual del producto
 
 Ver `/productos/composiciones/` para la composición específica de cada producto.

@@ -10,6 +10,8 @@ Plantillas de salida para los presupuestos generados por el agente IA.
 | `presupuesto-desglosado.md` | Presupuesto detallado con todas las partidas |
 | `presupuesto-licitacion.md` | Presupuesto para licitación pública |
 | `presupuesto-tecnico.md` | Presupuesto con memoria técnica adjunta |
+| `solicitud-presupuesto-email.md` | Email formal para pedir precios a proveedores |
+| `solicitud-presupuesto-whatsapp.md` | WhatsApp breve para pedir precios a proveedores |
 
 ## Uso
 
