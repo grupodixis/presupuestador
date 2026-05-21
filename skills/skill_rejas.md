@@ -32,6 +32,7 @@ Cuando el producto a presupuestar es una reja de protección para ventanas, puer
 - La cerradura debe ser de seguridad con llave de difícil duplicado.
 - En rejas abatibles, el marco debe ser rígido para no deformarse.
 - En exterior, la tornillería debe ser inoxidable A2-A4 o galvanizada.
+- En Menorca, las rejas exteriores deben presupuestarse para ambiente salino: galvanizado en caliente, sistema C4/C5 o inoxidable adecuado. Evitar acero pintado simple sin proteccion anticorrosiva real.
 - Las rejas de local comercial deben cumplir normativa municipal de imagen urbana.
 
 ## Composición habitual del producto
@@ -59,6 +60,7 @@ Ver `/productos/composiciones/rejas.yaml`.
 - Cerradura de seguridad con sistema maestro.
 - Reja corredera con guías y rodamientos.
 - Acabado especial (inoxidable, envejecido, lacado RAL).
+- Proteccion anticorrosiva para ambiente marino de Menorca.
 
 ## Factores que aumentan la complejidad
 

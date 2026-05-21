@@ -30,6 +30,8 @@ Cuando el producto a presupuestar es una estructura metálica: pórticos, cercha
 - Las uniones deben ser capaces de transmitir los esfuerzos calculados.
 - La flecha máxima admisible en vigas es L/250 (L/300 en cubiertas).
 - La protección anticorrosión debe ser acorde al ambiente (C1-C5).
+- En Menorca, las estructuras exteriores deben tratarse como ambiente salino: C4 minimo practico y C5-M en costa, cubiertas, terrazas o exposicion directa.
+- Evitar acero pintado simple en exterior; valorar galvanizado en caliente, galvanizado + pintura o sistema epoxi/poliuretano C4/C5.
 - La protección contra incendio debe cumplir CTE DB SI.
 - Los pernos de anclaje deben especificarse en planos.
 - La estructura debe ser estable en todas las fases de montaje.
@@ -59,6 +61,7 @@ Ver `/productos/composiciones/estructura_metalica.yaml`.
 - Cargas elevadas (perfiles más pesados).
 - Acero especial (S355, S460, inoxidable).
 - Protección contra incendio (pintura intumescente, mortero).
+- Proteccion anticorrosiva reforzada para ambiente marino de Menorca.
 - Uniones atornilladas de alta resistencia.
 - Cerchas complejas (muchos nudos, piezas secundarias).
 - Altura elevada de montaje.

@@ -4,6 +4,21 @@
 
 Siempre. Es la skill base que se aplica a cualquier presupuesto. Debe cargarse primero y ejecutarse secuencialmente antes de pasar a skills específicas de producto.
 
+## Disparadores por Palabra Clave (Cuestionarios Rápidos)
+
+Cuando el usuario introduzca una palabra clave en solitario o solicitando presupuestar un producto específico, el agente IA debe activar inmediatamente la skill correspondiente y formular un cuestionario estructurado con los requisitos y preguntas clave del producto antes de calcular costes.
+
+| Palabra Clave | Skill Asociada | Cuestionario a Lanzar |
+|---|---|---|
+| **Barandilla** / **Barandillas** | `skill_barandillas.md` | Requisitos de barandillas (ml, altura, material, anclaje, tramos, ubicación, acabado). |
+| **Puerta** / **Puertas** / **Portón** / **Cancela** | `skill_puertas_metalicas.md` / `skill_portones_cancelas.md` | Requisitos de puertas (medidas, tipo apertura, cerradura, chapa/barrotes, motorización). |
+| **Estructura** / **Estructuras** / **Viga** / **Pilares** | `skill_estructuras_metalicas.md` | Requisitos de estructura (peso, perfiles, planos, soldadura, altura, montaje, grúa). |
+| **Ventana** / **Cerramiento** / **Aluminio** / **PVC** | `skill_carpinteria_aluminio.md` | Requisitos de carpintería (hueco, serie, tipo de vidrio, persiana, premarco, herrajes). |
+| **Escalera** / **Escaleras** / **Peldaños** | `skill_escaleras.md` | Requisitos de escalera (altura total, desarrollo, anchura, huella/contrahuella, material peldaños, barandilla). |
+| **Reja** / **Rejas** | `skill_rejas.md` | Requisitos de reja (medidas luz, tipo de barrote, fijación, pintura, cerradura, fija/abrible). |
+| **Pérgola** / **Marquesina** / **Toldo** | `skill_marquesinas_pergolas.md` | Requisitos de pérgola (dimensiones, pilares, correas, tipo de cubierta/toldo, anclaje suelo/pared, acabado). |
+| **Herrería** / **Forja** | `skill_herreria.md` | Requisitos de herrería (estilo, material, grado de adorno, acabado, transporte). |
+
 ## Datos mínimos necesarios
 
 - Descripción del trabajo o producto.
@@ -28,6 +43,8 @@ Siempre. Es la skill base que se aplica a cualquier presupuesto. Debe cargarse p
 - Todo presupuesto debe tener una validez temporal.
 - Las mediciones deben ser verificables y basadas en planos o visita.
 - Los precios unitarios deben ser coherentes con el mercado local.
+- Por defecto, los presupuestos se consideran para Menorca: isla con ambiente salino, oxidante y corrosivo. Aplicar `presupuestacion/criterios-ambientales-menorca.md` salvo ubicacion distinta indicada por el usuario.
+- En productos exteriores de acero, no presupuestar pintura simple sin galvanizado o sistema anticorrosivo C4/C5 salvo aceptacion expresa.
 
 ## Condiciones comerciales por defecto
 
@@ -59,6 +76,7 @@ Ver `/productos/composiciones/` para la composición específica de cada product
 ## Factores que aumentan el coste
 
 - Materiales especiales (inoxidable, aluminio lacado, vidrio seguridad).
+- Requerimiento de resistencia a ambiente marino en Menorca (AISI 316, galvanizado en caliente, sistemas C4/C5, tornilleria inox A4).
 - Plazos reducidos.
 - Acceso difícil a obra.
 - Necesidad de certificados o ensayos.

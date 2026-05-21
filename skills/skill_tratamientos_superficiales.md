@@ -25,6 +25,7 @@ Siempre que el producto requiera un tratamiento superficial de protección o aca
 ## Criterios técnicos
 
 - El tratamiento debe ser acorde al ambiente de exposición (ISO 12944).
+- En Menorca, todo exterior debe tratarse como ambiente salino y oxidante: C4 como minimo practico y C5-M en costa, terrazas, balcones, piscinas o exposicion directa.
 - La superficie debe estar preparada antes del tratamiento (chorreado SA 2.5 mínimo para pintura).
 - El galvanizado en caliente debe cumplir UNE EN ISO 1461.
 - El anodizado de aluminio debe cumplir UNE EN 12206.
@@ -92,6 +93,8 @@ Siempre que el producto requiera un tratamiento superficial de protección o aca
 ## Errores frecuentes a evitar
 
 - No especificar el ambiente de exposición (C1-C5).
+- Presupuestar para exterior de Menorca como si fuera ambiente normal peninsular.
+- Ofrecer acero pintado sin galvanizar o sin sistema C4/C5 en exterior salino.
 - No incluir el chorreado previo en el coste.
 - Confundir imprimación con capa de acabado.
 - No considerar el tiempo de cuadrado entre capas.

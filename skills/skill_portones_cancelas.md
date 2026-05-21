@@ -36,6 +36,8 @@ Cuando el producto a presupuestar es un portón o cancela metálica de acceso: p
 - La altura libre mínima vehicular es 2.50 m (4 m en camiones).
 - Los pilares deben estar aplomados y resistir el empuje del portón.
 - En ambiente marino C5 usar acero inoxidable AISI 316.
+- En Menorca, todo porton/cancela exterior debe presupuestarse con criterio C4/C5: galvanizado en caliente, galvanizado + pintura adecuada, aluminio lacado exterior o inoxidable segun exposicion.
+- La tornilleria, bisagras, guias, rodamientos y cerraduras expuestas deben ser compatibles con ambiente salino.
 
 ## Composición habitual del producto
 
@@ -63,6 +65,7 @@ Ver `/productos/composiciones/porton_cancela.yaml`.
 - Automatización (motor, cuadro, accesorios, instalación).
 - Relleno decorativo diseño exclusivo.
 - Acero inoxidable.
+- Tratamiento anticorrosivo apto para Menorca (galvanizado, sistema C4/C5, herrajes inox).
 - Sistema de apertura remota (mando, bluetooth, app).
 - Portón corredera con carril enterrado (obra civil).
 - Pilares de obra civil no incluidos en presupuesto?

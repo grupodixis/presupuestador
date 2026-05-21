@@ -42,3 +42,8 @@ El agente debe consultar las reglas técnicas del producto identificado para:
 2. Aplicar tolerancias correctas en la estimación.
 3. Detectar requisitos especiales (sellado, aislamiento, etc.).
 4. Incluir controles de calidad obligatorios en el coste.
+
+## Archivos existentes
+
+- `barandillas.md` — reglas tecnicas de barandillas.
+- `pergolas-extrual-e110.md` — datos del catalogo EXTRUAL E110 para pergolas/techos fijos.

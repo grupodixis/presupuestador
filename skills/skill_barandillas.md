@@ -10,7 +10,7 @@ Cuando el producto a presupuestar es una barandilla metálica de cualquier tipo:
 - Altura de la barandilla.
 - Tipo de material (acero, inoxidable, hierro, aluminio).
 - Tipo de anclaje (lateral, superior, inferior, frontal).
-- Ubicación (interior, exterior, ambiente marino).
+- Ubicación (interior, exterior, costa, piscina, terraza, balcon). En Menorca asumir ambiente salino/oxidante si no se indica lo contrario.
 
 ## Datos recomendados
 
@@ -30,6 +30,7 @@ Cuando el producto a presupuestar es una barandilla metálica de cualquier tipo:
 - En ambiente marino (C5) usar acero inoxidable AISI 316 o acero galvanizado + pintura epoxi.
 - En ambiente C3 usar acero galvanizado o inoxidable AISI 304.
 - Los anclajes deben ser de acero inoxidable en exteriores.
+- En Menorca, para barandillas exteriores vistas, priorizar AISI 316 o galvanizado en caliente + sistema de pintura apto para C4/C5. No usar acero pintado simple como solucion base.
 - Las soldaduras deben repasarse y tratarse contra corrosión.
 
 ## Composición habitual del producto
@@ -87,7 +88,7 @@ Ver `/productos/composiciones/barandilla.yaml`.
 ## Preguntas que el agente debe hacerse
 
 - ¿Es interior o exterior?
-- ¿Qué ambiente corrosivo?
+- ¿Que exposicion tiene en Menorca: interior protegido, exterior, costa, piscina, balcon o terraza?
 - ¿Tiene vidrio?
 - ¿Necesita cálculo estructural?
 - ¿Se ha visitado la obra?

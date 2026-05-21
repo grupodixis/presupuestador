@@ -33,6 +33,7 @@ Se pueden crear archivos específicos para:
 - `proveedores-config.example.json` — plantilla segura de configuracion local para Notion/email.
 - `proveedores-conocidos.md` — catálogo de proveedores habituales (Ferros Puig Sallent, corte láser, etc.).
 - `historico-ferros-puig.md` — precios reales extraidos de presupuestos/pedidos de Ferros Puig.
+- `historico-aluminio-extrual.md` — precios reales de perfileria EXTRUAL / Perfila Menorca para calculo de aluminio.
 
 ## Criterios generales
 

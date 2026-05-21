@@ -34,6 +34,8 @@ Cuando el producto a presupuestar es una marquesina de entrada, marquesina comer
 - El policarbonato debe tener protección UV (capa coextruida).
 - La lona tensada debe tener sistema de tensado regulable.
 - En zona de viento, la estructura debe calcularse para rachas máximas.
+- En Menorca, considerar simultaneamente viento y corrosion salina: acero galvanizado en caliente + pintura apta, aluminio lacado exterior o inoxidable segun diseño y exposicion.
+- La tornilleria y anclajes exteriores deben ser inoxidables o equivalentes aptos para ambiente marino.
 
 ## Composición habitual del producto
 
@@ -66,6 +68,7 @@ Ver `/productos/composiciones/marquesina_pergola.yaml`.
 - Canalón y bajante empotrado en pilares.
 - Iluminación LED integrada en perfiles.
 - Cerramiento lateral de vidrio o lamas motorizadas.
+- Tratamiento anticorrosivo y herrajes aptos para ambiente marino de Menorca.
 
 ## Factores que aumentan la complejidad
 

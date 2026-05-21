@@ -94,6 +94,20 @@ Se acordó este flujo mental:
 
 ## Reglas importantes acordadas
 
+### Menorca como entorno base
+
+Todos los presupuestos se consideran por defecto para **Menorca**, isla con ambiente muy salino, oxidante y corrosivo, salvo que el usuario indique expresamente otra ubicacion.
+
+Regla practica:
+
+- Interior protegido: C3 minimo practico.
+- Exterior normal en Menorca: C4 recomendado.
+- Costa, terraza, balcon, piscina, cubierta o exposicion directa: C5-M / ambiente marino severo.
+- En exterior, priorizar AISI 316, acero galvanizado en caliente, galvanizado + pintura adecuada o sistemas epoxi/poliuretano C4/C5.
+- Evitar acero pintado simple sin galvanizar en exteriores de Menorca salvo aceptacion expresa.
+
+Ver `presupuestacion/criterios-ambientales-menorca.md`.
+
 ### No depender siempre de proveedores
 
 El sistema debe poder presupuestar rápido usando históricos y reglas internas, sin esperar presupuesto de proveedores, salvo trabajos especiales.
@@ -182,6 +196,38 @@ Ver:
 - `presupuestacion/costes/proveedores-conocidos.md`
 - `presupuestacion/costes/historico-ferros-puig.md`
 
+## Aluminio EXTRUAL / Perfila Menorca
+
+Se incorporo historico real de Perfila Menorca / Graguamaho S.L. con fabricante EXTRUAL, fecha 25/02/2026, serie Corredera E150 Minimalista lacado blanco.
+
+Reglas extraidas:
+
+| Concepto | Regla usable |
+|---|---:|
+| Perfil EXTRUAL lacado blanco sobre barras compradas | 11,24 EUR/kg |
+| Perfil EXTRUAL lacado blanco medio por metro comprado | 7,41 EUR/ml |
+| Perfil por peso neto de unidad terminada | 16,74 EUR/kg |
+| Perfiles por superficie de unidad corredera E150 | 122 EUR/m2 |
+| Accesorios E150 herraje alto | 100-105% del coste de perfiles |
+| Accesorios E150 variante sencilla | 70% del coste de perfiles |
+| Accesorios E150 si no se conoce herraje | 85% del coste de perfiles |
+
+Ver `presupuestacion/costes/historico-aluminio-extrual.md`.
+
+## Pergolas EXTRUAL E110
+
+Se incorporo el catalogo tecnico EXTRUAL E110 Techo Fijo como referencia para pergolas de aluminio.
+
+Datos clave:
+
+- Aluminio 6063 T5.
+- Lacado QUALICOAT-SEASIDE minimo 60 micras o anodizado minimo 15 micras.
+- Sistema para acristalamiento/panelado de 6 a 88 mm.
+- Pesos utiles: viga 140 mm 1,89 kg/ml; viga 140 reforzada 2,99 kg/ml; viga canalon 3,64 kg/ml; viga canalon reforzada 6,38 kg/ml; poste 2,006 kg/ml; tapa poste 1,531 kg/ml.
+- Las tablas de luces del catalogo son para lugar no expuesto al viento y altura a suelo inferior a 6 m; en Menorca expuesta hay que aplicar cautela o calculo.
+
+Ver `productos/reglas-tecnicas/pergolas-extrual-e110.md`.
+
 ## Notion y proveedores
 
 Se planteó una futura integración con Notion:
@@ -201,6 +247,11 @@ Se añadió una estructura operativa para conectar Notion:
 Para conectar realmente Notion, crear localmente `presupuestacion/costes/proveedores-config.json` con el token de integración y el ID de la base de datos. No subir ese archivo a GitHub.
 
 Ver `presupuestacion/costes/proveedores.md` y `presupuestacion/costes/notion-proveedores.md`.
+
+### Partidas de obra en Notion
+
+- FAM significa Fabricacion, Acabados y Montaje.
+- La vista de partidas de obra de Notion se consulta como referencia operativa, no como fuente de costes base.
 
 ## Estado de GitHub
 

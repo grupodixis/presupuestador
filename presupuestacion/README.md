@@ -17,6 +17,7 @@ Lógica, criterios y datos para la generación de presupuestos técnicos.
 | Archivo | Propósito |
 |---|---|
 | `criterios-comerciales.md` | Reglas comerciales, formato cliente/PDF y condiciones por defecto |
+| `criterios-ambientales-menorca.md` | Regla base de presupuestacion en Menorca: ambiente salino, oxidante y criterios C4/C5 |
 | `criterios-productos-aprendidos.md` | Criterios prácticos aprendidos por producto durante presupuestación |
 
 ## Flujo de uso
