@@ -29,6 +29,8 @@ Se pueden crear archivos específicos para:
 - `costes-tratamientos.json` — precios de tratamientos externos.
 - `costes-transporte.json` — tarifas de transporte.
 - `proveedores.md` — flujo de petición de precios a proveedores (Notion + email).
+- `notion-proveedores.md` — estructura exacta de la base de datos de Notion y reglas de consulta.
+- `proveedores-config.example.json` — plantilla segura de configuracion local para Notion/email.
 - `proveedores-conocidos.md` — catálogo de proveedores habituales (Ferros Puig Sallent, corte láser, etc.).
 - `historico-ferros-puig.md` — precios reales extraidos de presupuestos/pedidos de Ferros Puig.
 

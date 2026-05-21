@@ -9,7 +9,7 @@ Flujo de trabajo para consultar precios a proveedores usando la base de datos de
 ```
 1. Detectar materiales/tratamientos/servicios externos necesarios
 2. Consultar proveedores-conocidos.md (proveedores habituales locales)
-3. Consultar Notion → lista completa de proveedores por tipo
+3. Si no basta, consultar Notion usando `notion-proveedores.md`
 4. Seleccionar proveedores candidatos (2-3 por material/servicio)
 5. Generar borradores de email con solicitud de precio
 6. → USUARIO: revisa y confirma los emails ←
@@ -34,33 +34,40 @@ Si el trabajo encaja con alguno de estos proveedores conocidos, contactar direct
 
 ## Conexión con Notion
 
+La estructura operativa esta definida en `notion-proveedores.md`. Ese archivo es la referencia para crear la base de datos en Notion y para consultar proveedores desde el agente.
+
 ### Base de datos de proveedores (Notion)
 
-La base de datos en Notion debe tener esta estructura (o similar):
+La base de datos en Notion debe seguir la estructura de `notion-proveedores.md`. Como minimo debe incluir:
 
 | Campo | Tipo | Ejemplo |
 |---|---|---|
 | Nombre | Texto | Hierros S.A. |
-| Tipo de material | Select | acero / inoxidable / aluminio / vidrio / tratamiento / transporte |
-| Subcategoría | Texto | IPE, HEB, tubo, chapa, pletina |
+| Estado | Select | activo / pendiente / descartado |
+| Categoria | Multi-select | acero / inoxidable / aluminio / vidrio / tratamiento / transporte |
+| Subcategoria | Multi-select | IPE, HEB, tubo, chapa, pletina |
+| Procesos | Multi-select | suministro / corte / soldadura / galvanizado / montaje |
 | Email de contacto | Email | pedidos@hierros.es |
 | Teléfono | Teléfono | 912 345 678 |
 | Persona de contacto | Texto | Juan López |
 | Plazo de entrega estimado | Texto | 48-72 h |
 | Zona de envío | Select | nacional / regional / local |
 | Valoración | Number | 4/5 |
+| Proveedor habitual | Checkbox | Si / No |
 | Último pedido | Fecha | 2026-03-15 |
 | Notas | Texto | Buen precio en inoxidable |
 
 ### Archivo de configuración
 
-Crear un archivo `proveedores-config.json` (NO subir a git, contiene la API key):
+Copiar `proveedores-config.example.json` como `proveedores-config.json` (NO subir a git, contiene la API key):
 
 ```json
 {
-  "notion_api_key": "ntn_...",
-  "database_id": "abcdef123456...",
-  "email_config": {
+  "notion": {
+    "api_key": "ntn_...",
+    "database_id": "abcdef123456..."
+  },
+  "email": {
     "smtp_server": "smtp.tucorreo.com",
     "smtp_port": 587,
     "email_from": "presupuestos@tuempresa.com",
@@ -75,8 +82,9 @@ Cuando el agente necesite precios, debe:
 
 1. Identificar qué materiales necesita y en qué cantidades.
 2. Extraer de Notion los proveedores que suministran ese tipo de material.
-3. Filtrar por los mejor valorados o más usados recientemente.
+3. Filtrar por proveedor habitual, valoracion, zona, plazo y ultimo uso.
 4. Preparar un email para cada uno con la solicitud de precio.
+5. Pedir confirmacion al usuario antes de enviar cualquier email.
 
 ---
 
@@ -196,6 +204,7 @@ El usuario o el agente registran las respuestas recibidas, y se incorpora el mej
 3. Crear el archivo `proveedores-config.json` con la API key de Notion y configuración SMTP.
 4. Añadir `proveedores-config.json` a `.gitignore` (contiene credenciales).
 5. Configurar la casilla de correo `presupuestos@tuempresa.com` (o la que se cree).
+6. Comprobar que `proveedores-config.json` no aparece en `git status`.
 
 ---
 

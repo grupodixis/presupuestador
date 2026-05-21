@@ -192,7 +192,15 @@ Se planteó una futura integración con Notion:
 - El usuario debe confirmar antes de enviar.
 - Puede crearse una casilla de correo específica para presupuestos.
 
-Ver `presupuestacion/costes/proveedores.md`.
+Se añadió una estructura operativa para conectar Notion:
+
+- `presupuestacion/costes/notion-proveedores.md`: campos exactos de la base de datos, filtros y reglas de uso.
+- `presupuestacion/costes/proveedores-config.example.json`: plantilla local sin credenciales reales.
+- `.gitignore`: excluye `proveedores-config.json`, `.env` y `*.local.json`.
+
+Para conectar realmente Notion, crear localmente `presupuestacion/costes/proveedores-config.json` con el token de integración y el ID de la base de datos. No subir ese archivo a GitHub.
+
+Ver `presupuestacion/costes/proveedores.md` y `presupuestacion/costes/notion-proveedores.md`.
 
 ## Estado de GitHub
 

@@ -1,0 +1,17 @@
+{
+  "notion": {
+    "api_key": "ntn_xxx",
+    "database_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  },
+  "email": {
+    "smtp_server": "smtp.ejemplo.com",
+    "smtp_port": 587,
+    "email_from": "presupuestos@empresa.com",
+    "email_name": "Departamento de Presupuestos"
+  },
+  "uso": {
+    "max_proveedores_por_consulta": 3,
+    "valoracion_minima_preferente": 4,
+    "pedir_confirmacion_usuario_antes_de_enviar_email": true
+  }
+}
