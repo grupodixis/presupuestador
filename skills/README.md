@@ -24,6 +24,7 @@ Cada archivo Markdown en esta carpeta define una habilidad (skill) que el agente
 | `skill_marquesinas_pergolas.md` | Marquesinas, pérgolas y toldos |
 | `skill_productos_compuestos.md` | Productos que combinan múltiples materiales y oficios |
 | `skill_solicitud_presupuestos_proveedores.md` | Redacción de emails y WhatsApps para pedir precios a proveedores |
+| `skill_investigacion_proveedores.md` | I+D de proveedores: búsqueda, cualificación y registro de contactos |
 
 ## Estructura de cada skill
 

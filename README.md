@@ -2,6 +2,12 @@
 
 Repositorio de conocimiento, reglas y procedimientos para que un agente IA genere presupuestos técnicos de artículos industriales fabricados a medida.
 
+## Visión evolutiva
+
+Este repositorio está pensado como la base documental de un futuro agente dockerizado de presupuestación, capaz de presupuestar, investigar proveedores, solicitar precios y actualizar su metodología de forma versionada y auditable.
+
+Ver `/agentes/` para la arquitectura objetivo del agente.
+
 ## Propósito
 
 Este entorno permite presupuestar cualquier producto o partida considerando:
@@ -34,6 +40,7 @@ Este entorno permite presupuestar cualquier producto o partida considerando:
 ```
 /
 ├── README.md                 # Este archivo
+├── agentes/                  # Arquitectura del agente dockerizado de presupuestación
 ├── skills/                   # Habilidades de presupuestación del agente
 ├── productos/                # Catálogo técnico de productos
 │   ├── composiciones/        # Composición típica de cada producto
@@ -44,6 +51,7 @@ Este entorno permite presupuestar cualquier producto o partida considerando:
 │   ├── oferta-demanda/       # Ajustes por oferta y demanda
 │   ├── complejidad/          # Evaluación de complejidad
 │   └── checklists/           # Listas de verificación
+├── proveedores/              # I+D, fichas y búsqueda de proveedores
 ├── plantillas/               # Plantillas de salida
 ├── ejemplos/                 # Ejemplos de presupuestos completos
 └── glosario/                 # Términos técnicos y comerciales
@@ -56,16 +64,18 @@ Este entorno permite presupuestar cualquier producto o partida considerando:
 3. Consultar la composición típica en `/productos/composiciones/`.
 4. Detectar materiales principales.
 5. Detectar procesos necesarios.
-6. Estimar mano de obra.
-7. Evaluar complejidad.
-8. Evaluar riesgos.
-9. Evaluar montaje.
-10. Evaluar tratamientos externos.
-11. Calcular coste técnico base.
-12. Aplicar margen industrial.
-13. Ajustar precio según oferta/demanda.
-14. Generar una explicación clara del presupuesto.
-15. Indicar dudas o datos faltantes.
+6. Detectar materiales o servicios sin precio fiable.
+7. Si faltan precios, consultar o investigar proveedores en `/proveedores/`.
+8. Estimar mano de obra.
+9. Evaluar complejidad.
+10. Evaluar riesgos.
+11. Evaluar montaje.
+12. Evaluar tratamientos externos.
+13. Calcular coste técnico base.
+14. Aplicar margen industrial.
+15. Ajustar precio según oferta/demanda.
+16. Generar una explicación clara del presupuesto.
+17. Indicar dudas o datos faltantes.
 
 ## Convenciones del repositorio
 

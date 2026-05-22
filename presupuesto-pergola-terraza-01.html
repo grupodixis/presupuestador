@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuesto Pergola Inox 304L - Terraza 01</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #687383;
+      --line: #d8dee6;
+      --soft: #f5f7fa;
+      --brand: #263a5b;
+      --accent: #b8893b;
+      --ok: #0f766e;
+      --danger: #9a3412;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #e9edf2;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 18px auto;
+      background: #fff;
+      box-shadow: 0 12px 35px rgba(22, 34, 51, 0.14);
+      padding: 18mm;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+      padding-bottom: 18px;
+      border-bottom: 3px solid var(--brand);
+    }
+
+    .brand-block {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .mark {
+      width: 52px;
+      height: 52px;
+      border: 2px solid var(--brand);
+      display: grid;
+      place-items: center;
+      color: var(--brand);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .company-name {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0.5px;
+      color: var(--brand);
+    }
+
+    .company-meta,
+    .small {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 2px 0;
+    }
+
+    .doc-title {
+      text-align: right;
+    }
+
+    .doc-title h1 {
+      margin: 0;
+      color: var(--brand);
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+
+    .doc-title .number {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 10px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      padding: 12px;
+      min-height: 74px;
+    }
+
+    .card .label {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 6px;
+    }
+
+    .card .value {
+      display: block;
+      color: var(--ink);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    h2 {
+      color: var(--brand);
+      margin: 22px 0 8px;
+      font-size: 17px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 6px;
+    }
+
+    h3 {
+      margin: 14px 0 6px;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 14px;
+    }
+
+    th {
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      text-align: left;
+      padding: 8px;
+      font-size: 12px;
+    }
+
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 8px;
+      vertical-align: top;
+    }
+
+    tr.total-row td {
+      font-weight: 700;
+      background: #fbfaf7;
+      border-top: 2px solid var(--accent);
+    }
+
+    .right {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .note {
+      border-left: 4px solid var(--accent);
+      background: #fff8ed;
+      padding: 10px 12px;
+      margin: 12px 0;
+    }
+
+    .total-box {
+      margin-top: 18px;
+      border: 2px solid var(--brand);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+
+    .total-box .base,
+    .total-box .final {
+      padding: 16px;
+    }
+
+    .total-box .base {
+      background: var(--soft);
+    }
+
+    .total-box .final {
+      background: var(--brand);
+      color: #fff;
+      text-align: right;
+    }
+
+    .total-box .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      opacity: 0.8;
+    }
+
+    .total-box .amount {
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    ul {
+      margin: 8px 0 12px 18px;
+      padding: 0;
+    }
+
+    li {
+      margin: 4px 0;
+    }
+
+    .footer {
+      margin-top: 24px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: auto;
+        min-height: auto;
+        margin: 0;
+        box-shadow: none;
+        padding: 14mm;
+      }
+
+      h2,
+      table,
+      .total-box {
+        break-inside: avoid;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: auto;
+        margin: 0;
+        padding: 18px;
+      }
+
+      .header,
+      .summary-grid,
+      .two-col,
+      .total-box {
+        grid-template-columns: 1fr;
+      }
+
+      .doc-title,
+      .total-box .final {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <section class="brand-block">
+        <div class="mark">LOGO</div>
+        <div>
+          <h1 class="company-name">Empresa / Taller</h1>
+          <p class="company-meta">Estructuras metalicas · Herreria · Acero inoxidable</p>
+          <p class="company-meta">Direccion · Telefono · Email</p>
+        </div>
+      </section>
+      <section class="doc-title">
+        <h1>Presupuesto</h1>
+        <div class="number">P-2026-001</div>
+        <p class="small">Fecha: 20/05/2026</p>
+        <p class="small">Validez: 30 dias</p>
+      </section>
+    </header>
+
+    <section class="summary-grid" aria-label="Resumen del presupuesto">
+      <article class="card">
+        <span class="label">Proyecto</span>
+        <span class="value">Pergola Terraza 01</span>
+      </article>
+      <article class="card">
+        <span class="label">Superficie</span>
+        <span class="value">25,6 m²</span>
+      </article>
+      <article class="card">
+        <span class="label">Material</span>
+        <span class="value">Inox 304L</span>
+      </article>
+      <article class="card">
+        <span class="label">Precio base</span>
+        <span class="value">11.480 € + IVA</span>
+      </article>
+    </section>
+
+    <section>
+      <h2>Descripcion Del Trabajo</h2>
+      <p>Fabricacion y montaje de pergola de acero inoxidable 304L para terraza, segun plano de planta aportado. Estructura adosada a muro con perfileria tubular 60x100x3 y 60x60x4, cubierta de brezo doble con nylon aislante y acabado RAL estandar.</p>
+      <div class="two-col">
+        <div>
+          <h3>Mediciones usadas</h3>
+          <table>
+            <tbody>
+              <tr><td>Ancho segun plano</td><td class="right">8,44 m</td></tr>
+              <tr><td>Fondo util segun plano</td><td class="right">3,11 m</td></tr>
+              <tr><td>Superficie indicada</td><td class="right">25,6 m²</td></tr>
+              <tr><td>Altura de pilares asumida</td><td class="right">2,50 m</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Hipotesis de calculo</h3>
+          <table>
+            <tbody>
+              <tr><td>Configuracion</td><td class="right">Adosada a muro</td></tr>
+              <tr><td>Apoyos frontales</td><td class="right">4 pilares</td></tr>
+              <tr><td>Correas interiores</td><td class="right">5 uds</td></tr>
+              <tr><td>Merma aplicada</td><td class="right">10%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Materiales</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th class="right">Cantidad</th>
+            <th class="right">Precio</th>
+            <th class="right">Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Perfil tubular inoxidable 304L 60x100x3</td>
+            <td class="right">186 kg</td>
+            <td class="right">5,50 €/kg</td>
+            <td class="right">1.023 €</td>
+          </tr>
+          <tr>
+            <td>Perfil tubular inoxidable 304L 60x60x4</td>
+            <td class="right">247 kg</td>
+            <td class="right">5,50 €/kg</td>
+            <td class="right">1.359 €</td>
+          </tr>
+          <tr>
+            <td>Cubierta de brezo doble con nylon aislante</td>
+            <td class="right">28 m²</td>
+            <td class="right">34,60 €/m²</td>
+            <td class="right">968 €</td>
+          </tr>
+          <tr>
+            <td>Tornilleria inoxidable, anclajes y fijaciones</td>
+            <td class="right">1 global</td>
+            <td class="right">220 €</td>
+            <td class="right">220 €</td>
+          </tr>
+          <tr>
+            <td>Consumibles inox: discos, aportacion laser, argon</td>
+            <td class="right">1 global</td>
+            <td class="right">140 €</td>
+            <td class="right">140 €</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="3">Total materiales</td>
+            <td class="right">3.710 €</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Mano De Obra</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th class="right">Horas</th>
+            <th class="right">Precio/h</th>
+            <th class="right">Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Corte y preparacion de perfiles</td>
+            <td class="right">12 h</td>
+            <td class="right">30 €/h</td>
+            <td class="right">360 €</td>
+          </tr>
+          <tr>
+            <td>Soldadura laser inoxidable</td>
+            <td class="right">10 h</td>
+            <td class="right">30 €/h</td>
+            <td class="right">300 €</td>
+          </tr>
+          <tr>
+            <td>Taladros, placas, anclajes y ajustes</td>
+            <td class="right">8 h</td>
+            <td class="right">30 €/h</td>
+            <td class="right">240 €</td>
+          </tr>
+          <tr>
+            <td>Preparacion para pintura RAL</td>
+            <td class="right">8 h</td>
+            <td class="right">30 €/h</td>
+            <td class="right">240 €</td>
+          </tr>
+          <tr class="total-row">
+            <td>Subtotal taller</td>
+            <td class="right">38 h</td>
+            <td></td>
+            <td class="right">1.140 €</td>
+          </tr>
+          <tr>
+            <td>Montaje en obra, 2 operarios x 2 dias</td>
+            <td class="right">32 h</td>
+            <td class="right">30 €/h</td>
+            <td class="right">960 €</td>
+          </tr>
+          <tr>
+            <td>Desplazamiento y preparacion de obra</td>
+            <td class="right">4 h</td>
+            <td class="right">30 €/h</td>
+            <td class="right">120 €</td>
+          </tr>
+          <tr class="total-row">
+            <td>Subtotal montaje</td>
+            <td class="right">36 h</td>
+            <td></td>
+            <td class="right">1.080 €</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Tratamientos, Transporte Y Oficina Tecnica</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th class="right">Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Acabado RAL estandar sobre inoxidable</td><td class="right">600 €</td></tr>
+          <tr><td>Transporte a obra</td><td class="right">220 €</td></tr>
+          <tr><td>Oficina tecnica / replanteo</td><td class="right">330 €</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Resumen Economico</h2>
+      <table>
+        <tbody>
+          <tr><td>Materiales</td><td class="right">3.710 €</td></tr>
+          <tr><td>Mano de obra taller</td><td class="right">1.140 €</td></tr>
+          <tr><td>Mano de obra montaje</td><td class="right">1.080 €</td></tr>
+          <tr><td>Acabado RAL</td><td class="right">600 €</td></tr>
+          <tr><td>Transporte</td><td class="right">220 €</td></tr>
+          <tr><td>Oficina tecnica</td><td class="right">330 €</td></tr>
+          <tr class="total-row"><td>Coste tecnico base</td><td class="right">7.180 €</td></tr>
+          <tr><td>Factor de complejidad 1,15</td><td class="right">8.257 €</td></tr>
+          <tr><td>Factor de riesgo 1,03</td><td class="right">8.505 €</td></tr>
+          <tr><td>Margen comercial 35%</td><td class="right">2.977 €</td></tr>
+          <tr class="total-row"><td>Precio base</td><td class="right">11.482 €</td></tr>
+          <tr><td>IVA 21%</td><td class="right">2.411 €</td></tr>
+        </tbody>
+      </table>
+
+      <div class="total-box">
+        <div class="base">
+          <div class="label">Precio base sin IVA</div>
+          <div class="amount">11.480 €</div>
+          <div class="small">Importe redondeado para oferta comercial</div>
+        </div>
+        <div class="final">
+          <div class="label">Total IVA incluido</div>
+          <div class="amount">13.890 €</div>
+          <div class="small">IVA 21% incluido</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Condiciones</h2>
+      <div class="two-col">
+        <div>
+          <h3>Incluido</h3>
+          <ul>
+            <li>Fabricacion en taller de estructura inoxidable 304L.</li>
+            <li>Montaje en obra con dos operarios.</li>
+            <li>Cubierta de brezo doble con nylon aislante.</li>
+            <li>Acabado RAL estandar.</li>
+            <li>Tornilleria, anclajes y consumibles de montaje.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>No incluido</h3>
+          <ul>
+            <li>Cimentacion o refuerzo del soporte existente.</li>
+            <li>Licencias, tasas municipales o legalizaciones.</li>
+            <li>Trabajos de albañileria, electricidad o evacuacion de aguas.</li>
+            <li>Medios especiales de elevacion si fueran necesarios.</li>
+            <li>Modificaciones sobre plano o medicion final.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="note">
+        <strong>Nota tecnica:</strong> el acabado RAL sobre acero inoxidable requiere preparacion especifica para mejorar la adherencia. Se recomienda confirmar el sistema de pintura con proveedor antes de fabricacion. Como alternativa, puede valorarse acabado inoxidable natural cepillado.
+      </div>
+      <p><strong>Forma de pago:</strong> 50% a la aceptacion, 40% antes del montaje y 10% a la finalizacion.</p>
+      <p><strong>Plazo estimado:</strong> 4-6 semanas desde aceptacion y confirmacion de medidas.</p>
+      <p><strong>Garantia:</strong> 2 años en fabricacion y 1 año en montaje, salvo mal uso, modificaciones de terceros o mantenimiento inadecuado.</p>
+    </section>
+
+    <footer class="footer">
+      <span>Presupuesto P-2026-001 · Pergola Terraza 01</span>
+      <span>Documento generado para revision comercial</span>
+    </footer>
+  </main>
+</body>
+</html>

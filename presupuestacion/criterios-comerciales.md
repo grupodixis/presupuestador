@@ -21,6 +21,8 @@ Este documento recoge reglas prácticas aprendidas durante la generación de pre
 - Para cliente, agrupar las partidas por concepto entendible: estructura, materiales visibles, instalación, transporte, acabado.
 - Por defecto, cada presupuesto solicitado debe entregarse en dos versiones: `Version interna tecnica` y `Version cliente`.
 - La version interna debe servir para decidir y defender el precio; la version cliente debe poder copiarse al documento comercial sin revelar calculos internos.
+- Procedimiento por defecto: ante un presupuesto completo, generar siempre una versión técnica interna y una versión comercial para cliente, salvo instrucción contraria del usuario.
+- Si se trabaja en HTML, ambas versiones deben estar preparadas para exportación PDF.
 
 ## Formato HTML/PDF
 

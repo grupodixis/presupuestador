@@ -6,6 +6,8 @@ Cuando faltan precios reales de materiales, tratamientos, transporte, alquileres
 
 Se usa antes de cerrar el coste técnico base y antes de aplicar márgenes finales.
 
+Si no existe proveedor claro o faltan datos del proveedor, usar primero `skill_investigacion_proveedores.md` y consultar `/proveedores/`.
+
 ## Datos mínimos necesarios
 
 - Producto o partida que se está presupuestando.
@@ -43,13 +45,15 @@ Se usa antes de cerrar el coste técnico base y antes de aplicar márgenes final
 ## Proceso de trabajo
 
 1. Detectar qué costes no tienen precio fiable en las tablas internas.
-2. Convertir la necesidad técnica en una lista clara de partidas.
-3. Elegir canal: email para solicitudes formales, WhatsApp para consultas rápidas.
-4. Redactar la solicitud usando la plantilla correspondiente.
-5. Incluir datos mínimos para que el proveedor no tenga que repreguntar.
-6. Pedir respuesta desglosada y plazo de validez.
-7. Al recibir respuesta, registrar precio, fecha, proveedor y condiciones.
-8. Actualizar el presupuesto con el coste real o marcarlo como pendiente.
+2. Consultar `/proveedores/fichas/` para encontrar proveedor validado.
+3. Si no hay proveedor, activar investigación con `skill_investigacion_proveedores.md`.
+4. Convertir la necesidad técnica en una lista clara de partidas.
+5. Elegir canal: email para solicitudes formales, WhatsApp para consultas rápidas.
+6. Redactar la solicitud usando la plantilla correspondiente.
+7. Incluir datos mínimos para que el proveedor no tenga que repreguntar.
+8. Pedir respuesta desglosada y plazo de validez.
+9. Al recibir respuesta, registrar precio, fecha, proveedor y condiciones.
+10. Actualizar el presupuesto con el coste real o marcarlo como pendiente.
 
 ## Formato de salida recomendado
 
@@ -62,6 +66,7 @@ El agente debe entregar uno o varios mensajes listos para enviar:
 ## Checklist final
 
 - [ ] Proveedor identificado o tipo de proveedor indicado.
+- [ ] Ficha de proveedor consultada o creada si procede.
 - [ ] Partidas cuantificadas.
 - [ ] Especificación técnica clara.
 - [ ] Lugar de entrega indicado.

@@ -53,6 +53,13 @@ Cuando el usuario introduzca una palabra clave en solitario o solicitando presup
 - Forma de pago: 100% a la aceptación del presupuesto.
 - Cualquier condición distinta debe indicarse expresamente en la solicitud o en el documento comercial.
 
+## Salidas por defecto
+
+- Cuando el usuario pida un presupuesto completo, generar siempre dos versiones si no indica lo contrario:
+  - Presupuesto técnico interno con desglose de materiales, mano de obra, hipótesis, complejidad, riesgo y margen.
+  - Presupuesto comercial para cliente con producto terminado, alcance, incluidos, no incluidos, condiciones y precio final.
+- Si se genera HTML, ambas versiones deben estar preparadas para impresión/PDF en A4.
+
 ## Composición habitual del producto
 
 Ver `/productos/composiciones/` para la composición específica de cada producto.
@@ -159,3 +166,5 @@ El presupuesto debe incluir:
 - Validez del presupuesto.
 - Notas y exclusiones.
 - Firma o responsable.
+
+Cuando aplique formato HTML/PDF, entregar también los nombres de los archivos generados y abrirlos para revisión si el entorno lo permite.
