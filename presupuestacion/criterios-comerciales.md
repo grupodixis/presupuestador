@@ -19,6 +19,8 @@ Este documento recoge reglas prácticas aprendidas durante la generación de pre
 - **Preview interno/comercial:** puede incluir hipótesis, horas, costes internos, factores de complejidad, riesgo y márgenes.
 - **Presupuesto cliente:** debe ocultar horas, factores internos y márgenes; mostrar producto terminado, alcance, incluidos, no incluidos, condiciones y precio final.
 - Para cliente, agrupar las partidas por concepto entendible: estructura, materiales visibles, instalación, transporte, acabado.
+- Por defecto, cada presupuesto solicitado debe entregarse en dos versiones: `Version interna tecnica` y `Version cliente`.
+- La version interna debe servir para decidir y defender el precio; la version cliente debe poder copiarse al documento comercial sin revelar calculos internos.
 
 ## Formato HTML/PDF
 

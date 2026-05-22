@@ -41,6 +41,7 @@ Cuando el usuario introduzca una palabra clave en solitario o solicitando presup
 - Todo presupuesto debe tener un coste técnico base desglosado.
 - Todo presupuesto debe indicar qué incluye y qué no incluye.
 - Todo presupuesto debe tener una validez temporal.
+- Todo presupuesto solicitado por el usuario debe entregarse en dos versiones: una interna técnica con supuestos, mediciones, costes y riesgos; y una versión cliente limpia, comercial y sin márgenes internos.
 - Las mediciones deben ser verificables y basadas en planos o visita.
 - Los precios unitarios deben ser coherentes con el mercado local.
 - Por defecto, los presupuestos se consideran para Menorca: isla con ambiente salino, oxidante y corrosivo. Aplicar `presupuestacion/criterios-ambientales-menorca.md` salvo ubicacion distinta indicada por el usuario.
@@ -140,6 +141,11 @@ Ver `/productos/composiciones/` para la composición específica de cada product
 - [ ] Validez indicada.
 
 ## Formato de salida recomendado
+
+Cada presupuesto debe incluir dos bloques diferenciados:
+
+1. **Version interna tecnica**: datos de entrada, supuestos, mediciones, materiales, procesos, horas, costes estimados, riesgos, recomendaciones tecnicas, exclusiones y precio recomendado.
+2. **Version cliente**: descripcion clara del alcance, partidas comerciales agrupadas, incluidos, no incluidos, plazo, validez, condiciones y precio final. No mostrar costes internos, margen, horas internas ni dudas del agente.
 
 El presupuesto debe incluir:
 
