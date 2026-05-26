@@ -25,6 +25,17 @@
 - Si el cliente añade pasamanos de madera, incluir soportes, fijaciones y acabado coordinado con peldaños.
 - Si la barandilla no está incluida, indicarlo de forma expresa aunque haya listones decorativos o pasamanos.
 
+## Mallorquinas de aluminio
+
+- Para mallorquinas de aluminio tipo Cortizo, calcular desde costes reales de proveedor y no desde un precio objetivo comercial.
+- Referencia Cortizo 20.210.830/1 de 2023, serie Mallorquina COR_STD_BLANCO: coste neto medio aproximado **160-165 €/m2** para persianas de 2 hojas con cerradura GESA.
+- Para estimaciones actuales, actualizar ese coste con prudencia segun fecha, configuracion, numero de hojas, herrajes, color y complejidad; en la mallorquina de Son Parc se uso **215 €/m2** como coste actualizado de suministro antes de mano de obra, transporte y margen.
+- Mano de obra de carpinteria de aluminio: **35 €/h** salvo indicacion contraria.
+- Separar internamente suministro, ajuste por configuracion/herrajes, horas de taller, instalacion, transporte, remates y margen.
+- No fijar primero un precio objetivo tipo "no debe pasar de X" y rellenar hacia atras; razonar siempre desde coste tecnico y despues revisar si el resultado encaja en mercado.
+- Si existe abertura vieja, extraccion, retirada y tratamiento de residuos solo se incluyen si el usuario lo pide expresamente.
+- Para presupuestos de ALUFAC, usar cabecera, logo y datos de ALUFAC; no usar identidad HAM.
+
 ## Presentación de opciones
 
 - Cuando existan opciones de material, mostrar una tabla con base imponible y total IVA incluido por opción.

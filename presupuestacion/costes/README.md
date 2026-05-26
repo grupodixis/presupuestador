@@ -34,6 +34,7 @@ Se pueden crear archivos específicos para:
 - `proveedores-conocidos.md` — catálogo de proveedores habituales (Ferros Puig Sallent, corte láser, etc.).
 - `historico-ferros-puig.md` — precios reales extraidos de presupuestos/pedidos de Ferros Puig.
 - `historico-aluminio-extrual.md` — precios reales de perfileria EXTRUAL / Perfila Menorca para calculo de aluminio.
+- `historico-mallorquinas-cortizo.md` — precios reales de mallorquinas Cortizo para estimar persianas/mallorquinas de aluminio desde costes.
 - `historico-factusol-sintesis.md` — memoria anonima agregada de facturas FACTUSOL para contraste comercial de precios historicos.
 
 ## Criterios generales

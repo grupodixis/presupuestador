@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visor Markdown - Presupuestador</title>
+  <style>
+    :root {
+      --bg: #eef2f6;
+      --panel: #ffffff;
+      --ink: #1f2933;
+      --muted: #667085;
+      --line: #d9e0e8;
+      --brand: #121820;
+      --accent: #b9863a;
+      --code: #f4f6f8;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
+    .app { display: grid; grid-template-columns: 360px 1fr; min-height: 100vh; }
+    aside { background: var(--panel); border-right: 1px solid var(--line); padding: 18px; position: sticky; top: 0; height: 100vh; overflow: auto; }
+    main { padding: 28px; overflow: auto; }
+    h1 { margin: 0 0 8px; font-size: 22px; color: var(--brand); }
+    .meta { color: var(--muted); font-size: 12px; margin-bottom: 14px; }
+    input { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; font-size: 14px; margin: 8px 0 12px; }
+    .file-list { display: grid; gap: 6px; }
+    .file { border: 1px solid var(--line); background: #fafbfc; padding: 9px; border-radius: 6px; cursor: pointer; }
+    .file:hover, .file.active { border-color: var(--accent); background: #fff8ed; }
+    .file strong { display: block; font-size: 13px; color: var(--ink); word-break: break-word; }
+    .file span { display: block; font-size: 11px; color: var(--muted); margin-top: 3px; word-break: break-word; }
+    .toolbar { display: flex; gap: 8px; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .btn { border: 1px solid var(--line); background: #fff; border-radius: 6px; padding: 8px 10px; color: var(--ink); text-decoration: none; font-size: 13px; cursor: pointer; }
+    .btn:hover { border-color: var(--accent); }
+    article { background: var(--panel); border: 1px solid var(--line); border-top: 5px solid var(--brand); box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08); padding: 28px; max-width: 1040px; margin: 0 auto; }
+    article h1, article h2, article h3 { color: var(--brand); line-height: 1.2; }
+    article h1 { font-size: 30px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    article h2 { margin-top: 28px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+    article p { line-height: 1.6; }
+    article table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+    article th { background: var(--brand); color: #fff; text-align: left; }
+    article th, article td { border: 1px solid var(--line); padding: 8px; vertical-align: top; }
+    article blockquote { border-left: 4px solid var(--accent); background: #fff8ed; margin: 14px 0; padding: 10px 14px; color: #4b5563; }
+    article code { background: var(--code); padding: 2px 5px; border-radius: 4px; }
+    article pre { background: var(--code); padding: 14px; border-radius: 6px; overflow: auto; }
+    article pre code { padding: 0; background: transparent; }
+    article a { color: #0f4c81; }
+    .empty { color: var(--muted); padding: 24px; text-align: center; }
+    @media (max-width: 900px) {
+      .app { grid-template-columns: 1fr; }
+      aside { position: relative; height: auto; max-height: 45vh; }
+      main { padding: 14px; }
+      article { padding: 18px; }
+    }
+    @media print {
+      aside, .toolbar { display: none; }
+      .app { display: block; }
+      main { padding: 0; }
+      article { border: 0; box-shadow: none; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside>
+      <h1>Visor Markdown</h1>
+      <div class="meta" id="stats">Cargando manifiesto...</div>
+      <input id="search" type="search" placeholder="Buscar archivo o texto..." autocomplete="off">
+      <div class="file-list" id="fileList"></div>
+    </aside>
+    <main>
+      <div class="toolbar">
+        <div>
+          <strong id="currentTitle">Selecciona un documento</strong>
+          <div class="meta" id="currentPath"></div>
+        </div>
+        <div>
+          <button class="btn" id="copyPath">Copiar ruta</button>
+          <button class="btn" onclick="window.print()">Imprimir / PDF</button>
+        </div>
+      </div>
+      <article id="preview"><div class="empty">Ejecuta <code>herramientas\abrir-visor-md.ps1</code> para regenerar la lista de Markdown y abre un archivo desde la izquierda.</div></article>
+    </main>
+  </div>
+  <script src="md-manifest.js"></script>
+  <script>
+    const files = (window.MD_VIEWER_FILES || []).sort((a, b) => a.path.localeCompare(b.path));
+    const list = document.getElementById('fileList');
+    const stats = document.getElementById('stats');
+    const search = document.getElementById('search');
+    const preview = document.getElementById('preview');
+    const currentTitle = document.getElementById('currentTitle');
+    const currentPath = document.getElementById('currentPath');
+    let selected = null;
+
+    stats.textContent = files.length ? `${files.length} documentos Markdown indexados` : 'No hay manifiesto generado';
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[char]));
+    }
+
+    function inline(md) {
+      return escapeHtml(md)
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
+    }
+
+    function renderMarkdown(md) {
+      const lines = md.replace(/\r\n/g, '\n').split('\n');
+      let html = '';
+      let inCode = false;
+      let inUl = false;
+      let inOl = false;
+      let table = [];
+
+      function closeLists() {
+        if (inUl) { html += '</ul>'; inUl = false; }
+        if (inOl) { html += '</ol>'; inOl = false; }
+      }
+      function flushTable() {
+        if (!table.length) return;
+        closeLists();
+        const rows = table.filter(row => !/^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(row));
+        if (rows.length) {
+          html += '<table>';
+          rows.forEach((row, index) => {
+            const cells = row.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(cell => inline(cell.trim()));
+            html += '<tr>' + cells.map(cell => index === 0 ? `<th>${cell}</th>` : `<td>${cell}</td>`).join('') + '</tr>';
+          });
+          html += '</table>';
+        }
+        table = [];
+      }
+
+      for (const raw of lines) {
+        const line = raw;
+        if (line.startsWith('```')) {
+          flushTable(); closeLists();
+          if (!inCode) { html += '<pre><code>'; inCode = true; }
+          else { html += '</code></pre>'; inCode = false; }
+          continue;
+        }
+        if (inCode) { html += escapeHtml(line) + '\n'; continue; }
+        if (/^\s*\|.+\|\s*$/.test(line)) { table.push(line); continue; }
+        flushTable();
+        if (!line.trim()) { closeLists(); continue; }
+        const heading = line.match(/^(#{1,6})\s+(.+)$/);
+        if (heading) { closeLists(); const level = heading[1].length; html += `<h${level}>${inline(heading[2])}</h${level}>`; continue; }
+        if (/^>\s+/.test(line)) { closeLists(); html += `<blockquote>${inline(line.replace(/^>\s+/, ''))}</blockquote>`; continue; }
+        const ul = line.match(/^\s*[-*]\s+(.+)$/);
+        if (ul) { if (!inUl) { closeLists(); html += '<ul>'; inUl = true; } html += `<li>${inline(ul[1])}</li>`; continue; }
+        const ol = line.match(/^\s*\d+\.\s+(.+)$/);
+        if (ol) { if (!inOl) { closeLists(); html += '<ol>'; inOl = true; } html += `<li>${inline(ol[1])}</li>`; continue; }
+        closeLists();
+        html += `<p>${inline(line)}</p>`;
+      }
+      flushTable(); closeLists();
+      if (inCode) html += '</code></pre>';
+      return html;
+    }
+
+    function renderList() {
+      const q = search.value.trim().toLowerCase();
+      const filtered = files.filter(file => !q || file.path.toLowerCase().includes(q) || file.content.toLowerCase().includes(q));
+      list.innerHTML = filtered.map((file, index) => `
+        <div class="file ${selected && selected.path === file.path ? 'active' : ''}" data-index="${files.indexOf(file)}">
+          <strong>${escapeHtml(file.name)}</strong>
+          <span>${escapeHtml(file.path)}</span>
+        </div>
+      `).join('') || '<div class="empty">Sin resultados</div>';
+    }
+
+    function openFile(file) {
+      selected = file;
+      currentTitle.textContent = file.name;
+      currentPath.textContent = file.path;
+      preview.innerHTML = renderMarkdown(file.content);
+      location.hash = encodeURIComponent(file.path);
+      renderList();
+    }
+
+    list.addEventListener('click', event => {
+      const item = event.target.closest('.file');
+      if (!item) return;
+      openFile(files[Number(item.dataset.index)]);
+    });
+    search.addEventListener('input', renderList);
+    document.getElementById('copyPath').addEventListener('click', async () => {
+      if (!selected) return;
+      await navigator.clipboard.writeText(selected.path).catch(() => {});
+    });
+
+    renderList();
+    const hashPath = decodeURIComponent(location.hash.replace(/^#/, ''));
+    openFile(files.find(file => file.path === hashPath) || files[0] || { name: 'Sin documentos', path: '', content: '# Sin documentos\n\nNo se ha generado el manifiesto.' });
+  </script>
+</body>
+</html>

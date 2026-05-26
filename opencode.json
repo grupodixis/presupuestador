@@ -1,0 +1,9 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "command": {
+    "visor-md": {
+      "description": "Regenera y abre el visor Markdown local del repositorio.",
+      "prompt": "Ejecuta exactamente este comando desde la raiz del proyecto para regenerar y abrir el visor Markdown: powershell -ExecutionPolicy Bypass -File herramientas\\abrir-visor-md.ps1. Informa al usuario cuántos archivos Markdown quedaron indexados."
+    }
+  }
+}

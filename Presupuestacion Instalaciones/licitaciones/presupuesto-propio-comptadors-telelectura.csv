@@ -1,0 +1,121 @@
+Proyecto,Es Migjorn Gran - Contadores Telelectura y Telecontrol,Expediente,E0038/2026/000001
+,,,,,
+LOTE 1 - TELELECTURA,,,,,
+Partida,Ud,Cantidad,Coste ud,Coste total,Venta proyecto ud,Venta proyecto total
+Contador ultrasonidos DN13/15mm Q3=2.5 R800 LoRaWAN+wM-Bus,ud,1,78.00,78.00,168.00,168.00
+Contador ultrasonidos DN20mm Q3=4 R800 LoRaWAN+wM-Bus,ud,960,82.00,78720.00,168.21,161481.60
+Contador ultrasonidos DN25mm Q3=6.3 R800 LoRaWAN+wM-Bus,ud,5,105.00,525.00,172.87,864.35
+Contador ultrasonidos DN30mm Q3=10 R800 LoRaWAN+wM-Bus,ud,2,130.00,260.00,212.42,424.84
+Contador ultrasonidos DN40mm Q3=16 R800 LoRaWAN+wM-Bus,ud,1,165.00,165.00,305.53,305.53
+Subtotal contadores,ud,969,,79748.00,,170903.00
+,,,,,
+INSTALACION POR CONTADOR (coste unitario),,,,,
+Accesorios hidraulicos (2 llaves, 2 enlaces, juntas, precinto),ud,1,12.00,,,,
+Mano de obra instalacion (1h/ud - cuadrilla 2 of. 1 ayudante + furgo),ud,1,30.00,,,,
+Retirada y gestion RCD contador antiguo (canon vertedero + transp.),ud,1,4.00,,,,
+Configuracion NFC, pruebas estanquidad, verificacion funcional,ud,1,6.00,,,,
+Coordinacion avisos abonados (parte proporcional),ud,1,4.00,,,,
+Desplazamientos + logistica (media 15 km/ud, 5 uds/ruta),ud,1,7.00,,,,
+Total instalacion por contador,ud,1,63.00,61047.00,,,
+,,,,,
+COSTES GENERALES LOTE 1,,,,,
+PA Imprevistos (instalacion),PA,1,344.42,344.42,344.42,344.42
+Gestion residuos (RD 105/2008) - Plan RCD + tasas,PA,1,5100.00,5100.00,5100.00,5100.00
+Seguridad y salud (RD 1627/1997) - Plan SS + EPIs,PA,1,672.26,672.26,672.26,672.26
+Software gestion ARSON/NETMORE (incluido en precio contador),ud,1,0.00,0.00,1710.00,1710.00
+Formacion presencial personal ayuntamiento (1 jornada),ud,1,1200.00,1200.00,,,
+,,,,,
+RESUMEN LOTE 1,IMPORTE,,,,
+PEM propio,148111.00,,,,
+GG 13%,19254.43,,,,
+BI 6%,8886.66,,,,
+PEC propio sin IVA,176252.09,,,,
+IVA 21%,37012.94,,,,
+TOTAL LOTE 1 con IVA,213265.03,,,,
+PEC PROYECTO LOTE 1,246083.23,,,,
+BAJA EUR,-32818.20,,,,
+BAJA %,-13.34%,,,,
+,,,,,
+LOTE 2 - TELECONTROL - POZOS (4 unidades),,,,,,
+Partida,Cant/pozo,Cant total,Coste ud,Coste total,Venta proy ud,Venta proy total
+S4W Small 8-2-2 + GSM4 + ETH (S4WSAS00004),1,4,1300.00,5200.00,1369.03,5476.12
+Alimentacion 24VDC 90W carril DIN (Mean Well o equiv.),1,4,65.00,260.00,122.58,490.32
+Bateria 12Vcc 12Ah plomo gel (Yuasa/Ultracell),1,4,40.00,160.00,46.28,185.12
+Antena 2G-4G 0dB SMA-M 4m (Siretta/Panorama),1,4,25.00,100.00,46.37,185.48
+Emisor pulsos para contador (reed/inductivo),2,8,35.00,280.00,113.45,907.60
+SIM tarjeta comunicaciones (coste anual),1,4,60.00,240.00,113.50,454.00
+Ampliacion 16DI modulo S4W,0.5,2,300.00,600.00,1069.73,2139.46
+Captador nivel CNPI 0-6m (Aplisens/Krohne),1,4,185.00,740.00,251.90,1007.60
+Captador presion CPR 10bar IP68,0.5,2,85.00,170.00,113.45,226.90
+Armario poliester IP65 + instalacion + prog. + config.,1,4,350.00,1400.00,490.32,1961.28
+Datalogger DL4-S LS42 FLEX (ref AB0070F100, max 1179),0.5,2,1060.00,2120.00,944.92,1889.84
+TOTAL POZOS,,,11270.00,,,,14923.72
+,,,,,
+LOTE 2 - DEPOSITOS (1 ud),,,,,,
+Partida,Cant,Coste ud,Coste total,Venta proy ud,Venta proy total
+S4W LARGE 16-4-4 1000I + GSM4 + ETH (S4WSAL00004),1,2080.00,2080.00,2131.46,2131.46
+Alimentacion 24VDC 90W carril DIN,1,65.00,65.00,251.90,251.90
+Bateria 12Vcc 12Ah plomo gel,1,40.00,40.00,46.28,46.28
+Antena 2G-4G 0dB SMA-M 4m,1,25.00,25.00,46.37,46.37
+Emisor pulsos para contador,1,35.00,35.00,113.45,113.45
+SIM tarjeta comunicaciones (coste anual),1,60.00,60.00,113.50,113.50
+Captador nivel CNPI 0-6m,2,185.00,370.00,502.27,1004.54
+Captador presion CPR 10bar IP68,3,85.00,255.00,389.11,1167.33
+Pantalla tactil 7" encastrable S4W (S4-Display),1,280.00,280.00,340.50,340.50
+Datalogger DL4-S LS42 FLEX,1,1060.00,1060.00,1889.84,1889.84
+Armario + instalacion + prog. + config.,1,450.00,450.00,1698.30,1698.30
+TOTAL DEPOSITOS,,,4720.00,,,,8803.47
+,,,,,
+LOTE 2 - SOFTWARE Y CONFIGURACION,,,,,
+Partida,Cant,Coste ud,Coste total,Venta proy ud,Venta proy total
+LX SCADA-P Clase 5000 - 5 informes (licencia),1,4500.00,4500.00,incluido abajo,0.00
+Servidor OPC UA 500RTU + 2000DL (licencia),1,2500.00,2500.00,incluido abajo,0.00
+SG4000 VPN 20 ER S4/S500 (licencia),1,2800.00,2800.00,incluido abajo,0.00
+LX Connect gestion HW centralizada,1,1500.00,1500.00,incluido abajo,0.00
+Programacion Scada + puesta a punto (200h ing.),1,4000.00,4000.00,incluido abajo,0.00
+10 anos actualizaciones y mantenimiento (20% anual s/licencias),1,1500.00,1500.00,incluido abajo,0.00
+PC telecontrol doble monitor + SAI (HP ProDesk + APC),1,1800.00,1800.00,incluido abajo,0.00
+Alta estaciones en telecontrol central (4 pozos),4,200.00,800.00,incluido abajo,0.00
+Formacion presencial operadores (2 jornadas),1,2000.00,2000.00,incluido abajo,0.00
+TOTAL SOFTWARE,1,21400.00,21400.00,17207.84,17207.84
+,,,,,
+RESUMEN LOTE 2,Coste propio,Venta proyecto,Incidencia,,
+PEM POZOS,11270.00,14923.72,3653.72,,
+PEM DEPOSITOS,4720.00,8803.47,4083.47,,
+PEM SOFTWARE,21400.00,17207.84,-4192.16,⚠ software deficitario
+PEM LOTE 2,37390.00,40935.03,3545.03,,
+PEC LOTE 2 (con GG+BI),,,,,
+PEM,40935.03,,,,
+GG 13%,5321.55,,,,
+BI 6%,2456.10,,,,
+PEC sin IVA,48712.68,,,,
+IVA 21%,10229.66,,,,
+TOTAL LOTE 2 con IVA,58942.34,,,,
+PEC PROYECTO LOTE 2,78575.31,,,,
+BAJA EUR,-19632.97,,,,
+BAJA %,-24.99%,,,,⚠ atencion software deficitario
+,,,,,
+RESUMEN OFERTA INTEGRADORA,Proyecto,Coste propio,Margen,,,
+PEM LOTE 1,170903.00,148111.00,22792.00,,,
+PEM LOTE 2,54569.97,40935.03,13634.94,,,
+PEM TOTAL,225472.97,189046.03,36426.94,,,
+GG 13%,29311.49,,,,
+BI 6%,13528.38,,,,
+PEC sin IVA,268312.84,,,,
+,,,,,
+ESCENARIOS DE BAJA,,,,,
+Escenario,Baja %,PEC oferta,Pts economicos,Mejora garantia pts,Mejora plazo pts,Pts totales
+Sin baja,0%,324658.54,70.0,0,0,70.0
+Baja 5%,5%,308425.61,73.7,0,0,73.7
+Baja 8%,8%,298685.86,76.1,4 (2 anos),13.3 (20 dias),93.4
+Baja 10%,10%,292192.69,77.8,4 (2 anos),13.3 (20 dias),95.1
+Baja 10%,10%,292192.69,77.8,6 (3 anos),20.0 (30 dias),103.8
+Baja 12%,12%,285699.52,79.5,4 (2 anos),13.3 (20 dias),96.8
+Baja 15%,15%,275959.76,82.4,6 (3 anos),20.0 (30 dias),108.4
+,,,,,
+PROVEEDORES A CONSULTAR,,,,,
+Equipo,Proveedor,Contacto,,,
+SmartIO contadores ultrasonidos,Cohisa (Conthidra),comercial@cohisa.com / 954717190,,
+ADDRA contadores ultrasonidos,ADD Grup,addgrup.com,,
+SOFREL S4W + DL4W + Scada,Indoa (distribuidor Lacroix Espana),indoa.es,,
+Captadores nivel/presion,Rosetta Technology (Aplisens),rosetta-technology.com,,

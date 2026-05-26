@@ -110,6 +110,17 @@ Para presupuesto rapido al cliente, aplicar por defecto un **10% de margen de ge
 
 ## Materiales (suministro)
 
+### Cortizo
+
+| Campo | Valor |
+|---|---|
+| Especialidad | Sistemas de aluminio y PVC para arquitectura |
+| Uso en presupuestos | Mallorquinas, persianas, carpinteria de aluminio, perfiles y accesorios |
+| Referencia historica | `historico-mallorquinas-cortizo.md` |
+| Serie documentada | Mallorquina COR_STD_BLANCO |
+| Precio historico mallorquina | 160-165 EUR/m2 neto aprox. en 2023 |
+| Criterio actual sin tarifa nueva | 200-230 EUR/m2 de suministro en blanco estandar antes de MO, transporte y margen |
+
 (Consultar base de datos de Notion para lista actualizada de proveedores de acero, inoxidable, aluminio, vidrio, tornilleria, etc.)
 
 ---

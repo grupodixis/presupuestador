@@ -10,8 +10,9 @@ Este documento recoge reglas prácticas aprendidas durante la generación de pre
 
 ## Mano de obra
 
-- Precio hora de referencia indicado por el usuario: **30 €/h**.
-- Usar esta tarifa en presupuestos comerciales cuando no se indique otra.
+- Precio hora de referencia para herreria y estructura metalica indicado por el usuario: **30 €/h**.
+- Precio hora de referencia para carpinteria de aluminio indicado por el usuario: **35 €/h**.
+- Usar la tarifa correspondiente al tipo de trabajo cuando no se indique otra.
 - Si se usa una tabla interna con otras tarifas, documentar la diferencia como criterio interno y no mostrarla en el presupuesto comercial.
 
 ## Presupuesto preview vs presupuesto cliente
@@ -28,13 +29,22 @@ Este documento recoge reglas prácticas aprendidas durante la generación de pre
 
 - Usar formato A4 con estilos `@media print` y `@page { size: A4; margin: 0; }`.
 - Compactar márgenes, tamaños y espaciados en impresión para evitar cortes o segunda página innecesaria.
-- Incluir cabecera corporativa de HAM con logo, contacto y datos públicos:
+- Guardar todos los presupuestos en `presupuestos/` con carpeta numerada `P-AAAA-NNNN-slug`.
+- Antes de crear un nuevo presupuesto, revisar el número más alto en `presupuestos/` y usar el siguiente correlativo.
+- Actualizar `presupuestos/index.html` con enlaces a los HTML/PDF generados.
+- Incluir cabecera corporativa de la empresa que corresponda al presupuesto. Para HAM:
   - Web: `www.hamenorca.com`
   - Email: `info@hamenorca.com`
   - Teléfono: `+34 971 35 20 18`
   - WhatsApp: `+34 669 769 541`
   - Dirección: `Av. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca`
 - El SVG `https://www.hamenorca.com/images/logo-hamenorca-dark.svg` contiene relleno blanco; sobre fondo blanco debe forzarse a negro/gris oscuro con CSS `filter: brightness(0) saturate(100%)`.
+- Para ALUFAC, usar datos publicos de `www.alufac.es`:
+  - Web: `www.alufac.es`
+  - Email: `info@alufac.es`
+  - Telefono/WhatsApp: `+34 669 769 541`
+  - Direccion: `Circunval·lacio, 11, 07710 Sant Lluis, Menorca`
+  - Logo: `https://www.alufac.es/assets/alufac-logo.svg`
 
 ## Solicitud de precios a proveedores
 

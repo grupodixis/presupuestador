@@ -72,6 +72,12 @@ Tabla de referencia de precios de materiales y medidas estándar de suministro. 
 | Perfil angular AISI 304 | 6 m | 6.00 - 8.00 |
 | Perfil angular AISI 316 | 6 m | 9.00 - 12.00 |
 
+### Precios confirmados de proveedor
+
+| Fecha | Proveedor | Material | Medida | Precio €/kg | Condiciones |
+|---|---|---|---|---:|---|
+| 2026-05-25 | Novacero | Ángulo AISI 304 inox | 20x20x2 | 3.66 | IVA/transporte no indicado |
+
 ### Mermas acero inoxidable
 
 | Material | Merma recomendada |

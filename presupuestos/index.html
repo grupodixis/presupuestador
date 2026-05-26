@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Índice de Presupuestos</title>
+  <style>
+    :root {
+      --ink: #20242a;
+      --muted: #667085;
+      --line: #d9e0e8;
+      --soft: #f6f8fb;
+      --brand: #121820;
+      --accent: #b9863a;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #dfe4ea; color: var(--ink); font-family: Arial, Helvetica, sans-serif; line-height: 1.45; }
+    main { max-width: 1180px; margin: 24px auto; background: #fff; padding: 28px; box-shadow: 0 14px 40px rgba(15, 23, 42, 0.14); }
+    header { border-top: 6px solid var(--brand); padding-top: 18px; margin-bottom: 22px; display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; }
+    h1 { margin: 0; color: var(--brand); font-size: 30px; }
+    p { margin: 6px 0; color: var(--muted); }
+    .rule { background: var(--soft); border: 1px solid var(--line); border-left: 5px solid var(--accent); padding: 14px 16px; margin: 18px 0; }
+    table { width: 100%; border-collapse: collapse; margin-top: 18px; }
+    th { background: var(--brand); color: #fff; text-align: left; padding: 11px; font-size: 13px; }
+    td { border-bottom: 1px solid var(--line); padding: 11px; vertical-align: top; }
+    .code { font-family: Consolas, monospace; font-weight: 700; white-space: nowrap; }
+    .muted { color: var(--muted); font-size: 13px; }
+    a { color: #0f4c81; text-decoration: none; font-weight: 700; }
+    a:hover { text-decoration: underline; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .links a { display: inline-block; padding: 5px 8px; background: var(--soft); border: 1px solid var(--line); border-radius: 3px; }
+    .privacy { color: #9a3412; font-weight: 700; }
+    @media (max-width: 760px) {
+      main { margin: 0; padding: 18px; }
+      header { display: block; }
+      table, thead, tbody, th, td, tr { display: block; }
+      thead { display: none; }
+      tr { border: 1px solid var(--line); margin-bottom: 12px; }
+      td { border-bottom: 1px solid var(--line); }
+      td::before { content: attr(data-label); display: block; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .4px; margin-bottom: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Índice de Presupuestos</h1>
+        <p>Listado funcional de presupuestos guardados en la carpeta <strong>presupuestos/</strong>.</p>
+      </div>
+      <p class="muted">Última revisión: 2026-05-26</p>
+    </header>
+
+    <section class="rule">
+      <strong>Criterio:</strong> cada presupuesto usa carpeta <span class="code">P-AAAA-NNNN-slug</span>. Para crear uno nuevo, revisar el último número del año y usar el siguiente correlativo.
+    </section>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Presupuesto</th>
+          <th>Tipo</th>
+          <th>Archivos</th>
+          <th>Notas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Código" class="code">P-2026-0001</td>
+          <td data-label="Presupuesto">Pérgola inox 304L con caña natural</td>
+          <td data-label="Tipo">Técnico + cliente + PDF</td>
+          <td data-label="Archivos"><div class="links"><a href="P-2026-0001-pergola-inox-304l-cana/presupuesto-interno-tecnico.html">Técnico HTML</a><a href="P-2026-0001-pergola-inox-304l-cana/presupuesto-cliente.html">Cliente HTML</a><a href="P-2026-0001-pergola-inox-304l-cana/presupuesto-interno-tecnico.pdf">Técnico PDF</a><a href="P-2026-0001-pergola-inox-304l-cana/presupuesto-cliente.pdf">Cliente PDF</a></div></td>
+          <td data-label="Notas">Sin datos personales.</td>
+        </tr>
+        <tr>
+          <td data-label="Código" class="code">P-2026-0002</td>
+          <td data-label="Presupuesto">Pérgola Terraza 01</td>
+          <td data-label="Tipo">Técnico + cliente</td>
+          <td data-label="Archivos"><div class="links"><a href="P-2026-0002-pergola-terraza-01/presupuesto-interno-tecnico.html">Técnico HTML</a><a href="P-2026-0002-pergola-terraza-01/presupuesto-cliente.html">Cliente HTML</a></div></td>
+          <td data-label="Notas">Recalculada desde plano.</td>
+        </tr>
+        <tr>
+          <td data-label="Código" class="code">P-2026-0003</td>
+          <td data-label="Presupuesto">Barandilla cristal 1 ml</td>
+          <td data-label="Tipo">Preview técnico</td>
+          <td data-label="Archivos"><div class="links"><a href="P-2026-0003-barandilla-cristal-1ml/presupuesto-interno-tecnico.html">Técnico HTML</a></div></td>
+          <td data-label="Notas">Base para presupuesto comercial posterior.</td>
+        </tr>
+        <tr>
+          <td data-label="Código" class="code">P-2026-0004</td>
+          <td data-label="Presupuesto">Barandilla cristal Esther Velasco</td>
+          <td data-label="Tipo">Cliente</td>
+          <td data-label="Archivos"><div class="links"><a href="P-2026-0004-barandilla-cristal-esther-velasco/presupuesto-cliente.html">Cliente HTML</a></div></td>
+          <td data-label="Notas" class="privacy">Contiene datos personales.</td>
+        </tr>
+        <tr>
+          <td data-label="Código" class="code">P-2026-0005</td>
+          <td data-label="Presupuesto">Escalera metálica Carlota Gonzalez</td>
+          <td data-label="Tipo">Cliente</td>
+          <td data-label="Archivos"><div class="links"><a href="P-2026-0005-escalera-metalica-carlota-gonzalez/presupuesto-cliente.html">Cliente HTML</a></div></td>
+          <td data-label="Notas" class="privacy">Contiene datos de cliente.</td>
+        </tr>
+        <tr>
+          <td data-label="Código" class="code">P-2026-0006</td>
+          <td data-label="Presupuesto">Pérgola 11x6 Sant Lluís</td>
+          <td data-label="Tipo">Técnico + cliente</td>
+          <td data-label="Archivos"><div class="links"><a href="P-2026-0006-pergola-11x6-sant-lluis/presupuesto-interno-tecnico.html">Técnico HTML</a><a href="P-2026-0006-pergola-11x6-sant-lluis/presupuesto-cliente.html">Cliente HTML</a></div></td>
+          <td data-label="Notas">Acero carbono, RAL 7034, caña.</td>
+        </tr>
+        <tr>
+          <td data-label="Código" class="code">P-2026-0007</td>
+          <td data-label="Presupuesto">Tendedero inox</td>
+          <td data-label="Tipo">Técnico + cliente</td>
+          <td data-label="Archivos"><div class="links"><a href="P-2026-0007-tenedero-inox/presupuesto-interno-tecnico.html">Técnico HTML</a><a href="P-2026-0007-tenedero-inox/presupuesto-cliente.html">Cliente HTML</a></div></td>
+          <td data-label="Notas">3 ml, 3 triángulos, 6 varillas Ø8.</td>
+        </tr>
+        <tr>
+          <td data-label="Código" class="code">P-2026-0008</td>
+          <td data-label="Presupuesto">Mallorquina aluminio blanco Son Parc</td>
+          <td data-label="Tipo">Técnico + cliente</td>
+          <td data-label="Archivos"><div class="links"><a href="P-2026-0008-mallorquina-aluminio-blanco-son-parc/presupuesto-interno-tecnico.html">Técnico HTML</a><a href="P-2026-0008-mallorquina-aluminio-blanco-son-parc/presupuesto-cliente.html">Cliente HTML</a></div></td>
+          <td data-label="Notas">4 hojas abatibles, aluminio lacado blanco, lama fija.</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
