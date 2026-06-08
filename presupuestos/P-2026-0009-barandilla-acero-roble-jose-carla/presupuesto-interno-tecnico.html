@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuesto Técnico Interno - Barandilla Maó (P-2026-0009)</title>
+  <style>
+    :root {
+      --ink: #20242a;
+      --muted: #667085;
+      --line: #d9e0e8;
+      --soft: #f6f8fb;
+      --brand: #121820;
+      --accent: #b9863a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #dfe4ea;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 1.38;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 18px auto;
+      background: #fff;
+      box-shadow: 0 14px 40px rgba(15,23,42,.14);
+      padding: 14mm;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+      border-top: 6px solid var(--brand);
+      padding-top: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .company { display: flex; gap: 16px; }
+    .logo { width: 155px; flex: 0 0 155px; }
+    .logo img { width: 100%; filter: brightness(0) saturate(100%); }
+    h1, h2, h3 { color: var(--brand); }
+    .company h1 { font-size: 18px; margin: 0; }
+    .company p, .meta p, .small { margin: 2px 0; color: var(--muted); font-size: 11px; }
+    .meta { text-align: right; }
+    .meta h2 { font-size: 25px; margin: 0 0 6px; text-transform: uppercase; }
+    .ref {
+      display: inline-block;
+      padding: 5px 9px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      font-weight: 700;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 14px 0;
+    }
+    .card {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 9px;
+    }
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+    .value {
+      display: block;
+      font-weight: 700;
+      font-size: 15px;
+      margin-top: 3px;
+    }
+    h3 {
+      font-size: 15px;
+      margin: 18px 0 7px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--line);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6px 0 13px;
+    }
+    th {
+      background: var(--brand);
+      color: #fff;
+      text-align: left;
+      padding: 7px;
+      font-size: 11px;
+    }
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 7px;
+      vertical-align: top;
+    }
+    .right { text-align: right; white-space: nowrap; }
+    .total-row td {
+      background: #fbf8f2;
+      border-top: 2px solid var(--accent);
+      font-weight: 700;
+    }
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .note {
+      border-left: 4px solid var(--accent);
+      background: #fff8ed;
+      padding: 9px 11px;
+      margin: 10px 0;
+    }
+    .price {
+      border: 2px solid var(--brand);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 12px;
+    }
+    .price div { padding: 13px; }
+    .price .final {
+      background: var(--brand);
+      color: #fff;
+      text-align: right;
+    }
+    .amount {
+      font-size: 25px;
+      font-weight: 700;
+      margin-top: 3px;
+    }
+    footer {
+      margin-top: 18px;
+      padding-top: 9px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 10px;
+    }
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { background: #fff; font-size: 10px; line-height: 1.18; }
+      .page { width: 210mm; min-height: 297mm; margin: 0; box-shadow: none; padding: 8mm 9mm; }
+      header { padding-top: 8px; padding-bottom: 7px; }
+      .logo { width: 115px; flex-basis: 115px; }
+      .company h1 { font-size: 14px; }
+      .company p, .meta p, .small { font-size: 8.8px; }
+      .meta h2 { font-size: 19px; }
+      .grid { gap: 6px; margin: 8px 0; }
+      .card { padding: 6px; }
+      .label { font-size: 8px; }
+      .value { font-size: 11px; }
+      h3 { font-size: 11.5px; margin: 9px 0 4px; }
+      table { margin: 4px 0 7px; }
+      th, td { padding: 4px 5px; }
+      th { font-size: 9px; }
+      .note { padding: 6px 8px; margin: 6px 0; }
+      .price div { padding: 8px; }
+      .amount { font-size: 20px; }
+      footer { font-size: 8px; margin-top: 8px; padding-top: 5px; }
+      table, .price, h3 { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <section class="company">
+      <div class="logo"><img src="https://www.hamenorca.com/images/logo-hamenorca-dark.svg" alt="HAM"></div>
+      <div>
+        <h1>HAM Estructuras Metálicas</h1>
+        <p>Presupuesto técnico interno.</p>
+        <p>Av. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca</p>
+        <p>info@hamenorca.com · +34 971 35 20 18 · WhatsApp +34 669 769 541</p>
+      </div>
+    </section>
+    <section class="meta">
+      <h2>Técnico</h2>
+      <div class="ref">P-2026-0009-TEC</div>
+      <p>Fecha: 29/05/2026</p>
+      <p>Validez comercial: 30 días</p>
+    </section>
+  </header>
+
+  <section class="grid">
+    <article class="card"><span class="label">Producto</span><span class="value">Barandilla Especial</span></article>
+    <article class="card"><span class="label">Medida Total</span><span class="value">16,64 ml (12 tramos)</span></article>
+    <article class="card"><span class="label">Estructura</span><span class="value">Acero RAL 9005</span></article>
+    <article class="card"><span class="label">Pasamanos</span><span class="value">Roble Macizo Ø45</span></article>
+  </section>
+
+  <h3>Hipótesis De Cálculo</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td>Material de estructura</td>
+        <td class="right">Acero al carbono S275, lacado al horno RAL 9005 negro mate</td>
+      </tr>
+      <tr>
+        <td>Pasamanos</td>
+        <td class="right">Madera de roble macizo, sección circular Ø45 mm, acabado natural</td>
+      </tr>
+      <tr>
+        <td>Distribución y tramos</td>
+        <td class="right">12 tramos en 4 plantas (total 16,64 ml). Escalera de 0,90 m de ancho útil</td>
+      </tr>
+      <tr>
+        <td>Postes verticales</td>
+        <td class="right">29 postes de tubo cuadrado 40x40x2 mm (separación ≤ 1,50 m)</td>
+      </tr>
+      <tr>
+        <td>Seguridad infantil</td>
+        <td class="right">9 líneas horizontales en redondo macizo Ø12 mm (hueco libre de 8,8 cm)</td>
+      </tr>
+      <tr>
+        <td>Tipo de anclaje</td>
+        <td class="right">Top mount químico M10 inox A4 (2 taladros por poste = 58 fijaciones)</td>
+      </tr>
+      <tr>
+        <td>Complejidad del soporte</td>
+        <td class="right">Perforación fina sobre gres porcelánico Keraben de 10 mm sobre zanca de hormigón</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="two">
+    <section>
+      <h3>Despiece Estimado</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td>Tubo 40x40x2 (Postes, 29 x 1,00 m)</td>
+            <td class="right">29,0 ml</td>
+          </tr>
+          <tr>
+            <td>Merma tubo (5% - aprovecha retales)</td>
+            <td class="right">1,5 ml</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total tubo 40x40x2 (5 barras de 6 m)</td>
+            <td class="right">30,0 ml</td>
+          </tr>
+          <tr>
+            <td>Redondo macizo Ø12 (9 líneas x 16,64 ml)</td>
+            <td class="right">149,8 ml</td>
+          </tr>
+          <tr>
+            <td>Merma redondo macizo (5%)</td>
+            <td class="right">7,5 ml</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total redondo Ø12 (25 barras de 6 m)</td>
+            <td class="right">150,0 ml</td>
+          </tr>
+          <tr>
+            <td>Pletina 40x4 de soporte superior</td>
+            <td class="right">16,6 ml</td>
+          </tr>
+          <tr>
+            <td>Merma pletina (8%)</td>
+            <td class="right">1,4 ml</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total pletina 40x4 (3 barras de 6 m)</td>
+            <td class="right">18,0 ml</td>
+          </tr>
+          <tr>
+            <td>Pasamanos roble macizo (16,64 ml)</td>
+            <td class="right">16,6 ml</td>
+          </tr>
+          <tr>
+            <td>Merma madera roble (8% por ingletes)</td>
+            <td class="right">1,4 ml</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total pasamanos roble a comprar</td>
+            <td class="right">18,0 ml</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h3>Pesos Estimados (Logística)</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td>Tubo 40x40x2 mm (2,30 kg/ml)</td>
+            <td class="right">69,0 kg</td>
+          </tr>
+          <tr>
+            <td>Redondo macizo Ø12 (0,888 kg/ml)</td>
+            <td class="right">133,2 kg</td>
+          </tr>
+          <tr>
+            <td>Pletina 40x4 mm (1,26 kg/ml)</td>
+            <td class="right">22,7 kg</td>
+          </tr>
+          <tr>
+            <td>Placas de anclaje base 6 mm (29 uds)</td>
+            <td class="right">15,0 kg</td>
+          </tr>
+          <tr class="total-row">
+            <td>Peso total acero laminado</td>
+            <td class="right">239,9 kg</td>
+          </tr>
+          <tr>
+            <td>Madera de roble (aprox. 0,9 kg/ml)</td>
+            <td class="right">16,2 kg</td>
+          </tr>
+          <tr class="total-row">
+            <td>Peso total del bulto (con embalajes)</td>
+            <td class="right">265,0 kg</td>
+          </tr>
+          <tr>
+            <td>Transporte peninsular + marítimo</td>
+            <td class="right">0,20 €/kg</td>
+          </tr>
+          <tr>
+            <td>Coste de envío calculado (mínimo 60 €)</td>
+            <td class="right">60,00 €</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <h3>Desglose del Coste Técnico Base</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th class="right">Cantidad / Peso</th>
+        <th class="right">Precio Unitario</th>
+        <th class="right">Importe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tubo acero carbono 40x40x2 (postes)</td>
+        <td class="right">69,0 kg</td>
+        <td class="right">1,80 €/kg + 0,20 € porte</td>
+        <td class="right">138,00 €</td>
+      </tr>
+      <tr>
+        <td>Redondo macizo Ø12 (líneas de seguridad)</td>
+        <td class="right">133,2 kg</td>
+        <td class="right">1,40 €/kg + 0,20 € porte</td>
+        <td class="right">213,12 €</td>
+      </tr>
+      <tr>
+        <td>Pletina soporte pasamanos 40x4</td>
+        <td class="right">22,7 kg</td>
+        <td class="right">1,40 €/kg + 0,20 € porte</td>
+        <td class="right">36,32 €</td>
+      </tr>
+      <tr>
+        <td>Placas base de anclaje (chapa 6mm)</td>
+        <td class="right">15,0 kg</td>
+        <td class="right">1,10 €/kg + 0,20 € porte</td>
+        <td class="right">19,50 €</td>
+      </tr>
+      <tr>
+        <td>Tapas embellecedoras de base (negras mate)</td>
+        <td class="right">29 uds</td>
+        <td class="right">3,00 €/ud</td>
+        <td class="right">87,00 €</td>
+      </tr>
+      <tr>
+        <td>Pasamanos de madera de roble macizo Ø45 mm</td>
+        <td class="right">18,0 ml</td>
+        <td class="right">45,00 €/ml</td>
+        <td class="right">810,00 €</td>
+      </tr>
+      <tr>
+        <td>Herrajes/soportes superiores pasamanos</td>
+        <td class="right">29 uds</td>
+        <td class="right">5,00 €/ud</td>
+        <td class="right">145,00 €</td>
+      </tr>
+      <tr>
+        <td>Anclajes químicos M10 A4 inoxidables completos</td>
+        <td class="right">58 uds</td>
+        <td class="right">4,50 €/ud</td>
+        <td class="right">261,00 €</td>
+      </tr>
+      <tr>
+        <td>Brocas de diamante refrigeradas (Keraben 10mm)</td>
+        <td class="right">3 uds</td>
+        <td class="right">25,00 €/ud</td>
+        <td class="right">75,00 €</td>
+      </tr>
+      <tr>
+        <td>Tratamiento superficial: Lacado al horno RAL 9005</td>
+        <td class="right">240,0 kg</td>
+        <td class="right">2,00 €/kg</td>
+        <td class="right">480,00 €</td>
+      </tr>
+      <tr>
+        <td>Consumibles de taller (discos, soldadura, gas)</td>
+        <td class="right">global</td>
+        <td class="right">120,00 €</td>
+        <td class="right">120,00 €</td>
+      </tr>
+      <tr>
+        <td>Mano de obra taller (Corte, soldadura MIG de 261 uniones, repaso)</td>
+        <td class="right">48 horas</td>
+        <td class="right">30,00 €/h</td>
+        <td class="right">1.440,00 €</td>
+      </tr>
+      <tr>
+        <td>Mano de obra montaje (Perforación fina porcelánico + química)</td>
+        <td class="right">36 horas</td>
+        <td class="right">30,00 €/h</td>
+        <td class="right">1.080,00 €</td>
+      </tr>
+      <tr>
+        <td>Transporte y portes a pie de obra en Maó</td>
+        <td class="right">global</td>
+        <td class="right">120,00 €</td>
+        <td class="right">120,00 €</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="3">Coste Técnico Base</td>
+        <td class="right">5.030,06 €</td>
+      </tr>
+      <tr>
+        <td colspan="3">Factor de Complejidad (x 1,30 - 12 tramos, 4 pisos, madera)</td>
+        <td class="right">1.509,02 €</td>
+      </tr>
+      <tr>
+        <td colspan="3">Factor de Riesgo Técnico (x 1,10 - rotura porcelánico Keraben)</td>
+        <td class="right">653,91 €</td>
+      </tr>
+      <tr>
+        <td colspan="3">Margen Comercial, redondeo y coeficiente de gestión comercial</td>
+        <td class="right">2.407,01 €</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="3">Precio Venta Recomendado (Base Imponible)</td>
+        <td class="right">9.600,00 €</td>
+      </tr>
+      <tr>
+        <td colspan="3">IVA General (21%)</td>
+        <td class="right">2.016,00 €</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <section class="price">
+    <div>
+      <span class="label">Base Imponible</span>
+      <div class="amount">9.600,00 €</div>
+    </div>
+    <div class="final">
+      <span class="label">Total con IVA Incluido</span>
+      <div class="amount">11.616,00 €</div>
+    </div>
+  </section>
+
+  <div class="note">
+    <strong>Nota de seguridad para el equipo de montaje:</strong> La perforación sobre el pavimento porcelánico Keraben Rue de Paris de 10 mm debe realizarse exclusivamente con corona de diamante refrigerada y sin aplicar percusión al taladro hasta rebasar la baldosa. Cualquier presión o percusión excesiva agrietará irreversiblemente los peldaños, lo cual está cubierto bajo el 10% del factor de riesgo técnico pero debe evitarse operativamente.
+  </div>
+
+  <footer>
+    <span>P-2026-0009-TEC · Barandilla Escalera Jose y Carla</span>
+    <span>Base: 9.600,00 € · Total: 11.616,00 €</span>
+  </footer>
+</main>
+</body>
+</html>

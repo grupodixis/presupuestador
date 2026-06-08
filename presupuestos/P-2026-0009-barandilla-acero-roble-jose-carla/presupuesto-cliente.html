@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuesto Comercial - Barandilla Jose y Carla (Maó)</title>
+  <style>
+    :root {
+      --ink: #20242a;
+      --muted: #667085;
+      --line: #d9e0e8;
+      --soft: #f6f8fb;
+      --brand: #121820;
+      --accent: #b9863a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #dfe4ea;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 18px auto;
+      background: #fff;
+      box-shadow: 0 14px 40px rgba(15,23,42,.14);
+      padding: 16mm;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+      border-top: 6px solid var(--brand);
+      padding-top: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .company { display: flex; gap: 18px; }
+    .logo { width: 168px; flex: 0 0 168px; }
+    .logo img { width: 100%; filter: brightness(0) saturate(100%); }
+    .company h1 { margin: 0; color: var(--brand); font-size: 19px; }
+    .company p, .meta p, .small { margin: 3px 0; color: var(--muted); font-size: 12px; }
+    .meta { text-align: right; min-width: 210px; }
+    .meta h2 {
+      margin: 0 0 8px;
+      color: var(--brand);
+      font-size: 27px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .ref {
+      display: inline-block;
+      padding: 6px 10px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      font-weight: 700;
+    }
+    .hero {
+      margin: 18px 0;
+      padding: 18px 20px;
+      border-left: 5px solid var(--accent);
+      background: linear-gradient(135deg, #f7f8fb 0%, #fff 72%);
+    }
+    .hero h2 { margin: 0 0 8px; color: var(--brand); font-size: 22px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 18px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      padding: 12px;
+    }
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 5px;
+    }
+    .value { font-weight: 700; font-size: 16px; }
+    h3 {
+      margin: 22px 0 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+      color: var(--brand);
+      font-size: 17px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 16px;
+    }
+    th {
+      background: var(--brand);
+      color: #fff;
+      text-align: left;
+      padding: 10px;
+      font-size: 12px;
+    }
+    td {
+      padding: 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .right { text-align: right; white-space: nowrap; }
+    .total-row td {
+      background: #fbf8f2;
+      border-top: 2px solid var(--accent);
+      font-weight: 700;
+    }
+    .price {
+      margin: 22px 0;
+      border: 2px solid var(--brand);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .price .base { padding: 18px; background: var(--soft); }
+    .price .final {
+      padding: 18px;
+      background: var(--brand);
+      color: #fff;
+      text-align: right;
+    }
+    .amount { font-size: 31px; font-weight: 700; margin-top: 4px; }
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    ul { margin: 8px 0 14px 18px; padding: 0; }
+    li { margin: 5px 0; }
+    .notice {
+      padding: 12px 14px;
+      background: #fff8ed;
+      border-left: 4px solid var(--accent);
+      margin: 14px 0;
+    }
+    .sign {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .sig {
+      min-height: 90px;
+      border: 1px solid var(--line);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .sig strong { color: var(--ink); display: block; margin-bottom: 30px; }
+    footer {
+      margin-top: 28px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 11px;
+    }
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { background: #fff; font-size: 10.5px; line-height: 1.22; }
+      .page { width: 210mm; min-height: 297mm; margin: 0; box-shadow: none; padding: 8mm 10mm; }
+      header { padding-top: 9px; padding-bottom: 8px; gap: 12px; }
+      .logo { width: 122px; flex-basis: 122px; }
+      .company { gap: 11px; }
+      .company h1 { font-size: 15px; }
+      .company p, .meta p, .small { font-size: 9.5px; margin: 1px 0; }
+      .meta h2 { font-size: 21px; }
+      .hero { margin: 8px 0; padding: 9px 12px; }
+      .hero h2 { font-size: 16px; }
+      .grid { margin: 8px 0; gap: 7px; }
+      .card { padding: 7px; }
+      .label { font-size: 8.5px; }
+      .value { font-size: 12px; }
+      h3 { margin: 10px 0 4px; font-size: 12.5px; }
+      table { margin: 4px 0 8px; }
+      th, td { padding: 4px 6px; }
+      th { font-size: 9.5px; }
+      .price { margin: 9px 0; }
+      .price .base, .price .final { padding: 9px 11px; }
+      .amount { font-size: 22px; }
+      .two { gap: 10px; }
+      ul { margin: 4px 0 7px 14px; }
+      li { margin: 1px 0; }
+      .notice { padding: 7px 9px; margin: 7px 0; }
+      .sign { margin-top: 10px; gap: 10px; }
+      .sig { min-height: 46px; padding: 7px; font-size: 9.5px; }
+      .sig strong { margin-bottom: 14px; }
+      footer { margin-top: 10px; padding-top: 6px; font-size: 8.5px; }
+      table, .price, h3 { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <section class="company">
+      <div class="logo"><img src="https://www.hamenorca.com/images/logo-hamenorca-dark.svg" alt="HAM"></div>
+      <div>
+        <h1>HAM Estructuras Metálicas</h1>
+        <p>Fabricación y montaje de estructuras metálicas, herrería y soluciones a medida en Menorca.</p>
+        <p>Av. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca</p>
+        <p>info@hamenorca.com · +34 971 35 20 18 · WhatsApp +34 669 769 541</p>
+        <p>www.hamenorca.com</p>
+      </div>
+    </section>
+    <section class="meta">
+      <h2>Presupuesto</h2>
+      <div class="ref">BAR-MAO-009</div>
+      <p>Fecha: 29/05/2026</p>
+      <p>Validez: 30 días</p>
+    </section>
+  </header>
+
+  <section class="hero">
+    <h2>Barandilla interior combinada de acero lacado y roble macizo</h2>
+    <p>Presupuesto orientativo para la fabricación, suministro y montaje en obra de barandilla interior a medida para escalera de 12 tramos (4 plantas) en vivienda unifamiliar en Maó, diseñada con estructura metálica de seguridad infantil y pasamanos de roble macizo natural.</p>
+  </section>
+
+  <section class="grid">
+    <article class="card"><span class="label">Longitud Estimada</span><span class="value">16,64 ml</span></article>
+    <article class="card"><span class="label">Distribución</span><span class="value">12 tramos (4 pl.)</span></article>
+    <article class="card"><span class="label">Color Metal</span><span class="value">RAL 9005 Mate</span></article>
+    <article class="card"><span class="label">Montaje en Obra</span><span class="value">Incluido (Maó)</span></article>
+  </section>
+
+  <h3>Desglose de Partidas</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Partida</th>
+        <th>Descripción</th>
+        <th class="right">Importe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. Estructura de acero lacada al horno</strong></td>
+        <td>
+          Fabricación de estructura metálica en acero al carbono S275 a medida para 12 tramos inclinados y de meseta. Compuesta por 29 postes verticales de tubo cuadrado de 40x40x2 mm y un entramado de protección infantil de 9 líneas horizontales de redondo macizo de Ø12 mm soldadas, con separación libre entre elementos de 88 mm (inferior al límite normativo de 100 mm). Tratamiento superficial mediante desengrase, granallado, aplicación de imprimación y acabado con laca de poliuretano aplicada en polvo y polimerizada al horno en color negro mate RAL 9005.
+        </td>
+        <td class="right">4.200,00 €</td>
+      </tr>
+      <tr>
+        <td><strong>2. Pasamanos de madera de roble macizo</strong></td>
+        <td>
+          Suministro e instalación de pasamanos continuo de madera de roble macizo de primera calidad, sección circular de Ø45 mm. Incluye soportes superiores y herrajes metálicos de fijación a la estructura de acero, cortes a inglete de gran precisión en los cambios de dirección de las plantas, lijado fino, y tratamiento protector con barniz poliuretano al agua con acabado natural satinado de alta resistencia al roce.
+        </td>
+        <td class="right">2.800,00 €</td>
+      </tr>
+      <tr>
+        <td><strong>3. Anclajes químicos y tapas estéticas</strong></td>
+        <td>
+          Suministro de 58 puntos de fijación química M10 para anclaje superior de postes sobre zancas de hormigón. Formado por espárragos roscados de acero inoxidable AISI 316 (A4), tuercas ciegas de seguridad inoxidables y resina de inyección epoxi bicomponente de alta capacidad de carga estructural. Incluye 29 tapas embellecedoras de base metálicas lacadas a juego en color negro mate RAL 9005 para la ocultación estética de las placas base de anclaje.
+        </td>
+        <td class="right">1.100,00 €</td>
+      </tr>
+      <tr>
+        <td><strong>4. Transporte y montaje especializado</strong></td>
+        <td>
+          Replanteo y medición milimétrica fina previa en la obra en Maó. Embalaje y transporte seguro de elementos a pie de obra. Elevación manual de materiales a lo largo de las 4 plantas de la vivienda. Ejecución del montaje especializado que incluye el taladrado de precisión de 58 orificios sobre el revestimiento porcelánico existente de alta dureza (Keraben Rue de Paris de 10 mm de espesor) utilizando brocas refrigeradas por agua de corona de diamante y corte húmedo sin percusión para evitar fisuras o roturas de pavimentos, inyección del anclaje, aplomado, nivelación de estructura, y colocación de remates de pasamanos.
+        </td>
+        <td class="right">1.500,00 €</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="2">Base Imponible</td>
+        <td class="right">9.600,00 €</td>
+      </tr>
+      <tr>
+        <td colspan="2">IVA General (21%)</td>
+        <td class="right">2.016,00 €</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="2">Total Presupuesto</td>
+        <td class="right">11.616,00 €</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <section class="price">
+    <div class="base">
+      <span class="label">Base Imponible</span>
+      <div class="amount">9.600,00 €</div>
+    </div>
+    <div class="final">
+      <span class="label">Total con IVA Incluido</span>
+      <div class="amount">11.616,00 €</div>
+    </div>
+  </section>
+
+  <section class="two">
+    <div>
+      <h3>Incluido</h3>
+      <ul>
+        <li>Replanteo y medición final in situ antes de la fabricación.</li>
+        <li>Diseño y despiece técnico por delineante de oficina técnica.</li>
+        <li>Fabricación de estructura metálica y tratamiento de lacado al horno RAL 9005.</li>
+        <li>Suministro y barnizado de pasamanos de roble macizo.</li>
+        <li>Tapas metálicas de base y fijaciones químicas de acero inoxidable A4.</li>
+        <li>Transporte y montaje especializado a cargo de oficiales montadores propios.</li>
+        <li>Garantía de ejecución y nivelación según CTE SUA.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No Incluido</h3>
+      <ul>
+        <li>Reparación de zancas de hormigón armado o soportes de obra en mal estado.</li>
+        <li>Sustitución de baldosas porcelánicas Keraben previas si estas ya presentaran fisuras ocultas o estuvieran mal adheridas a la base de mortero.</li>
+        <li>Licencias de obras, permisos municipales o tasas de cualquier índole.</li>
+        <li>Trabajos de pintura en paredes colindantes o revestimientos no metálicos.</li>
+        <li>Cualquier elemento o tramo no especificado en las mediciones del encargo.</li>
+      </ul>
+    </div>
+  </section>
+
+  <h3>Condiciones Comerciales</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td>Forma de pago</td>
+        <td>100% a la aceptación del presupuesto (para la reserva de perfiles, madera noble y programación del lacado al horno).</td>
+      </tr>
+      <tr>
+        <td>Plazo de entrega</td>
+        <td>Estimado en 3 a 4 semanas a partir de la firma de la aceptación y la medición definitiva por nuestros técnicos en la obra.</td>
+      </tr>
+      <tr>
+        <td>Validez de la oferta</td>
+        <td>30 días naturales desde la fecha de emisión del documento.</td>
+      </tr>
+      <tr>
+        <td>Garantía técnica</td>
+        <td>2 años en la fabricación de los elementos metálicos y de madera; 1 año en la ejecución del montaje e instalación en obra.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="notice">
+    <strong>Aviso técnico para la propiedad:</strong> El presente presupuesto ha sido calculado de acuerdo con las mediciones orientativas suministradas por los clientes (12 tramos, 16,64 ml totales, 4 plantas). El precio final queda supeditado a la confirmación de las medidas en obra por nuestros técnicos. La fijación sobre peldaños porcelánicos de 10 mm se realiza bajo estrictos protocolos de corte húmedo con brocas profesionales diamantadas y sin impacto, asegurando que las piezas no sufran daños durante la instalación.
+  </div>
+
+  <section class="sign">
+    <div class="sig">
+      <strong>Por HAM Estructuras Metálicas</strong>
+      Oficina Técnica de Presupuestación<br>
+      Firma y Fecha: 29/05/2026
+    </div>
+    <div class="sig">
+      <strong>Aceptación del Cliente (Jose y Carla)</strong>
+      Nombre:<br>
+      Firma y Fecha:
+    </div>
+  </section>
+
+  <footer>
+    <span>Presupuesto BAR-MAO-009 · Barandilla de escaleras combinada</span>
+    <span>Base: 9.600,00 € · Total: 11.616,00 €</span>
+  </footer>
+</main>
+</body>
+</html>
