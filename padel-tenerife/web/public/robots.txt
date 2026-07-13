@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://padeltenerife.es/sitemap.xml

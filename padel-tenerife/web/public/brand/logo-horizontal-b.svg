@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 128" role="img" aria-labelledby="title desc">
+  <title id="title">Padel Tenerife logo B</title>
+  <desc id="desc">Horizontal Padel Tenerife logo with shield court mark.</desc>
+  <rect width="560" height="128" rx="24" fill="#f4f7f1"/>
+  <g transform="translate(24 14)">
+    <rect width="100" height="100" rx="22" fill="#f8e34b"/>
+    <path d="M18 18h64v35c0 19-13 35-32 41-19-6-32-22-32-41V18Z" fill="#07120f"/>
+    <path d="M31 31h38v42H31V31Z" fill="none" stroke="#0fb36f" stroke-width="5"/>
+    <path d="M50 31v42M31 52h38" fill="none" stroke="#0fb36f" stroke-width="3"/>
+    <circle cx="70" cy="26" r="8" fill="#d8ff3e"/>
+    <text x="50" y="68" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="900" fill="#ffffff">PT</text>
+  </g>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="148" y="58" font-size="40" font-weight="950" fill="#07120f">Padel Tenerife</text>
+    <path d="M150 74h190" stroke="#0fb36f" stroke-width="6" stroke-linecap="round"/>
+    <text x="148" y="101" font-size="18" font-weight="800" fill="#056449">Entrena mejor. Juega con plan.</text>
+  </g>
+</svg>

@@ -1,0 +1,535 @@
+---
+import "../styles/global.css";
+
+const phoneDisplay = "+34 657 67 40 26";
+const phoneHref = "https://wa.me/34657674026?text=Hola%20Tomi%2C%20quiero%20informaci%C3%B3n%20sobre%20clases%20de%20p%C3%A1del%20en%20Tenerife.";
+const email = "info@padeltenerife.es";
+const canonical = "https://padeltenerife.es/";
+
+const services = [
+  {
+    title: "Iniciación",
+    text: "Aprende desde cero con técnica clara, posición en pista y primeras rutinas para jugar con seguridad.",
+    tag: "Empieza bien",
+  },
+  {
+    title: "Perfeccionamiento",
+    text: "Mejora volea, bandeja, defensa, salida de pared y toma de decisiones para competir con más intención.",
+    tag: "Sube nivel",
+  },
+  {
+    title: "Mantenimiento",
+    text: "Mantén ritmo, sensaciones y confianza con sesiones puntuales o recurrentes según tu disponibilidad.",
+    tag: "No pares",
+  },
+];
+
+const classPrograms = [
+  {
+    title: "Programa Iniciación",
+    label: "Base técnica",
+    duration: "4 sesiones recomendadas",
+    summary:
+      "Para empezar desde cero o corregir vicios iniciales con una base sencilla, práctica y segura.",
+    idealFor: "adultos que quieren aprender pádel sin sentirse perdidos en pista.",
+    sessions: [
+      "Empuñadura, control de bola, derecha y revés.",
+      "Posición en pista, defensa básica y primeras salidas de pared.",
+      "Subida a la red, volea, bandeja simple y transición.",
+      "Primer partido guiado con normas, colocación y toma de decisiones.",
+    ],
+  },
+  {
+    title: "Programa Perfeccionamiento",
+    label: "Subida de nivel",
+    duration: "4-6 sesiones",
+    summary:
+      "Para jugadores que ya compiten o juegan cada semana y quieren reducir errores y ganar intención.",
+    idealFor: "nivel medio que necesita mejorar golpes, defensa, ataque y lectura del punto.",
+    sessions: [
+      "Diagnóstico de nivel y patrón de errores no forzados.",
+      "Volea, bandeja o víbora básica y dominio de la red.",
+      "Defensa, globo, contragolpe y salida de pared.",
+      "Construcción del punto: cuándo acelerar, defender o jugar cruzado.",
+      "Táctica de pareja, comunicación y ocupación de espacios.",
+      "Partido guiado con objetivos y plan de mejora.",
+    ],
+  },
+  {
+    title: "Programa Mantenimiento",
+    label: "Ritmo semanal",
+    duration: "sesión semanal o quincenal",
+    summary:
+      "Para mantener sensaciones, ritmo de bola y confianza cuando no quieres perder continuidad.",
+    idealFor: "jugadores que entrenan poco, vuelven tras pausa o preparan partidos sociales.",
+    sessions: [
+      "Activación técnica y revisión rápida de golpes clave.",
+      "Volumen de bola para consistencia, control y movilidad.",
+      "Situaciones reales: defensa, red, transición y punto largo.",
+      "Cierre con dos objetivos simples para el siguiente partido.",
+    ],
+  },
+  {
+    title: "Programa Parejas y Grupo Reducido",
+    label: "2-4 jugadores",
+    duration: "clase puntual o bono",
+    summary:
+      "Entrenamiento compartido para mejorar coordinación, comunicación y patrones de juego.",
+    idealFor: "parejas de liga, amigos con nivel similar o grupos que reservan pista juntos.",
+    sessions: [
+      "Colocación de pareja en defensa y ataque.",
+      "Comunicación, coberturas y bolas al centro.",
+      "Patrones de saque, resto, globo, volea y bandeja.",
+      "Partido condicionado con correcciones durante el juego.",
+    ],
+  },
+  {
+    title: "Diagnóstico y Partido Guiado",
+    label: "Clase puntual",
+    duration: "1 sesión",
+    summary:
+      "Una sesión para valorar nivel real, detectar prioridades y salir con un plan claro.",
+    idealFor: "quien no sabe qué clase elegir o quiere una corrección concreta antes de seguir.",
+    sessions: [
+      "Calentamiento y observación de golpes base.",
+      "Puntos guiados para ver decisiones, posición y ritmo.",
+      "Corrección prioritaria: una o dos mejoras accionables.",
+      "Recomendación de programa, frecuencia y tipo de pista.",
+    ],
+  },
+];
+
+const objectiveServices = [
+  "Clase individual 1:1",
+  "Clases para parejas",
+  "Grupos reducidos 3-4",
+  "Diagnóstico de nivel",
+  "Corrección de golpes",
+  "Salida de pared y defensa",
+  "Volea, bandeja y red",
+  "Táctica de pareja",
+  "Partido guiado",
+  "Preparación para ligas y torneos sociales",
+];
+const zones = [
+  "Santa Cruz",
+  "La Laguna",
+  "Tegueste",
+  "Tacoronte",
+  "Puerto de la Cruz",
+  "La Orotava",
+  "Los Realejos",
+  "Candelaria",
+  "Güímar",
+  "Adeje",
+  "Arona",
+  "Los Cristianos",
+  "Costa Adeje",
+  "Granadilla",
+  "El Médano",
+];
+
+const faqs = [
+  {
+    question: "¿Necesito tener club o pista?",
+    answer:
+      "No necesariamente. Si ya tienes pista habitual, lo valoramos. Si no, buscamos una opción viable según tu zona, horario y las normas de cada instalación.",
+  },
+  {
+    question: "¿La pista está incluida?",
+    answer:
+      "Se confirma en cada caso. Como las clases pueden coordinarse en diferentes clubes o pistas, el coste de reserva puede variar.",
+  },
+  {
+    question: "¿Puedo empezar desde cero?",
+    answer:
+      "Sí. Las clases de iniciación están pensadas para adultos que quieren aprender pádel con una base técnica sencilla y práctica.",
+  },
+  {
+    question: "¿Hay clases para parejas o grupos?",
+    answer:
+      "Sí. Se pueden organizar clases individuales, para dos personas o en grupo reducido cuando el nivel y la pista lo permiten.",
+  },
+  {
+    question: "¿Qué puedo trabajar en una clase de perfeccionamiento?",
+    answer:
+      "Podemos trabajar volea, bandeja, salida de pared, defensa, táctica de pareja, lectura del punto y reducción de errores no forzados.",
+  },
+  {
+    question: "¿Qué programa me conviene si no sé mi nivel?",
+    answer:
+      "Lo mejor es empezar con una sesión de diagnóstico o una clase de iniciación/perfeccionamiento suave. Tomi valora tus golpes, movilidad y decisiones para recomendarte el plan más útil.",
+  },
+  {
+    question: "¿Cuántas sesiones necesito para notar mejora?",
+    answer:
+      "En una clase puntual puedes salir con correcciones claras. Para consolidar hábitos, normalmente conviene trabajar 4 sesiones de iniciación, 4-6 de perfeccionamiento o una sesión semanal/quincenal de mantenimiento.",
+  },
+  {
+    question: "¿Puedo reservar una clase puntual si estoy de visita en Tenerife?",
+    answer:
+      "Sí, se puede valorar una clase puntual si hay pista y horario disponible. Escríbenos por WhatsApp con tu zona, fechas y nivel.",
+  },
+  {
+    question: "¿En qué zonas de Tenerife se pueden coordinar clases?",
+    answer:
+      "Valoramos Santa Cruz, La Laguna, norte y sur de Tenerife. La disponibilidad real depende de pista, horario y normas de cada instalación.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Padel Tenerife",
+  url: canonical,
+  inLanguage: "es",
+};
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Clases particulares de pádel en Tenerife",
+  provider: {
+    "@type": "Person",
+    name: "Tomás Sánchez",
+    email,
+    telephone: phoneDisplay,
+    url: canonical,
+  },
+  areaServed: {
+    "@type": "Place",
+    name: "Tenerife",
+  },
+  serviceType: "Clases de pádel",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Programas de clases de pádel en Tenerife",
+    itemListElement: classPrograms.map((program) => ({
+      "@type": "Offer",
+      name: program.title,
+      itemOffered: {
+        "@type": "Service",
+        name: program.title,
+        description: program.summary,
+        areaServed: "Tenerife",
+      },
+    })),
+  },
+  url: canonical,
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/brand/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-original-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/brand/favicon-original-180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/brand/favicon-original-192.png" />
+    <title>Clases de pádel en Tenerife | Tomás Sánchez</title>
+    <meta
+      name="description"
+      content="Clases particulares de pádel en Tenerife con Tomás Sánchez. Iniciación, perfeccionamiento y mantenimiento. Coordinamos pista según zona y disponibilidad."
+    />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Clases de pádel en Tenerife | Tomás Sánchez" />
+    <meta
+      property="og:description"
+      content="Entrena pádel en Tenerife con clases flexibles por zona, nivel y disponibilidad de pista."
+    />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="/images/hero-padel-tenerife-mobile.png" />
+    <meta name="theme-color" content="#06130f" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Padel Tenerife inicio">
+        <span class="brand-mark">PT</span>
+        <span>
+          <strong>Padel Tenerife</strong>
+          <small>Clases particulares</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#clases">Clases</a>
+        <a href="/clubes-padel-tenerife/">Clubes</a>
+        <a href="#zonas">Zonas</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="header-cta" href={phoneHref}>WhatsApp</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <picture>
+          <img
+            src="/images/hero-padel-tenerife-mobile.png"
+            alt="Clases particulares de pádel en Tenerife con profesor en pista exterior"
+            loading="eager"
+          />
+        </picture>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-kicker">
+            <span>Padel Tenerife</span>
+            <span>Clases 1:1</span>
+          </div>
+          <div class="hero-grid">
+            <div>
+              <p class="eyebrow">Profesor particular en Tenerife</p>
+              <h1>Clases de pádel con Tomás Sánchez</h1>
+              <p class="hero-text">
+                Iniciación, perfeccionamiento y mantenimiento. Coordinamos la pista según tu zona,
+                horario y disponibilidad del club.
+              </p>
+              <div class="hero-actions">
+                <a class="primary-btn" href={phoneHref}>Escribir por WhatsApp</a>
+                <a class="secondary-btn" href={`mailto:${email}`}>{email}</a>
+              </div>
+            </div>
+            <aside class="hero-card" aria-label="Resumen de entrenamiento">
+              <span class="hero-card-label">Entrena con plan</span>
+              <strong>Técnica, ritmo y lectura de partido</strong>
+              <p>Sesiones adaptadas a tu nivel, con pista coordinada según disponibilidad.</p>
+              <div class="hero-card-metrics">
+                <span><b>01</b> Nivel</span>
+                <span><b>02</b> Zona</span>
+                <span><b>03</b> Pista</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Resumen">
+        <div>
+          <strong>1:1</strong>
+          <span>Atención personalizada</span>
+        </div>
+        <div>
+          <strong>2-4</strong>
+          <span>Parejas o grupos</span>
+        </div>
+        <div>
+          <strong>Flex</strong>
+          <span>Pistas por zona</span>
+        </div>
+      </section>
+
+      <section class="section intro">
+        <div class="section-copy">
+          <p class="eyebrow">Sin club fijo, con cabeza</p>
+          <h2>Entrena cerca de donde te venga bien</h2>
+          <p>
+            Tomás no parte de un club único. Eso permite buscar opciones por zona, pero siempre
+            respetando la disponibilidad de pista y las normas de cada instalación.
+          </p>
+          <p>
+            Si ya tienes club, lo revisamos. Si no tienes pista, escríbele por WhatsApp con tu
+            nivel, zona y horarios, y vemos la alternativa más cómoda.
+          </p>
+        </div>
+        <figure class="media-card">
+          <img
+            src="/images/reserva-whatsapp-padel-tenerife.png"
+            alt="Reserva de clases de pádel en Tenerife por WhatsApp"
+            loading="lazy"
+          />
+        </figure>
+      </section>
+
+      <section class="section services" id="clases">
+        <div class="section-heading">
+          <p class="eyebrow">Elige tu punto de partida</p>
+          <h2>Clases para jugar mejor, no solo pegar más fuerte</h2>
+        </div>
+        <div class="service-grid">
+          {services.map((service) => (
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true"></div>
+              <span>{service.tag}</span>
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section class-programs" id="programas">
+        <div class="section-heading">
+          <p class="eyebrow">Programas de entrenamiento</p>
+          <h2>Un plan claro para cada tipo de clase</h2>
+          <p>
+            Cada programa se adapta a tu nivel, zona y pista disponible. Tomi puede trabajar una
+            clase puntual o una progresión de varias sesiones si quieres mejorar de forma ordenada.
+          </p>
+        </div>
+        <div class="program-grid">
+          {classPrograms.map((program) => (
+            <article class="program-card">
+              <div class="program-topline">
+                <span>{program.label}</span>
+                <strong>{program.duration}</strong>
+              </div>
+              <h3>{program.title}</h3>
+              <p>{program.summary}</p>
+              <div class="program-fit">
+                <b>Ideal para</b>
+                <span>{program.idealFor}</span>
+              </div>
+              <ol>
+                {program.sessions.map((session) => <li>{session}</li>)}
+              </ol>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section objectives">
+        <div class="section-heading">
+          <p class="eyebrow">Entrenamiento por objetivo</p>
+          <h2>Clases de pádel para lo que necesitas mejorar ahora</h2>
+          <p>
+            Además de iniciación, perfeccionamiento y mantenimiento, podemos enfocar la sesión a un golpe,
+            una situación de partido o una modalidad concreta.
+          </p>
+        </div>
+        <div class="objective-grid">
+          {objectiveServices.map((item) => <span>{item}</span>)}
+        </div>
+      </section>
+      <section class="image-band">
+        <figure class="media-card wide">
+          <img
+            src="/images/clase-iniciacion-padel-tenerife.png"
+            alt="Clase de iniciación de pádel en Tenerife para adultos"
+            loading="lazy"
+          />
+        </figure>
+        <div>
+          <p class="eyebrow">Desde cero</p>
+          <h2>Aprende técnica, posición y confianza</h2>
+          <p>
+            Primeros golpes, colocación, lectura del punto y rutinas sencillas para entrar a tus
+            partidos con más seguridad.
+          </p>
+        </div>
+      </section>
+
+      <section class="image-band image-band-alt">
+        <figure class="media-card wide">
+          <img
+            src="/images/entrenamiento-perfeccionamiento-padel-tenerife.png"
+            alt="Entrenamiento de perfeccionamiento de pádel en Tenerife"
+            loading="lazy"
+          />
+        </figure>
+        <div>
+          <p class="eyebrow">Más ritmo</p>
+          <h2>Entrena situaciones reales de partido</h2>
+          <p>
+            Bandeja, volea, defensa, salida de pared, comunicación con tu pareja y toma de
+            decisiones bajo presión.
+          </p>
+        </div>
+      </section>
+
+      <section class="section zones" id="zonas">
+        <div class="section-heading">
+          <p class="eyebrow">Zonas orientativas</p>
+          <h2>Tenerife norte, sur y área metropolitana</h2>
+          <p>
+            La disponibilidad se confirma caso por caso, según pista, horario y permiso de cada
+            instalación.
+          </p>
+        
+          <a class="inline-link" href="/clubes-padel-tenerife/">Ver directorio de clubes</a>
+        </div>
+        <div class="zone-grid">
+          {zones.map((zone) => <span>{zone}</span>)}
+        </div>
+      </section>
+
+      <section class="how-it-works">
+        <div>
+          <span>01</span>
+          <h3>Escribe</h3>
+          <p>Cuenta tu nivel, zona y horarios por WhatsApp.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <h3>Coordinamos pista</h3>
+          <p>Vemos si tienes club o buscamos una pista viable.</p>
+        </div>
+        <div>
+          <span>03</span>
+          <h3>Entrenas</h3>
+          <p>Clase práctica, personalizada y enfocada a tu progreso.</p>
+        </div>
+      </section>
+
+      <section class="section faq">
+        <div class="section-heading">
+          <p class="eyebrow">Dudas rápidas</p>
+          <h2>Antes de reservar</h2>
+        </div>
+        <div class="faq-list">
+          {faqs.map((faq) => (
+            <details>
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section class="final-cta" id="contacto">
+        <div class="final-cta-inner">
+          <p class="eyebrow">Reserva flexible</p>
+          <h2>Cuéntanos tu zona y nivel</h2>
+          <p>
+            Te responderemos por WhatsApp para valorar pista, horario y modalidad de clase.
+          </p>
+          <a class="primary-btn" href={phoneHref}>Contactar por WhatsApp</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Padel Tenerife</strong>
+        <p>Clases particulares con Tomás Sánchez.</p>
+      </div>
+      <div class="footer-links">
+        <a href={`mailto:${email}`}>{email}</a>
+        <a href={phoneHref}>{phoneDisplay}</a>
+      </div>
+      <div class="social-links" aria-label="Redes sociales">
+        <a href="https://www.instagram.com/padeltenerife/" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@padeltenerife" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.facebook.com/padeltenerife" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </footer>
+
+    <a class="sticky-whatsapp" href={phoneHref}>WhatsApp</a>
+  </body>
+</html>

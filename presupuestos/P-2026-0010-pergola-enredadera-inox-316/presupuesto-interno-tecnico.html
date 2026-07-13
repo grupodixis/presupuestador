@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interno Técnico - Pérgola Trellis Inox 316 (P-2026-0010)</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #687383;
+      --line: #d8dee6;
+      --soft: #f5f7fa;
+      --brand: #1b2a47;
+      --accent: #b28532;
+      --ok: #0d6e6a;
+      --danger: #8a2a0d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #e5ebf1;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13.5px;
+      line-height: 1.4;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: #fff;
+      box-shadow: 0 14px 40px rgba(27, 42, 71, 0.12);
+      padding: 16mm;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 20px;
+      align-items: start;
+      padding-bottom: 14px;
+      border-bottom: 3px solid var(--brand);
+    }
+
+    .brand {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .logo {
+      width: 140px;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--brand);
+      font-size: 19px;
+      letter-spacing: 0.3px;
+    }
+
+    p { margin: 4px 0; }
+
+    .meta { text-align: right; }
+    .meta h2 { font-size: 24px; margin: 0 0 4px; text-transform: uppercase; color: var(--brand); }
+    .ref { display: inline-block; padding: 4px 8px; background: var(--soft); border: 1px solid var(--line); font-weight: 700; color: var(--brand); }
+
+    .tag { display: inline-block; margin-top: 5px; padding: 3px 7px; border-radius: 4px; background: var(--danger); color: #fff; font-weight: 700; font-size: 10.5px; letter-spacing: 0.5px; }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 15px 0;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      padding: 10px;
+    }
+
+    .card .label { display: block; color: var(--muted); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.4px; }
+    .card .value { display: block; color: var(--ink); font-size: 14px; font-weight: 700; margin-top: 2px; }
+
+    h2.section-title {
+      color: var(--brand);
+      margin: 20px 0 6px;
+      font-size: 15px;
+      border-bottom: 2px solid var(--brand);
+      padding-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    h3 { margin: 12px 0 4px; font-size: 13.5px; color: var(--ink); }
+
+    table { width: 100%; border-collapse: collapse; margin: 6px 0 12px; }
+    th { background: var(--brand); color: #fff; font-weight: 700; text-align: left; padding: 6px 8px; font-size: 11px; text-transform: uppercase; }
+    td { border-bottom: 1px solid var(--line); padding: 6px 8px; vertical-align: top; }
+    
+    .right { text-align: right; white-space: nowrap; }
+    tr.total-row td { font-weight: 700; background: #faf8f5; border-top: 2px solid var(--accent); }
+    .muted { color: var(--muted); font-size: 11.5px; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .callout { border-left: 4px solid var(--accent); background: #fff8ee; padding: 8px 12px; margin: 10px 0; font-size: 12.5px; }
+
+    .price-summary {
+      margin-top: 15px;
+      border: 2px solid var(--brand);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .price-summary .base, .price-summary .final { padding: 12px 16px; }
+    .price-summary .base { background: var(--soft); }
+    .price-summary .final { background: var(--brand); color: #fff; text-align: right; }
+    .price-summary .label { font-size: 11px; text-transform: uppercase; opacity: 0.8; }
+    .price-summary .amount { font-size: 26px; font-weight: 700; margin-top: 2px; }
+
+    ul { margin: 6px 0 10px 18px; padding: 0; }
+    li { margin: 2px 0; }
+
+    footer {
+      margin-top: 20px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body { background: #fff; font-size: 11px; }
+      .page { width: auto; min-height: auto; margin: 0; box-shadow: none; padding: 5mm; }
+      .page-break { page-break-before: always; }
+      h2.section-title, table, .price-summary { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <section class="brand">
+        <img class="logo" src="https://www.hamenorca.com/images/logo-hamenorca-dark.svg" alt="HAM">
+        <div>
+          <h1>HAM Estructuras Metálicas</h1>
+          <p class="muted">Av. Circunvalació, 11, Polígono Sant Lluís, Menorca</p>
+          <p class="muted">info@hamenorca.com · +34 971 35 20 18</p>
+        </div>
+      </section>
+      <section class="meta">
+        <h2>TÉCNICO</h2>
+        <div class="ref">Ref. P-2026-0010</div>
+        <p class="muted">Fecha: 03/07/2026</p>
+        <div class="tag">NO ENVIAR AL CLIENTE</div>
+      </section>
+    </header>
+ 
+    <section class="summary-grid">
+      <article class="card"><span class="label">Proyecto</span><span class="value">Pérgola Trellis Son Parc</span></article>
+      <article class="card"><span class="label">Estructura Inox</span><span class="value">13.700,00 €</span></article>
+      <article class="card"><span class="label">Mano de Obra</span><span class="value">4.300,00 €</span></article>
+      <article class="card"><span class="label">Cimentaciones</span><span class="value">3.012,00 €</span></article>
+    </section>
+ 
+    <div class="callout">
+      <strong>Valoración Técnica Simplificada - Precio Reducido al Máximo:</strong>
+      Presupuesto interno ajustado a los costes netos multiplicados por el coeficiente de taller consolidado (1.10 para materiales de inoxidable), excluyendo la pérgola del parking y toda la madera.
+    </div>
+ 
+    <h2 class="section-title">Desglose de Costes (Valores del Modelo de Taller)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Partida / Concepto Técnico</th>
+          <th>Descripción / Especificación</th>
+          <th class="right">Importe Directo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Estructura de Pilares y Brazos (Trellis)</strong></td>
+          <td>Pérgola Trellis rediseñada con 6 pilares Ø114.3x3 mm (3.4m), perfiles marcos T100.10, placas base de 10mm, rigidizadores, flete marítimo consolidado y consumibles taller (con incremento del 10% fletes/mermas taller).</td>
+          <td class="right">10.273,49 €</td>
+        </tr>
+        <tr>
+          <td><strong>2. Sistema de cables Trellis de guiado</strong></td>
+          <td>Suministro e instalación de 350 ml de cable Ø6 mm inox AISI 316 (trenzado especial 1x19 hilos), con 30 sets de tensores e inclinadores inoxidables AISI 316 (con incremento del 10% fletes/mermas).</td>
+          <td class="right">3.162,50 €</td>
+        </tr>
+        <tr>
+          <td><strong>3. Pernos de cimentación y anclajes</strong></td>
+          <td>Suministro de 24 espárragos M16 x 400 mm A4-80 (AISI 316), tuercas hexagonales, arandelas y taco químico epoxi estructural (con incremento del 10% fletes/mermas).</td>
+          <td class="right">264,00 €</td>
+        </tr>
+        <tr>
+          <td><strong>4. Mano de Obra y Servicios</strong></td>
+          <td>Ingeniería y despiece técnico (16h), preparación y cortes en taller (12h), soldadura TIG y satinado mecánico de los pilares de inox (24h), montaje final en obra de fustes y tendido de cableado (40h), descarga y transporte local con camión grúa en Son Parc.</td>
+          <td class="right">4.300,00 €</td>
+        </tr>
+        <tr>
+          <td><strong>5. Cimentaciones (Obra Civil)</strong></td>
+          <td>Hormigón HM-25 (2,93 m³) para zapatas 70x70x50 (2 uds) y 75x325x50 (2 uds), hormigón de limpieza HL-150 (0,60 m³), excavación, encofrado y mano de obra especializada en excavación/hormigonado (60h), excluyendo el suministro de armaduras corrugadas (por el cliente).</td>
+          <td class="right">3.012,00 €</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="2">TOTAL INTERVENCIÓN COMPLETA (CON CIMENTACIÓN)</td>
+          <td class="right">21.012,00 €</td>
+        </tr>
+        <tr class="total-row" style="color: var(--accent);">
+          <td colspan="2">TOTAL INTERVENCIÓN (SIN CIMENTACIÓN)</td>
+          <td class="right">18.000,00 €</td>
+        </tr>
+      </tbody>
+    </table>
+ 
+    <footer>
+      <span>Ref. P-2026-0010 · Pérgola Trellis Son Parc</span>
+      <span>HAM Estructuras Metálicas · Menorca</span>
+    </footer>
+  </main>
+</body>
+</html>

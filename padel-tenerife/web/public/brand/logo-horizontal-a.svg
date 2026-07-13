@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 128" role="img" aria-labelledby="title desc">
+  <title id="title">Padel Tenerife logo A</title>
+  <desc id="desc">Horizontal logo for Padel Tenerife with circular PT monogram.</desc>
+  <rect width="520" height="128" rx="24" fill="#07120f"/>
+  <g transform="translate(24 20)">
+    <circle cx="44" cy="44" r="44" fill="#d8ff3e"/>
+    <circle cx="44" cy="44" r="35" fill="#07120f"/>
+    <path d="M11 47c18-18 48-18 66 0" fill="none" stroke="#d8ff3e" stroke-width="6" stroke-linecap="round"/>
+    <path d="M11 41c18 18 48 18 66 0" fill="none" stroke="#d8ff3e" stroke-width="6" stroke-linecap="round"/>
+    <text x="44" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900" fill="#ffffff">PT</text>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" fill="#ffffff">
+    <text x="132" y="58" font-size="38" font-weight="900">Padel Tenerife</text>
+    <text x="134" y="88" font-size="18" font-weight="700" fill="#d8ff3e">Clases particulares de padel</text>
+  </g>
+</svg>

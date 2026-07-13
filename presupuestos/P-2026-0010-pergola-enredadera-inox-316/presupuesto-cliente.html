@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuesto Comercial - Pérgola Trellis Son Parc (P-2026-0010)</title>
+  <style>
+    :root {
+      --ink: #20242a;
+      --muted: #667085;
+      --line: #d9e0e8;
+      --soft: #f6f8fb;
+      --brand: #121820;
+      --accent: #b9863a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #dfe4ea;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 18px auto;
+      background: #fff;
+      box-shadow: 0 14px 40px rgba(15,23,42,.14);
+      padding: 16mm;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+      border-top: 6px solid var(--brand);
+      padding-top: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .company { display: flex; gap: 18px; }
+    .logo { width: 168px; flex: 0 0 168px; }
+    .logo img { width: 100%; filter: brightness(0) saturate(100%); }
+    .company h1 { margin: 0; color: var(--brand); font-size: 19px; }
+    .company p, .meta p, .small { margin: 3px 0; color: var(--muted); font-size: 12px; }
+    .meta { text-align: right; min-width: 210px; }
+    .meta h2 {
+      margin: 0 0 8px;
+      color: var(--brand);
+      font-size: 27px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .ref {
+      display: inline-block;
+      padding: 6px 10px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      font-weight: 700;
+    }
+    .hero {
+      margin: 18px 0;
+      padding: 18px 20px;
+      border-left: 5px solid var(--accent);
+      background: linear-gradient(135deg, #f7f8fb 0%, #fff 72%);
+    }
+    .hero h2 { margin: 0 0 8px; color: var(--brand); font-size: 22px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 18px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      padding: 12px;
+    }
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 5px;
+    }
+    .value { font-weight: 700; font-size: 14.5px; }
+    h3 {
+      margin: 22px 0 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+      color: var(--brand);
+      font-size: 17px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 16px;
+    }
+    th {
+      background: var(--brand);
+      color: #fff;
+      text-align: left;
+      padding: 10px;
+      font-size: 12px;
+    }
+    td {
+      padding: 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .right { text-align: right; white-space: nowrap; }
+    .total-row td {
+      background: #fbf8f2;
+      border-top: 2px solid var(--accent);
+      font-weight: 700;
+    }
+    .price {
+      margin: 22px 0;
+      border: 2px solid var(--brand);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .price .base { padding: 18px; background: var(--soft); }
+    .price .final {
+      padding: 18px;
+      background: var(--brand);
+      color: #fff;
+      text-align: right;
+    }
+    .amount { font-size: 31px; font-weight: 700; margin-top: 4px; }
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    ul { margin: 8px 0 14px 18px; padding: 0; }
+    li { margin: 5px 0; }
+    .notice {
+      padding: 12px 14px;
+      background: #fff8ed;
+      border-left: 4px solid var(--accent);
+      margin: 14px 0;
+    }
+    .sign {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .sig {
+      min-height: 90px;
+      border: 1px solid var(--line);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .sig strong { color: var(--ink); display: block; margin-bottom: 30px; }
+    footer {
+      margin-top: 28px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 11px;
+    }
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { background: #fff; font-size: 10.5px; line-height: 1.22; }
+      .page { width: 210mm; min-height: 297mm; margin: 0; box-shadow: none; padding: 8mm 10mm; }
+      header { padding-top: 9px; padding-bottom: 8px; gap: 12px; }
+      .logo { width: 122px; flex-basis: 122px; }
+      .company { gap: 11px; }
+      .company h1 { font-size: 15px; }
+      .company p, .meta p, .small { font-size: 9.5px; margin: 1px 0; }
+      .meta h2 { font-size: 21px; }
+      .hero { margin: 8px 0; padding: 9px 12px; }
+      .hero h2 { font-size: 16px; }
+      .grid { margin: 8px 0; gap: 7px; }
+      .card { padding: 7px; }
+      .label { font-size: 8.5px; }
+      .value { font-size: 11px; }
+      h3 { margin: 10px 0 4px; font-size: 12.5px; }
+      table { margin: 4px 0 8px; }
+      th, td { padding: 4px 6px; }
+      th { font-size: 9.5px; }
+      .price { margin: 9px 0; }
+      .price .base, .price .final { padding: 9px 11px; }
+      .amount { font-size: 22px; }
+      .two { gap: 10px; break-before: page; page-break-before: always; }
+      ul { margin: 4px 0 7px 14px; }
+      li { margin: 1px 0; }
+      .notice { padding: 7px 9px; margin: 7px 0; }
+      .sign { margin-top: 10px; gap: 10px; }
+      .sig { min-height: 46px; padding: 7px; font-size: 9.5px; }
+      .sig strong { margin-bottom: 14px; }
+      footer { margin-top: 10px; padding-top: 6px; font-size: 8.5px; }
+      table, .price, h3 { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <section class="company">
+      <div class="logo"><img src="https://www.hamenorca.com/images/logo-hamenorca-dark.svg" alt="HAM"></div>
+      <div>
+        <h1>HAM Estructuras Metálicas</h1>
+        <p>Fabricación y montaje de estructuras metálicas, herrería y soluciones a medida en Menorca.</p>
+        <p>Av. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca</p>
+        <p>info@hamenorca.com · +34 971 35 20 18 · WhatsApp +34 669 769 541</p>
+        <p>www.hamenorca.com</p>
+      </div>
+    </section>
+    <section class="meta">
+      <h2>Presupuesto</h2>
+      <div class="ref">P-2026-0010</div>
+      <p>Fecha: 07/07/2026</p>
+    </section>
+  </header>
+
+  <section class="hero">
+    <h2>Pérgola Metálica Trellis en Son Parc</h2>
+    <p>Presupuesto detallado para la fabricación, suministro y montaje en obra de un sistema de pérgola-enredadera trellis metálica de diseño (en acero inoxidable AISI 316 con pórticos triangulares de 6 pilares de Ø114,3 mm, vigas T100.10 y tensores en abanico) en Son Parc, Menorca.</p>
+  </section>
+
+  <section class="grid">
+    <article class="card"><span class="label">Pilares Trellis</span><span class="value">6 postes Ø114,3</span></article>
+    <article class="card"><span class="label">Marcos Perfiles T</span><span class="value">Perfil T100.10</span></article>
+    <article class="card"><span class="label">Cables Inox</span><span class="value">350 ml (Ø6mm)</span></article>
+  </section>
+
+  <h3>Desglose de Partidas (Acero Inoxidable AISI 316 a Coste Técnico)</h3>
+  <p class="small" style="color: var(--muted); margin-top: -6px;">*Esta valoración contempla únicamente la estructura de acero inoxidable satinado y los componentes auxiliares correspondientes de la pérgola Trellis, excluyendo cubiertas y maderas.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Partida</th>
+        <th>Descripción</th>
+        <th class="right">Importe</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Estructura</strong></td>
+          <td>Fabricación e instalación de la estructura metálica de acero inoxidable.</td>
+          <td class="right">12.875,30 €</td>
+        </tr>
+        <tr>
+          <td><strong>2. Mano de obra</strong></td>
+          <td>Ingeniería, corte, soldadura, montaje y montaje final.</td>
+          <td class="right">3.840,00 €</td>
+        </tr>
+        <tr>
+          <td><strong>3. Obra civil</strong></td>
+          <td>Cimentaciones, zapatas y hormigón estructural.</td>
+          <td class="right">4.612,50 €</td>
+        </tr>
+        <tr class="total-row" style="background: #fdfaf5;">
+          <td colspan="2" style="font-weight: 700; padding-left: 20px;">TOTAL INTERVENCIÓN (CON CIMENTACIÓN)</td>
+          <td class="right" style="font-weight: 700;">21.327,80 €</td>
+        </tr>
+        <tr>
+          <td colspan="2">IVA General (21%)</td>
+          <td class="right">4.478,84 €</td>
+        </tr>
+        <tr class="total-row" style="background: #b9863a; color: #fff;">
+          <td colspan="2" style="font-weight: 700;">TOTAL PRESUPUESTO CON IVA</td>
+          <td class="right" style="font-weight: 700;">25.806,64 €</td>
+        </tr>
+      </tbody>
+  </table>
+
+  <section class="price">
+    <div class="base">
+      <span class="label">Opción A (Sin Obra)</span>
+      <div class="amount" style="font-size: 20px;">16.715,30 € <span class="small">base imponible</span></div>
+      <span class="label" style="margin-top: 8px;">Opción B (Con Obra)</span>
+      <div class="amount" style="font-size: 20px;">21.327,80 € <span class="small">base imponible</span></div>
+    </div>
+    <div class="final" style="background: var(--brand); color: #fff;">
+      <span class="label">Opción Recomendada (Con Cimentación)</span>
+      <div class="amount" style="font-size: 26px;">21.327,80 € <span class="small">base imponible</span></div>
+      <span class="label" style="color: #ccc; margin-top: 10px;">Total con IVA (21%): 25.806,64 €</span>
+    </div>
+  </section>
+
+  <section class="two">
+    <div>
+      <h3>Incluido</h3>
+      <ul>
+        <li>Replanteo y medición de cotas final in situ antes de fabricar.</li>
+        <li>Diseño tridimensional y despiece por la oficina técnica de HAM.</li>
+        <li>Fabricación de estructura de pilares y pórticos con perfiles inoxidables.</li>
+        <li>Acabado cepillado satinado en fustes, perfiles T y placas de Inox.</li>
+        <li>Cables de trellis Ø6 mm de inox AISI 316 y tensores/olivas.</li>
+        <li>Pernos M16 A4-80 inoxidables, anclajes químicos y tornillería A4.</li>
+        <li>Transporte y montaje especializado de la estructura en Son Parc.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No Incluido</h3>
+      <ul>
+        <li>Licencias de obra, tasas municipales o dirección técnica de la obra.</li>
+        <li>Suministro o colocación de plantas enredaderas, toldos o lonas.</li>
+        <li>Struts, tirantes o vigas de madera laminada (excluido por completo).</li>
+        <li>Restauro de jardinería, siembra de enredaderas o riegos automáticos.</li>
+        <li>Instalación eléctrica o iluminación LED.</li>
+        <li>Ejecución de zapatas u hormigón (en la opción Sin Cimentación).</li>
+        <li>Suministro de armaduras corrugadas para zapatas (por el cliente).</li>
+      </ul>
+    </div>
+  </section>
+
+  <h3>Condiciones Comerciales</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td>Forma de pago</td>
+        <td>70% a la aceptación del presupuesto (para acopio de materiales y reserva de fabricación), y 30% a la finalización y entrega del montaje.</td>
+      </tr>
+      <tr>
+        <td>Plazo de entrega</td>
+        <td>Estimado en 6 semanas a partir de la aceptación del presupuesto y la cimentación lista.</td>
+      </tr>
+      <tr>
+        <td>Validez de la oferta</td>
+        <td>30 días naturales desde la fecha de emisión del documento.</td>
+      </tr>
+      <tr>
+        <td>Garantía técnica</td>
+        <td>10 años de garantía anticorrosión estructural (UNE-EN ISO 12944); 1 año en la ejecución del montaje.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="notice">
+    <strong>Aviso técnico para la dirección de obra:</strong> Las zapatas de cimentación de hormigón para el anclaje de los 6 postes de la estructura (2 de 70x70x50 cm y 2 de 75x325x50 cm) deben ser ejecutadas respetando el replanteo facilitado por nuestra oficina técnica. Los pernos de anclaje (M16 inox A4-80) se fijarán mecánicamente mediante taco químico epoxi estructural, garantizando la perfecta estabilidad frente a vientos fuertes en la zona de Son Parc.
+  </div>
+
+  <section class="sign">
+    <div class="sig">
+      <strong>Por HAM Estructuras Metálicas</strong>
+      Oficina Técnica de Presupuestación<br>
+      Firma y Fecha: 07/07/2026
+    </div>
+    <div class="sig">
+      <strong>Aceptación del Cliente</strong>
+      Nombre/Firma:<br>
+      Fecha de Aceptación:
+    </div>
+  </section>
+
+  <footer>
+    <span>Presupuesto P-2026-0010 · Pérgola Trellis Son Parc</span>
+    <span>Total Inox AISI 316 (Opción Recomendada): 16.108,00 €</span>
+  </footer>
+</main>
+</body>
+</html>

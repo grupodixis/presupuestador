@@ -1,0 +1,223 @@
+---
+import "../styles/global.css";
+import { clubs } from "../data/clubs";
+
+const phoneHref = "https://wa.me/34657674026?text=Hola%20Tomi%2C%20estoy%20mirando%20clubes%20de%20p%C3%A1del%20en%20Tenerife%20y%20quiero%20valorar%20una%20clase%20cerca%20de%20mi%20zona.";
+const canonical = "https://padeltenerife.es/clubes-padel-tenerife/";
+const zones = [...new Set(clubs.map((club) => club.zone).filter(Boolean))];
+const municipalities = [...new Set(clubs.map((club) => club.municipality).filter(Boolean))].sort();
+const highConfidence = clubs.filter((club) => club.confidence === "Alto").length;
+const indoorCount = clubs.filter((club) => club.courtType === "Indoor").length;
+const southCount = clubs.filter((club) => club.zone === "Sur").length;
+const clubSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Directorio de clubes de pádel en Tenerife",
+  url: canonical,
+  numberOfItems: clubs.length,
+  itemListElement: clubs.slice(0, 30).map((club, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: club.name,
+    url: `${canonical}#${club.slug}`,
+  })),
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/brand/favicon.ico" />
+    <title>Clubes de pádel en Tenerife | Directorio por zonas</title>
+    <meta
+      name="description"
+      content="Directorio de clubes de pádel en Tenerife por zona, municipio, tipo de pista y servicios. Encuentra pistas y pregunta por clases cerca de tu club."
+    />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <script type="application/ld+json" set:html={JSON.stringify(clubSchema)} />
+  </head>
+  <body class="directory-page">
+    <header class="site-header directory-header">
+      <a class="brand" href="/" aria-label="Padel Tenerife inicio">
+        <span class="brand-mark">PT</span>
+        <span>
+          <strong>Padel Tenerife</strong>
+          <small>Directorio de clubes</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="/">Clases</a>
+        <a href="#listado">Clubes</a>
+        <a href="#zonas">Zonas</a>
+        <a href="/#contacto">Contacto</a>
+      </nav>
+      <a class="header-cta" href={phoneHref}>WhatsApp</a>
+    </header>
+
+    <main>
+      <section class="directory-hero">
+        <div class="directory-hero-copy">
+          <p class="eyebrow">Guía local para entrenar mejor</p>
+          <h1>Clubes de pádel en Tenerife por zona</h1>
+          <p>
+            Una primera guía para ubicar pistas, clubes y centros deportivos donde puedes jugar o
+            valorar una clase cerca de tu zona. La disponibilidad siempre depende de cada club,
+            horarios y normas de reserva.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#listado">Ver clubes</a>
+            <a class="secondary-btn" href={phoneHref}>Preguntar por mi zona</a>
+          </div>
+        </div>
+        <div class="directory-scoreboard" aria-label="Resumen del directorio">
+          <div>
+            <strong>{clubs.length}</strong>
+            <span>clubes publicables</span>
+          </div>
+          <div>
+            <strong>{highConfidence}</strong>
+            <span>con confianza alta</span>
+          </div>
+          <div>
+            <strong>{indoorCount}</strong>
+            <span>opciones indoor</span>
+          </div>
+          <div>
+            <strong>{southCount}</strong>
+            <span>en zona sur</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="directory-intro" id="zonas">
+        <div>
+          <p class="eyebrow">Cómo usar esta guía</p>
+          <h2>Elige zona, revisa pistas y habla con Tomi</h2>
+          <p>
+            Este listado no sustituye la reserva oficial del club. Sirve para orientar al alumno,
+            localizar pistas cercanas y preparar mejor la conversación por WhatsApp antes de cerrar
+            horario, modalidad y disponibilidad.
+          </p>
+        </div>
+        <div class="zone-pills">
+          {zones.map((zone) => <span>{zone}</span>)}
+        </div>
+      </section>
+
+      <section class="club-directory" id="listado">
+        <div class="directory-toolbar">
+          <div>
+            <p class="eyebrow">Listado inicial</p>
+            <h2>Encuentra clubes de pádel en Tenerife</h2>
+          </div>
+          <div class="filters" aria-label="Filtros del directorio">
+            <label>
+              <span>Zona</span>
+              <select data-filter="zone">
+                <option value="">Todas</option>
+                {zones.map((zone) => <option value={zone}>{zone}</option>)}
+              </select>
+            </label>
+            <label>
+              <span>Municipio</span>
+              <select data-filter="municipality">
+                <option value="">Todos</option>
+                {municipalities.map((municipality) => <option value={municipality}>{municipality}</option>)}
+              </select>
+            </label>
+            <label>
+              <span>Pista</span>
+              <select data-filter="court">
+                <option value="">Todas</option>
+                <option value="Indoor">Indoor</option>
+                <option value="Outdoor">Outdoor</option>
+                <option value="Mixto">Mixto</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <p class="result-count"><span data-result-count>{clubs.length}</span> clubes visibles</p>
+
+        <div class="club-grid">
+          {clubs.map((club) => (
+            <article
+              class="club-card"
+              id={club.slug}
+              data-zone={club.zone}
+              data-municipality={club.municipality}
+              data-court={club.courtType}
+            >
+              <div class="club-visual" aria-hidden="true">
+                <span>{club.courtType}</span>
+                <strong>{club.name.split(" ").slice(0, 2).map((word) => word[0]).join("")}</strong>
+              </div>
+              <div class="club-card-body">
+                <div class="club-card-topline">
+                  <span>{club.zone}</span>
+                  <b>{club.confidence}</b>
+                </div>
+                <h3>{club.name}</h3>
+                <p>{club.description}</p>
+                <dl class="club-facts">
+                  <div>
+                    <dt>Municipio</dt>
+                    <dd>{club.municipality}</dd>
+                  </div>
+                  <div>
+                    <dt>Pistas</dt>
+                    <dd>{club.courtsTotal ? `${club.courtsTotal} pistas` : "Pendiente"}</dd>
+                  </div>
+                  <div>
+                    <dt>Tipo</dt>
+                    <dd>{club.type}</dd>
+                  </div>
+                  <div>
+                    <dt>Dirección</dt>
+                    <dd>{club.address ?? "Pendiente de confirmar"}</dd>
+                  </div>
+                </dl>
+                {club.services.length > 0 && (
+                  <div class="club-services">
+                    {club.services.map((service) => <span>{service}</span>)}
+                  </div>
+                )}
+                <div class="club-actions">
+                  {club.bookingUrl && <a href={club.bookingUrl} target="_blank" rel="noreferrer">Ver reserva</a>}
+                  <a href={`${phoneHref}%20Club%3A%20${encodeURIComponent(club.name)}`}>Clase cerca de aquí</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <a class="sticky-whatsapp" href={phoneHref}>WhatsApp</a>
+
+    <script>
+      const filters = Array.from(document.querySelectorAll("[data-filter]"));
+      const cards = Array.from(document.querySelectorAll(".club-card"));
+      const count = document.querySelector("[data-result-count]");
+
+      const applyFilters = () => {
+        const values = Object.fromEntries(filters.map((filter) => [filter.dataset.filter, filter.value]));
+        let visible = 0;
+        cards.forEach((card) => {
+          const matchZone = !values.zone || card.dataset.zone === values.zone;
+          const matchMunicipality = !values.municipality || card.dataset.municipality === values.municipality;
+          const matchCourt = !values.court || card.dataset.court === values.court;
+          const show = matchZone && matchMunicipality && matchCourt;
+          card.hidden = !show;
+          if (show) visible += 1;
+        });
+        if (count) count.textContent = String(visible);
+      };
+
+      filters.forEach((filter) => filter.addEventListener("change", applyFilters));
+    </script>
+  </body>
+</html>

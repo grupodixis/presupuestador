@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Presupuesto Nave Industrial - Alaior</title>
+  <style>
+    @page { size: A4; margin: 9mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #eef0f2; color: #1f2933; font-family: Arial, Helvetica, sans-serif; font-size: 11.4px; line-height: 1.32; }
+    .page { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff; padding: 0; box-shadow: 0 16px 50px rgba(0,0,0,.12); }
+    header { background: #18201d; color: #fff; padding: 13mm 15mm 11mm; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .logo { width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.25); border-radius: 12px; padding: 7px; background: white; }
+    h1 { margin: 0; font-size: 24px; letter-spacing: -.04em; line-height: 1.02; }
+    .subtitle { margin: 6px 0 0; color: #cbd5d1; font-size: 12px; }
+    .meta { text-align: right; color: #dce5e0; font-size: 11.5px; }
+    .meta strong { color: #fff; display: block; font-size: 13px; margin-bottom: 4px; }
+    main { padding: 9mm 15mm 10mm; }
+    .summary { border: 1px solid #d9dedb; border-radius: 14px; padding: 11px 14px; margin-bottom: 12px; background: #faf8f2; display: grid; grid-template-columns: 1fr auto; gap: 12px; }
+    .price { text-align: right; border-left: 1px solid #d9dedb; padding-left: 18px; min-width: 160px; }
+    .price b { display: block; font-size: 24px; color: #8b2f16; letter-spacing: -.03em; }
+    h2 { margin: 13px 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: #27312f; }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; }
+    th { background: #27312f; color: #fff; text-align: left; padding: 6px 7px; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
+    td { border-bottom: 1px solid #e2e6e3; padding: 6px 7px; vertical-align: top; }
+    .num { text-align: right; white-space: nowrap; }
+    ul { margin: 6px 0 0 18px; padding: 0; }
+    li { margin: 3px 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .box { border: 1px solid #d9dedb; border-radius: 12px; padding: 9px 12px; break-inside: avoid; }
+    footer { margin-top: 12px; padding-top: 9px; border-top: 1px solid #d9dedb; color: #667085; font-size: 9.5px; display: flex; justify-content: space-between; gap: 12px; }
+    @media print { body { background: #fff; } .page { width: auto; min-height: auto; margin: 0; box-shadow: none; } footer { position: fixed; left: 9mm; right: 9mm; bottom: 5mm; } }
+  </style>
+</head>
+<body>
+  <section class="page">
+    <header>
+      <div>
+        <div class="brand">
+            <div>
+                <h1>Presupuesto Nave Industrial</h1>
+                <p class="subtitle">Fabricación y Montaje de Estructura Metálica y Cerramientos</p>
+            </div>
+        </div>
+      </div>
+      <div class="meta">
+          <strong>HAM Estructuras Metálicas</strong>
+          Ref. P-2026-0012<br>Fecha: 09/07/2026<br>Validez: 30 días<br>
+          Cliente: Gabi Gonyalons S.L.U.
+      </div>
+    </header>
+    <main>
+      <section class="summary">
+        <div><strong>Trabajo solicitado</strong><br>Fabricación, suministro y montaje de la estructura metálica y cerramientos (cubierta y fachada) para el proyecto de Reparcelación y Nave para Almacén y Oficinas en Av. Santa Marianna 11-13 (Alaior).</div>
+        <div class="price"><span>Precio total</span><b>297.624,42 EUR</b><span>IVA no incluido</span></div>
+      </section>
+
+      <h2>Partidas incluidas</h2>
+      <table>
+        <thead><tr><th>Concepto</th><th>Descripción</th><th class="num">Importe</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Estructura Metálica</td>
+            <td>Suministro, fabricación y montaje de estructura principal y secundaria (Perfiles laminados y conformados, pletinas). Medición: 41.571,19 Kg a 3,80 €/kg.</td>
+            <td class="num">157.970,52 €</td>
+          </tr>
+          <tr>
+            <td>Cubierta Acústica</td>
+            <td>Suministro y montaje de panel sándwich acústico (100mm) en cubierta. Medición: 711,75 m² a 115,00 €/m².</td>
+            <td class="num">81.851,25 €</td>
+          </tr>
+          <tr>
+            <td>Fachada Sándwich</td>
+            <td>Suministro y montaje de panel sándwich estándar (50mm) en cerramientos verticales. Medición: 346,87 m² a 95,00 €/m².</td>
+            <td class="num">32.952,65 €</td>
+          </tr>
+          <tr>
+            <td>Lucernarios</td>
+            <td>Suministro y montaje de lucernarios de policarbonato celular. Medición: 15,00 m² a 115,00 €/m².</td>
+            <td class="num">1.725,00 €</td>
+          </tr>
+          <tr>
+            <td>Carpintería Aluminio</td>
+            <td>Fabricación y montaje de carpintería para ventanas y puertas de acceso. Partida alzada estimada.</td>
+            <td class="num">23.125,00 €</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid">
+        <div class="box">
+            <h2>Incluye</h2>
+            <ul>
+                <li>Replanteo previo de la estructura.</li>
+                <li>Fabricación en taller y acopio.</li>
+                <li>Materiales, paneles y tornillería.</li>
+                <li>Imprimación estándar de taller.</li>
+                <li>Transporte en Menorca.</li>
+                <li>Grúas y medios auxiliares de montaje.</li>
+            </ul>
+        </div>
+        <div class="box">
+            <h2>No incluye</h2>
+            <ul>
+                <li>Pintura intumescente / protección contra fuego.</li>
+                <li>Tratamientos anticorrosivos C4/C5.</li>
+                <li>Obra civil, cimentaciones y movimiento de tierras.</li>
+                <li>Losas de escaleras y forjados unidireccionales.</li>
+                <li>Cálculo estructural visado.</li>
+                <li>Instalaciones (electricidad, clima).</li>
+            </ul>
+        </div>
+      </div>
+
+      <h2>Condiciones</h2>
+      <table>
+        <tbody>
+            <tr><td>Forma de pago</td><td>30% a la aceptación, 40% a la llegada de estructura a obra, 30% a certificación final.</td></tr>
+            <tr><td>Validez</td><td>30 días desde la fecha indicada. (IVA 21% no incluido, que asciende a 62.501,13 €).</td></tr>
+        </tbody>
+      </table>
+
+      <footer>
+          <span>HAM Estructuras Metálicas · Av. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca</span>
+          <span>info@hamenorca.com · +34 971 35 20 18 · +34 669 769 541</span>
+      </footer>
+    </main>
+  </section>
+</body>
+</html>
