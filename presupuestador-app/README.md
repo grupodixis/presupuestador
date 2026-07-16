@@ -13,7 +13,7 @@ cd presupuestador-app
 docker compose up -d --build
 ```
 
-El contenedor expone la app solo en localhost del servidor:
+El contenedor expone la app solo en localhost del servidor y queda preparado para publicarse bajo `/presupuestador`:
 
 ```text
 127.0.0.1:4177
@@ -35,7 +35,7 @@ El `docker-compose.yml` monta carpetas del repositorio para que el contenedor pu
 - `../glosario`
 - `../presupuestos`
 
-Para publicar en `api.hamenorca.com`, usar el proxy inverso existente apuntando a:
+Para publicar en `api.hamenorca.com/presupuestador/`, agregar la plantilla al bloque Nginx existente de `api.hamenorca.com`, apuntando a:
 
 ```text
 http://127.0.0.1:4177
@@ -201,6 +201,4 @@ Endpoint local:
 ```text
 POST /api/line-ai
 ```
-
-
 

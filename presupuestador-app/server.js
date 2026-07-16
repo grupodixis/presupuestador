@@ -1,10 +1,11 @@
-﻿const http = require("http");
+const http = require("http");
 const fs = require("fs/promises");
 const fsSync = require("fs");
 const path = require("path");
 const { DatabaseSync } = require("node:sqlite");
 
 const PORT = Number(process.env.PORT || 4177);
+const BASE_PATH = normalizeBasePath(process.env.BASE_PATH || "");
 const ROOT = path.resolve(__dirname, "..");
 const PUBLIC_DIR = path.join(__dirname, "public");
 const CONFIG_FILE = path.join(__dirname, "config.local.json");
@@ -28,6 +29,19 @@ const MIME = {
   ".pdf": "application/pdf",
   ".md": "text/markdown; charset=utf-8",
 };
+
+function normalizeBasePath(value) {
+  const normalized = String(value || "").trim().replace(/\/+$/, "");
+  if (!normalized || normalized === "/") return "";
+  return normalized.startsWith("/") ? normalized : `/${normalized}`;
+}
+
+function stripBasePath(pathname) {
+  if (!BASE_PATH) return pathname;
+  if (pathname === BASE_PATH) return "/";
+  if (pathname.startsWith(`${BASE_PATH}/`)) return pathname.slice(BASE_PATH.length) || "/";
+  return null;
+}
 
 let database = null;
 
@@ -622,7 +636,7 @@ function applyNumericInstructionToLine(line, prompt) {
     }
   }
 
-  const explicitUnitPrice = firstNumberAfter(normalized, /(?:precio\s*unitario|precio\/ud|eur\/ud|€\/ud|unidad|unitario|p\.?\s*u\.?)\D{0,35}(\d+(?:[.,]\d+)?)/i);
+  const explicitUnitPrice = firstNumberAfter(normalized, /(?:precio\s*unitario|precio\/ud|eur\/ud|�\/ud|unidad|unitario|p\.?\s*u\.?)\D{0,35}(\d+(?:[.,]\d+)?)/i);
   const genericUnitPrice = percentChanged ? null : firstNumberAfter(normalized, /(?:precio|coste|valor)\D{0,30}(?:a|en|de)?\D{0,10}(\d+(?:[.,]\d+)?)/i);
   const unitPrice = explicitUnitPrice ?? genericUnitPrice;
   if (unitPrice !== null) {
@@ -1093,6 +1107,13 @@ async function appendLearning({ suggestion, note }) {
 
 async function route(req, res) {
   const url = new URL(req.url, `http://${req.headers.host}`);
+  if (BASE_PATH && req.method === "GET" && url.pathname === BASE_PATH) {
+    res.writeHead(308, { Location: `${BASE_PATH}/` });
+    res.end();
+    return;
+  }
+  const appPath = stripBasePath(url.pathname);
+  if (appPath) url.pathname = appPath;
   if (req.method === "GET" && url.pathname === "/api/budgets") return send(res, 200, await listBudgets());
   if (req.method === "GET" && url.pathname === "/api/budget") return send(res, 200, await readBudgetData(url.searchParams.get("folder")));
   if (req.method === "GET" && url.pathname === "/api/context") {
@@ -1285,28 +1306,4 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`Presupuestador app: http://localhost:${PORT}`);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

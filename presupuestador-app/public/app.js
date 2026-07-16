@@ -1,4 +1,16 @@
-ï»¿const state = {
+const APP_BASE_PATH = (() => {
+  const scriptSrc = document.currentScript?.getAttribute("src") || "";
+  const scriptPath = new URL(scriptSrc || "app.js", window.location.href).pathname;
+  const basePath = scriptPath.replace(/\/app\.js$/, "").replace(/\/$/, "");
+  return basePath === "/" ? "" : basePath;
+})();
+
+function appUrl(path) {
+  if (!path || !path.startsWith("/")) return path;
+  return `${APP_BASE_PATH}${path}`;
+}
+
+const state = {
   attachments: [],
   result: null,
   mdFiles: [],
@@ -87,7 +99,7 @@ function setStatus(text) {
 }
 
 async function api(path, payload) {
-  const response = await fetch(path, {
+  const response = await fetch(appUrl(path), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -97,7 +109,7 @@ async function api(path, payload) {
 }
 
 async function getJson(path) {
-  const response = await fetch(path);
+  const response = await fetch(appUrl(path));
   if (!response.ok) throw new Error(await response.text());
   return response.json();
 }
@@ -528,7 +540,7 @@ function renderBudgets() {
   const budgets = state.budgets.filter((budget) => year === "all" || budget.year === year);
   els.budgetsList.innerHTML = "";
   if (!budgets.length) {
-    els.budgetsList.innerHTML = '<div class="empty-state">No hay presupuestos para este aÃ±o.</div>';
+    els.budgetsList.innerHTML = '<div class="empty-state">No hay presupuestos para este año.</div>';
     return;
   }
   for (const budget of budgets) {
@@ -540,15 +552,15 @@ function renderBudgets() {
       || budget.files[0];
     card.innerHTML = `
       <div>
-        <div class="budget-code">${escapeHtml(budget.code)} Â· ${escapeHtml(budget.year)}</div>
+        <div class="budget-code">${escapeHtml(budget.code)} · ${escapeHtml(budget.year)}</div>
         <h2>${escapeHtml(budget.title || budget.folder)}</h2>
         <p>${escapeHtml(budget.clientName || "Sin cliente guardado")}</p>
         <small>${escapeHtml(budget.folder)}</small>
       </div>
       <div class="budget-card-actions">
         ${budget.editable ? `<button class="secondary edit-budget" data-folder="${escapeHtml(budget.folder)}">Editar</button>` : ""}
-        ${primary ? `<a class="button-link" href="${primary.url}" target="_blank" rel="noreferrer">Abrir</a>` : ""}
-        <div class="budget-file-links">${budget.files.map((file) => `<a href="${file.url}" target="_blank" rel="noreferrer">${escapeHtml(file.name)}</a>`).join("")}</div>
+        ${primary ? `<a class="button-link" href="${appUrl(primary.url)}" target="_blank" rel="noreferrer">Abrir</a>` : ""}
+        <div class="budget-file-links">${budget.files.map((file) => `<a href="${appUrl(file.url)}" target="_blank" rel="noreferrer">${escapeHtml(file.name)}</a>`).join("")}</div>
       </div>
     `;
     const editButton = card.querySelector(".edit-budget");
@@ -723,7 +735,7 @@ function modelLabel(model) {
   if (model.inputTokenLimit) parts.push(`ctx ${Number(model.inputTokenLimit).toLocaleString("es-ES")}`);
   if (model.remainingTokens !== null && model.remainingTokens !== undefined) parts.push(`restan ${Number(model.remainingTokens).toLocaleString("es-ES")}`);
   if (!model.available) parts.push("no disponible");
-  return parts.join(" Â· ");
+  return parts.join(" · ");
 }
 
 function selectedModel() {
@@ -1011,37 +1023,4 @@ loadContext();
 loadSettings();
 loadMdFiles();
 loadBudgets();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
