@@ -1,0 +1,1047 @@
+﻿const state = {
+  attachments: [],
+  result: null,
+  mdFiles: [],
+  activeMdPath: "",
+  models: { fallback: [], openai: [], gemini: [] },
+  settings: null,
+  budgets: [],
+  budgetYears: [],
+  currentBudgetFolder: null,
+  activeLineAiIndex: null,
+  lineAiPrompts: {},
+  budgetChangeLog: [],
+};
+
+const els = {
+  provider: document.querySelector("#provider"),
+  model: document.querySelector("#model"),
+  modelTokenInfo: document.querySelector("#modelTokenInfo"),
+  prompt: document.querySelector("#prompt"),
+  attachments: document.querySelector("#attachments"),
+  fileList: document.querySelector("#fileList"),
+  generate: document.querySelector("#generate"),
+  clear: document.querySelector("#clear"),
+  status: document.querySelector("#status"),
+  resultPanel: document.querySelector("#resultPanel"),
+  title: document.querySelector("#title"),
+  summaryText: document.querySelector("#summaryText"),
+  productType: document.querySelector("#productType"),
+  total: document.querySelector("#total"),
+  linesBody: document.querySelector("#linesBody"),
+  questions: document.querySelector("#questions"),
+  assumptions: document.querySelector("#assumptions"),
+  risks: document.querySelector("#risks"),
+  suggestionsList: document.querySelector("#suggestionsList"),
+  printPreview: document.querySelector("#printPreview"),
+  addLine: document.querySelector("#addLine"),
+  exportBudget: document.querySelector("#exportBudget"),
+  printBudget: document.querySelector("#printBudget"),
+  refreshContext: document.querySelector("#refreshContext"),
+  contextFiles: document.querySelector("#contextFiles"),
+  defaultProvider: document.querySelector("#defaultProvider"),
+  openaiKey: document.querySelector("#openaiKey"),
+  openaiModel: document.querySelector("#openaiModel"),
+  geminiKey: document.querySelector("#geminiKey"),
+  geminiModel: document.querySelector("#geminiModel"),
+  openaiBudgets: document.querySelector("#openaiBudgets"),
+  geminiBudgets: document.querySelector("#geminiBudgets"),
+  refreshModels: document.querySelector("#refreshModels"),
+  saveSettings: document.querySelector("#saveSettings"),
+  settingsStatus: document.querySelector("#settingsStatus"),
+  mdSearch: document.querySelector("#mdSearch"),
+  mdFiles: document.querySelector("#mdFiles"),
+  mdPath: document.querySelector("#mdPath"),
+  mdEditor: document.querySelector("#mdEditor"),
+  mdAiPrompt: document.querySelector("#mdAiPrompt"),
+  applyMdAi: document.querySelector("#applyMdAi"),
+  saveMd: document.querySelector("#saveMd"),
+  mdStatus: document.querySelector("#mdStatus"),
+  clientName: document.querySelector("#clientName"),
+  clientEmail: document.querySelector("#clientEmail"),
+  clientPhone: document.querySelector("#clientPhone"),
+  clientTax: document.querySelector("#clientTax"),
+  clientAddress: document.querySelector("#clientAddress"),
+  clientRef: document.querySelector("#clientRef"),
+  budgetYear: document.querySelector("#budgetYear"),
+  budgetsList: document.querySelector("#budgetsList"),
+  budgetsStatus: document.querySelector("#budgetsStatus"),
+  refreshBudgets: document.querySelector("#refreshBudgets"),
+  newBudget: document.querySelector("#newBudget"),
+};
+
+function formatMoney(value) {
+  return new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(Number(value || 0));
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+function setStatus(text) {
+  els.status.textContent = text || "";
+}
+
+async function api(path, payload) {
+  const response = await fetch(path, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!response.ok) throw new Error(await response.text());
+  return response.json();
+}
+
+async function getJson(path) {
+  const response = await fetch(path);
+  if (!response.ok) throw new Error(await response.text());
+  return response.json();
+}
+
+function clientData() {
+  return {
+    nombre: els.clientName.value.trim(),
+    email: els.clientEmail.value.trim(),
+    telefono: els.clientPhone.value.trim(),
+    nif: els.clientTax.value.trim(),
+    direccion: els.clientAddress.value.trim(),
+    referencia: els.clientRef.value.trim(),
+  };
+}
+
+function resultPayload() {
+  const payload = { ...(state.result || {}), cliente: clientData() };
+  if (state.currentBudgetFolder) payload._folder = state.currentBudgetFolder;
+  if (state.budgetChangeLog.length) payload._changeLog = state.budgetChangeLog.slice(-120);
+  return payload;
+}
+
+function recordBudgetChange(change) {
+  state.budgetChangeLog.push({
+    at: new Date().toISOString(),
+    ...change,
+  });
+  state.budgetChangeLog = state.budgetChangeLog.slice(-200);
+}
+
+function lineLearningSnapshot(line) {
+  return {
+    id: line?.id || "",
+    capitulo: line?.capitulo || "",
+    concepto: line?.concepto || "",
+    cantidad: line?.cantidad ?? 0,
+    unidad: line?.unidad || "",
+    precioUnitario: line?.precioUnitario ?? 0,
+    importe: line?.importe ?? 0,
+  };
+}
+
+function readFileAsData(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(reader.error);
+    reader.onload = () => {
+      const result = String(reader.result || "");
+      if (file.type.startsWith("image/")) {
+        resolve({ kind: "image", name: file.name, type: file.type, dataUrl: result, base64: result.split(",")[1] || "" });
+      } else {
+        resolve({ kind: "document", name: file.name, type: file.type, text: result });
+      }
+    };
+    if (file.type.startsWith("image/")) reader.readAsDataURL(file);
+    else reader.readAsText(file);
+  });
+}
+
+async function handleFiles(files) {
+  const parsed = [];
+  for (const file of files) parsed.push(await readFileAsData(file));
+  state.attachments = parsed;
+  renderFiles();
+}
+
+function renderFiles() {
+  els.fileList.innerHTML = "";
+  for (const file of state.attachments) {
+    const chip = document.createElement("span");
+    chip.className = "file-chip";
+    chip.textContent = `${file.kind === "image" ? "Imagen" : "Doc"}: ${file.name}`;
+    els.fileList.appendChild(chip);
+  }
+}
+
+function parseEditableNumber(value) {
+  const normalized = String(value ?? "").trim().replace(/\s/g, "").replace(",", ".");
+  if (!normalized) return 0;
+  const parsed = Number(normalized);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function recalcLine(line) {
+  line.cantidad = parseEditableNumber(line.cantidad);
+  line.precioUnitario = parseEditableNumber(line.precioUnitario);
+  line.importe = Math.round(line.cantidad * line.precioUnitario * 100) / 100;
+}
+
+function refreshResultTotals() {
+  if (!state.result) return;
+  const total = (state.result.lineas || []).reduce((sum, line) => {
+    recalcLine(line);
+    return sum + line.importe;
+  }, 0);
+  els.total.textContent = formatMoney(total);
+  renderPrintPreview();
+}
+
+function renderList(el, items) {
+  el.innerHTML = "";
+  for (const item of items || []) {
+    const li = document.createElement("li");
+    li.textContent = item;
+    el.appendChild(li);
+  }
+}
+
+function toggleLineAi(index) {
+  state.activeLineAiIndex = state.activeLineAiIndex === index ? null : index;
+  renderLines();
+}
+
+function deleteLine(index) {
+  if (!state.result?.lineas) return;
+  const removed = state.result.lineas[index];
+  state.result.lineas.splice(index, 1);
+  recordBudgetChange({ source: "manual", action: "delete-line", lineIndex: index, before: lineLearningSnapshot(removed) });
+  state.activeLineAiIndex = null;
+  state.lineAiPrompts = {};
+  renderResult();
+}
+
+async function applyLineAi(index, row) {
+  const prompt = row.querySelector(".line-ai-prompt")?.value.trim() || "";
+  const status = row.querySelector(".line-ai-status");
+  if (!prompt) {
+    status.textContent = "Escribe un prompt para esta linea.";
+    return;
+  }
+  const selected = selectedModel();
+  if (!selected) {
+    status.textContent = "Selecciona un modelo disponible.";
+    return;
+  }
+  const button = row.querySelector(".apply-line-ai");
+  button.disabled = true;
+  status.textContent = "Aplicando IA sobre el presupuesto actual...";
+  try {
+    const beforeLine = lineLearningSnapshot(state.result?.lineas?.[index]);
+    const response = await api("/api/line-ai", {
+      provider: els.provider.value,
+      model: els.model.value,
+      prompt,
+      lineIndex: index,
+      budget: resultPayload(),
+    });
+    const afterLine = lineLearningSnapshot(response.result?.lineas?.[index]);
+    recordBudgetChange({ source: "ia-linea", action: "edit-line", prompt, lineIndex: index, before: beforeLine, after: afterLine });
+    state.result = response.result;
+    state.result.tokenUsage = response.usage || state.result.tokenUsage || null;
+    state.result.tokenStatus = response.tokenStatus || state.result.tokenStatus || null;
+    state.activeLineAiIndex = null;
+    state.lineAiPrompts = {};
+    renderResult();
+    await loadModels(els.provider.value, false);
+    renderModelTokenInfo();
+    const usageText = response.usage ? ` Tokens: ${response.usage.inputTokens || 0} entrada / ${response.usage.outputTokens || 0} salida / ${response.usage.totalTokens || 0} total.` : "";
+    setStatus(response.warning ? `Edicion local por linea: ${response.warning}` : `Linea actualizada con ${response.provider}.${usageText}`);
+  } catch (error) {
+    try {
+      const parsed = JSON.parse(error.message);
+      status.textContent = parsed.error || error.message;
+    } catch {
+      status.textContent = error.message;
+    }
+  } finally {
+    button.disabled = false;
+  }
+}
+function renderLines() {
+  els.linesBody.innerHTML = "";
+  const lines = state.result?.lineas || [];
+  lines.forEach((line, index) => {
+    recalcLine(line);
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><input data-field="capitulo" value="${escapeHtml(line.capitulo || "")}"></td>
+      <td>
+        <input data-field="concepto" value="${escapeHtml(line.concepto || "")}">
+        <textarea data-field="descripcion">${escapeHtml(line.descripcion || "")}</textarea>
+      </td>
+      <td><input data-field="cantidad" data-number="true" inputmode="decimal" value="${line.cantidad}"></td>
+      <td><input data-field="unidad" value="${escapeHtml(line.unidad || "")}"></td>
+      <td><input data-field="precioUnitario" data-number="true" inputmode="decimal" value="${line.precioUnitario}"></td>
+      <td><strong data-line-amount>${formatMoney(line.importe)}</strong><br><small>${escapeHtml(line.confianza || "")}</small></td>
+      <td>
+        <div class="line-tools">
+          <button class="line-ai-toggle" title="Editar esta linea con IA">IA</button>
+          <button class="row-delete" title="Eliminar linea">x</button>
+        </div>
+      </td>
+    `;
+    const syncLineField = (input, record = false) => {
+      const field = input.dataset.field;
+      const before = line[field];
+      line[field] = input.dataset.number === "true" ? parseEditableNumber(input.value) : input.value;
+      recalcLine(line);
+      if (record && String(before ?? "") !== String(line[field] ?? "")) {
+        recordBudgetChange({
+          source: "manual",
+          action: "edit-field",
+          lineIndex: index,
+          field,
+          from: before,
+          to: line[field],
+          line: lineLearningSnapshot(line),
+        });
+      }
+      const amount = tr.querySelector("[data-line-amount]");
+      if (amount) amount.textContent = formatMoney(line.importe);
+      refreshResultTotals();
+    };
+    tr.querySelectorAll("[data-field]").forEach((input) => {
+      input.addEventListener("input", () => syncLineField(input, false));
+      input.addEventListener("change", () => syncLineField(input, true));
+      input.addEventListener("blur", () => {
+        syncLineField(input, true);
+        if (input.dataset.number === "true") input.value = input.dataset.field === "cantidad" ? line.cantidad : line.precioUnitario;
+      });
+    });
+    tr.querySelector(".row-delete").addEventListener("click", () => deleteLine(index));
+    tr.querySelector(".line-ai-toggle").addEventListener("click", () => toggleLineAi(index));
+    els.linesBody.appendChild(tr);
+
+    if (state.activeLineAiIndex === index) {
+      const aiTr = document.createElement("tr");
+      aiTr.className = "line-ai-row";
+      aiTr.innerHTML = `
+        <td colspan="7">
+          <div class="line-ai-panel">
+            <div>
+              <strong>IA sobre linea ${escapeHtml(line.id || String(index + 1))}</strong>
+              <p>El agente recibira esta linea y el presupuesto completo actual.</p>
+            </div>
+            <textarea class="line-ai-prompt" rows="3" placeholder="Ej.: recalcula esta partida con inox 316, separa mano de obra y material, baja margen, cambia unidad a ml...">${escapeHtml(state.lineAiPrompts[index] || "")}</textarea>
+            <div class="line-ai-actions">
+              <button class="apply-line-ai">Aplicar IA</button>
+              <button class="secondary delete-line-ai">Borrar linea</button>
+              <button class="ghost close-line-ai">Cerrar</button>
+              <span class="line-ai-status status"></span>
+            </div>
+          </div>
+        </td>
+      `;
+      const promptInput = aiTr.querySelector(".line-ai-prompt");
+      promptInput.addEventListener("input", () => {
+        state.lineAiPrompts[index] = promptInput.value;
+      });
+      aiTr.querySelector(".apply-line-ai").addEventListener("click", () => applyLineAi(index, aiTr));
+      aiTr.querySelector(".delete-line-ai").addEventListener("click", () => deleteLine(index));
+      aiTr.querySelector(".close-line-ai").addEventListener("click", () => {
+        state.activeLineAiIndex = null;
+        renderLines();
+      });
+      els.linesBody.appendChild(aiTr);
+    }
+  });
+}
+function renderSuggestions() {
+  els.suggestionsList.innerHTML = "";
+  for (const suggestion of state.result?.sugerencias || []) {
+    const card = document.createElement("article");
+    card.className = "suggestion";
+    card.innerHTML = `
+      <div>
+        <strong>${escapeHtml(suggestion.titulo || "Sugerencia")}</strong>
+        <p>${escapeHtml(suggestion.detalle || "")}</p>
+        <small>${escapeHtml(suggestion.skillDestino || "skills/aprendizaje_presupuestador_app.md")}</small>
+      </div>
+      <button class="secondary">Memorizar</button>
+    `;
+    card.querySelector("button").addEventListener("click", async () => {
+      card.querySelector("button").disabled = true;
+      const response = await api("/api/learn", { suggestion });
+      card.querySelector("button").textContent = `Guardado en ${response.file}`;
+      await loadContext();
+      await loadMdFiles();
+loadBudgets();
+    });
+    els.suggestionsList.appendChild(card);
+  }
+}
+
+function renderPrintPreview() {
+  if (!state.result) return;
+  const payload = resultPayload();
+  const lines = payload.lineas || [];
+  const total = lines.reduce((sum, line) => sum + Number(line.importe || 0), 0);
+  const client = payload.cliente || {};
+  els.printPreview.innerHTML = `
+    <header>
+      <div>
+        <h1>${escapeHtml(payload.titulo || "Presupuesto")}</h1>
+        <p>${escapeHtml(payload.resumen || "")}</p>
+      </div>
+      <div class="print-meta">${new Date().toISOString().slice(0, 10)}</div>
+    </header>
+    <section class="print-box">
+      <strong>Cliente:</strong> ${escapeHtml(client.nombre || "")}<br>
+      <strong>Email:</strong> ${escapeHtml(client.email || "")} | <strong>Tel.:</strong> ${escapeHtml(client.telefono || "")}<br>
+      <strong>Obra:</strong> ${escapeHtml(client.direccion || "")}<br>
+      <strong>NIF/CIF:</strong> ${escapeHtml(client.nif || "")} | <strong>Referencia:</strong> ${escapeHtml(client.referencia || "")}
+    </section>
+    <table class="print-table">
+      <colgroup>
+        <col class="print-col-chapter">
+        <col class="print-col-concept">
+        <col class="print-col-qty">
+        <col class="print-col-unit">
+        <col class="print-col-price">
+        <col class="print-col-amount">
+      </colgroup>
+      <thead><tr><th>Capitulo</th><th>Concepto</th><th>Cant.</th><th>Ud.</th><th>EUR/Ud.</th><th>Importe</th></tr></thead>
+      <tbody>${lines.map((line) => `<tr><td>${escapeHtml(line.capitulo || "")}</td><td><strong>${escapeHtml(line.concepto || "")}</strong><br>${escapeHtml(line.descripcion || "")}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${escapeHtml(line.unidad || "")}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
+    </table>
+    <div class="print-total">Total estimado: ${total.toFixed(2)} EUR + IVA</div>
+  `;
+}
+
+function printDocumentHtml() {
+  renderPrintPreview();
+  return `<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>${escapeHtml(state.result?.titulo || "Presupuesto")}</title>
+  <style>
+    @page { size: A4 portrait; margin: 10mm; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: white; color: #111827; font-family: Arial, Helvetica, sans-serif; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .print-sheet { width: 170mm; max-width: 170mm; margin: 0 auto; overflow: hidden; }
+    header { border-top: 5px solid #16202a; padding-top: 8mm; display: grid; grid-template-columns: minmax(0, 1fr) 24mm; gap: 8mm; align-items: start; }
+    h1 { margin: 0 0 3mm; font-size: 15pt; line-height: 1.12; overflow-wrap: anywhere; }
+    p { margin: 0; color: #475467; font-size: 9.5pt; line-height: 1.25; overflow-wrap: anywhere; }
+    .print-meta { color: #475467; text-align: right; white-space: normal; font-size: 10pt; }
+    .print-box { border: 1px solid #d6dde5; background: #f6f8fa; padding: 4mm; margin: 7mm 0 5mm; font-size: 9.5pt; line-height: 1.2; overflow-wrap: anywhere; }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 7.6pt; line-height: 1.18; }
+    th { background: #16202a; color: white; text-align: left; }
+    th, td { border-bottom: 1px solid #d6dde5; padding: 2.2mm 1.5mm; vertical-align: top; overflow-wrap: anywhere; }
+    .num { text-align: right; white-space: nowrap; }
+    .print-col-chapter { width: 10%; }
+    .print-col-concept { width: 51%; }
+    .print-col-qty { width: 8%; }
+    .print-col-unit { width: 7%; }
+    .print-col-price { width: 11%; }
+    .print-col-amount { width: 13%; }
+    .print-total { width: 100%; margin-top: 8mm; padding-right: 2mm; text-align: right; font-size: 12pt; font-weight: 700; overflow-wrap: anywhere; page-break-inside: avoid; }
+    tr { page-break-inside: avoid; page-break-after: auto; }
+  </style>
+</head>
+<body><main class="print-sheet">${els.printPreview.innerHTML}</main></body>
+</html>`;
+}
+window.printDocumentHtml = printDocumentHtml;
+
+function renderResult(renderTable = true) {
+  if (!state.result) return;
+  const total = (state.result.lineas || []).reduce((sum, line) => {
+    recalcLine(line);
+    return sum + line.importe;
+  }, 0);
+  els.resultPanel.classList.remove("hidden");
+  els.exportBudget.disabled = false;
+  els.printBudget.disabled = false;
+  els.title.textContent = state.result.titulo || "Presupuesto";
+  els.summaryText.textContent = state.result.resumen || "";
+  els.productType.textContent = state.result.tipoProducto || "producto_compuesto";
+  els.total.textContent = formatMoney(total);
+  if (renderTable) renderLines();
+  renderList(els.questions, state.result.preguntas);
+  renderList(els.assumptions, state.result.supuestos);
+  renderList(els.risks, state.result.riesgos);
+  renderSuggestions();
+  renderPrintPreview();
+}
+
+function clearBudgetForm() {
+  state.attachments = [];
+  state.result = null;
+  state.currentBudgetFolder = null;
+  els.prompt.value = "";
+  els.attachments.value = "";
+  els.fileList.innerHTML = "";
+  els.clientName.value = "";
+  els.clientEmail.value = "";
+  els.clientPhone.value = "";
+  els.clientTax.value = "";
+  els.clientAddress.value = "";
+  els.clientRef.value = "";
+  els.resultPanel.classList.add("hidden");
+  els.exportBudget.disabled = true;
+  els.printBudget.disabled = true;
+  setStatus("");
+  updateSaveMode();
+}
+
+async function loadBudgets() {
+  if (!els.budgetsList) return;
+  els.budgetsStatus.textContent = "Cargando presupuestos...";
+  const data = await getJson("/api/budgets");
+  state.budgets = data.budgets || [];
+  state.budgetYears = data.years || [];
+  renderBudgetYears();
+  renderBudgets();
+  els.budgetsStatus.textContent = `${state.budgets.length} presupuesto(s).`;
+}
+
+function renderBudgetYears() {
+  const current = els.budgetYear.value;
+  els.budgetYear.innerHTML = "";
+  const all = document.createElement("option");
+  all.value = "all";
+  all.textContent = "Todos";
+  els.budgetYear.appendChild(all);
+  for (const year of state.budgetYears) {
+    const option = document.createElement("option");
+    option.value = year;
+    option.textContent = year;
+    els.budgetYear.appendChild(option);
+  }
+  els.budgetYear.value = current && [...els.budgetYear.options].some((option) => option.value === current) ? current : (state.budgetYears[0] || "all");
+}
+
+function renderBudgets() {
+  const year = els.budgetYear.value || "all";
+  const budgets = state.budgets.filter((budget) => year === "all" || budget.year === year);
+  els.budgetsList.innerHTML = "";
+  if (!budgets.length) {
+    els.budgetsList.innerHTML = '<div class="empty-state">No hay presupuestos para este año.</div>';
+    return;
+  }
+  for (const budget of budgets) {
+    const card = document.createElement("article");
+    card.className = "budget-card";
+    const primary = budget.files.find((file) => file.name === "presupuesto-final.html")
+      || budget.files.find((file) => file.name === "presupuesto-cliente.html")
+      || budget.files.find((file) => file.name === "README.md")
+      || budget.files[0];
+    card.innerHTML = `
+      <div>
+        <div class="budget-code">${escapeHtml(budget.code)} · ${escapeHtml(budget.year)}</div>
+        <h2>${escapeHtml(budget.title || budget.folder)}</h2>
+        <p>${escapeHtml(budget.clientName || "Sin cliente guardado")}</p>
+        <small>${escapeHtml(budget.folder)}</small>
+      </div>
+      <div class="budget-card-actions">
+        ${budget.editable ? `<button class="secondary edit-budget" data-folder="${escapeHtml(budget.folder)}">Editar</button>` : ""}
+        ${primary ? `<a class="button-link" href="${primary.url}" target="_blank" rel="noreferrer">Abrir</a>` : ""}
+        <div class="budget-file-links">${budget.files.map((file) => `<a href="${file.url}" target="_blank" rel="noreferrer">${escapeHtml(file.name)}</a>`).join("")}</div>
+      </div>
+    `;
+    const editButton = card.querySelector(".edit-budget");
+    if (editButton) editButton.addEventListener("click", () => editBudget(budget.folder));
+    els.budgetsList.appendChild(card);
+  }
+}
+
+function newBudget() {
+  clearBudgetForm();
+  switchView("budgetView");
+  els.prompt.focus();
+}
+function updateSaveMode() {
+  els.exportBudget.textContent = state.currentBudgetFolder ? "Actualizar presupuesto" : "Guardar presupuesto";
+}
+
+function fillClientForm(cliente = {}) {
+  els.clientName.value = cliente.nombre || "";
+  els.clientEmail.value = cliente.email || "";
+  els.clientPhone.value = cliente.telefono || "";
+  els.clientTax.value = cliente.nif || "";
+  els.clientAddress.value = cliente.direccion || "";
+  els.clientRef.value = cliente.referencia || "";
+}
+
+async function editBudget(folder) {
+  els.budgetsStatus.textContent = "Cargando presupuesto...";
+  try {
+    const response = await getJson(`/api/budget?folder=${encodeURIComponent(folder)}`);
+    const data = response.data || {};
+    state.currentBudgetFolder = response.folder;
+    state.result = data;
+    fillClientForm(data.cliente || {});
+    els.prompt.value = data.prompt || "";
+    state.attachments = [];
+    els.attachments.value = "";
+    els.fileList.innerHTML = "";
+    renderResult();
+    updateSaveMode();
+    switchView("budgetView");
+    setStatus(`Editando ${response.code || response.folder}. Al guardar se actualizara la misma carpeta.`);
+    els.budgetsStatus.textContent = "";
+  } catch (error) {
+    els.budgetsStatus.textContent = error.message;
+  }
+}
+async function generate() {
+  if (!els.prompt.value.trim()) {
+    setStatus("Describe primero el trabajo a presupuestar.");
+    return;
+  }
+  const selected = selectedModel();
+  if (!selected || selected.disabled) {
+    setStatus("Selecciona un modelo disponible con saldo suficiente.");
+    return;
+  }
+  els.generate.disabled = true;
+  setStatus("Generando propuesta...");
+  try {
+    const response = await api("/api/generate", {
+      provider: els.provider.value,
+      model: els.model.value,
+      prompt: els.prompt.value.trim(),
+      attachments: state.attachments,
+    });
+    state.currentBudgetFolder = null;
+    state.budgetChangeLog = [];
+    state.result = response.result;
+    recordBudgetChange({ source: "generacion", provider: response.provider, model: response.model, titulo: response.result?.titulo || "" });
+    state.result.tokenUsage = response.usage || null;
+    state.result.tokenStatus = response.tokenStatus || null;
+    renderResult();
+    await loadModels(els.provider.value, false);
+    renderModelTokenInfo();
+    const usageText = response.usage ? ` Tokens: ${response.usage.inputTokens || 0} entrada / ${response.usage.outputTokens || 0} salida / ${response.usage.totalTokens || 0} total.` : "";
+    setStatus(response.warning ? `Usando fallback local: ${response.warning}` : `Generado con ${response.provider}.${usageText}`);
+  } catch (error) {
+    try {
+      const parsed = JSON.parse(error.message);
+      setStatus(parsed.error || error.message);
+    } catch {
+      setStatus(error.message);
+    }
+  } finally {
+    els.generate.disabled = false;
+  }
+}
+async function loadContext() {
+  els.contextFiles.innerHTML = "<li>Cargando...</li>";
+  const data = await getJson("/api/context");
+  els.contextFiles.innerHTML = "";
+  for (const file of data.files || []) {
+    const li = document.createElement("li");
+    li.textContent = file;
+    els.contextFiles.appendChild(li);
+  }
+}
+
+async function loadSettings() {
+  const settings = await getJson("/api/settings");
+  state.settings = settings;
+  els.defaultProvider.value = settings.defaultProvider || "fallback";
+  els.openaiKey.placeholder = settings.openaiApiKeySet ? "Clave guardada; escribe otra para cambiar" : "sk-...";
+  els.geminiKey.placeholder = settings.geminiApiKeySet ? "Clave guardada; escribe otra para cambiar" : "AIza...";
+  els.openaiBudgets.value = JSON.stringify(settings.modelTokenBudgets?.openai || {}, null, 2);
+  els.geminiBudgets.value = JSON.stringify(settings.modelTokenBudgets?.gemini || {}, null, 2);
+  await loadAllModels();
+  selectDefaultModels(settings);
+  els.provider.value = settings.defaultProvider || "fallback";
+  updateModelFromProvider(preferredModelForProvider(els.provider.value, settings));
+}
+
+async function loadAllModels() {
+  await Promise.all([loadModels("fallback", false), loadModels("openai", false), loadModels("gemini", false)]);
+}
+
+async function loadModels(provider, showStatus = true) {
+  if (showStatus) els.settingsStatus.textContent = `Actualizando modelos ${provider}...`;
+  const data = await getJson(`/api/models?provider=${encodeURIComponent(provider)}`);
+  state.models[provider] = data.models || [];
+  if (showStatus) els.settingsStatus.textContent = `Modelos ${provider} actualizados.`;
+}
+
+function selectDefaultModels(settings = state.settings || {}) {
+  fillProviderSelect(els.openaiModel, "openai", settings.openaiModel);
+  fillProviderSelect(els.geminiModel, "gemini", settings.geminiModel);
+}
+
+function modelCostTier(model) {
+  const id = String(model?.id || "").toLowerCase();
+  if (!id || id === "fallback") return { key: "neutral", label: "local" };
+  if (id.includes("nano") || id.includes("mini") || id.includes("lite") || id.includes("flash") || id.includes("haiku")) {
+    return { key: "cheap", label: "economico" };
+  }
+  if (id.includes("pro") || id.includes("opus") || id.includes("o1") || id.includes("o3") || id.includes("o4") || id.includes("reasoning")) {
+    return { key: "expensive", label: "caro" };
+  }
+  if (id.includes("gpt-4") || id.includes("gpt-5") || id.includes("gemini")) {
+    return { key: "medium", label: "medio" };
+  }
+  return { key: "neutral", label: "sin precio" };
+}
+
+function applyModelCostStyle(select, model) {
+  const tier = modelCostTier(model).key;
+  select.classList.remove("model-cost-cheap", "model-cost-medium", "model-cost-expensive", "model-cost-neutral");
+  select.classList.add(`model-cost-${tier}`);
+}
+
+function decorateModelOption(option, model) {
+  const tier = modelCostTier(model).key;
+  option.dataset.cost = tier;
+  option.className = `model-cost-option-${tier}`;
+}
+function fillProviderSelect(select, provider, selectedValue) {
+  select.innerHTML = "";
+  for (const model of state.models[provider] || []) {
+    const option = document.createElement("option");
+    option.value = model.id;
+    option.textContent = modelLabel(model);
+    decorateModelOption(option, model);
+    option.disabled = !model.available;
+    select.appendChild(option);
+  }
+  if (selectedValue && [...select.options].some((option) => option.value === selectedValue)) select.value = selectedValue;
+}
+
+function modelLabel(model) {
+  const tier = modelCostTier(model);
+  const parts = [`${model.id} (${tier.label})`];
+  if (model.inputTokenLimit) parts.push(`ctx ${Number(model.inputTokenLimit).toLocaleString("es-ES")}`);
+  if (model.remainingTokens !== null && model.remainingTokens !== undefined) parts.push(`restan ${Number(model.remainingTokens).toLocaleString("es-ES")}`);
+  if (!model.available) parts.push("no disponible");
+  return parts.join(" · ");
+}
+
+function selectedModel() {
+  return (state.models[els.provider.value] || []).find((model) => model.id === els.model.value);
+}
+
+function preferredModelForProvider(provider, settings = state.settings || {}) {
+  if (provider === "openai") return settings.openaiModel || els.openaiModel.value || "";
+  if (provider === "gemini") return settings.geminiModel || els.geminiModel.value || "";
+  return "fallback";
+}
+
+function selectBudgetModel(provider, preferred) {
+  const options = [...els.model.options];
+  const preferredOption = options.find((option) => option.value === preferred && !option.disabled);
+  const firstEnabled = options.find((option) => !option.disabled);
+  if (preferredOption) {
+    els.model.value = preferredOption.value;
+    return;
+  }
+  if (firstEnabled) els.model.value = firstEnabled.value;
+}
+
+function updateModelFromProvider(preferredOverride = null) {
+  const provider = els.provider.value;
+  els.model.innerHTML = "";
+  const models = state.models[provider] || [];
+  for (const model of models) {
+    const option = document.createElement("option");
+    option.value = model.id;
+    option.textContent = modelLabel(model);
+    decorateModelOption(option, model);
+    option.disabled = !model.available || (model.remainingTokens !== null && model.remainingTokens <= 0);
+    els.model.appendChild(option);
+  }
+  selectBudgetModel(provider, preferredOverride || preferredModelForProvider(provider));
+  applyModelCostStyle(els.model, selectedModel());
+  renderModelTokenInfo();
+}
+
+function renderModelTokenInfo() {
+  const model = selectedModel();
+  if (!model) {
+    applyModelCostStyle(els.model, null);
+    els.modelTokenInfo.textContent = "No hay modelos disponibles para este proveedor.";
+    return;
+  }
+  const tier = modelCostTier(model);
+  applyModelCostStyle(els.model, model);
+  const lines = [
+    `Coste relativo: ${tier.label}`,
+    `Disponible: ${model.available ? "si" : "no"}`,
+    `Entrada max.: ${model.inputTokenLimit ? Number(model.inputTokenLimit).toLocaleString("es-ES") : "no informado"}`,
+    `Salida max.: ${model.outputTokenLimit ? Number(model.outputTokenLimit).toLocaleString("es-ES") : "no informado"}`,
+    `Usado local: ${Number(model.usedTokens || 0).toLocaleString("es-ES")}`,
+    `Saldo local: ${model.remainingTokens === null || model.remainingTokens === undefined ? "sin limite" : Number(model.remainingTokens).toLocaleString("es-ES")}`,
+  ];
+  if (state.result?.tokenUsage) lines.push(`Ultima llamada: ${state.result.tokenUsage.inputTokens} in / ${state.result.tokenUsage.outputTokens} out / ${state.result.tokenUsage.totalTokens} total`);
+  if (model.note) lines.push(model.note);
+  if (model.error) lines.push(`Error API: ${model.error}`);
+  els.modelTokenInfo.textContent = lines.join("\n");
+}
+
+function parseBudgetJson(value, label) {
+  if (!value.trim()) return {};
+  const parsed = JSON.parse(value);
+  if (!parsed || Array.isArray(parsed) || typeof parsed !== "object") throw new Error(`${label} debe ser JSON objeto modelo:tokens.`);
+  for (const [model, tokens] of Object.entries(parsed)) {
+    if (!model || Number(tokens) < 0) throw new Error(`${label}: token invalido en ${model}.`);
+    parsed[model] = Number(tokens);
+  }
+  return parsed;
+}
+
+async function saveSettings() {
+  els.saveSettings.disabled = true;
+  els.settingsStatus.textContent = "Guardando...";
+  try {
+    await api("/api/settings", {
+      defaultProvider: els.defaultProvider.value,
+      openaiApiKey: els.openaiKey.value,
+      openaiModel: els.openaiModel.value,
+      geminiApiKey: els.geminiKey.value,
+      geminiModel: els.geminiModel.value,
+      modelTokenBudgets: {
+        openai: parseBudgetJson(els.openaiBudgets.value, "OpenAI"),
+        gemini: parseBudgetJson(els.geminiBudgets.value, "Gemini"),
+      },
+    });
+    els.openaiKey.value = "";
+    els.geminiKey.value = "";
+    await loadSettings();
+    els.settingsStatus.textContent = "Configuracion guardada.";
+  } catch (error) {
+    els.settingsStatus.textContent = error.message;
+  } finally {
+    els.saveSettings.disabled = false;
+  }
+}
+async function loadMdFiles() {
+  const data = await getJson("/api/md");
+  state.mdFiles = data.files || [];
+  renderMdFiles();
+}
+
+function renderMdFiles() {
+  const query = els.mdSearch.value.trim().toLowerCase();
+  els.mdFiles.innerHTML = "";
+  for (const file of state.mdFiles.filter((item) => item.toLowerCase().includes(query))) {
+    const li = document.createElement("li");
+    li.textContent = file;
+    li.className = file === state.activeMdPath ? "active" : "";
+    li.addEventListener("click", () => openMd(file));
+    els.mdFiles.appendChild(li);
+  }
+}
+
+async function openMd(file) {
+  els.mdStatus.textContent = "Cargando...";
+  const data = await getJson(`/api/md/read?path=${encodeURIComponent(file)}`);
+  state.activeMdPath = data.path;
+  els.mdPath.textContent = data.path;
+  els.mdEditor.value = data.content;
+  els.mdEditor.disabled = false;
+  els.mdAiPrompt.disabled = false;
+  els.applyMdAi.disabled = false;
+  els.saveMd.disabled = false;
+  els.mdStatus.textContent = "";
+  renderMdFiles();
+}
+
+async function applyMdAi() {
+  if (!state.activeMdPath) return;
+  const prompt = els.mdAiPrompt.value.trim();
+  if (!prompt) {
+    els.mdStatus.textContent = "Escribe una instruccion para la IA.";
+    return;
+  }
+  const selected = selectedModel();
+  if (!selected) {
+    els.mdStatus.textContent = "Selecciona un modelo disponible.";
+    return;
+  }
+  els.applyMdAi.disabled = true;
+  els.mdStatus.textContent = "Editando MD con IA...";
+  try {
+    const response = await api("/api/md/ai", {
+      provider: els.provider.value,
+      model: els.model.value,
+      path: state.activeMdPath,
+      content: els.mdEditor.value,
+      prompt,
+    });
+    els.mdEditor.value = response.content || "";
+    els.mdStatus.textContent = response.warning ? `Edicion local: ${response.warning}` : `MD actualizado con ${response.provider}. Revisa y pulsa Guardar archivo.`;
+    if (response.usage) {
+      state.result = state.result || {};
+      state.result.tokenUsage = response.usage;
+      await loadModels(els.provider.value, false);
+      renderModelTokenInfo();
+    }
+  } catch (error) {
+    try {
+      const parsed = JSON.parse(error.message);
+      els.mdStatus.textContent = parsed.error || error.message;
+    } catch {
+      els.mdStatus.textContent = error.message;
+    }
+  } finally {
+    els.applyMdAi.disabled = false;
+  }
+}
+async function saveMd() {
+  if (!state.activeMdPath) return;
+  els.saveMd.disabled = true;
+  els.mdStatus.textContent = "Guardando...";
+  try {
+    const response = await api("/api/md/write", { path: state.activeMdPath, content: els.mdEditor.value });
+    els.mdStatus.textContent = `Guardado: ${response.path}`;
+    await loadContext();
+  } catch (error) {
+    els.mdStatus.textContent = error.message;
+  } finally {
+    els.saveMd.disabled = false;
+  }
+}
+
+function switchView(viewId) {
+  document.querySelectorAll(".view").forEach((view) => view.classList.add("hidden"));
+  document.querySelector(`#${viewId}`).classList.remove("hidden");
+  document.querySelectorAll(".side-btn").forEach((button) => button.classList.toggle("active", button.dataset.view === viewId));
+}
+
+function printBudget() {
+  if (!state.result) return;
+  const frame = document.createElement("iframe");
+  frame.title = "Impresion presupuesto";
+  frame.style.position = "fixed";
+  frame.style.right = "0";
+  frame.style.bottom = "0";
+  frame.style.width = "0";
+  frame.style.height = "0";
+  frame.style.border = "0";
+  document.body.appendChild(frame);
+  const doc = frame.contentDocument || frame.contentWindow.document;
+  doc.open();
+  doc.write(window.printDocumentHtml());
+  doc.close();
+  const cleanup = () => setTimeout(() => frame.remove(), 500);
+  frame.contentWindow.onafterprint = cleanup;
+  setTimeout(() => {
+    frame.contentWindow.focus();
+    frame.contentWindow.print();
+    setTimeout(cleanup, 3000);
+  }, 150);
+}
+
+document.querySelectorAll(".side-btn").forEach((button) => button.addEventListener("click", () => switchView(button.dataset.view)));
+document.querySelectorAll(".tab").forEach((tab) => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach((item) => item.classList.remove("active"));
+    document.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.add("hidden"));
+    tab.classList.add("active");
+    document.querySelector(`#${tab.dataset.tab}`).classList.remove("hidden");
+    if (tab.dataset.tab === "final") renderPrintPreview();
+  });
+});
+
+els.attachments.addEventListener("change", (event) => handleFiles(event.target.files));
+els.generate.addEventListener("click", generate);
+els.refreshContext.addEventListener("click", loadContext);
+els.saveSettings.addEventListener("click", saveSettings);
+els.provider.addEventListener("change", updateModelFromProvider);
+els.defaultProvider.addEventListener("change", () => { els.provider.value = els.defaultProvider.value; updateModelFromProvider(preferredModelForProvider(els.provider.value)); });
+els.model.addEventListener("change", renderModelTokenInfo);
+els.openaiModel.addEventListener("change", () => { if (els.provider.value === "openai") updateModelFromProvider(els.openaiModel.value); });
+els.geminiModel.addEventListener("change", () => { if (els.provider.value === "gemini") updateModelFromProvider(els.geminiModel.value); });
+els.refreshModels.addEventListener("click", async () => { await loadSettings(); els.settingsStatus.textContent = "Modelos actualizados."; });
+els.refreshBudgets.addEventListener("click", loadBudgets);
+els.budgetYear.addEventListener("change", renderBudgets);
+els.newBudget.addEventListener("click", newBudget);
+els.mdSearch.addEventListener("input", renderMdFiles);
+els.applyMdAi.addEventListener("click", applyMdAi);
+els.saveMd.addEventListener("click", saveMd);
+els.printBudget.addEventListener("click", printBudget);
+[els.clientName, els.clientEmail, els.clientPhone, els.clientTax, els.clientAddress, els.clientRef].forEach((input) => input.addEventListener("input", renderPrintPreview));
+
+els.clear.addEventListener("click", clearBudgetForm);
+
+
+els.addLine.addEventListener("click", () => {
+  if (!state.result) return;
+  const line = {
+    id: `L${state.result.lineas.length + 1}`,
+    capitulo: "Materiales",
+    concepto: "Nueva linea",
+    descripcion: "",
+    cantidad: 1,
+    unidad: "ud",
+    precioUnitario: 0,
+    importe: 0,
+    confianza: "media",
+    origen: "usuario",
+    editable: true,
+  };
+  state.result.lineas.push(line);
+  recordBudgetChange({ source: "manual", action: "add-line", lineIndex: state.result.lineas.length - 1, after: lineLearningSnapshot(line) });
+  renderResult();
+});
+
+els.exportBudget.addEventListener("click", async () => {
+  if (!state.result) return;
+  els.exportBudget.disabled = true;
+  const response = await api("/api/export", resultPayload());
+  state.currentBudgetFolder = response.folder;
+  updateSaveMode();
+  await loadBudgets();
+  if (response.learningFile) state.budgetChangeLog = [];
+  const learningText = response.learningFile ? ` Aprendizaje actualizado en ${response.learningFile}.` : "";
+  setStatus(`${response.updated ? "Actualizado" : "Guardado"}: ${response.folder}/README.md y presupuesto-final.html.${learningText}`);
+  els.exportBudget.disabled = false;
+});
+
+loadContext();
+loadSettings();
+loadMdFiles();
+loadBudgets();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

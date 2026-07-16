@@ -1,0 +1,233 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuestador IA</title>
+  <link rel="stylesheet" href="/styles.css?v=20260716-default-model-selection">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="side">
+      <div class="brand">
+        <span class="mark">H</span>
+        <div>
+          <strong>Presupuestador IA</strong>
+          <small>Compuestos, skills y costes</small>
+        </div>
+      </div>
+
+      <div class="side-actions">
+        <button class="side-btn active" data-view="budgetView">Presupuesto</button>
+        <button class="side-btn" data-view="budgetsView">Presupuestos</button>
+        <button class="side-btn" data-view="configView">Configuracion</button>
+        <button class="side-btn" data-view="contextView">Contextos MD</button>
+      </div>
+
+      <label class="field">
+        <span>Proveedor</span>
+        <select id="provider">
+          <option value="fallback">Local sin API</option>
+          <option value="openai">OpenAI / Codex</option>
+          <option value="gemini">Gemini</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Modelo</span>
+        <select id="model"></select>
+      </label>
+      <div id="modelTokenInfo" class="token-info side-token-info">Selecciona proveedor para ver modelos.</div>
+
+      <div class="context">
+        <div class="context-head">
+          <strong>Contexto cargado</strong>
+          <button id="refreshContext" title="Actualizar contexto">R</button>
+        </div>
+        <ul id="contextFiles"></ul>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <section id="budgetView" class="view">
+        <section class="composer">
+          <div class="composer-head">
+            <div>
+              <h1>Crear presupuesto desde prompt</h1>
+              <p>Describe el trabajo, adjunta planos, fotos o documentacion y revisa las lineas propuestas.</p>
+            </div>
+            <div class="top-actions">
+              <button id="printBudget" class="secondary" disabled>Imprimir / PDF</button>
+              <button id="exportBudget" class="secondary" disabled>Guardar presupuesto</button>
+            </div>
+          </div>
+
+          <div class="client-grid">
+            <label><span>Cliente</span><input id="clientName" placeholder="Nombre fiscal o cliente"></label>
+            <label><span>Email</span><input id="clientEmail" placeholder="cliente@email.com"></label>
+            <label><span>Telefono</span><input id="clientPhone" placeholder="+34..."></label>
+            <label><span>NIF/CIF</span><input id="clientTax" placeholder="B00000000"></label>
+            <label class="wide"><span>Direccion / obra</span><input id="clientAddress" placeholder="Ubicacion de la obra"></label>
+            <label><span>Referencia</span><input id="clientRef" placeholder="Ref. interna"></label>
+          </div>
+
+          <textarea id="prompt" rows="6" placeholder="Ej.: Pergola adosada de 6 x 4 m en Menorca, estructura inox 316, cubierta de canizo, montaje en terraza con acceso estrecho..."></textarea>
+
+          <div class="dropzone" id="dropzone">
+            <input id="attachments" type="file" multiple accept="image/*,.txt,.md,.pdf,.csv,.json,.yaml,.yml">
+            <div>
+              <strong>Adjuntar documentacion o imagenes</strong>
+              <span>Se leen textos y se envian imagenes como referencia visual a la API compatible.</span>
+            </div>
+          </div>
+
+          <div id="fileList" class="file-list"></div>
+
+          <div class="actions">
+            <button id="generate">Generar lineas</button>
+            <button id="clear" class="ghost">Limpiar</button>
+            <span id="status" class="status"></span>
+          </div>
+        </section>
+
+        <section id="resultPanel" class="result hidden">
+          <div class="summary">
+            <div>
+              <span id="productType" class="pill">producto_compuesto</span>
+              <h2 id="title">Presupuesto</h2>
+              <p id="summaryText"></p>
+            </div>
+            <div class="total">
+              <small>Total estimado</small>
+              <strong id="total">0,00 EUR</strong>
+            </div>
+          </div>
+
+          <div class="tabs">
+            <button class="tab active" data-tab="lines">Lineas</button>
+            <button class="tab" data-tab="notes">Preguntas y riesgos</button>
+            <button class="tab" data-tab="suggestions">Sugerencias</button>
+            <button class="tab" data-tab="final">Vista final</button>
+          </div>
+
+          <div id="lines" class="tab-panel">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Capitulo</th>
+                    <th>Concepto</th>
+                    <th>Cant.</th>
+                    <th>Ud.</th>
+                    <th>EUR/Ud.</th>
+                    <th>Importe</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="linesBody"></tbody>
+              </table>
+            </div>
+            <button id="addLine" class="secondary">Anadir linea</button>
+          </div>
+
+          <div id="notes" class="tab-panel hidden">
+            <div class="note-grid">
+              <article><h3>Preguntas</h3><ul id="questions"></ul></article>
+              <article><h3>Supuestos</h3><ul id="assumptions"></ul></article>
+              <article><h3>Riesgos</h3><ul id="risks"></ul></article>
+            </div>
+          </div>
+
+          <div id="suggestions" class="tab-panel hidden">
+            <div id="suggestionsList" class="suggestions"></div>
+          </div>
+
+          <div id="final" class="tab-panel hidden">
+            <div id="printPreview" class="print-preview"></div>
+          </div>
+        </section>
+      </section>
+
+
+      <section id="budgetsView" class="view hidden">
+        <section class="composer">
+          <div class="composer-head">
+            <div>
+              <h1>Presupuestos generados</h1>
+              <p>Listado por año de las carpetas guardadas en <code>presupuestos/</code>.</p>
+            </div>
+            <button id="newBudget" class="secondary">Nuevo presupuesto</button>
+          </div>
+          <div class="budget-toolbar">
+            <label><span>Año</span><select id="budgetYear"></select></label>
+            <button id="refreshBudgets" class="secondary">Actualizar lista</button>
+            <span id="budgetsStatus" class="status"></span>
+          </div>
+          <div id="budgetsList" class="budgets-list"></div>
+        </section>
+      </section>
+      <section id="configView" class="view hidden">
+        <section class="composer">
+          <h1>Configuracion de APIs</h1>
+          <p>Las claves se guardan solo en este equipo, en <code>presupuestador-app/config.local.json</code>.</p>
+          <div class="settings-grid">
+            <label><span>Proveedor por defecto</span><select id="defaultProvider"><option value="fallback">Local sin API</option><option value="openai">OpenAI / Codex</option><option value="gemini">Gemini</option></select></label>
+            <label><span>OpenAI API key</span><input id="openaiKey" type="password" placeholder="sk-... o dejar vacio para conservar"></label>
+            <label><span>Modelo OpenAI por defecto</span><select id="openaiModel"></select></label>
+            <label><span>Gemini API key</span><input id="geminiKey" type="password" placeholder="AIza... o dejar vacio para conservar"></label>
+            <label><span>Modelo Gemini por defecto</span><select id="geminiModel"></select></label>
+          </div>
+          <div class="budget-grid">
+            <label><span>Presupuesto local OpenAI (JSON modelo:tokens)</span><textarea id="openaiBudgets" rows="7" spellcheck="false" placeholder="{&quot;gpt-4.1-mini&quot;:500000}"></textarea></label>
+            <label><span>Presupuesto local Gemini (JSON modelo:tokens)</span><textarea id="geminiBudgets" rows="7" spellcheck="false" placeholder="{&quot;gemini-1.5-pro&quot;:500000}"></textarea></label>
+          </div>
+          <div class="actions">
+            <button id="refreshModels">Actualizar modelos</button>
+            <button id="saveSettings">Guardar configuracion</button>
+            <span id="settingsStatus" class="status"></span>
+          </div>
+        </section>
+      </section>
+
+      <section id="contextView" class="view hidden">
+        <section class="composer context-editor">
+          <div class="composer-head">
+            <div>
+              <h1>Editar contextos y Markdown</h1>
+              <p>Edita skills, reglas, costes y composiciones permitidas. Se guarda directamente en el repositorio.</p>
+            </div>
+            <button id="saveMd" class="secondary" disabled>Guardar archivo</button>
+          </div>
+          <div class="editor-grid">
+            <div class="file-browser">
+              <input id="mdSearch" placeholder="Filtrar archivos...">
+              <ul id="mdFiles"></ul>
+            </div>
+            <div class="editor-pane">
+              <div class="editor-path" id="mdPath">Selecciona un archivo</div>
+              <div class="md-ai-panel">
+                <textarea id="mdAiPrompt" rows="3" placeholder="Indica a la IA que criterio, aprendizaje o contexto debe interiorizar en este MD..." disabled></textarea>
+                <div class="md-ai-actions">
+                  <button id="applyMdAi" class="secondary" disabled>Editar MD con IA</button>
+                  <span class="status">La IA modificara el texto abierto; revisa y pulsa Guardar archivo.</span>
+                </div>
+              </div>
+              <textarea id="mdEditor" spellcheck="false" disabled></textarea>
+              <div id="mdStatus" class="status"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="/app.js?v=20260716-default-model-selection"></script>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -2,3 +2,7 @@ proveedores-config.json
 .env
 *.local.json
 datos-privados/
+presupuestador-app/data/
+.agents/
+tmp/
+
