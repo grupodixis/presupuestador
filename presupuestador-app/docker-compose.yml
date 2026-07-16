@@ -1,0 +1,25 @@
+﻿services:
+  presupuestador-app:
+    build: .
+    container_name: presupuestador-app
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 4177
+    ports:
+      - "127.0.0.1:4177:4177"
+    volumes:
+      - ./data:/app/data
+      - ../skills:/skills
+      - ../presupuestacion:/presupuestacion
+      - ../productos:/productos
+      - ../plantillas:/plantillas
+      - ../proveedores:/proveedores
+      - ../glosario:/glosario
+      - ../presupuestos:/presupuestos
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:4177/api/db/status"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+

@@ -1,0 +1,4 @@
+﻿config.local.json
+token-usage.local.json
+data/
+*.log

@@ -1,7 +1,51 @@
-﻿# Presupuestador App
+# Presupuestador App
 
 Web local para crear presupuestos desde un prompt, adjuntar documentacion o imagenes, revisar lineas editables, editar contextos Markdown/YAML/JSON y memorizar sugerencias en skills.
 
+## Despliegue Docker
+
+La app incluye `Dockerfile` y `docker-compose.yml`.
+
+Arranque local o en VPS:
+
+```bash
+cd presupuestador-app
+docker compose up -d --build
+```
+
+El contenedor expone la app solo en localhost del servidor:
+
+```text
+127.0.0.1:4177
+```
+
+Datos persistentes:
+
+```text
+presupuestador-app/data/presupuestador.sqlite
+```
+
+El `docker-compose.yml` monta carpetas del repositorio para que el contenedor pueda leer/escribir contextos, presupuestos y aprendizaje:
+
+- `../skills`
+- `../presupuestacion`
+- `../productos`
+- `../plantillas`
+- `../proveedores`
+- `../glosario`
+- `../presupuestos`
+
+Para publicar en `api.hamenorca.com`, usar el proxy inverso existente apuntando a:
+
+```text
+http://127.0.0.1:4177
+```
+
+Hay una plantilla Nginx en:
+
+```text
+presupuestador-app/deploy/nginx-api.hamenorca.com.conf
+```
 ## Arranque
 
 ```powershell
@@ -126,7 +170,7 @@ El area `Presupuestos` lista automaticamente las carpetas guardadas en `presupue
 
 Funciones:
 
-- Agrupar y filtrar presupuestos por año.
+- Agrupar y filtrar presupuestos por a�o.
 - Ver codigo, titulo, cliente guardado y carpeta.
 - Abrir archivos del presupuesto (`README.md`, HTML, PDF, Excel, JSON, etc.) desde la web local.
 - Crear un `Nuevo presupuesto`, que limpia el formulario y vuelve a la pantalla principal.
@@ -157,4 +201,6 @@ Endpoint local:
 ```text
 POST /api/line-ai
 ```
+
+
 
