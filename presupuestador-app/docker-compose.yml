@@ -18,7 +18,7 @@ services:
       - ../glosario:/glosario
       - ../presupuestos:/presupuestos
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:4177/api/db/status"]
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:4177/api/health"]
       interval: 30s
       timeout: 5s
       retries: 3

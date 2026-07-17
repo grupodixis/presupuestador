@@ -29,6 +29,9 @@ code { background: var(--soft); border: 1px solid var(--line); border-radius: 4p
 .side-actions { display: grid; gap: 8px; }
 .side-btn { width: 100%; text-align: left; background: rgba(255,255,255,.08); color: white; border: 1px solid rgba(255,255,255,.12); }
 .side-btn.active { background: var(--accent); border-color: var(--accent); }
+.auth-card { display: grid; gap: 8px; border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); background: rgba(255,255,255,.08); padding: 10px; }
+.auth-card strong { color: white; font-size: 13px; overflow-wrap: anywhere; }
+.auth-card button { width: 100%; background: rgba(255,255,255,.12); color: white; border: 1px solid rgba(255,255,255,.16); }
 .field { display: grid; gap: 7px; }
 .field input, .field select { width: 100%; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.08); color: white; border-radius: 6px; padding: 10px; }
 .field option { color: var(--ink); }
@@ -170,6 +173,14 @@ td textarea { min-height: 58px; resize: vertical; }
 .suggestions { display: grid; gap: 12px; }
 .suggestion { display: flex; justify-content: space-between; gap: 14px; }
 .suggestion p { margin-bottom: 0; }
+
+.user-create-grid { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(180px, 1fr) 160px auto; gap: 12px; align-items: end; margin-top: 14px; }
+.user-create-grid label { display: grid; gap: 6px; color: var(--muted); font-size: 13px; }
+.user-create-grid input, .user-create-grid select, .users-table input, .users-table select { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 9px; color: var(--ink); background: white; }
+.users-table-wrap { margin-top: 16px; }
+.users-table { min-width: 760px; }
+.users-table td { vertical-align: middle; }
+.users-table .user-actions { display: flex; gap: 8px; justify-content: flex-end; }
 
 .budget-toolbar {
   display: flex;
@@ -326,7 +337,7 @@ td textarea { min-height: 58px; resize: vertical; }
   .side { min-height: auto; }
   #contextFiles { max-height: 180px; }
   .composer-head, .summary, .suggestion { display: grid; }
-  .client-grid, .settings-grid, .budget-grid, .doc-template-grid, .note-grid, .editor-grid, .budget-card, .budget-heading-editor { grid-template-columns: 1fr; }
+  .client-grid, .settings-grid, .budget-grid, .doc-template-grid, .note-grid, .editor-grid, .budget-card, .budget-heading-editor, .user-create-grid { grid-template-columns: 1fr; }
   .budget-card-actions { justify-items: start; max-width: none; }
   .budget-file-links { justify-content: flex-start; }
   .client-grid .wide, .doc-template-grid .wide, .budget-heading-editor .wide { grid-column: auto; }

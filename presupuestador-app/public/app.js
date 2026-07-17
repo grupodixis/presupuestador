@@ -38,6 +38,8 @@ const state = {
   activeLineAiIndex: null,
   lineAiPrompts: {},
   budgetChangeLog: [],
+  currentUser: null,
+  users: [],
 };
 
 const els = {
@@ -101,6 +103,15 @@ const els = {
   budgetsStatus: document.querySelector("#budgetsStatus"),
   refreshBudgets: document.querySelector("#refreshBudgets"),
   newBudget: document.querySelector("#newBudget"),
+  currentUser: document.querySelector("#currentUser"),
+  logout: document.querySelector("#logout"),
+  usersNav: document.querySelector("#usersNav"),
+  usersBody: document.querySelector("#usersBody"),
+  usersStatus: document.querySelector("#usersStatus"),
+  newUsername: document.querySelector("#newUsername"),
+  newUserPassword: document.querySelector("#newUserPassword"),
+  newUserRole: document.querySelector("#newUserRole"),
+  createUser: document.querySelector("#createUser"),
 };
 
 function formatMoney(value) {
@@ -160,18 +171,20 @@ function syncBudgetHeaderFromInputs() {
 }
 
 
-async function api(path, payload) {
+async function api(path, payload, method = "POST") {
   const response = await fetch(appUrl(path), {
-    method: "POST",
+    method,
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
+  if (response.status === 401) { window.location.href = appUrl("/login.html"); throw new Error("No autenticado."); }
   if (!response.ok) throw new Error(await response.text());
   return response.json();
 }
 
 async function getJson(path) {
   const response = await fetch(appUrl(path));
+  if (response.status === 401) { window.location.href = appUrl("/login.html"); throw new Error("No autenticado."); }
   if (!response.ok) throw new Error(await response.text());
   return response.json();
 }
@@ -742,6 +755,81 @@ async function loadContext() {
   }
 }
 
+async function loadMe() {
+  const data = await getJson("/api/auth/me");
+  state.currentUser = data.user;
+  els.currentUser.textContent = `${state.currentUser.username} (${state.currentUser.role})`;
+  const isAdmin = state.currentUser.role === "admin";
+  els.usersNav.classList.toggle("hidden", !isAdmin);
+}
+
+async function logout() {
+  await api("/api/auth/logout", {});
+  window.location.href = appUrl("/login.html");
+}
+
+async function loadUsers() {
+  if (state.currentUser?.role !== "admin") return;
+  els.usersStatus.textContent = "Cargando usuarios...";
+  const data = await getJson("/api/users");
+  state.users = data.users || [];
+  renderUsers();
+  els.usersStatus.textContent = `${state.users.length} usuario(s).`;
+}
+
+function renderUsers() {
+  els.usersBody.innerHTML = "";
+  for (const user of state.users) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><strong>${escapeHtml(user.username)}</strong><br><small>${escapeHtml(user.updated_at || "")}</small></td>
+      <td><select data-role><option value="user">Usuario</option><option value="admin">Admin</option></select></td>
+      <td><input data-active type="checkbox"></td>
+      <td><input data-password type="password" placeholder="Dejar vacio para conservar"></td>
+      <td><div class="user-actions"><button class="secondary" data-save>Guardar</button></div></td>
+    `;
+    tr.querySelector("[data-role]").value = user.role;
+    tr.querySelector("[data-active]").checked = Boolean(user.active);
+    tr.querySelector("[data-save]").addEventListener("click", () => saveUser(user.id, tr));
+    els.usersBody.appendChild(tr);
+  }
+}
+
+async function createUserFromForm() {
+  els.createUser.disabled = true;
+  els.usersStatus.textContent = "Creando usuario...";
+  try {
+    const response = await api("/api/users", { username: els.newUsername.value, password: els.newUserPassword.value, role: els.newUserRole.value, active: true });
+    state.users = response.users || [];
+    els.newUsername.value = "";
+    els.newUserPassword.value = "";
+    renderUsers();
+    els.usersStatus.textContent = "Usuario creado.";
+  } catch (error) {
+    els.usersStatus.textContent = error.message;
+  } finally {
+    els.createUser.disabled = false;
+  }
+}
+
+async function saveUser(id, row) {
+  const button = row.querySelector("[data-save]");
+  button.disabled = true;
+  els.usersStatus.textContent = "Guardando usuario...";
+  try {
+    const payload = { role: row.querySelector("[data-role]").value, active: row.querySelector("[data-active]").checked };
+    const password = row.querySelector("[data-password]").value;
+    if (password) payload.password = password;
+    const response = await api(`/api/users/${id}`, payload, "PUT");
+    state.users = response.users || [];
+    renderUsers();
+    els.usersStatus.textContent = "Usuario guardado.";
+  } catch (error) {
+    els.usersStatus.textContent = error.message;
+  } finally {
+    button.disabled = false;
+  }
+}
 async function loadSettings() {
   const settings = await getJson("/api/settings");
   state.settings = settings;
@@ -1054,6 +1142,7 @@ async function saveMd() {
 }
 
 function switchView(viewId) {
+  if (viewId === "usersView") loadUsers();
   document.querySelectorAll(".view").forEach((view) => view.classList.add("hidden"));
   document.querySelector(`#${viewId}`).classList.remove("hidden");
   document.querySelectorAll(".side-btn").forEach((button) => button.classList.toggle("active", button.dataset.view === viewId));
@@ -1098,6 +1187,8 @@ els.attachments.addEventListener("change", (event) => handleFiles(event.target.f
 els.generate.addEventListener("click", generate);
 els.refreshContext.addEventListener("click", loadContext);
 els.saveSettings.addEventListener("click", saveSettings);
+els.logout.addEventListener("click", logout);
+els.createUser.addEventListener("click", createUserFromForm);
 els.applyDocumentTemplateAi.addEventListener("click", applyDocumentTemplateAi);
 els.provider.addEventListener("change", updateModelFromProvider);
 els.defaultProvider.addEventListener("change", () => { els.provider.value = els.defaultProvider.value; updateModelFromProvider(preferredModelForProvider(els.provider.value)); });
@@ -1151,7 +1242,9 @@ els.exportBudget.addEventListener("click", async () => {
   els.exportBudget.disabled = false;
 });
 
-loadContext();
-loadSettings();
-loadMdFiles();
-loadBudgets();
+loadMe().then(() => {
+  loadContext();
+  loadSettings();
+  loadMdFiles();
+  loadBudgets();
+});

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Presupuestador IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260717-document-template">
+  <link rel="stylesheet" href="styles.css?v=20260717-auth-users">
 </head>
 <body>
   <div class="app-shell">
@@ -22,6 +22,12 @@
         <button class="side-btn active" data-view="budgetsView">Presupuestos</button>
         <button class="side-btn" data-view="configView">Configuracion</button>
         <button class="side-btn" data-view="contextView">Contextos MD</button>
+        <button id="usersNav" class="side-btn hidden" data-view="usersView">Usuarios</button>
+      </div>
+
+      <div class="auth-card">
+        <strong id="currentUser">Sin usuario</strong>
+        <button id="logout" class="secondary">Salir</button>
       </div>
 
       <label class="field">
@@ -203,6 +209,31 @@
         </section>
       </section>
 
+
+      <section id="usersView" class="view hidden">
+        <section class="composer">
+          <div class="composer-head">
+            <div>
+              <h1>Usuarios</h1>
+              <p>Gestiona accesos al presupuestador. El rol admin puede configurar APIs y usuarios.</p>
+            </div>
+          </div>
+          <div class="user-create-grid">
+            <label><span>Usuario</span><input id="newUsername" placeholder="usuario"></label>
+            <label><span>Contraseña</span><input id="newUserPassword" type="password" placeholder="min. 4 caracteres"></label>
+            <label><span>Rol</span><select id="newUserRole"><option value="user">Usuario</option><option value="admin">Admin</option></select></label>
+            <button id="createUser">Crear usuario</button>
+          </div>
+          <div class="table-wrap users-table-wrap">
+            <table class="users-table">
+              <thead><tr><th>Usuario</th><th>Rol</th><th>Activo</th><th>Nueva contraseña</th><th></th></tr></thead>
+              <tbody id="usersBody"></tbody>
+            </table>
+          </div>
+          <div id="usersStatus" class="status"></div>
+        </section>
+      </section>
+
       <section id="contextView" class="view hidden">
         <section class="composer context-editor">
           <div class="composer-head">
@@ -235,7 +266,7 @@
     </main>
   </div>
 
-  <script src="app.js?v=20260717-document-template"></script>
+  <script src="app.js?v=20260717-auth-users"></script>
 </body>
 </html>
 

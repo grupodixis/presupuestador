@@ -2,6 +2,7 @@ const http = require("http");
 const fs = require("fs/promises");
 const fsSync = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const { DatabaseSync } = require("node:sqlite");
 
 const PORT = Number(process.env.PORT || 4177);
@@ -12,6 +13,7 @@ const CONFIG_FILE = path.join(__dirname, "config.local.json");
 const TOKEN_USAGE_FILE = path.join(__dirname, "token-usage.local.json");
 const DB_DIR = path.join(__dirname, "data");
 const DB_FILE = path.join(DB_DIR, "presupuestador.sqlite");
+const SESSION_DAYS = 7;
 const LEARNING_FILE = path.join(ROOT, "skills", "aprendizaje_presupuestador_app.md");
 const EDITABLE_DIRS = ["skills", "presupuestacion", "productos", "plantillas", "proveedores", "glosario"];
 const EDITABLE_EXTENSIONS = new Set([".md", ".yaml", ".yml", ".json"]);
@@ -91,10 +93,134 @@ function db() {
       html_path TEXT NOT NULL DEFAULT '',
       updated_at TEXT NOT NULL
     );
+    CREATE TABLE IF NOT EXISTS app_users (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      username TEXT NOT NULL UNIQUE,
+      password_hash TEXT NOT NULL,
+      role TEXT NOT NULL DEFAULT 'user',
+      active INTEGER NOT NULL DEFAULT 1,
+      created_at TEXT NOT NULL,
+      updated_at TEXT NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS app_sessions (
+      token TEXT PRIMARY KEY,
+      user_id INTEGER NOT NULL,
+      expires_at TEXT NOT NULL,
+      created_at TEXT NOT NULL,
+      FOREIGN KEY(user_id) REFERENCES app_users(id) ON DELETE CASCADE
+    );
   `);
+  ensureDefaultAdminUser();
   return database;
 }
 
+function hashPassword(password, salt = crypto.randomBytes(16).toString("hex")) {
+  const hash = crypto.pbkdf2Sync(String(password || ""), salt, 120000, 32, "sha256").toString("hex");
+  return `${salt}:${hash}`;
+}
+
+function verifyPassword(password, stored) {
+  const [salt, hash] = String(stored || "").split(":");
+  if (!salt || !hash) return false;
+  const candidate = hashPassword(password, salt).split(":")[1];
+  try { return crypto.timingSafeEqual(Buffer.from(hash, "hex"), Buffer.from(candidate, "hex")); } catch { return false; }
+}
+
+function ensureDefaultAdminUser() {
+  const row = database.prepare("SELECT COUNT(*) AS count FROM app_users").get();
+  if (row.count > 0) return;
+  const now = new Date().toISOString();
+  database.prepare("INSERT INTO app_users (username, password_hash, role, active, created_at, updated_at) VALUES (?, ?, ?, 1, ?, ?)")
+    .run("admin", hashPassword("admin"), "admin", now, now);
+}
+
+function publicUser(user) {
+  if (!user) return null;
+  return { id: user.id, username: user.username, role: user.role, active: Boolean(user.active) };
+}
+
+function parseCookies(req) {
+  const out = {};
+  for (const part of String(req.headers.cookie || "").split(";")) {
+    const index = part.indexOf("=");
+    if (index === -1) continue;
+    out[part.slice(0, index).trim()] = decodeURIComponent(part.slice(index + 1).trim());
+  }
+  return out;
+}
+
+function sessionCookie(token, req) {
+  const host = String(req.headers.host || "");
+  const isLocal = host.includes("localhost") || host.startsWith("127.0.0.1") || host.startsWith("[::1]");
+  const secure = req.headers["x-forwarded-proto"] === "https" || !isLocal;
+  return [`ps_session=${encodeURIComponent(token)}`, "Path=/", "HttpOnly", "SameSite=Lax", `Max-Age=${SESSION_DAYS * 86400}`, secure ? "Secure" : ""].filter(Boolean).join("; ");
+}
+
+function clearSessionCookie() {
+  return "ps_session=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0";
+}
+
+function currentUser(req) {
+  const token = parseCookies(req).ps_session;
+  if (!token) return null;
+  const row = db().prepare(`SELECT u.id, u.username, u.role, u.active, s.expires_at FROM app_sessions s JOIN app_users u ON u.id = s.user_id WHERE s.token = ?`).get(token);
+  if (!row || !row.active || new Date(row.expires_at) <= new Date()) {
+    if (row) db().prepare("DELETE FROM app_sessions WHERE token = ?").run(token);
+    return null;
+  }
+  return row;
+}
+
+function requireAdmin(user) {
+  if (!user || user.role !== "admin") {
+    const error = new Error("Permiso denegado. Requiere administrador.");
+    error.statusCode = 403;
+    throw error;
+  }
+}
+
+function listUsers() {
+  return db().prepare("SELECT id, username, role, active, created_at, updated_at FROM app_users ORDER BY username COLLATE NOCASE").all()
+    .map((user) => ({ ...user, active: Boolean(user.active) }));
+}
+
+function createUser({ username, password, role = "user", active = true }) {
+  const clean = String(username || "").trim().toLowerCase();
+  if (!/^[a-z0-9._-]{3,40}$/.test(clean)) throw new Error("Usuario invalido. Usa 3-40 caracteres: letras, numeros, punto, guion o guion bajo.");
+  if (String(password || "").length < 4) throw new Error("La contraseña debe tener al menos 4 caracteres.");
+  const safeRole = role === "admin" ? "admin" : "user";
+  const now = new Date().toISOString();
+  db().prepare("INSERT INTO app_users (username, password_hash, role, active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)")
+    .run(clean, hashPassword(password), safeRole, active ? 1 : 0, now, now);
+  return listUsers();
+}
+
+function updateUser(id, patch) {
+  const userId = Number(id);
+  const current = db().prepare("SELECT * FROM app_users WHERE id = ?").get(userId);
+  if (!current) throw new Error("Usuario no encontrado.");
+  const role = patch.role === "admin" ? "admin" : "user";
+  const active = patch.active === false ? 0 : 1;
+  if (current.role === "admin" && (role !== "admin" || !active)) {
+    const admins = db().prepare("SELECT COUNT(*) AS count FROM app_users WHERE role = 'admin' AND active = 1 AND id <> ?").get(userId).count;
+    if (admins === 0) throw new Error("Debe quedar al menos un administrador activo.");
+  }
+  const now = new Date().toISOString();
+  if (patch.password) {
+    if (String(patch.password).length < 4) throw new Error("La contraseña debe tener al menos 4 caracteres.");
+    db().prepare("UPDATE app_users SET password_hash = ?, role = ?, active = ?, updated_at = ? WHERE id = ?")
+      .run(hashPassword(patch.password), role, active, now, userId);
+    db().prepare("DELETE FROM app_sessions WHERE user_id = ?").run(userId);
+  } else {
+    db().prepare("UPDATE app_users SET role = ?, active = ?, updated_at = ? WHERE id = ?").run(role, active, now, userId);
+    if (!active) db().prepare("DELETE FROM app_sessions WHERE user_id = ?").run(userId);
+  }
+  return listUsers();
+}
+
+function loginPage() {
+  return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Acceso - Presupuestador IA</title><style>*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#eef1f4;color:#16202a;font-family:Arial,Helvetica,sans-serif}form{width:min(420px,calc(100vw - 32px));background:#fff;border:1px solid #d6dde5;border-radius:8px;padding:24px;box-shadow:0 18px 45px rgba(16,24,40,.12);display:grid;gap:14px}.brand{display:flex;gap:12px;align-items:center;margin-bottom:6px}.mark{display:grid;place-items:center;width:38px;height:38px;border-radius:6px;background:#b9863a;color:white;font-weight:800}h1{margin:0;font-size:24px}p{margin:4px 0 0;color:#667085}label{display:grid;gap:6px;color:#667085;font-size:13px}input{border:1px solid #d6dde5;border-radius:6px;padding:11px;font:inherit}button{border:0;border-radius:6px;padding:11px 14px;background:#16202a;color:#fff;font-weight:700;cursor:pointer}.status{min-height:18px;color:#a33a2b;font-size:13px}</style></head><body><form id="loginForm"><div class="brand"><span class="mark">H</span><div><h1>Presupuestador IA</h1><p>Acceso privado</p></div></div><label>Usuario<input id="username" autocomplete="username" autofocus></label><label>Contraseña<input id="password" type="password" autocomplete="current-password"></label><button>Entrar</button><div id="status" class="status"></div></form><script>loginForm.addEventListener("submit",async e=>{e.preventDefault();status.textContent="Entrando...";const r=await fetch("api/auth/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:username.value,password:password.value})});if(r.ok) location.href="./"; else status.textContent="Usuario o contraseña incorrectos.";});</script></body></html>`;
+}
 function dbGetJson(key, fallback = null) {
   const row = db().prepare("SELECT value FROM app_settings WHERE key = ?").get(key);
   if (!row) return fallback;
@@ -1210,6 +1336,52 @@ async function route(req, res) {
   }
   const appPath = stripBasePath(url.pathname);
   if (appPath) url.pathname = appPath;
+  if (req.method === "GET" && url.pathname === "/api/health") return send(res, 200, { ok: true });
+  if (req.method === "GET" && url.pathname === "/login.html") return send(res, 200, loginPage(), "text/html; charset=utf-8");
+  if (req.method === "POST" && url.pathname === "/api/auth/login") {
+    const body = await readJson(req);
+    const username = String(body.username || "").trim().toLowerCase();
+    const user = db().prepare("SELECT * FROM app_users WHERE username = ? AND active = 1").get(username);
+    if (!user || !verifyPassword(body.password, user.password_hash)) return send(res, 401, { error: "Credenciales invalidas." });
+    const token = crypto.randomBytes(32).toString("hex");
+    const now = new Date();
+    const expires = new Date(now.getTime() + SESSION_DAYS * 86400 * 1000).toISOString();
+    db().prepare("INSERT INTO app_sessions (token, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)").run(token, user.id, expires, now.toISOString());
+    res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Set-Cookie": sessionCookie(token, req) });
+    res.end(JSON.stringify({ user: publicUser(user) }));
+    return;
+  }
+  const user = currentUser(req);
+  if (!user) {
+    if (url.pathname.startsWith("/api/")) return send(res, 401, { error: "No autenticado." });
+    if (req.method === "GET") {
+      res.writeHead(302, { Location: `${BASE_PATH}/login.html` });
+      res.end();
+      return;
+    }
+    return send(res, 401, { error: "No autenticado." });
+  }
+  if (req.method === "GET" && url.pathname === "/api/auth/me") return send(res, 200, { user: publicUser(user) });
+  if (req.method === "POST" && url.pathname === "/api/auth/logout") {
+    const token = parseCookies(req).ps_session;
+    if (token) db().prepare("DELETE FROM app_sessions WHERE token = ?").run(token);
+    res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Set-Cookie": clearSessionCookie() });
+    res.end(JSON.stringify({ ok: true }));
+    return;
+  }
+  if (req.method === "GET" && url.pathname === "/api/users") {
+    requireAdmin(user);
+    return send(res, 200, { users: listUsers() });
+  }
+  if (req.method === "POST" && url.pathname === "/api/users") {
+    requireAdmin(user);
+    return send(res, 200, { users: createUser(await readJson(req)) });
+  }
+  const userMatch = url.pathname.match(/^\/api\/users\/(\d+)$/);
+  if (userMatch && req.method === "PUT") {
+    requireAdmin(user);
+    return send(res, 200, { users: updateUser(userMatch[1], await readJson(req)) });
+  }
   if (req.method === "GET" && url.pathname === "/api/budgets") return send(res, 200, await listBudgets());
   if (req.method === "GET" && url.pathname === "/api/budget") return send(res, 200, await readBudgetData(url.searchParams.get("folder")));
   if (req.method === "GET" && url.pathname === "/api/context") {
@@ -1430,7 +1602,7 @@ async function route(req, res) {
 const server = http.createServer((req, res) => {
   route(req, res).catch((error) => {
     console.error(error);
-    send(res, 500, { error: error.message });
+    send(res, error.statusCode || 500, { error: error.message });
   });
 });
 
