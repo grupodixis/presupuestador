@@ -938,7 +938,8 @@ function budgetHtml(payload, code) {
   <style>
     @page { size: A4; margin: 14mm; }
     * { box-sizing: border-box; }
-    body { font-family: Arial, Helvetica, sans-serif; color: #111827; margin: 0; line-height: 1.34; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { font-family: Arial, Helvetica, sans-serif; color: #111827; margin: 0; line-height: 1.34; background: #eef2f6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { width: 180mm; max-width: 100%; min-height: 267mm; margin: 0 auto; padding: 0; background: white; }
     header { border-top: 6px solid #16202a; padding-top: 12px; display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 20px; align-items: start; border-bottom: 1px solid #d6dde5; padding-bottom: 12px; }
     .company { display: flex; gap: 14px; min-width: 0; }
     .logo { width: 130px; flex: 0 0 130px; padding-top: 2px; }
@@ -962,10 +963,11 @@ function budgetHtml(payload, code) {
     .conditions { margin-top: 14px; border-top: 1px solid #d6dde5; padding-top: 9px; color: #4b5563; font-size: 11px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     ul { padding-left: 18px; font-size: 11px; color: #4b5563; }
     button { margin-top: 18px; padding: 10px 14px; border: 0; background: #16202a; color: white; border-radius: 6px; font-weight: 700; }
-    @media print { .no-print { display: none; } body { margin: 0; } }
+    @media print { body { background: white; margin: 0; } .page { width: auto; max-width: none; min-height: 0; margin: 0; } .no-print { display: none; } }
   </style>
 </head>
 <body>
+<main class="page">
   <header>
     <section class="company">
       <div class="logo"><img src="${HAM_COMPANY.logo}" alt="HAM"></div>
@@ -1010,6 +1012,7 @@ function budgetHtml(payload, code) {
   <h3>Riesgos y datos pendientes</h3>
   <ul>${[...(payload.riesgos || []), ...(payload.preguntas || [])].map((item) => `<li>${htmlEscape(item)}</li>`).join("")}</ul>
   <button class="no-print" onclick="window.print()">Imprimir / PDF</button>
+</main>
 </body>
 </html>`;
 }
