@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Presupuestador IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260716-default-model-selection">
+  <link rel="stylesheet" href="styles.css?v=20260717-landing-charset">
 </head>
 <body>
   <div class="app-shell">
@@ -18,8 +18,8 @@
       </div>
 
       <div class="side-actions">
-        <button class="side-btn active" data-view="budgetView">Presupuesto</button>
-        <button class="side-btn" data-view="budgetsView">Presupuestos</button>
+        <button class="side-btn" data-view="budgetView">Presupuesto</button>
+        <button class="side-btn active" data-view="budgetsView">Presupuestos</button>
         <button class="side-btn" data-view="configView">Configuracion</button>
         <button class="side-btn" data-view="contextView">Contextos MD</button>
       </div>
@@ -49,7 +49,7 @@
     </aside>
 
     <main class="workspace">
-      <section id="budgetView" class="view">
+      <section id="budgetView" class="view hidden">
         <section class="composer">
           <div class="composer-head">
             <div>
@@ -149,17 +149,17 @@
       </section>
 
 
-      <section id="budgetsView" class="view hidden">
+      <section id="budgetsView" class="view">
         <section class="composer">
           <div class="composer-head">
             <div>
               <h1>Presupuestos generados</h1>
-              <p>Listado por año de las carpetas guardadas en <code>presupuestos/</code>.</p>
+              <p>Listado por a&ntilde;o de las carpetas guardadas en <code>presupuestos/</code>.</p>
             </div>
             <button id="newBudget" class="secondary">Nuevo presupuesto</button>
           </div>
           <div class="budget-toolbar">
-            <label><span>Año</span><select id="budgetYear"></select></label>
+            <label><span>A&ntilde;o</span><select id="budgetYear"></select></label>
             <button id="refreshBudgets" class="secondary">Actualizar lista</button>
             <span id="budgetsStatus" class="status"></span>
           </div>
@@ -221,7 +221,7 @@
     </main>
   </div>
 
-  <script src="app.js?v=20260716-default-model-selection"></script>
+  <script src="app.js?v=20260717-landing-charset"></script>
 </body>
 </html>
 

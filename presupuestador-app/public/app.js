@@ -10,6 +10,19 @@ function appUrl(path) {
   return `${APP_BASE_PATH}${path}`;
 }
 
+const HAM_COMPANY = {
+  name: "HAM Estructuras Metalicas",
+  tagline: "Fabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.",
+  address: "Av. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca",
+  email: "info@hamenorca.com",
+  phone: "+34 971 35 20 18",
+  whatsapp: "+34 669 769 541",
+  web: "www.hamenorca.com",
+  logo: "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+  validity: "30 dias",
+  payment: "100% a la aceptacion del presupuesto",
+};
+
 const state = {
   attachments: [],
   result: null,
@@ -568,7 +581,7 @@ function renderBudgets() {
   const budgets = state.budgets.filter((budget) => year === "all" || budget.year === year);
   els.budgetsList.innerHTML = "";
   if (!budgets.length) {
-    els.budgetsList.innerHTML = '<div class="empty-state">No hay presupuestos para este ano.</div>';
+    els.budgetsList.innerHTML = '<div class="empty-state">No hay presupuestos para este a&ntilde;o.</div>';
     return;
   }
   for (const budget of budgets) {
@@ -580,7 +593,7 @@ function renderBudgets() {
       || budget.files[0];
     card.innerHTML = `
       <div>
-        <div class="budget-code">${escapeHtml(budget.code)} - ${escapeHtml(budget.year)}</div>
+        <div class="budget-code">${escapeHtml(budget.code)} &middot; ${escapeHtml(budget.year)}</div>
         <h2>${escapeHtml(budget.title || budget.folder)}</h2>
         <p>${escapeHtml(budget.clientName || "Sin cliente guardado")}</p>
         <small>${escapeHtml(budget.folder)}</small>
