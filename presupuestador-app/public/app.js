@@ -402,12 +402,27 @@ function renderPrintPreview() {
   const client = payload.cliente || {};
   els.printPreview.innerHTML = `
     <header>
-      <div>
-        <h1>${escapeHtml(payload.titulo || "Presupuesto")}</h1>
-        <p>${escapeHtml(payload.resumen || "")}</p>
-      </div>
-      <div class="print-meta">${new Date().toISOString().slice(0, 10)}</div>
+      <section class="print-company">
+        <div class="print-logo"><img src="${HAM_COMPANY.logo}" alt="HAM"></div>
+        <div>
+          <h1>${escapeHtml(HAM_COMPANY.name)}</h1>
+          <p>${escapeHtml(HAM_COMPANY.tagline)}</p>
+          <p>${escapeHtml(HAM_COMPANY.address)}</p>
+          <p>${escapeHtml(HAM_COMPANY.email)} &middot; ${escapeHtml(HAM_COMPANY.phone)} &middot; WhatsApp ${escapeHtml(HAM_COMPANY.whatsapp)}</p>
+          <p>${escapeHtml(HAM_COMPANY.web)}</p>
+        </div>
+      </section>
+      <section class="print-meta">
+        <h2>Presupuesto</h2>
+        <div class="print-ref">Borrador</div>
+        <p>Fecha: ${new Date().toISOString().slice(0, 10)}</p>
+        <p>Validez: ${escapeHtml(HAM_COMPANY.validity)}</p>
+      </section>
     </header>
+    <section class="print-hero">
+      <h2>${escapeHtml(payload.titulo || "Presupuesto")}</h2>
+      <p>${escapeHtml(payload.resumen || "")}</p>
+    </section>
     <section class="print-box">
       <strong>Cliente:</strong> ${escapeHtml(client.nombre || "")}<br>
       <strong>Email:</strong> ${escapeHtml(client.email || "")} | <strong>Tel.:</strong> ${escapeHtml(client.telefono || "")}<br>
@@ -427,6 +442,10 @@ function renderPrintPreview() {
       <tbody>${lines.map((line) => `<tr><td>${escapeHtml(line.capitulo || "")}</td><td><strong>${escapeHtml(line.concepto || "")}</strong><br>${escapeHtml(line.descripcion || "")}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${escapeHtml(line.unidad || "")}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
     </table>
     <div class="print-total">Total estimado: ${total.toFixed(2)} EUR + IVA</div>
+    <section class="print-conditions">
+      <div><strong>Validez:</strong> ${escapeHtml(HAM_COMPANY.validity)} desde la fecha de emision.</div>
+      <div><strong>Forma de pago:</strong> ${escapeHtml(HAM_COMPANY.payment)}.</div>
+    </section>
   `;
 }
 
@@ -443,11 +462,19 @@ function printDocumentHtml() {
     html, body { margin: 0; padding: 0; background: white; color: #111827; font-family: Arial, Helvetica, sans-serif; }
     body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .print-sheet { width: 170mm; max-width: 170mm; margin: 0 auto; overflow: hidden; }
-    header { border-top: 5px solid #16202a; padding-top: 8mm; display: grid; grid-template-columns: minmax(0, 1fr) 24mm; gap: 8mm; align-items: start; }
-    h1 { margin: 0 0 3mm; font-size: 15pt; line-height: 1.12; overflow-wrap: anywhere; }
-    p { margin: 0; color: #475467; font-size: 9.5pt; line-height: 1.25; overflow-wrap: anywhere; }
-    .print-meta { color: #475467; text-align: right; white-space: normal; font-size: 10pt; }
-    .print-box { border: 1px solid #d6dde5; background: #f6f8fa; padding: 4mm; margin: 7mm 0 5mm; font-size: 9.5pt; line-height: 1.2; overflow-wrap: anywhere; }
+    header { border-top: 5px solid #16202a; padding-top: 5mm; display: grid; grid-template-columns: minmax(0, 1fr) 34mm; gap: 6mm; align-items: start; border-bottom: 1px solid #d6dde5; padding-bottom: 4mm; }
+    .print-company { display: flex; gap: 4mm; min-width: 0; }
+    .print-logo { width: 30mm; flex: 0 0 30mm; }
+    .print-logo img { width: 100%; filter: brightness(0) saturate(100%); }
+    h1 { margin: 0 0 1mm; font-size: 12pt; line-height: 1.12; overflow-wrap: anywhere; }
+    h2 { margin: 0; }
+    p { margin: 0; color: #475467; font-size: 7.8pt; line-height: 1.2; overflow-wrap: anywhere; }
+    .print-meta { color: #475467; text-align: right; white-space: normal; font-size: 8pt; }
+    .print-meta h2 { color: #16202a; font-size: 13pt; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 2mm; }
+    .print-ref { display: inline-block; padding: 1.6mm 2.2mm; border: 1px solid #d6dde5; background: #f6f8fa; color: #16202a; font-weight: 700; margin-bottom: 1.6mm; }
+    .print-hero { margin: 5mm 0; padding: 3mm 4mm; border-left: 3px solid #16202a; background: #f6f8fa; }
+    .print-hero h2 { margin: 0 0 1.5mm; font-size: 15pt; line-height: 1.12; color: #16202a; }
+    .print-box { border: 1px solid #d6dde5; background: #f6f8fa; padding: 3.3mm; margin: 5mm 0 4mm; font-size: 8.8pt; line-height: 1.2; overflow-wrap: anywhere; }
     table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 7.6pt; line-height: 1.18; }
     th { background: #16202a; color: white; text-align: left; }
     th, td { border-bottom: 1px solid #d6dde5; padding: 2.2mm 1.5mm; vertical-align: top; overflow-wrap: anywhere; }
@@ -458,7 +485,8 @@ function printDocumentHtml() {
     .print-col-unit { width: 7%; }
     .print-col-price { width: 11%; }
     .print-col-amount { width: 13%; }
-    .print-total { width: 100%; margin-top: 8mm; padding-right: 2mm; text-align: right; font-size: 12pt; font-weight: 700; overflow-wrap: anywhere; page-break-inside: avoid; }
+    .print-total { width: 100%; margin-top: 7mm; padding-right: 2mm; text-align: right; font-size: 12pt; font-weight: 700; overflow-wrap: anywhere; page-break-inside: avoid; }
+    .print-conditions { margin-top: 5mm; border-top: 1px solid #d6dde5; padding-top: 3mm; display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; color: #475467; font-size: 8pt; }
     tr { page-break-inside: avoid; page-break-after: auto; }
   </style>
 </head>
@@ -540,7 +568,7 @@ function renderBudgets() {
   const budgets = state.budgets.filter((budget) => year === "all" || budget.year === year);
   els.budgetsList.innerHTML = "";
   if (!budgets.length) {
-    els.budgetsList.innerHTML = '<div class="empty-state">No hay presupuestos para este año.</div>';
+    els.budgetsList.innerHTML = '<div class="empty-state">No hay presupuestos para este ano.</div>';
     return;
   }
   for (const budget of budgets) {
@@ -552,7 +580,7 @@ function renderBudgets() {
       || budget.files[0];
     card.innerHTML = `
       <div>
-        <div class="budget-code">${escapeHtml(budget.code)} · ${escapeHtml(budget.year)}</div>
+        <div class="budget-code">${escapeHtml(budget.code)} - ${escapeHtml(budget.year)}</div>
         <h2>${escapeHtml(budget.title || budget.folder)}</h2>
         <p>${escapeHtml(budget.clientName || "Sin cliente guardado")}</p>
         <small>${escapeHtml(budget.folder)}</small>
@@ -735,7 +763,7 @@ function modelLabel(model) {
   if (model.inputTokenLimit) parts.push(`ctx ${Number(model.inputTokenLimit).toLocaleString("es-ES")}`);
   if (model.remainingTokens !== null && model.remainingTokens !== undefined) parts.push(`restan ${Number(model.remainingTokens).toLocaleString("es-ES")}`);
   if (!model.available) parts.push("no disponible");
-  return parts.join(" · ");
+  return parts.join(" - ");
 }
 
 function selectedModel() {
@@ -1023,4 +1051,3 @@ loadContext();
 loadSettings();
 loadMdFiles();
 loadBudgets();
-

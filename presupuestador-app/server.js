@@ -15,6 +15,18 @@ const DB_FILE = path.join(DB_DIR, "presupuestador.sqlite");
 const LEARNING_FILE = path.join(ROOT, "skills", "aprendizaje_presupuestador_app.md");
 const EDITABLE_DIRS = ["skills", "presupuestacion", "productos", "plantillas", "proveedores", "glosario"];
 const EDITABLE_EXTENSIONS = new Set([".md", ".yaml", ".yml", ".json"]);
+const HAM_COMPANY = {
+  name: "HAM Estructuras Metalicas",
+  tagline: "Fabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.",
+  address: "Av. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca",
+  email: "info@hamenorca.com",
+  phone: "+34 971 35 20 18",
+  whatsapp: "+34 669 769 541",
+  web: "www.hamenorca.com",
+  logo: "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+  validity: "30 dias",
+  payment: "100% a la aceptacion del presupuesto",
+};
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -636,7 +648,7 @@ function applyNumericInstructionToLine(line, prompt) {
     }
   }
 
-  const explicitUnitPrice = firstNumberAfter(normalized, /(?:precio\s*unitario|precio\/ud|eur\/ud|€\/ud|unidad|unitario|p\.?\s*u\.?)\D{0,35}(\d+(?:[.,]\d+)?)/i);
+  const explicitUnitPrice = firstNumberAfter(normalized, /(?:precio\s*unitario|precio\/ud|eur\/ud|\u20ac\/ud|unidad|unitario|p\.?\s*u\.?)\D{0,35}(\d+(?:[.,]\d+)?)/i);
   const genericUnitPrice = percentChanged ? null : firstNumberAfter(normalized, /(?:precio|coste|valor)\D{0,30}(?:a|en|de)?\D{0,10}(\d+(?:[.,]\d+)?)/i);
   const unitPrice = explicitUnitPrice ?? genericUnitPrice;
   if (unitPrice !== null) {
@@ -917,53 +929,85 @@ function budgetHtml(payload, code) {
   const lines = payload.lineas || [];
   const client = payload.cliente || {};
   const total = totalOf(lines);
+  const today = new Date().toISOString().slice(0, 10);
   return `<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <title>${htmlEscape(code)} ${htmlEscape(payload.titulo || "Presupuesto")}</title>
   <style>
-    @page { size: A4; margin: 16mm; }
-    body { font-family: Arial, Helvetica, sans-serif; color: #1d242c; margin: 0; line-height: 1.42; }
-    header { border-top: 7px solid #16202a; padding-top: 16px; display: flex; justify-content: space-between; gap: 24px; }
-    h1 { margin: 0 0 8px; font-size: 26px; color: #16202a; }
-    h2 { margin-top: 22px; font-size: 17px; color: #16202a; }
-    p { color: #4b5563; }
-    .meta { text-align: right; font-size: 13px; color: #4b5563; }
-    .box { border: 1px solid #d6dde5; background: #f6f8fa; padding: 12px; margin-top: 14px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 12px; }
-    th { background: #16202a; color: white; text-align: left; padding: 8px; }
-    td { border-bottom: 1px solid #d6dde5; padding: 8px; vertical-align: top; }
+    @page { size: A4; margin: 14mm; }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; color: #111827; margin: 0; line-height: 1.34; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    header { border-top: 6px solid #16202a; padding-top: 12px; display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 20px; align-items: start; border-bottom: 1px solid #d6dde5; padding-bottom: 12px; }
+    .company { display: flex; gap: 14px; min-width: 0; }
+    .logo { width: 130px; flex: 0 0 130px; padding-top: 2px; }
+    .logo img { width: 100%; filter: brightness(0) saturate(100%); }
+    .company h1 { margin: 0 0 4px; font-size: 18px; color: #16202a; }
+    .company p, .meta p { margin: 2px 0; color: #4b5563; font-size: 11px; }
+    .meta { text-align: right; color: #4b5563; }
+    .meta h2 { margin: 0 0 7px; color: #16202a; font-size: 22px; text-transform: uppercase; letter-spacing: .7px; }
+    .ref { display: inline-block; padding: 5px 8px; border: 1px solid #d6dde5; background: #f6f8fa; color: #16202a; font-weight: 700; font-size: 12px; }
+    .hero { margin: 14px 0; padding: 12px 14px; border-left: 4px solid #16202a; background: #f6f8fa; }
+    .hero h2 { margin: 0 0 5px; font-size: 22px; color: #16202a; line-height: 1.12; }
+    .hero p { margin: 0; color: #475467; font-size: 12px; }
+    .box { border: 1px solid #d6dde5; background: #f6f8fa; padding: 10px 12px; margin: 12px 0; font-size: 12px; }
+    h3 { margin: 14px 0 7px; font-size: 15px; color: #16202a; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; table-layout: fixed; font-size: 10px; line-height: 1.2; }
+    th { background: #16202a; color: white; text-align: left; padding: 7px 6px; }
+    td { border-bottom: 1px solid #d6dde5; padding: 7px 6px; vertical-align: top; overflow-wrap: anywhere; }
     .num { text-align: right; white-space: nowrap; }
-    .total { margin-top: 18px; text-align: right; font-size: 20px; font-weight: 700; }
-    ul { padding-left: 18px; }
+    .col-chapter { width: 10%; } .col-concept { width: 51%; } .col-qty { width: 8%; } .col-unit { width: 7%; } .col-price { width: 11%; } .col-amount { width: 13%; }
+    .total { margin-top: 16px; text-align: right; font-size: 18px; font-weight: 700; }
+    .conditions { margin-top: 14px; border-top: 1px solid #d6dde5; padding-top: 9px; color: #4b5563; font-size: 11px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    ul { padding-left: 18px; font-size: 11px; color: #4b5563; }
     button { margin-top: 18px; padding: 10px 14px; border: 0; background: #16202a; color: white; border-radius: 6px; font-weight: 700; }
-    @media print { .no-print { display: none; } }
+    @media print { .no-print { display: none; } body { margin: 0; } }
   </style>
 </head>
 <body>
   <header>
-    <div>
-      <h1>${htmlEscape(payload.titulo || "Presupuesto")}</h1>
-      <p>${htmlEscape(payload.resumen || "")}</p>
-    </div>
-    <div class="meta"><strong>${htmlEscape(code)}</strong><br>${new Date().toISOString().slice(0, 10)}</div>
+    <section class="company">
+      <div class="logo"><img src="${HAM_COMPANY.logo}" alt="HAM"></div>
+      <div>
+        <h1>${htmlEscape(HAM_COMPANY.name)}</h1>
+        <p>${htmlEscape(HAM_COMPANY.tagline)}</p>
+        <p>${htmlEscape(HAM_COMPANY.address)}</p>
+        <p>${htmlEscape(HAM_COMPANY.email)} &middot; ${htmlEscape(HAM_COMPANY.phone)} &middot; WhatsApp ${htmlEscape(HAM_COMPANY.whatsapp)}</p>
+        <p>${htmlEscape(HAM_COMPANY.web)}</p>
+      </div>
+    </section>
+    <section class="meta">
+      <h2>Presupuesto</h2>
+      <div class="ref">${htmlEscape(code)}</div>
+      <p>Fecha: ${today}</p>
+      <p>Validez: ${htmlEscape(HAM_COMPANY.validity)}</p>
+    </section>
   </header>
+  <section class="hero">
+    <h2>${htmlEscape(payload.titulo || "Presupuesto")}</h2>
+    <p>${htmlEscape(payload.resumen || "")}</p>
+  </section>
   <section class="box">
     <strong>Cliente:</strong> ${htmlEscape(client.nombre || "")}<br>
     <strong>Email:</strong> ${htmlEscape(client.email || "")} | <strong>Tel.:</strong> ${htmlEscape(client.telefono || "")}<br>
     <strong>Obra:</strong> ${htmlEscape(client.direccion || "")}<br>
     <strong>NIF/CIF:</strong> ${htmlEscape(client.nif || "")} | <strong>Referencia:</strong> ${htmlEscape(client.referencia || "")}
   </section>
-  <h2>Partidas</h2>
+  <h3>Desglose de partidas</h3>
   <table>
+    <colgroup><col class="col-chapter"><col class="col-concept"><col class="col-qty"><col class="col-unit"><col class="col-price"><col class="col-amount"></colgroup>
     <thead><tr><th>Capitulo</th><th>Concepto</th><th class="num">Cant.</th><th>Ud.</th><th class="num">EUR/Ud.</th><th class="num">Importe</th></tr></thead>
     <tbody>${lines.map((line) => `<tr><td>${htmlEscape(line.capitulo)}</td><td><strong>${htmlEscape(line.concepto)}</strong><br>${htmlEscape(line.descripcion)}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${htmlEscape(line.unidad)}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
   </table>
   <div class="total">Total estimado: ${total.toFixed(2)} EUR + IVA</div>
-  <h2>Supuestos</h2>
+  <section class="conditions">
+    <div><strong>Validez:</strong> ${htmlEscape(HAM_COMPANY.validity)} desde la fecha de emision.</div>
+    <div><strong>Forma de pago:</strong> ${htmlEscape(HAM_COMPANY.payment)}.</div>
+  </section>
+  <h3>Supuestos</h3>
   <ul>${(payload.supuestos || []).map((item) => `<li>${htmlEscape(item)}</li>`).join("")}</ul>
-  <h2>Riesgos y datos pendientes</h2>
+  <h3>Riesgos y datos pendientes</h3>
   <ul>${[...(payload.riesgos || []), ...(payload.preguntas || [])].map((item) => `<li>${htmlEscape(item)}</li>`).join("")}</ul>
   <button class="no-print" onclick="window.print()">Imprimir / PDF</button>
 </body>
@@ -1306,4 +1350,3 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`Presupuestador app: http://localhost:${PORT}`);
 });
-
