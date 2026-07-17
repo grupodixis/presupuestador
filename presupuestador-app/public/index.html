@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Presupuestador IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260717-landing-charset">
+  <link rel="stylesheet" href="styles.css?v=20260717-document-template">
 </head>
 <body>
   <div class="app-shell">
@@ -92,10 +92,10 @@
 
         <section id="resultPanel" class="result hidden">
           <div class="summary">
-            <div>
-              <span id="productType" class="pill">producto_compuesto</span>
-              <h2 id="title">Presupuesto</h2>
-              <p id="summaryText"></p>
+            <div class="budget-heading-editor">
+              <label><span>Tipo / cabecera</span><input id="productType" placeholder="Estructuras metalicas / Herreria"></label>
+              <label><span>Titulo</span><input id="title" placeholder="Titulo del presupuesto"></label>
+              <label class="wide"><span>Resumen</span><textarea id="summaryText" rows="3" placeholder="Resumen tecnico y comercial del presupuesto"></textarea></label>
             </div>
             <div class="total">
               <small>Total estimado</small>
@@ -181,6 +181,20 @@
             <label><span>Presupuesto local OpenAI (JSON modelo:tokens)</span><textarea id="openaiBudgets" rows="7" spellcheck="false" placeholder="{&quot;gpt-4.1-mini&quot;:500000}"></textarea></label>
             <label><span>Presupuesto local Gemini (JSON modelo:tokens)</span><textarea id="geminiBudgets" rows="7" spellcheck="false" placeholder="{&quot;gemini-1.5-pro&quot;:500000}"></textarea></label>
           </div>
+          <h2>Plantilla de presupuesto</h2>
+          <p>Cabecera y pie predeterminados para los PDF y presupuestos guardados. Cada presupuesto guarda su propia copia.</p>
+          <div class="doc-template-grid">
+            <label class="wide"><span>Logo de cabecera</span><input id="documentLogo" placeholder="https://..."></label>
+            <label><span>Cabecera predeterminada</span><textarea id="documentHeaderText" rows="6" spellcheck="false"></textarea></label>
+            <label><span>Pie predeterminado / condiciones</span><textarea id="documentFooterText" rows="6" spellcheck="false"></textarea></label>
+          </div>
+          <div class="doc-ai-panel">
+            <textarea id="documentTemplateAiPrompt" rows="3" placeholder="Ej.: cambia la validez a 15 dias, agrega forma de pago 50% al aceptar y 50% antes del montaje, conserva los datos de HAM..."></textarea>
+            <div class="md-ai-actions">
+              <button id="applyDocumentTemplateAi" class="secondary">Editar cabecera/pie con IA</button>
+              <span id="documentTemplateStatus" class="status">Revisa el resultado y pulsa Guardar configuracion.</span>
+            </div>
+          </div>
           <div class="actions">
             <button id="refreshModels">Actualizar modelos</button>
             <button id="saveSettings">Guardar configuracion</button>
@@ -221,7 +235,7 @@
     </main>
   </div>
 
-  <script src="app.js?v=20260717-landing-charset"></script>
+  <script src="app.js?v=20260717-document-template"></script>
 </body>
 </html>
 

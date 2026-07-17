@@ -15,17 +15,19 @@ const DB_FILE = path.join(DB_DIR, "presupuestador.sqlite");
 const LEARNING_FILE = path.join(ROOT, "skills", "aprendizaje_presupuestador_app.md");
 const EDITABLE_DIRS = ["skills", "presupuestacion", "productos", "plantillas", "proveedores", "glosario"];
 const EDITABLE_EXTENSIONS = new Set([".md", ".yaml", ".yml", ".json"]);
-const HAM_COMPANY = {
-  name: "HAM Estructuras Metalicas",
-  tagline: "Fabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.",
-  address: "Av. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca",
-  email: "info@hamenorca.com",
-  phone: "+34 971 35 20 18",
-  whatsapp: "+34 669 769 541",
-  web: "www.hamenorca.com",
+const DEFAULT_DOCUMENT_TEMPLATE = {
   logo: "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
-  validity: "30 dias",
-  payment: "100% a la aceptacion del presupuesto",
+  headerText: [
+    "HAM Estructuras Metalicas",
+    "Fabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.",
+    "Av. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca",
+    "info@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541",
+    "www.hamenorca.com",
+  ].join("\n"),
+  footerText: [
+    "Validez: 30 dias desde la fecha de emision.",
+    "Forma de pago: 100% a la aceptacion del presupuesto.",
+  ].join("\n"),
 };
 
 const MIME = {
@@ -205,6 +207,14 @@ async function listFiles(dir, predicate) {
   return out.sort();
 }
 
+function normalizeDocumentTemplate(template = {}) {
+  return {
+    logo: String(template.logo || DEFAULT_DOCUMENT_TEMPLATE.logo),
+    headerText: String(template.headerText || DEFAULT_DOCUMENT_TEMPLATE.headerText),
+    footerText: String(template.footerText || DEFAULT_DOCUMENT_TEMPLATE.footerText),
+  };
+}
+
 function defaultConfig() {
   return {
     defaultProvider: "fallback",
@@ -213,6 +223,7 @@ function defaultConfig() {
     geminiApiKey: "",
     geminiModel: "",
     modelTokenBudgets: { openai: {}, gemini: {} },
+    documentTemplate: DEFAULT_DOCUMENT_TEMPLATE,
   };
 }
 
@@ -231,6 +242,7 @@ async function readConfig() {
       openai: config.modelTokenBudgets?.openai || {},
       gemini: config.modelTokenBudgets?.gemini || {},
     },
+    documentTemplate: normalizeDocumentTemplate(config.documentTemplate),
   };
 }
 
@@ -242,6 +254,7 @@ function maskedConfig(config) {
     geminiApiKeySet: Boolean(config.geminiApiKey),
     geminiModel: config.geminiModel || "",
     modelTokenBudgets: config.modelTokenBudgets || { openai: {}, gemini: {} },
+    documentTemplate: normalizeDocumentTemplate(config.documentTemplate),
   };
 }
 
@@ -254,6 +267,7 @@ async function writeConfig(config) {
     geminiApiKey: config.geminiApiKey ? config.geminiApiKey : current.geminiApiKey,
     geminiModel: config.geminiModel ?? current.geminiModel,
     modelTokenBudgets: config.modelTokenBudgets || current.modelTokenBudgets || { openai: {}, gemini: {} },
+    documentTemplate: normalizeDocumentTemplate(config.documentTemplate || current.documentTemplate),
   };
   dbSetJson("config", next);
   await fs.writeFile(CONFIG_FILE, JSON.stringify(next, null, 2), "utf8");
@@ -763,7 +777,7 @@ async function callGemini({ prompt, attachments, context, model }) {
 
 function stripMarkdownEnvelope(text) {
   const trimmed = String(text || "").trim();
-  const fenced = trimmed.match(/^```(?:markdown|md)?\s*\n([\s\S]*?)\n```$/i);
+  const fenced = trimmed.match(/^```(?:markdown|md|json)?\s*\n([\s\S]*?)\n```$/i);
   return fenced ? fenced[1].trim() : trimmed;
 }
 
@@ -925,11 +939,55 @@ ${(payload.sugerencias || []).map((item) => `- **${item.titulo || "Sugerencia"}:
 `;
 }
 
+function renderDocumentHeaderText(headerText) {
+  const lines = String(headerText || DEFAULT_DOCUMENT_TEMPLATE.headerText).split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+  const title = lines[0] || "HAM Estructuras Metalicas";
+  const details = lines.slice(1);
+  return `<h1>${htmlEscape(title)}</h1>${details.map((line) => `<p>${htmlEscape(line)}</p>`).join("")}`;
+}
+
+function renderDocumentFooterText(footerText) {
+  const lines = String(footerText || DEFAULT_DOCUMENT_TEMPLATE.footerText).split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+  const effective = lines.length ? lines : DEFAULT_DOCUMENT_TEMPLATE.footerText.split("\n");
+  return effective.map((line) => `<div>${htmlEscape(line)}</div>`).join("");
+}
+
+function fallbackDocumentTemplateEdit({ documentTemplate, prompt }) {
+  const current = normalizeDocumentTemplate(documentTemplate);
+  const instruction = String(prompt || "").trim();
+  const footerText = instruction ? `${current.footerText.trim()}\n${instruction}`.trim() : current.footerText;
+  return { ...current, footerText };
+}
+
+function buildDocumentTemplatePrompt({ documentTemplate, instruction }) {
+  return `Edita la cabecera y el pie/condiciones predeterminadas del documento de presupuesto.
+
+Reglas:
+- Devuelve SOLO JSON valido, sin explicaciones ni cercas de codigo.
+- Manten el JSON con las claves logo, headerText y footerText.
+- headerText y footerText son textos multilinea.
+- Conserva datos reales de HAM si el usuario no pide cambiarlos.
+- El pie debe contener condiciones comerciales claras y reutilizables.
+
+Plantilla actual:
+${JSON.stringify(normalizeDocumentTemplate(documentTemplate), null, 2)}
+
+Instruccion del usuario:
+${instruction}`;
+}
+
+function parseDocumentTemplateJson(text, fallback) {
+  const cleaned = stripMarkdownEnvelope(text);
+  const parsed = JSON.parse(cleaned);
+  return normalizeDocumentTemplate({ ...fallback, ...parsed });
+}
+
 function budgetHtml(payload, code) {
   const lines = payload.lineas || [];
   const client = payload.cliente || {};
   const total = totalOf(lines);
   const today = new Date().toISOString().slice(0, 10);
+  const documentTemplate = normalizeDocumentTemplate(payload.documentTemplate);
   return `<!doctype html>
 <html lang="es">
 <head>
@@ -960,7 +1018,7 @@ function budgetHtml(payload, code) {
     .num { text-align: right; white-space: nowrap; }
     .col-chapter { width: 10%; } .col-concept { width: 51%; } .col-qty { width: 8%; } .col-unit { width: 7%; } .col-price { width: 11%; } .col-amount { width: 13%; }
     .total { margin-top: 16px; text-align: right; font-size: 18px; font-weight: 700; }
-    .conditions { margin-top: 14px; border-top: 1px solid #d6dde5; padding-top: 9px; color: #4b5563; font-size: 11px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .conditions { margin-top: 14px; border-top: 1px solid #d6dde5; padding-top: 9px; color: #4b5563; font-size: 11px; display: grid; gap: 5px; }
     ul { padding-left: 18px; font-size: 11px; color: #4b5563; }
     button { margin-top: 18px; padding: 10px 14px; border: 0; background: #16202a; color: white; border-radius: 6px; font-weight: 700; }
     @media print { body { background: white; margin: 0; } .page { width: auto; max-width: none; min-height: 0; margin: 0; } .no-print { display: none; } }
@@ -970,20 +1028,14 @@ function budgetHtml(payload, code) {
 <main class="page">
   <header>
     <section class="company">
-      <div class="logo"><img src="${HAM_COMPANY.logo}" alt="HAM"></div>
-      <div>
-        <h1>${htmlEscape(HAM_COMPANY.name)}</h1>
-        <p>${htmlEscape(HAM_COMPANY.tagline)}</p>
-        <p>${htmlEscape(HAM_COMPANY.address)}</p>
-        <p>${htmlEscape(HAM_COMPANY.email)} &middot; ${htmlEscape(HAM_COMPANY.phone)} &middot; WhatsApp ${htmlEscape(HAM_COMPANY.whatsapp)}</p>
-        <p>${htmlEscape(HAM_COMPANY.web)}</p>
-      </div>
+      <div class="logo"><img src="${htmlEscape(documentTemplate.logo)}" alt="HAM"></div>
+      <div>${renderDocumentHeaderText(documentTemplate.headerText)}</div>
     </section>
     <section class="meta">
       <h2>Presupuesto</h2>
       <div class="ref">${htmlEscape(code)}</div>
       <p>Fecha: ${today}</p>
-      <p>Validez: ${htmlEscape(HAM_COMPANY.validity)}</p>
+
     </section>
   </header>
   <section class="hero">
@@ -1003,10 +1055,7 @@ function budgetHtml(payload, code) {
     <tbody>${lines.map((line) => `<tr><td>${htmlEscape(line.capitulo)}</td><td><strong>${htmlEscape(line.concepto)}</strong><br>${htmlEscape(line.descripcion)}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${htmlEscape(line.unidad)}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
   </table>
   <div class="total">Total estimado: ${total.toFixed(2)} EUR + IVA</div>
-  <section class="conditions">
-    <div><strong>Validez:</strong> ${htmlEscape(HAM_COMPANY.validity)} desde la fecha de emision.</div>
-    <div><strong>Forma de pago:</strong> ${htmlEscape(HAM_COMPANY.payment)}.</div>
-  </section>
+  <section class="conditions">${renderDocumentFooterText(documentTemplate.footerText)}</section>
   <h3>Supuestos</h3>
   <ul>${(payload.supuestos || []).map((item) => `<li>${htmlEscape(item)}</li>`).join("")}</ul>
   <h3>Riesgos y datos pendientes</h3>
@@ -1203,6 +1252,41 @@ async function route(req, res) {
     const file = resolveEditable(body.path);
     await fs.writeFile(file, String(body.content || ""), "utf8");
     return send(res, 200, { ok: true, path: path.relative(ROOT, file).replaceAll("\\", "/") });
+  }
+  if (req.method === "POST" && url.pathname === "/api/document-template/ai") {
+    const body = await readJson(req);
+    const provider = body.provider || "fallback";
+    const model = body.model || "fallback";
+    const instruction = String(body.prompt || "").trim();
+    const documentTemplate = normalizeDocumentTemplate(body.documentTemplate);
+    if (!instruction) return send(res, 400, { error: "Falta instruccion para editar la cabecera o el pie." });
+    const context = await loadRepositoryContext();
+    const templatePrompt = buildDocumentTemplatePrompt({ documentTemplate, instruction });
+    const estimatedTokens = estimateRequestTokens(templatePrompt, []);
+    const status = await modelStatus(provider, model, estimatedTokens);
+    if (provider !== "fallback" && status.blocked) {
+      return send(res, 402, { error: "Saldo local insuficiente para este modelo.", tokenStatus: status });
+    }
+    let result;
+    let usage = null;
+    try {
+      if (provider === "openai") {
+        const response = await callOpenAIText({ prompt: templatePrompt, context, model });
+        result = parseDocumentTemplateJson(response.content, documentTemplate);
+        usage = response.usage;
+      } else if (provider === "gemini") {
+        const response = await callGeminiText({ prompt: templatePrompt, context, model });
+        result = parseDocumentTemplateJson(response.content, documentTemplate);
+        usage = response.usage;
+      } else {
+        result = fallbackDocumentTemplateEdit({ documentTemplate, prompt: instruction });
+      }
+      await recordTokenUsage(provider, model, usage);
+      return send(res, 200, { provider, model, documentTemplate: result, usage, tokenStatus: await modelStatus(provider, model, estimatedTokens) });
+    } catch (error) {
+      result = fallbackDocumentTemplateEdit({ documentTemplate, prompt: instruction });
+      return send(res, 200, { provider: "fallback", warning: error.message, documentTemplate: result, usage: null, tokenStatus: status });
+    }
   }
   if (req.method === "POST" && url.pathname === "/api/md/ai") {
     const body = await readJson(req);

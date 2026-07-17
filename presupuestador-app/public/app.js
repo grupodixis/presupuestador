@@ -10,17 +10,19 @@ function appUrl(path) {
   return `${APP_BASE_PATH}${path}`;
 }
 
-const HAM_COMPANY = {
-  name: "HAM Estructuras Metalicas",
-  tagline: "Fabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.",
-  address: "Av. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca",
-  email: "info@hamenorca.com",
-  phone: "+34 971 35 20 18",
-  whatsapp: "+34 669 769 541",
-  web: "www.hamenorca.com",
+const DEFAULT_DOCUMENT_TEMPLATE = {
   logo: "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
-  validity: "30 dias",
-  payment: "100% a la aceptacion del presupuesto",
+  headerText: [
+    "HAM Estructuras Metalicas",
+    "Fabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.",
+    "Av. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca",
+    "info@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541",
+    "www.hamenorca.com",
+  ].join("\n"),
+  footerText: [
+    "Validez: 30 dias desde la fecha de emision.",
+    "Forma de pago: 100% a la aceptacion del presupuesto.",
+  ].join("\n"),
 };
 
 const state = {
@@ -74,6 +76,12 @@ const els = {
   refreshModels: document.querySelector("#refreshModels"),
   saveSettings: document.querySelector("#saveSettings"),
   settingsStatus: document.querySelector("#settingsStatus"),
+  documentLogo: document.querySelector("#documentLogo"),
+  documentHeaderText: document.querySelector("#documentHeaderText"),
+  documentFooterText: document.querySelector("#documentFooterText"),
+  documentTemplateAiPrompt: document.querySelector("#documentTemplateAiPrompt"),
+  applyDocumentTemplateAi: document.querySelector("#applyDocumentTemplateAi"),
+  documentTemplateStatus: document.querySelector("#documentTemplateStatus"),
   mdSearch: document.querySelector("#mdSearch"),
   mdFiles: document.querySelector("#mdFiles"),
   mdPath: document.querySelector("#mdPath"),
@@ -110,6 +118,47 @@ function escapeHtml(value) {
 function setStatus(text) {
   els.status.textContent = text || "";
 }
+function normalizeDocumentTemplate(template = {}) {
+  return {
+    logo: String(template.logo || DEFAULT_DOCUMENT_TEMPLATE.logo),
+    headerText: String(template.headerText || DEFAULT_DOCUMENT_TEMPLATE.headerText),
+    footerText: String(template.footerText || DEFAULT_DOCUMENT_TEMPLATE.footerText),
+  };
+}
+
+function templateFromSettingsFields() {
+  return normalizeDocumentTemplate({
+    logo: els.documentLogo?.value,
+    headerText: els.documentHeaderText?.value,
+    footerText: els.documentFooterText?.value,
+  });
+}
+
+function currentDocumentTemplate() {
+  return normalizeDocumentTemplate(state.result?.documentTemplate || state.settings?.documentTemplate || templateFromSettingsFields());
+}
+
+function renderDocumentHeaderText(headerText) {
+  const lines = String(headerText || DEFAULT_DOCUMENT_TEMPLATE.headerText).split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+  const title = lines[0] || "HAM Estructuras Metalicas";
+  const details = lines.slice(1);
+  return "<h1>" + escapeHtml(title) + "</h1>" + details.map((line) => "<p>" + escapeHtml(line) + "</p>").join("");
+}
+
+function renderDocumentFooterText(footerText) {
+  const lines = String(footerText || DEFAULT_DOCUMENT_TEMPLATE.footerText).split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+  const effective = lines.length ? lines : DEFAULT_DOCUMENT_TEMPLATE.footerText.split("\n");
+  return effective.map((line) => "<div>" + escapeHtml(line) + "</div>").join("");
+}
+
+function syncBudgetHeaderFromInputs() {
+  if (!state.result) return;
+  state.result.tipoProducto = els.productType.value.trim();
+  state.result.titulo = els.title.value.trim() || "Presupuesto";
+  state.result.resumen = els.summaryText.value.trim();
+  state.result.documentTemplate = currentDocumentTemplate();
+}
+
 
 async function api(path, payload) {
   const response = await fetch(appUrl(path), {
@@ -139,7 +188,8 @@ function clientData() {
 }
 
 function resultPayload() {
-  const payload = { ...(state.result || {}), cliente: clientData() };
+  syncBudgetHeaderFromInputs();
+  const payload = { ...(state.result || {}), cliente: clientData(), documentTemplate: currentDocumentTemplate() };
   if (state.currentBudgetFolder) payload._folder = state.currentBudgetFolder;
   if (state.budgetChangeLog.length) payload._changeLog = state.budgetChangeLog.slice(-120);
   return payload;
@@ -413,22 +463,16 @@ function renderPrintPreview() {
   const lines = payload.lineas || [];
   const total = lines.reduce((sum, line) => sum + Number(line.importe || 0), 0);
   const client = payload.cliente || {};
+  const documentTemplate = currentDocumentTemplate();
   els.printPreview.innerHTML = `
     <header>
       <section class="print-company">
-        <div class="print-logo"><img src="${HAM_COMPANY.logo}" alt="HAM"></div>
-        <div>
-          <h1>${escapeHtml(HAM_COMPANY.name)}</h1>
-          <p>${escapeHtml(HAM_COMPANY.tagline)}</p>
-          <p>${escapeHtml(HAM_COMPANY.address)}</p>
-          <p>${escapeHtml(HAM_COMPANY.email)} &middot; ${escapeHtml(HAM_COMPANY.phone)} &middot; WhatsApp ${escapeHtml(HAM_COMPANY.whatsapp)}</p>
-          <p>${escapeHtml(HAM_COMPANY.web)}</p>
-        </div>
+        <div class="print-logo"><img src="${escapeHtml(documentTemplate.logo)}" alt="HAM"></div>
+        <div>${renderDocumentHeaderText(documentTemplate.headerText)}</div>
       </section>
       <section class="print-meta">
         <h2>Presupuesto</h2>
         <p>Fecha: ${new Date().toISOString().slice(0, 10)}</p>
-        <p>Validez: ${escapeHtml(HAM_COMPANY.validity)}</p>
       </section>
     </header>
     <section class="print-hero">
@@ -454,10 +498,7 @@ function renderPrintPreview() {
       <tbody>${lines.map((line) => `<tr><td>${escapeHtml(line.capitulo || "")}</td><td><strong>${escapeHtml(line.concepto || "")}</strong><br>${escapeHtml(line.descripcion || "")}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${escapeHtml(line.unidad || "")}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
     </table>
     <div class="print-total">Total estimado: ${total.toFixed(2)} EUR + IVA</div>
-    <section class="print-conditions">
-      <div><strong>Validez:</strong> ${escapeHtml(HAM_COMPANY.validity)} desde la fecha de emision.</div>
-      <div><strong>Forma de pago:</strong> ${escapeHtml(HAM_COMPANY.payment)}.</div>
-    </section>
+    <section class="print-conditions">${renderDocumentFooterText(documentTemplate.footerText)}</section>
   `;
 }
 
@@ -498,7 +539,7 @@ function printDocumentHtml() {
     .print-col-price { width: 11%; }
     .print-col-amount { width: 13%; }
     .print-total { width: 100%; margin-top: 7mm; padding-right: 2mm; text-align: right; font-size: 12pt; font-weight: 700; overflow-wrap: anywhere; page-break-inside: avoid; }
-    .print-conditions { margin-top: 5mm; border-top: 1px solid #d6dde5; padding-top: 3mm; display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; color: #475467; font-size: 8pt; }
+    .print-conditions { margin-top: 5mm; border-top: 1px solid #d6dde5; padding-top: 3mm; display: grid; gap: 1.8mm; color: #475467; font-size: 8pt; }
     tr { page-break-inside: avoid; page-break-after: auto; }
   </style>
 </head>
@@ -516,9 +557,10 @@ function renderResult(renderTable = true) {
   els.resultPanel.classList.remove("hidden");
   els.exportBudget.disabled = false;
   els.printBudget.disabled = false;
-  els.title.textContent = state.result.titulo || "Presupuesto";
-  els.summaryText.textContent = state.result.resumen || "";
-  els.productType.textContent = state.result.tipoProducto || "producto_compuesto";
+  if (!state.result.documentTemplate) state.result.documentTemplate = currentDocumentTemplate();
+  els.title.value = state.result.titulo || "Presupuesto";
+  els.summaryText.value = state.result.resumen || "";
+  els.productType.value = state.result.tipoProducto || "producto_compuesto";
   els.total.textContent = formatMoney(total);
   if (renderTable) renderLines();
   renderList(els.questions, state.result.preguntas);
@@ -708,6 +750,10 @@ async function loadSettings() {
   els.geminiKey.placeholder = settings.geminiApiKeySet ? "Clave guardada; escribe otra para cambiar" : "AIza...";
   els.openaiBudgets.value = JSON.stringify(settings.modelTokenBudgets?.openai || {}, null, 2);
   els.geminiBudgets.value = JSON.stringify(settings.modelTokenBudgets?.gemini || {}, null, 2);
+  const documentTemplate = normalizeDocumentTemplate(settings.documentTemplate);
+  els.documentLogo.value = documentTemplate.logo;
+  els.documentHeaderText.value = documentTemplate.headerText;
+  els.documentFooterText.value = documentTemplate.footerText;
   await loadAllModels();
   selectDefaultModels(settings);
   els.provider.value = settings.defaultProvider || "fallback";
@@ -850,6 +896,49 @@ function parseBudgetJson(value, label) {
   return parsed;
 }
 
+async function applyDocumentTemplateAi() {
+  const prompt = els.documentTemplateAiPrompt.value.trim();
+  if (!prompt) {
+    els.documentTemplateStatus.textContent = "Escribe una instruccion para la IA.";
+    return;
+  }
+  const selected = selectedModel();
+  if (!selected) {
+    els.documentTemplateStatus.textContent = "Selecciona un modelo disponible.";
+    return;
+  }
+  els.applyDocumentTemplateAi.disabled = true;
+  els.documentTemplateStatus.textContent = "Editando plantilla con IA...";
+  try {
+    const response = await api("/api/document-template/ai", {
+      provider: els.provider.value,
+      model: els.model.value,
+      prompt,
+      documentTemplate: templateFromSettingsFields(),
+    });
+    const documentTemplate = normalizeDocumentTemplate(response.documentTemplate);
+    els.documentLogo.value = documentTemplate.logo;
+    els.documentHeaderText.value = documentTemplate.headerText;
+    els.documentFooterText.value = documentTemplate.footerText;
+    els.documentTemplateStatus.textContent = response.warning ? "Edicion local: " + response.warning + ". Revisa y pulsa Guardar configuracion." : "Plantilla editada con " + response.provider + ". Revisa y pulsa Guardar configuracion.";
+    if (response.usage) {
+      state.result = state.result || {};
+      state.result.tokenUsage = response.usage;
+      await loadModels(els.provider.value, false);
+      renderModelTokenInfo();
+    }
+  } catch (error) {
+    try {
+      const parsed = JSON.parse(error.message);
+      els.documentTemplateStatus.textContent = parsed.error || error.message;
+    } catch {
+      els.documentTemplateStatus.textContent = error.message;
+    }
+  } finally {
+    els.applyDocumentTemplateAi.disabled = false;
+  }
+}
+
 async function saveSettings() {
   els.saveSettings.disabled = true;
   els.settingsStatus.textContent = "Guardando...";
@@ -864,6 +953,7 @@ async function saveSettings() {
         openai: parseBudgetJson(els.openaiBudgets.value, "OpenAI"),
         gemini: parseBudgetJson(els.geminiBudgets.value, "Gemini"),
       },
+      documentTemplate: templateFromSettingsFields(),
     });
     els.openaiKey.value = "";
     els.geminiKey.value = "";
@@ -1008,6 +1098,7 @@ els.attachments.addEventListener("change", (event) => handleFiles(event.target.f
 els.generate.addEventListener("click", generate);
 els.refreshContext.addEventListener("click", loadContext);
 els.saveSettings.addEventListener("click", saveSettings);
+els.applyDocumentTemplateAi.addEventListener("click", applyDocumentTemplateAi);
 els.provider.addEventListener("change", updateModelFromProvider);
 els.defaultProvider.addEventListener("change", () => { els.provider.value = els.defaultProvider.value; updateModelFromProvider(preferredModelForProvider(els.provider.value)); });
 els.model.addEventListener("change", renderModelTokenInfo);
@@ -1022,6 +1113,7 @@ els.applyMdAi.addEventListener("click", applyMdAi);
 els.saveMd.addEventListener("click", saveMd);
 els.printBudget.addEventListener("click", printBudget);
 [els.clientName, els.clientEmail, els.clientPhone, els.clientTax, els.clientAddress, els.clientRef].forEach((input) => input.addEventListener("input", renderPrintPreview));
+[els.title, els.summaryText, els.productType].forEach((input) => input.addEventListener("input", () => { syncBudgetHeaderFromInputs(); renderPrintPreview(); }));
 
 els.clear.addEventListener("click", clearBudgetForm);
 
