@@ -286,7 +286,7 @@ td textarea { min-height: 58px; resize: vertical; }
 }
 
 .print-preview { background: white; color: #1d242c; border: 1px solid var(--line); padding: 24px; width: min(100%, 820px); max-width: 820px; margin: 0 auto; overflow: hidden; }
-.print-preview header { border-top: 7px solid var(--brand); padding-top: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 18px; align-items: start; }
+.print-preview header { border-top: 7px solid var(--brand); padding-top: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 16px; align-items: start; }
 .print-company { display: flex; gap: 14px; min-width: 0; }
 .print-logo { width: 132px; flex: 0 0 132px; padding-top: 2px; }
 .print-logo img { width: 100%; filter: brightness(0) saturate(100%); }
@@ -294,7 +294,7 @@ td textarea { min-height: 58px; resize: vertical; }
 .print-preview h2 { margin: 0; color: var(--brand); }
 .print-preview p { margin: 2px 0; color: var(--muted); font-size: 11px; line-height: 1.25; }
 .print-preview .print-meta { color: var(--muted); text-align: right; white-space: normal; }
-.print-meta h2 { font-size: 22px; text-transform: uppercase; letter-spacing: .7px; margin-bottom: 7px; }
+.print-meta h2 { font-size: 18px; text-transform: uppercase; letter-spacing: 0; margin-bottom: 7px; }
 .print-ref { display: inline-block; padding: 5px 8px; border: 1px solid var(--line); background: var(--soft); font-weight: 700; color: var(--brand); margin-bottom: 5px; }
 .print-hero { margin: 14px 0; padding: 12px 14px; border-left: 4px solid var(--brand); background: var(--soft); }
 .print-hero h2 { font-size: 22px; line-height: 1.12; margin-bottom: 5px; }

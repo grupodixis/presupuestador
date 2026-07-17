@@ -940,14 +940,14 @@ function budgetHtml(payload, code) {
     * { box-sizing: border-box; }
     body { font-family: Arial, Helvetica, sans-serif; color: #111827; margin: 0; line-height: 1.34; background: #eef2f6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .page { width: 180mm; max-width: 100%; min-height: 267mm; margin: 0 auto; padding: 0; background: white; }
-    header { border-top: 6px solid #16202a; padding-top: 12px; display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 20px; align-items: start; border-bottom: 1px solid #d6dde5; padding-bottom: 12px; }
+    header { border-top: 6px solid #16202a; padding-top: 12px; display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 16px; align-items: start; border-bottom: 1px solid #d6dde5; padding-bottom: 12px; }
     .company { display: flex; gap: 14px; min-width: 0; }
     .logo { width: 130px; flex: 0 0 130px; padding-top: 2px; }
     .logo img { width: 100%; filter: brightness(0) saturate(100%); }
     .company h1 { margin: 0 0 4px; font-size: 18px; color: #16202a; }
     .company p, .meta p { margin: 2px 0; color: #4b5563; font-size: 11px; }
     .meta { text-align: right; color: #4b5563; }
-    .meta h2 { margin: 0 0 7px; color: #16202a; font-size: 22px; text-transform: uppercase; letter-spacing: .7px; }
+    .meta h2 { margin: 0 0 7px; color: #16202a; font-size: 18px; text-transform: uppercase; letter-spacing: 0; }
     .ref { display: inline-block; padding: 5px 8px; border: 1px solid #d6dde5; background: #f6f8fa; color: #16202a; font-weight: 700; font-size: 12px; }
     .hero { margin: 14px 0; padding: 12px 14px; border-left: 4px solid #16202a; background: #f6f8fa; }
     .hero h2 { margin: 0 0 5px; font-size: 22px; color: #16202a; line-height: 1.12; }

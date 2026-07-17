@@ -427,7 +427,6 @@ function renderPrintPreview() {
       </section>
       <section class="print-meta">
         <h2>Presupuesto</h2>
-        <div class="print-ref">Borrador</div>
         <p>Fecha: ${new Date().toISOString().slice(0, 10)}</p>
         <p>Validez: ${escapeHtml(HAM_COMPANY.validity)}</p>
       </section>
@@ -475,7 +474,7 @@ function printDocumentHtml() {
     html, body { margin: 0; padding: 0; background: white; color: #111827; font-family: Arial, Helvetica, sans-serif; }
     body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .print-sheet { width: 170mm; max-width: 170mm; margin: 0 auto; overflow: hidden; }
-    header { border-top: 5px solid #16202a; padding-top: 5mm; display: grid; grid-template-columns: minmax(0, 1fr) 34mm; gap: 6mm; align-items: start; border-bottom: 1px solid #d6dde5; padding-bottom: 4mm; }
+    header { border-top: 5px solid #16202a; padding-top: 5mm; display: grid; grid-template-columns: minmax(0, 1fr) 42mm; gap: 5mm; align-items: start; border-bottom: 1px solid #d6dde5; padding-bottom: 4mm; }
     .print-company { display: flex; gap: 4mm; min-width: 0; }
     .print-logo { width: 30mm; flex: 0 0 30mm; }
     .print-logo img { width: 100%; filter: brightness(0) saturate(100%); }
@@ -483,7 +482,7 @@ function printDocumentHtml() {
     h2 { margin: 0; }
     p { margin: 0; color: #475467; font-size: 7.8pt; line-height: 1.2; overflow-wrap: anywhere; }
     .print-meta { color: #475467; text-align: right; white-space: normal; font-size: 8pt; }
-    .print-meta h2 { color: #16202a; font-size: 13pt; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 2mm; }
+    .print-meta h2 { color: #16202a; font-size: 11.5pt; text-transform: uppercase; letter-spacing: 0; margin-bottom: 2mm; }
     .print-ref { display: inline-block; padding: 1.6mm 2.2mm; border: 1px solid #d6dde5; background: #f6f8fa; color: #16202a; font-weight: 700; margin-bottom: 1.6mm; }
     .print-hero { margin: 5mm 0; padding: 3mm 4mm; border-left: 3px solid #16202a; background: #f6f8fa; }
     .print-hero h2 { margin: 0 0 1.5mm; font-size: 15pt; line-height: 1.12; color: #16202a; }
