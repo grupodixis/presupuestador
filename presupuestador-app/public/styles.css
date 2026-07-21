@@ -298,8 +298,28 @@ td textarea { min-height: 58px; resize: vertical; }
 #mdFiles li { padding: 8px; border-bottom: 1px solid var(--line); font-size: 12px; cursor: pointer; border-radius: 4px; }
 #mdFiles li:hover, #mdFiles li.active { background: white; color: var(--accent-2); font-weight: 700; }
 .editor-pane { display: grid; grid-template-rows: auto 1fr auto; gap: 8px; min-width: 0; }
+.md-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.view-switch { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--soft); }
+.view-switch button { border: 0; border-radius: 0; background: transparent; color: var(--muted); padding: 8px 11px; }
+.view-switch button.active { background: var(--brand); color: white; }
 .editor-path { color: var(--muted); font-size: 13px; }
 #mdEditor { min-height: 590px; font-family: Consolas, monospace; font-size: 13px; line-height: 1.45; white-space: pre; overflow: auto; }
+.md-preview { min-height: 590px; max-height: 70vh; overflow: auto; border: 1px solid var(--line); border-radius: 6px; background: white; padding: 22px; color: var(--ink); line-height: 1.55; }
+.md-preview h1, .md-preview h2, .md-preview h3, .md-preview h4 { color: var(--brand); margin: 1.1em 0 .45em; line-height: 1.2; }
+.md-preview h1:first-child, .md-preview h2:first-child, .md-preview h3:first-child { margin-top: 0; }
+.md-preview h1 { font-size: 28px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+.md-preview h2 { font-size: 21px; }
+.md-preview h3 { font-size: 17px; }
+.md-preview p { margin: 0 0 10px; }
+.md-preview ul, .md-preview ol { margin: 0 0 12px 22px; padding: 0; }
+.md-preview li { margin: 4px 0; }
+.md-preview code { font-family: Consolas, monospace; }
+.md-preview pre { overflow: auto; background: var(--soft); border: 1px solid var(--line); border-radius: 6px; padding: 12px; }
+.md-preview table { width: 100%; border-collapse: collapse; margin: 12px 0 16px; font-size: 13px; }
+.md-preview th, .md-preview td { border: 1px solid var(--line); padding: 8px; vertical-align: top; }
+.md-preview th { background: var(--brand); color: white; text-align: left; }
+.md-preview hr { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
+.md-check { color: var(--accent-2); font-weight: 700; }
 .md-ai-panel {
   display: grid;
   gap: 8px;
@@ -355,7 +375,7 @@ td textarea { min-height: 58px; resize: vertical; }
   .app-shell { grid-template-columns: 1fr; }
   .side { min-height: auto; }
   #contextFiles { max-height: 180px; }
-  .composer-head, .summary, .suggestion, .knowledge-map-head { display: grid; }
+  .composer-head, .summary, .suggestion, .knowledge-map-head, .md-toolbar { display: grid; }
   .client-grid, .settings-grid, .budget-grid, .doc-template-grid, .note-grid, .editor-grid, .budget-card, .budget-heading-editor, .user-create-grid, .knowledge-grid { grid-template-columns: 1fr; }
   .budget-card-actions { justify-items: start; max-width: none; }
   .budget-file-links { justify-content: flex-start; }

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Presupuestador IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260721-knowledge-map">
+  <link rel="stylesheet" href="styles.css?v=20260721-md-preview">
 </head>
 <body>
   <div class="app-shell">
@@ -254,7 +254,13 @@
               <ul id="mdFiles"></ul>
             </div>
             <div class="editor-pane">
-              <div class="editor-path" id="mdPath">Selecciona un archivo</div>
+              <div class="md-toolbar">
+                <div class="editor-path" id="mdPath">Selecciona un archivo</div>
+                <div class="view-switch" role="group" aria-label="Modo de Markdown">
+                  <button id="mdEditMode" class="active" type="button">Edición</button>
+                  <button id="mdPreviewMode" type="button">Visualización</button>
+                </div>
+              </div>
               <div class="md-ai-panel">
                 <textarea id="mdAiPrompt" rows="3" placeholder="Indica a la IA que criterio, aprendizaje o contexto debe interiorizar en este MD..." disabled></textarea>
                 <div class="md-ai-actions">
@@ -263,6 +269,7 @@
                 </div>
               </div>
               <textarea id="mdEditor" spellcheck="false" disabled></textarea>
+              <div id="mdPreview" class="md-preview hidden"></div>
               <div id="mdStatus" class="status"></div>
             </div>
           </div>
@@ -271,7 +278,7 @@
     </main>
   </div>
 
-  <script src="app.js?v=20260721-knowledge-map"></script>
+  <script src="app.js?v=20260721-md-preview"></script>
 </body>
 </html>
 

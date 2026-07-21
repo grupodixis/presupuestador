@@ -90,6 +90,9 @@ const els = {
   mdFiles: document.querySelector("#mdFiles"),
   mdPath: document.querySelector("#mdPath"),
   mdEditor: document.querySelector("#mdEditor"),
+  mdPreview: document.querySelector("#mdPreview"),
+  mdEditMode: document.querySelector("#mdEditMode"),
+  mdPreviewMode: document.querySelector("#mdPreviewMode"),
   mdAiPrompt: document.querySelector("#mdAiPrompt"),
   applyMdAi: document.querySelector("#applyMdAi"),
   saveMd: document.querySelector("#saveMd"),
@@ -131,6 +134,111 @@ function escapeHtml(value) {
 function setStatus(text) {
   els.status.textContent = text || "";
 }
+
+function markdownInline(text) {
+  let html = escapeHtml(text);
+  html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+  html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  html = html.replace(/__([^_]+)__/g, "<strong>$1</strong>");
+  html = html.replace(/(^|\s)\*([^*]+)\*(?=\s|$)/g, "$1<em>$2</em>");
+  html = html.replace(/(^|\s)_([^_]+)_(?=\s|$)/g, "$1<em>$2</em>");
+  return html;
+}
+
+function renderMarkdownTable(lines) {
+  const rows = lines.map((line) => line.trim().replace(/^\||\|$/g, "").split("|").map((cell) => markdownInline(cell.trim())));
+  const header = rows[0] || [];
+  const body = rows.slice(2);
+  return `<table><thead><tr>${header.map((cell) => `<th>${cell}</th>`).join("")}</tr></thead><tbody>${body.map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+
+function renderMarkdown(content) {
+  const lines = String(content || "").replace(/\r\n/g, "\n").split("\n");
+  const out = [];
+  let listType = null;
+  let inCode = false;
+  let code = [];
+  function closeList() {
+    if (listType) out.push(`</${listType}>`);
+    listType = null;
+  }
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    if (trimmed.startsWith("```")) {
+      if (inCode) {
+        out.push(`<pre><code>${escapeHtml(code.join("\n"))}</code></pre>`);
+        code = [];
+        inCode = false;
+      } else {
+        closeList();
+        inCode = true;
+      }
+      continue;
+    }
+    if (inCode) {
+      code.push(line);
+      continue;
+    }
+    if (!trimmed) {
+      closeList();
+      continue;
+    }
+    if (/^\|.+\|$/.test(trimmed) && i + 1 < lines.length && /^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$/.test(lines[i + 1].trim())) {
+      closeList();
+      const tableLines = [line, lines[i + 1]];
+      i += 2;
+      while (i < lines.length && /^\|.+\|$/.test(lines[i].trim())) {
+        tableLines.push(lines[i]);
+        i += 1;
+      }
+      i -= 1;
+      out.push(renderMarkdownTable(tableLines));
+      continue;
+    }
+    const heading = trimmed.match(/^(#{1,6})\s+(.+)$/);
+    if (heading) {
+      closeList();
+      const level = heading[1].length;
+      out.push(`<h${level}>${markdownInline(heading[2])}</h${level}>`);
+      continue;
+    }
+    if (/^---+$/.test(trimmed)) {
+      closeList();
+      out.push("<hr>");
+      continue;
+    }
+    const unordered = trimmed.match(/^[-*]\s+(.*)$/);
+    const ordered = trimmed.match(/^\d+\.\s+(.*)$/);
+    if (unordered || ordered) {
+      const desired = ordered ? "ol" : "ul";
+      if (listType !== desired) {
+        closeList();
+        out.push(`<${desired}>`);
+        listType = desired;
+      }
+      let item = unordered ? unordered[1] : ordered[1];
+      item = item.replace(/^\[( |x|X)\]\s*/, (match, checked) => `${checked.trim() ? "☑" : "☐"} `);
+      out.push(`<li>${markdownInline(item)}</li>`);
+      continue;
+    }
+    closeList();
+    out.push(`<p>${markdownInline(trimmed)}</p>`);
+  }
+  closeList();
+  if (inCode) out.push(`<pre><code>${escapeHtml(code.join("\n"))}</code></pre>`);
+  return out.join("\n");
+}
+
+function setMdMode(mode) {
+  const preview = mode === "preview";
+  els.mdEditMode.classList.toggle("active", !preview);
+  els.mdPreviewMode.classList.toggle("active", preview);
+  els.mdEditor.classList.toggle("hidden", preview);
+  els.mdPreview.classList.toggle("hidden", !preview);
+  if (preview) els.mdPreview.innerHTML = renderMarkdown(els.mdEditor.value);
+}
+
 function normalizeDocumentTemplate(template = {}) {
   return {
     logo: String(template.logo || DEFAULT_DOCUMENT_TEMPLATE.logo),
@@ -1203,6 +1311,7 @@ async function openMd(file) {
   els.mdPath.textContent = data.path;
   els.mdEditor.value = data.content;
   els.mdEditor.disabled = false;
+  setMdMode("edit");
   els.mdAiPrompt.disabled = false;
   els.applyMdAi.disabled = false;
   els.saveMd.disabled = false;
@@ -1233,6 +1342,7 @@ async function applyMdAi() {
       prompt,
     });
     els.mdEditor.value = response.content || "";
+    if (!els.mdPreview.classList.contains("hidden")) els.mdPreview.innerHTML = renderMarkdown(els.mdEditor.value);
     els.mdStatus.textContent = response.warning ? `Edicion local: ${response.warning}` : `MD actualizado con ${response.provider}. Revisa y pulsa Guardar archivo.`;
     if (response.usage) {
       state.result = state.result || {};
@@ -1328,6 +1438,9 @@ els.mdSearch.addEventListener("input", () => renderMdFiles());
 els.clearMdFilter.addEventListener("click", () => { els.mdSearch.value = ""; renderMdFiles(); });
 els.applyMdAi.addEventListener("click", applyMdAi);
 els.saveMd.addEventListener("click", saveMd);
+els.mdEditMode.addEventListener("click", () => setMdMode("edit"));
+els.mdPreviewMode.addEventListener("click", () => setMdMode("preview"));
+els.mdEditor.addEventListener("input", () => { if (!els.mdPreview.classList.contains("hidden")) els.mdPreview.innerHTML = renderMarkdown(els.mdEditor.value); });
 els.printBudget.addEventListener("click", printBudget);
 [els.clientName, els.clientEmail, els.clientPhone, els.clientTax, els.clientAddress, els.clientRef].forEach((input) => input.addEventListener("input", renderPrintPreview));
 [els.title, els.summaryText, els.productType].forEach((input) => input.addEventListener("input", () => { syncBudgetHeaderFromInputs(); renderPrintPreview(); }));
