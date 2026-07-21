@@ -1,0 +1,128 @@
+{
+  "titulo": "Presupuesto preliminar de barandilla",
+  "resumen": "Estimacion local generada sin API key. Sirve como primera descomposicion editable.",
+  "tipoProducto": "barandilla",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Medicion, replanteo y despiece tecnico",
+      "descripcion": "Preparacion de datos, validacion de medidas, definicion de alcance y dudas.",
+      "cantidad": 2,
+      "unidad": "h",
+      "precioUnitario": 55,
+      "importe": 110,
+      "confianza": "media",
+      "origen": "fallback local",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Materiales principales del compuesto",
+      "descripcion": "Estimacion inicial segun composicion tecnica y ambiente exterior Menorca.",
+      "cantidad": 500,
+      "unidad": "lote",
+      "precioUnitario": 420,
+      "importe": 210000,
+      "confianza": "media",
+      "origen": "fallback local",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Fabricacion",
+      "concepto": "Corte, mecanizado y ensamblaje en taller",
+      "descripcion": "Horas de taller para preparacion, soldadura/ensamblaje y ajuste.",
+      "cantidad": 750,
+      "unidad": "h",
+      "precioUnitario": 40,
+      "importe": 30000,
+      "confianza": "media",
+      "origen": "fallback local",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Tratamiento",
+      "concepto": "Tratamiento superficial anticorrosivo",
+      "descripcion": "Galvanizado/lacado/sistema C4-C5 o inox segun material definido.",
+      "cantidad": 500,
+      "unidad": "lote",
+      "precioUnitario": 260,
+      "importe": 130000,
+      "confianza": "media",
+      "origen": "fallback local",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Transporte",
+      "concepto": "Transporte a obra",
+      "descripcion": "Carga, proteccion y desplazamiento local.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 180,
+      "importe": 180,
+      "confianza": "media",
+      "origen": "fallback local",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Montaje",
+      "concepto": "Montaje en obra y remates",
+      "descripcion": "Equipo de montaje, fijaciones, nivelacion, sellados y verificacion final.",
+      "cantidad": 500,
+      "unidad": "h",
+      "precioUnitario": 45,
+      "importe": 22500,
+      "confianza": "media",
+      "origen": "fallback local",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Riesgo",
+      "concepto": "Reserva por integracion y datos pendientes",
+      "descripcion": "Partida provisional hasta confirmar planos, accesos, cargas y acabados.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 350,
+      "importe": 350,
+      "confianza": "media",
+      "origen": "fallback local",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "Confirmar dimensiones exactas, ubicacion y accesos de obra.",
+    "Confirmar material, acabado y exigencia anticorrosiva.",
+    "Adjuntar plano, croquis o fotos si existen."
+  ],
+  "supuestos": [
+    "Menorca por defecto, ambiente salino exterior si no se indica lo contrario.",
+    "0 adjunto(s) recibido(s), revisados como apoyo si contienen texto legible."
+  ],
+  "riesgos": [
+    "Precio orientativo hasta validar mediciones y proveedor.",
+    "La complejidad puede subir si hay montaje en altura, cargas estructurales o plazos cortos."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Pedir siempre fotos de acceso y anclajes",
+      "detalle": "En productos a medida exteriores, guardar como criterio que las fotos de accesos, anclajes y entorno reducen riesgo de montaje.",
+      "skillDestino": "skills/aprendizaje_presupuestador_app.md",
+      "prioridad": "media"
+    }
+  ],
+  "cliente": {
+    "nombre": "",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  }
+}

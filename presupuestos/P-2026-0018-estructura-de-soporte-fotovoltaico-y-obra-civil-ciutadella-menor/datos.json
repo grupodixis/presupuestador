@@ -1,0 +1,144 @@
+{
+  "titulo": "Estructura de Soporte Fotovoltaico y Obra Civil - Ciutadella (Menorca)",
+  "resumen": "Presupuesto técnico y comercial para el diseño, fabricación, tratamiento galvanizado en caliente y montaje de estructura metálica de soporte para placas fotovoltaicas, incluyendo la obra civil de cimentación en Ciutadella, Menorca.",
+  "tipoProducto": "Estructura metálica para fotovoltaica",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Ingeniería y planos de taller",
+      "descripcion": "Elaboración de planos de despiece para taller y marcado de perforaciones de evacuación para galvanizado.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 1200,
+      "importe": 1200,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Perfiles de acero laminado S275JR",
+      "descripcion": "Suministro de perfiles de acero laminado en caliente (IPE/UPN) para pórticos principales de soporte, adaptados para Menorca con recargo logístico de transporte marítimo.",
+      "cantidad": 2500,
+      "unidad": "kg",
+      "precioUnitario": 3.9,
+      "importe": 9750,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Tornillería y fijaciones en acero inoxidable AISI 316 (A4)",
+      "descripcion": "Tornillería estructural, varillas roscadas, tuercas, arandelas y pinzas de sujeción de paneles en acero inoxidable A4 para evitar corrosión galvánica con el aluminio y resistir el ambiente marino severo.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 950,
+      "importe": 950,
+      "confianza": "media",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller para preparación y soldadura",
+      "descripcion": "Corte a medida, taladrado CNC de perfiles, soldadura de cartelas y placas base de anclaje por oficiales de primera.",
+      "cantidad": 60,
+      "unidad": "h",
+      "precioUnitario": 40,
+      "importe": 2400,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Tratamiento",
+      "concepto": "Galvanizado en caliente por inmersión (UNE-EN ISO 1461) con transporte incluido",
+      "descripcion": "Tratamiento de protección anticorrosiva por inmersión en zinc fundido, espesor mínimo de 85 micras, idóneo para ambiente marino C5-M en Ciutadella. Incluye el coste de transporte marítimo desde taller peninsular hasta puerto de Barcelona, travesía a Menorca y entrega en obra mediante camión pluma.",
+      "cantidad": 2500,
+      "unidad": "kg",
+      "precioUnitario": 1.19,
+      "importe": 2975,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Montaje",
+      "concepto": "Mano de obra de montaje en obra",
+      "descripcion": "Ensamblaje de la estructura metálica sobre las zapatas de hormigón, aplomado, apriete controlado de tornillería y colocación de guías de aluminio para la posterior recepción de placas solares.",
+      "cantidad": 80,
+      "unidad": "h",
+      "precioUnitario": 45,
+      "importe": 3600,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿Se dispone de un estudio geotécnico del terreno en Ciutadella para confirmar la viabilidad de la excavación mecánica de las zapatas?",
+    "¿Cuál es la ficha técnica, dimensiones y peso de los paneles fotovoltaicos que se van a instalar sobre la estructura?",
+    "¿Existe acometida de agua y electricidad en el punto de la obra civil para la preparación del hormigón o se requiere grupo generador?"
+  ],
+  "supuestos": [
+    "Se asume que el terreno permite la excavación de zapatas sin necesidad de voladuras o maquinaria de perforación especial en roca extrema.",
+    "Se considera ambiente marino severo (C5-M) debido a la ubicación en Ciutadella (Menorca), aplicando galvanizado en caliente y tornillería inoxidable A4 por defecto.",
+    "El presupuesto no incluye el suministro ni la conexión eléctrica de las placas fotovoltaicas, únicamente la estructura de soporte y su cimentación."
+  ],
+  "riesgos": [
+    "Presencia de subsuelo rocoso continuo (típico de Menorca) que ralentice la obra civil y requiera martillo hidráulico pesado.",
+    "Inclemencias meteorológicas (viento de Tramontana) que impidan los trabajos de izado y montaje de perfiles de gran superficie de vela.",
+    "Deformación de placas base o perfiles de acero durante el proceso de galvanizado en caliente si no se respetan los espesores mínimos de diseño."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Uso exclusivo de tornillería inoxidable AISI 316 (A4)",
+      "detalle": "Para evitar el par galvánico entre la estructura de acero galvanizado, los perfiles de aluminio de los paneles y la brisa salina de Ciutadella, se sugiere no degradar la tornillería a AISI 304.",
+      "skillDestino": "skills/aprendizaje_presupuestador_app.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Diseño de perforaciones de drenaje previas al galvanizado",
+      "detalle": "Asegurar que todos los perfiles tubulares y uniones soldadas lleven orificios de ventilación de al menos 10mm realizados en taller antes de enviar a la planta de galvanizado para evitar explosiones o acumulaciones de zinc.",
+      "skillDestino": "skills/aprendizaje_presupuestador_app.md",
+      "prioridad": "alta"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 68236,
+    "outputTokens": 1735,
+    "totalTokens": 71138
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash",
+    "estimatedInputTokens": 2534,
+    "localBudgetTokens": null,
+    "usedTokens": 498332,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "cliente": {
+    "nombre": "MPOLO SA",
+    "email": "gpalacios@mpolo.es",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "titulo": "Sustitución de dintel tubular y remate de chapa en Menorca",
+  "resumen": "Presupuesto técnico para la retirada de dintel oxidado, fabricación e instalación de nuevo dintel tubular de 100x100 mm y remate de chapa en L de 150x150x1 mm, con tratamiento anticorrosión C4/C5 apto para el ambiente salino de Menorca.",
+  "tipoProducto": "Estructuras metálicas / Herrería",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Riesgo",
+      "concepto": "Desmontaje y gestión de residuos",
+      "descripcion": "Retirada cuidadosa del dintel tubular y remate de chapa oxidados, corte de partes afectadas y transporte de residuos a planta de reciclaje autorizada en Menorca.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 100,
+      "importe": 100,
+      "confianza": "media",
+      "origen": "supuesto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Tubo de acero estructural 100x100x4 mm",
+      "descripcion": "Suministro de tubo de acero al carbono S275 para dintel, calculado sobre barra comercial de 6 m para cubrir 5 m de luz con mermas de corte.",
+      "cantidad": 70.2,
+      "unidad": "kg",
+      "precioUnitario": 1.8,
+      "importe": 126.36,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Chapa de acero de 1 mm para remate en L",
+      "descripcion": "Suministro de chapa de acero laminado en frío para conformado de remate en L de 150x150 mm, longitud total de 6 m (2 tramos de 3 m para solape).",
+      "cantidad": 14.13,
+      "unidad": "kg",
+      "precioUnitario": 1.1,
+      "importe": 15.54,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller",
+      "descripcion": "Trabajos de corte a medida del dintel, plegado CNC de la chapa en L a 150x150 mm, preparación de bordes y soldadura de fijaciones.",
+      "cantidad": 6,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 180,
+      "confianza": "alta",
+      "origen": "skill/coste",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Tratamiento",
+      "concepto": "Tratamiento anticorrosión",
+      "descripcion": "Preparación superficial mediante lijado/desengrasado, aplicación de imprimación rica en zinc de alto espesor y acabado con esmalte de poliuretano gris RAL a juego con la chapa existente.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 120,
+      "importe": 120,
+      "confianza": "alta",
+      "origen": "skill/coste",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Transporte",
+      "concepto": "Transporte local a obra",
+      "descripcion": "Porte de materiales y herramientas desde el taller hasta la ubicación de la obra en Menorca.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 60,
+      "importe": 60,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Montaje",
+      "concepto": "Mano de obra de montaje e instalación",
+      "descripcion": "Instalación y nivelación del nuevo dintel tubular, fijación mecánica, colocación del remate de chapa en L con solapes impermeabilizados y sellado perimetral con masilla de poliuretano exterior.",
+      "cantidad": 8,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 240,
+      "confianza": "alta",
+      "origen": "skill/coste",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿Cuál es el código RAL exacto de la chapa existente para garantizar la coincidencia del color gris?",
+    "¿El dintel actual tiene una función estructural de carga activa (soporta muros o forjados) que requiera apuntalamiento temporal durante los trabajos?",
+    "¿La zona de trabajo es de fácil acceso a pie de calle o se requiere andamiaje/medios de elevación especiales para los 5 metros de longitud?"
+  ],
+  "supuestos": [
+    "Se asume que el soporte de obra (mampostería/hormigón) donde se fijará el nuevo dintel está en condiciones estructurales aptas.",
+    "No se incluye en esta valoración el apuntalamiento estructural complejo ni proyectos de cálculo de estabilidad de la edificación.",
+    "El tratamiento de pintura se realiza bajo el estándar C4/C5 para garantizar durabilidad frente a la brisa marina de Menorca."
+  ],
+  "riesgos": [
+    "Riesgo de desprendimiento de enfoscados o acabados de fachada colindantes durante la retirada del dintel tubular oxidado.",
+    "Posible ligera variación estética en el tono de gris si la chapa existente ha sufrido decoloración por exposición prolongada a la radiación UV."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Uso de acero galvanizado en caliente",
+      "detalle": "Para el dintel tubular de 100x100 mm, se sugiere realizar un proceso de galvanizado en caliente por inmersión antes del lacado gris. Esto evitará por completo la oxidación interna y externa en el ambiente marino de Menorca.",
+      "skillDestino": "skills/aprendizaje_presupuestador_app.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Sustitución de chapa por aluminio lacado marino",
+      "detalle": "Se sugiere fabricar el remate en L de 150x150 mm en aluminio lacado de calidad marina (Qualicoat) en lugar de chapa de acero al carbono, eliminando el riesgo de corrosión futura en el remate exterior.",
+      "skillDestino": "skills/aprendizaje_presupuestador_app.md",
+      "prioridad": "media"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 67554,
+    "outputTokens": 1893,
+    "totalTokens": 70647
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-flash-latest",
+    "estimatedInputTokens": 2057,
+    "localBudgetTokens": null,
+    "usedTokens": 210298,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "cliente": {
+    "nombre": "Es Cardo",
+    "email": "Es Cardo",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  }
+}

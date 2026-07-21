@@ -1,0 +1,93 @@
+{
+  "titulo": "Presupuesto Barandilla Inox y Rejas de Seguridad",
+  "resumen": "Fabricación e instalación de 15 metros lineales de barandilla en acero inoxidable AISI 304L y rejas de seguridad con barrotes macizos de Ø10mm, adaptadas a normativa de seguridad y ambiente de Menorca.",
+  "tipoProducto": "Herrería y Barandillas",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Materiales",
+      "concepto": "Barandilla Inox AISI 304L",
+      "descripcion": "Barandilla compuesta por pletina de 50x10mm, postes y pasamanos en acero inoxidable AISI 304L, acabado cepillado.",
+      "cantidad": 15,
+      "unidad": "ml",
+      "precioUnitario": 185,
+      "importe": 2775,
+      "confianza": "alta",
+      "origen": "skill/barandillas",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Rejas de Seguridad Ø10mm",
+      "descripcion": "Rejas de protección con barrotes macizos de Ø10mm en acero inoxidable AISI 304L, fijación mediante anclajes químicos.",
+      "cantidad": 15,
+      "unidad": "ml",
+      "precioUnitario": 140,
+      "importe": 2100,
+      "confianza": "media",
+      "origen": "skill/rejas",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Montaje",
+      "concepto": "Instalación en obra",
+      "descripcion": "Montaje, nivelación y fijación mediante anclajes químicos en obra.",
+      "cantidad": 30,
+      "unidad": "h",
+      "precioUnitario": 45,
+      "importe": 1350,
+      "confianza": "media",
+      "origen": "skill/montaje_en_obra",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿La ubicación exacta es exterior o interior? (Para Menorca, AISI 304L es aceptable en interior, pero en exterior costa recomendamos AISI 316L)",
+    "¿Cuál es la altura total de la barandilla?",
+    "¿El anclaje es lateral o superior?",
+    "¿Se ha visitado la obra para verificar el estado de los soportes?"
+  ],
+  "supuestos": [
+    "Se asume ambiente interior o exterior protegido, dado que se solicita AISI 304L en lugar de 316L.",
+    "Los anclajes se realizarán sobre soporte de hormigón o acero estructural.",
+    "La separación entre barrotes cumple con la normativa CTE (máximo 10-12cm)."
+  ],
+  "riesgos": [
+    "Corrosión prematura si el AISI 304L se instala en primera línea de mar o ambiente marino severo.",
+    "Dificultad de montaje si los soportes de obra no están aplomados."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Cambio a AISI 316L para exterior",
+      "detalle": "Si la instalación es en exterior expuesto en Menorca, sugerimos cambiar a AISI 316L para evitar corrosión por cloruros.",
+      "skillDestino": "skills/aprendizaje_presupuestador_app.md",
+      "prioridad": "alta"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 65095,
+    "outputTokens": 901,
+    "totalTokens": 65996
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "estimatedInputTokens": 21,
+    "localBudgetTokens": null,
+    "usedTokens": 198197,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "cliente": {
+    "nombre": "",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  }
+}
