@@ -66,6 +66,7 @@ const els = {
   addLine: document.querySelector("#addLine"),
   exportBudget: document.querySelector("#exportBudget"),
   printBudget: document.querySelector("#printBudget"),
+  generateBudgetImage: document.querySelector("#generateBudgetImage"),
   refreshContext: document.querySelector("#refreshContext"),
   contextFiles: document.querySelector("#contextFiles"),
   defaultProvider: document.querySelector("#defaultProvider"),
@@ -393,6 +394,21 @@ function renderDocumentFooterText(footerText) {
   return effective.map((line) => "<div>" + escapeHtml(line) + "</div>").join("");
 }
 
+function conceptImageSrc(payload) {
+  const image = payload?.imagenConceptual || payload?.imagenPrincipal || "";
+  if (!image) return "";
+  if (/^https?:\/\//i.test(image) || image.startsWith("data:")) return image;
+  const folder = String(payload?._folder || state.currentBudgetFolder || "").replaceAll("\\", "/");
+  if (!folder) return image;
+  return appUrl(`/${folder}/${image}`.replace(/\/+/g, "/"));
+}
+
+function conceptImageFigure(payload, className = "print-concept-image") {
+  const src = conceptImageSrc(payload);
+  if (!src) return "";
+  const note = payload.imagenConceptualNota || "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.";
+  return `<figure class="${className}"><img src="${escapeHtml(src)}" alt="Imagen conceptual del presupuesto"><figcaption>${escapeHtml(note)}</figcaption></figure>`;
+}
 function syncBudgetHeaderFromInputs() {
   if (!state.result) return;
   state.result.tipoProducto = els.productType.value.trim();
@@ -723,6 +739,7 @@ function renderPrintPreview() {
       <h2>${escapeHtml(payload.titulo || "Presupuesto")}</h2>
       <p>${escapeHtml(payload.resumen || "")}</p>
     </section>
+    ${conceptImageFigure(payload)}
     <section class="print-box">
       <strong>Cliente:</strong> ${escapeHtml(client.nombre || "")}<br>
       <strong>Email:</strong> ${escapeHtml(client.email || "")} | <strong>Tel.:</strong> ${escapeHtml(client.telefono || "")}<br>
@@ -771,6 +788,9 @@ function printDocumentHtml() {
     .print-ref { display: inline-block; padding: 1.6mm 2.2mm; border: 1px solid #d6dde5; background: #f6f8fa; color: #16202a; font-weight: 700; margin-bottom: 1.6mm; }
     .print-hero { margin: 5mm 0; padding: 3mm 4mm; border-left: 3px solid #16202a; background: #f6f8fa; }
     .print-hero h2 { margin: 0 0 1.5mm; font-size: 15pt; line-height: 1.12; color: #16202a; }
+    .print-concept-image { margin: 0 0 4mm; page-break-inside: avoid; }
+    .print-concept-image img { width: 100%; max-height: 52mm; object-fit: cover; border: 1px solid #d6dde5; border-radius: 3px; display: block; }
+    .print-concept-image figcaption { margin-top: 1.5mm; color: #667085; font-size: 7pt; }
     .print-box { border: 1px solid #d6dde5; background: #f6f8fa; padding: 3.3mm; margin: 5mm 0 4mm; font-size: 8.8pt; line-height: 1.2; overflow-wrap: anywhere; }
     table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 7.6pt; line-height: 1.18; }
     th { background: #16202a; color: white; text-align: left; }
@@ -877,24 +897,81 @@ function renderBudgets() {
       || budget.files.find((file) => file.name === "README.md")
       || budget.files[0];
     card.innerHTML = `
-      <div>
-        <div class="budget-code">${escapeHtml(budget.code)} &middot; ${escapeHtml(budget.year)}</div>
-        <h2>${escapeHtml(budget.title || budget.folder)}</h2>
-        <p>${escapeHtml(budget.clientName || "Sin cliente guardado")}</p>
-        <small>${escapeHtml(budget.folder)}</small>
+      <div class="budget-card-main">
+        ${budget.imageUrl ? `<img class="budget-thumb" src="${appUrl(budget.imageUrl)}" alt="Imagen conceptual de ${escapeHtml(budget.title || budget.folder)}">` : `<div class="budget-thumb budget-thumb-empty">IA</div>`}
+        <div>
+          <div class="budget-code">${escapeHtml(budget.code)} &middot; ${escapeHtml(budget.year)}</div>
+          <h2>${escapeHtml(budget.title || budget.folder)}</h2>
+          <p>${escapeHtml(budget.clientName || "Sin cliente guardado")}</p>
+          <small>${escapeHtml(budget.folder)}</small>
+        </div>
       </div>
       <div class="budget-card-actions">
         ${budget.editable ? `<button class="secondary edit-budget" data-folder="${escapeHtml(budget.folder)}">Editar</button>` : ""}
+        ${budget.editable ? `<button class="secondary image-budget" data-folder="${escapeHtml(budget.folder)}">Imagen IA</button>` : ""}
         ${primary ? `<a class="button-link" href="${appUrl(primary.url)}" target="_blank" rel="noreferrer">Abrir</a>` : ""}
         <div class="budget-file-links">${budget.files.map((file) => `<a href="${appUrl(file.url)}" target="_blank" rel="noreferrer">${escapeHtml(file.name)}</a>`).join("")}</div>
       </div>
     `;
     const editButton = card.querySelector(".edit-budget");
     if (editButton) editButton.addEventListener("click", () => editBudget(budget.folder));
+    const imageButton = card.querySelector(".image-budget");
+    if (imageButton) imageButton.addEventListener("click", () => generateBudgetImageForFolder(budget.folder, imageButton));
     els.budgetsList.appendChild(card);
   }
 }
 
+async function ensureCurrentBudgetSaved() {
+  if (!state.result) throw new Error("No hay presupuesto activo.");
+  if (state.currentBudgetFolder) return state.currentBudgetFolder;
+  const response = await api("/api/export", resultPayload());
+  state.currentBudgetFolder = response.folder;
+  updateSaveMode();
+  if (response.learningFile) state.budgetChangeLog = [];
+  return response.folder;
+}
+
+async function generateBudgetImageForCurrent() {
+  if (!state.result || !els.generateBudgetImage) return;
+  els.generateBudgetImage.disabled = true;
+  setStatus("Generando imagen conceptual con IA...");
+  try {
+    const folder = await ensureCurrentBudgetSaved();
+    const response = await api("/api/budget-image", { folder, payload: resultPayload() });
+    state.currentBudgetFolder = response.folder;
+    state.result = response.payload;
+    state.result.tokenStatus = response.tokenStatus || null;
+    renderResult(false);
+    await loadBudgets();
+    await loadModels(els.provider.value, false);
+    renderModelTokenInfo();
+    const usageText = response.usage ? ` Tokens imagen: ${response.usage.inputTokens || 0} entrada / ${response.usage.outputTokens || 0} salida / ${response.usage.totalTokens || 0} total.` : "";
+    setStatus(`Imagen generada y guardada en ${response.image}.${usageText}`);
+  } catch (error) {
+    setStatus(error.message);
+  } finally {
+    els.generateBudgetImage.disabled = !state.result;
+  }
+}
+
+async function generateBudgetImageForFolder(folder, button) {
+  if (!folder) return;
+  if (button) button.disabled = true;
+  els.budgetsStatus.textContent = "Generando imagen conceptual...";
+  try {
+    const response = await api("/api/budget-image", { folder });
+    await loadBudgets();
+    if (state.currentBudgetFolder === response.folder) {
+      state.result = response.payload;
+      renderResult(false);
+    }
+    els.budgetsStatus.textContent = `Imagen generada en ${response.image}.`;
+  } catch (error) {
+    els.budgetsStatus.textContent = error.message;
+  } finally {
+    if (button) button.disabled = false;
+  }
+}
 function newBudget() {
   clearBudgetForm();
   switchView("budgetView");
@@ -1442,6 +1519,7 @@ els.mdEditMode.addEventListener("click", () => setMdMode("edit"));
 els.mdPreviewMode.addEventListener("click", () => setMdMode("preview"));
 els.mdEditor.addEventListener("input", () => { if (!els.mdPreview.classList.contains("hidden")) els.mdPreview.innerHTML = renderMarkdown(els.mdEditor.value); });
 els.printBudget.addEventListener("click", printBudget);
+if (els.generateBudgetImage) els.generateBudgetImage.addEventListener("click", generateBudgetImageForCurrent);
 [els.clientName, els.clientEmail, els.clientPhone, els.clientTax, els.clientAddress, els.clientRef].forEach((input) => input.addEventListener("input", renderPrintPreview));
 [els.title, els.summaryText, els.productType].forEach((input) => input.addEventListener("input", () => { syncBudgetHeaderFromInputs(); renderPrintPreview(); }));
 

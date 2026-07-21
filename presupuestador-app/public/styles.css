@@ -217,6 +217,28 @@ td textarea { min-height: 58px; resize: vertical; }
   background: var(--soft);
   padding: 14px;
 }
+.budget-card-main {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  min-width: 0;
+}
+.budget-thumb {
+  width: 132px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+}
+.budget-thumb-empty {
+  display: grid;
+  place-items: center;
+  color: var(--accent-2);
+  background: #e9f5f3;
+  font-weight: 800;
+}
 .budget-card h2 {
   margin: 4px 0 6px;
   font-size: 18px;
@@ -357,6 +379,9 @@ td textarea { min-height: 58px; resize: vertical; }
 .print-ref { display: inline-block; padding: 5px 8px; border: 1px solid var(--line); background: var(--soft); font-weight: 700; color: var(--brand); margin-bottom: 5px; }
 .print-hero { margin: 14px 0; padding: 12px 14px; border-left: 4px solid var(--brand); background: var(--soft); }
 .print-hero h2 { font-size: 22px; line-height: 1.12; margin-bottom: 5px; }
+.print-concept-image { margin: 0 0 14px; page-break-inside: avoid; }
+.print-concept-image img { width: 100%; max-height: 250px; object-fit: cover; border: 1px solid var(--line); border-radius: 4px; display: block; }
+.print-concept-image figcaption { margin-top: 6px; color: var(--muted); font-size: 11px; }
 .print-box { border: 1px solid var(--line); background: var(--soft); padding: 12px; margin: 14px 0; overflow-wrap: anywhere; }
 .print-table { width: 100%; min-width: 0; table-layout: fixed; font-size: 11px; line-height: 1.25; }
 .print-table th, .print-table td { padding: 7px 6px; overflow-wrap: anywhere; word-break: normal; }
@@ -376,9 +401,10 @@ td textarea { min-height: 58px; resize: vertical; }
   .side { min-height: auto; }
   #contextFiles { max-height: 180px; }
   .composer-head, .summary, .suggestion, .knowledge-map-head, .md-toolbar { display: grid; }
-  .client-grid, .settings-grid, .budget-grid, .doc-template-grid, .note-grid, .editor-grid, .budget-card, .budget-heading-editor, .user-create-grid, .knowledge-grid { grid-template-columns: 1fr; }
+  .client-grid, .settings-grid, .budget-grid, .doc-template-grid, .note-grid, .editor-grid, .budget-card, .budget-card-main, .budget-heading-editor, .user-create-grid, .knowledge-grid { grid-template-columns: 1fr; }
   .budget-card-actions { justify-items: start; max-width: none; }
   .budget-file-links { justify-content: flex-start; }
+  .budget-thumb { width: 100%; max-width: 220px; }
   .client-grid .wide, .doc-template-grid .wide, .budget-heading-editor .wide { grid-column: auto; }
   #mdFiles { max-height: 240px; }
 }
@@ -397,6 +423,7 @@ td textarea { min-height: 58px; resize: vertical; }
   .print-preview h2 { font-size: 15pt; }
   .print-logo { width: 30mm; flex-basis: 30mm; }
   .print-preview p, .print-box { font-size: 8.8pt; }
+  .print-concept-image img { max-height: 52mm; }
   .print-table { page-break-inside: auto; font-size: 8.5px; }
   .print-table th, .print-table td { padding: 5px 4px; }
   .print-table tr { page-break-inside: avoid; page-break-after: auto; }

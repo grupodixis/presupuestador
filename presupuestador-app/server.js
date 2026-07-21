@@ -14,6 +14,7 @@ const TOKEN_USAGE_FILE = path.join(__dirname, "token-usage.local.json");
 const DB_DIR = path.join(__dirname, "data");
 const DB_FILE = path.join(DB_DIR, "presupuestador.sqlite");
 const SESSION_DAYS = 7;
+const IMAGE_MODEL = "gpt-image-1";
 const LEARNING_DIR = path.join(ROOT, "skills", "aprendizaje");
 const LEARNING_FILES = {
   general: "aprendizaje_general.md",
@@ -1048,7 +1049,7 @@ Origen: presupuestador-app
 
 ${payload.resumen || ""}
 
-## Lineas del compuesto
+${payload.imagenConceptual ? `![Imagen conceptual orientativa](${payload.imagenConceptual})\n\n_${payload.imagenConceptualNota || "Imagen orientativa generada por IA."}_\n\n` : ""}## Lineas del compuesto
 
 | ID | Capitulo | Concepto | Cantidad | Unidad | Precio unitario | Importe | Confianza |
 |---|---|---|---:|---|---:|---:|---|
@@ -1116,6 +1117,73 @@ function parseDocumentTemplateJson(text, fallback) {
   const parsed = JSON.parse(cleaned);
   return normalizeDocumentTemplate({ ...fallback, ...parsed });
 }
+function budgetImagePublicUrl(payload) {
+  const image = payload?.imagenConceptual || payload?.imagenPrincipal || "";
+  if (!image) return "";
+  if (/^https?:\/\//i.test(image) || image.startsWith("data:")) return image;
+  const folder = String(payload?._folder || "").replaceAll("\\", "/");
+  if (!folder) return image;
+  return `/${folder}/${image}`.replace(/\/+/g, "/");
+}
+
+function budgetImageHtml(payload, className = "concept-image") {
+  const src = budgetImagePublicUrl(payload);
+  if (!src) return "";
+  const note = payload.imagenConceptualNota || "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.";
+  return `<figure class="${className}"><img src="${htmlEscape(src)}" alt="Imagen conceptual del presupuesto"><figcaption>${htmlEscape(note)}</figcaption></figure>`;
+}
+
+function buildBudgetImagePrompt(payload) {
+  const lines = (payload.lineas || [])
+    .slice(0, 12)
+    .map((line) => `- ${line.capitulo || ""}: ${line.concepto || ""}. ${line.descripcion || ""}. ${line.cantidad || ""} ${line.unidad || ""}`)
+    .join("\n");
+  return `Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.
+
+Producto: ${payload.titulo || "Presupuesto tecnico"}
+Tipo: ${payload.tipoProducto || "producto a medida"}
+Resumen: ${payload.resumen || ""}
+Cliente/obra: ${payload.cliente?.direccion || "Menorca"}
+Partidas principales:
+${lines}
+
+Estilo visual:
+- Imagen horizontal, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.
+- Mostrar el producto terminado de forma plausible en su entorno.
+- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.
+- Priorizar claridad comercial sobre detalle tecnico milimetrico.
+- No incluir planos con cotas ni textos ilegibles.
+- No representar personas reconocibles.`;
+}
+async function callOpenAIImage({ payload }) {
+  const config = await readConfig();
+  const key = process.env.OPENAI_API_KEY || config.openaiApiKey;
+  if (!key) throw new Error("OPENAI_API_KEY no configurada.");
+  const prompt = buildBudgetImagePrompt(payload);
+  const response = await fetch("https://api.openai.com/v1/images/generations", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
+    body: JSON.stringify({
+      model: IMAGE_MODEL,
+      prompt,
+      size: "1536x1024",
+      quality: "medium",
+      output_format: "png",
+      n: 1,
+    }),
+  });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.error?.message || `OpenAI Images HTTP ${response.status}`);
+  const b64 = data.data?.[0]?.b64_json;
+  const url = data.data?.[0]?.url;
+  if (b64) return { buffer: Buffer.from(b64, "base64"), prompt, usage: normalizeOpenAIUsage(data.usage) };
+  if (url) {
+    const imageResponse = await fetch(url);
+    if (!imageResponse.ok) throw new Error(`No se pudo descargar la imagen generada: HTTP ${imageResponse.status}`);
+    return { buffer: Buffer.from(await imageResponse.arrayBuffer()), prompt, usage: normalizeOpenAIUsage(data.usage) };
+  }
+  throw new Error("OpenAI no devolvio una imagen utilizable.");
+}
 
 function budgetHtml(payload, code) {
   const lines = payload.lineas || [];
@@ -1145,6 +1213,9 @@ function budgetHtml(payload, code) {
     .hero { margin: 14px 0; padding: 12px 14px; border-left: 4px solid #16202a; background: #f6f8fa; }
     .hero h2 { margin: 0 0 5px; font-size: 22px; color: #16202a; line-height: 1.12; }
     .hero p { margin: 0; color: #475467; font-size: 12px; }
+    .concept-image { margin: 12px 0; page-break-inside: avoid; }
+    .concept-image img { width: 100%; max-height: 78mm; object-fit: cover; border: 1px solid #d6dde5; border-radius: 4px; display: block; }
+    .concept-image figcaption { margin-top: 5px; color: #667085; font-size: 10px; }
     .box { border: 1px solid #d6dde5; background: #f6f8fa; padding: 10px 12px; margin: 12px 0; font-size: 12px; }
     h3 { margin: 14px 0 7px; font-size: 15px; color: #16202a; }
     table { width: 100%; border-collapse: collapse; margin-top: 8px; table-layout: fixed; font-size: 10px; line-height: 1.2; }
@@ -1177,6 +1248,7 @@ function budgetHtml(payload, code) {
     <h2>${htmlEscape(payload.titulo || "Presupuesto")}</h2>
     <p>${htmlEscape(payload.resumen || "")}</p>
   </section>
+  ${budgetImageHtml(payload)}
   <section class="box">
     <strong>Cliente:</strong> ${htmlEscape(client.nombre || "")}<br>
     <strong>Email:</strong> ${htmlEscape(client.email || "")} | <strong>Tel.:</strong> ${htmlEscape(client.telefono || "")}<br>
@@ -1232,6 +1304,8 @@ async function listBudgets() {
         client = {};
       }
     }
+    const imageFile = budgetData?.imagenConceptual || "";
+    const imageUrl = imageFile ? `/presupuestos/${encodeURIComponent(entry.name)}/${encodeURIComponent(imageFile)}` : "";
     const code = `P-${match[1]}-${match[2]}`;
     if (budgetData) saveBudgetRecord({ folder, code, payload: budgetData, htmlPath: `presupuestos/${entry.name}/presupuesto-final.html` });
     budgets.push({
@@ -1241,6 +1315,7 @@ async function listBudgets() {
       title,
       clientName: client.nombre || "",
       folder: `presupuestos/${entry.name}`,
+      imageUrl,
       files: fileNames.map((name) => ({
         name,
         url: `/presupuestos/${encodeURIComponent(entry.name)}/${encodeURIComponent(name)}`,
@@ -1622,6 +1697,45 @@ async function route(req, res) {
   if (req.method === "POST" && url.pathname === "/api/learn") {
     const file = await appendLearning(await readJson(req));
     return send(res, 200, { ok: true, file });
+  }
+  if (req.method === "POST" && url.pathname === "/api/budget-image") {
+    const body = await readJson(req);
+    if (!body.folder) return send(res, 400, { error: "Guarda primero el presupuesto para poder almacenar la imagen." });
+    const folder = resolveBudgetFolder(body.folder);
+    const relFolder = path.relative(ROOT, folder).replaceAll("\\", "/");
+    const dataFile = path.join(folder, "datos.json");
+    if (!(await fileExists(dataFile))) return send(res, 404, { error: "Este presupuesto no tiene datos.json editable." });
+    const stored = JSON.parse(await fs.readFile(dataFile, "utf8"));
+    const payload = { ...stored, ...(body.payload || {}) };
+    const prompt = buildBudgetImagePrompt(payload);
+    const estimatedTokens = estimateRequestTokens(prompt, []);
+    const status = await modelStatus("openai", IMAGE_MODEL, estimatedTokens);
+    if (status.blocked) return send(res, 402, { error: "Saldo local insuficiente para generar imagen con OpenAI.", tokenStatus: status });
+    const image = await callOpenAIImage({ payload });
+    const fileName = "imagen-conceptual-ia.png";
+    await fs.writeFile(path.join(folder, fileName), image.buffer);
+    const code = path.basename(folder).match(/^(P-\d{4}-\d{4})/)?.[1] || await nextBudgetCode();
+    const updated = {
+      ...payload,
+      imagenConceptual: fileName,
+      imagenConceptualNota: "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+      imagenConceptualPrompt: image.prompt,
+      imagenConceptualGenerada: new Date().toISOString(),
+    };
+    await fs.writeFile(path.join(folder, "README.md"), budgetMarkdown(updated, code), "utf8");
+    await fs.writeFile(path.join(folder, "presupuesto-final.html"), budgetHtml(updated, code), "utf8");
+    await fs.writeFile(dataFile, JSON.stringify(updated, null, 2), "utf8");
+    const rel = saveBudgetRecord({ folder, code, payload: updated, htmlPath: `${relFolder}/presupuesto-final.html` });
+    await recordTokenUsage("openai", IMAGE_MODEL, image.usage);
+    return send(res, 200, {
+      ok: true,
+      folder: rel,
+      image: `${rel}/${fileName}`,
+      fileName,
+      payload: updated,
+      usage: image.usage,
+      tokenStatus: await modelStatus("openai", IMAGE_MODEL, estimatedTokens),
+    });
   }
   if (req.method === "POST" && url.pathname === "/api/export") {
     const body = await readJson(req);
