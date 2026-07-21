@@ -137,6 +137,127 @@ function normalizeDocumentTemplate(template = {}) {
   };
 }
 
+const KNOWLEDGE_AREAS = [
+  {
+    key: "aluminio",
+    title: "Aluminio",
+    status: "Activa",
+    home: "skills/areas/aluminio/README.md",
+    learning: "skills/aprendizaje/aprendizaje_aluminio.md",
+    sectors: ["ventanas", "puertas", "cerramientos", "mallorquinas", "persianas", "vidrio"],
+    missing: "series, herrajes, vidrios y rangos por m2",
+    patterns: ["aluminio", "ventana_aluminio", "cerramiento_aluminio", "mallorquina", "pergolas-extrual"],
+  },
+  {
+    key: "carpinteria_metalica",
+    title: "Carpinteria metalica",
+    status: "Activa",
+    home: "skills/areas/carpinteria_metalica/README.md",
+    learning: "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+    sectors: ["barandillas", "rejas", "puertas", "cancelas", "escaleras", "estructuras", "herreria"],
+    missing: "variantes, anclajes, calculos y tratamientos por exposicion",
+    patterns: ["barandilla", "rejas", "puerta_metalica", "porton", "cancela", "escalera", "estructura_metalica", "herreria", "marquesina", "pergola", "metalica", "metalicas"],
+  },
+  {
+    key: "instalaciones_electricas",
+    title: "Instalaciones electricas",
+    status: "Preparada",
+    home: "skills/areas/instalaciones_electricas/README.md",
+    learning: "skills/aprendizaje/aprendizaje_instalaciones_electricas.md",
+    sectors: ["vivienda", "local", "nave", "cuadros", "iluminacion", "fotovoltaica"],
+    missing: "puntos tipo, boletines, cuadros y legalizacion",
+    patterns: ["instalacion_electrica", "electric", "fotovoltaic"],
+  },
+  {
+    key: "fontaneria",
+    title: "Fontaneria",
+    status: "Preparada",
+    home: "skills/areas/fontaneria/README.md",
+    learning: "skills/aprendizaje/aprendizaje_fontaneria.md",
+    sectors: ["banos", "cocinas", "saneamiento", "ACS", "bombeo"],
+    missing: "puntos, pruebas, reposiciones y equipos",
+    patterns: ["instalacion_fontaneria", "fontaneria", "saneamiento", "acs"],
+  },
+  {
+    key: "clima",
+    title: "Clima",
+    status: "Preparada",
+    home: "skills/areas/clima/README.md",
+    learning: "skills/aprendizaje/aprendizaje_clima.md",
+    sectors: ["split", "multisplit", "conductos", "ventilacion", "aerotermia"],
+    missing: "potencias, distancias, soportes y puesta en marcha",
+    patterns: ["instalacion_clima", "clima", "climatizacion", "ventilacion", "aeroterm"],
+  },
+  {
+    key: "otras_industrias",
+    title: "Otras industrias",
+    status: "Incubadora",
+    home: "skills/areas/otras_industrias/README.md",
+    learning: "skills/aprendizaje/aprendizaje_otras_industrias.md",
+    sectors: ["pilotos", "nuevos productos", "servicios", "mantenimiento"],
+    missing: "primeros ejemplos, proveedores y composiciones repetibles",
+    patterns: ["otras_industrias", "producto_compuesto"],
+  },
+];
+
+function areaFiles(area) {
+  const direct = new Set([area.home, area.learning]);
+  return state.mdFiles.filter((file) => {
+    const lower = file.toLowerCase();
+    return direct.has(file) || area.patterns.some((pattern) => lower.includes(pattern));
+  });
+}
+
+function renderKnowledgeMap() {
+  if (!els.knowledgeMap) return;
+  const totalLearning = state.mdFiles.filter((file) => file.startsWith("skills/aprendizaje/")).length;
+  const totalAreas = state.mdFiles.filter((file) => file.startsWith("skills/areas/")).length;
+  els.knowledgeMap.innerHTML = `
+    <div class="knowledge-map-head">
+      <div>
+        <h2>Mapa vivo de conocimiento</h2>
+        <p>${totalAreas} mapas de area · ${totalLearning} memorias de aprendizaje · ${state.mdFiles.length} archivos editables</p>
+      </div>
+      <button class="secondary" data-open-md="skills/00_mapa_conocimiento.md">Mapa general</button>
+    </div>
+    <div class="knowledge-grid">
+      ${KNOWLEDGE_AREAS.map((area) => {
+        const files = areaFiles(area);
+        const hasHome = state.mdFiles.includes(area.home);
+        const hasLearning = state.mdFiles.includes(area.learning);
+        return `
+          <article class="knowledge-card" data-area="${area.key}">
+            <div class="knowledge-card-top">
+              <strong>${escapeHtml(area.title)}</strong>
+              <span class="knowledge-status">${escapeHtml(area.status)}</span>
+            </div>
+            <div class="knowledge-metrics">
+              <span>${files.length} archivos</span>
+              <span>${hasLearning ? "aprendizaje listo" : "sin aprendizaje"}</span>
+            </div>
+            <div class="sector-list">${area.sectors.map((sector) => `<span>${escapeHtml(sector)}</span>`).join("")}</div>
+            <p>${escapeHtml(area.missing)}</p>
+            <div class="knowledge-actions">
+              <button class="secondary" data-open-md="${escapeHtml(area.home)}" ${hasHome ? "" : "disabled"}>Mapa</button>
+              <button class="secondary" data-open-md="${escapeHtml(area.learning)}" ${hasLearning ? "" : "disabled"}>Aprendizaje</button>
+              <button class="secondary" data-filter-area="${escapeHtml(area.key)}">Ver archivos</button>
+            </div>
+          </article>`;
+      }).join("")}
+    </div>
+  `;
+  els.knowledgeMap.querySelectorAll("[data-open-md]").forEach((button) => {
+    button.addEventListener("click", () => openMd(button.dataset.openMd));
+  });
+  els.knowledgeMap.querySelectorAll("[data-filter-area]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const area = KNOWLEDGE_AREAS.find((item) => item.key === button.dataset.filterArea);
+      if (!area) return;
+      els.mdSearch.value = "";
+      renderMdFiles(areaFiles(area));
+    });
+  });
+}
 function templateFromSettingsFields() {
   return normalizeDocumentTemplate({
     logo: els.documentLogo?.value,
@@ -1056,13 +1177,15 @@ async function saveSettings() {
 async function loadMdFiles() {
   const data = await getJson("/api/md");
   state.mdFiles = data.files || [];
+  renderKnowledgeMap();
   renderMdFiles();
 }
 
-function renderMdFiles() {
+function renderMdFiles(filesOverride = null) {
   const query = els.mdSearch.value.trim().toLowerCase();
   els.mdFiles.innerHTML = "";
-  for (const file of state.mdFiles.filter((item) => item.toLowerCase().includes(query))) {
+  const sourceFiles = filesOverride || state.mdFiles;
+  for (const file of sourceFiles.filter((item) => item.toLowerCase().includes(query))) {
     const li = document.createElement("li");
     li.textContent = file;
     li.className = file === state.activeMdPath ? "active" : "";
@@ -1199,7 +1322,8 @@ els.refreshModels.addEventListener("click", async () => { await loadSettings(); 
 els.refreshBudgets.addEventListener("click", loadBudgets);
 els.budgetYear.addEventListener("change", renderBudgets);
 els.newBudget.addEventListener("click", newBudget);
-els.mdSearch.addEventListener("input", renderMdFiles);
+els.mdSearch.addEventListener("input", () => renderMdFiles());
+els.clearMdFilter.addEventListener("click", () => { els.mdSearch.value = ""; renderMdFiles(); });
 els.applyMdAi.addEventListener("click", applyMdAi);
 els.saveMd.addEventListener("click", saveMd);
 els.printBudget.addEventListener("click", printBudget);

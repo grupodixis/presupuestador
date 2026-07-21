@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --bg: #eef1f4;
   --panel: #ffffff;
   --ink: #1d242c;
@@ -273,6 +273,25 @@ td textarea { min-height: 58px; resize: vertical; }
   text-align: center;
   background: var(--soft);
 }
+.knowledge-map { display: grid; gap: 12px; margin: 14px 0 16px; }
+.knowledge-map-head { display: flex; align-items: end; justify-content: space-between; gap: 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--soft); padding: 12px; }
+.knowledge-map-head h2 { margin: 0 0 3px; font-size: 18px; }
+.knowledge-map-head p { margin: 0; color: var(--muted); }
+.knowledge-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.knowledge-card { border: 1px solid var(--line); border-radius: var(--radius); background: white; padding: 12px; display: grid; gap: 9px; min-width: 0; }
+.knowledge-card-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.knowledge-card-top strong { font-size: 15px; color: var(--brand); }
+.knowledge-status { border: 1px solid #d7e3d5; background: #edf7ed; color: #276738; border-radius: 999px; padding: 3px 7px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.knowledge-metrics { display: flex; flex-wrap: wrap; gap: 6px; color: var(--muted); font-size: 12px; }
+.knowledge-metrics span { border: 1px solid var(--line); border-radius: 999px; padding: 3px 7px; background: var(--soft); }
+.sector-list { display: flex; flex-wrap: wrap; gap: 5px; }
+.sector-list span { background: #edf7f6; color: #00766c; border: 1px solid #b8dfda; border-radius: 999px; padding: 3px 7px; font-size: 11px; font-weight: 700; }
+.knowledge-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.35; }
+.knowledge-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.knowledge-actions button { padding: 7px 9px; }
+.file-browser-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.file-browser-head strong { font-size: 13px; color: var(--brand); }
+.file-browser-head button { padding: 7px 9px; }
 .editor-grid { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 14px; min-height: 640px; }
 .file-browser { border: 1px solid var(--line); border-radius: var(--radius); background: var(--soft); padding: 12px; min-height: 0; }
 #mdFiles { list-style: none; margin: 10px 0 0; padding: 0; overflow: auto; max-height: 570px; }
@@ -336,8 +355,8 @@ td textarea { min-height: 58px; resize: vertical; }
   .app-shell { grid-template-columns: 1fr; }
   .side { min-height: auto; }
   #contextFiles { max-height: 180px; }
-  .composer-head, .summary, .suggestion { display: grid; }
-  .client-grid, .settings-grid, .budget-grid, .doc-template-grid, .note-grid, .editor-grid, .budget-card, .budget-heading-editor, .user-create-grid { grid-template-columns: 1fr; }
+  .composer-head, .summary, .suggestion, .knowledge-map-head { display: grid; }
+  .client-grid, .settings-grid, .budget-grid, .doc-template-grid, .note-grid, .editor-grid, .budget-card, .budget-heading-editor, .user-create-grid, .knowledge-grid { grid-template-columns: 1fr; }
   .budget-card-actions { justify-items: start; max-width: none; }
   .budget-file-links { justify-content: flex-start; }
   .client-grid .wide, .doc-template-grid .wide, .budget-heading-editor .wide { grid-column: auto; }

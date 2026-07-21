@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Presupuestador IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260717-auth-users">
+  <link rel="stylesheet" href="styles.css?v=20260721-knowledge-map">
 </head>
 <body>
   <div class="app-shell">
@@ -243,8 +243,13 @@
             </div>
             <button id="saveMd" class="secondary" disabled>Guardar archivo</button>
           </div>
+          <div id="knowledgeMap" class="knowledge-map"></div>
           <div class="editor-grid">
             <div class="file-browser">
+              <div class="file-browser-head">
+                <strong>Archivos MD/YAML/JSON</strong>
+                <button id="clearMdFilter" class="secondary" type="button">Todos</button>
+              </div>
               <input id="mdSearch" placeholder="Filtrar archivos...">
               <ul id="mdFiles"></ul>
             </div>
@@ -266,7 +271,7 @@
     </main>
   </div>
 
-  <script src="app.js?v=20260717-auth-users"></script>
+  <script src="app.js?v=20260721-knowledge-map"></script>
 </body>
 </html>
 
