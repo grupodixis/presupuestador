@@ -137,7 +137,7 @@ function escapeHtml(value) {
 }
 
 function setStatus(text) {
-  els.status.textContent = text || "";
+  if (els.status) els.status.textContent = text || "";
 }
 
 function markdownInline(text) {
@@ -1294,6 +1294,7 @@ function updateModelFromProvider(preferredOverride = null) {
 }
 
 function renderModelTokenInfo() {
+  if (!els.modelTokenInfo) return;
   const model = selectedModel();
   const visibleSelect = els.provider.value === "openai" ? els.openaiModel : els.geminiModel;
   if (!model) {
