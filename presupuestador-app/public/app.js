@@ -76,6 +76,7 @@ const els = {
   openaiKey: document.querySelector("#openaiKey"),
   openaiModel: document.querySelector("#openaiModel"),
   geminiKey: document.querySelector("#geminiKey"),
+  falKey: document.querySelector("#falKey"),
   geminiModel: document.querySelector("#geminiModel"),
   openaiBudgets: document.querySelector("#openaiBudgets"),
   geminiBudgets: document.querySelector("#geminiBudgets"),
@@ -1149,6 +1150,7 @@ async function loadSettings() {
   els.defaultProvider.value = settings.defaultProvider || DEFAULT_PROVIDER;
   els.openaiKey.placeholder = settings.openaiApiKeySet ? "Clave guardada; escribe otra para cambiar" : "sk-...";
   els.geminiKey.placeholder = settings.geminiApiKeySet ? "Clave guardada; escribe otra para cambiar" : "AIza...";
+  els.falKey.placeholder = settings.falApiKeySet ? "Clave fal.ai guardada; escribe otra para cambiar" : "FAL_KEY...";
   els.openaiBudgets.value = JSON.stringify(settings.modelTokenBudgets?.openai || {}, null, 2);
   els.geminiBudgets.value = JSON.stringify(settings.modelTokenBudgets?.gemini || {}, null, 2);
   const documentTemplate = normalizeDocumentTemplate(settings.documentTemplate);
@@ -1382,6 +1384,7 @@ async function saveSettings() {
       openaiApiKey: els.openaiKey.value,
       openaiModel: els.openaiModel.value,
       geminiApiKey: els.geminiKey.value,
+      falApiKey: els.falKey.value,
       geminiModel: els.geminiModel.value,
       modelTokenBudgets: {
         openai: parseBudgetJson(els.openaiBudgets.value, "OpenAI"),
@@ -1391,6 +1394,7 @@ async function saveSettings() {
     });
     els.openaiKey.value = "";
     els.geminiKey.value = "";
+    els.falKey.value = "";
     await loadSettings();
     els.settingsStatus.textContent = "Configuracion guardada.";
   } catch (error) {

@@ -14,7 +14,7 @@ const TOKEN_USAGE_FILE = path.join(__dirname, "token-usage.local.json");
 const DB_DIR = path.join(__dirname, "data");
 const DB_FILE = path.join(DB_DIR, "presupuestador.sqlite");
 const SESSION_DAYS = 7;
-const IMAGE_MODEL = "gpt-image-1";
+const FAL_IMAGE_MODEL = "fal-ai/flux/schnell";
 const DEFAULT_PROVIDER = "gemini";
 const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash";
 const LEARNING_DIR = path.join(ROOT, "skills", "aprendizaje");
@@ -380,6 +380,7 @@ function defaultConfig() {
     openaiModel: "",
     geminiApiKey: "",
     geminiModel: DEFAULT_GEMINI_MODEL,
+    falApiKey: "",
     modelTokenBudgets: { openai: {}, gemini: {} },
     documentTemplate: DEFAULT_DOCUMENT_TEMPLATE,
   };
@@ -411,6 +412,7 @@ function maskedConfig(config) {
     openaiModel: config.openaiModel || "",
     geminiApiKeySet: Boolean(config.geminiApiKey),
     geminiModel: config.geminiModel || DEFAULT_GEMINI_MODEL,
+    falApiKeySet: Boolean(config.falApiKey),
     modelTokenBudgets: config.modelTokenBudgets || { openai: {}, gemini: {} },
     documentTemplate: normalizeDocumentTemplate(config.documentTemplate),
   };
@@ -424,6 +426,7 @@ async function writeConfig(config) {
     openaiModel: config.openaiModel ?? current.openaiModel,
     geminiApiKey: config.geminiApiKey ? config.geminiApiKey : current.geminiApiKey,
     geminiModel: config.geminiModel ?? current.geminiModel,
+    falApiKey: config.falApiKey ? config.falApiKey : current.falApiKey,
     modelTokenBudgets: config.modelTokenBudgets || current.modelTokenBudgets || { openai: {}, gemini: {} },
     documentTemplate: normalizeDocumentTemplate(config.documentTemplate || current.documentTemplate),
   };
@@ -1180,36 +1183,40 @@ Estilo visual:
 - No incluir planos con cotas ni textos ilegibles.
 - No representar personas reconocibles.`;
 }
-async function callOpenAIImage({ payload }) {
+async function callFalImage({ payload }) {
   const config = await readConfig();
-  const key = process.env.OPENAI_API_KEY || config.openaiApiKey;
-  if (!key) throw new Error("OPENAI_API_KEY no configurada.");
+  const key = process.env.FAL_KEY || config.falApiKey;
+  if (!key) throw new Error("FAL_KEY no configurada.");
   const prompt = buildBudgetImagePrompt(payload);
-  const response = await fetch("https://api.openai.com/v1/images/generations", {
+  const response = await fetch(`https://fal.run/${FAL_IMAGE_MODEL}`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
+    headers: { "Content-Type": "application/json", Authorization: `Key ${key}` },
     body: JSON.stringify({
-      model: IMAGE_MODEL,
       prompt,
-      size: "1536x1024",
-      quality: "medium",
+      image_size: "landscape_4_3",
+      num_inference_steps: 4,
+      guidance_scale: 3.5,
+      num_images: 1,
+      enable_safety_checker: true,
       output_format: "png",
-      n: 1,
+      acceleration: "regular",
     }),
   });
   const data = await response.json();
-  if (!response.ok) throw new Error(data.error?.message || `OpenAI Images HTTP ${response.status}`);
-  const b64 = data.data?.[0]?.b64_json;
-  const url = data.data?.[0]?.url;
-  if (b64) return { buffer: Buffer.from(b64, "base64"), prompt, usage: normalizeOpenAIUsage(data.usage) };
-  if (url) {
-    const imageResponse = await fetch(url);
-    if (!imageResponse.ok) throw new Error(`No se pudo descargar la imagen generada: HTTP ${imageResponse.status}`);
-    return { buffer: Buffer.from(await imageResponse.arrayBuffer()), prompt, usage: normalizeOpenAIUsage(data.usage) };
-  }
-  throw new Error("OpenAI no devolvio una imagen utilizable.");
+  const detail = Array.isArray(data.detail) ? data.detail.map((item) => item.msg || item.message || String(item)).join("; ") : data.detail;
+  if (!response.ok) throw new Error(detail || data.error?.message || `fal.ai HTTP ${response.status}`);
+  const url = data.images?.[0]?.url || data.image?.url || data.url;
+  if (!url) throw new Error("fal.ai no devolvio una URL de imagen utilizable.");
+  const imageResponse = await fetch(url);
+  if (!imageResponse.ok) throw new Error(`No se pudo descargar la imagen generada: HTTP ${imageResponse.status}`);
+  return {
+    buffer: Buffer.from(await imageResponse.arrayBuffer()),
+    prompt,
+    usage: null,
+    requestId: data.request_id || data.requestId || null,
+    remoteUrl: url,
+  };
 }
-
 function budgetHtml(payload, code) {
   const lines = payload.lineas || [];
   const client = payload.cliente || {};
@@ -1736,9 +1743,17 @@ async function route(req, res) {
     const payload = { ...stored, ...(body.payload || {}) };
     const prompt = buildBudgetImagePrompt(payload);
     const estimatedTokens = estimateRequestTokens(prompt, []);
-    const status = await modelStatus("openai", IMAGE_MODEL, estimatedTokens);
-    if (status.blocked) return send(res, 402, { error: "Saldo local insuficiente para generar imagen con OpenAI.", tokenStatus: status });
-    const image = await callOpenAIImage({ payload });
+    const status = {
+      provider: "fal",
+      model: FAL_IMAGE_MODEL,
+      estimatedInputTokens: estimatedTokens,
+      localBudgetTokens: null,
+      usedTokens: 0,
+      remainingTokens: null,
+      blocked: false,
+      note: "Imagen generada con fal.ai; sin control local por tokens.",
+    };
+    const image = await callFalImage({ payload });
     const fileName = "imagen-conceptual-ia.png";
     await fs.writeFile(path.join(folder, fileName), image.buffer);
     const code = path.basename(folder).match(/^(P-\d{4}-\d{4})/)?.[1] || await nextBudgetCode();
@@ -1748,6 +1763,10 @@ async function route(req, res) {
       imagenConceptualNota: "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
       imagenConceptualPrompt: image.prompt,
       imagenConceptualGenerada: new Date().toISOString(),
+      imagenConceptualProveedor: "fal.ai",
+      imagenConceptualModelo: FAL_IMAGE_MODEL,
+      imagenConceptualRequestId: image.requestId,
+      imagenConceptualUrlRemota: image.remoteUrl,
     };
     if (hasDataFile || body.payload) {
       await fs.writeFile(path.join(folder, "README.md"), budgetMarkdown(updated, code), "utf8");
@@ -1757,7 +1776,7 @@ async function route(req, res) {
       await fs.writeFile(path.join(folder, "imagen-conceptual.json"), JSON.stringify(updated, null, 2), "utf8");
     }
     const rel = saveBudgetRecord({ folder, code, payload: updated, htmlPath: `${relFolder}/presupuesto-final.html` });
-    await recordTokenUsage("openai", IMAGE_MODEL, image.usage);
+    if (image.usage) await recordTokenUsage("fal", FAL_IMAGE_MODEL, image.usage);
     return send(res, 200, {
       ok: true,
       folder: rel,
@@ -1765,7 +1784,7 @@ async function route(req, res) {
       fileName,
       payload: updated,
       usage: image.usage,
-      tokenStatus: await modelStatus("openai", IMAGE_MODEL, estimatedTokens),
+      tokenStatus: status,
     });
   }
   if (req.method === "POST" && url.pathname === "/api/export") {

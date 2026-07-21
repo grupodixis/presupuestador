@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Presupuestador IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260721-menu-fix">
+  <link rel="stylesheet" href="styles.css?v=20260721-fal-images">
 </head>
 <body>
   <div class="app-shell">
@@ -168,6 +168,7 @@
             <label><span>Modelo OpenAI por defecto</span><select id="openaiModel"></select></label>
             <label><span>Gemini API key</span><input id="geminiKey" type="password" placeholder="AIza... o dejar vacio para conservar"></label>
             <label><span>Modelo Gemini por defecto</span><select id="geminiModel"></select></label>
+            <label><span>fal.ai API key para imagenes</span><input id="falKey" type="password" placeholder="FAL_KEY... o dejar vacio para conservar"></label>
           </div>
           <div class="budget-grid">
             <label><span>Presupuesto local OpenAI (JSON modelo:tokens)</span><textarea id="openaiBudgets" rows="7" spellcheck="false" placeholder="{&quot;gpt-4.1-mini&quot;:500000}"></textarea></label>
@@ -264,7 +265,7 @@
     </main>
   </div>
 
-  <script src="app.js?v=20260721-menu-fix"></script>
+  <script src="app.js?v=20260721-fal-images"></script>
 </body>
 </html>
 
