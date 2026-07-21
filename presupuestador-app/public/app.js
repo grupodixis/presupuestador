@@ -824,6 +824,7 @@ function renderResult(renderTable = true) {
   els.resultPanel.classList.remove("hidden");
   els.exportBudget.disabled = false;
   els.printBudget.disabled = false;
+  if (els.generateBudgetImage) els.generateBudgetImage.disabled = false;
   if (!state.result.documentTemplate) state.result.documentTemplate = currentDocumentTemplate();
   els.title.value = state.result.titulo || "Presupuesto";
   els.summaryText.value = state.result.resumen || "";
@@ -853,6 +854,7 @@ function clearBudgetForm() {
   els.resultPanel.classList.add("hidden");
   els.exportBudget.disabled = true;
   els.printBudget.disabled = true;
+  if (els.generateBudgetImage) els.generateBudgetImage.disabled = true;
   setStatus("");
   updateSaveMode();
 }
@@ -911,7 +913,7 @@ function renderBudgets() {
       </div>
       <div class="budget-card-actions">
         ${budget.editable ? `<button class="secondary edit-budget" data-folder="${escapeHtml(budget.folder)}">Editar</button>` : ""}
-        ${budget.editable ? `<button class="secondary image-budget" data-folder="${escapeHtml(budget.folder)}">Imagen IA</button>` : ""}
+        <button class="secondary image-budget" data-folder="${escapeHtml(budget.folder)}">Imagen IA</button>
         ${primary ? `<a class="button-link" href="${appUrl(primary.url)}" target="_blank" rel="noreferrer">Abrir</a>` : ""}
         <div class="budget-file-links">${budget.files.map((file) => `<a href="${appUrl(file.url)}" target="_blank" rel="noreferrer">${escapeHtml(file.name)}</a>`).join("")}</div>
       </div>
@@ -1521,11 +1523,14 @@ function printBudget() {
   }, 150);
 }
 
-document.querySelectorAll(".nav-btn[data-view]").forEach((button) => button.addEventListener("click", () => switchView(button.dataset.view)));
-if (els.menuToggle) els.menuToggle.addEventListener("click", () => {
+document.querySelectorAll(".nav-btn[data-view]").forEach((button) => button.addEventListener("click", (event) => { event.stopPropagation(); switchView(button.dataset.view); }));
+if (els.menuToggle) els.menuToggle.addEventListener("click", (event) => {
+  event.preventDefault();
+  event.stopPropagation();
   const isHidden = els.appMenu.classList.toggle("hidden");
   els.menuToggle.setAttribute("aria-expanded", String(!isHidden));
 });
+if (els.appMenu) els.appMenu.addEventListener("click", (event) => event.stopPropagation());
 document.addEventListener("click", (event) => {
   if (!els.appMenu || !els.menuToggle) return;
   if (els.appMenu.classList.contains("hidden")) return;

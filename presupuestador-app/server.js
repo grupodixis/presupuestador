@@ -260,6 +260,26 @@ function budgetTotal(payload) {
   return (payload.lineas || []).reduce((sum, line) => sum + Number(line.importe || 0), 0);
 }
 
+async function readMinimalBudgetPayload(folder, title = "Presupuesto") {
+  const payload = { titulo: title, resumen: "", tipoProducto: "presupuesto", cliente: {}, lineas: [], supuestos: [], riesgos: [], preguntas: [], sugerencias: [] };
+  const readme = path.join(folder, "README.md");
+  if (await fileExists(readme)) {
+    const content = await fs.readFile(readme, "utf8");
+    const h1 = content.match(/^#\s+(.+)$/m);
+    if (h1) payload.titulo = h1[1].replace(/^P-\d{4}-\d{4}\s*/, "").trim() || payload.titulo;
+    const resumen = content.match(/##\s+Resumen\s+([\s\S]*?)(?:\n##\s+|$)/i);
+    if (resumen) payload.resumen = resumen[1].trim();
+  }
+  const html = path.join(folder, "presupuesto-final.html");
+  if (!payload.resumen && await fileExists(html)) {
+    const content = await fs.readFile(html, "utf8");
+    const titleMatch = content.match(/<title[^>]*>(.*?)<\/title>/i) || content.match(/<h1[^>]*>(.*?)<\/h1>/i) || content.match(/<h2[^>]*>(.*?)<\/h2>/i);
+    if (titleMatch) payload.titulo = stripTags(titleMatch[1]).replace(/^P-\d{4}-\d{4}\s*/, "").trim() || payload.titulo;
+    const paragraph = content.match(/<p[^>]*>(.*?)<\/p>/i);
+    if (paragraph) payload.resumen = stripTags(paragraph[1]).trim();
+  }
+  return payload;
+}
 function saveBudgetRecord({ folder, code, payload, htmlPath }) {
   const relFolder = path.relative(ROOT, folder).replaceAll("\\", "/");
   const parts = budgetCodeParts(code);
@@ -1025,6 +1045,9 @@ function htmlEscape(value) {
     .replaceAll('"', "&quot;");
 }
 
+function stripTags(value) {
+  return String(value || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+}
 function totalOf(lines) {
   return (lines || []).reduce((sum, line) => sum + Number(line.importe || 0), 0);
 }
@@ -1306,7 +1329,7 @@ async function listBudgets() {
         client = {};
       }
     }
-    const imageFile = budgetData?.imagenConceptual || "";
+    const imageFile = budgetData?.imagenConceptual || (fileNames.includes("imagen-conceptual-ia.png") ? "imagen-conceptual-ia.png" : "");
     const imageUrl = imageFile ? `/presupuestos/${encodeURIComponent(entry.name)}/${encodeURIComponent(imageFile)}` : "";
     const code = `P-${match[1]}-${match[2]}`;
     if (budgetData) saveBudgetRecord({ folder, code, payload: budgetData, htmlPath: `presupuestos/${entry.name}/presupuesto-final.html` });
@@ -1706,8 +1729,10 @@ async function route(req, res) {
     const folder = resolveBudgetFolder(body.folder);
     const relFolder = path.relative(ROOT, folder).replaceAll("\\", "/");
     const dataFile = path.join(folder, "datos.json");
-    if (!(await fileExists(dataFile))) return send(res, 404, { error: "Este presupuesto no tiene datos.json editable." });
-    const stored = JSON.parse(await fs.readFile(dataFile, "utf8"));
+    const hasDataFile = await fileExists(dataFile);
+    const stored = hasDataFile
+      ? JSON.parse(await fs.readFile(dataFile, "utf8"))
+      : await readMinimalBudgetPayload(folder, path.basename(folder));
     const payload = { ...stored, ...(body.payload || {}) };
     const prompt = buildBudgetImagePrompt(payload);
     const estimatedTokens = estimateRequestTokens(prompt, []);
@@ -1724,9 +1749,13 @@ async function route(req, res) {
       imagenConceptualPrompt: image.prompt,
       imagenConceptualGenerada: new Date().toISOString(),
     };
-    await fs.writeFile(path.join(folder, "README.md"), budgetMarkdown(updated, code), "utf8");
-    await fs.writeFile(path.join(folder, "presupuesto-final.html"), budgetHtml(updated, code), "utf8");
-    await fs.writeFile(dataFile, JSON.stringify(updated, null, 2), "utf8");
+    if (hasDataFile || body.payload) {
+      await fs.writeFile(path.join(folder, "README.md"), budgetMarkdown(updated, code), "utf8");
+      await fs.writeFile(path.join(folder, "presupuesto-final.html"), budgetHtml(updated, code), "utf8");
+      await fs.writeFile(dataFile, JSON.stringify(updated, null, 2), "utf8");
+    } else {
+      await fs.writeFile(path.join(folder, "imagen-conceptual.json"), JSON.stringify(updated, null, 2), "utf8");
+    }
     const rel = saveBudgetRecord({ folder, code, payload: updated, htmlPath: `${relFolder}/presupuesto-final.html` });
     await recordTokenUsage("openai", IMAGE_MODEL, image.usage);
     return send(res, 200, {
