@@ -569,8 +569,8 @@ async function applyLineAi(index, row) {
     status.textContent = "Escribe un prompt para esta linea.";
     return;
   }
-  const selected = selectedModel();
-  if (!selected) {
+  const selection = effectiveModelSelection();
+  if (!selection.selected) {
     status.textContent = "Selecciona un modelo disponible.";
     return;
   }
@@ -580,8 +580,8 @@ async function applyLineAi(index, row) {
   try {
     const beforeLine = lineLearningSnapshot(state.result?.lineas?.[index]);
     const response = await api("/api/line-ai", {
-      provider: els.provider.value,
-      model: els.model.value,
+      provider: selection.provider,
+      model: selection.model,
       prompt,
       lineIndex: index,
       budget: resultPayload(),
@@ -594,7 +594,7 @@ async function applyLineAi(index, row) {
     state.activeLineAiIndex = null;
     state.lineAiPrompts = {};
     renderResult();
-    await loadModels(els.provider.value, false);
+    await loadModels(selection.provider, false);
     renderModelTokenInfo();
     const usageText = response.usage ? ` Tokens: ${response.usage.inputTokens || 0} entrada / ${response.usage.outputTokens || 0} salida / ${response.usage.totalTokens || 0} total.` : "";
     setStatus(response.warning ? `Edicion local por linea: ${response.warning}` : `Linea actualizada con ${response.provider}.${usageText}`);
@@ -942,6 +942,7 @@ async function ensureCurrentBudgetSaved() {
 async function generateBudgetImageForCurrent() {
   if (!state.result || !els.generateBudgetImage) return;
   els.generateBudgetImage.disabled = true;
+  const selection = effectiveModelSelection();
   setStatus("Generando imagen conceptual con IA...");
   try {
     const folder = await ensureCurrentBudgetSaved();
@@ -951,7 +952,7 @@ async function generateBudgetImageForCurrent() {
     state.result.tokenStatus = response.tokenStatus || null;
     renderResult(false);
     await loadBudgets();
-    await loadModels(els.provider.value, false);
+    await loadModels(selection.provider, false);
     renderModelTokenInfo();
     const usageText = response.usage ? ` Tokens imagen: ${response.usage.inputTokens || 0} entrada / ${response.usage.outputTokens || 0} salida / ${response.usage.totalTokens || 0} total.` : "";
     setStatus(`Imagen generada y guardada en ${response.image}.${usageText}`);
@@ -1024,8 +1025,8 @@ async function generate() {
     setStatus("Describe primero el trabajo a presupuestar.");
     return;
   }
-  const selected = selectedModel();
-  if (!selected || selected.disabled) {
+  const selection = effectiveModelSelection();
+  if (!selection.selected || selection.selected.disabled) {
     setStatus("Selecciona un modelo disponible con saldo suficiente.");
     return;
   }
@@ -1033,8 +1034,8 @@ async function generate() {
   setStatus("Generando propuesta...");
   try {
     const response = await api("/api/generate", {
-      provider: els.provider.value,
-      model: els.model.value,
+      provider: selection.provider,
+      model: selection.model,
       prompt: els.prompt.value.trim(),
       attachments: state.attachments,
     });
@@ -1045,7 +1046,7 @@ async function generate() {
     state.result.tokenUsage = response.usage || null;
     state.result.tokenStatus = response.tokenStatus || null;
     renderResult();
-    await loadModels(els.provider.value, false);
+    await loadModels(selection.provider, false);
     renderModelTokenInfo();
     const usageText = response.usage ? ` Tokens: ${response.usage.inputTokens || 0} entrada / ${response.usage.outputTokens || 0} salida / ${response.usage.totalTokens || 0} total.` : "";
     setStatus(response.warning ? `Usando fallback local: ${response.warning}` : `Generado con ${response.provider}.${usageText}`);
@@ -1248,6 +1249,23 @@ function selectedModel() {
   return (state.models[els.provider.value] || []).find((model) => model.id === els.model.value);
 }
 
+function settingsDraft() {
+  return {
+    ...(state.settings || {}),
+    defaultProvider: els.defaultProvider?.value || DEFAULT_PROVIDER,
+    openaiModel: els.openaiModel?.value || state.settings?.openaiModel || "",
+    geminiModel: els.geminiModel?.value || state.settings?.geminiModel || DEFAULT_GEMINI_MODEL,
+  };
+}
+
+function effectiveModelSelection() {
+  const draft = settingsDraft();
+  syncBudgetModelFromSettings(draft);
+  const provider = els.provider.value;
+  const model = els.model.value;
+  return { provider, model, selected: selectedModel() };
+}
+
 function preferredModelForProvider(provider, settings = state.settings || {}) {
   if (provider === "openai") return settings.openaiModel || els.openaiModel.value || fallbackPreferredModel(provider);
   if (provider === "gemini") return settings.geminiModel || els.geminiModel.value || fallbackPreferredModel(provider);
@@ -1342,8 +1360,8 @@ async function applyDocumentTemplateAi() {
     els.documentTemplateStatus.textContent = "Escribe una instruccion para la IA.";
     return;
   }
-  const selected = selectedModel();
-  if (!selected) {
+  const selection = effectiveModelSelection();
+  if (!selection.selected) {
     els.documentTemplateStatus.textContent = "Selecciona un modelo disponible.";
     return;
   }
@@ -1351,8 +1369,8 @@ async function applyDocumentTemplateAi() {
   els.documentTemplateStatus.textContent = "Editando plantilla con IA...";
   try {
     const response = await api("/api/document-template/ai", {
-      provider: els.provider.value,
-      model: els.model.value,
+      provider: selection.provider,
+      model: selection.model,
       prompt,
       documentTemplate: templateFromSettingsFields(),
     });
@@ -1364,7 +1382,7 @@ async function applyDocumentTemplateAi() {
     if (response.usage) {
       state.result = state.result || {};
       state.result.tokenUsage = response.usage;
-      await loadModels(els.provider.value, false);
+      await loadModels(selection.provider, false);
       renderModelTokenInfo();
     }
   } catch (error) {
@@ -1449,8 +1467,8 @@ async function applyMdAi() {
     els.mdStatus.textContent = "Escribe una instruccion para la IA.";
     return;
   }
-  const selected = selectedModel();
-  if (!selected) {
+  const selection = effectiveModelSelection();
+  if (!selection.selected) {
     els.mdStatus.textContent = "Selecciona un modelo disponible.";
     return;
   }
@@ -1458,8 +1476,8 @@ async function applyMdAi() {
   els.mdStatus.textContent = "Editando MD con IA...";
   try {
     const response = await api("/api/md/ai", {
-      provider: els.provider.value,
-      model: els.model.value,
+      provider: selection.provider,
+      model: selection.model,
       path: state.activeMdPath,
       content: els.mdEditor.value,
       prompt,
@@ -1470,7 +1488,7 @@ async function applyMdAi() {
     if (response.usage) {
       state.result = state.result || {};
       state.result.tokenUsage = response.usage;
-      await loadModels(els.provider.value, false);
+      await loadModels(selection.provider, false);
       renderModelTokenInfo();
     }
   } catch (error) {
