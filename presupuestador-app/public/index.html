@@ -4,55 +4,40 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Presupuestador IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260721-budget-image">
+  <link rel="stylesheet" href="styles.css?v=20260721-top-menu">
 </head>
 <body>
   <div class="app-shell">
-    <aside class="side">
-      <div class="brand">
+    <header class="topbar">
+      <div class="brand compact-brand">
         <span class="mark">H</span>
         <div>
           <strong>Presupuestador IA</strong>
           <small>Compuestos, skills y costes</small>
         </div>
       </div>
-
-      <div class="side-actions">
-        <button class="side-btn" data-view="budgetView">Presupuesto</button>
-        <button class="side-btn active" data-view="budgetsView">Presupuestos</button>
-        <button class="side-btn" data-view="configView">Configuracion</button>
-        <button class="side-btn" data-view="contextView">Contextos MD</button>
-        <button id="usersNav" class="side-btn hidden" data-view="usersView">Usuarios</button>
+      <div class="topbar-actions">
+        <button id="menuToggle" class="icon-menu" type="button" aria-expanded="false" aria-controls="appMenu" title="Menu">☰</button>
+        <nav id="appMenu" class="app-menu hidden" aria-label="Menu principal">
+          <button class="nav-btn" data-view="budgetView" type="button">Presupuesto</button>
+          <button class="nav-btn active" data-view="budgetsView" type="button">Presupuestos</button>
+          <button class="nav-btn" data-view="configView" type="button">Configuracion</button>
+          <button class="nav-btn" data-view="contextView" type="button">Contextos MD</button>
+          <button id="usersNav" class="nav-btn hidden" data-view="usersView" type="button">Usuarios</button>
+          <div class="menu-divider"></div>
+          <strong id="currentUser" class="menu-user">Sin usuario</strong>
+          <a class="menu-link" href="login.html">Login</a>
+          <button id="logout" class="nav-btn" type="button">Salir</button>
+        </nav>
       </div>
+    </header>
 
-      <div class="auth-card">
-        <strong id="currentUser">Sin usuario</strong>
-        <button id="logout" class="secondary">Salir</button>
-      </div>
-
-      <label class="field">
-        <span>Proveedor</span>
-        <select id="provider">
-          <option value="fallback">Local sin API</option>
-          <option value="openai">OpenAI / Codex</option>
-          <option value="gemini">Gemini</option>
-        </select>
-      </label>
-
-      <label class="field">
-        <span>Modelo</span>
-        <select id="model"></select>
-      </label>
-      <div id="modelTokenInfo" class="token-info side-token-info">Selecciona proveedor para ver modelos.</div>
-
-      <div class="context">
-        <div class="context-head">
-          <strong>Contexto cargado</strong>
-          <button id="refreshContext" title="Actualizar contexto">R</button>
-        </div>
-        <ul id="contextFiles"></ul>
-      </div>
-    </aside>
+    <div class="runtime-controls" aria-hidden="true">
+      <select id="provider"><option value="fallback">Local sin API</option><option value="openai">OpenAI / Codex</option><option value="gemini">Gemini</option></select>
+      <select id="model"></select>
+      <button id="refreshContext" type="button">R</button>
+      <ul id="contextFiles"></ul>
+    </div>
 
     <main class="workspace">
       <section id="budgetView" class="view hidden">
@@ -279,7 +264,7 @@
     </main>
   </div>
 
-  <script src="app.js?v=20260721-budget-image"></script>
+  <script src="app.js?v=20260721-top-menu"></script>
 </body>
 </html>
 

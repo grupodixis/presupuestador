@@ -15,6 +15,8 @@ const DB_DIR = path.join(__dirname, "data");
 const DB_FILE = path.join(DB_DIR, "presupuestador.sqlite");
 const SESSION_DAYS = 7;
 const IMAGE_MODEL = "gpt-image-1";
+const DEFAULT_PROVIDER = "gemini";
+const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash";
 const LEARNING_DIR = path.join(ROOT, "skills", "aprendizaje");
 const LEARNING_FILES = {
   general: "aprendizaje_general.md",
@@ -353,11 +355,11 @@ function normalizeDocumentTemplate(template = {}) {
 
 function defaultConfig() {
   return {
-    defaultProvider: "fallback",
+    defaultProvider: DEFAULT_PROVIDER,
     openaiApiKey: "",
     openaiModel: "",
     geminiApiKey: "",
-    geminiModel: "",
+    geminiModel: DEFAULT_GEMINI_MODEL,
     modelTokenBudgets: { openai: {}, gemini: {} },
     documentTemplate: DEFAULT_DOCUMENT_TEMPLATE,
   };
@@ -384,11 +386,11 @@ async function readConfig() {
 
 function maskedConfig(config) {
   return {
-    defaultProvider: config.defaultProvider || "fallback",
+    defaultProvider: config.defaultProvider || DEFAULT_PROVIDER,
     openaiApiKeySet: Boolean(config.openaiApiKey),
     openaiModel: config.openaiModel || "",
     geminiApiKeySet: Boolean(config.geminiApiKey),
-    geminiModel: config.geminiModel || "",
+    geminiModel: config.geminiModel || DEFAULT_GEMINI_MODEL,
     modelTokenBudgets: config.modelTokenBudgets || { openai: {}, gemini: {} },
     documentTemplate: normalizeDocumentTemplate(config.documentTemplate),
   };
@@ -397,7 +399,7 @@ function maskedConfig(config) {
 async function writeConfig(config) {
   const current = await readConfig();
   const next = {
-    defaultProvider: ["fallback", "openai", "gemini"].includes(config.defaultProvider) ? config.defaultProvider : current.defaultProvider || "fallback",
+    defaultProvider: ["fallback", "openai", "gemini"].includes(config.defaultProvider) ? config.defaultProvider : current.defaultProvider || DEFAULT_PROVIDER,
     openaiApiKey: config.openaiApiKey ? config.openaiApiKey : current.openaiApiKey,
     openaiModel: config.openaiModel ?? current.openaiModel,
     geminiApiKey: config.geminiApiKey ? config.geminiApiKey : current.geminiApiKey,
@@ -896,7 +898,7 @@ async function callGemini({ prompt, attachments, context, model }) {
   for (const file of attachments || []) {
     if (file.kind === "image" && file.base64) parts.push({ inlineData: { mimeType: file.type || "image/jpeg", data: file.base64 } });
   }
-  const geminiModel = model || process.env.GEMINI_MODEL || config.geminiModel || "gemini-1.5-pro";
+  const geminiModel = model || process.env.GEMINI_MODEL || config.geminiModel || DEFAULT_GEMINI_MODEL;
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent?key=${key}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -978,7 +980,7 @@ async function callGeminiText({ prompt, context, model }) {
   const config = await readConfig();
   const key = process.env.GEMINI_API_KEY || config.geminiApiKey;
   if (!key) throw new Error("GEMINI_API_KEY no configurada.");
-  const geminiModel = model || process.env.GEMINI_MODEL || config.geminiModel || "gemini-1.5-pro";
+  const geminiModel = model || process.env.GEMINI_MODEL || config.geminiModel || DEFAULT_GEMINI_MODEL;
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent?key=${key}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

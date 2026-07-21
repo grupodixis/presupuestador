@@ -10,6 +10,9 @@ function appUrl(path) {
   return `${APP_BASE_PATH}${path}`;
 }
 
+const DEFAULT_PROVIDER = "gemini";
+const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash";
+
 const DEFAULT_DOCUMENT_TEMPLATE = {
   logo: "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
   headerText: [
@@ -1141,7 +1144,7 @@ async function saveUser(id, row) {
 async function loadSettings() {
   const settings = await getJson("/api/settings");
   state.settings = settings;
-  els.defaultProvider.value = settings.defaultProvider || "fallback";
+  els.defaultProvider.value = settings.defaultProvider || DEFAULT_PROVIDER;
   els.openaiKey.placeholder = settings.openaiApiKeySet ? "Clave guardada; escribe otra para cambiar" : "sk-...";
   els.geminiKey.placeholder = settings.geminiApiKeySet ? "Clave guardada; escribe otra para cambiar" : "AIza...";
   els.openaiBudgets.value = JSON.stringify(settings.modelTokenBudgets?.openai || {}, null, 2);
@@ -1152,8 +1155,7 @@ async function loadSettings() {
   els.documentFooterText.value = documentTemplate.footerText;
   await loadAllModels();
   selectDefaultModels(settings);
-  els.provider.value = settings.defaultProvider || "fallback";
-  updateModelFromProvider(preferredModelForProvider(els.provider.value, settings));
+  syncBudgetModelFromSettings(settings);
 }
 
 async function loadAllModels() {
@@ -1169,7 +1171,7 @@ async function loadModels(provider, showStatus = true) {
 
 function selectDefaultModels(settings = state.settings || {}) {
   fillProviderSelect(els.openaiModel, "openai", settings.openaiModel);
-  fillProviderSelect(els.geminiModel, "gemini", settings.geminiModel);
+  fillProviderSelect(els.geminiModel, "gemini", settings.geminiModel || DEFAULT_GEMINI_MODEL);
 }
 
 function modelCostTier(model) {
@@ -1208,7 +1210,12 @@ function fillProviderSelect(select, provider, selectedValue) {
     option.disabled = !model.available;
     select.appendChild(option);
   }
-  if (selectedValue && [...select.options].some((option) => option.value === selectedValue)) select.value = selectedValue;
+  if (selectedValue && [...select.options].some((option) => option.value === selectedValue)) {
+    select.value = selectedValue;
+    return;
+  }
+  const economical = firstEconomicalModel(provider);
+  if (economical && [...select.options].some((option) => option.value === economical.id)) select.value = economical.id;
 }
 
 function modelLabel(model) {
@@ -1220,27 +1227,49 @@ function modelLabel(model) {
   return parts.join(" - ");
 }
 
+function fallbackPreferredModel(provider) {
+  if (provider === "gemini") return DEFAULT_GEMINI_MODEL;
+  if (provider === "openai") return "gpt-4.1-mini";
+  return "fallback";
+}
+
+function firstEconomicalModel(provider) {
+  return (state.models[provider] || []).find((model) => model.available && modelCostTier(model).key === "cheap")
+    || (state.models[provider] || []).find((model) => model.available && String(model.id || "").toLowerCase().includes("flash"))
+    || (state.models[provider] || []).find((model) => model.available);
+}
 function selectedModel() {
   return (state.models[els.provider.value] || []).find((model) => model.id === els.model.value);
 }
 
 function preferredModelForProvider(provider, settings = state.settings || {}) {
-  if (provider === "openai") return settings.openaiModel || els.openaiModel.value || "";
-  if (provider === "gemini") return settings.geminiModel || els.geminiModel.value || "";
-  return "fallback";
+  if (provider === "openai") return settings.openaiModel || els.openaiModel.value || fallbackPreferredModel(provider);
+  if (provider === "gemini") return settings.geminiModel || els.geminiModel.value || fallbackPreferredModel(provider);
+  return fallbackPreferredModel(provider);
 }
 
 function selectBudgetModel(provider, preferred) {
   const options = [...els.model.options];
   const preferredOption = options.find((option) => option.value === preferred && !option.disabled);
+  const economical = firstEconomicalModel(provider);
+  const economicalOption = economical ? options.find((option) => option.value === economical.id && !option.disabled) : null;
   const firstEnabled = options.find((option) => !option.disabled);
-  if (preferredOption) {
-    els.model.value = preferredOption.value;
-    return;
-  }
+  if (preferredOption) { els.model.value = preferredOption.value; return; }
+  if (economicalOption) { els.model.value = economicalOption.value; return; }
   if (firstEnabled) els.model.value = firstEnabled.value;
 }
 
+function syncBudgetModelFromSettings(settings = state.settings || {}) {
+  const provider = settings.defaultProvider || DEFAULT_PROVIDER;
+  els.provider.value = provider;
+  updateModelFromProvider(preferredModelForProvider(provider, settings));
+}
+
+function closeMenu() {
+  if (!els.appMenu || !els.menuToggle) return;
+  els.appMenu.classList.add("hidden");
+  els.menuToggle.setAttribute("aria-expanded", "false");
+}
 function updateModelFromProvider(preferredOverride = null) {
   const provider = els.provider.value;
   els.model.innerHTML = "";
@@ -1254,20 +1283,27 @@ function updateModelFromProvider(preferredOverride = null) {
     els.model.appendChild(option);
   }
   selectBudgetModel(provider, preferredOverride || preferredModelForProvider(provider));
-  applyModelCostStyle(els.model, selectedModel());
+  const model = selectedModel();
+  applyModelCostStyle(els.model, model);
+  applyModelCostStyle(provider === "openai" ? els.openaiModel : els.geminiModel, model);
   renderModelTokenInfo();
 }
 
 function renderModelTokenInfo() {
   const model = selectedModel();
+  const visibleSelect = els.provider.value === "openai" ? els.openaiModel : els.geminiModel;
   if (!model) {
     applyModelCostStyle(els.model, null);
+    applyModelCostStyle(visibleSelect, null);
     els.modelTokenInfo.textContent = "No hay modelos disponibles para este proveedor.";
     return;
   }
   const tier = modelCostTier(model);
   applyModelCostStyle(els.model, model);
+  applyModelCostStyle(visibleSelect, model);
   const lines = [
+    `Proveedor activo: ${els.provider.value}`,
+    `Modelo activo: ${model.id}`,
     `Coste relativo: ${tier.label}`,
     `Disponible: ${model.available ? "si" : "no"}`,
     `Entrada max.: ${model.inputTokenLimit ? Number(model.inputTokenLimit).toLocaleString("es-ES") : "no informado"}`,
@@ -1457,7 +1493,8 @@ function switchView(viewId) {
   if (viewId === "usersView") loadUsers();
   document.querySelectorAll(".view").forEach((view) => view.classList.add("hidden"));
   document.querySelector(`#${viewId}`).classList.remove("hidden");
-  document.querySelectorAll(".side-btn").forEach((button) => button.classList.toggle("active", button.dataset.view === viewId));
+  document.querySelectorAll(".nav-btn[data-view]").forEach((button) => button.classList.toggle("active", button.dataset.view === viewId));
+  closeMenu();
 }
 
 function printBudget() {
@@ -1484,7 +1521,16 @@ function printBudget() {
   }, 150);
 }
 
-document.querySelectorAll(".side-btn").forEach((button) => button.addEventListener("click", () => switchView(button.dataset.view)));
+document.querySelectorAll(".nav-btn[data-view]").forEach((button) => button.addEventListener("click", () => switchView(button.dataset.view)));
+if (els.menuToggle) els.menuToggle.addEventListener("click", () => {
+  const isHidden = els.appMenu.classList.toggle("hidden");
+  els.menuToggle.setAttribute("aria-expanded", String(!isHidden));
+});
+document.addEventListener("click", (event) => {
+  if (!els.appMenu || !els.menuToggle) return;
+  if (els.appMenu.classList.contains("hidden")) return;
+  if (!els.appMenu.contains(event.target) && !els.menuToggle.contains(event.target)) closeMenu();
+});
 document.querySelectorAll(".tab").forEach((tab) => {
   tab.addEventListener("click", () => {
     document.querySelectorAll(".tab").forEach((item) => item.classList.remove("active"));
@@ -1503,10 +1549,10 @@ els.logout.addEventListener("click", logout);
 els.createUser.addEventListener("click", createUserFromForm);
 els.applyDocumentTemplateAi.addEventListener("click", applyDocumentTemplateAi);
 els.provider.addEventListener("change", updateModelFromProvider);
-els.defaultProvider.addEventListener("change", () => { els.provider.value = els.defaultProvider.value; updateModelFromProvider(preferredModelForProvider(els.provider.value)); });
+els.defaultProvider.addEventListener("change", () => { syncBudgetModelFromSettings({ ...state.settings, defaultProvider: els.defaultProvider.value, openaiModel: els.openaiModel.value, geminiModel: els.geminiModel.value }); });
 els.model.addEventListener("change", renderModelTokenInfo);
-els.openaiModel.addEventListener("change", () => { if (els.provider.value === "openai") updateModelFromProvider(els.openaiModel.value); });
-els.geminiModel.addEventListener("change", () => { if (els.provider.value === "gemini") updateModelFromProvider(els.geminiModel.value); });
+els.openaiModel.addEventListener("change", () => { if (els.defaultProvider.value === "openai") syncBudgetModelFromSettings({ ...state.settings, defaultProvider: "openai", openaiModel: els.openaiModel.value, geminiModel: els.geminiModel.value }); });
+els.geminiModel.addEventListener("change", () => { if (els.defaultProvider.value === "gemini") syncBudgetModelFromSettings({ ...state.settings, defaultProvider: "gemini", openaiModel: els.openaiModel.value, geminiModel: els.geminiModel.value }); });
 els.refreshModels.addEventListener("click", async () => { await loadSettings(); els.settingsStatus.textContent = "Modelos actualizados."; });
 els.refreshBudgets.addEventListener("click", loadBudgets);
 els.budgetYear.addEventListener("change", renderBudgets);
