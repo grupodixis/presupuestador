@@ -46,6 +46,8 @@ const state = {
 };
 
 const els = {
+  menuToggle: document.querySelector("#menuToggle"),
+  appMenu: document.querySelector("#appMenu"),
   provider: document.querySelector("#provider"),
   model: document.querySelector("#model"),
   modelTokenInfo: document.querySelector("#modelTokenInfo"),
@@ -1272,6 +1274,7 @@ function syncBudgetModelFromSettings(settings = state.settings || {}) {
 function closeMenu() {
   if (!els.appMenu || !els.menuToggle) return;
   els.appMenu.classList.add("hidden");
+  els.appMenu.removeAttribute("data-open");
   els.menuToggle.setAttribute("aria-expanded", "false");
 }
 function updateModelFromProvider(preferredOverride = null) {
@@ -1533,6 +1536,7 @@ if (els.menuToggle) els.menuToggle.addEventListener("click", (event) => {
   event.preventDefault();
   event.stopPropagation();
   const isHidden = els.appMenu.classList.toggle("hidden");
+  els.appMenu.toggleAttribute("data-open", !isHidden);
   els.menuToggle.setAttribute("aria-expanded", String(!isHidden));
 });
 if (els.appMenu) els.appMenu.addEventListener("click", (event) => event.stopPropagation());
