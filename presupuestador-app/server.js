@@ -15,6 +15,9 @@ const DB_DIR = path.join(__dirname, "data");
 const DB_FILE = path.join(DB_DIR, "presupuestador.sqlite");
 const SESSION_DAYS = 7;
 const FAL_IMAGE_MODEL = "fal-ai/flux/schnell";
+const FAL_IMAGE_SIZE = "square";
+const FAL_IMAGE_STEPS = 1;
+const FAL_IMAGE_ACCELERATION = "none";
 const DEFAULT_PROVIDER = "gemini";
 const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash";
 const LEARNING_DIR = path.join(ROOT, "skills", "aprendizaje");
@@ -1176,7 +1179,7 @@ Partidas principales:
 ${lines}
 
 Estilo visual:
-- Imagen horizontal, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.
+- Imagen cuadrada, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.
 - Mostrar el producto terminado de forma plausible en su entorno.
 - Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.
 - Priorizar claridad comercial sobre detalle tecnico milimetrico.
@@ -1193,13 +1196,13 @@ async function callFalImage({ payload }) {
     headers: { "Content-Type": "application/json", Authorization: `Key ${key}` },
     body: JSON.stringify({
       prompt,
-      image_size: "landscape_4_3",
-      num_inference_steps: 4,
-      guidance_scale: 3.5,
+      image_size: FAL_IMAGE_SIZE,
+      num_inference_steps: FAL_IMAGE_STEPS,
+      guidance_scale: 1,
       num_images: 1,
       enable_safety_checker: true,
       output_format: "png",
-      acceleration: "regular",
+      acceleration: FAL_IMAGE_ACCELERATION,
     }),
   });
   const data = await response.json();
@@ -1751,7 +1754,7 @@ async function route(req, res) {
       usedTokens: 0,
       remainingTokens: null,
       blocked: false,
-      note: "Imagen generada con fal.ai; sin control local por tokens.",
+      note: "Imagen generada con fal.ai en modo economico; sin control local por tokens.",
     };
     const image = await callFalImage({ payload });
     const fileName = "imagen-conceptual-ia.png";
@@ -1765,6 +1768,7 @@ async function route(req, res) {
       imagenConceptualGenerada: new Date().toISOString(),
       imagenConceptualProveedor: "fal.ai",
       imagenConceptualModelo: FAL_IMAGE_MODEL,
+      imagenConceptualModo: "economico",
       imagenConceptualRequestId: image.requestId,
       imagenConceptualUrlRemota: image.remoteUrl,
     };
