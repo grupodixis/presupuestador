@@ -1,54 +1,59 @@
-# Skills de Presupuestación
+# Skills de presupuestación
 
-Cada archivo Markdown en esta carpeta define una habilidad (skill) que el agente IA debe activar según el tipo de producto o situación.
+Esta carpeta es el punto de entrada del agente para presupuestar. La organización separa tres capas:
 
-## Lista de skills
+1. **Skills base**: procedimiento general, revisión, complejidad, montaje, tratamientos, oferta/demanda y proveedores.
+2. **Áreas de negocio**: aluminio, carpintería metálica, instalaciones eléctricas, fontanería, clima y futuras industrias.
+3. **Aprendizaje**: criterios observados en presupuestos reales y correcciones realizadas por usuarios.
 
-| Archivo | Propósito |
-|---|---|
-| `skill_presupuestacion_general.md` | Procedimiento base para cualquier presupuesto |
-| `skill_barandillas.md` | Presupuestación de barandillas metálicas |
-| `skill_puertas_metalicas.md` | Presupuestación de puertas metálicas |
-| `skill_estructuras_metalicas.md` | Presupuestación de estructuras metálicas |
-| `skill_carpinteria_aluminio.md` | Presupuestación de carpintería de aluminio |
-| `skill_instalaciones.md` | Presupuestación de instalaciones (elec, font, clima) |
-| `skill_montaje_en_obra.md` | Evaluación y coste del montaje en obra |
-| `skill_tratamientos_superficiales.md` | Tratamientos: pintura, galvanizado, chorreado, etc. |
-| `skill_oferta_demanda.md` | Ajuste de precio por oferta y demanda |
-| `skill_complejidad.md` | Evaluación de complejidad de fabricación |
-| `skill_revision_presupuesto.md` | Revisión final del presupuesto antes de enviar |
-| `skill_escaleras.md` | Presupuestación de escaleras metálicas |
-| `skill_herreria.md` | Herrería artística y funcional (forja, decoración) |
-| `skill_rejas.md` | Rejas de protección (ventanas, puertas, locales) |
-| `skill_portones_cancelas.md` | Portones y cancelas metálicas (vehiculares, peatonales) |
-| `skill_marquesinas_pergolas.md` | Marquesinas, pérgolas y toldos |
-| `skill_productos_compuestos.md` | Productos que combinan múltiples materiales y oficios |
-| `skill_solicitud_presupuestos_proveedores.md` | Redacción de emails y WhatsApps para pedir precios a proveedores |
-| `skill_investigacion_proveedores.md` | I+D de proveedores: búsqueda, cualificación y registro de contactos |
+## Mapa operativo
 
-## Estructura de cada skill
+| Área | Estado | Entrada principal | Sectores incluidos |
+|---|---|---|---|
+| Aluminio | Activa | `areas/aluminio/README.md` | ventanas, puertas, cerramientos, mallorquinas, pergolas/parasoles, vidrio asociado |
+| Carpintería metálica | Activa | `areas/carpinteria_metalica/README.md` | barandillas, rejas, puertas, cancelas, escaleras, estructuras, herrería, marquesinas |
+| Instalaciones eléctricas | Preparada | `areas/instalaciones_electricas/README.md` | cuadros, líneas, mecanismos, iluminación, fotovoltaica auxiliar, legalización |
+| Fontanería | Preparada | `areas/fontaneria/README.md` | agua fría/caliente, saneamiento, ACS, sanitarios, pruebas |
+| Clima | Preparada | `areas/clima/README.md` | splits, conductos, ventilación, extracción, RITE, puesta en marcha |
+| Otras industrias | Abierta | `areas/otras_industrias/README.md` | sectores nuevos que se quieran atacar |
 
-Cada skill sigue esta plantilla:
+## Skills existentes
 
-- **Cuándo usar esta skill**
-- **Datos mínimos necesarios**
-- **Datos recomendados**
-- **Criterios técnicos**
-- **Composición habitual del producto**
-- **Procesos habituales**
-- **Factores que aumentan el coste**
-- **Factores que aumentan la complejidad**
-- **Factores de riesgo**
-- **Errores frecuentes a evitar**
-- **Preguntas que el agente debe hacerse**
-- **Checklist final**
-- **Formato de salida recomendado**
+| Archivo | Tipo | Uso |
+|---|---|---|
+| `skill_presupuestacion_general.md` | base | Cargar siempre primero. Define flujo, partidas y prudencia comercial. |
+| `skill_revision_presupuesto.md` | base | Cargar antes de guardar o imprimir. Detecta omisiones y riesgos. |
+| `skill_complejidad.md` | base | Ajusta horas, riesgo y margen por dificultad. |
+| `skill_montaje_en_obra.md` | proceso | Montaje, acceso, medios auxiliares, sellados y remates. |
+| `skill_tratamientos_superficiales.md` | proceso | Pintura, galvanizado, imprimación, lacado, anodizado y ambiente marino. |
+| `skill_oferta_demanda.md` | comercial | Ajustes por urgencia, carga de trabajo y oportunidad. |
+| `skill_solicitud_presupuestos_proveedores.md` | proveedores | Pedir precios claros a proveedores. |
+| `skill_investigacion_proveedores.md` | proveedores | Buscar y cualificar proveedores. |
+| `skill_carpinteria_aluminio.md` | área/producto | Aluminio y cerramientos. Complementar con `areas/aluminio/README.md`. |
+| `skill_barandillas.md` | producto | Barandillas metálicas. Complementar con carpintería metálica. |
+| `skill_rejas.md` | producto | Rejas y protecciones. |
+| `skill_puertas_metalicas.md` | producto | Puertas metálicas. |
+| `skill_portones_cancelas.md` | producto | Portones y cancelas. |
+| `skill_escaleras.md` | producto | Escaleras metálicas. |
+| `skill_estructuras_metalicas.md` | producto | Estructuras metálicas. |
+| `skill_herreria.md` | producto | Herrería funcional/decorativa. |
+| `skill_marquesinas_pergolas.md` | producto | Marquesinas, pérgolas y toldos. |
+| `skill_productos_compuestos.md` | transversal | Trabajos con varios oficios, materiales o interfaces. |
+| `skill_instalaciones.md` | área genérica | Instalaciones eléctricas, fontanería y clima hasta que se creen skills específicas completas. |
 
-## Uso
+## Orden de carga recomendado
 
-Cuando el agente recibe una descripción de trabajo, debe:
+1. `skill_presupuestacion_general.md`.
+2. Área correspondiente en `skills/areas/.../README.md`.
+3. Skill específica del producto o proceso.
+4. Composición YAML en `productos/composiciones/`.
+5. Costes y proveedores en `presupuestacion/costes/` y `proveedores/`.
+6. Aprendizaje relevante en `skills/aprendizaje/`.
+7. `skill_revision_presupuesto.md` antes de guardar.
 
-1. Identificar el tipo de producto.
-2. Cargar la skill correspondiente.
-3. Si aplican varias skills (ej. barandilla + montaje en obra), cargarlas secuencialmente.
-4. Seguir el procedimiento de la skill paso a paso.
+## Cómo debe crecer esta base
+
+- Una corrección puntual del usuario se guarda primero en `skills/aprendizaje/aprendizaje_<area>.md`.
+- Si el criterio se repite o es estable, se consolida en la skill del área o del producto.
+- Si aparecen costes fiables, se pasan a `presupuestacion/costes/` o a fichas de proveedor.
+- Si aparece un nuevo tipo de trabajo, se registra en `areas/otras_industrias/` hasta tener suficiente material para crear su área propia.

@@ -14,7 +14,16 @@ const TOKEN_USAGE_FILE = path.join(__dirname, "token-usage.local.json");
 const DB_DIR = path.join(__dirname, "data");
 const DB_FILE = path.join(DB_DIR, "presupuestador.sqlite");
 const SESSION_DAYS = 7;
-const LEARNING_FILE = path.join(ROOT, "skills", "aprendizaje_presupuestador_app.md");
+const LEARNING_DIR = path.join(ROOT, "skills", "aprendizaje");
+const LEARNING_FILES = {
+  general: "aprendizaje_general.md",
+  aluminio: "aprendizaje_aluminio.md",
+  carpinteria_metalica: "aprendizaje_carpinteria_metalica.md",
+  instalaciones_electricas: "aprendizaje_instalaciones_electricas.md",
+  fontaneria: "aprendizaje_fontaneria.md",
+  clima: "aprendizaje_clima.md",
+  otras_industrias: "aprendizaje_otras_industrias.md",
+};
 const EDITABLE_DIRS = ["skills", "presupuestacion", "productos", "plantillas", "proveedores", "glosario"];
 const EDITABLE_EXTENSIONS = new Set([".md", ".yaml", ".yml", ".json"]);
 const DEFAULT_DOCUMENT_TEMPLATE = {
@@ -638,7 +647,7 @@ Formato exacto de respuesta:
       "id": "S1",
       "titulo": "string",
       "detalle": "string",
-      "skillDestino": "skills/aprendizaje_presupuestador_app.md",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
       "prioridad": "alta | media | baja"
     }
   ]
@@ -713,7 +722,7 @@ function fallbackEstimate(prompt, attachments = []) {
         id: "S1",
         titulo: "Pedir siempre fotos de acceso y anclajes",
         detalle: "En productos a medida exteriores, guardar como criterio que las fotos de accesos, anclajes y entorno reducen riesgo de montaje.",
-        skillDestino: "skills/aprendizaje_presupuestador_app.md",
+        skillDestino: "skills/aprendizaje/aprendizaje_general.md",
         prioridad: "media",
       },
     ],
@@ -838,7 +847,7 @@ function fallbackLineEdit({ prompt, budget, lineIndex }) {
     id: `S${next.sugerencias.length + 1}`,
     titulo: "Revision manual de linea",
     detalle: numericChanged ? "El modo local ha aplicado la instruccion sobre los campos numericos de la linea." : "El modo local ha anotado el prompt en la linea. Usa OpenAI o Gemini para recalculo tecnico automatico.",
-    skillDestino: "skills/aprendizaje_presupuestador_app.md",
+    skillDestino: "skills/aprendizaje/aprendizaje_general.md",
     prioridad: "baja",
   });
   return next;
@@ -1280,6 +1289,56 @@ function resolveBudgetAsset(urlPath) {
   if (!full.startsWith(budgetsRoot)) throw new Error("Ruta de presupuesto no permitida.");
   return full;
 }
+function normalizeForLearning(text) {
+  return String(text || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+function learningTextForClassification({ payload, suggestion, note, changeLog } = {}) {
+  const parts = [
+    payload?.titulo,
+    payload?.resumen,
+    payload?.tipoProducto,
+    payload?.cliente?.direccion,
+    suggestion?.titulo,
+    suggestion?.detalle,
+    note,
+    ...(payload?.lineas || []).flatMap((line) => [line.capitulo, line.concepto, line.descripcion, line.unidad]),
+    ...(Array.isArray(changeLog) ? changeLog : []).map((change) => JSON.stringify(change)),
+  ];
+  return normalizeForLearning(parts.filter(Boolean).join(" "));
+}
+
+function detectLearningArea(input = {}) {
+  const text = learningTextForClassification(input);
+  const checks = [
+    ["instalaciones_electricas", /\b(electric|cuadro|cable|mecanismo|enchufe|luminaria|iluminacion|rebt|boletin|fotovoltaic|domotic)\b/],
+    ["fontaneria", /\b(fontaner|tuberia|agua|saneamiento|desague|acs|sanitario|grifer|bomba|presion)\b/],
+    ["clima", /\b(clima|climatizacion|split|conducto|ventilacion|extraccion|aeroterm|rite|frigorific)\b/],
+    ["aluminio", /\b(aluminio|cerramiento|ventana|mallorquina|persiana|mosquitera|rpt|lacado|anodizado|vidrio|cristal|corredera|abatible)\b/],
+    ["carpinteria_metalica", /\b(metal|metalic|acero|inox|hierro|barandilla|reja|puerta|cancela|porton|escalera|estructura|dintel|pergola|marquesina|galvanizado|soldadura|chapa|tubo|s275|s235)\b/],
+  ];
+  return checks.find(([, pattern]) => pattern.test(text))?.[0] || "general";
+}
+
+function learningFileFor(input = {}) {
+  const suggested = String(input.suggestion?.skillDestino || "").replaceAll("\\", "/");
+  if (/^skills\/aprendizaje\/aprendizaje_[a-z0-9_]+\.md$/.test(suggested)) {
+    const full = path.resolve(ROOT, suggested);
+    if (full.startsWith(path.resolve(LEARNING_DIR))) return full;
+  }
+  const area = detectLearningArea(input);
+  return path.join(LEARNING_DIR, LEARNING_FILES[area] || LEARNING_FILES.general);
+}
+
+async function ensureLearningFile(file, area = "general") {
+  await fs.mkdir(path.dirname(file), { recursive: true });
+  if (await fileExists(file)) return;
+  const title = path.basename(file, ".md").replace(/^aprendizaje_/, "Aprendizaje: ").replaceAll("_", " ");
+  await fs.writeFile(file, `# ${title}\n\nArea: ${area}\n\nCriterios observados desde presupuestos reales. Revisar y consolidar en skills, composiciones o costes cuando se repitan.\n`, "utf8");
+}
 function summarizeChangeForLearning(change) {
   const source = change.source || "manual";
   if (change.action === "edit-field") {
@@ -1307,24 +1366,22 @@ async function appendBudgetLearning(payload, code, changeLog = []) {
     .filter((change) => change && change.source !== "generacion")
     .slice(-80);
   if (!usefulChanges.length) return null;
-  const exists = await fileExists(LEARNING_FILE);
-  if (!exists) {
-    await fs.writeFile(LEARNING_FILE, "# Skill: Aprendizaje del Presupuestador App\n\nCriterios aceptados desde la interfaz local de presupuestacion.\n", "utf8");
-  }
+  const area = detectLearningArea({ payload, changeLog: usefulChanges });
+  const file = learningFileFor({ payload, changeLog: usefulChanges });
+  await ensureLearningFile(file, area);
   const total = (payload.lineas || []).reduce((sum, line) => sum + Number(line.importe || 0), 0);
   const lines = usefulChanges.map(summarizeChangeForLearning).join("\n");
-  const entry = `\n## ${new Date().toISOString().slice(0, 10)} - Aprendizaje desde presupuesto ${code}\n\n- Presupuesto: ${payload.titulo || "Sin titulo"}\n- Cliente/obra: ${payload.cliente?.nombre || ""} ${payload.cliente?.direccion ? `- ${payload.cliente.direccion}` : ""}\n- Total final guardado: ${total.toFixed(2)} EUR + IVA\n- Origen: cambios reales realizados durante edicion y guardado del presupuesto.\n\n### Cambios observados\n${lines}\n\n### Criterio de uso futuro\n- Al presupuestar trabajos similares, revisar estas correcciones antes de cerrar cantidades, precios unitarios, capitulos y partidas omitidas.\n`;
-  await fs.appendFile(LEARNING_FILE, entry, "utf8");
-  return path.relative(ROOT, LEARNING_FILE).replaceAll("\\", "/");
+  const entry = `\n## ${new Date().toISOString().slice(0, 10)} - Aprendizaje desde presupuesto ${code}\n\n- Área: ${area}\n- Sector: ${payload.tipoProducto || "pendiente de clasificar"}\n- Tipo de conocimiento: cambios reales de presupuesto\n- Estado: observado\n- Origen: cambios realizados durante edición y guardado del presupuesto\n- Presupuesto: ${payload.titulo || "Sin título"}\n- Cliente/obra: ${payload.cliente?.nombre || ""} ${payload.cliente?.direccion ? `- ${payload.cliente.direccion}` : ""}\n- Total final guardado: ${total.toFixed(2)} EUR + IVA\n\n### Cambios observados\n${lines}\n\n### Acción futura\n- Revisar estas correcciones antes de cerrar cantidades, precios unitarios, capítulos y partidas omitidas en trabajos similares.\n- Si el criterio se repite, consolidarlo en la skill, composición o coste correspondiente.\n`;
+  await fs.appendFile(file, entry, "utf8");
+  return path.relative(ROOT, file).replaceAll("\\", "/");
 }
 async function appendLearning({ suggestion, note }) {
-  const exists = await fileExists(LEARNING_FILE);
-  if (!exists) {
-    await fs.writeFile(LEARNING_FILE, "# Skill: Aprendizaje del Presupuestador App\n\nCriterios aceptados desde la interfaz local de presupuestacion.\n", "utf8");
-  }
-  const entry = `\n## ${new Date().toISOString().slice(0, 10)} - ${suggestion?.titulo || "Aprendizaje"}\n\n- Prioridad: ${suggestion?.prioridad || "media"}\n- Criterio: ${suggestion?.detalle || note || ""}\n- Origen: sugerencia aceptada en presupuestador-app\n`;
-  await fs.appendFile(LEARNING_FILE, entry, "utf8");
-  return path.relative(ROOT, LEARNING_FILE).replaceAll("\\", "/");
+  const area = detectLearningArea({ suggestion, note });
+  const file = learningFileFor({ suggestion, note });
+  await ensureLearningFile(file, area);
+  const entry = `\n## ${new Date().toISOString().slice(0, 10)} - ${suggestion?.titulo || "Aprendizaje"}\n\n- Área: ${area}\n- Sector: pendiente de clasificar\n- Tipo de conocimiento: criterio manual o sugerencia aceptada\n- Estado: observado\n- Origen: sugerencia aceptada en presupuestador-app\n- Prioridad: ${suggestion?.prioridad || "media"}\n- Criterio: ${suggestion?.detalle || note || ""}\n\n### Acción futura\n- Revisar si debe consolidarse en una skill, composición, coste o ficha de proveedor.\n`;
+  await fs.appendFile(file, entry, "utf8");
+  return path.relative(ROOT, file).replaceAll("\\", "/");
 }
 
 async function route(req, res) {

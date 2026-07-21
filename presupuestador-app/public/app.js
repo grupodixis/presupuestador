@@ -454,7 +454,7 @@ function renderSuggestions() {
       <div>
         <strong>${escapeHtml(suggestion.titulo || "Sugerencia")}</strong>
         <p>${escapeHtml(suggestion.detalle || "")}</p>
-        <small>${escapeHtml(suggestion.skillDestino || "skills/aprendizaje_presupuestador_app.md")}</small>
+        <small>${escapeHtml(suggestion.skillDestino || "skills/aprendizaje/aprendizaje_general.md")}</small>
       </div>
       <button class="secondary">Memorizar</button>
     `;
