@@ -85,6 +85,8 @@ const els = {
   applyDocumentTemplateAi: document.querySelector("#applyDocumentTemplateAi"),
   documentTemplateStatus: document.querySelector("#documentTemplateStatus"),
   mdSearch: document.querySelector("#mdSearch"),
+  knowledgeMap: document.querySelector("#knowledgeMap"),
+  clearMdFilter: document.querySelector("#clearMdFilter"),
   mdFiles: document.querySelector("#mdFiles"),
   mdPath: document.querySelector("#mdPath"),
   mdEditor: document.querySelector("#mdEditor"),
