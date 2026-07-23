@@ -1058,6 +1058,217 @@ function totalOf(lines) {
   return (lines || []).reduce((sum, line) => sum + Number(line.importe || 0), 0);
 }
 
+function pdfSafeText(value) {
+  return String(value ?? "")
+    .replace(/[\u2010-\u2015]/g, "-")
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/[\u201c\u201d]/g, '"')
+    .replace(/\u2026/g, "...")
+    .replace(/[^\x20-\x7e\xa0-\xff]/g, "");
+}
+
+function pdfString(value) {
+  return pdfSafeText(value).replace(/\\/g, "\\\\").replace(/\(/g, "\\(").replace(/\)/g, "\\)");
+}
+
+function wrapPdfText(value, maxChars) {
+  const words = pdfSafeText(value).trim().split(/\s+/).filter(Boolean);
+  if (!words.length) return [""];
+  const lines = [];
+  let current = "";
+  for (const word of words) {
+    if (!current) {
+      current = word;
+    } else if (`${current} ${word}`.length <= maxChars) {
+      current += ` ${word}`;
+    } else {
+      lines.push(current);
+      current = word;
+    }
+  }
+  if (current) lines.push(current);
+  return lines;
+}
+
+function summarizedBudgetRows(lines = []) {
+  const groups = new Map();
+  for (const line of lines) {
+    const amount = roundMoney(line.importe ?? Number(line.cantidad || 0) * Number(line.precioUnitario || 0));
+    if (!amount) continue;
+    const chapter = pdfSafeText(line.capitulo || "Otros");
+    if (!groups.has(chapter)) groups.set(chapter, { chapter, amount: 0, concepts: [] });
+    const group = groups.get(chapter);
+    group.amount = roundMoney(group.amount + amount);
+    const concept = pdfSafeText(line.concepto || "").trim();
+    if (concept && !group.concepts.includes(concept)) group.concepts.push(concept);
+  }
+  return [...groups.values()];
+}
+
+function createSummaryPdf(payload, code) {
+  const pageWidth = 595.28;
+  const pageHeight = 841.89;
+  const margin = 48;
+  const contentWidth = pageWidth - margin * 2;
+  const rows = summarizedBudgetRows(payload.lineas || []);
+  const total = roundMoney(rows.reduce((sum, row) => sum + row.amount, 0));
+  const client = payload.cliente || {};
+  const template = normalizeDocumentTemplate(payload.documentTemplate || {});
+  const pages = [];
+  let commands = [];
+  let y = pageHeight - 48;
+
+  const color = (r, g, b) => commands.push(`${r} ${g} ${b} rg`);
+  const line = (x1, y1, x2, y2, r = 0.82, g = 0.84, b = 0.86) => {
+    commands.push(`${r} ${g} ${b} RG ${x1} ${y1} m ${x2} ${y2} l S`);
+  };
+  const text = (value, x, baseline, size = 10, font = "F1", align = "left") => {
+    const safe = pdfSafeText(value);
+    const estimatedWidth = safe.length * size * (font === "F2" ? 0.55 : 0.5);
+    const tx = align === "right" ? x - estimatedWidth : x;
+    commands.push(`BT /${font} ${size} Tf ${tx.toFixed(2)} ${baseline.toFixed(2)} Td (${pdfString(safe)}) Tj ET`);
+  };
+  const finishPage = () => {
+    pages.push(commands.join("\n"));
+    commands = [];
+    y = pageHeight - 48;
+  };
+  const footer = (pageNumber) => {
+    line(margin, 37, pageWidth - margin, 37);
+    color(0.4, 0.43, 0.47);
+    text(`${code} - Presupuesto resumido para cliente`, margin, 22, 8);
+    text(`Pagina ${pageNumber}`, pageWidth - margin, 22, 8, "F1", "right");
+  };
+  const ensureSpace = (needed) => {
+    if (y - needed >= 58) return;
+    footer(pages.length + 1);
+    finishPage();
+  };
+  const paragraph = (value, options = {}) => {
+    const size = options.size || 10;
+    const leading = options.leading || size * 1.4;
+    const maxChars = options.maxChars || Math.max(45, Math.floor(contentWidth / (size * 0.5)));
+    const lines = wrapPdfText(value, maxChars);
+    ensureSpace(lines.length * leading + (options.after || 0));
+    color(...(options.color || [0.16, 0.18, 0.21]));
+    for (const item of lines) {
+      text(item, options.x || margin, y, size, options.bold ? "F2" : "F1");
+      y -= leading;
+    }
+    y -= options.after || 0;
+  };
+
+  color(0.1, 0.14, 0.18);
+  text(template.companyName || "HAM", margin, y, 20, "F2");
+  text("PRESUPUESTO RESUMIDO", pageWidth - margin, y + 2, 10, "F2", "right");
+  y -= 18;
+  color(0.42, 0.44, 0.47);
+  text(template.companySubtitle || "", margin, y, 9);
+  text(code, pageWidth - margin, y, 10, "F2", "right");
+  y -= 18;
+  line(margin, y, pageWidth - margin, y, 0.72, 0.51, 0.22);
+  y -= 28;
+
+  paragraph(payload.titulo || "Presupuesto", { size: 17, leading: 21, bold: true, after: 8, maxChars: 55 });
+  if (payload.resumen) paragraph(payload.resumen, { size: 10, leading: 14, after: 10, color: [0.32, 0.34, 0.37] });
+
+  const meta = [
+    client.nombre && `Cliente: ${client.nombre}`,
+    client.nif && `NIF/CIF: ${client.nif}`,
+    client.referencia && `Referencia: ${client.referencia}`,
+    `Fecha: ${new Date().toLocaleDateString("es-ES")}`,
+  ].filter(Boolean);
+  ensureSpace(meta.length * 15 + 24);
+  color(0.95, 0.95, 0.94);
+  commands.push(`${margin} ${(y - meta.length * 15 - 10).toFixed(2)} ${contentWidth} ${(meta.length * 15 + 18).toFixed(2)} re f`);
+  color(0.18, 0.2, 0.22);
+  for (const item of meta) {
+    text(item, margin + 12, y, 9, item.startsWith("Cliente:") ? "F2" : "F1");
+    y -= 15;
+  }
+  y -= 22;
+
+  color(0.1, 0.14, 0.18);
+  text("RESUMEN ECONOMICO", margin, y, 11, "F2");
+  y -= 17;
+  line(margin, y, pageWidth - margin, y);
+  y -= 18;
+
+  for (const row of rows) {
+    const description = row.concepts.slice(0, 3).join(", ");
+    const wrapped = wrapPdfText(description, 70);
+    const rowHeight = Math.max(30, 16 + wrapped.length * 11);
+    ensureSpace(rowHeight + 8);
+    color(0.12, 0.14, 0.17);
+    text(row.chapter, margin, y, 10, "F2");
+    text(`${row.amount.toFixed(2)} EUR`, pageWidth - margin, y, 10, "F2", "right");
+    y -= 13;
+    color(0.4, 0.42, 0.45);
+    for (const descriptionLine of wrapped) {
+      text(descriptionLine, margin, y, 8.5);
+      y -= 11;
+    }
+    y -= 7;
+    line(margin, y, pageWidth - margin, y, 0.88, 0.89, 0.9);
+    y -= 12;
+  }
+
+  ensureSpace(72);
+  color(0.1, 0.14, 0.18);
+  text("TOTAL", margin, y, 13, "F2");
+  text(`${total.toFixed(2)} EUR + IVA`, pageWidth - margin, y, 15, "F2", "right");
+  y -= 28;
+  paragraph("Importe resumido por capitulos. El alcance detallado, las mediciones y las condiciones tecnicas quedan recogidos en el presupuesto interno.", {
+    size: 8.5,
+    leading: 12,
+    after: 12,
+    color: [0.38, 0.4, 0.43],
+  });
+
+  if (template.footerText) {
+    paragraph(template.footerText, { size: 8, leading: 11, color: [0.38, 0.4, 0.43], maxChars: 105 });
+  }
+
+  footer(pages.length + 1);
+  finishPage();
+
+  const objects = [];
+  const addObject = (body) => {
+    objects.push(body);
+    return objects.length;
+  };
+  const catalogId = addObject("");
+  const pagesId = addObject("");
+  const regularFontId = addObject("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>");
+  const boldFontId = addObject("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>");
+  const pageIds = [];
+  for (const stream of pages) {
+    const streamBuffer = Buffer.from(stream, "latin1");
+    const contentId = addObject(`<< /Length ${streamBuffer.length} >>\nstream\n${stream}\nendstream`);
+    pageIds.push(addObject(`<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${pageWidth} ${pageHeight}] /Resources << /Font << /F1 ${regularFontId} 0 R /F2 ${boldFontId} 0 R >> >> /Contents ${contentId} 0 R >>`));
+  }
+  objects[catalogId - 1] = `<< /Type /Catalog /Pages ${pagesId} 0 R >>`;
+  objects[pagesId - 1] = `<< /Type /Pages /Kids [${pageIds.map((id) => `${id} 0 R`).join(" ")}] /Count ${pageIds.length} >>`;
+
+  const chunks = [Buffer.from("%PDF-1.4\n%\xff\xff\xff\xff\n", "latin1")];
+  const offsets = [0];
+  let offset = chunks[0].length;
+  objects.forEach((object, index) => {
+    offsets.push(offset);
+    const chunk = Buffer.from(`${index + 1} 0 obj\n${object}\nendobj\n`, "latin1");
+    chunks.push(chunk);
+    offset += chunk.length;
+  });
+  const xrefOffset = offset;
+  const xref = [`xref\n0 ${objects.length + 1}\n`, "0000000000 65535 f \n"];
+  for (let index = 1; index <= objects.length; index += 1) {
+    xref.push(`${String(offsets[index]).padStart(10, "0")} 00000 n \n`);
+  }
+  xref.push(`trailer\n<< /Size ${objects.length + 1} /Root ${catalogId} 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`);
+  chunks.push(Buffer.from(xref.join(""), "latin1"));
+  return Buffer.concat(chunks);
+}
+
 function budgetMarkdown(payload, code) {
   const lines = payload.lineas || [];
   const total = totalOf(lines);
@@ -1790,6 +2001,26 @@ async function route(req, res) {
       usage: image.usage,
       tokenStatus: status,
     });
+  }
+  if (req.method === "POST" && url.pathname === "/api/export-summary-pdf") {
+    const body = await readJson(req);
+    if (!body.folder) return send(res, 400, { error: "Guarda primero el presupuesto para generar su PDF resumido." });
+    const folder = resolveBudgetFolder(body.folder);
+    const stored = await readBudgetData(body.folder);
+    const payload = { ...(stored.data || {}), ...(body.payload || {}) };
+    delete payload._folder;
+    delete payload._changeLog;
+    const code = path.basename(folder).match(/^(P-\d{4}-\d{4})/)?.[1] || "PRESUPUESTO";
+    const fileName = "presupuesto-resumido-cliente.pdf";
+    const pdf = createSummaryPdf(payload, code);
+    await fs.writeFile(path.join(folder, fileName), pdf);
+    res.writeHead(200, {
+      "Content-Type": "application/pdf",
+      "Content-Length": pdf.length,
+      "Content-Disposition": `attachment; filename*=UTF-8''${encodeURIComponent(`${code}-resumido-cliente.pdf`)}`,
+      "Cache-Control": "no-store",
+    });
+    return res.end(pdf);
   }
   if (req.method === "POST" && url.pathname === "/api/export") {
     const body = await readJson(req);

@@ -71,6 +71,7 @@ const els = {
   addLine: document.querySelector("#addLine"),
   exportBudget: document.querySelector("#exportBudget"),
   printBudget: document.querySelector("#printBudget"),
+  summaryPdfBudget: document.querySelector("#summaryPdfBudget"),
   generateBudgetImage: document.querySelector("#generateBudgetImage"),
   refreshContext: document.querySelector("#refreshContext"),
   contextFiles: document.querySelector("#contextFiles"),
@@ -827,6 +828,7 @@ function renderResult(renderTable = true) {
   els.resultPanel.classList.remove("hidden");
   els.exportBudget.disabled = false;
   els.printBudget.disabled = false;
+  if (els.summaryPdfBudget) els.summaryPdfBudget.disabled = false;
   if (els.generateBudgetImage) els.generateBudgetImage.disabled = false;
   if (!state.result.documentTemplate) state.result.documentTemplate = currentDocumentTemplate();
   els.title.value = state.result.titulo || "Presupuesto";
@@ -857,6 +859,7 @@ function clearBudgetForm() {
   els.resultPanel.classList.add("hidden");
   els.exportBudget.disabled = true;
   els.printBudget.disabled = true;
+  if (els.summaryPdfBudget) els.summaryPdfBudget.disabled = true;
   if (els.generateBudgetImage) els.generateBudgetImage.disabled = true;
   setStatus("");
   updateSaveMode();
@@ -1549,6 +1552,42 @@ function printBudget() {
   }, 150);
 }
 
+async function generateSummaryPdf() {
+  if (!state.result || !els.summaryPdfBudget) return;
+  els.summaryPdfBudget.disabled = true;
+  setStatus("Generando PDF resumido para el cliente...");
+  try {
+    const folder = await ensureCurrentBudgetSaved();
+    const response = await fetch(appUrl("/api/export-summary-pdf"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ folder, payload: resultPayload() }),
+    });
+    if (!response.ok) {
+      const error = await response.json().catch(() => ({ error: "No se pudo generar el PDF resumido." }));
+      throw new Error(error.error || "No se pudo generar el PDF resumido.");
+    }
+    const blob = await response.blob();
+    const disposition = response.headers.get("Content-Disposition") || "";
+    const encodedName = disposition.match(/filename\*=UTF-8''([^;]+)/i)?.[1];
+    const fileName = encodedName ? decodeURIComponent(encodedName) : "presupuesto-resumido-cliente.pdf";
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+    await loadBudgets();
+    setStatus(`PDF resumido generado y guardado en ${folder}/presupuesto-resumido-cliente.pdf.`);
+  } catch (error) {
+    setStatus(error.message);
+  } finally {
+    els.summaryPdfBudget.disabled = false;
+  }
+}
+
 document.querySelectorAll(".nav-btn[data-view]").forEach((button) => button.addEventListener("click", (event) => { event.stopPropagation(); switchView(button.dataset.view); }));
 if (els.menuToggle) els.menuToggle.addEventListener("click", (event) => {
   event.preventDefault();
@@ -1597,6 +1636,7 @@ els.mdEditMode.addEventListener("click", () => setMdMode("edit"));
 els.mdPreviewMode.addEventListener("click", () => setMdMode("preview"));
 els.mdEditor.addEventListener("input", () => { if (!els.mdPreview.classList.contains("hidden")) els.mdPreview.innerHTML = renderMarkdown(els.mdEditor.value); });
 els.printBudget.addEventListener("click", printBudget);
+if (els.summaryPdfBudget) els.summaryPdfBudget.addEventListener("click", generateSummaryPdf);
 if (els.generateBudgetImage) els.generateBudgetImage.addEventListener("click", generateBudgetImageForCurrent);
 [els.clientName, els.clientEmail, els.clientPhone, els.clientTax, els.clientAddress, els.clientRef].forEach((input) => input.addEventListener("input", renderPrintPreview));
 [els.title, els.summaryText, els.productType].forEach((input) => input.addEventListener("input", () => { syncBudgetHeaderFromInputs(); renderPrintPreview(); }));
