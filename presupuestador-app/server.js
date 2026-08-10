@@ -1108,41 +1108,95 @@ function summarizedBudgetRows(lines = []) {
 function createSummaryPdf(payload, code) {
   const pageWidth = 595.28;
   const pageHeight = 841.89;
-  const margin = 48;
+  const margin = 38;
   const contentWidth = pageWidth - margin * 2;
   const rows = summarizedBudgetRows(payload.lineas || []);
   const total = roundMoney(rows.reduce((sum, row) => sum + row.amount, 0));
   const client = payload.cliente || {};
   const template = normalizeDocumentTemplate(payload.documentTemplate || {});
+  const headerLines = String(template.headerText || DEFAULT_DOCUMENT_TEMPLATE.headerText)
+    .split(/\r?\n/)
+    .map((line) => pdfSafeText(line.trim()))
+    .filter(Boolean);
+  const companyTitle = headerLines[0] || "HAM Estructuras Metalicas";
+  const companyDetails = headerLines.slice(1);
+  const footerLines = String(template.footerText || DEFAULT_DOCUMENT_TEMPLATE.footerText)
+    .split(/\r?\n/)
+    .map((line) => pdfSafeText(line.trim()))
+    .filter(Boolean);
   const pages = [];
   let commands = [];
-  let y = pageHeight - 48;
+  let y = pageHeight - 34;
 
   const color = (r, g, b) => commands.push(`${r} ${g} ${b} rg`);
-  const line = (x1, y1, x2, y2, r = 0.82, g = 0.84, b = 0.86) => {
-    commands.push(`${r} ${g} ${b} RG ${x1} ${y1} m ${x2} ${y2} l S`);
+  const stroke = (r, g, b) => commands.push(`${r} ${g} ${b} RG`);
+  const rect = (x, bottom, width, height, fill = [1, 1, 1]) => {
+    color(...fill);
+    commands.push(`${x.toFixed(2)} ${bottom.toFixed(2)} ${width.toFixed(2)} ${height.toFixed(2)} re f`);
   };
+  const strokedRect = (x, bottom, width, height, rgb = [0.84, 0.87, 0.9]) => {
+    stroke(...rgb);
+    commands.push(`${x.toFixed(2)} ${bottom.toFixed(2)} ${width.toFixed(2)} ${height.toFixed(2)} re S`);
+  };
+  const line = (x1, y1, x2, y2, r = 0.82, g = 0.84, b = 0.86) => {
+    commands.push(`${r} ${g} ${b} RG ${x1.toFixed(2)} ${y1.toFixed(2)} m ${x2.toFixed(2)} ${y2.toFixed(2)} l S`);
+  };
+  const measureText = (value, size = 10, font = "F1") => pdfSafeText(value).length * size * (font === "F2" ? 0.56 : 0.5);
   const text = (value, x, baseline, size = 10, font = "F1", align = "left") => {
     const safe = pdfSafeText(value);
-    const estimatedWidth = safe.length * size * (font === "F2" ? 0.55 : 0.5);
-    const tx = align === "right" ? x - estimatedWidth : x;
+    const estimatedWidth = measureText(safe, size, font);
+    const tx = align === "right" ? x - estimatedWidth : align === "center" ? x - estimatedWidth / 2 : x;
     commands.push(`BT /${font} ${size} Tf ${tx.toFixed(2)} ${baseline.toFixed(2)} Td (${pdfString(safe)}) Tj ET`);
   };
   const finishPage = () => {
     pages.push(commands.join("\n"));
     commands = [];
-    y = pageHeight - 48;
+    y = pageHeight - 34;
   };
   const footer = (pageNumber) => {
-    line(margin, 37, pageWidth - margin, 37);
+    line(margin, 38, pageWidth - margin, 38);
     color(0.4, 0.43, 0.47);
-    text(`${code} - Presupuesto resumido para cliente`, margin, 22, 8);
-    text(`Pagina ${pageNumber}`, pageWidth - margin, 22, 8, "F1", "right");
+    text(`${code} - Presupuesto resumido para cliente`, margin, 24, 8);
+    text(`Pagina ${pageNumber}`, pageWidth - margin, 24, 8, "F1", "right");
+  };
+  const drawDocumentHeader = () => {
+    rect(margin, y - 6, contentWidth, 4, [0.09, 0.13, 0.17]);
+    y -= 32;
+
+    color(0.02, 0.03, 0.04);
+    text("HAM", margin + 4, y - 26, 28, "F2");
+    color(0.08, 0.13, 0.17);
+    text(companyTitle, margin + 108, y, 15, "F2");
+    let detailY = y - 13;
+    for (const detail of companyDetails.slice(0, 4)) {
+      const lines = wrapPdfText(detail, 66).slice(0, 2);
+      for (const item of lines) {
+        color(0.25, 0.32, 0.42);
+        text(item, margin + 108, detailY, 8.5);
+        detailY -= 10;
+      }
+    }
+
+    const rightX = pageWidth - margin;
+    color(0.08, 0.13, 0.17);
+    text("PRESUPUESTO", rightX, y, 15, "F2", "right");
+    rect(rightX - 80, y - 32, 80, 23, [0.96, 0.97, 0.98]);
+    strokedRect(rightX - 80, y - 32, 80, 23);
+    color(0.08, 0.13, 0.17);
+    text("Resumen cliente", rightX - 40, y - 23, 8.5, "F2", "center");
+    color(0.25, 0.32, 0.42);
+    text(code, rightX, y - 43, 8.5, "F2", "right");
+    text(`Fecha: ${new Date().toISOString().slice(0, 10)}`, rightX, y - 54, 8.5, "F1", "right");
+
+    y -= 92;
+    line(margin, y, pageWidth - margin, y);
+    y -= 14;
   };
   const ensureSpace = (needed) => {
     if (y - needed >= 58) return;
     footer(pages.length + 1);
     finishPage();
+    drawDocumentHeader();
   };
   const paragraph = (value, options = {}) => {
     const size = options.size || 10;
@@ -1158,75 +1212,89 @@ function createSummaryPdf(payload, code) {
     y -= options.after || 0;
   };
 
-  color(0.1, 0.14, 0.18);
-  text(template.companyName || "HAM", margin, y, 20, "F2");
-  text("PRESUPUESTO RESUMIDO", pageWidth - margin, y + 2, 10, "F2", "right");
-  y -= 18;
-  color(0.42, 0.44, 0.47);
-  text(template.companySubtitle || "", margin, y, 9);
-  text(code, pageWidth - margin, y, 10, "F2", "right");
-  y -= 18;
-  line(margin, y, pageWidth - margin, y, 0.72, 0.51, 0.22);
-  y -= 28;
+  drawDocumentHeader();
 
-  paragraph(payload.titulo || "Presupuesto", { size: 17, leading: 21, bold: true, after: 8, maxChars: 55 });
-  if (payload.resumen) paragraph(payload.resumen, { size: 10, leading: 14, after: 10, color: [0.32, 0.34, 0.37] });
+  const heroLines = wrapPdfText(payload.resumen || "", 112).slice(0, 4);
+  const heroHeight = 40 + heroLines.length * 11;
+  ensureSpace(heroHeight + 12);
+  rect(margin, y - heroHeight + 10, contentWidth, heroHeight, [0.96, 0.97, 0.98]);
+  rect(margin, y - heroHeight + 10, 4, heroHeight, [0.09, 0.13, 0.17]);
+  color(0.08, 0.13, 0.17);
+  text(payload.titulo || "Presupuesto", margin + 14, y - 8, 17, "F2");
+  y -= 24;
+  color(0.29, 0.35, 0.44);
+  for (const item of heroLines) {
+    text(item, margin + 14, y, 9.5);
+    y -= 11;
+  }
+  y -= 16;
 
   const meta = [
-    client.nombre && `Cliente: ${client.nombre}`,
-    client.nif && `NIF/CIF: ${client.nif}`,
-    client.referencia && `Referencia: ${client.referencia}`,
-    `Fecha: ${new Date().toLocaleDateString("es-ES")}`,
+    `Cliente: ${client.nombre || ""}`,
+    `Email: ${client.email || ""} | Tel.: ${client.telefono || ""}`,
+    `Obra: ${client.direccion || ""}`,
+    `NIF/CIF: ${client.nif || ""} | Referencia: ${client.referencia || ""}`,
   ].filter(Boolean);
-  ensureSpace(meta.length * 15 + 24);
-  color(0.95, 0.95, 0.94);
-  commands.push(`${margin} ${(y - meta.length * 15 - 10).toFixed(2)} ${contentWidth} ${(meta.length * 15 + 18).toFixed(2)} re f`);
+  ensureSpace(62);
+  rect(margin, y - 52, contentWidth, 52, [0.96, 0.97, 0.98]);
+  strokedRect(margin, y - 52, contentWidth, 52);
   color(0.18, 0.2, 0.22);
-  for (const item of meta) {
-    text(item, margin + 12, y, 9, item.startsWith("Cliente:") ? "F2" : "F1");
-    y -= 15;
+  let metaY = y - 15;
+  for (const item of meta.slice(0, 4)) {
+    const [label, ...rest] = item.split(":");
+    text(`${label}:`, margin + 12, metaY, 9, "F2");
+    text(rest.join(":").trim(), margin + 78, metaY, 9);
+    metaY -= 11;
   }
-  y -= 22;
+  y -= 68;
 
-  color(0.1, 0.14, 0.18);
-  text("RESUMEN ECONOMICO", margin, y, 11, "F2");
-  y -= 17;
-  line(margin, y, pageWidth - margin, y);
-  y -= 18;
+  ensureSpace(42);
+  rect(margin, y - 24, contentWidth, 24, [0.09, 0.13, 0.17]);
+  color(1, 1, 1);
+  text("Capitulo", margin + 6, y - 15, 8.5, "F2");
+  text("Concepto resumido", margin + 92, y - 15, 8.5, "F2");
+  text("Importe", pageWidth - margin - 6, y - 15, 8.5, "F2", "right");
+  y -= 38;
 
   for (const row of rows) {
     const description = row.concepts.slice(0, 3).join(", ");
-    const wrapped = wrapPdfText(description, 70);
-    const rowHeight = Math.max(30, 16 + wrapped.length * 11);
+    const wrapped = wrapPdfText(description, 82);
+    const rowHeight = Math.max(34, 18 + wrapped.length * 10);
     ensureSpace(rowHeight + 8);
-    color(0.12, 0.14, 0.17);
-    text(row.chapter, margin, y, 10, "F2");
-    text(`${row.amount.toFixed(2)} EUR`, pageWidth - margin, y, 10, "F2", "right");
-    y -= 13;
+    const topY = y;
+    color(0.08, 0.13, 0.17);
+    text(row.chapter, margin + 6, topY, 8.5);
+    text(`${row.amount.toFixed(2)} EUR`, pageWidth - margin - 6, topY, 9.5, "F2", "right");
     color(0.4, 0.42, 0.45);
+    let descY = topY;
     for (const descriptionLine of wrapped) {
-      text(descriptionLine, margin, y, 8.5);
-      y -= 11;
+      text(descriptionLine, margin + 92, descY, 8.2);
+      descY -= 10;
     }
-    y -= 7;
-    line(margin, y, pageWidth - margin, y, 0.88, 0.89, 0.9);
-    y -= 12;
+    y = topY - rowHeight;
+    line(margin, y, pageWidth - margin, y, 0.84, 0.87, 0.9);
+    y -= 8;
   }
 
   ensureSpace(72);
   color(0.1, 0.14, 0.18);
-  text("TOTAL", margin, y, 13, "F2");
-  text(`${total.toFixed(2)} EUR + IVA`, pageWidth - margin, y, 15, "F2", "right");
-  y -= 28;
-  paragraph("Importe resumido por capitulos. El alcance detallado, las mediciones y las condiciones tecnicas quedan recogidos en el presupuesto interno.", {
-    size: 8.5,
-    leading: 12,
-    after: 12,
-    color: [0.38, 0.4, 0.43],
-  });
+  text(`Total estimado: ${total.toFixed(2)} EUR + IVA`, pageWidth - margin, y, 15, "F2", "right");
+  y -= 34;
 
-  if (template.footerText) {
-    paragraph(template.footerText, { size: 8, leading: 11, color: [0.38, 0.4, 0.43], maxChars: 105 });
+  if (footerLines.length) {
+    ensureSpace(18 + footerLines.length * 12);
+    line(margin, y, pageWidth - margin, y);
+    y -= 16;
+    const half = contentWidth / 2;
+    footerLines.slice(0, 4).forEach((item, index) => {
+      const x = index % 2 === 0 ? margin : margin + half + 12;
+      const itemY = y - Math.floor(index / 2) * 14;
+      const [label, ...rest] = item.split(":");
+      color(0.22, 0.28, 0.36);
+      text(`${label}:`, x, itemY, 8.5, "F2");
+      text(rest.join(":").trim(), x + 76, itemY, 8.5);
+    });
+    y -= Math.ceil(Math.min(footerLines.length, 4) / 2) * 14 + 8;
   }
 
   footer(pages.length + 1);
