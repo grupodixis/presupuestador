@@ -1141,7 +1141,23 @@ function createSummaryPdf(payload, code) {
   const line = (x1, y1, x2, y2, r = 0.82, g = 0.84, b = 0.86) => {
     commands.push(`${r} ${g} ${b} RG ${x1.toFixed(2)} ${y1.toFixed(2)} m ${x2.toFixed(2)} ${y2.toFixed(2)} l S`);
   };
-  const measureText = (value, size = 10, font = "F1") => pdfSafeText(value).length * size * (font === "F2" ? 0.56 : 0.5);
+  const measureText = (value, size = 10, font = "F1") => pdfSafeText(value).length * size * (font === "F2" ? 0.64 : 0.52);
+  const wrapByWidth = (value, maxWidth, size = 10, font = "F1") => {
+    const words = pdfSafeText(value).split(/\s+/).filter(Boolean);
+    const lines = [];
+    let current = "";
+    for (const word of words) {
+      const candidate = current ? `${current} ${word}` : word;
+      if (!current || measureText(candidate, size, font) <= maxWidth) {
+        current = candidate;
+      } else {
+        lines.push(current);
+        current = word;
+      }
+    }
+    if (current) lines.push(current);
+    return lines;
+  };
   const text = (value, x, baseline, size = 10, font = "F1", align = "left") => {
     const safe = pdfSafeText(value);
     const estimatedWidth = measureText(safe, size, font);
@@ -1214,8 +1230,9 @@ function createSummaryPdf(payload, code) {
 
   drawDocumentHeader();
 
-  const heroTitleLines = wrapPdfText(payload.titulo || "Presupuesto", 52).slice(0, 3);
-  const heroLines = wrapPdfText(payload.resumen || "", 105).slice(0, 5);
+  const heroTextWidth = contentWidth - 34;
+  const heroTitleLines = wrapByWidth(payload.titulo || "Presupuesto", heroTextWidth, 17, "F2").slice(0, 4);
+  const heroLines = wrapByWidth(payload.resumen || "", heroTextWidth, 9.5, "F1").slice(0, 5);
   const heroHeight = 22 + heroTitleLines.length * 19 + heroLines.length * 11;
   ensureSpace(heroHeight + 12);
   rect(margin, y - heroHeight + 10, contentWidth, heroHeight, [0.96, 0.97, 0.98]);
