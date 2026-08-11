@@ -1214,14 +1214,19 @@ function createSummaryPdf(payload, code) {
 
   drawDocumentHeader();
 
-  const heroLines = wrapPdfText(payload.resumen || "", 112).slice(0, 4);
-  const heroHeight = 40 + heroLines.length * 11;
+  const heroTitleLines = wrapPdfText(payload.titulo || "Presupuesto", 52).slice(0, 3);
+  const heroLines = wrapPdfText(payload.resumen || "", 105).slice(0, 5);
+  const heroHeight = 22 + heroTitleLines.length * 19 + heroLines.length * 11;
   ensureSpace(heroHeight + 12);
   rect(margin, y - heroHeight + 10, contentWidth, heroHeight, [0.96, 0.97, 0.98]);
   rect(margin, y - heroHeight + 10, 4, heroHeight, [0.09, 0.13, 0.17]);
   color(0.08, 0.13, 0.17);
-  text(payload.titulo || "Presupuesto", margin + 14, y - 8, 17, "F2");
-  y -= 24;
+  let heroY = y - 10;
+  for (const item of heroTitleLines) {
+    text(item, margin + 14, heroY, 17, "F2");
+    heroY -= 19;
+  }
+  y = heroY + 3;
   color(0.29, 0.35, 0.44);
   for (const item of heroLines) {
     text(item, margin + 14, y, 9.5);
