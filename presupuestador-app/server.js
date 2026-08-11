@@ -1298,10 +1298,12 @@ function createSummaryPdf(payload, code) {
     y -= 8;
   }
 
-  ensureSpace(72);
+  ensureSpace(92);
+  line(margin, y + 10, pageWidth - margin, y + 10, 0.84, 0.87, 0.9);
+  y -= 8;
   color(0.1, 0.14, 0.18);
   text(`Total estimado: ${total.toFixed(2)} EUR + IVA`, pageWidth - margin, y, 15, "F2", "right");
-  y -= 34;
+  y -= 44;
 
   if (footerLines.length) {
     ensureSpace(18 + footerLines.length * 12);
