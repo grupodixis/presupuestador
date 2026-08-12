@@ -251,12 +251,12 @@ td textarea { min-height: 58px; resize: vertical; }
   text-transform: none;
 }
 .price-table-wrap { margin: 0; background: white; }
-.price-table { min-width: 1280px; }
+.price-table { min-width: 1080px; }
 .price-table th:nth-child(1), .price-table td:nth-child(1) { width: 56px; text-align: center; }
-.price-table th:nth-child(5), .price-table td:nth-child(5) { width: 70px; }
-.price-table th:nth-child(6), .price-table td:nth-child(6),
-.price-table th:nth-child(7), .price-table td:nth-child(7),
-.price-table th:nth-child(8), .price-table td:nth-child(8) { width: 90px; }
+.price-table th:nth-child(3), .price-table td:nth-child(3) { width: 70px; }
+.price-table th:nth-child(4), .price-table td:nth-child(4),
+.price-table th:nth-child(5), .price-table td:nth-child(5),
+.price-table th:nth-child(6), .price-table td:nth-child(6) { width: 90px; }
 .price-table tr.inactive { opacity: .58; }
 .price-table tr.saving td { background: #fff8e6; }
 .price-table textarea { min-height: 44px; font-size: 12px; }

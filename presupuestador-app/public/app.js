@@ -1207,11 +1207,11 @@ function priceSortLabel(value) {
 function createPriceRow(price) {
   const tr = document.createElement("tr");
   tr.dataset.id = price.id || "";
+  tr.dataset.category = price.category || "material";
+  tr.dataset.area = price.area || "general";
   if (!price.active) tr.classList.add("inactive");
   tr.innerHTML = `
     <td><input data-price-active type="checkbox" autocomplete="off" ${price.active ? "checked" : ""}></td>
-    <td><input data-price-category autocomplete="off" value="${escapeHtml(price.category || "")}" placeholder="material"></td>
-    <td><input data-price-area autocomplete="off" value="${escapeHtml(price.area || "")}" placeholder="carpinteria_metalica"></td>
     <td>
       <input data-price-name autocomplete="off" value="${escapeHtml(price.name || "")}" placeholder="Nombre">
       <textarea data-price-description autocomplete="off" rows="2" placeholder="Descripcion tecnica">${escapeHtml(price.description || "")}</textarea>
@@ -1250,8 +1250,8 @@ function pricePayloadFromRow(row) {
   return {
     id: row.dataset.id ? Number(row.dataset.id) : null,
     active: row.querySelector("[data-price-active]").checked,
-    category: row.querySelector("[data-price-category]").value.trim() || "material",
-    area: row.querySelector("[data-price-area]").value.trim() || "general",
+    category: row.dataset.category || "material",
+    area: row.dataset.area || "general",
     name: row.querySelector("[data-price-name]").value.trim(),
     description: row.querySelector("[data-price-description]").value.trim(),
     unit: row.querySelector("[data-price-unit]").value.trim() || "ud",
@@ -1323,7 +1323,7 @@ function renderPrices() {
         <table class="price-table">
           <thead>
             <tr>
-              <th>Activo</th><th>Categoria</th><th>Area</th><th>Nombre</th><th>Ud.</th><th>Coste</th><th>Venta</th><th>Margen %</th><th>Proveedor</th><th>Confianza</th><th></th>
+              <th>Activo</th><th>Nombre</th><th>Ud.</th><th>Coste</th><th>Venta</th><th>Margen %</th><th>Proveedor</th><th>Confianza</th><th></th>
             </tr>
           </thead>
           <tbody></tbody>
