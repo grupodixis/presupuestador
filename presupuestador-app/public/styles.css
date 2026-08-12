@@ -202,7 +202,55 @@ td textarea { min-height: 58px; resize: vertical; }
   color: var(--ink);
   background: white;
 }
-.price-table-wrap { margin-top: 16px; }
+.price-browser {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+.price-category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-bottom: 1px solid var(--line);
+}
+.price-category-tab {
+  background: transparent;
+  color: var(--muted);
+  border-radius: 0;
+  padding: 10px 12px;
+  border-bottom: 3px solid transparent;
+}
+.price-category-tab.active {
+  color: var(--brand);
+  border-bottom-color: var(--accent);
+}
+.price-accordion {
+  display: grid;
+  gap: 10px;
+}
+.price-area {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--soft);
+  overflow: hidden;
+}
+.price-area summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  color: var(--brand);
+  font-weight: 800;
+  text-transform: capitalize;
+}
+.price-area summary small {
+  color: var(--muted);
+  font-weight: 700;
+  text-transform: none;
+}
+.price-table-wrap { margin: 0; background: white; }
 .price-table { min-width: 1280px; }
 .price-table th:nth-child(1), .price-table td:nth-child(1) { width: 56px; text-align: center; }
 .price-table th:nth-child(5), .price-table td:nth-child(5) { width: 70px; }
@@ -219,6 +267,13 @@ td textarea { min-height: 58px; resize: vertical; }
 }
 .price-actions button { padding: 8px 10px; }
 .price-export-note { margin: 10px 0 0; font-size: 13px; }
+.empty-state {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--soft);
+  color: var(--muted);
+  padding: 16px;
+}
 
 .budget-toolbar {
   display: flex;

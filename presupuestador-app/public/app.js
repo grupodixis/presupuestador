@@ -44,6 +44,7 @@ const state = {
   currentUser: null,
   users: [],
   prices: [],
+  activePriceCategory: "",
 };
 
 const els = {
@@ -1181,6 +1182,65 @@ function priceMatches(price, query) {
     .includes(query);
 }
 
+function priceCategoryLabel(category) {
+  const labels = {
+    material: "Materiales",
+    mano_obra: "Mano de obra",
+    insumo: "Insumos",
+    transporte: "Transporte",
+    maquinaria: "Maquinaria",
+    montaje: "Montaje",
+    acabado: "Acabados",
+    servicio: "Servicios",
+  };
+  return labels[category] || category.replaceAll("_", " ");
+}
+
+function priceAreaLabel(area) {
+  return String(area || "general").replaceAll("_", " ");
+}
+
+function priceSortLabel(value) {
+  return String(value || "").localeCompare("general") === 0 ? "000_general" : String(value || "");
+}
+
+function createPriceRow(price) {
+  const tr = document.createElement("tr");
+  tr.dataset.id = price.id || "";
+  if (!price.active) tr.classList.add("inactive");
+  tr.innerHTML = `
+    <td><input data-price-active type="checkbox" ${price.active ? "checked" : ""}></td>
+    <td><input data-price-category value="${escapeHtml(price.category || "")}" placeholder="material"></td>
+    <td><input data-price-area value="${escapeHtml(price.area || "")}" placeholder="carpinteria_metalica"></td>
+    <td>
+      <input data-price-name value="${escapeHtml(price.name || "")}" placeholder="Nombre">
+      <textarea data-price-description rows="2" placeholder="Descripcion tecnica">${escapeHtml(price.description || "")}</textarea>
+    </td>
+    <td><input data-price-unit value="${escapeHtml(price.unit || "ud")}"></td>
+    <td><input data-price-cost value="${Number(price.costPrice || 0)}"></td>
+    <td><input data-price-sale value="${Number(price.salePrice || 0)}"></td>
+    <td><input data-price-margin value="${Number(price.marginPercent || 0)}"></td>
+    <td><input data-price-supplier value="${escapeHtml(price.supplier || "")}"></td>
+    <td>
+      <select data-price-confidence>
+        <option value="confirmado">Confirmado</option>
+        <option value="estimado">Estimado</option>
+        <option value="antiguo">Antiguo</option>
+        <option value="pendiente">Pendiente</option>
+      </select>
+      <textarea data-price-notes rows="2" placeholder="Notas">${escapeHtml(price.notes || "")}</textarea>
+    </td>
+    <td class="price-actions">
+      <button data-save-price type="button">Guardar</button>
+      <button data-delete-price class="row-delete" type="button">x</button>
+    </td>
+  `;
+  tr.querySelector("[data-price-confidence]").value = price.confidence || "confirmado";
+  tr.querySelector("[data-save-price]").addEventListener("click", () => savePriceFromRow(tr));
+  tr.querySelector("[data-delete-price]").addEventListener("click", () => deletePriceFromRow(tr));
+  return tr;
+}
+
 function pricePayloadFromRow(row) {
   const costPrice = parseEditableNumber(row.querySelector("[data-price-cost]").value);
   const salePrice = parseEditableNumber(row.querySelector("[data-price-sale]").value);
@@ -1206,47 +1266,55 @@ function renderPrices() {
   const query = (els.priceSearch?.value || "").trim().toLowerCase();
   els.pricesBody.innerHTML = "";
   const prices = state.prices.filter((price) => priceMatches(price, query));
-  for (const price of prices) {
-    const tr = document.createElement("tr");
-    tr.dataset.id = price.id || "";
-    if (!price.active) tr.classList.add("inactive");
-    tr.innerHTML = `
-      <td><input data-price-active type="checkbox" ${price.active ? "checked" : ""}></td>
-      <td><input data-price-category value="${escapeHtml(price.category || "")}" placeholder="material"></td>
-      <td><input data-price-area value="${escapeHtml(price.area || "")}" placeholder="carpinteria_metalica"></td>
-      <td>
-        <input data-price-name value="${escapeHtml(price.name || "")}" placeholder="Nombre">
-        <textarea data-price-description rows="2" placeholder="Descripcion tecnica">${escapeHtml(price.description || "")}</textarea>
-      </td>
-      <td><input data-price-unit value="${escapeHtml(price.unit || "ud")}"></td>
-      <td><input data-price-cost value="${Number(price.costPrice || 0)}"></td>
-      <td><input data-price-sale value="${Number(price.salePrice || 0)}"></td>
-      <td><input data-price-margin value="${Number(price.marginPercent || 0)}"></td>
-      <td><input data-price-supplier value="${escapeHtml(price.supplier || "")}"></td>
-      <td>
-        <select data-price-confidence>
-          <option value="confirmado">Confirmado</option>
-          <option value="estimado">Estimado</option>
-          <option value="antiguo">Antiguo</option>
-          <option value="pendiente">Pendiente</option>
-        </select>
-        <textarea data-price-notes rows="2" placeholder="Notas">${escapeHtml(price.notes || "")}</textarea>
-      </td>
-      <td class="price-actions">
-        <button data-save-price type="button">Guardar</button>
-        <button data-delete-price class="row-delete" type="button">x</button>
-      </td>
-    `;
-    tr.querySelector("[data-price-confidence]").value = price.confidence || "confirmado";
-    tr.querySelector("[data-save-price]").addEventListener("click", () => savePriceFromRow(tr));
-    tr.querySelector("[data-delete-price]").addEventListener("click", () => deletePriceFromRow(tr));
-    els.pricesBody.appendChild(tr);
-  }
   if (!prices.length) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `<td colspan="11"><span class="status">No hay precios para este filtro.</span></td>`;
-    els.pricesBody.appendChild(tr);
+    els.pricesBody.innerHTML = `<div class="empty-state">No hay precios para este filtro.</div>`;
+    return;
   }
+  const categories = [...new Set(prices.map((price) => price.category || "material"))].sort((a, b) => priceCategoryLabel(a).localeCompare(priceCategoryLabel(b)));
+  if (!state.activePriceCategory || !categories.includes(state.activePriceCategory)) state.activePriceCategory = categories[0];
+  const tabs = document.createElement("div");
+  tabs.className = "price-category-tabs";
+  for (const category of categories) {
+    const count = prices.filter((price) => (price.category || "material") === category).length;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `price-category-tab${category === state.activePriceCategory ? " active" : ""}`;
+    button.textContent = `${priceCategoryLabel(category)} (${count})`;
+    button.addEventListener("click", () => {
+      state.activePriceCategory = category;
+      renderPrices();
+    });
+    tabs.appendChild(button);
+  }
+  els.pricesBody.appendChild(tabs);
+
+  const current = prices.filter((price) => (price.category || "material") === state.activePriceCategory);
+  const areas = [...new Set(current.map((price) => price.area || "general"))].sort((a, b) => priceSortLabel(a).localeCompare(priceSortLabel(b)));
+  const accordion = document.createElement("div");
+  accordion.className = "price-accordion";
+  for (const area of areas) {
+    const areaPrices = current.filter((price) => (price.area || "general") === area);
+    const details = document.createElement("details");
+    details.className = "price-area";
+    details.open = true;
+    details.innerHTML = `
+      <summary><span>${escapeHtml(priceAreaLabel(area))}</span><small>${areaPrices.length} precio(s)</small></summary>
+      <div class="table-wrap price-table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Activo</th><th>Categoria</th><th>Area</th><th>Nombre</th><th>Ud.</th><th>Coste</th><th>Venta</th><th>Margen %</th><th>Proveedor</th><th>Confianza</th><th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    `;
+    const tbody = details.querySelector("tbody");
+    for (const price of areaPrices) tbody.appendChild(createPriceRow(price));
+    accordion.appendChild(details);
+  }
+  els.pricesBody.appendChild(accordion);
 }
 
 async function loadPrices() {
@@ -1263,7 +1331,8 @@ async function loadPrices() {
 }
 
 function addPriceItem() {
-  state.prices = [{ ...PRICE_DEFAULTS }, ...state.prices];
+  state.activePriceCategory = "material";
+  state.prices = [{ ...PRICE_DEFAULTS, category: state.activePriceCategory }, ...state.prices];
   if (els.priceSearch) els.priceSearch.value = "";
   renderPrices();
 }
