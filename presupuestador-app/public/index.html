@@ -165,11 +165,11 @@
           <p>Las claves se guardan solo en este equipo, en <code>presupuestador-app/config.local.json</code>.</p>
           <div class="settings-grid">
             <label><span>Proveedor por defecto</span><select id="defaultProvider"><option value="fallback">Local sin API</option><option value="openai">OpenAI / Codex</option><option value="gemini">Gemini</option></select></label>
-            <label><span>OpenAI API key</span><input id="openaiKey" type="password" placeholder="sk-... o dejar vacio para conservar"></label>
+            <label><span>OpenAI API key</span><input id="openaiKey" type="password" autocomplete="new-password" data-lpignore="true" data-form-type="other" placeholder="sk-... o dejar vacio para conservar"></label>
             <label><span>Modelo OpenAI por defecto</span><select id="openaiModel"></select></label>
-            <label><span>Gemini API key</span><input id="geminiKey" type="password" placeholder="AIza... o dejar vacio para conservar"></label>
+            <label><span>Gemini API key</span><input id="geminiKey" type="password" autocomplete="new-password" data-lpignore="true" data-form-type="other" placeholder="AIza... o dejar vacio para conservar"></label>
             <label><span>Modelo Gemini por defecto</span><select id="geminiModel"></select></label>
-            <label><span>fal.ai API key para imagenes</span><input id="falKey" type="password" placeholder="FAL_KEY... o dejar vacio para conservar"></label>
+            <label><span>fal.ai API key para imagenes</span><input id="falKey" type="password" autocomplete="new-password" data-lpignore="true" data-form-type="other" placeholder="FAL_KEY... o dejar vacio para conservar"></label>
           </div>
           <div class="budget-grid">
             <label><span>Presupuesto local OpenAI (JSON modelo:tokens)</span><textarea id="openaiBudgets" rows="7" spellcheck="false" placeholder="{&quot;gpt-4.1-mini&quot;:500000}"></textarea></label>
@@ -224,7 +224,7 @@
           </div>
           <div class="user-create-grid">
             <label><span>Usuario</span><input id="newUsername" placeholder="usuario"></label>
-            <label><span>Contraseña</span><input id="newUserPassword" type="password" placeholder="min. 4 caracteres"></label>
+            <label><span>Contraseña</span><input id="newUserPassword" type="password" autocomplete="new-password" placeholder="min. 4 caracteres"></label>
             <label><span>Rol</span><select id="newUserRole"><option value="user">Usuario</option><option value="admin">Admin</option></select></label>
             <button id="createUser">Crear usuario</button>
           </div>

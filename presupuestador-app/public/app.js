@@ -1209,34 +1209,37 @@ function createPriceRow(price) {
   tr.dataset.id = price.id || "";
   if (!price.active) tr.classList.add("inactive");
   tr.innerHTML = `
-    <td><input data-price-active type="checkbox" ${price.active ? "checked" : ""}></td>
-    <td><input data-price-category value="${escapeHtml(price.category || "")}" placeholder="material"></td>
-    <td><input data-price-area value="${escapeHtml(price.area || "")}" placeholder="carpinteria_metalica"></td>
+    <td><input data-price-active type="checkbox" autocomplete="off" ${price.active ? "checked" : ""}></td>
+    <td><input data-price-category autocomplete="off" value="${escapeHtml(price.category || "")}" placeholder="material"></td>
+    <td><input data-price-area autocomplete="off" value="${escapeHtml(price.area || "")}" placeholder="carpinteria_metalica"></td>
     <td>
-      <input data-price-name value="${escapeHtml(price.name || "")}" placeholder="Nombre">
-      <textarea data-price-description rows="2" placeholder="Descripcion tecnica">${escapeHtml(price.description || "")}</textarea>
+      <input data-price-name autocomplete="off" value="${escapeHtml(price.name || "")}" placeholder="Nombre">
+      <textarea data-price-description autocomplete="off" rows="2" placeholder="Descripcion tecnica">${escapeHtml(price.description || "")}</textarea>
     </td>
-    <td><input data-price-unit value="${escapeHtml(price.unit || "ud")}"></td>
-    <td><input data-price-cost value="${Number(price.costPrice || 0)}"></td>
-    <td><input data-price-sale value="${Number(price.salePrice || 0)}"></td>
-    <td><input data-price-margin value="${Number(price.marginPercent || 0)}"></td>
-    <td><input data-price-supplier value="${escapeHtml(price.supplier || "")}"></td>
+    <td><input data-price-unit autocomplete="off" value="${escapeHtml(price.unit || "ud")}"></td>
+    <td><input data-price-cost autocomplete="off" type="number" step="0.01" inputmode="decimal" value="${Number(price.costPrice || 0)}"></td>
+    <td><input data-price-sale autocomplete="off" type="number" step="0.01" inputmode="decimal" value="${Number(price.salePrice || 0)}"></td>
+    <td><input data-price-margin autocomplete="off" type="number" step="0.01" inputmode="decimal" value="${Number(price.marginPercent || 0)}"></td>
+    <td><input data-price-supplier autocomplete="off" value="${escapeHtml(price.supplier || "")}"></td>
     <td>
-      <select data-price-confidence>
+      <select data-price-confidence autocomplete="off">
         <option value="confirmado">Confirmado</option>
         <option value="estimado">Estimado</option>
         <option value="antiguo">Antiguo</option>
         <option value="pendiente">Pendiente</option>
       </select>
-      <textarea data-price-notes rows="2" placeholder="Notas">${escapeHtml(price.notes || "")}</textarea>
+      <textarea data-price-notes autocomplete="off" rows="2" placeholder="Notas">${escapeHtml(price.notes || "")}</textarea>
     </td>
     <td class="price-actions">
-      <button data-save-price type="button">Guardar</button>
       <button data-delete-price class="row-delete" type="button">x</button>
     </td>
   `;
   tr.querySelector("[data-price-confidence]").value = price.confidence || "confirmado";
-  tr.querySelector("[data-save-price]").addEventListener("click", () => savePriceFromRow(tr));
+  tr.dataset.original = pricePayloadKey(pricePayloadFromRow(tr));
+  tr.querySelectorAll("input, textarea, select").forEach((field) => {
+    field.addEventListener("blur", () => autoSavePriceFromRow(tr), true);
+    field.addEventListener("change", () => autoSavePriceFromRow(tr));
+  });
   tr.querySelector("[data-delete-price]").addEventListener("click", () => deletePriceFromRow(tr));
   return tr;
 }
@@ -1259,6 +1262,23 @@ function pricePayloadFromRow(row) {
     confidence: row.querySelector("[data-price-confidence]").value,
     notes: row.querySelector("[data-price-notes]").value.trim(),
   };
+}
+
+function pricePayloadKey(payload) {
+  return JSON.stringify({
+    active: Boolean(payload.active),
+    category: payload.category || "material",
+    area: payload.area || "general",
+    name: payload.name || "",
+    description: payload.description || "",
+    unit: payload.unit || "ud",
+    costPrice: Number(payload.costPrice || 0),
+    salePrice: Number(payload.salePrice || 0),
+    marginPercent: Number(payload.marginPercent || 0),
+    supplier: payload.supplier || "",
+    confidence: payload.confidence || "confirmado",
+    notes: payload.notes || "",
+  });
 }
 
 function renderPrices() {
@@ -1337,21 +1357,29 @@ function addPriceItem() {
   renderPrices();
 }
 
-async function savePriceFromRow(row) {
-  els.priceStatus.textContent = "Guardando precio y actualizando conocimiento...";
+async function autoSavePriceFromRow(row) {
+  if (row.dataset.saving === "1") return;
   const payload = pricePayloadFromRow(row);
+  const currentKey = pricePayloadKey(payload);
+  if (currentKey === row.dataset.original) return;
   if (!payload.name) {
-    els.priceStatus.textContent = "Falta el nombre del precio.";
+    if (row.dataset.id) els.priceStatus.textContent = "Falta el nombre del precio.";
     return;
   }
+  row.dataset.saving = "1";
+  row.classList.add("saving");
+  els.priceStatus.textContent = "Guardando cambios...";
   try {
     const response = await api("/api/prices", payload);
     state.prices = response.prices || [];
     renderPrices();
     const info = response.exportInfo;
-    els.priceStatus.textContent = info ? `Precio guardado. Conocimiento actualizado: ${info.activeCount} activos.` : "Precio guardado.";
+    els.priceStatus.textContent = info ? `Cambios guardados. Conocimiento actualizado: ${info.activeCount} activos.` : "Cambios guardados.";
   } catch (error) {
     els.priceStatus.textContent = error.message;
+  } finally {
+    row.dataset.saving = "0";
+    row.classList.remove("saving");
   }
 }
 

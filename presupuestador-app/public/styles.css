@@ -258,6 +258,7 @@ td textarea { min-height: 58px; resize: vertical; }
 .price-table th:nth-child(7), .price-table td:nth-child(7),
 .price-table th:nth-child(8), .price-table td:nth-child(8) { width: 90px; }
 .price-table tr.inactive { opacity: .58; }
+.price-table tr.saving td { background: #fff8e6; }
 .price-table textarea { min-height: 44px; font-size: 12px; }
 .price-actions {
   display: flex;
