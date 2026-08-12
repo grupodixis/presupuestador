@@ -1,3 +1,2061 @@
 # Generado automaticamente desde SQLite. Editar desde Configuracion > Lista de precios.
-actualizado: '2026-08-12T08:43:26.678Z'
+actualizado: '2026-08-12T09:22:45.558Z'
 precios:
+  - id: 148
+    activo: true
+    categoria: 'mano_obra'
+    area: 'aluminio'
+    nombre: 'Mano de obra carpinteria aluminio'
+    descripcion: 'Referencia historico Mallorquinas Cortizo'
+    unidad: 'h'
+    precio_coste: 35
+    precio_venta: 35
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'historico-mallorquinas-cortizo.md'
+    actualizado: '2026-08-12T09:22:45.554Z'
+  - id: 138
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: '04.AC.R150 Carril acero inox'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'kg'
+    precio_coste: 11.42
+    precio_venta: 11.42
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.403Z'
+  - id: 139
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: '04.AC.R150 Carril acero inox por ml'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'ml'
+    precio_coste: 2.97
+    precio_venta: 2.97
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.415Z'
+  - id: 140
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: '10320 Solape 40 mm atornillado'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'kg'
+    precio_coste: 9.04
+    precio_venta: 9.04
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.426Z'
+  - id: 141
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: '10320 Solape 40 mm atornillado por ml'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'ml'
+    precio_coste: 2.49
+    precio_venta: 2.49
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.438Z'
+  - id: 130
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: '16341 Cierre lateral E150'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'kg'
+    precio_coste: 9.19
+    precio_venta: 9.19
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.286Z'
+  - id: 131
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: '16341 Cierre lateral E150 por ml'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'ml'
+    precio_coste: 5.12
+    precio_venta: 5.12
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.299Z'
+  - id: 132
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: '16342 Tapa canal E150'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'kg'
+    precio_coste: 16.83
+    precio_venta: 16.83
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.311Z'
+  - id: 133
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: '16342 Tapa canal E150 por ml'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'ml'
+    precio_coste: 1.01
+    precio_venta: 1.01
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.322Z'
+  - id: 134
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: '16343 Tapa marco E150'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'kg'
+    precio_coste: 9.57
+    precio_venta: 9.57
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.357Z'
+  - id: 135
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: '16343 Tapa marco E150 por ml'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'ml'
+    precio_coste: 4.36
+    precio_venta: 4.36
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.368Z'
+  - id: 136
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: '16347 Hoja central E150'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'kg'
+    precio_coste: 9.05
+    precio_venta: 9.05
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.379Z'
+  - id: 137
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: '16347 Hoja central E150 por ml'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'ml'
+    precio_coste: 8.24
+    precio_venta: 8.24
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.391Z'
+  - id: 15
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'anodizado'
+    descripcion: 'aluminio desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 1
+    precio_venta: 1
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.819Z'
+  - id: 143
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Carpinteria corredera E150 solo perfiles'
+    descripcion: 'Regla historica EXTRUAL / Perfila Menorca'
+    unidad: 'm2'
+    precio_coste: 122.02
+    precio_venta: 122.02
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.482Z'
+  - id: 76
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Chapa de aluminio lacado'
+    descripcion: 'Aluminio. 1.5 x 3 m'
+    unidad: 'kg'
+    precio_coste: 6
+    precio_venta: 6
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.620Z'
+  - id: 75
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Chapa de aluminio liso'
+    descripcion: 'Aluminio. 1.5 x 3 m'
+    unidad: 'kg'
+    precio_coste: 4.5
+    precio_venta: 4.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.601Z'
+  - id: 16
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'doble acristalamiento 4 12 4'
+    descripcion: 'vidrio desde costes-materiales.json'
+    unidad: 'm2'
+    precio_coste: 45
+    precio_venta: 45
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.844Z'
+  - id: 78
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Doble acristalamiento 4+12+4'
+    descripcion: 'Vidrio. 2.5 x 3.5 m'
+    unidad: 'kg'
+    precio_coste: 47.5
+    precio_venta: 47.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.634Z'
+  - id: 17
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'doble bajo emisivo'
+    descripcion: 'vidrio desde costes-materiales.json'
+    unidad: 'm2'
+    precio_coste: 65
+    precio_venta: 65
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.850Z'
+  - id: 79
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Doble bajo emisivo 4+12+4'
+    descripcion: 'Vidrio. 2.5 x 3.5 m'
+    unidad: 'kg'
+    precio_coste: 65
+    precio_venta: 65
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.641Z'
+  - id: 14
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'lacado color RAL'
+    descripcion: 'aluminio desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 1.5
+    precio_venta: 1.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.815Z'
+  - id: 20
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'laminar seguridad'
+    descripcion: 'vidrio desde costes-materiales.json'
+    unidad: 'm2'
+    precio_coste: 70
+    precio_venta: 70
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.874Z'
+  - id: 145
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Mallorquina Cortizo blanca coste neto historico'
+    descripcion: 'Mallorquina blanca estandar 2 hojas'
+    unidad: 'm2'
+    precio_coste: 163
+    precio_venta: 163
+    margen_porcentaje: 0
+    proveedor: 'Cortizo'
+    confianza: 'antiguo'
+    notas: 'historico-mallorquinas-cortizo.md'
+    actualizado: '2026-08-12T09:22:45.503Z'
+  - id: 147
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Mallorquina Cortizo blanca suministro prudente alto'
+    descripcion: 'Mallorquina blanca estandar 2 hojas'
+    unidad: 'm2'
+    precio_coste: 230
+    precio_venta: 230
+    margen_porcentaje: 0
+    proveedor: 'Cortizo'
+    confianza: 'estimado'
+    notas: 'historico-mallorquinas-cortizo.md'
+    actualizado: '2026-08-12T09:22:45.545Z'
+  - id: 146
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Mallorquina Cortizo blanca suministro prudente bajo'
+    descripcion: 'Mallorquina blanca estandar 2 hojas'
+    unidad: 'm2'
+    precio_coste: 200
+    precio_venta: 200
+    margen_porcentaje: 0
+    proveedor: 'Cortizo'
+    confianza: 'estimado'
+    notas: 'historico-mallorquinas-cortizo.md'
+    actualizado: '2026-08-12T09:22:45.514Z'
+  - id: 77
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Panel composite (Dibond / Alucobond)'
+    descripcion: 'Aluminio. 1.25 x 3.05 m'
+    unidad: 'kg'
+    precio_coste: 47.5
+    precio_venta: 47.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.627Z'
+  - id: 85
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Pasamanos haya / fresno'
+    descripcion: 'Madera (para pasamanos y elementos decorativos). 3-4 m'
+    unidad: 'ml'
+    precio_coste: 22.5
+    precio_venta: 22.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.705Z'
+  - id: 87
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Pasamanos iroko / teca (exterior)'
+    descripcion: 'Madera (para pasamanos y elementos decorativos). 3-4 m'
+    unidad: 'ml'
+    precio_coste: 52.5
+    precio_venta: 52.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.721Z'
+  - id: 86
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Pasamanos roble macizo'
+    descripcion: 'Madera (para pasamanos y elementos decorativos). 3-4 m'
+    unidad: 'ml'
+    precio_coste: 45
+    precio_venta: 45
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.713Z'
+  - id: 144
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Perfil EXTRUAL por peso neto unidad'
+    descripcion: 'Regla historica EXTRUAL / Perfila Menorca'
+    unidad: 'kg'
+    precio_coste: 16.74
+    precio_venta: 16.74
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.492Z'
+  - id: 13
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'perfil extrusion con RPT'
+    descripcion: 'aluminio desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 6.5
+    precio_venta: 6.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.799Z'
+  - id: 12
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'perfil extrusion sin RPT'
+    descripcion: 'aluminio desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 4.5
+    precio_venta: 4.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.766Z'
+  - id: 71
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Perfil extrusión estándar (sin RPT)'
+    descripcion: 'Aluminio. 5-6 m'
+    unidad: 'kg'
+    precio_coste: 4.75
+    precio_venta: 4.75
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.538Z'
+  - id: 72
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Perfil extrusión RPT'
+    descripcion: 'Aluminio. 5-6 m'
+    unidad: 'kg'
+    precio_coste: 6.5
+    precio_venta: 6.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.569Z'
+  - id: 142
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Perfileria EXTRUAL lacada blanca comprada'
+    descripcion: 'Regla historica EXTRUAL / Perfila Menorca'
+    unidad: 'kg'
+    precio_coste: 11.24
+    precio_venta: 11.24
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.448Z'
+  - id: 122
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'R941 Marco 2 carriles E150'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'kg'
+    precio_coste: 10.58
+    precio_venta: 10.58
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.196Z'
+  - id: 123
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'R941 Marco 2 carriles E150 por ml'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'ml'
+    precio_coste: 22.39
+    precio_venta: 22.39
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.206Z'
+  - id: 124
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'R943 Hoja lateral E150'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'kg'
+    precio_coste: 12.6
+    precio_venta: 12.6
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.218Z'
+  - id: 125
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'R943 Hoja lateral E150 por ml'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'ml'
+    precio_coste: 12.41
+    precio_venta: 12.41
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.233Z'
+  - id: 126
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'R945 Hoja superior/inferior E150'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'kg'
+    precio_coste: 14.94
+    precio_venta: 14.94
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.244Z'
+  - id: 127
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'R945 Hoja superior/inferior E150 por ml'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'ml'
+    precio_coste: 8.76
+    precio_venta: 8.76
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.255Z'
+  - id: 128
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'R946 Cierre 4 hojas E150'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'kg'
+    precio_coste: 14.68
+    precio_venta: 14.68
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.265Z'
+  - id: 129
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'R946 Cierre 4 hojas E150 por ml'
+    descripcion: 'Historico EXTRUAL / Perfila Menorca'
+    unidad: 'ml'
+    precio_coste: 8.83
+    precio_venta: 8.83
+    margen_porcentaje: 0
+    proveedor: 'Perfila Menorca / EXTRUAL'
+    confianza: 'antiguo'
+    notas: 'historico-aluminio-extrual.md'
+    actualizado: '2026-08-12T09:22:45.277Z'
+  - id: 88
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Tabla de madera para peldaños'
+    descripcion: 'Madera (para pasamanos y elementos decorativos). 2.5-4 m'
+    unidad: 'ml'
+    precio_coste: 80
+    precio_venta: 80
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.728Z'
+  - id: 19
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'templado seguridad 6mm'
+    descripcion: 'vidrio desde costes-materiales.json'
+    unidad: 'm2'
+    precio_coste: 55
+    precio_venta: 55
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.870Z'
+  - id: 18
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'triple acristalamiento'
+    descripcion: 'vidrio desde costes-materiales.json'
+    unidad: 'm2'
+    precio_coste: 95
+    precio_venta: 95
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.855Z'
+  - id: 80
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Triple acristalamiento'
+    descripcion: 'Vidrio. 2.5 x 3.0 m'
+    unidad: 'kg'
+    precio_coste: 102.5
+    precio_venta: 102.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.666Z'
+  - id: 74
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Tubo cuadrado / rectangular aluminio'
+    descripcion: 'Aluminio. 5-6 m'
+    unidad: 'kg'
+    precio_coste: 5.25
+    precio_venta: 5.25
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.593Z'
+  - id: 73
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Tubo redondo aluminio'
+    descripcion: 'Aluminio. 5-6 m'
+    unidad: 'kg'
+    precio_coste: 5.25
+    precio_venta: 5.25
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.586Z'
+  - id: 82
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Vidrio laminar seguridad (PVB)'
+    descripcion: 'Vidrio. 2.5 x 3.5 m'
+    unidad: 'kg'
+    precio_coste: 72.5
+    precio_venta: 72.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.682Z'
+  - id: 84
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Vidrio reflectante / espejo'
+    descripcion: 'Vidrio. 2.5 x 3.5 m'
+    unidad: 'kg'
+    precio_coste: 17.5
+    precio_venta: 17.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.697Z'
+  - id: 83
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Vidrio serigrafiado'
+    descripcion: 'Vidrio. 2.5 x 3.5 m'
+    unidad: 'kg'
+    precio_coste: 22.5
+    precio_venta: 22.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.690Z'
+  - id: 81
+    activo: true
+    categoria: 'material'
+    area: 'aluminio'
+    nombre: 'Vidrio templado seguridad 6 mm'
+    descripcion: 'Vidrio. 2.5 x 4.0 m'
+    unidad: 'kg'
+    precio_coste: 57.5
+    precio_venta: 57.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.675Z'
+  - id: 21
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'disco corte acero'
+    descripcion: 'consumibles desde costes-materiales.json'
+    unidad: 'ud'
+    precio_coste: 3.5
+    precio_venta: 3.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.901Z'
+  - id: 22
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'disco corte inox'
+    descripcion: 'consumibles desde costes-materiales.json'
+    unidad: 'ud'
+    precio_coste: 8
+    precio_venta: 8
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.906Z'
+  - id: 89
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'Disco de corte para acero (Ø230)'
+    descripcion: 'Consumibles de taller. ud'
+    unidad: 'kg'
+    precio_coste: 4
+    precio_venta: 4
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.760Z'
+  - id: 90
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'Disco de corte para inoxidable (Ø230)'
+    descripcion: 'Consumibles de taller. ud'
+    unidad: 'kg'
+    precio_coste: 8
+    precio_venta: 8
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.768Z'
+  - id: 91
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'Disco de desbaste (Ø230)'
+    descripcion: 'Consumibles de taller. ud'
+    unidad: 'kg'
+    precio_coste: 5.5
+    precio_venta: 5.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.777Z'
+  - id: 25
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'electrodo rutilico'
+    descripcion: 'consumibles desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 5
+    precio_venta: 5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.938Z'
+  - id: 94
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'Electrodo rutilico Ø2.5 (5 kg)'
+    descripcion: 'Consumibles de taller. paquete'
+    unidad: 'kg'
+    precio_coste: 27.5
+    precio_venta: 27.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.840Z'
+  - id: 96
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'Gas Argón puro (botella 20 L)'
+    descripcion: 'Consumibles de taller. botella'
+    unidad: 'kg'
+    precio_coste: 80
+    precio_venta: 80
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.880Z'
+  - id: 95
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'Gas CO₂ / mezcla Argón (botella 20 L)'
+    descripcion: 'Consumibles de taller. botella'
+    unidad: 'kg'
+    precio_coste: 55
+    precio_venta: 55
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.871Z'
+  - id: 23
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'hilo MIG 1mm'
+    descripcion: 'consumibles desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 4
+    precio_venta: 4
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.912Z'
+  - id: 92
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'Hilo MIG/MAG 1 mm (15 kg bobina)'
+    descripcion: 'Consumibles de taller. bobina'
+    unidad: 'kg'
+    precio_coste: 65
+    precio_venta: 65
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.808Z'
+  - id: 24
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'hilo TIG inox'
+    descripcion: 'consumibles desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 18
+    precio_venta: 18
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.933Z'
+  - id: 93
+    activo: true
+    categoria: 'insumo'
+    area: 'carpinteria_metalica'
+    nombre: 'Hilo TIG inoxidable 316L (5 kg)'
+    descripcion: 'Consumibles de taller. paquete'
+    unidad: 'kg'
+    precio_coste: 75
+    precio_venta: 75
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.816Z'
+  - id: 30
+    activo: true
+    categoria: 'mano_obra'
+    area: 'carpinteria_metalica'
+    nombre: 'ayudante montaje obra'
+    descripcion: 'Ayudante de montaje en obra'
+    unidad: 'h'
+    precio_coste: 35
+    precio_venta: 35
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'confirmado'
+    notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.980Z'
+  - id: 28
+    activo: true
+    categoria: 'mano_obra'
+    area: 'carpinteria_metalica'
+    nombre: 'ayudante taller'
+    descripcion: 'Ayudante de taller'
+    unidad: 'h'
+    precio_coste: 28
+    precio_venta: 28
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'confirmado'
+    notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.953Z'
+  - id: 34
+    activo: true
+    categoria: 'mano_obra'
+    area: 'carpinteria_metalica'
+    nombre: 'ingeniero oficina tecnica'
+    descripcion: 'Ingeniero/Delineante de oficina técnica'
+    unidad: 'h'
+    precio_coste: 55
+    precio_venta: 55
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'confirmado'
+    notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:44.021Z'
+  - id: 26
+    activo: true
+    categoria: 'mano_obra'
+    area: 'carpinteria_metalica'
+    nombre: 'oficial 1 taller'
+    descripcion: 'Oficial de primera en taller (soldadura, mecanizado)'
+    unidad: 'h'
+    precio_coste: 40
+    precio_venta: 40
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'confirmado'
+    notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.942Z'
+  - id: 27
+    activo: true
+    categoria: 'mano_obra'
+    area: 'carpinteria_metalica'
+    nombre: 'oficial 2 taller'
+    descripcion: 'Oficial de segunda en taller (corte, preparación)'
+    unidad: 'h'
+    precio_coste: 35
+    precio_venta: 35
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'confirmado'
+    notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.947Z'
+  - id: 29
+    activo: true
+    categoria: 'mano_obra'
+    area: 'carpinteria_metalica'
+    nombre: 'oficial montaje obra'
+    descripcion: 'Oficial de montaje en obra (incluye dietas)'
+    unidad: 'h'
+    precio_coste: 45
+    precio_venta: 45
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'confirmado'
+    notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.957Z'
+  - id: 98
+    activo: true
+    categoria: 'maquinaria'
+    area: 'carpinteria_metalica'
+    nombre: 'Corte recto'
+    descripcion: 'Usar 15 €/corte'
+    unidad: 'corte'
+    precio_coste: 15
+    precio_venta: 15
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:44.900Z'
+  - id: 101
+    activo: true
+    categoria: 'maquinaria'
+    area: 'carpinteria_metalica'
+    nombre: 'Escote'
+    descripcion: 'Usar 40 €/escote'
+    unidad: 'escote'
+    precio_coste: 40
+    precio_venta: 40
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:44.943Z'
+  - id: 99
+    activo: true
+    categoria: 'maquinaria'
+    area: 'carpinteria_metalica'
+    nombre: 'Perforacion'
+    descripcion: 'Usar 2,50-3,00 €/perforacion'
+    unidad: 'perforacion'
+    precio_coste: 2.75
+    precio_venta: 2.75
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:44.909Z'
+  - id: 111
+    activo: true
+    categoria: 'maquinaria'
+    area: 'carpinteria_metalica'
+    nombre: 'Taladrar'
+    descripcion: 'Usar 3,00 €/taladro'
+    unidad: 'taladro'
+    precio_coste: 3
+    precio_venta: 3
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.068Z'
+  - id: 70
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: '2026-05-25'
+    descripcion: 'Acero inoxidable. Novacero'
+    unidad: 'kg'
+    precio_coste: 3.66
+    precio_venta: 3.66
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.532Z'
+  - id: 10
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'AISI 304 pletina'
+    descripcion: 'acero_inoxidable desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 6
+    precio_venta: 6
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.757Z'
+  - id: 8
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'AISI 304 tubo'
+    descripcion: 'acero_inoxidable desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 5.5
+    precio_venta: 5.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.738Z'
+  - id: 11
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'AISI 316 pletina'
+    descripcion: 'acero_inoxidable desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 9
+    precio_venta: 9
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.762Z'
+  - id: 9
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'AISI 316 tubo'
+    descripcion: 'acero_inoxidable desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 8.2
+    precio_venta: 8.2
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.752Z'
+  - id: 49
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Angular L'
+    descripcion: 'Acero al carbono. 6 m'
+    unidad: 'kg'
+    precio_coste: 1.35
+    precio_venta: 1.35
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.198Z'
+  - id: 6
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'chapa 6mm'
+    descripcion: 'acero_carbono desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 1.1
+    precio_venta: 1.1
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.728Z'
+  - id: 66
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Chapa AISI 304 2B'
+    descripcion: 'Acero inoxidable. 1.5 x 3 m'
+    unidad: 'kg'
+    precio_coste: 6
+    precio_venta: 6
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.507Z'
+  - id: 67
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Chapa AISI 316 2B'
+    descripcion: 'Acero inoxidable. 1.5 x 3 m'
+    unidad: 'kg'
+    precio_coste: 9.5
+    precio_venta: 9.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.514Z'
+  - id: 54
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Chapa laminada en caliente 3-15 mm'
+    descripcion: 'Acero al carbono. 1.5 x 3 m / 2 x 4 m'
+    unidad: 'kg'
+    precio_coste: 1.05
+    precio_venta: 1.05
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.289Z'
+  - id: 55
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Chapa laminada en frío 0.5-3 mm'
+    descripcion: 'Acero al carbono. 1 x 2 m / 1.25 x 2.5 m'
+    unidad: 'kg'
+    precio_coste: 1.15
+    precio_venta: 1.15
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.295Z'
+  - id: 56
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Chapa plegada / grecada'
+    descripcion: 'Acero al carbono. según perfil'
+    unidad: 'kg'
+    precio_coste: 1.4
+    precio_venta: 1.4
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.320Z'
+  - id: 57
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Chapa trepadora / antideslizante'
+    descripcion: 'Acero al carbono. 1 x 3 m'
+    unidad: 'kg'
+    precio_coste: 1.75
+    precio_venta: 1.75
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.351Z'
+  - id: 107
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Coste medio productos'
+    descripcion: 'Usar 2,00 €/kg para placas pequeñas ya cortadas'
+    unidad: 'kg'
+    precio_coste: 2
+    precio_venta: 2
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.028Z'
+  - id: 117
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Escote'
+    descripcion: '40 €/ud'
+    unidad: 'ud'
+    precio_coste: 40
+    precio_venta: 40
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.129Z'
+  - id: 104
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Frontal 100x172+4T S275 10 mm'
+    descripcion: 'Placa pequeña cortada a medida: desde 2,20 €/ud'
+    unidad: 'ud'
+    precio_coste: 2.2
+    precio_venta: 2.2
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:44.990Z'
+  - id: 100
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'G+I rojo'
+    descripcion: 'Usar 0,10 €/kg'
+    unidad: 'kg'
+    precio_coste: 0.1
+    precio_venta: 0.1
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:44.935Z'
+  - id: 46
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'HEB 100-300'
+    descripcion: 'Acero al carbono. 12 m'
+    unidad: 'kg'
+    precio_coste: 1.25
+    precio_venta: 1.25
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.138Z'
+  - id: 47
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'HEB 320-1000'
+    descripcion: 'Acero al carbono. 12 m'
+    unidad: 'kg'
+    precio_coste: 1.375
+    precio_venta: 1.375
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.167Z'
+  - id: 44
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'IPE 220-400'
+    descripcion: 'Acero al carbono. 12 m / 15 m'
+    unidad: 'kg'
+    precio_coste: 1.2
+    precio_venta: 1.2
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.126Z'
+  - id: 45
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'IPE 450-600'
+    descripcion: 'Acero al carbono. 12 m / 15 m'
+    unidad: 'kg'
+    precio_coste: 1.3
+    precio_venta: 1.3
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.132Z'
+  - id: 43
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'IPE 80-200'
+    descripcion: 'Acero al carbono. 6 m / 12 m'
+    unidad: 'kg'
+    precio_coste: 1.2
+    precio_venta: 1.2
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.120Z'
+  - id: 97
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'IPN 280 S275'
+    descripcion: 'Usar 1.40 €/kg para perfil laminado S275 cortado'
+    unidad: 'kg'
+    precio_coste: 1.4
+    precio_venta: 1.4
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:44.891Z'
+  - id: 68
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Perfil angular AISI 304'
+    descripcion: 'Acero inoxidable. 6 m'
+    unidad: 'kg'
+    precio_coste: 7
+    precio_venta: 7
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.519Z'
+  - id: 69
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Perfil angular AISI 316'
+    descripcion: 'Acero inoxidable. 6 m'
+    unidad: 'kg'
+    precio_coste: 10.5
+    precio_venta: 10.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.526Z'
+  - id: 112
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Perfil laminado S275 cortado'
+    descripcion: '1,40 €/kg + cortes + taladros + escotes'
+    unidad: 'kg'
+    precio_coste: 1.4
+    precio_venta: 1.4
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.078Z'
+  - id: 105
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'PL200x172+8T S275 10 mm'
+    descripcion: 'Placa/soporte medio cortado a medida: desde 5,00 €/ud'
+    unidad: 'ud'
+    precio_coste: 5
+    precio_venta: 5
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.013Z'
+  - id: 115
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Placa S275 10 mm cortada pequeña'
+    descripcion: '2,20-5,00 €/ud o 2,00 €/kg si no hay desglose'
+    unidad: 'kg'
+    precio_coste: 3.6
+    precio_venta: 3.6
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.107Z'
+  - id: 109
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Plano 50x12'
+    descripcion: 'Usar 0,87 €/kg'
+    unidad: 'kg'
+    precio_coste: 0.87
+    precio_venta: 0.87
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.047Z'
+  - id: 7
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'pletina'
+    descripcion: 'acero_carbono desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 1.4
+    precio_venta: 1.4
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.733Z'
+  - id: 62
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Pletina AISI 304'
+    descripcion: 'Acero inoxidable. 6 m'
+    unidad: 'kg'
+    precio_coste: 6.25
+    precio_venta: 6.25
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.441Z'
+  - id: 63
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Pletina AISI 316'
+    descripcion: 'Acero inoxidable. 6 m'
+    unidad: 'kg'
+    precio_coste: 9
+    precio_venta: 9
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.447Z'
+  - id: 64
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Redondo AISI 304'
+    descripcion: 'Acero inoxidable. 6 m'
+    unidad: 'kg'
+    precio_coste: 5.75
+    precio_venta: 5.75
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.477Z'
+  - id: 65
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Redondo AISI 316'
+    descripcion: 'Acero inoxidable. 6 m'
+    unidad: 'kg'
+    precio_coste: 9
+    precio_venta: 9
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.483Z'
+  - id: 108
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Redondo liso 12 mm'
+    descripcion: 'Usar 0,87 €/kg'
+    unidad: 'kg'
+    precio_coste: 0.87
+    precio_venta: 0.87
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.038Z'
+  - id: 58
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Redondo macizo Ø10-50 mm'
+    descripcion: 'Acero al carbono. 6 m'
+    unidad: 'kg'
+    precio_coste: 1.35
+    precio_venta: 1.35
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.378Z'
+  - id: 59
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Redondo macizo Ø60-100 mm'
+    descripcion: 'Acero al carbono. 6 m'
+    unidad: 'kg'
+    precio_coste: 1.45
+    precio_venta: 1.45
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.410Z'
+  - id: 113
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Redondo/plano acero negro comercial'
+    descripcion: '0,87 €/kg'
+    unidad: 'kg'
+    precio_coste: 0.87
+    precio_venta: 0.87
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.087Z'
+  - id: 2
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'S235 IPE'
+    descripcion: 'acero_carbono desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 1.2
+    precio_venta: 1.2
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.707Z'
+  - id: 3
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'S275 IPE'
+    descripcion: 'acero_carbono desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 1.35
+    precio_venta: 1.35
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.714Z'
+  - id: 4
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'S355 IPE'
+    descripcion: 'acero_carbono desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 1.6
+    precio_venta: 1.6
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.719Z'
+  - id: 116
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Taladro/perforacion'
+    descripcion: '3 €/ud'
+    unidad: 'ud'
+    precio_coste: 3
+    precio_venta: 3
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.117Z'
+  - id: 5
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'tubo acero carbono'
+    descripcion: 'acero_carbono desde costes-materiales.json'
+    unidad: 'kg'
+    precio_coste: 1.8
+    precio_venta: 1.8
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.723Z'
+  - id: 60
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Tubo AISI 304'
+    descripcion: 'Acero inoxidable. 6 m'
+    unidad: 'kg'
+    precio_coste: 5.75
+    precio_venta: 5.75
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.429Z'
+  - id: 61
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Tubo AISI 316'
+    descripcion: 'Acero inoxidable. 6 m'
+    unidad: 'kg'
+    precio_coste: 8.25
+    precio_venta: 8.25
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.435Z'
+  - id: 114
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Tubo cuadrado S235 50x50x4'
+    descripcion: '5,80 €/ml'
+    unidad: 'ml'
+    precio_coste: 5.8
+    precio_venta: 5.8
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.097Z'
+  - id: 53
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Tubo de pared delgada'
+    descripcion: 'Acero al carbono. 6 m'
+    unidad: 'kg'
+    precio_coste: 2
+    precio_venta: 2
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.258Z'
+  - id: 110
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Tubo laminado cuadrado S235 50x50x4 a 6 m'
+    descripcion: 'Usar 5,80 €/ml'
+    unidad: 'ml'
+    precio_coste: 5.8
+    precio_venta: 5.8
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.058Z'
+  - id: 51
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Tubo rectangular / cuadrado'
+    descripcion: 'Acero al carbono. 6 m'
+    unidad: 'kg'
+    precio_coste: 1.8
+    precio_venta: 1.8
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.234Z'
+  - id: 52
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Tubo redondo sin soldadura'
+    descripcion: 'Acero al carbono. 6 m'
+    unidad: 'kg'
+    precio_coste: 2.5
+    precio_venta: 2.5
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.239Z'
+  - id: 50
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'Tubo redondo soldado'
+    descripcion: 'Acero al carbono. 6 m'
+    unidad: 'kg'
+    precio_coste: 1.7
+    precio_venta: 1.7
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.228Z'
+  - id: 48
+    activo: true
+    categoria: 'material'
+    area: 'carpinteria_metalica'
+    nombre: 'UPN 80-300'
+    descripcion: 'Acero al carbono. 6 m / 12 m'
+    unidad: 'kg'
+    precio_coste: 1.2
+    precio_venta: 1.2
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Rango medio desde costes-materiales.md'
+    actualizado: '2026-08-12T09:22:44.173Z'
+  - id: 102
+    activo: true
+    categoria: 'montaje'
+    area: 'carpinteria_metalica'
+    nombre: 'Montaje'
+    descripcion: 'Usar 400 € para montaje sencillo asociado'
+    unidad: 'servicio'
+    precio_coste: 400
+    precio_venta: 400
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:44.952Z'
+  - id: 119
+    activo: true
+    categoria: 'montaje'
+    area: 'carpinteria_metalica'
+    nombre: 'Montaje grande'
+    descripcion: '4.000 €/servicio'
+    unidad: 'servicio'
+    precio_coste: 4000
+    precio_venta: 4000
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.151Z'
+  - id: 118
+    activo: true
+    categoria: 'montaje'
+    area: 'carpinteria_metalica'
+    nombre: 'Montaje sencillo'
+    descripcion: '400 €/servicio'
+    unidad: 'servicio'
+    precio_coste: 400
+    precio_venta: 400
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.140Z'
+  - id: 103
+    activo: true
+    categoria: 'transporte'
+    area: 'carpinteria_metalica'
+    nombre: 'Envio'
+    descripcion: 'Usar minimo 60 € si no hay tarifa concreta'
+    unidad: 'ud'
+    precio_coste: 60
+    precio_venta: 60
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:44.981Z'
+  - id: 121
+    activo: true
+    categoria: 'transporte'
+    area: 'carpinteria_metalica'
+    nombre: 'Envio medio/grande'
+    descripcion: '0,04 €/kg observado, pero usar minimo 60 € por prudencia'
+    unidad: 'kg'
+    precio_coste: 0.04
+    precio_venta: 0.04
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.185Z'
+  - id: 106
+    activo: true
+    categoria: 'transporte'
+    area: 'carpinteria_metalica'
+    nombre: 'Envio pedido pequeño'
+    descripcion: 'Usar 32-60 € segun peso/volumen'
+    unidad: 'ud'
+    precio_coste: 46
+    precio_venta: 46
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.021Z'
+  - id: 120
+    activo: true
+    categoria: 'transporte'
+    area: 'carpinteria_metalica'
+    nombre: 'Envio pequeño'
+    descripcion: '32-60 € minimo'
+    unidad: 'ud'
+    precio_coste: 46
+    precio_venta: 46
+    margen_porcentaje: 0
+    proveedor: 'Ferros Puig Sallent'
+    confianza: 'antiguo'
+    notas: 'Historico Ferros Puig'
+    actualizado: '2026-08-12T09:22:45.163Z'
+  - id: 33
+    activo: true
+    categoria: 'mano_obra'
+    area: 'clima'
+    nombre: 'tecnico clima'
+    descripcion: 'Técnico de climatización'
+    unidad: 'h'
+    precio_coste: 45
+    precio_venta: 45
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'confirmado'
+    notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:44.016Z'
+  - id: 32
+    activo: true
+    categoria: 'mano_obra'
+    area: 'fontaneria'
+    nombre: 'fontanero oficial'
+    descripcion: 'Oficial fontanero instalador'
+    unidad: 'h'
+    precio_coste: 42
+    precio_venta: 42
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'confirmado'
+    notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:44.011Z'
+  - id: 39
+    activo: true
+    categoria: 'transporte'
+    area: 'general'
+    nombre: '1 a 50 kg'
+    descripcion: 'Tarifa orientativa peninsular'
+    unidad: 'kg'
+    precio_coste: 15
+    precio_venta: 15
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Desde costes-transporte.json'
+    actualizado: '2026-08-12T09:22:44.075Z'
+  - id: 41
+    activo: true
+    categoria: 'transporte'
+    area: 'general'
+    nombre: '201 a 1000 kg'
+    descripcion: 'Tarifa orientativa peninsular'
+    unidad: 'kg'
+    precio_coste: 0.18
+    precio_venta: 0.18
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Desde costes-transporte.json'
+    actualizado: '2026-08-12T09:22:44.085Z'
+  - id: 40
+    activo: true
+    categoria: 'transporte'
+    area: 'general'
+    nombre: '51 a 200 kg'
+    descripcion: 'Tarifa orientativa peninsular'
+    unidad: 'kg'
+    precio_coste: 0.25
+    precio_venta: 0.25
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Desde costes-transporte.json'
+    actualizado: '2026-08-12T09:22:44.079Z'
+  - id: 35
+    activo: true
+    categoria: 'transporte'
+    area: 'general'
+    nombre: 'barcelona a menorca'
+    descripcion: 'Porte marítimo Barcelona → Menorca (ida)'
+    unidad: 'kg'
+    precio_coste: 0.2
+    precio_venta: 0.2
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Ruta fija desde costes-transporte.json'
+    actualizado: '2026-08-12T09:22:44.043Z'
+  - id: 36
+    activo: true
+    categoria: 'transporte'
+    area: 'general'
+    nombre: 'barcelona a menorca minimo'
+    descripcion: 'Porte marítimo Barcelona → Menorca (ida)'
+    unidad: 'servicio'
+    precio_coste: 60
+    precio_venta: 60
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Coste minimo desde costes-transporte.json'
+    actualizado: '2026-08-12T09:22:44.058Z'
+  - id: 42
+    activo: true
+    categoria: 'transporte'
+    area: 'general'
+    nombre: 'mas de 1000 kg'
+    descripcion: 'Tarifa orientativa peninsular'
+    unidad: 'kg'
+    precio_coste: 0.12
+    precio_venta: 0.12
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Desde costes-transporte.json'
+    actualizado: '2026-08-12T09:22:44.090Z'
+  - id: 37
+    activo: true
+    categoria: 'transporte'
+    area: 'general'
+    nombre: 'menorca a barcelona'
+    descripcion: 'Porte marítimo Menorca → Barcelona (vuelta, si aplica)'
+    unidad: 'kg'
+    precio_coste: 0.2
+    precio_venta: 0.2
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Ruta fija desde costes-transporte.json'
+    actualizado: '2026-08-12T09:22:44.064Z'
+  - id: 38
+    activo: true
+    categoria: 'transporte'
+    area: 'general'
+    nombre: 'menorca a barcelona minimo'
+    descripcion: 'Porte marítimo Menorca → Barcelona (vuelta, si aplica)'
+    unidad: 'servicio'
+    precio_coste: 60
+    precio_venta: 60
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'estimado'
+    notas: 'Coste minimo desde costes-transporte.json'
+    actualizado: '2026-08-12T09:22:44.069Z'
+  - id: 31
+    activo: true
+    categoria: 'mano_obra'
+    area: 'instalaciones_electricas'
+    nombre: 'electricista oficial'
+    descripcion: 'Oficial electricista instalador'
+    unidad: 'h'
+    precio_coste: 42
+    precio_venta: 42
+    margen_porcentaje: 0
+    proveedor: ''
+    confianza: 'confirmado'
+    notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
+    actualizado: '2026-08-12T09:22:43.986Z'
