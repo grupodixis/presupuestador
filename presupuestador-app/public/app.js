@@ -12,6 +12,10 @@ function appUrl(path) {
 
 const DEFAULT_PROVIDER = "gemini";
 const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash";
+const ACTIVE_VIEW_KEY = "presupuestador.activeView";
+const ACTIVE_BUDGET_FOLDER_KEY = "presupuestador.activeBudgetFolder";
+const DEFAULT_VIEW = "budgetsView";
+const VALID_VIEWS = new Set(["budgetView", "budgetsView", "configView", "contextView", "usersView"]);
 
 const DEFAULT_DOCUMENT_TEMPLATE = {
   logo: "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
@@ -850,10 +854,16 @@ function renderResult(renderTable = true) {
   renderPrintPreview();
 }
 
+function rememberActiveBudgetFolder(folder) {
+  state.currentBudgetFolder = folder || null;
+  if (state.currentBudgetFolder) localStorage.setItem(ACTIVE_BUDGET_FOLDER_KEY, state.currentBudgetFolder);
+  else localStorage.removeItem(ACTIVE_BUDGET_FOLDER_KEY);
+}
+
 function clearBudgetForm() {
   state.attachments = [];
   state.result = null;
-  state.currentBudgetFolder = null;
+  rememberActiveBudgetFolder(null);
   els.prompt.value = "";
   els.attachments.value = "";
   els.fileList.innerHTML = "";
@@ -943,7 +953,7 @@ async function ensureCurrentBudgetSaved() {
   if (!state.result) throw new Error("No hay presupuesto activo.");
   if (state.currentBudgetFolder) return state.currentBudgetFolder;
   const response = await api("/api/export", resultPayload());
-  state.currentBudgetFolder = response.folder;
+  rememberActiveBudgetFolder(response.folder);
   updateSaveMode();
   if (response.learningFile) state.budgetChangeLog = [];
   return response.folder;
@@ -957,7 +967,7 @@ async function generateBudgetImageForCurrent() {
   try {
     const folder = await ensureCurrentBudgetSaved();
     const response = await api("/api/budget-image", { folder, payload: resultPayload() });
-    state.currentBudgetFolder = response.folder;
+    rememberActiveBudgetFolder(response.folder);
     state.result = response.payload;
     state.result.tokenStatus = response.tokenStatus || null;
     renderResult(false);
@@ -1009,12 +1019,12 @@ function fillClientForm(cliente = {}) {
   els.clientRef.value = cliente.referencia || "";
 }
 
-async function editBudget(folder) {
-  els.budgetsStatus.textContent = "Cargando presupuesto...";
+async function editBudget(folder, options = {}) {
+  if (!options.restored) els.budgetsStatus.textContent = "Cargando presupuesto...";
   try {
     const response = await getJson(`/api/budget?folder=${encodeURIComponent(folder)}`);
     const data = response.data || {};
-    state.currentBudgetFolder = response.folder;
+    rememberActiveBudgetFolder(response.folder);
     state.result = data;
     fillClientForm(data.cliente || {});
     els.prompt.value = data.prompt || "";
@@ -1027,6 +1037,7 @@ async function editBudget(folder) {
     setStatus(`Editando ${response.code || response.folder}. Al guardar se actualizara la misma carpeta.`);
     els.budgetsStatus.textContent = "";
   } catch (error) {
+    if (options.restored) rememberActiveBudgetFolder(null);
     els.budgetsStatus.textContent = error.message;
   }
 }
@@ -1049,7 +1060,7 @@ async function generate() {
       prompt: els.prompt.value.trim(),
       attachments: state.attachments,
     });
-    state.currentBudgetFolder = null;
+    rememberActiveBudgetFolder(null);
     state.budgetChangeLog = [];
     state.result = response.result;
     recordBudgetChange({ source: "generacion", provider: response.provider, model: response.model, titulo: response.result?.titulo || "" });
@@ -1773,12 +1784,25 @@ async function saveMd() {
 }
 
 function switchView(viewId) {
+  if (!VALID_VIEWS.has(viewId) || !document.querySelector(`#${viewId}`)) viewId = DEFAULT_VIEW;
+  if (viewId === "usersView" && state.currentUser?.role !== "admin") viewId = DEFAULT_VIEW;
   if (viewId === "usersView") loadUsers();
   if (viewId === "configView") loadPrices();
   document.querySelectorAll(".view").forEach((view) => view.classList.add("hidden"));
   document.querySelector(`#${viewId}`).classList.remove("hidden");
   document.querySelectorAll(".nav-btn[data-view]").forEach((button) => button.classList.toggle("active", button.dataset.view === viewId));
+  localStorage.setItem(ACTIVE_VIEW_KEY, viewId);
+  if (window.location.hash !== `#${viewId}`) history.replaceState(null, "", `#${viewId}`);
   closeMenu();
+}
+
+function restoreActiveView() {
+  const hashView = window.location.hash.replace(/^#/, "");
+  const storedView = localStorage.getItem(ACTIVE_VIEW_KEY);
+  const viewId = VALID_VIEWS.has(hashView) ? hashView : (storedView || DEFAULT_VIEW);
+  switchView(viewId);
+  const folder = localStorage.getItem(ACTIVE_BUDGET_FOLDER_KEY);
+  if (viewId === "budgetView" && folder && !state.result) editBudget(folder, { restored: true });
 }
 
 function printBudget() {
@@ -1924,7 +1948,7 @@ els.exportBudget.addEventListener("click", async () => {
   if (!state.result) return;
   els.exportBudget.disabled = true;
   const response = await api("/api/export", resultPayload());
-  state.currentBudgetFolder = response.folder;
+  rememberActiveBudgetFolder(response.folder);
   updateSaveMode();
   await loadBudgets();
   if (response.learningFile) state.budgetChangeLog = [];
@@ -1934,6 +1958,7 @@ els.exportBudget.addEventListener("click", async () => {
 });
 
 loadMe().then(() => {
+  restoreActiveView();
   loadContext();
   loadSettings();
   loadMdFiles();
