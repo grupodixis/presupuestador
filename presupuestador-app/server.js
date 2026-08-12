@@ -124,6 +124,23 @@ function db() {
       created_at TEXT NOT NULL,
       FOREIGN KEY(user_id) REFERENCES app_users(id) ON DELETE CASCADE
     );
+    CREATE TABLE IF NOT EXISTS price_items (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      category TEXT NOT NULL,
+      area TEXT NOT NULL DEFAULT 'general',
+      name TEXT NOT NULL,
+      description TEXT NOT NULL DEFAULT '',
+      unit TEXT NOT NULL DEFAULT 'ud',
+      cost_price REAL NOT NULL DEFAULT 0,
+      sale_price REAL NOT NULL DEFAULT 0,
+      margin_percent REAL NOT NULL DEFAULT 0,
+      supplier TEXT NOT NULL DEFAULT '',
+      confidence TEXT NOT NULL DEFAULT 'confirmado',
+      notes TEXT NOT NULL DEFAULT '',
+      active INTEGER NOT NULL DEFAULT 1,
+      created_at TEXT NOT NULL,
+      updated_at TEXT NOT NULL
+    );
   `);
   ensureDefaultAdminUser();
   return database;
@@ -252,6 +269,185 @@ function dbSetJson(key, value) {
     VALUES (?, ?, ?)
     ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at
   `).run(key, JSON.stringify(value), new Date().toISOString());
+}
+
+function normalizePriceText(value, fallback = "") {
+  return String(value ?? fallback).trim();
+}
+
+function normalizePriceNumber(value) {
+  const parsed = Number(String(value ?? 0).replace(",", "."));
+  return Number.isFinite(parsed) ? Math.round(parsed * 10000) / 10000 : 0;
+}
+
+function normalizePriceItem(input = {}) {
+  const item = {
+    id: input.id ? Number(input.id) : null,
+    category: normalizePriceText(input.category, "material").toLowerCase(),
+    area: normalizePriceText(input.area, "general").toLowerCase(),
+    name: normalizePriceText(input.name),
+    description: normalizePriceText(input.description),
+    unit: normalizePriceText(input.unit, "ud").toLowerCase(),
+    costPrice: normalizePriceNumber(input.costPrice ?? input.cost_price),
+    salePrice: normalizePriceNumber(input.salePrice ?? input.sale_price),
+    marginPercent: normalizePriceNumber(input.marginPercent ?? input.margin_percent),
+    supplier: normalizePriceText(input.supplier),
+    confidence: normalizePriceText(input.confidence, "confirmado").toLowerCase(),
+    notes: normalizePriceText(input.notes),
+    active: input.active === false || input.active === 0 ? 0 : 1,
+  };
+  if (!item.name) throw new Error("Falta el nombre del precio.");
+  if (!item.category) item.category = "material";
+  if (!item.area) item.area = "general";
+  if (!item.unit) item.unit = "ud";
+  if (!["confirmado", "estimado", "antiguo", "pendiente"].includes(item.confidence)) item.confidence = "confirmado";
+  if (!item.salePrice && item.costPrice && item.marginPercent) item.salePrice = Math.round(item.costPrice * (1 + item.marginPercent / 100) * 10000) / 10000;
+  if (!item.marginPercent && item.costPrice && item.salePrice) item.marginPercent = Math.round(((item.salePrice / item.costPrice) - 1) * 10000) / 100;
+  return item;
+}
+
+function priceRowToApi(row) {
+  return {
+    id: row.id,
+    category: row.category,
+    area: row.area,
+    name: row.name,
+    description: row.description,
+    unit: row.unit,
+    costPrice: Number(row.cost_price || 0),
+    salePrice: Number(row.sale_price || 0),
+    marginPercent: Number(row.margin_percent || 0),
+    supplier: row.supplier,
+    confidence: row.confidence,
+    notes: row.notes,
+    active: Boolean(row.active),
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
+  };
+}
+
+function listPriceItems({ includeInactive = true } = {}) {
+  const rows = db().prepare(`
+    SELECT * FROM price_items
+    ${includeInactive ? "" : "WHERE active = 1"}
+    ORDER BY active DESC, area COLLATE NOCASE, category COLLATE NOCASE, name COLLATE NOCASE
+  `).all();
+  return rows.map(priceRowToApi);
+}
+
+function yamlScalar(value) {
+  const text = String(value ?? "");
+  if (!text) return "''";
+  return `'${text.replaceAll("'", "''")}'`;
+}
+
+function priceItemsYaml(items) {
+  return [
+    "# Generado automaticamente desde SQLite. Editar desde Configuracion > Lista de precios.",
+    `actualizado: ${yamlScalar(new Date().toISOString())}`,
+    "precios:",
+    ...items.map((item) => [
+      `  - id: ${item.id}`,
+      `    activo: ${item.active ? "true" : "false"}`,
+      `    categoria: ${yamlScalar(item.category)}`,
+      `    area: ${yamlScalar(item.area)}`,
+      `    nombre: ${yamlScalar(item.name)}`,
+      `    descripcion: ${yamlScalar(item.description)}`,
+      `    unidad: ${yamlScalar(item.unit)}`,
+      `    precio_coste: ${item.costPrice}`,
+      `    precio_venta: ${item.salePrice}`,
+      `    margen_porcentaje: ${item.marginPercent}`,
+      `    proveedor: ${yamlScalar(item.supplier)}`,
+      `    confianza: ${yamlScalar(item.confidence)}`,
+      `    notas: ${yamlScalar(item.notes)}`,
+      `    actualizado: ${yamlScalar(item.updatedAt)}`,
+    ].join("\n")),
+    "",
+  ].join("\n");
+}
+
+function priceItemsMarkdown(items) {
+  const active = items.filter((item) => item.active);
+  const byArea = new Map();
+  for (const item of active) {
+    const key = item.area || "general";
+    if (!byArea.has(key)) byArea.set(key, []);
+    byArea.get(key).push(item);
+  }
+  const out = [
+    "# Lista de precios operativa",
+    "",
+    "Archivo generado automaticamente desde SQLite cada vez que se actualiza un precio.",
+    "Editar los precios desde `Configuracion > Lista de precios`.",
+    "",
+    `Actualizado: ${new Date().toISOString()}`,
+    "",
+    "## Uso por el agente",
+    "",
+    "- Priorizar estos precios frente a supuestos genericos cuando coincidan area, categoria, nombre o unidad.",
+    "- Si un precio esta marcado como estimado, antiguo o pendiente, indicar la confianza y proponer validarlo.",
+    "- Si no existe precio aplicable, generar la linea como supuesto y sugerir alta en lista de precios.",
+    "",
+  ];
+  for (const [area, areaItems] of [...byArea.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
+    out.push(`## ${area}`, "");
+    out.push("| Categoria | Nombre | Unidad | Coste | Venta | Margen % | Proveedor | Confianza |");
+    out.push("|---|---|---:|---:|---:|---:|---|---|");
+    for (const item of areaItems) {
+      out.push(`| ${item.category} | ${item.name} | ${item.unit} | ${item.costPrice.toFixed(4)} | ${item.salePrice.toFixed(4)} | ${item.marginPercent.toFixed(2)} | ${item.supplier} | ${item.confidence} |`);
+    }
+    out.push("");
+  }
+  if (!active.length) out.push("No hay precios activos definidos todavia.", "");
+  return out.join("\n");
+}
+
+async function exportPriceKnowledge() {
+  const items = listPriceItems({ includeInactive: true });
+  const dir = path.join(ROOT, "presupuestacion", "costes");
+  await fs.mkdir(dir, { recursive: true });
+  await fs.writeFile(path.join(dir, "lista-precios.json"), JSON.stringify({ updatedAt: new Date().toISOString(), prices: items }, null, 2), "utf8");
+  await fs.writeFile(path.join(dir, "lista-precios.yaml"), priceItemsYaml(items), "utf8");
+  await fs.writeFile(path.join(dir, "lista-precios.md"), priceItemsMarkdown(items), "utf8");
+  return {
+    files: [
+      "presupuestacion/costes/lista-precios.json",
+      "presupuestacion/costes/lista-precios.yaml",
+      "presupuestacion/costes/lista-precios.md",
+    ],
+    count: items.length,
+    activeCount: items.filter((item) => item.active).length,
+  };
+}
+
+async function upsertPriceItem(input) {
+  const item = normalizePriceItem(input);
+  const now = new Date().toISOString();
+  if (item.id) {
+    const current = db().prepare("SELECT id FROM price_items WHERE id = ?").get(item.id);
+    if (!current) throw new Error("Precio no encontrado.");
+    db().prepare(`
+      UPDATE price_items
+      SET category = ?, area = ?, name = ?, description = ?, unit = ?, cost_price = ?, sale_price = ?,
+          margin_percent = ?, supplier = ?, confidence = ?, notes = ?, active = ?, updated_at = ?
+      WHERE id = ?
+    `).run(item.category, item.area, item.name, item.description, item.unit, item.costPrice, item.salePrice, item.marginPercent, item.supplier, item.confidence, item.notes, item.active, now, item.id);
+  } else {
+    db().prepare(`
+      INSERT INTO price_items (category, area, name, description, unit, cost_price, sale_price, margin_percent, supplier, confidence, notes, active, created_at, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(item.category, item.area, item.name, item.description, item.unit, item.costPrice, item.salePrice, item.marginPercent, item.supplier, item.confidence, item.notes, item.active, now, now);
+  }
+  const exportInfo = await exportPriceKnowledge();
+  return { prices: listPriceItems(), exportInfo };
+}
+
+async function deletePriceItem(id) {
+  const priceId = Number(id);
+  if (!priceId) throw new Error("ID de precio invalido.");
+  db().prepare("DELETE FROM price_items WHERE id = ?").run(priceId);
+  const exportInfo = await exportPriceKnowledge();
+  return { prices: listPriceItems(), exportInfo };
 }
 
 function budgetCodeParts(code) {
@@ -615,7 +811,7 @@ async function loadRepositoryContext() {
   const skillFiles = await listFiles(path.join(ROOT, "skills"), (file) => file.endsWith(".md"));
   const compositionFiles = await listFiles(path.join(ROOT, "productos", "composiciones"), (file) => file.endsWith(".yaml"));
   const costingFiles = await listFiles(path.join(ROOT, "presupuestacion", "costes"), (file) =>
-    file.endsWith(".json") || file.endsWith(".md")
+    file.endsWith(".json") || file.endsWith(".md") || file.endsWith(".yaml") || file.endsWith(".yml")
   );
 
   const selected = [
@@ -1861,6 +2057,19 @@ async function route(req, res) {
   if (req.method === "GET" && url.pathname === "/api/settings") return send(res, 200, maskedConfig(await readConfig()));
   if (req.method === "GET" && url.pathname === "/api/db/status") return send(res, 200, dbStatus());
   if (req.method === "POST" && url.pathname === "/api/settings") return send(res, 200, await writeConfig(await readJson(req)));
+  if (req.method === "GET" && url.pathname === "/api/prices") {
+    requireAdmin(user);
+    return send(res, 200, { prices: listPriceItems(), exportFiles: ["presupuestacion/costes/lista-precios.md", "presupuestacion/costes/lista-precios.yaml", "presupuestacion/costes/lista-precios.json"] });
+  }
+  if (req.method === "POST" && url.pathname === "/api/prices") {
+    requireAdmin(user);
+    return send(res, 200, await upsertPriceItem(await readJson(req)));
+  }
+  const priceMatch = url.pathname.match(/^\/api\/prices\/(\d+)$/);
+  if (priceMatch && req.method === "DELETE") {
+    requireAdmin(user);
+    return send(res, 200, await deletePriceItem(priceMatch[1]));
+  }
   if (req.method === "GET" && url.pathname === "/api/models") {
     const provider = url.searchParams.get("provider") || "fallback";
     const config = await readConfig();

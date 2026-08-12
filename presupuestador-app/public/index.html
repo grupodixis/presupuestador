@@ -195,6 +195,31 @@
             <span id="settingsStatus" class="status"></span>
           </div>
         </section>
+        <section class="composer">
+          <div class="composer-head">
+            <div>
+              <h1>Lista de precios</h1>
+              <p>Precios editables de materiales, mano de obra e insumos. Cada cambio actualiza automaticamente los archivos de conocimiento.</p>
+            </div>
+            <button id="newPriceItem" class="secondary" type="button">Nuevo precio</button>
+          </div>
+          <div class="price-toolbar">
+            <label><span>Filtrar</span><input id="priceSearch" placeholder="Buscar por area, categoria, nombre o proveedor"></label>
+            <button id="refreshPrices" class="secondary" type="button">Actualizar lista</button>
+            <span id="priceStatus" class="status"></span>
+          </div>
+          <div class="table-wrap price-table-wrap">
+            <table class="price-table">
+              <thead>
+                <tr>
+                  <th>Activo</th><th>Categoria</th><th>Area</th><th>Nombre</th><th>Ud.</th><th>Coste</th><th>Venta</th><th>Margen %</th><th>Proveedor</th><th>Confianza</th><th></th>
+                </tr>
+              </thead>
+              <tbody id="pricesBody"></tbody>
+            </table>
+          </div>
+          <p class="price-export-note">Exporta a <code>presupuestacion/costes/lista-precios.md</code>, <code>lista-precios.yaml</code> y <code>lista-precios.json</code>.</p>
+        </section>
       </section>
 
 

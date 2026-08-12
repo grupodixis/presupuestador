@@ -179,6 +179,47 @@ td textarea { min-height: 58px; resize: vertical; }
 .users-table td { vertical-align: middle; }
 .users-table .user-actions { display: flex; gap: 8px; justify-content: flex-end; }
 
+.price-toolbar {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.price-toolbar label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  min-width: min(420px, 100%);
+  flex: 1;
+}
+.price-toolbar input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px;
+  color: var(--ink);
+  background: white;
+}
+.price-table-wrap { margin-top: 16px; }
+.price-table { min-width: 1280px; }
+.price-table th:nth-child(1), .price-table td:nth-child(1) { width: 56px; text-align: center; }
+.price-table th:nth-child(5), .price-table td:nth-child(5) { width: 70px; }
+.price-table th:nth-child(6), .price-table td:nth-child(6),
+.price-table th:nth-child(7), .price-table td:nth-child(7),
+.price-table th:nth-child(8), .price-table td:nth-child(8) { width: 90px; }
+.price-table tr.inactive { opacity: .58; }
+.price-table textarea { min-height: 44px; font-size: 12px; }
+.price-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+  align-items: start;
+}
+.price-actions button { padding: 8px 10px; }
+.price-export-note { margin: 10px 0 0; font-size: 13px; }
+
 .budget-toolbar {
   display: flex;
   align-items: end;

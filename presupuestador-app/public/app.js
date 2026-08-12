@@ -43,6 +43,7 @@ const state = {
   budgetChangeLog: [],
   currentUser: null,
   users: [],
+  prices: [],
 };
 
 const els = {
@@ -125,6 +126,11 @@ const els = {
   newUserPassword: document.querySelector("#newUserPassword"),
   newUserRole: document.querySelector("#newUserRole"),
   createUser: document.querySelector("#createUser"),
+  pricesBody: document.querySelector("#pricesBody"),
+  priceSearch: document.querySelector("#priceSearch"),
+  refreshPrices: document.querySelector("#refreshPrices"),
+  newPriceItem: document.querySelector("#newPriceItem"),
+  priceStatus: document.querySelector("#priceStatus"),
 };
 
 function formatMoney(value) {
@@ -1150,6 +1156,155 @@ async function saveUser(id, row) {
     button.disabled = false;
   }
 }
+
+const PRICE_DEFAULTS = {
+  id: null,
+  active: true,
+  category: "material",
+  area: "general",
+  name: "",
+  description: "",
+  unit: "ud",
+  costPrice: 0,
+  salePrice: 0,
+  marginPercent: 0,
+  supplier: "",
+  confidence: "confirmado",
+  notes: "",
+};
+
+function priceMatches(price, query) {
+  if (!query) return true;
+  return [price.category, price.area, price.name, price.description, price.unit, price.supplier, price.confidence, price.notes]
+    .join(" ")
+    .toLowerCase()
+    .includes(query);
+}
+
+function pricePayloadFromRow(row) {
+  const costPrice = parseEditableNumber(row.querySelector("[data-price-cost]").value);
+  const salePrice = parseEditableNumber(row.querySelector("[data-price-sale]").value);
+  return {
+    id: row.dataset.id ? Number(row.dataset.id) : null,
+    active: row.querySelector("[data-price-active]").checked,
+    category: row.querySelector("[data-price-category]").value.trim() || "material",
+    area: row.querySelector("[data-price-area]").value.trim() || "general",
+    name: row.querySelector("[data-price-name]").value.trim(),
+    description: row.querySelector("[data-price-description]").value.trim(),
+    unit: row.querySelector("[data-price-unit]").value.trim() || "ud",
+    costPrice,
+    salePrice,
+    marginPercent: parseEditableNumber(row.querySelector("[data-price-margin]").value),
+    supplier: row.querySelector("[data-price-supplier]").value.trim(),
+    confidence: row.querySelector("[data-price-confidence]").value,
+    notes: row.querySelector("[data-price-notes]").value.trim(),
+  };
+}
+
+function renderPrices() {
+  if (!els.pricesBody) return;
+  const query = (els.priceSearch?.value || "").trim().toLowerCase();
+  els.pricesBody.innerHTML = "";
+  const prices = state.prices.filter((price) => priceMatches(price, query));
+  for (const price of prices) {
+    const tr = document.createElement("tr");
+    tr.dataset.id = price.id || "";
+    if (!price.active) tr.classList.add("inactive");
+    tr.innerHTML = `
+      <td><input data-price-active type="checkbox" ${price.active ? "checked" : ""}></td>
+      <td><input data-price-category value="${escapeHtml(price.category || "")}" placeholder="material"></td>
+      <td><input data-price-area value="${escapeHtml(price.area || "")}" placeholder="carpinteria_metalica"></td>
+      <td>
+        <input data-price-name value="${escapeHtml(price.name || "")}" placeholder="Nombre">
+        <textarea data-price-description rows="2" placeholder="Descripcion tecnica">${escapeHtml(price.description || "")}</textarea>
+      </td>
+      <td><input data-price-unit value="${escapeHtml(price.unit || "ud")}"></td>
+      <td><input data-price-cost value="${Number(price.costPrice || 0)}"></td>
+      <td><input data-price-sale value="${Number(price.salePrice || 0)}"></td>
+      <td><input data-price-margin value="${Number(price.marginPercent || 0)}"></td>
+      <td><input data-price-supplier value="${escapeHtml(price.supplier || "")}"></td>
+      <td>
+        <select data-price-confidence>
+          <option value="confirmado">Confirmado</option>
+          <option value="estimado">Estimado</option>
+          <option value="antiguo">Antiguo</option>
+          <option value="pendiente">Pendiente</option>
+        </select>
+        <textarea data-price-notes rows="2" placeholder="Notas">${escapeHtml(price.notes || "")}</textarea>
+      </td>
+      <td class="price-actions">
+        <button data-save-price type="button">Guardar</button>
+        <button data-delete-price class="row-delete" type="button">x</button>
+      </td>
+    `;
+    tr.querySelector("[data-price-confidence]").value = price.confidence || "confirmado";
+    tr.querySelector("[data-save-price]").addEventListener("click", () => savePriceFromRow(tr));
+    tr.querySelector("[data-delete-price]").addEventListener("click", () => deletePriceFromRow(tr));
+    els.pricesBody.appendChild(tr);
+  }
+  if (!prices.length) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td colspan="11"><span class="status">No hay precios para este filtro.</span></td>`;
+    els.pricesBody.appendChild(tr);
+  }
+}
+
+async function loadPrices() {
+  if (!els.pricesBody || state.currentUser?.role !== "admin") return;
+  els.priceStatus.textContent = "Cargando precios...";
+  try {
+    const data = await getJson("/api/prices");
+    state.prices = data.prices || [];
+    renderPrices();
+    els.priceStatus.textContent = `${state.prices.length} precio(s).`;
+  } catch (error) {
+    els.priceStatus.textContent = error.message;
+  }
+}
+
+function addPriceItem() {
+  state.prices = [{ ...PRICE_DEFAULTS }, ...state.prices];
+  if (els.priceSearch) els.priceSearch.value = "";
+  renderPrices();
+}
+
+async function savePriceFromRow(row) {
+  els.priceStatus.textContent = "Guardando precio y actualizando conocimiento...";
+  const payload = pricePayloadFromRow(row);
+  if (!payload.name) {
+    els.priceStatus.textContent = "Falta el nombre del precio.";
+    return;
+  }
+  try {
+    const response = await api("/api/prices", payload);
+    state.prices = response.prices || [];
+    renderPrices();
+    const info = response.exportInfo;
+    els.priceStatus.textContent = info ? `Precio guardado. Conocimiento actualizado: ${info.activeCount} activos.` : "Precio guardado.";
+  } catch (error) {
+    els.priceStatus.textContent = error.message;
+  }
+}
+
+async function deletePriceFromRow(row) {
+  const id = row.dataset.id;
+  if (!id) {
+    state.prices = state.prices.filter((price) => price.id);
+    renderPrices();
+    return;
+  }
+  els.priceStatus.textContent = "Eliminando precio y actualizando conocimiento...";
+  try {
+    const response = await api(`/api/prices/${id}`, {}, "DELETE");
+    state.prices = response.prices || [];
+    renderPrices();
+    const info = response.exportInfo;
+    els.priceStatus.textContent = info ? `Precio eliminado. Conocimiento actualizado: ${info.activeCount} activos.` : "Precio eliminado.";
+  } catch (error) {
+    els.priceStatus.textContent = error.message;
+  }
+}
+
 async function loadSettings() {
   const settings = await getJson("/api/settings");
   state.settings = settings;
@@ -1522,6 +1677,7 @@ async function saveMd() {
 
 function switchView(viewId) {
   if (viewId === "usersView") loadUsers();
+  if (viewId === "configView") loadPrices();
   document.querySelectorAll(".view").forEach((view) => view.classList.add("hidden"));
   document.querySelector(`#${viewId}`).classList.remove("hidden");
   document.querySelectorAll(".nav-btn[data-view]").forEach((button) => button.classList.toggle("active", button.dataset.view === viewId));
@@ -1618,6 +1774,9 @@ els.refreshContext.addEventListener("click", loadContext);
 els.saveSettings.addEventListener("click", saveSettings);
 els.logout.addEventListener("click", logout);
 els.createUser.addEventListener("click", createUserFromForm);
+if (els.refreshPrices) els.refreshPrices.addEventListener("click", loadPrices);
+if (els.newPriceItem) els.newPriceItem.addEventListener("click", addPriceItem);
+if (els.priceSearch) els.priceSearch.addEventListener("input", renderPrices);
 els.applyDocumentTemplateAi.addEventListener("click", applyDocumentTemplateAi);
 els.provider.addEventListener("change", updateModelFromProvider);
 els.defaultProvider.addEventListener("change", () => { syncBudgetModelFromSettings({ ...state.settings, defaultProvider: els.defaultProvider.value, openaiModel: els.openaiModel.value, geminiModel: els.geminiModel.value }); });
