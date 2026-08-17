@@ -127,6 +127,7 @@ const els = {
   clientAddress: document.querySelector("#clientAddress"),
   clientRef: document.querySelector("#clientRef"),
   budgetYear: document.querySelector("#budgetYear"),
+  budgetSearch: document.querySelector("#budgetSearch"),
   budgetsList: document.querySelector("#budgetsList"),
   budgetsStatus: document.querySelector("#budgetsStatus"),
   refreshBudgets: document.querySelector("#refreshBudgets"),
@@ -1007,7 +1008,15 @@ function renderBudgetYears() {
 
 function renderBudgets() {
   const year = els.budgetYear.value || "all";
-  const budgets = state.budgets.filter((budget) => year === "all" || budget.year === year);
+  const query = (els.budgetSearch?.value || "").trim().toLowerCase();
+  const budgets = state.budgets.filter((budget) => {
+    const yearMatch = year === "all" || budget.year === year;
+    const queryMatch = !query || [budget.code, budget.title, budget.clientName, budget.folder]
+      .join(" ")
+      .toLowerCase()
+      .includes(query);
+    return yearMatch && queryMatch;
+  });
   els.budgetsList.innerHTML = "";
   if (!budgets.length) {
     els.budgetsList.innerHTML = '<div class="empty-state">No hay presupuestos para este a&ntilde;o.</div>';
@@ -1027,6 +1036,10 @@ function renderBudgets() {
           <div class="budget-code">${escapeHtml(budget.code)} &middot; ${escapeHtml(budget.year)}</div>
           <h2>${escapeHtml(budget.title || budget.folder)}</h2>
           <p>${escapeHtml(budget.clientName || "Sin cliente guardado")}</p>
+          <div class="budget-meta">
+            <span>${budget.total ? formatMoney(budget.total) : "Sin total"}</span>
+            <span>${budget.updatedAt ? new Date(budget.updatedAt).toLocaleDateString("es-ES") : "Sin fecha"}</span>
+          </div>
           <small>${escapeHtml(budget.folder)}</small>
         </div>
       </div>
@@ -2010,6 +2023,7 @@ els.geminiModel.addEventListener("change", () => { if (els.defaultProvider.value
 els.refreshModels.addEventListener("click", async () => { await loadSettings(); els.settingsStatus.textContent = "Modelos actualizados."; });
 els.refreshBudgets.addEventListener("click", loadBudgets);
 els.budgetYear.addEventListener("change", renderBudgets);
+if (els.budgetSearch) els.budgetSearch.addEventListener("input", renderBudgets);
 els.newBudget.addEventListener("click", newBudget);
 els.mdSearch.addEventListener("input", () => renderMdFiles());
 els.clearMdFilter.addEventListener("click", () => { els.mdSearch.value = ""; renderMdFiles(); });

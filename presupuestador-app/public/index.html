@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Presupuestador IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260721-model-selection-fix">
+  <link rel="stylesheet" href="styles.css?v=20260817-ux-refresh">
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
       <div class="brand compact-brand">
-        <span class="mark">H</span>
+        <span class="mark">HAM</span>
         <div>
           <strong>Presupuestador IA</strong>
           <small>Compuestos, skills y costes</small>
@@ -55,37 +55,58 @@
             </div>
           </div>
 
-          <div class="client-grid">
-            <label><span>Cliente</span><input id="clientName" placeholder="Nombre fiscal o cliente"></label>
-            <label><span>Email</span><input id="clientEmail" placeholder="cliente@email.com"></label>
-            <label><span>Telefono</span><input id="clientPhone" placeholder="+34..."></label>
-            <label><span>NIF/CIF</span><input id="clientTax" placeholder="B00000000"></label>
-            <label class="wide"><span>Direccion / obra</span><input id="clientAddress" placeholder="Ubicacion de la obra"></label>
-            <label><span>Referencia</span><input id="clientRef" placeholder="Ref. interna"></label>
-          </div>
+          <div class="budget-intake">
+            <section class="intake-panel client-panel">
+              <h2>Datos del cliente</h2>
+              <div class="client-grid">
+                <label><span>Cliente</span><input id="clientName" placeholder="Nombre fiscal o cliente"></label>
+                <label><span>Email</span><input id="clientEmail" placeholder="cliente@email.com"></label>
+                <label><span>Telefono</span><input id="clientPhone" placeholder="+34..."></label>
+                <label><span>NIF/CIF</span><input id="clientTax" placeholder="B00000000"></label>
+                <label class="wide"><span>Direccion / obra</span><input id="clientAddress" placeholder="Ubicacion de la obra"></label>
+                <label><span>Referencia</span><input id="clientRef" placeholder="Ref. interna"></label>
+              </div>
+            </section>
 
-          <div class="product-prompt-row">
-            <label><span>Producto</span><select id="productSelect"><option value="">Selecciona producto para pre-prompt...</option></select></label>
-            <button id="insertProductPrompt" class="secondary" type="button">Insertar parametros</button>
-            <span id="productPromptStatus" class="status"></span>
-          </div>
+            <section class="intake-panel product-panel">
+              <h2>Producto</h2>
+              <p>Selecciona una plantilla para pedir los datos correctos antes de presupuestar.</p>
+              <div class="product-prompt-row">
+                <label><span>Producto</span><select id="productSelect"><option value="">Selecciona producto para pre-prompt...</option></select></label>
+                <button id="insertProductPrompt" class="secondary" type="button">Insertar parametros</button>
+              </div>
+              <div class="required-data-card">
+                <strong>Datos requeridos</strong>
+                <ul>
+                  <li>Dimensiones y cantidades</li>
+                  <li>Material y acabado</li>
+                  <li>Ubicacion y ambiente</li>
+                  <li>Montaje, acceso y medios</li>
+                </ul>
+              </div>
+              <span id="productPromptStatus" class="status"></span>
+            </section>
 
-          <textarea id="prompt" rows="6" placeholder="Ej.: Pergola adosada de 6 x 4 m en Menorca, estructura inox 316, cubierta de canizo, montaje en terraza con acceso estrecho..."></textarea>
-
-          <div class="dropzone" id="dropzone">
-            <input id="attachments" type="file" multiple accept="image/*,.txt,.md,.pdf,.csv,.json,.yaml,.yml">
-            <div>
-              <strong>Adjuntar documentacion o imagenes</strong>
-              <span>Se leen textos y se envian imagenes como referencia visual a la API compatible.</span>
-            </div>
-          </div>
-
-          <div id="fileList" class="file-list"></div>
-
-          <div class="actions">
-            <button id="generate">Generar lineas</button>
-            <button id="clear" class="ghost">Limpiar</button>
-            <span id="status" class="status"></span>
+            <section class="intake-panel prompt-panel">
+              <div>
+                <h2>Asistente de prompt IA</h2>
+                <p>Completa el alcance, adjunta documentacion y genera lineas revisables.</p>
+              </div>
+              <textarea id="prompt" rows="6" placeholder="Ej.: Pergola adosada de 6 x 4 m en Menorca, estructura inox 316, cubierta de canizo, montaje en terraza con acceso estrecho..."></textarea>
+              <div class="dropzone" id="dropzone">
+                <input id="attachments" type="file" multiple accept="image/*,.txt,.md,.pdf,.csv,.json,.yaml,.yml">
+                <div>
+                  <strong>Adjuntar documentacion o imagenes</strong>
+                  <span>Se leen textos y se envian imagenes como referencia visual a la API compatible.</span>
+                </div>
+              </div>
+              <div id="fileList" class="file-list"></div>
+              <div class="actions">
+                <button id="generate">Generar lineas</button>
+                <button id="clear" class="ghost">Limpiar</button>
+                <span id="status" class="status"></span>
+              </div>
+            </section>
           </div>
         </section>
 
@@ -158,6 +179,7 @@
             <button id="newBudget" class="secondary">Nuevo presupuesto</button>
           </div>
           <div class="budget-toolbar">
+            <label class="toolbar-search"><span>Buscar</span><input id="budgetSearch" placeholder="Cliente, producto o referencia"></label>
             <label><span>A&ntilde;o</span><select id="budgetYear"></select></label>
             <button id="refreshBudgets" class="secondary">Actualizar lista</button>
             <span id="budgetsStatus" class="status"></span>
@@ -303,7 +325,7 @@
     </main>
   </div>
 
-  <script src="app.js?v=20260721-model-selection-fix"></script>
+  <script src="app.js?v=20260817-ux-refresh"></script>
 </body>
 </html>
 

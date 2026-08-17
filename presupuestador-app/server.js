@@ -2101,6 +2101,7 @@ async function listBudgets() {
       number: Number(match[2]),
       title,
       clientName: client.nombre || "",
+      total: budgetData ? totalOf(budgetData.lineas || []) : 0,
       folder: `presupuestos/${entry.name}`,
       imageUrl,
       files: fileNames.map((name) => ({
