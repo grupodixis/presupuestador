@@ -64,6 +64,12 @@
             <label><span>Referencia</span><input id="clientRef" placeholder="Ref. interna"></label>
           </div>
 
+          <div class="product-prompt-row">
+            <label><span>Producto</span><select id="productSelect"><option value="">Selecciona producto para pre-prompt...</option></select></label>
+            <button id="insertProductPrompt" class="secondary" type="button">Insertar parametros</button>
+            <span id="productPromptStatus" class="status"></span>
+          </div>
+
           <textarea id="prompt" rows="6" placeholder="Ej.: Pergola adosada de 6 x 4 m en Menorca, estructura inox 316, cubierta de canizo, montaje en terraza con acceso estrecho..."></textarea>
 
           <div class="dropzone" id="dropzone">
@@ -248,6 +254,21 @@
             <button id="saveMd" class="secondary" disabled>Guardar archivo</button>
           </div>
           <div id="knowledgeMap" class="knowledge-map"></div>
+          <div class="product-builder">
+            <div class="product-builder-head">
+              <div>
+                <h2>Agregar producto</h2>
+                <p>La IA crea la skill, la composicion YAML y los requerimientos para pedir datos antes de presupuestar.</p>
+              </div>
+              <button id="createProduct" class="secondary" type="button">Crear producto con IA</button>
+            </div>
+            <div class="product-builder-grid">
+              <label><span>Nombre del producto</span><input id="newProductName" placeholder="Ej.: escalera marinera, cerramiento cortavientos..."></label>
+              <label><span>Area</span><select id="newProductArea"><option value="carpinteria_metalica">Carpinteria metalica</option><option value="aluminio">Aluminio</option><option value="instalaciones_electricas">Instalaciones electricas</option><option value="fontaneria">Fontaneria</option><option value="clima">Clima</option><option value="otras_industrias">Otras industrias</option></select></label>
+              <label class="wide"><span>Descripcion / criterios</span><textarea id="newProductDescription" rows="3" placeholder="Describe materiales habituales, variables necesarias, montaje, riesgos, normativa o dudas que debe preguntar..."></textarea></label>
+            </div>
+            <div id="productCreateStatus" class="status"></div>
+          </div>
           <div class="editor-grid">
             <div class="file-browser">
               <div class="file-browser-head">

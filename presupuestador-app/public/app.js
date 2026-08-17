@@ -49,6 +49,7 @@ const state = {
   users: [],
   prices: [],
   activePriceCategory: "",
+  products: [],
 };
 
 const els = {
@@ -58,6 +59,9 @@ const els = {
   model: document.querySelector("#model"),
   modelTokenInfo: document.querySelector("#modelTokenInfo"),
   prompt: document.querySelector("#prompt"),
+  productSelect: document.querySelector("#productSelect"),
+  insertProductPrompt: document.querySelector("#insertProductPrompt"),
+  productPromptStatus: document.querySelector("#productPromptStatus"),
   attachments: document.querySelector("#attachments"),
   fileList: document.querySelector("#fileList"),
   generate: document.querySelector("#generate"),
@@ -111,6 +115,11 @@ const els = {
   applyMdAi: document.querySelector("#applyMdAi"),
   saveMd: document.querySelector("#saveMd"),
   mdStatus: document.querySelector("#mdStatus"),
+  newProductName: document.querySelector("#newProductName"),
+  newProductArea: document.querySelector("#newProductArea"),
+  newProductDescription: document.querySelector("#newProductDescription"),
+  createProduct: document.querySelector("#createProduct"),
+  productCreateStatus: document.querySelector("#productCreateStatus"),
   clientName: document.querySelector("#clientName"),
   clientEmail: document.querySelector("#clientEmail"),
   clientPhone: document.querySelector("#clientPhone"),
@@ -264,6 +273,93 @@ function normalizeDocumentTemplate(template = {}) {
     headerText: String(template.headerText || DEFAULT_DOCUMENT_TEMPLATE.headerText),
     footerText: String(template.footerText || DEFAULT_DOCUMENT_TEMPLATE.footerText),
   };
+}
+
+function selectedProduct() {
+  const slug = els.productSelect?.value || "";
+  return state.products.find((product) => product.slug === slug) || null;
+}
+
+function renderProductSelect() {
+  if (!els.productSelect) return;
+  const current = els.productSelect.value;
+  els.productSelect.innerHTML = '<option value="">Selecciona producto para pre-prompt...</option>';
+  for (const product of state.products) {
+    const option = document.createElement("option");
+    option.value = product.slug;
+    option.textContent = product.name;
+    els.productSelect.appendChild(option);
+  }
+  if (current && state.products.some((product) => product.slug === current)) els.productSelect.value = current;
+}
+
+async function loadProducts() {
+  if (!els.productSelect) return;
+  try {
+    const data = await getJson("/api/products");
+    state.products = data.products || [];
+    renderProductSelect();
+  } catch (error) {
+    if (els.productPromptStatus) els.productPromptStatus.textContent = error.message;
+  }
+}
+
+function insertSelectedProductPrompt() {
+  const product = selectedProduct();
+  if (!product) {
+    els.productPromptStatus.textContent = "Selecciona un producto.";
+    return;
+  }
+  const template = product.promptTemplate || `Producto: ${product.name}\n\nRellenar parametros:\n- dimensiones:\n- material:\n- acabado:\n- ubicacion:\n`;
+  const current = els.prompt.value.trim();
+  els.prompt.value = current ? `${current}\n\n---\n${template}` : template;
+  els.productPromptStatus.textContent = `Pre-prompt insertado: ${product.name}.`;
+  els.prompt.focus();
+}
+
+async function createProductFromForm() {
+  const name = els.newProductName?.value.trim() || "";
+  if (!name) {
+    els.productCreateStatus.textContent = "Indica el nombre del producto.";
+    return;
+  }
+  const selection = effectiveModelSelection();
+  els.createProduct.disabled = true;
+  els.productCreateStatus.textContent = "Creando archivos de producto...";
+  try {
+    const response = await api("/api/products", {
+      provider: selection.provider,
+      model: selection.model,
+      name,
+      area: els.newProductArea.value,
+      description: els.newProductDescription.value,
+    });
+    state.products = response.products || [];
+    state.mdFiles = response.files || state.mdFiles;
+    renderProductSelect();
+    renderKnowledgeMap();
+    renderMdFiles();
+    els.productSelect.value = response.slug || "";
+    els.newProductName.value = "";
+    els.newProductDescription.value = "";
+    const filesText = (response.files || []).join(", ");
+    els.productCreateStatus.textContent = response.warning ? `Producto creado en modo local: ${filesText}. Aviso IA: ${response.warning}` : `Producto creado: ${filesText}`;
+    if (response.usage) {
+      state.result = state.result || {};
+      state.result.tokenUsage = response.usage;
+      await loadModels(selection.provider, false);
+      renderModelTokenInfo();
+    }
+  } catch (error) {
+    try {
+      const parsed = JSON.parse(error.message);
+      els.productCreateStatus.textContent = parsed.error || error.message;
+    } catch {
+      els.productCreateStatus.textContent = error.message;
+    }
+  } finally {
+    els.createProduct.disabled = false;
+  }
 }
 
 const KNOWLEDGE_AREAS = [
@@ -1003,6 +1099,8 @@ async function generateBudgetImageForFolder(folder, button) {
 }
 function newBudget() {
   clearBudgetForm();
+  if (els.productSelect) els.productSelect.value = "";
+  if (els.productPromptStatus) els.productPromptStatus.textContent = "";
   switchView("budgetView");
   els.prompt.focus();
 }
@@ -1891,6 +1989,11 @@ document.querySelectorAll(".tab").forEach((tab) => {
 
 els.attachments.addEventListener("change", (event) => handleFiles(event.target.files));
 els.generate.addEventListener("click", generate);
+if (els.insertProductPrompt) els.insertProductPrompt.addEventListener("click", insertSelectedProductPrompt);
+if (els.productSelect) els.productSelect.addEventListener("change", () => {
+  const product = selectedProduct();
+  els.productPromptStatus.textContent = product ? `${product.variablesTecnicas?.length || 0} parametro(s) sugeridos.` : "";
+});
 els.refreshContext.addEventListener("click", loadContext);
 els.saveSettings.addEventListener("click", saveSettings);
 els.logout.addEventListener("click", logout);
@@ -1910,6 +2013,7 @@ els.budgetYear.addEventListener("change", renderBudgets);
 els.newBudget.addEventListener("click", newBudget);
 els.mdSearch.addEventListener("input", () => renderMdFiles());
 els.clearMdFilter.addEventListener("click", () => { els.mdSearch.value = ""; renderMdFiles(); });
+if (els.createProduct) els.createProduct.addEventListener("click", createProductFromForm);
 els.applyMdAi.addEventListener("click", applyMdAi);
 els.saveMd.addEventListener("click", saveMd);
 els.mdEditMode.addEventListener("click", () => setMdMode("edit"));
@@ -1962,5 +2066,6 @@ loadMe().then(() => {
   loadContext();
   loadSettings();
   loadMdFiles();
+  loadProducts();
   loadBudgets();
 });

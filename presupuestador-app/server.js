@@ -810,6 +810,7 @@ function normalizeGeminiUsage(usage) {
 async function loadRepositoryContext() {
   const skillFiles = await listFiles(path.join(ROOT, "skills"), (file) => file.endsWith(".md"));
   const compositionFiles = await listFiles(path.join(ROOT, "productos", "composiciones"), (file) => file.endsWith(".yaml"));
+  const requirementFiles = await listFiles(path.join(ROOT, "productos", "requisitos"), (file) => file.endsWith(".yaml") || file.endsWith(".yml"));
   const costingFiles = await listFiles(path.join(ROOT, "presupuestacion", "costes"), (file) =>
     file.endsWith(".json") || file.endsWith(".md") || file.endsWith(".yaml") || file.endsWith(".yml")
   );
@@ -820,6 +821,7 @@ async function loadRepositoryContext() {
     path.join(ROOT, "presupuestacion", "criterios-comerciales.md"),
     ...skillFiles,
     ...compositionFiles,
+    ...requirementFiles,
     ...costingFiles,
   ];
 
@@ -843,6 +845,8 @@ Objetivo:
 - Descomponer productos compuestos en componentes, interfaces, procesos, riesgos y dudas.
 - Proponer sugerencias tecnicas que el usuario pueda aceptar y memorizar en skills Markdown.
 - Respetar Menorca por defecto: ambiente salino, corrosivo, tratamientos C4/C5, inox A4/316 cuando aplique.
+- Antes de cerrar un precio exacto, revisar skills y productos/requisitos. Si faltan datos obligatorios, incluir preguntas concretas y marcar confianza baja/media; no inventar medidas criticas.
+- Si el usuario rellena una plantilla de producto, usar esos parametros como fuente principal del presupuesto.
 
 Formato exacto de respuesta:
 {
@@ -1224,6 +1228,255 @@ function slugify(text) {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .slice(0, 64) || "presupuesto";
+}
+
+function yamlScalar(value) {
+  return String(value || "")
+    .replace(/#.*/, "")
+    .trim()
+    .replace(/^['"]|['"]$/g, "");
+}
+
+function yamlTopValue(content, key) {
+  const match = String(content || "").match(new RegExp(`^${key}:\\s*(.+)$`, "m"));
+  return match ? yamlScalar(match[1]) : "";
+}
+
+function yamlListBlock(content, key) {
+  const lines = String(content || "").split(/\r?\n/);
+  const start = lines.findIndex((line) => line.trim() === `${key}:`);
+  if (start < 0) return [];
+  const out = [];
+  for (let i = start + 1; i < lines.length; i += 1) {
+    const line = lines[i];
+    if (/^\S/.test(line) && line.includes(":")) break;
+    const item = line.match(/^\s*-\s+(.+)$/);
+    if (!item) continue;
+    const raw = yamlScalar(item[1]);
+    const [name, hint] = raw.split(":").map((part) => part.trim());
+    if (name) out.push({ name, hint: hint || "" });
+  }
+  return out;
+}
+
+function productLabelFromSlug(slug) {
+  return String(slug || "")
+    .replaceAll("_", " ")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function productPromptTemplate(product) {
+  const fields = product.variablesTecnicas?.length
+    ? product.variablesTecnicas
+    : [
+        { name: "descripcion", hint: "que se necesita fabricar o instalar" },
+        { name: "dimensiones", hint: "medidas principales" },
+        { name: "material", hint: "material preferido" },
+        { name: "acabado", hint: "tratamiento o terminacion" },
+        { name: "ubicacion", hint: "interior/exterior/costa/obra" },
+      ];
+  return [
+    `Producto: ${product.name}`,
+    `Tipo interno: ${product.slug}`,
+    "",
+    "Rellenar parametros para presupuesto exacto:",
+    ...fields.map((field) => `- ${field.name}: ${field.hint ? `[${field.hint}]` : "[pendiente]"}`),
+    "",
+    "Datos de obra:",
+    "- ubicacion_obra:",
+    "- montaje_en_obra: si/no",
+    "- acceso_y_medios_auxiliares:",
+    "- fotos_o_planos_adjuntos: si/no",
+    "",
+    "Objetivo: generar presupuesto tecnico y comercial. Si falta un dato critico, preguntar antes de cerrar precio exacto.",
+  ].join("\n");
+}
+
+async function listProducts() {
+  const dir = path.join(ROOT, "productos", "composiciones");
+  const files = await listFiles(dir, (file) => path.extname(file).toLowerCase() === ".yaml");
+  const products = [];
+  for (const file of files) {
+    const content = await fs.readFile(file, "utf8");
+    const slug = path.basename(file, ".yaml");
+    const product = {
+      slug,
+      name: yamlTopValue(content, "producto") || productLabelFromSlug(slug),
+      unitBase: yamlTopValue(content, "unidad_base") || "",
+      compositionPath: path.relative(ROOT, file).replaceAll("\\", "/"),
+      skillPath: `skills/skill_${slug}.md`,
+      requirementsPath: `productos/requisitos/${slug}.yaml`,
+      variablesTecnicas: yamlListBlock(content, "variables_tecnicas"),
+    };
+    product.promptTemplate = productPromptTemplate(product);
+    products.push(product);
+  }
+  return products.sort((a, b) => a.name.localeCompare(b.name, "es"));
+}
+
+function buildProductDocsFallback({ name, area, description }) {
+  const slug = slugify(name).replaceAll("-", "_");
+  const title = productLabelFromSlug(slug);
+  const cleanArea = slugify(area || "otras_industrias").replaceAll("-", "_");
+  const cleanDescription = String(description || "").trim() || "Producto a medida pendiente de definir con mas detalle.";
+  const required = [
+    "tipo_producto",
+    "dimensiones_principales",
+    "materiales",
+    "acabado",
+    "ubicacion",
+    "montaje_en_obra",
+    "acceso_obra",
+  ];
+  const skill = `# Skill: ${title}
+
+## Cuándo usar esta skill
+
+Cuando el producto a presupuestar sea ${title}. Area sugerida: ${cleanArea}.
+
+## Datos mínimos necesarios
+
+${required.map((item) => `- ${item.replaceAll("_", " ")}.`).join("\n")}
+
+## Datos recomendados
+
+- Fotos, planos o croquis.
+- Plazo deseado.
+- Restricciones de acceso o montaje.
+- Preferencias de marca, acabado o normativa.
+
+## Criterios técnicos
+
+- No cerrar presupuesto exacto si faltan dimensiones, material, acabado o montaje.
+- En Menorca, evaluar ambiente salino, viento, corrosion y acceso a obra.
+- Documentar supuestos cuando el usuario decida avanzar con datos incompletos.
+
+## Composición habitual del producto
+
+Ver \`/productos/composiciones/${slug}.yaml\`.
+
+## Preguntas que el agente debe hacer antes de presupuestar
+
+${required.map((item) => `- ¿${item.replaceAll("_", " ")}?`).join("\n")}
+`;
+  const composition = `producto: ${title}
+unidad_base: unidad / conjunto
+
+descripcion: ${cleanDescription}
+
+materiales_principales:
+  - nombre: Material principal
+    tipo: definir
+
+materiales_auxiliares:
+  - nombre: Fijaciones y consumibles
+    tipo: definir
+
+procesos:
+  - medicion_y_replanteo
+  - diseno_y_despiece
+  - fabricacion
+  - tratamiento_superficial
+  - transporte
+  - montaje_en_obra
+
+variables_tecnicas:
+${required.map((item) => `  - ${item}: pendiente`).join("\n")}
+
+costes_a_considerar:
+  materiales: true
+  mano_obra_taller: true
+  mano_obra_montaje: true
+  transporte: true
+  riesgo: true
+  margen: true
+`;
+  const requirements = `producto: ${title}
+slug: ${slug}
+area: ${cleanArea}
+datos_requeridos:
+${required.map((item) => `  - campo: ${item}\n    pregunta: "${item.replaceAll("_", " ")}"\n    obligatorio: true`).join("\n")}
+prompt_base: |
+  Producto: ${title}
+  Rellenar parametros:
+${required.map((item) => `  - ${item}: [pendiente]`).join("\n")}
+  Si falta un dato obligatorio, preguntar antes de calcular precio exacto.
+`;
+  return { slug, files: [
+    { path: `skills/skill_${slug}.md`, content: skill },
+    { path: `productos/composiciones/${slug}.yaml`, content: composition },
+    { path: `productos/requisitos/${slug}.yaml`, content: requirements },
+  ] };
+}
+
+function buildProductDocsPrompt({ name, area, description }) {
+  return `Crea archivos de conocimiento para un nuevo producto del presupuestador.
+
+Producto: ${name}
+Area: ${area || "otras_industrias"}
+Descripcion del usuario:
+${description || ""}
+
+Devuelve SOLO JSON valido con esta forma:
+{
+  "slug": "nombre_en_snake_case",
+  "files": [
+    {"path": "skills/skill_nombre_en_snake_case.md", "content": "...markdown..."},
+    {"path": "productos/composiciones/nombre_en_snake_case.yaml", "content": "...yaml..."},
+    {"path": "productos/requisitos/nombre_en_snake_case.yaml", "content": "...yaml..."}
+  ]
+}
+
+Reglas:
+- El slug debe ser snake_case, sin acentos.
+- La skill debe incluir Datos minimos necesarios, Datos recomendados, Criterios tecnicos, Preguntas que el agente debe hacer y Checklist final.
+- La composicion YAML debe incluir producto, unidad_base, materiales_principales, materiales_auxiliares, procesos, variables_tecnicas y costes_a_considerar.
+- El requisitos YAML debe incluir datos_requeridos con campo, pregunta, obligatorio y opciones si aplica, mas prompt_base.
+- No inventes precios concretos.
+- En productos exteriores en Menorca contempla ambiente marino, viento, corrosion y acceso a obra.`;
+}
+
+async function createProductKnowledge(body) {
+  const name = String(body.name || "").trim();
+  if (!name) throw new Error("Falta el nombre del producto.");
+  const context = await loadRepositoryContext();
+  const selection = { provider: body.provider || "fallback", model: body.model || "fallback" };
+  let result = buildProductDocsFallback(body);
+  let warning = null;
+  let usage = null;
+  if (selection.provider === "openai" || selection.provider === "gemini") {
+    const prompt = buildProductDocsPrompt(body);
+    try {
+      const response = selection.provider === "openai"
+        ? await callOpenAIText({ prompt, context, model: selection.model })
+        : await callGeminiText({ prompt, context, model: selection.model });
+      result = JSON.parse(stripMarkdownEnvelope(response.content));
+      usage = response.usage;
+    } catch (error) {
+      warning = error.message;
+      result = buildProductDocsFallback(body);
+    }
+  }
+  const slug = slugify(result.slug || name).replaceAll("-", "_");
+  const files = Array.isArray(result.files) ? result.files : buildProductDocsFallback({ ...body, name: slug }).files;
+  const written = [];
+  for (const file of files) {
+    let relative = String(file.path || "").replaceAll("\\", "/").replace(/nombre_en_snake_case/g, slug);
+    if (relative.startsWith("skills/")) relative = `skills/skill_${slug}.md`;
+    if (relative.includes("/composiciones/")) relative = `productos/composiciones/${slug}.yaml`;
+    if (relative.includes("/requisitos/")) relative = `productos/requisitos/${slug}.yaml`;
+    if (!/^skills\/skill_[a-z0-9_]+\.md$/.test(relative)
+      && !/^productos\/composiciones\/[a-z0-9_]+\.ya?ml$/.test(relative)
+      && !/^productos\/requisitos\/[a-z0-9_]+\.ya?ml$/.test(relative)) {
+      continue;
+    }
+    const full = resolveEditable(relative);
+    await fs.mkdir(path.dirname(full), { recursive: true });
+    await fs.writeFile(full, String(file.content || "").trim() + "\n", "utf8");
+    written.push(relative);
+  }
+  await recordTokenUsage(selection.provider, selection.model, usage);
+  return { slug, files: written, warning, usage };
 }
 
 async function nextBudgetCode() {
@@ -2087,6 +2340,14 @@ async function route(req, res) {
       return { ...model, localBudgetTokens: budget || null, usedTokens: used, remainingTokens: budget > 0 ? Math.max(0, budget - used) : null };
     }));
     return send(res, 200, { provider, models });
+  }
+  if (req.method === "GET" && url.pathname === "/api/products") {
+    return send(res, 200, { products: await listProducts() });
+  }
+  if (req.method === "POST" && url.pathname === "/api/products") {
+    requireAdmin(user);
+    const result = await createProductKnowledge(await readJson(req));
+    return send(res, 200, { ...result, products: await listProducts(), files: await listEditableFiles() });
   }
   if (req.method === "POST" && url.pathname === "/api/token-status") {
     const body = await readJson(req);
