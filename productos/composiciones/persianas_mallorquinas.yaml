@@ -1,0 +1,59 @@
+producto: "Persianas mallorquinas · ALUFAC / CORTIZO"
+unidad_base: unidad
+area: aluminio
+marca_presupuestacion: ALUFAC
+sistema_preferente: CORTIZO Mallorquina
+
+descripcion: Plantilla para persianas mallorquinas de aluminio practicables, correderas o plegables, con lamas fijas, orientables o panel machihembrado.
+
+variables_tecnicas:
+  - referencia_hueco: código, estancia o fachada
+  - cantidad: número de unidades iguales
+  - dimensiones: ancho x alto en mm y confirmar si son de hueco o fabricación
+  - tipologia: practicable / corredera / plegable / fijo
+  - configuracion_hojas: número de hojas, sentido y reparto
+  - tipo_apertura: practicable_2_hojas / corredera_2_hojas / corredera_3_hojas / corredera_4_hojas / plegable / fijo / pendiente
+  - vista_apertura: vista desde interior o exterior
+  - relleno: lama fija / lama orientable / machihembrado / mixto
+  - serie_sistema: CORTIZO Mallorquina u otra serie validada
+  - acabado: RAL, textura, anodizado y calidad marina
+  - herrajes_guias: bisagras, cierres, carros, carril y material
+  - montaje_y_retirada: premarco, retirada existente, transporte, acceso y sellado
+
+componentes_principales:
+  - marco o cerco perimetral de aluminio
+  - bastidores de hojas
+  - lamas fijas, orientables o panel machihembrado
+  - travesaños y refuerzos según dimensiones y viento
+  - bisagras, fallebas, cierres, topes o carros de rodadura
+  - guías superior e inferior para sistemas correderos
+  - fijaciones, sellantes y remates de montaje
+
+procesos:
+  - medicion_y_numeracion_de_huecos
+  - validacion_de_tipologia_y_despiece
+  - corte_mecanizado_y_armado
+  - montaje_de_lamas_paneles_y_herrajes
+  - lacado_o_tratamiento_superficial
+  - control_de_funcionamiento
+  - transporte_retirada_y_montaje
+  - regulacion_y_sellado
+
+criterios_menorca:
+  - Especificar QUALICOAT Seaside o protección equivalente cuando exista exposición marina.
+  - Priorizar tornillería, ejes, carriles y elementos expuestos en inoxidable AISI 316.
+  - Validar resistencia al viento, refuerzos, anclajes y número de bisagras o carros.
+  - Separar cada hueco o configuración diferente en una línea del presupuesto.
+  - Cada línea debe incluir tipoApertura e ilustracionApertura.
+
+costes_a_considerar:
+  perfiles_y_refuerzos: true
+  lamas_o_panel: true
+  herrajes_y_guias: true
+  lacado_calidad_marina: true
+  mano_obra_taller: true
+  transporte: true
+  retirada_existente: true
+  montaje_y_medios_auxiliares: true
+  sellado_y_remates: true
+  riesgo_y_margen: true

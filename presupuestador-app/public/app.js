@@ -17,7 +17,7 @@ const ACTIVE_BUDGET_FOLDER_KEY = "presupuestador.activeBudgetFolder";
 const DEFAULT_VIEW = "budgetsView";
 const VALID_VIEWS = new Set(["budgetView", "budgetsView", "configView", "contextView", "usersView"]);
 const ALUFAC_PRODUCT_SLUG = "carpinteria_aluminio_alufac";
-const CORTIZO_PRODUCT_SLUGS = new Set(["cortizo_abatibles", "cortizo_correderas"]);
+const CORTIZO_PRODUCT_SLUGS = new Set(["cortizo_abatibles", "cortizo_correderas", "persianas_mallorquinas"]);
 const ALUFAC_OPENINGS = [
   ["pendiente", "Pendiente de definir"],
   ["fijo", "Fijo"],
@@ -2138,7 +2138,9 @@ if (els.productSelect) els.productSelect.addEventListener("change", () => {
   els.productPromptStatus.textContent = product?.slug === ALUFAC_PRODUCT_SLUG
     ? "Modo ALUFAC seleccionado: cada línea incluirá su tipo de apertura y esquema. Series y tarifas pendientes de documentación."
     : CORTIZO_PRODUCT_SLUGS.has(product?.slug)
-      ? "Modo CORTIZO seleccionado: cada línea incluirá su apertura y esquema. Se aplicarán las reglas y costes CORTIZO con prioridad para tarifas y ofertas reales."
+      ? product?.slug === "persianas_mallorquinas"
+        ? "Modo persiana mallorquina seleccionado: se pedirán medidas, hojas, apertura, relleno, acabado marino, herrajes y montaje. Cada línea incluirá su esquema."
+        : "Modo CORTIZO seleccionado: cada línea incluirá su apertura y esquema. Se aplicarán las reglas y costes CORTIZO con prioridad para tarifas y ofertas reales."
     : product ? `${product.variablesTecnicas?.length || 0} parametro(s) sugeridos.` : "";
   if (state.result) renderResult();
 });

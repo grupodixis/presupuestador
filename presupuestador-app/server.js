@@ -599,7 +599,7 @@ function normalizeDocumentTemplate(template = {}) {
 }
 
 function isAlufacBudget(payload = {}) {
-  return ["carpinteria_aluminio_alufac", "cortizo_abatibles", "cortizo_correderas"].includes(payload.budgetMode)
+  return ["carpinteria_aluminio_alufac", "cortizo_abatibles", "cortizo_correderas", "persianas_mallorquinas"].includes(payload.budgetMode)
     || ["ALUFAC", "CORTIZO"].includes(payload.marcaSistema)
     || payload.tipoProducto === "carpinteria_aluminio";
 }
@@ -927,7 +927,7 @@ ${context.map((doc) => `\n--- ${doc.path} ---\n${doc.content}`).join("\n")}`;
 }
 
 function isIllustratedOpeningBudget(payload = {}) {
-  return ["carpinteria_aluminio_alufac", "cortizo_abatibles", "cortizo_correderas"].includes(payload.budgetMode)
+  return ["carpinteria_aluminio_alufac", "cortizo_abatibles", "cortizo_correderas", "persianas_mallorquinas"].includes(payload.budgetMode)
     || ["ALUFAC", "CORTIZO"].includes(payload.marcaSistema);
 }
 
