@@ -1,0 +1,30 @@
+producto: Carpintería de Aluminio Corredera y Elevable CORTIZO
+slug: cortizo_correderas
+area: aluminio
+datos_requeridos:
+  - campo: referencia_hueco
+    pregunta: "¿Qué referencia identifica el hueco?"
+    obligatorio: true
+  - campo: dimensiones
+    pregunta: "¿Ancho y alto en milímetros?"
+    obligatorio: true
+  - campo: serie_y_variante
+    pregunta: "¿Qué serie y variante exacta CORTIZO?"
+    obligatorio: true
+  - campo: configuracion
+    pregunta: "¿Número de hojas, móviles/fijas, carriles, galandage o esquina?"
+    obligatorio: true
+  - campo: vidrio
+    pregunta: "¿Composición, espesor, superficie y peso del vidrio?"
+    obligatorio: true
+  - campo: maniobra
+    pregunta: "¿Manual, elevable o motorizada?"
+    obligatorio: true
+  - campo: integracion_obra
+    pregunta: "¿Cotas de marco, drenaje, premarco, suelo y alcance de montaje?"
+    obligatorio: true
+prompt_base: |
+  Marca: CORTIZO
+  Familia: corredera / elevable / minimalista
+  Crear una línea por hueco con referencia, cantidad, medidas, serie/variante, hojas/carriles, apertura/vista, vidrio, acabado, maniobra y montaje.
+  Incluir tipoApertura e ilustracionApertura. Validar inercia, ubicación, peso y dimensiones antes de cerrar la oferta.

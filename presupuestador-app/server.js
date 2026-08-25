@@ -862,6 +862,8 @@ Objetivo:
 - Respetar Menorca por defecto: ambiente salino, corrosivo, tratamientos C4/C5, inox A4/316 cuando aplique.
 - Antes de cerrar un precio exacto, revisar skills y productos/requisitos. Si faltan datos obligatorios, incluir preguntas concretas y marcar confianza baja/media; no inventar medidas criticas.
 - Si el usuario rellena una plantilla de producto, usar esos parametros como fuente principal del presupuesto.
+- En CORTIZO, validar la variante exacta y aplicar cortizo-validacion-oficial.md; no heredar prestaciones o límites entre Industrial, Hoja Oculta, CC/CC16, Evolution o Passivhaus.
+- Prioridad de costes: lista de precios activa u oferta real identificada > tarifa vigente > ratios orientativos. Nunca presentar costes-aluminio-cortizo.md como tarifa oficial.
 
 Formato exacto de respuesta:
 {
@@ -903,8 +905,9 @@ Contexto del repositorio:
 ${context.map((doc) => `\n--- ${doc.path} ---\n${doc.content}`).join("\n")}`;
 }
 
-function isAlufacBudget(payload = {}) {
-  return payload.budgetMode === "carpinteria_aluminio_alufac" || payload.marcaSistema === "ALUFAC";
+function isIllustratedOpeningBudget(payload = {}) {
+  return ["carpinteria_aluminio_alufac", "cortizo_abatibles", "cortizo_correderas"].includes(payload.budgetMode)
+    || ["ALUFAC", "CORTIZO"].includes(payload.marcaSistema);
 }
 
 function openingDiagramHtml(value) {
@@ -912,11 +915,12 @@ function openingDiagramHtml(value) {
     pendiente: "Pendiente de definir", fijo: "Fijo", abatible_izquierda: "Abatible izquierda", abatible_derecha: "Abatible derecha",
     oscilobatiente_izquierda: "Oscilobatiente izquierda", oscilobatiente_derecha: "Oscilobatiente derecha",
     practicable_2_hojas: "Practicable 2 hojas", corredera_2_hojas: "Corredera 2 hojas", corredera_3_hojas: "Corredera 3 hojas",
-    corredera_4_hojas: "Corredera 4 hojas", proyectante: "Proyectante", plegable: "Plegable", elevable: "Elevable", pivotante: "Pivotante",
+    corredera_4_hojas: "Corredera 4 hojas", corredera_6_hojas: "Corredera 6 hojas", galandage: "Galandage / hoja oculta en muro",
+    esquina_90: "Encuentro en esquina 90°", proyectante: "Proyectante", plegable: "Plegable", elevable: "Elevable", pivotante: "Pivotante",
   };
   const key = Object.hasOwn(labels, value) ? value : "pendiente";
   const label = labels[key];
-  const leafMatch = key.match(/(3|4)_hojas/);
+  const leafMatch = key.match(/(3|4|6)_hojas/);
   const leaves = leafMatch ? Number(leafMatch[1]) : key.includes("2_hojas") ? 2 : 1;
   const panelWidth = 116 / leaves;
   let panels = "";
@@ -924,7 +928,7 @@ function openingDiagramHtml(value) {
     panels += `<rect x="${index * panelWidth + 2}" y="2" width="${panelWidth - 4}" height="66" rx="1"/>`;
   }
   let symbol = "";
-  if (key.includes("corredera") || key === "elevable") symbol = '<path d="M18 54h76m-8-7 8 7-8 7M30 47l-8 7 8 7"/>';
+  if (key.includes("corredera") || key === "elevable" || key === "galandage") symbol = '<path d="M18 54h76m-8-7 8 7-8 7M30 47l-8 7 8 7"/>';
   else if (key.includes("izquierda")) symbol = '<path d="M106 8 10 35l96 27"/>';
   else if (key.includes("derecha")) symbol = '<path d="M10 8 106 35 10 62"/>';
   else if (key === "practicable_2_hojas") symbol = '<path d="M2 4 58 35 2 66M114 4 58 35l56 31"/>';
@@ -1608,8 +1612,8 @@ function createSummaryPdf(payload, code) {
   const pageHeight = 841.89;
   const margin = 38;
   const contentWidth = pageWidth - margin * 2;
-  const alufac = isAlufacBudget(payload);
-  const rows = alufac
+  const illustratedOpenings = isIllustratedOpeningBudget(payload);
+  const rows = illustratedOpenings
     ? (payload.lineas || []).filter((item) => Number(item.importe || 0)).map((item) => ({
         chapter: pdfSafeText(item.capitulo || "Carpintería"),
         amount: roundMoney(item.importe ?? Number(item.cantidad || 0) * Number(item.precioUnitario || 0)),
@@ -1654,7 +1658,7 @@ function createSummaryPdf(payload, code) {
     const bottom = top - h;
     stroke(0.08, 0.13, 0.17);
     commands.push(`${x} ${bottom} ${w} ${h} re S`);
-    if (key.includes("corredera") || key === "elevable") {
+    if (key.includes("corredera") || key === "elevable" || key === "galandage") {
       commands.push(`${x + 8} ${bottom + 8} m ${x + 40} ${bottom + 8} l S`);
       commands.push(`${x + 35} ${bottom + 12} m ${x + 40} ${bottom + 8} l ${x + 35} ${bottom + 4} l S`);
     } else if (key.includes("izquierda")) {
@@ -1810,18 +1814,18 @@ function createSummaryPdf(payload, code) {
 
   for (const row of rows) {
     const description = row.concepts.slice(0, 3).join(", ");
-    const wrapped = wrapPdfText(description, alufac ? 58 : 82);
-    const rowHeight = Math.max(alufac ? 48 : 34, 18 + wrapped.length * 10);
+    const wrapped = wrapPdfText(description, illustratedOpenings ? 58 : 82);
+    const rowHeight = Math.max(illustratedOpenings ? 48 : 34, 18 + wrapped.length * 10);
     ensureSpace(rowHeight + 8);
     const topY = y;
     color(0.08, 0.13, 0.17);
     text(row.chapter, margin + 6, topY, 8.5);
     text(`${row.amount.toFixed(2)} EUR`, pageWidth - margin - 6, topY, 9.5, "F2", "right");
-    if (alufac) drawOpening(row.tipoApertura, margin + 92, topY + 4);
+    if (illustratedOpenings) drawOpening(row.tipoApertura, margin + 92, topY + 4);
     color(0.4, 0.42, 0.45);
     let descY = topY;
     for (const descriptionLine of wrapped) {
-      text(descriptionLine, margin + (alufac ? 150 : 92), descY, 8.2);
+      text(descriptionLine, margin + (illustratedOpenings ? 150 : 92), descY, 8.2);
       descY -= 10;
     }
     y = topY - rowHeight;
@@ -2133,7 +2137,7 @@ function budgetHtml(payload, code) {
   <table>
     <colgroup><col class="col-chapter"><col class="col-concept"><col class="col-qty"><col class="col-unit"><col class="col-price"><col class="col-amount"></colgroup>
     <thead><tr><th>Capitulo</th><th>Concepto</th><th class="num">Cant.</th><th>Ud.</th><th class="num">EUR/Ud.</th><th class="num">Importe</th></tr></thead>
-    <tbody>${lines.map((line) => `<tr><td>${htmlEscape(line.capitulo)}</td><td><strong>${htmlEscape(line.concepto)}</strong><br>${htmlEscape(line.descripcion)}${isAlufacBudget(payload) ? openingDiagramHtml(line.tipoApertura || line.ilustracionApertura || "pendiente") : ""}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${htmlEscape(line.unidad)}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
+    <tbody>${lines.map((line) => `<tr><td>${htmlEscape(line.capitulo)}</td><td><strong>${htmlEscape(line.concepto)}</strong><br>${htmlEscape(line.descripcion)}${isIllustratedOpeningBudget(payload) ? openingDiagramHtml(line.tipoApertura || line.ilustracionApertura || "pendiente") : ""}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${htmlEscape(line.unidad)}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
   </table>
   <div class="total">Total estimado: ${total.toFixed(2)} EUR + IVA</div>
   <section class="conditions">${renderDocumentFooterText(documentTemplate.footerText)}</section>

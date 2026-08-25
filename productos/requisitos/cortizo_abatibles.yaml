@@ -1,0 +1,33 @@
+producto: Carpintería de Aluminio Practicable y Oscilobatiente CORTIZO
+slug: cortizo_abatibles
+area: aluminio
+datos_requeridos:
+  - campo: referencia_hueco
+    pregunta: "¿Qué referencia identifica el hueco?"
+    obligatorio: true
+  - campo: dimensiones
+    pregunta: "¿Ancho y alto en milímetros?"
+    obligatorio: true
+  - campo: serie_y_variante
+    pregunta: "¿Qué serie y variante exacta CORTIZO?"
+    obligatorio: true
+  - campo: apertura_mano_y_vista
+    pregunta: "¿Qué apertura y mano, vistas desde interior o exterior?"
+    obligatorio: true
+  - campo: vidrio_o_panel
+    pregunta: "¿Composición, espesor y peso del vidrio o panel?"
+    obligatorio: true
+  - campo: acabado
+    pregunta: "¿Acabado, color y exigencia marina?"
+    obligatorio: true
+  - campo: herraje
+    pregunta: "¿Tipo de herraje, bisagras y seguridad?"
+    obligatorio: true
+  - campo: alcance_obra
+    pregunta: "¿Incluye medición, premarco, retirada, transporte y montaje?"
+    obligatorio: true
+prompt_base: |
+  Marca: CORTIZO
+  Familia: practicable / oscilobatiente
+  Crear una línea por hueco con referencia, cantidad, medidas, serie/variante, apertura/mano/vista, vidrio, acabado, herraje y alcance de montaje.
+  Incluir tipoApertura e ilustracionApertura. No heredar límites de otra variante ni usar ratios provisionales si existe precio real activo.

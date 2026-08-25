@@ -17,6 +17,7 @@ const ACTIVE_BUDGET_FOLDER_KEY = "presupuestador.activeBudgetFolder";
 const DEFAULT_VIEW = "budgetsView";
 const VALID_VIEWS = new Set(["budgetView", "budgetsView", "configView", "contextView", "usersView"]);
 const ALUFAC_PRODUCT_SLUG = "carpinteria_aluminio_alufac";
+const CORTIZO_PRODUCT_SLUGS = new Set(["cortizo_abatibles", "cortizo_correderas"]);
 const ALUFAC_OPENINGS = [
   ["pendiente", "Pendiente de definir"],
   ["fijo", "Fijo"],
@@ -28,6 +29,9 @@ const ALUFAC_OPENINGS = [
   ["corredera_2_hojas", "Corredera 2 hojas"],
   ["corredera_3_hojas", "Corredera 3 hojas"],
   ["corredera_4_hojas", "Corredera 4 hojas"],
+  ["corredera_6_hojas", "Corredera 6 hojas"],
+  ["galandage", "Galandage / hoja oculta en muro"],
+  ["esquina_90", "Encuentro en esquina 90°"],
   ["proyectante", "Proyectante"],
   ["plegable", "Plegable"],
   ["elevable", "Elevable"],
@@ -298,10 +302,19 @@ function selectedProduct() {
   return state.products.find((product) => product.slug === slug) || null;
 }
 
-function isAlufacBudget(payload = state.result) {
+function isIllustratedOpeningBudget(payload = state.result) {
+  const selected = els.productSelect?.value || "";
   return payload?.budgetMode === ALUFAC_PRODUCT_SLUG
-    || payload?.marcaSistema === "ALUFAC"
-    || els.productSelect?.value === ALUFAC_PRODUCT_SLUG;
+    || CORTIZO_PRODUCT_SLUGS.has(payload?.budgetMode)
+    || ["ALUFAC", "CORTIZO"].includes(payload?.marcaSistema)
+    || selected === ALUFAC_PRODUCT_SLUG
+    || CORTIZO_PRODUCT_SLUGS.has(selected);
+}
+
+function selectedOpeningBrand(slug = els.productSelect?.value || "") {
+  if (slug === ALUFAC_PRODUCT_SLUG) return "ALUFAC";
+  if (CORTIZO_PRODUCT_SLUGS.has(slug)) return "CORTIZO";
+  return "";
 }
 
 function openingLabel(value) {
@@ -310,7 +323,7 @@ function openingLabel(value) {
 
 function openingDiagram(value, label = openingLabel(value)) {
   const key = String(value || "pendiente");
-  const leafMatch = key.match(/(3|4)_hojas/);
+  const leafMatch = key.match(/(3|4|6)_hojas/);
   const leaves = leafMatch ? Number(leafMatch[1]) : key.includes("2_hojas") ? 2 : 1;
   const width = 116;
   const panelWidth = width / leaves;
@@ -320,7 +333,7 @@ function openingDiagram(value, label = openingLabel(value)) {
     panels += `<rect x="${x + 2}" y="2" width="${panelWidth - 4}" height="66" rx="1"/>`;
   }
   let symbol = "";
-  if (key.includes("corredera") || key === "elevable") {
+  if (key.includes("corredera") || key === "elevable" || key === "galandage") {
     symbol = '<path d="M18 54h76m-8-7 8 7-8 7M30 47l-8 7 8 7"/>';
   } else if (key.includes("izquierda")) {
     symbol = '<path d="M106 8 10 35l96 27"/>';
@@ -630,9 +643,9 @@ function clientData() {
 function resultPayload() {
   syncBudgetHeaderFromInputs();
   const payload = { ...(state.result || {}), cliente: clientData(), documentTemplate: currentDocumentTemplate() };
-  if (els.productSelect?.value === ALUFAC_PRODUCT_SLUG) {
-    payload.budgetMode = ALUFAC_PRODUCT_SLUG;
-    payload.marcaSistema = "ALUFAC";
+  if (selectedOpeningBrand()) {
+    payload.budgetMode = els.productSelect.value;
+    payload.marcaSistema = selectedOpeningBrand();
     payload.lineas = (payload.lineas || []).map((line) => ({ ...line, tipoApertura: line.tipoApertura || "pendiente", ilustracionApertura: line.ilustracionApertura || line.tipoApertura || "pendiente" }));
   }
   if (state.currentBudgetFolder) payload._folder = state.currentBudgetFolder;
@@ -800,7 +813,7 @@ function renderLines() {
       <td>
         <input data-field="concepto" value="${escapeHtml(line.concepto || "")}">
         <textarea data-field="descripcion">${escapeHtml(line.descripcion || "")}</textarea>
-        ${isAlufacBudget() ? openingEditor(line) : ""}
+        ${isIllustratedOpeningBudget() ? openingEditor(line) : ""}
       </td>
       <td><input data-field="cantidad" data-number="true" inputmode="decimal" value="${line.cantidad}"></td>
       <td><input data-field="unidad" value="${escapeHtml(line.unidad || "")}"></td>
@@ -952,7 +965,7 @@ function renderPrintPreview() {
         <col class="print-col-amount">
       </colgroup>
       <thead><tr><th>Capitulo</th><th>Concepto</th><th>Cant.</th><th>Ud.</th><th>EUR/Ud.</th><th>Importe</th></tr></thead>
-      <tbody>${lines.map((line) => `<tr><td>${escapeHtml(line.capitulo || "")}</td><td><strong>${escapeHtml(line.concepto || "")}</strong><br>${escapeHtml(line.descripcion || "")}${isAlufacBudget(payload) ? openingDiagram(line.tipoApertura || line.ilustracionApertura || "pendiente") : ""}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${escapeHtml(line.unidad || "")}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
+      <tbody>${lines.map((line) => `<tr><td>${escapeHtml(line.capitulo || "")}</td><td><strong>${escapeHtml(line.concepto || "")}</strong><br>${escapeHtml(line.descripcion || "")}${isIllustratedOpeningBudget(payload) ? openingDiagram(line.tipoApertura || line.ilustracionApertura || "pendiente") : ""}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${escapeHtml(line.unidad || "")}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
     </table>
     <div class="print-total">Total estimado: ${total.toFixed(2)} EUR + IVA</div>
     <section class="print-conditions">${renderDocumentFooterText(documentTemplate.footerText)}</section>
@@ -1218,7 +1231,7 @@ async function editBudget(folder, options = {}) {
     const data = response.data || {};
     rememberActiveBudgetFolder(response.folder);
     state.result = data;
-    if (data.budgetMode === ALUFAC_PRODUCT_SLUG && els.productSelect) els.productSelect.value = ALUFAC_PRODUCT_SLUG;
+    if (els.productSelect && (data.budgetMode === ALUFAC_PRODUCT_SLUG || CORTIZO_PRODUCT_SLUGS.has(data.budgetMode))) els.productSelect.value = data.budgetMode;
     fillClientForm(data.cliente || {});
     els.prompt.value = data.prompt || "";
     state.attachments = [];
@@ -1259,9 +1272,9 @@ async function generate() {
     state.budgetChangeLog = [];
     state.result = response.result;
     if (product) state.result.selectedProduct = { slug: product.slug, name: product.name };
-    if (product?.slug === ALUFAC_PRODUCT_SLUG) {
-      state.result.budgetMode = ALUFAC_PRODUCT_SLUG;
-      state.result.marcaSistema = "ALUFAC";
+    if (selectedOpeningBrand(product?.slug)) {
+      state.result.budgetMode = product.slug;
+      state.result.marcaSistema = selectedOpeningBrand(product.slug);
       state.result.lineas = (state.result.lineas || []).map((line) => ({
         ...line,
         tipoApertura: line.tipoApertura || line.ilustracionApertura || "pendiente",
@@ -2101,6 +2114,8 @@ if (els.productSelect) els.productSelect.addEventListener("change", () => {
   const product = selectedProduct();
   els.productPromptStatus.textContent = product?.slug === ALUFAC_PRODUCT_SLUG
     ? "Modo ALUFAC seleccionado: cada línea incluirá su tipo de apertura y esquema. Series y tarifas pendientes de documentación."
+    : CORTIZO_PRODUCT_SLUGS.has(product?.slug)
+      ? "Modo CORTIZO seleccionado: cada línea incluirá su apertura y esquema. Se aplicarán las reglas y costes CORTIZO con prioridad para tarifas y ofertas reales."
     : product ? `${product.variablesTecnicas?.length || 0} parametro(s) sugeridos.` : "";
   if (state.result) renderResult();
 });
@@ -2154,7 +2169,7 @@ els.addLine.addEventListener("click", () => {
     origen: "usuario",
     editable: true,
   };
-  if (isAlufacBudget()) {
+  if (isIllustratedOpeningBudget()) {
     line.tipoApertura = "pendiente";
     line.ilustracionApertura = "pendiente";
   }

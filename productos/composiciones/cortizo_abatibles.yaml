@@ -1,0 +1,114 @@
+producto: "Carpinteria de Aluminio Practicable y Oscilobatiente CORTIZO"
+marca: "CORTIZO"
+estado_datos: "documentacion_usuario_con_correcciones_oficiales_2026-08-26"
+
+variables_tecnicas:
+  - referencia_hueco: codigo de plano o medicion
+  - ubicacion_estancia: estancia, planta o fachada
+  - cantidad: numero de unidades iguales
+  - dimensiones: ancho x alto en mm
+  - serie_cortizo: variante exacta, sin inferir por familia
+  - tipo_apertura: fijo / abatible_izquierda / abatible_derecha / oscilobatiente_izquierda / oscilobatiente_derecha / practicable_2_hojas / proyectante / pivotante / pendiente
+  - vista_apertura: vista_desde_interior / vista_desde_exterior
+  - acabado: RAL / texturado / anodizado / bicolor / pendiente
+  - vidrio_o_panel: composicion, espesor y peso
+  - herraje: canal, maniobra, seguridad, bisagra y limite de peso
+  - persiana_mosquitera: tipo y accionamiento
+  - premarco_retirada_montaje: alcance completo
+
+reglas_de_salida:
+  - Cada hueco diferente se presenta en una linea independiente con tipoApertura e ilustracionApertura.
+  - Validar serie, variante, dimensiones, peso, vidrio y herraje contra la ficha exacta.
+  - La validacion oficial y la lista de precios activa prevalecen sobre ratios orientativos.
+series_compatibles:
+  - "COR 2000 (sin RPT)"
+  - "COR 3000 con RPT"
+  - "COR 3500 con RPT (54 mm)"
+  - "COR 3500 C16 / Hoja Oculta"
+  - "COR 60 / COR 60 Hoja Oculta / CC"
+  - "COR 70 Industrial / COR 70 Hoja Oculta / Evolution"
+  - "COR 80 Industrial / COR 80 Passivhaus"
+  - "COR Galicia Premium (Aluminio-Madera)"
+  - "COR Galicia Hoja Oculta"
+
+componentes_principales:
+  perfiles_aluminio:
+    - nombre: "Marco perimetral"
+      tipo: "Perfil extrusionado con RPT (poliamida 24-45 mm)"
+      unidad: "ml"
+      calculo: "2 * ancho + 2 * alto"
+    - nombre: "Hoja practicable / oscilobatiente"
+      tipo: "Perfil de hoja perimetral con RPT"
+      unidad: "ml"
+      calculo: "n_hojas * (2 * ancho_hoja + 2 * alto_hoja)"
+    - nombre: "Inversor central (para ventanas de 2 hojas)"
+      tipo: "Perfil inversor con RPT y tapas finales de EPDM"
+      unidad: "ml"
+      calculo: "alto_hoja"
+    - nombre: "Junquillos de acristalamiento"
+      tipo: "Perfil clipado interior según espesor de vidrio"
+      unidad: "ml"
+      calculo: "perimetro_acristalado"
+    - nombre: "Solapes / Tapetas embellecedoras"
+      tipo: "Perfil clipado de remate perimetral 40-70 mm"
+      unidad: "ml"
+      calculo: "perimetro_exterior"
+    - nombre: "Premarco de aluminio o chapa conformada"
+      tipo: "Perfil auxiliar de replanteo en obra"
+      unidad: "ml"
+      calculo: "2 * ancho + 2 * alto"
+
+  accesorios_y_herrajes:
+    - nombre: "Escuadras de armado de esquinas"
+      tipo: "Aluminio inyectado con tornillo prisionero o teton de bloqueo"
+      unidad: "ud"
+      cantidad: "4 por marco + 4 por cada hoja"
+    - nombre: "Escuadras de alineacion exterior e interior"
+      tipo: "Acero inoxidable A2"
+      unidad: "ud"
+      cantidad: "8 por marco + 8 por cada hoja"
+    - nombre: "Junta central EPDM (cámara RPT)"
+      tipo: "Junta tubular EPDM con esquinas vulcanizadas"
+      unidad: "ml"
+      calculo: "perimetro_marco"
+    - nombre: "Junta de acristalamiento exterior e interior"
+      tipo: "EPDM coextrusionado"
+      unidad: "ml"
+      calculo: "2 * perimetro_acristalado"
+    - nombre: "Mecanismo Oscilobatiente / Practicable EVO"
+      tipo: "Cremona, compas, reenvios, cerraderos de seguridad y bisagras"
+      unidad: "kit/hoja"
+      cantidad: "1 kit por cada hoja activa"
+
+  acristalamiento:
+    - nombre: "Vidrio aislante doble o triple"
+      tipo: "Climalit Plus con tratamiento Bajo Emisivo / Control Solar y Gas Argón"
+      unidad: "m2"
+      calculo: "superficie_vidrio_neta"
+    - nombre: "Calzos de acristalamiento"
+      tipo: "Polipropileno de alta resistencia de calce perimetral"
+      unidad: "juego"
+      cantidad: "1 juego por hoja acristalada"
+
+procesos_y_mano_de_obra:
+  taller:
+    - "Corte de perfiles a inglete (45 grados)"
+    - "Mecanizado de desagues, cerraderos y cremona"
+    - "Ensamblaje y prensado de esquinas con escuadras y pegamento bicomponente"
+    - "Insercion de juntas perimetrales de EPDM"
+    - "Instalacion y regulacion de herrajes"
+    - "Acristalamiento y colocacion de junquillos"
+    - "Embalaje con film protector"
+  obra:
+    - "Fijacion y aplomado de premarco"
+    - "Instalacion de marco a obra con fijaciones mecanicas inoxidables"
+    - "Colocacion y colgado de hojas"
+    - "Regulacion fina de compresion y cierres"
+    - "Sellado perimetral estanco con polimero MS"
+    - "Colocacion de tapetas embellecedoras"
+
+criterios_ambientales_menorca:
+  - "Acabado de aluminio certificado QUALICOAT SEASIDE o Anodizado 20 um"
+  - "Tornilleria de acero inoxidable A2 / A4"
+  - "Drenajes con tapas deflectores antiviento"
+  - "No prometer prestaciones de una muestra ensayada sin validar la configuracion ofertada"

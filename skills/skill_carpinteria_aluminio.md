@@ -6,6 +6,8 @@ Cuando el producto a presupuestar incluye perfiles de aluminio: ventanas, puerta
 
 Si el usuario selecciona expresamente `Carpintería de aluminio · ALUFAC`, cargar además `skill_carpinteria_aluminio_alufac.md`. La marca ALUFAC no se debe imponer fuera de ese modo seleccionable.
 
+Si selecciona `CORTIZO` abatible o corredera, cargar `skill_cortizo_aberturas.md`, la composición/requisitos de la familia y `productos/reglas-tecnicas/cortizo-validacion-oficial.md`. No mezclar series CORTIZO con ALUFAC ni extrapolar prestaciones entre variantes.
+
 ## Datos mínimos necesarios
 
 - Tipo de producto (ventana, puerta, cerramiento, muro cortina).
