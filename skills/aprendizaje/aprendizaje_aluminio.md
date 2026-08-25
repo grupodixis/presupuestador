@@ -96,3 +96,21 @@ Este archivo guarda criterios observados desde presupuestos reales. Las entradas
 ### Acción futura
 - Revisar estas correcciones antes de cerrar cantidades, precios unitarios, capítulos y partidas omitidas en trabajos similares.
 - Si el criterio se repite, consolidarlo en la skill, composición o coste correspondiente.
+
+## 2026-08-25 - Aprendizaje desde presupuesto P-2026-0037
+
+- Área: aluminio
+- Sector: carpinteria_aluminio_alufac
+- Tipo de conocimiento: cambios reales de presupuesto
+- Estado: observado
+- Origen: cambios realizados durante edición y guardado del presupuesto
+- Presupuesto: Presupuesto Técnico-Comercial: Sustitución de Persianas Correderas de Aluminio ALUFAC - Puerto de Addaia, Menorca
+- Cliente/obra: Bárbara
+- Total final guardado: 1145.00 EUR + IVA
+
+### Cambios observados
+- ia-linea: Fabricacion / Retirada y desmontaje de persianas/carpinterías existentes: IA aplicada con prompt "integra este coste en las dos primeras lineas y borra esta linea". Antes: cant. 2, precio 35, importe 70. Despues: cant. 1, precio 85, importe 85.
+
+### Acción futura
+- Revisar estas correcciones antes de cerrar cantidades, precios unitarios, capítulos y partidas omitidas en trabajos similares.
+- Si el criterio se repite, consolidarlo en la skill, composición o coste correspondiente.

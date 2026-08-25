@@ -1,0 +1,142 @@
+{
+  "titulo": "Presupuesto Técnico-Comercial: Sustitución de Persianas Correderas de Aluminio ALUFAC - Puerto de Addaia, Menorca",
+  "resumen": "Presupuesto para la fabricación, retirada de persianas existentes e instalación de 2 persianas mallorquinas correderas de 2 hojas en aluminio (sistema ALUFAC) con lamas fijas superiores y machimbrado vertical inferior, lacadas en color marrón RAL 8017 con tratamiento para ambiente marino C4/C5 en Puerto de Addaia, Menorca.",
+  "tipoProducto": "carpinteria_aluminio_alufac",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Materiales",
+      "concepto": "Persiana corredera ALUFAC 2 hojas - Habitación (1270 x 1315 mm)",
+      "descripcion": "Fabricación de persiana mallorquina corredera de 2 hojas en aluminio perfilería ALUFAC. Combinación de lamas superiores y machimbrado vertical inferior. Acabado lacado marrón RAL 8017 calidad marina. Incluye marcos, herrajes de cierre, guía superior/inferior e integración proporcional del coste de verificación técnica y replanteo.",
+      "cantidad": 1,
+      "unidad": "ud",
+      "precioUnitario": 430,
+      "importe": 430,
+      "confianza": "media",
+      "origen": "adjunto",
+      "editable": true,
+      "tipoApertura": "corredera_2_hojas",
+      "ilustracionApertura": "corredera_2_hojas"
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Persiana corredera ALUFAC 2 hojas - Comedor (1272 x 965 mm)",
+      "descripcion": "Fabricación de persiana mallorquina corredera de 2 hojas en aluminio perfilería ALUFAC. Combinación de lamas superiores y machimbrado vertical inferior. Acabado lacado marrón RAL 8017 calidad marina. Incluye marcos, herrajes de cierre, guía superior/inferior e integración proporcional del coste de verificación técnica y replanteo.",
+      "cantidad": 1,
+      "unidad": "ud",
+      "precioUnitario": 360,
+      "importe": 360,
+      "confianza": "media",
+      "origen": "adjunto",
+      "editable": true,
+      "tipoApertura": "corredera_2_hojas",
+      "ilustracionApertura": "corredera_2_hojas"
+    },
+    {
+      "id": "L3",
+      "capitulo": "Fabricacion",
+      "concepto": "Retirada y desmontaje de persianas/carpinterías existentes",
+      "descripcion": "Desmontaje con cuidado de las persianas exteriores actuales, limpieza de huecos y acopio para gestión o traslado al punto limpio.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 85,
+      "importe": 85,
+      "confianza": "media",
+      "origen": "supuesto",
+      "editable": true,
+      "tipoApertura": "fijo",
+      "ilustracionApertura": "fijo"
+    },
+    {
+      "id": "L4",
+      "capitulo": "Transporte",
+      "concepto": "Transporte y entrega de material a obra en Puerto de Addaia",
+      "descripcion": "Porte e inspección de las piezas desde taller hasta la vivienda en Puerto de Addaia con protección adecuada del lacado.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 60,
+      "importe": 60,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true,
+      "tipoApertura": "fijo",
+      "ilustracionApertura": "fijo"
+    },
+    {
+      "id": "L5",
+      "capitulo": "Montaje",
+      "concepto": "Instalación, ajuste de herrajes y sellado exterior de protección marina",
+      "descripcion": "Montaje de guías, colocación y alineación de hojas correderas, anclaje con tornillería de acero inoxidable A4/316 apta para ambiente salino y sellado perimetral con silicona neutra de intemperie.",
+      "cantidad": 6,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 210,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true,
+      "tipoApertura": "fijo",
+      "ilustracionApertura": "fijo"
+    }
+  ],
+  "preguntas": [
+    "¿La serie concreta de ALUFAC deseada requiere rotura de puente térmico o canal de rodadura especial?",
+    "¿El canal o guía de la persiana corredera actual está empotrado en obra o va fijado directamente sobre la fachada existente?",
+    "¿Hay acceso directo a las ventanas desde planta baja o se requiere andamio/escalera técnica en exterior?"
+  ],
+  "supuestos": [
+    "Las medidas indicadas en el croquis adjunto (1270x1315 mm y 1272x965 mm) son cotas orientativas de hueco que se reconfirmarán en la visita previa a fabricación.",
+    "El acabado lacado es marrón RAL 8017 con calificación para ambiente marino C4/C5 por tratarse de la zona costera de Puerto de Addaia (Menorca).",
+    "Toda la tornillería expuesta y fijaciones serán de acero inoxidable A4/316 para prevenir la corrosión galvánica y salina."
+  ],
+  "riesgos": [
+    "Desplomes o irregularidades en las mochetas existentes que requieran perfiles de compensación o remates de rematado no contemplados en la toma de medidas básica.",
+    "Presencia de deterioro en la fachada o premarcos de madera/aluminio antiguos al retirar las persianas viejas."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Consolidación de tarifas ALUFAC para persianas en Menorca",
+      "detalle": "Validar con el distribuidor ALUFAC los precios de la serie específica de persiana con machimbrado y herrajes marinos para fijar las líneas con confianza alta.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_aluminio.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Prorrateo de replanteo técnico en elementos de carpintería",
+      "detalle": "Integrar el coste de toma de medidas y replanteo en el precio unitario de las persianas/ventanas principales para simplificar la presentación comercial.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_aluminio.md",
+      "prioridad": "media"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 94957,
+    "outputTokens": 1715,
+    "totalTokens": 97804
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 2240,
+    "localBudgetTokens": null,
+    "usedTokens": 4965894,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Bárbara",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  },
+  "budgetMode": "carpinteria_aluminio_alufac",
+  "marcaSistema": "ALUFAC"
+}
