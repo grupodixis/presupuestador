@@ -1,0 +1,175 @@
+{
+  "titulo": "Presupuesto Técnico-Comercial: Mallorquinas Correderas de Aluminio ALUFAC - So Ganxo (Menorca)",
+  "resumen": "Suministro e instalación de conjunto de 11 mallorquinas correderas de aluminio sistema ALUFAC con lamas en fachada para vivienda en So Ganxo, Menorca. Se contempla tratamiento marino especial C4/C5 Qualicoat Seaside para ambiente salino costero y herrajes de acero inoxidable. Al tratarse del sistema ALUFAC en fase de validación de tarifa exacta de catálogo, los importes se estiman con confianza media/baja hasta confirmar código de serie exacto y tipo de lama (fija u orientable).",
+  "tipoProducto": "carpinteria_aluminio_alufac",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Materiales",
+      "concepto": "Posición 1 - Mallorquina Corredera ALUFAC (2820 x 2550 mm)",
+      "descripcion": "Mallorquina corredera de aluminio sistema ALUFAC con marco perimetral, guías de rodadura y lamas. Medidas 2820 x 2550 mm. Vista desde exterior.",
+      "cantidad": 1,
+      "unidad": "ud",
+      "precioUnitario": 1650,
+      "importe": 1650,
+      "confianza": "baja",
+      "origen": "supuesto",
+      "editable": true,
+      "tipoApertura": "corredera_2_hojas",
+      "ilustracionApertura": "corredera_2_hojas"
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Posiciones 2 y 3 - Mallorquinas Correderas 1 Hoja ALUFAC (790 x 2550 mm)",
+      "descripcion": "Mallorquinas correderas de 1 sola hoja sobre guía en perfilería ALUFAC con lamas. Medidas 790 x 2550 mm. Vista desde exterior.",
+      "cantidad": 2,
+      "unidad": "ud",
+      "precioUnitario": 520,
+      "importe": 1040,
+      "confianza": "baja",
+      "origen": "supuesto",
+      "editable": true,
+      "tipoApertura": "corredera_1_hoja",
+      "ilustracionApertura": "corredera_1_hoja"
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Posiciones 4, 5, 6, 7 y 8 - Mallorquinas Correderas 1 Hoja ALUFAC (340 x 2550 mm)",
+      "descripcion": "Mallorquinas correderas estrechas de 1 hoja en perfilería ALUFAC con lamas. Medidas 340 x 2550 mm. Vista desde exterior.",
+      "cantidad": 5,
+      "unidad": "ud",
+      "precioUnitario": 310,
+      "importe": 1550,
+      "confianza": "baja",
+      "origen": "supuesto",
+      "editable": true,
+      "tipoApertura": "corredera_1_hoja",
+      "ilustracionApertura": "corredera_1_hoja"
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Posición 9 - Mallorquina Corredera 4 Hojas / 4 Carriles ALUFAC (2640 x 2550 mm)",
+      "descripcion": "Mallorquina corredera especial de 4 hojas sobre 4 carriles telescópicos en perfilería ALUFAC con lamas para aperturas totales. Medidas 2640 x 2550 mm. Vista desde exterior.",
+      "cantidad": 1,
+      "unidad": "ud",
+      "precioUnitario": 2180,
+      "importe": 2180,
+      "confianza": "baja",
+      "origen": "supuesto",
+      "editable": true,
+      "tipoApertura": "corredera_4_hojas",
+      "ilustracionApertura": "corredera_4_hojas"
+    },
+    {
+      "id": "L5",
+      "capitulo": "Materiales",
+      "concepto": "Posiciones 10 y 11 - Mallorquinas Correderas 4 Hojas / 4 Carriles ALUFAC (2820 x 2550 mm)",
+      "descripcion": "Mallorquinas correderas de 4 hojas sobre 4 carriles telescópicos en perfilería ALUFAC con lamas. Medidas 2820 x 2550 mm. Vista desde exterior.",
+      "cantidad": 2,
+      "unidad": "ud",
+      "precioUnitario": 2320,
+      "importe": 4640,
+      "confianza": "baja",
+      "origen": "supuesto",
+      "editable": true,
+      "tipoApertura": "corredera_4_hojas",
+      "ilustracionApertura": "corredera_4_hojas"
+    },
+    {
+      "id": "L6",
+      "capitulo": "Tratamiento",
+      "concepto": "Tratamiento Lacado Qualicoat Seaside (Ambiente Marino Menorca C4/C5)",
+      "descripcion": "Tratamiento anticorrosivo reforzado para exterior de Menorca con pretratamiento ácido marino para máxima adherencia en brisa salina. Color RAL a definir.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 1250,
+      "importe": 1250,
+      "confianza": "media",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true,
+      "tipoApertura": "pendiente",
+      "ilustracionApertura": "pendiente"
+    },
+    {
+      "id": "L7",
+      "capitulo": "Montaje",
+      "concepto": "Instalación en Obra, Nivelado de Guías y Sellado Marino - So Ganxo",
+      "descripcion": "Mano de obra de montaje especializado (35 €/h), fijación con tornillería Inox A4, calzado, regulación de rodamientos/carros y sellado perimetral con polímero MS especial intemperie.",
+      "cantidad": 36,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 1260,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true,
+      "tipoApertura": "pendiente",
+      "ilustracionApertura": "pendiente"
+    }
+  ],
+  "preguntas": [
+    "¿Qué serie exacta del catálogo ALUFAC se requiere o prefieren prescribir para las mallorquinas?",
+    "¿Las lamas de las mallorquinas deben ser fijas (ovaladas) o móviles orientables mediante mecanismo manual/mando?",
+    "¿Cuál es el código de color RAL exacto solicitado para el lacado?",
+    "Para las correderas de 4 carriles (Posiciones 9, 10 y 11), ¿se dispone de espacio suficiente de embutición en el suelo y dintel para albergar la guía de 4 raíles?"
+  ],
+  "supuestos": [
+    "Se asume la ubicación en So Ganxo (Menorca) sometida a ambiente salino de costa, por lo que se aplica tratamiento Qualicoat Seaside y tornillería A4.",
+    "El acceso y los medios auxiliares son sencillos y no requieren andamios ni grúas especiales según lo indicado.",
+    "No se incluye la retirada ni desmonte de carpinterías previas de obra civil/madera ni persianas de esparto/malla mostradas en las imágenes salvo encargo explícito.",
+    "A falta de la tabla oficial de precios y catálogo de perfiles ALUFAC, las líneas de material se estiman mediante ratios de mercado para carpinterías correderas con lamas de aluminio."
+  ],
+  "riesgos": [
+    "Variación en la tarifa final tras validar el código de serie de ALUFAC y la opción de lamas fijas vs. orientables.",
+    "Desnivel en la solera o guía inferior de las puertas de 4 carriles (2.82 m de anchura) que requiera recrecido o ajuste de albañilería previa por parte del cliente.",
+    "Efecto vela por viento en los paneles de 2.55 m de altura en fachada expuesta de So Ganxo."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Confirmar Serie y Tarifa Oficial ALUFAC",
+      "detalle": "Solicitar la ficha técnica de la serie ALUFAC específica para mallorquinas para ajustar la composición exacta de perfiles, herrajes y guía de 4 carriles en la base de datos.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Validación de Drenajes en Guía Inferior",
+      "detalle": "En las correderas de 4 carriles expuestas al exterior en Menorca, prever canalización de desguace con válvulas antiviento para evitar acumulación de agua de lluvia y salitre.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "media"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 107757,
+    "outputTokens": 2349,
+    "totalTokens": 110919
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 2739,
+    "localBudgetTokens": null,
+    "usedTokens": 5946576,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://alufac.es/assets/alufac-logo.svg",
+    "headerText": "ALUFAC\nCarpinteria de aluminio, PVC, cristal y cerramientos a medida en Menorca.\nCircunval·lacio, 11, 07710 Sant Lluis, Menorca\ninfo@alufac.es - +34 669 769 541 - WhatsApp +34 669 769 541\nwww.alufac.es",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Jackie Hellman",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  },
+  "budgetMode": "carpinteria_aluminio_alufac",
+  "marcaSistema": "ALUFAC"
+}

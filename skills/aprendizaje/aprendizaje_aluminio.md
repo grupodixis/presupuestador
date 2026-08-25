@@ -174,3 +174,22 @@ Memoriza este skill". Antes: cant. 1, precio 430, importe 430. Despues: cant. 1,
 ### Acción futura
 - Revisar estas correcciones antes de cerrar cantidades, precios unitarios, capítulos y partidas omitidas en trabajos similares.
 - Si el criterio se repite, consolidarlo en la skill, composición o coste correspondiente.
+
+## 2026-08-25 - Aprendizaje desde presupuesto P-2026-0038
+
+- Área: aluminio
+- Sector: carpinteria_aluminio_alufac
+- Tipo de conocimiento: cambios reales de presupuesto
+- Estado: observado
+- Origen: cambios realizados durante edición y guardado del presupuesto
+- Presupuesto: Presupuesto Técnico-Comercial: Mallorquinas Correderas de Aluminio ALUFAC - So Ganxo (Menorca)
+- Cliente/obra: Jackie Hellman 
+- Total final guardado: 13570.00 EUR + IVA
+
+### Cambios observados
+- ia-linea: Materiales / Posiciones 2 y 3 - Mallorquinas Correderas 1 Hoja ALUFAC (790 x 2550 mm): IA aplicada con prompt "son de una sola hoja". Antes: cant. 2, precio 520, importe 1040. Despues: cant. 2, precio 520, importe 1040.
+- ia-linea: Materiales / Posiciones 4, 5, 6, 7 y 8 - Mallorquinas Correderas 1 Hoja ALUFAC (340 x 2550 mm): IA aplicada con prompt "son de una hoja". Antes: cant. 5, precio 310, importe 1550. Despues: cant. 5, precio 310, importe 1550.
+
+### Acción futura
+- Revisar estas correcciones antes de cerrar cantidades, precios unitarios, capítulos y partidas omitidas en trabajos similares.
+- Si el criterio se repite, consolidarlo en la skill, composición o coste correspondiente.
