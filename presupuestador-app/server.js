@@ -47,6 +47,17 @@ const DEFAULT_DOCUMENT_TEMPLATE = {
     "Forma de pago: 100% a la aceptacion del presupuesto.",
   ].join("\n"),
 };
+const ALUFAC_DOCUMENT_TEMPLATE = {
+  logo: "https://alufac.es/assets/alufac-logo.svg",
+  headerText: [
+    "ALUFAC",
+    "Carpinteria de aluminio, PVC, cristal y cerramientos a medida en Menorca.",
+    "Circunval·lacio, 11, 07710 Sant Lluis, Menorca",
+    "info@alufac.es - +34 669 769 541 - WhatsApp +34 669 769 541",
+    "www.alufac.es",
+  ].join("\n"),
+  footerText: DEFAULT_DOCUMENT_TEMPLATE.footerText,
+};
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -585,6 +596,14 @@ function normalizeDocumentTemplate(template = {}) {
     headerText: String(template.headerText || DEFAULT_DOCUMENT_TEMPLATE.headerText),
     footerText: String(template.footerText || DEFAULT_DOCUMENT_TEMPLATE.footerText),
   };
+}
+
+function isAlufacBudget(payload = {}) {
+  return payload.budgetMode === "carpinteria_aluminio_alufac" || payload.marcaSistema === "ALUFAC";
+}
+
+function documentTemplateForBudget(payload = {}) {
+  return normalizeDocumentTemplate(isAlufacBudget(payload) ? ALUFAC_DOCUMENT_TEMPLATE : payload.documentTemplate);
 }
 
 function defaultConfig() {
@@ -1623,7 +1642,7 @@ function createSummaryPdf(payload, code) {
     : summarizedBudgetRows(payload.lineas || []);
   const total = roundMoney(rows.reduce((sum, row) => sum + row.amount, 0));
   const client = payload.cliente || {};
-  const template = normalizeDocumentTemplate(payload.documentTemplate || {});
+  const template = documentTemplateForBudget(payload);
   const headerLines = String(template.headerText || DEFAULT_DOCUMENT_TEMPLATE.headerText)
     .split(/\r?\n/)
     .map((line) => pdfSafeText(line.trim()))
@@ -1714,7 +1733,7 @@ function createSummaryPdf(payload, code) {
     y -= 32;
 
     color(0.02, 0.03, 0.04);
-    text("HAM", margin + 4, y - 26, 28, "F2");
+    text(isAlufacBudget(payload) ? "ALUFAC" : "HAM", margin + 4, y - 26, isAlufacBudget(payload) ? 22 : 28, "F2");
     color(0.08, 0.13, 0.17);
     text(companyTitle, margin + 108, y, 15, "F2");
     let detailY = y - 13;
@@ -2063,7 +2082,8 @@ function budgetHtml(payload, code) {
   const client = payload.cliente || {};
   const total = totalOf(lines);
   const today = new Date().toISOString().slice(0, 10);
-  const documentTemplate = normalizeDocumentTemplate(payload.documentTemplate);
+  const documentTemplate = documentTemplateForBudget(payload);
+  const documentBrand = isAlufacBudget(payload) ? "ALUFAC" : "HAM";
   return `<!doctype html>
 <html lang="es">
 <head>
@@ -2112,7 +2132,7 @@ function budgetHtml(payload, code) {
 <main class="page">
   <header>
     <section class="company">
-      <div class="logo"><img src="${htmlEscape(documentTemplate.logo)}" alt="HAM"></div>
+      <div class="logo"><img src="${htmlEscape(documentTemplate.logo)}" alt="${documentBrand}"></div>
       <div>${renderDocumentHeaderText(documentTemplate.headerText)}</div>
     </section>
     <section class="meta">

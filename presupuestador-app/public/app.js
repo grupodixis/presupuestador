@@ -53,6 +53,18 @@ const DEFAULT_DOCUMENT_TEMPLATE = {
   ].join("\n"),
 };
 
+const ALUFAC_DOCUMENT_TEMPLATE = {
+  logo: "https://alufac.es/assets/alufac-logo.svg",
+  headerText: [
+    "ALUFAC",
+    "Carpinteria de aluminio, PVC, cristal y cerramientos a medida en Menorca.",
+    "Circunval·lacio, 11, 07710 Sant Lluis, Menorca",
+    "info@alufac.es - +34 669 769 541 - WhatsApp +34 669 769 541",
+    "www.alufac.es",
+  ].join("\n"),
+  footerText: DEFAULT_DOCUMENT_TEMPLATE.footerText,
+};
+
 const state = {
   attachments: [],
   result: null,
@@ -309,6 +321,12 @@ function isIllustratedOpeningBudget(payload = state.result) {
     || ["ALUFAC", "CORTIZO"].includes(payload?.marcaSistema)
     || selected === ALUFAC_PRODUCT_SLUG
     || CORTIZO_PRODUCT_SLUGS.has(selected);
+}
+
+function isAlufacBudget(payload = state.result) {
+  return payload?.budgetMode === ALUFAC_PRODUCT_SLUG
+    || payload?.marcaSistema === "ALUFAC"
+    || els.productSelect?.value === ALUFAC_PRODUCT_SLUG;
 }
 
 function selectedOpeningBrand(slug = els.productSelect?.value || "") {
@@ -571,6 +589,7 @@ function templateFromSettingsFields() {
 }
 
 function currentDocumentTemplate() {
+  if (isAlufacBudget()) return normalizeDocumentTemplate(ALUFAC_DOCUMENT_TEMPLATE);
   return normalizeDocumentTemplate(state.result?.documentTemplate || state.settings?.documentTemplate || templateFromSettingsFields());
 }
 
@@ -936,7 +955,7 @@ function renderPrintPreview() {
   els.printPreview.innerHTML = `
     <header>
       <section class="print-company">
-        <div class="print-logo"><img src="${escapeHtml(documentTemplate.logo)}" alt="HAM"></div>
+        <div class="print-logo"><img src="${escapeHtml(documentTemplate.logo)}" alt="${escapeHtml(isAlufacBudget(payload) ? "ALUFAC" : "HAM")}"></div>
         <div>${renderDocumentHeaderText(documentTemplate.headerText)}</div>
       </section>
       <section class="print-meta">
