@@ -1,21 +1,21 @@
 # Generado automaticamente desde SQLite. Editar desde Configuracion > Lista de precios.
-actualizado: '2026-08-12T09:22:45.558Z'
+actualizado: '2026-08-12T11:34:38.804Z'
 precios:
-  - id: 148
+  - id: 147
     activo: true
     categoria: 'mano_obra'
     area: 'aluminio'
     nombre: 'Mano de obra carpinteria aluminio'
     descripcion: 'Referencia historico Mallorquinas Cortizo'
     unidad: 'h'
-    precio_coste: 35
-    precio_venta: 35
-    margen_porcentaje: 0
+    precio_coste: 30
+    precio_venta: 40
+    margen_porcentaje: 33.33
     proveedor: ''
     confianza: 'estimado'
     notas: 'historico-mallorquinas-cortizo.md'
-    actualizado: '2026-08-12T09:22:45.554Z'
-  - id: 138
+    actualizado: '2026-08-12T09:33:26.661Z'
+  - id: 137
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -28,8 +28,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.403Z'
-  - id: 139
+    actualizado: '2026-08-12T09:23:14.617Z'
+  - id: 138
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -42,8 +42,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.415Z'
-  - id: 140
+    actualizado: '2026-08-12T09:23:14.756Z'
+  - id: 139
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -56,8 +56,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.426Z'
-  - id: 141
+    actualizado: '2026-08-12T09:23:14.897Z'
+  - id: 140
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -70,8 +70,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.438Z'
-  - id: 130
+    actualizado: '2026-08-12T09:23:15.039Z'
+  - id: 129
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -84,8 +84,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.286Z'
-  - id: 131
+    actualizado: '2026-08-12T09:23:13.309Z'
+  - id: 130
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -98,8 +98,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.299Z'
-  - id: 132
+    actualizado: '2026-08-12T09:23:13.493Z'
+  - id: 131
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -112,8 +112,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.311Z'
-  - id: 133
+    actualizado: '2026-08-12T09:23:13.633Z'
+  - id: 132
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -126,8 +126,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.322Z'
-  - id: 134
+    actualizado: '2026-08-12T09:23:13.797Z'
+  - id: 133
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -140,8 +140,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.357Z'
-  - id: 135
+    actualizado: '2026-08-12T09:23:13.956Z'
+  - id: 134
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -154,8 +154,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.368Z'
-  - id: 136
+    actualizado: '2026-08-12T09:23:14.126Z'
+  - id: 135
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -168,8 +168,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.379Z'
-  - id: 137
+    actualizado: '2026-08-12T09:23:14.286Z'
+  - id: 136
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -182,8 +182,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.391Z'
-  - id: 15
+    actualizado: '2026-08-12T09:23:14.440Z'
+  - id: 14
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -196,8 +196,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.819Z'
-  - id: 143
+    actualizado: '2026-08-12T09:22:57.886Z'
+  - id: 142
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -210,8 +210,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.482Z'
-  - id: 76
+    actualizado: '2026-08-12T09:23:15.374Z'
+  - id: 75
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -224,8 +224,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.620Z'
-  - id: 75
+    actualizado: '2026-08-12T09:23:05.332Z'
+  - id: 74
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -238,8 +238,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.601Z'
-  - id: 16
+    actualizado: '2026-08-12T09:23:05.200Z'
+  - id: 15
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -252,8 +252,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.844Z'
-  - id: 78
+    actualizado: '2026-08-12T09:22:58.016Z'
+  - id: 77
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -266,8 +266,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.634Z'
-  - id: 17
+    actualizado: '2026-08-12T09:23:05.621Z'
+  - id: 16
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -280,8 +280,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.850Z'
-  - id: 79
+    actualizado: '2026-08-12T09:22:58.114Z'
+  - id: 78
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -294,8 +294,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.641Z'
-  - id: 14
+    actualizado: '2026-08-12T09:23:05.766Z'
+  - id: 13
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -308,8 +308,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.815Z'
-  - id: 20
+    actualizado: '2026-08-12T09:22:57.785Z'
+  - id: 19
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -322,8 +322,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.874Z'
-  - id: 145
+    actualizado: '2026-08-12T09:22:58.423Z'
+  - id: 144
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -336,8 +336,8 @@ precios:
     proveedor: 'Cortizo'
     confianza: 'antiguo'
     notas: 'historico-mallorquinas-cortizo.md'
-    actualizado: '2026-08-12T09:22:45.503Z'
-  - id: 147
+    actualizado: '2026-08-12T09:23:15.696Z'
+  - id: 146
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -350,8 +350,8 @@ precios:
     proveedor: 'Cortizo'
     confianza: 'estimado'
     notas: 'historico-mallorquinas-cortizo.md'
-    actualizado: '2026-08-12T09:22:45.545Z'
-  - id: 146
+    actualizado: '2026-08-12T09:23:16.034Z'
+  - id: 145
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -364,8 +364,8 @@ precios:
     proveedor: 'Cortizo'
     confianza: 'estimado'
     notas: 'historico-mallorquinas-cortizo.md'
-    actualizado: '2026-08-12T09:22:45.514Z'
-  - id: 77
+    actualizado: '2026-08-12T09:23:15.881Z'
+  - id: 76
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -378,8 +378,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.627Z'
-  - id: 85
+    actualizado: '2026-08-12T09:23:05.471Z'
+  - id: 84
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -392,8 +392,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.705Z'
-  - id: 87
+    actualizado: '2026-08-12T09:23:06.617Z'
+  - id: 86
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -406,8 +406,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.721Z'
-  - id: 86
+    actualizado: '2026-08-12T09:23:06.916Z'
+  - id: 85
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -420,8 +420,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.713Z'
-  - id: 144
+    actualizado: '2026-08-12T09:23:06.755Z'
+  - id: 143
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -434,8 +434,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.492Z'
-  - id: 13
+    actualizado: '2026-08-12T09:23:15.534Z'
+  - id: 12
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -448,8 +448,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.799Z'
-  - id: 12
+    actualizado: '2026-08-12T09:22:57.637Z'
+  - id: 11
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -462,8 +462,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.766Z'
-  - id: 71
+    actualizado: '2026-08-12T09:22:57.527Z'
+  - id: 70
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -476,8 +476,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.538Z'
-  - id: 72
+    actualizado: '2026-08-12T09:23:04.640Z'
+  - id: 71
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -490,8 +490,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.569Z'
-  - id: 142
+    actualizado: '2026-08-12T09:23:04.768Z'
+  - id: 141
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -504,8 +504,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.448Z'
-  - id: 122
+    actualizado: '2026-08-12T09:23:15.219Z'
+  - id: 121
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -518,8 +518,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.196Z'
-  - id: 123
+    actualizado: '2026-08-12T09:23:12.097Z'
+  - id: 122
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -532,8 +532,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.206Z'
-  - id: 124
+    actualizado: '2026-08-12T09:23:12.252Z'
+  - id: 123
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -546,8 +546,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.218Z'
-  - id: 125
+    actualizado: '2026-08-12T09:23:12.408Z'
+  - id: 124
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -560,8 +560,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.233Z'
-  - id: 126
+    actualizado: '2026-08-12T09:23:12.569Z'
+  - id: 125
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -574,8 +574,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.244Z'
-  - id: 127
+    actualizado: '2026-08-12T09:23:12.711Z'
+  - id: 126
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -588,8 +588,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.255Z'
-  - id: 128
+    actualizado: '2026-08-12T09:23:12.866Z'
+  - id: 127
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -602,8 +602,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.265Z'
-  - id: 129
+    actualizado: '2026-08-12T09:23:13.007Z'
+  - id: 128
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -616,8 +616,8 @@ precios:
     proveedor: 'Perfila Menorca / EXTRUAL'
     confianza: 'antiguo'
     notas: 'historico-aluminio-extrual.md'
-    actualizado: '2026-08-12T09:22:45.277Z'
-  - id: 88
+    actualizado: '2026-08-12T09:23:13.168Z'
+  - id: 87
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -630,8 +630,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.728Z'
-  - id: 19
+    actualizado: '2026-08-12T09:23:07.050Z'
+  - id: 18
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -644,8 +644,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.870Z'
-  - id: 18
+    actualizado: '2026-08-12T09:22:58.316Z'
+  - id: 17
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -658,8 +658,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.855Z'
-  - id: 80
+    actualizado: '2026-08-12T09:22:58.220Z'
+  - id: 79
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -672,8 +672,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.666Z'
-  - id: 74
+    actualizado: '2026-08-12T09:23:05.906Z'
+  - id: 73
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -686,8 +686,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.593Z'
-  - id: 73
+    actualizado: '2026-08-12T09:23:05.050Z'
+  - id: 72
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -700,8 +700,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.586Z'
-  - id: 82
+    actualizado: '2026-08-12T09:23:04.913Z'
+  - id: 81
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -714,8 +714,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.682Z'
-  - id: 84
+    actualizado: '2026-08-12T09:23:06.204Z'
+  - id: 83
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -728,8 +728,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.697Z'
-  - id: 83
+    actualizado: '2026-08-12T09:23:06.487Z'
+  - id: 82
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -742,8 +742,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.690Z'
-  - id: 81
+    actualizado: '2026-08-12T09:23:06.356Z'
+  - id: 80
     activo: true
     categoria: 'material'
     area: 'aluminio'
@@ -756,8 +756,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.675Z'
-  - id: 21
+    actualizado: '2026-08-12T09:23:06.073Z'
+  - id: 20
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -770,8 +770,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.901Z'
-  - id: 22
+    actualizado: '2026-08-12T09:22:58.530Z'
+  - id: 21
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -784,8 +784,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.906Z'
-  - id: 89
+    actualizado: '2026-08-12T09:22:58.638Z'
+  - id: 88
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -798,8 +798,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.760Z'
-  - id: 90
+    actualizado: '2026-08-12T09:23:07.177Z'
+  - id: 89
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -812,8 +812,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.768Z'
-  - id: 91
+    actualizado: '2026-08-12T09:23:07.306Z'
+  - id: 90
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -826,8 +826,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.777Z'
-  - id: 25
+    actualizado: '2026-08-12T09:23:07.438Z'
+  - id: 24
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -840,8 +840,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.938Z'
-  - id: 94
+    actualizado: '2026-08-12T09:22:58.939Z'
+  - id: 93
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -854,8 +854,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.840Z'
-  - id: 96
+    actualizado: '2026-08-12T09:23:07.897Z'
+  - id: 95
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -868,8 +868,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.880Z'
-  - id: 95
+    actualizado: '2026-08-12T09:23:08.210Z'
+  - id: 94
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -882,8 +882,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.871Z'
-  - id: 23
+    actualizado: '2026-08-12T09:23:08.067Z'
+  - id: 22
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -896,8 +896,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.912Z'
-  - id: 92
+    actualizado: '2026-08-12T09:22:58.732Z'
+  - id: 91
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -910,8 +910,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.808Z'
-  - id: 24
+    actualizado: '2026-08-12T09:23:07.571Z'
+  - id: 23
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -924,8 +924,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.933Z'
-  - id: 93
+    actualizado: '2026-08-12T09:22:58.829Z'
+  - id: 92
     activo: true
     categoria: 'insumo'
     area: 'carpinteria_metalica'
@@ -938,92 +938,92 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.816Z'
-  - id: 30
+    actualizado: '2026-08-12T09:23:07.709Z'
+  - id: 29
     activo: true
     categoria: 'mano_obra'
     area: 'carpinteria_metalica'
     nombre: 'ayudante montaje obra'
     descripcion: 'Ayudante de montaje en obra'
     unidad: 'h'
-    precio_coste: 35
-    precio_venta: 35
-    margen_porcentaje: 0
+    precio_coste: 22
+    precio_venta: 30
+    margen_porcentaje: 36.36
     proveedor: ''
     confianza: 'confirmado'
     notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.980Z'
-  - id: 28
+    actualizado: '2026-08-12T09:39:19.734Z'
+  - id: 27
     activo: true
     categoria: 'mano_obra'
     area: 'carpinteria_metalica'
     nombre: 'ayudante taller'
     descripcion: 'Ayudante de taller'
     unidad: 'h'
-    precio_coste: 28
-    precio_venta: 28
-    margen_porcentaje: 0
+    precio_coste: 22
+    precio_venta: 30
+    margen_porcentaje: 36.36
     proveedor: ''
     confianza: 'confirmado'
     notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.953Z'
-  - id: 34
+    actualizado: '2026-08-12T09:39:32.688Z'
+  - id: 33
     activo: true
     categoria: 'mano_obra'
     area: 'carpinteria_metalica'
     nombre: 'ingeniero oficina tecnica'
     descripcion: 'Ingeniero/Delineante de oficina técnica'
     unidad: 'h'
-    precio_coste: 55
-    precio_venta: 55
-    margen_porcentaje: 0
+    precio_coste: 25
+    precio_venta: 45
+    margen_porcentaje: 80
     proveedor: ''
     confianza: 'confirmado'
     notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:44.021Z'
-  - id: 26
+    actualizado: '2026-08-12T09:40:36.428Z'
+  - id: 25
     activo: true
     categoria: 'mano_obra'
     area: 'carpinteria_metalica'
     nombre: 'oficial 1 taller'
     descripcion: 'Oficial de primera en taller (soldadura, mecanizado)'
     unidad: 'h'
-    precio_coste: 40
+    precio_coste: 25
     precio_venta: 40
-    margen_porcentaje: 0
+    margen_porcentaje: 60
     proveedor: ''
     confianza: 'confirmado'
     notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.942Z'
-  - id: 27
+    actualizado: '2026-08-12T09:40:50.029Z'
+  - id: 26
     activo: true
     categoria: 'mano_obra'
     area: 'carpinteria_metalica'
     nombre: 'oficial 2 taller'
     descripcion: 'Oficial de segunda en taller (corte, preparación)'
     unidad: 'h'
-    precio_coste: 35
+    precio_coste: 22
     precio_venta: 35
-    margen_porcentaje: 0
+    margen_porcentaje: 59.09
     proveedor: ''
     confianza: 'confirmado'
     notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.947Z'
-  - id: 29
+    actualizado: '2026-08-12T09:41:19.374Z'
+  - id: 28
     activo: true
     categoria: 'mano_obra'
     area: 'carpinteria_metalica'
     nombre: 'oficial montaje obra'
     descripcion: 'Oficial de montaje en obra (incluye dietas)'
     unidad: 'h'
-    precio_coste: 45
-    precio_venta: 45
-    margen_porcentaje: 0
+    precio_coste: 22
+    precio_venta: 35
+    margen_porcentaje: 48.15
     proveedor: ''
     confianza: 'confirmado'
     notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.957Z'
-  - id: 98
+    actualizado: '2026-08-12T09:55:01.253Z'
+  - id: 97
     activo: true
     categoria: 'maquinaria'
     area: 'carpinteria_metalica'
@@ -1036,8 +1036,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:44.900Z'
-  - id: 101
+    actualizado: '2026-08-12T09:23:08.498Z'
+  - id: 100
     activo: true
     categoria: 'maquinaria'
     area: 'carpinteria_metalica'
@@ -1050,8 +1050,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:44.943Z'
-  - id: 99
+    actualizado: '2026-08-12T09:23:08.906Z'
+  - id: 98
     activo: true
     categoria: 'maquinaria'
     area: 'carpinteria_metalica'
@@ -1064,8 +1064,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:44.909Z'
-  - id: 111
+    actualizado: '2026-08-12T09:23:08.631Z'
+  - id: 110
     activo: true
     categoria: 'maquinaria'
     area: 'carpinteria_metalica'
@@ -1078,22 +1078,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.068Z'
-  - id: 70
-    activo: true
-    categoria: 'material'
-    area: 'carpinteria_metalica'
-    nombre: '2026-05-25'
-    descripcion: 'Acero inoxidable. Novacero'
-    unidad: 'kg'
-    precio_coste: 3.66
-    precio_venta: 3.66
-    margen_porcentaje: 0
-    proveedor: ''
-    confianza: 'estimado'
-    notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.532Z'
-  - id: 10
+    actualizado: '2026-08-12T09:23:10.319Z'
+  - id: 9
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1106,22 +1092,22 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.757Z'
-  - id: 8
+    actualizado: '2026-08-12T09:22:57.301Z'
+  - id: 7
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
     nombre: 'AISI 304 tubo'
     descripcion: 'acero_inoxidable desde costes-materiales.json'
     unidad: 'kg'
-    precio_coste: 5.5
-    precio_venta: 5.5
-    margen_porcentaje: 0
+    precio_coste: 6
+    precio_venta: 9
+    margen_porcentaje: -8.33
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.738Z'
-  - id: 11
+    actualizado: '2026-08-12T11:32:12.981Z'
+  - id: 10
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1134,8 +1120,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.762Z'
-  - id: 9
+    actualizado: '2026-08-12T09:22:57.406Z'
+  - id: 8
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1148,8 +1134,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.752Z'
-  - id: 49
+    actualizado: '2026-08-12T09:22:57.190Z'
+  - id: 48
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1162,8 +1148,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.198Z'
-  - id: 6
+    actualizado: '2026-08-12T09:23:01.668Z'
+  - id: 5
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1176,8 +1162,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.728Z'
-  - id: 66
+    actualizado: '2026-08-12T09:22:56.889Z'
+  - id: 65
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1190,8 +1176,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.507Z'
-  - id: 67
+    actualizado: '2026-08-12T09:23:03.959Z'
+  - id: 66
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1204,8 +1190,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.514Z'
-  - id: 54
+    actualizado: '2026-08-12T09:23:04.110Z'
+  - id: 53
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1218,8 +1204,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.289Z'
-  - id: 55
+    actualizado: '2026-08-12T09:23:02.352Z'
+  - id: 54
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1232,8 +1218,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.295Z'
-  - id: 56
+    actualizado: '2026-08-12T09:23:02.487Z'
+  - id: 55
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1246,8 +1232,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.320Z'
-  - id: 57
+    actualizado: '2026-08-12T09:23:02.618Z'
+  - id: 56
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1260,8 +1246,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.351Z'
-  - id: 107
+    actualizado: '2026-08-12T09:23:02.753Z'
+  - id: 106
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1274,8 +1260,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.028Z'
-  - id: 117
+    actualizado: '2026-08-12T09:23:09.719Z'
+  - id: 116
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1288,8 +1274,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.129Z'
-  - id: 104
+    actualizado: '2026-08-12T09:23:11.256Z'
+  - id: 103
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1302,8 +1288,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:44.990Z'
-  - id: 100
+    actualizado: '2026-08-12T09:23:09.336Z'
+  - id: 99
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1316,8 +1302,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:44.935Z'
-  - id: 46
+    actualizado: '2026-08-12T09:23:08.770Z'
+  - id: 45
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1330,8 +1316,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.138Z'
-  - id: 47
+    actualizado: '2026-08-12T09:23:01.294Z'
+  - id: 46
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1344,8 +1330,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.167Z'
-  - id: 44
+    actualizado: '2026-08-12T09:23:01.417Z'
+  - id: 43
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1358,8 +1344,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.126Z'
-  - id: 45
+    actualizado: '2026-08-12T09:23:01.082Z'
+  - id: 44
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1372,8 +1358,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.132Z'
-  - id: 43
+    actualizado: '2026-08-12T09:23:01.185Z'
+  - id: 42
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1386,8 +1372,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.120Z'
-  - id: 97
+    actualizado: '2026-08-12T09:23:00.972Z'
+  - id: 96
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1400,8 +1386,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:44.891Z'
-  - id: 68
+    actualizado: '2026-08-12T09:23:08.359Z'
+  - id: 67
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1414,8 +1400,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.519Z'
-  - id: 69
+    actualizado: '2026-08-12T09:23:04.244Z'
+  - id: 68
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1428,8 +1414,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.526Z'
-  - id: 112
+    actualizado: '2026-08-12T09:23:04.367Z'
+  - id: 111
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1442,8 +1428,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.078Z'
-  - id: 105
+    actualizado: '2026-08-12T09:23:10.483Z'
+  - id: 104
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1456,8 +1442,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.013Z'
-  - id: 115
+    actualizado: '2026-08-12T09:23:09.467Z'
+  - id: 114
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1470,8 +1456,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.107Z'
-  - id: 109
+    actualizado: '2026-08-12T09:23:10.931Z'
+  - id: 108
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1484,8 +1470,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.047Z'
-  - id: 7
+    actualizado: '2026-08-12T09:23:10.018Z'
+  - id: 6
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1498,8 +1484,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.733Z'
-  - id: 62
+    actualizado: '2026-08-12T09:22:56.989Z'
+  - id: 61
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1512,8 +1498,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.441Z'
-  - id: 63
+    actualizado: '2026-08-12T09:23:03.412Z'
+  - id: 62
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1526,8 +1512,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.447Z'
-  - id: 64
+    actualizado: '2026-08-12T09:23:03.553Z'
+  - id: 63
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1540,8 +1526,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.477Z'
-  - id: 65
+    actualizado: '2026-08-12T09:23:03.679Z'
+  - id: 64
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1554,8 +1540,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.483Z'
-  - id: 108
+    actualizado: '2026-08-12T09:23:03.819Z'
+  - id: 107
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1568,8 +1554,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.038Z'
-  - id: 58
+    actualizado: '2026-08-12T09:23:09.859Z'
+  - id: 57
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1582,8 +1568,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.378Z'
-  - id: 59
+    actualizado: '2026-08-12T09:23:02.899Z'
+  - id: 58
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1596,8 +1582,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.410Z'
-  - id: 113
+    actualizado: '2026-08-12T09:23:03.034Z'
+  - id: 112
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1610,8 +1596,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.087Z'
-  - id: 2
+    actualizado: '2026-08-12T09:23:10.641Z'
+  - id: 1
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1624,8 +1610,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.707Z'
-  - id: 3
+    actualizado: '2026-08-12T09:22:56.478Z'
+  - id: 2
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1638,8 +1624,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.714Z'
-  - id: 4
+    actualizado: '2026-08-12T09:22:56.581Z'
+  - id: 3
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1652,8 +1638,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.719Z'
-  - id: 116
+    actualizado: '2026-08-12T09:22:56.688Z'
+  - id: 115
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1666,8 +1652,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.117Z'
-  - id: 5
+    actualizado: '2026-08-12T09:23:11.103Z'
+  - id: 4
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1680,8 +1666,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.723Z'
-  - id: 60
+    actualizado: '2026-08-12T09:22:56.799Z'
+  - id: 59
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1694,8 +1680,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.429Z'
-  - id: 61
+    actualizado: '2026-08-12T09:23:03.156Z'
+  - id: 60
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1708,8 +1694,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.435Z'
-  - id: 114
+    actualizado: '2026-08-12T09:23:03.277Z'
+  - id: 113
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1722,8 +1708,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.097Z'
-  - id: 53
+    actualizado: '2026-08-12T09:23:10.788Z'
+  - id: 52
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1736,8 +1722,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.258Z'
-  - id: 110
+    actualizado: '2026-08-12T09:23:02.194Z'
+  - id: 109
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1750,8 +1736,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.058Z'
-  - id: 51
+    actualizado: '2026-08-12T09:23:10.176Z'
+  - id: 50
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1764,8 +1750,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.234Z'
-  - id: 52
+    actualizado: '2026-08-12T09:23:01.936Z'
+  - id: 51
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1778,8 +1764,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.239Z'
-  - id: 50
+    actualizado: '2026-08-12T09:23:02.064Z'
+  - id: 49
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1792,8 +1778,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.228Z'
-  - id: 48
+    actualizado: '2026-08-12T09:23:01.815Z'
+  - id: 47
     activo: true
     categoria: 'material'
     area: 'carpinteria_metalica'
@@ -1806,50 +1792,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Rango medio desde costes-materiales.md'
-    actualizado: '2026-08-12T09:22:44.173Z'
+    actualizado: '2026-08-12T09:23:01.531Z'
   - id: 102
-    activo: true
-    categoria: 'montaje'
-    area: 'carpinteria_metalica'
-    nombre: 'Montaje'
-    descripcion: 'Usar 400 € para montaje sencillo asociado'
-    unidad: 'servicio'
-    precio_coste: 400
-    precio_venta: 400
-    margen_porcentaje: 0
-    proveedor: 'Ferros Puig Sallent'
-    confianza: 'antiguo'
-    notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:44.952Z'
-  - id: 119
-    activo: true
-    categoria: 'montaje'
-    area: 'carpinteria_metalica'
-    nombre: 'Montaje grande'
-    descripcion: '4.000 €/servicio'
-    unidad: 'servicio'
-    precio_coste: 4000
-    precio_venta: 4000
-    margen_porcentaje: 0
-    proveedor: 'Ferros Puig Sallent'
-    confianza: 'antiguo'
-    notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.151Z'
-  - id: 118
-    activo: true
-    categoria: 'montaje'
-    area: 'carpinteria_metalica'
-    nombre: 'Montaje sencillo'
-    descripcion: '400 €/servicio'
-    unidad: 'servicio'
-    precio_coste: 400
-    precio_venta: 400
-    margen_porcentaje: 0
-    proveedor: 'Ferros Puig Sallent'
-    confianza: 'antiguo'
-    notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.140Z'
-  - id: 103
     activo: true
     categoria: 'transporte'
     area: 'carpinteria_metalica'
@@ -1862,8 +1806,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:44.981Z'
-  - id: 121
+    actualizado: '2026-08-12T09:23:09.205Z'
+  - id: 120
     activo: true
     categoria: 'transporte'
     area: 'carpinteria_metalica'
@@ -1876,8 +1820,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.185Z'
-  - id: 106
+    actualizado: '2026-08-12T09:23:11.933Z'
+  - id: 105
     activo: true
     categoria: 'transporte'
     area: 'carpinteria_metalica'
@@ -1890,8 +1834,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.021Z'
-  - id: 120
+    actualizado: '2026-08-12T09:23:09.604Z'
+  - id: 119
     activo: true
     categoria: 'transporte'
     area: 'carpinteria_metalica'
@@ -1904,8 +1848,8 @@ precios:
     proveedor: 'Ferros Puig Sallent'
     confianza: 'antiguo'
     notas: 'Historico Ferros Puig'
-    actualizado: '2026-08-12T09:22:45.163Z'
-  - id: 33
+    actualizado: '2026-08-12T09:23:11.779Z'
+  - id: 32
     activo: true
     categoria: 'mano_obra'
     area: 'clima'
@@ -1918,8 +1862,8 @@ precios:
     proveedor: ''
     confianza: 'confirmado'
     notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:44.016Z'
-  - id: 32
+    actualizado: '2026-08-12T09:22:59.731Z'
+  - id: 31
     activo: true
     categoria: 'mano_obra'
     area: 'fontaneria'
@@ -1932,22 +1876,22 @@ precios:
     proveedor: ''
     confianza: 'confirmado'
     notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:44.011Z'
-  - id: 39
+    actualizado: '2026-08-12T09:22:59.639Z'
+  - id: 38
     activo: true
     categoria: 'transporte'
     area: 'general'
-    nombre: '1 a 50 kg'
+    nombre: '1 a 200 kg (40€ x 200 Kg o menos.)'
     descripcion: 'Tarifa orientativa peninsular'
     unidad: 'kg'
-    precio_coste: 15
-    precio_venta: 15
-    margen_porcentaje: 0
+    precio_coste: 0.5
+    precio_venta: 2
+    margen_porcentaje: -25
     proveedor: ''
     confianza: 'estimado'
     notas: 'Desde costes-transporte.json'
-    actualizado: '2026-08-12T09:22:44.075Z'
-  - id: 41
+    actualizado: '2026-08-12T11:34:38.799Z'
+  - id: 40
     activo: true
     categoria: 'transporte'
     area: 'general'
@@ -1960,8 +1904,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Desde costes-transporte.json'
-    actualizado: '2026-08-12T09:22:44.085Z'
-  - id: 40
+    actualizado: '2026-08-12T09:23:00.734Z'
+  - id: 39
     activo: true
     categoria: 'transporte'
     area: 'general'
@@ -1974,8 +1918,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Desde costes-transporte.json'
-    actualizado: '2026-08-12T09:22:44.079Z'
-  - id: 35
+    actualizado: '2026-08-12T09:23:00.614Z'
+  - id: 34
     activo: true
     categoria: 'transporte'
     area: 'general'
@@ -1988,8 +1932,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Ruta fija desde costes-transporte.json'
-    actualizado: '2026-08-12T09:22:44.043Z'
-  - id: 36
+    actualizado: '2026-08-12T09:22:59.961Z'
+  - id: 35
     activo: true
     categoria: 'transporte'
     area: 'general'
@@ -2002,8 +1946,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Coste minimo desde costes-transporte.json'
-    actualizado: '2026-08-12T09:22:44.058Z'
-  - id: 42
+    actualizado: '2026-08-12T09:23:00.074Z'
+  - id: 41
     activo: true
     categoria: 'transporte'
     area: 'general'
@@ -2016,8 +1960,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Desde costes-transporte.json'
-    actualizado: '2026-08-12T09:22:44.090Z'
-  - id: 37
+    actualizado: '2026-08-12T09:23:00.851Z'
+  - id: 36
     activo: true
     categoria: 'transporte'
     area: 'general'
@@ -2030,8 +1974,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Ruta fija desde costes-transporte.json'
-    actualizado: '2026-08-12T09:22:44.064Z'
-  - id: 38
+    actualizado: '2026-08-12T09:23:00.214Z'
+  - id: 37
     activo: true
     categoria: 'transporte'
     area: 'general'
@@ -2044,8 +1988,8 @@ precios:
     proveedor: ''
     confianza: 'estimado'
     notas: 'Coste minimo desde costes-transporte.json'
-    actualizado: '2026-08-12T09:22:44.069Z'
-  - id: 31
+    actualizado: '2026-08-12T09:23:00.337Z'
+  - id: 30
     activo: true
     categoria: 'mano_obra'
     area: 'instalaciones_electricas'
@@ -2058,4 +2002,4 @@ precios:
     proveedor: ''
     confianza: 'confirmado'
     notas: 'Incluye cargas sociales. Actualizado 2026-05-01'
-    actualizado: '2026-08-12T09:22:43.986Z'
+    actualizado: '2026-08-12T09:22:59.530Z'

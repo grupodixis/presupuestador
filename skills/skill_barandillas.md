@@ -43,7 +43,7 @@ Ver `/productos/composiciones/barandilla.yaml`.
 2. Diseño y despiece.
 3. Corte de tubos, pletinas y barrotes.
 4. Preparación de bordes y chaflanes.
-5. Soldadura MIG/MAG o TIG.
+5. Soldadura MIG/MAG o TIG o laser.
 6. Repasado de soldaduras y limpieza.
 7. Tratamiento superficial (imprimación + pintura / galvanizado / lacado).
 8. Transporte a obra.

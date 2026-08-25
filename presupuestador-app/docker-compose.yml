@@ -6,6 +6,7 @@ services:
     environment:
       NODE_ENV: production
       PORT: 4177
+      HOST: 0.0.0.0
     ports:
       - "127.0.0.1:4177:4177"
     volumes:

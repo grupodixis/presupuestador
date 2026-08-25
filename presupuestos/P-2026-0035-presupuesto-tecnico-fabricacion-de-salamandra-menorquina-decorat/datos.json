@@ -1,0 +1,170 @@
+{
+  "titulo": "Presupuesto Técnico: Fabricación de Salamandra Menorquina Decorativa en Corte Láser Inox",
+  "resumen": "Fabricación a medida de figura decorativa de salamandra menorquina en chapa de acero inoxidable de 2 mm cortada a láser (1300x600 mm aprox.), equipada con 4 soportes traseros soldados de tubo Ø12 mm y varilla roscada M10 para separación y fijación a pared por parte del cliente. Tratamiento con imprimación multiadherente y acabado en esmalte gris apto para ambiente salino de Menorca. Excluido el montaje en obra.",
+  "tipoProducto": "herreria",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Oficina técnica y preparación de vector CAD/DXF",
+      "descripcion": "Vectorización, delineación CAD del plano adjunto (1289x661 mm) y optimización de anidado para máquina de corte láser CNC.",
+      "cantidad": 2,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 70,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Chapa de acero inoxidable AISI 316 e=2 mm",
+      "descripcion": "Chapa de acero inoxidable AISI 316 marina (1300x660 mm) para alta resistencia a la corrosión en Menorca.",
+      "cantidad": 1,
+      "unidad": "ud",
+      "precioUnitario": 210,
+      "importe": 210,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Conjunto de fijaciones traseras (Tubo Ø12 + Varilla M10 Inox)",
+      "descripcion": "4 casquillos separadores en tubo inox Ø12 mm (40 mm separación) con espárragos soldados en varilla roscada M10 inox (50 mm voladizo).",
+      "cantidad": 4,
+      "unidad": "ud",
+      "precioUnitario": 12.5,
+      "importe": 50,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Fabricacion",
+      "concepto": "Corte láser CNC de alta precisión",
+      "descripcion": "Servicio de corte láser de fibra para silueta de figura orgánica detallada sobre chapa de acero inoxidable de 2 mm.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 265,
+      "importe": 265,
+      "confianza": "media",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller: soldadura TIG, repasado y desbarbado",
+      "descripcion": "Soldadura TIG de casquillos/pernos posteriores, desbarbado perimetral con pulido de aristas de corte y preparación de superficie.",
+      "cantidad": 3.5,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 122.5,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Tratamiento",
+      "concepto": "Tratamiento anticorrosivo y lacado exterior Gris",
+      "descripcion": "Aplicación de imprimación de alta adherencia para acero inoxidable y acabado con esmalte de poliuretano alifático C4/C5 color gris.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 180,
+      "importe": 180,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Transporte",
+      "concepto": "Embalaje de protección y transporte local en Menorca",
+      "descripcion": "Embalaje especial para piezas planas pintadas con protección de cantos y entrega directa al cliente o taller.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 60,
+      "importe": 60,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Margen",
+      "concepto": "Margen industrial y gestión de proyecto",
+      "descripcion": "Gestión de aprovisionamiento, control de calidad dimensional del corte y trazabilidad.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 92.5,
+      "importe": 92.5,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿Tiene preferencia por algún tono de gris específico (ej. RAL 7016 Gris Antracita, RAL 7035 Gris Claro, o acabado metalizado)?",
+    "¿La instalación se realizará sobre pared de mampostería/marés, hormigón o placa de yeso/madera para confirmar el tipo de taco químico o mecánico que debe aportar el cliente?"
+  ],
+  "supuestos": [
+    "Se presupone el uso de acero inoxidable AISI 316 por defecto debido al ambiente salino de Menorca.",
+    "El montaje e instalación sobre pared corre a cargo del cliente tal como se ha solicitado.",
+    "No se incluye tacos químicos ni taco sintético de anclaje final a la pared, únicamente los pernos de fijación integrados en la pieza."
+  ],
+  "riesgos": [
+    "Daños en el recubrimiento de pintura durante la manipulación y fijación de los tacos por parte del cliente si se golpea la pieza.",
+    "Deformación por calor del corte láser en zonas delgadas si el despiece no mantiene separaciones mínimas en las extremidades."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Memorizar tarifa de corte láser decorativo de inox",
+      "detalle": "Consolidar en las skills de herrería la referencia de corte láser para siluetas orgánicas en chapa de inox de 2 mm con separadores traseros.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "media"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 90951,
+    "outputTokens": 1775,
+    "totalTokens": 94496
+  },
+  "tokenStatus": {
+    "provider": "fal",
+    "model": "fal-ai/flux/schnell",
+    "estimatedInputTokens": 651,
+    "localBudgetTokens": null,
+    "usedTokens": 0,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Imagen generada con fal.ai en modo economico; sin control local por tokens."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "David Bell",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  },
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Técnico: Fabricación de Salamandra Menorquina Decorativa en Corte Láser Inox\nTipo: herreria\nResumen: Fabricación a medida de figura decorativa de salamandra menorquina en chapa de acero inoxidable de 2 mm cortada a láser (1300x600 mm aprox.), equipada con 4 soportes traseros soldados de tubo Ø12 mm y varilla roscada M10 para separación y fijación a pared por parte del cliente. Tratamiento con imprimación multiadherente y acabado en esmalte gris apto para ambiente salino de Menorca. Excluido el montaje en obra.\nCliente/obra: Menorca\nPartidas principales:\n- Diseno: Oficina técnica y preparación de vector CAD/DXF. Vectorización, delineación CAD del plano adjunto (1289x661 mm) y optimización de anidado para máquina de corte láser CNC.. 2 h\n- Materiales: Chapa de acero inoxidable AISI 316 e=2 mm. Chapa de acero inoxidable AISI 316 marina (1300x660 mm) para alta resistencia a la corrosión en Menorca.. 1 ud\n- Materiales: Conjunto de fijaciones traseras (Tubo Ø12 + Varilla M10 Inox). 4 casquillos separadores en tubo inox Ø12 mm (40 mm separación) con espárragos soldados en varilla roscada M10 inox (50 mm voladizo).. 4 ud\n- Fabricacion: Corte láser CNC de alta precisión. Servicio de corte láser de fibra para silueta de figura orgánica detallada sobre chapa de acero inoxidable de 2 mm.. 1 lote\n- Fabricacion: Mano de obra de taller: soldadura TIG, repasado y desbarbado. Soldadura TIG de casquillos/pernos posteriores, desbarbado perimetral con pulido de aristas de corte y preparación de superficie.. 3.5 h\n- Tratamiento: Tratamiento anticorrosivo y lacado exterior Gris. Aplicación de imprimación de alta adherencia para acero inoxidable y acabado con esmalte de poliuretano alifático C4/C5 color gris.. 1 lote\n- Transporte: Embalaje de protección y transporte local en Menorca. Embalaje especial para piezas planas pintadas con protección de cantos y entrega directa al cliente o taller.. 1 lote\n- Margen: Margen industrial y gestión de proyecto. Gestión de aprovisionamiento, control de calidad dimensional del corte y trazabilidad.. 1 lote\n\nEstilo visual:\n- Imagen cuadrada, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-08-21T10:32:21.580Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualModo": "economico",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa73751/yqv0-W2saxRjriT2f59tr.png"
+}

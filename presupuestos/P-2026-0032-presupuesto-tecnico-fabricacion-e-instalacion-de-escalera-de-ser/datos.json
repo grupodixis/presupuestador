@@ -1,0 +1,182 @@
+{
+  "titulo": "Presupuesto Técnico: Fabricación e Instalación de Escalera de Servicio Metálica (H: 3.5 m) - Trebaluger",
+  "resumen": "Presupuesto para la fabricación, tratamiento anticorrosivo mediante pintura C4 (sin galvanizado) y montaje con medios auxiliares (grúa) de escalera metálica de servicio de un solo tramo con barandilla integrada en zanca y peldaños de chapa plegada para ubicación exterior en Trebaluger (Menorca).",
+  "tipoProducto": "escalera_metalica",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Toma de medidas, replanteo técnico y planos de taller",
+      "descripcion": "Diseño de uniones, despiece técnico para taller y cálculo de anclajes.",
+      "cantidad": 6,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 210,
+      "confianza": "alta",
+      "origen": "skill/coste/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Zancas laterales en perfil de acero al carbono S275JR",
+      "descripcion": "Estructura portante de zancas para salvar 3,50 m de altura en un único tramo.",
+      "cantidad": 260,
+      "unidad": "kg",
+      "precioUnitario": 1.8,
+      "importe": 468,
+      "confianza": "alta",
+      "origen": "skill/coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Peldaños de chapa de acero plegada lagrimada/conformada (14 ud)",
+      "descripcion": "Peldaños de ancho 550 mm y huella 240 mm conformados en chapa de acero al carbono.",
+      "cantidad": 130,
+      "unidad": "kg",
+      "precioUnitario": 2.4,
+      "importe": 312,
+      "confianza": "alta",
+      "origen": "skill/coste",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Barandilla de protección integrada en zanca",
+      "descripcion": "Pasamanos y montantes verticales en tubo de acero fijados a las zancas laterales.",
+      "cantidad": 75,
+      "unidad": "kg",
+      "precioUnitario": 1.8,
+      "importe": 135,
+      "confianza": "alta",
+      "origen": "skill/coste",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller: corte, armado y soldadura",
+      "descripcion": "Corte a inglete, mecanizado de placas de anclaje, ensamblaje mediante soldadura y repasado de cordones.",
+      "cantidad": 26,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 780,
+      "confianza": "alta",
+      "origen": "skill/coste",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Tratamiento",
+      "concepto": "Tratamiento de pintura anticorrosiva C4 para exterior en Menorca",
+      "descripcion": "Preparación superficial, aplicación de imprimación epoxi rica en zinc de alto espesor y esmalte de poliuretano alifático C4 exterior (sin galvanizado en caliente).",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 460,
+      "importe": 460,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Transporte",
+      "concepto": "Transporte de estructura hasta obra en Trebaluger",
+      "descripcion": "Porte de tramo completo de escalera y elementos auxiliares desde taller a parcela en Trebaluger.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 110,
+      "importe": 110,
+      "confianza": "alta",
+      "origen": "skill/coste",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Montaje",
+      "concepto": "Mano de obra de montaje e instalación en obra",
+      "descripcion": "Alineación, aplomado, fijación mediante anclajes químicos/expansivos inoxidable A4 a soporte existente.",
+      "cantidad": 8,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 280,
+      "confianza": "alta",
+      "origen": "skill/coste",
+      "editable": true
+    },
+    {
+      "id": "L9",
+      "capitulo": "Montaje",
+      "concepto": "Medios auxiliares: Camión grúa de elevación (3 horas)",
+      "descripcion": "Servicio de camión pluma/grúa para posicionamiento y sujeción de la escalera durante la fijación en Trebaluger.",
+      "cantidad": 3,
+      "unidad": "h",
+      "precioUnitario": 90,
+      "importe": 270,
+      "confianza": "alta",
+      "origen": "skill/coste/adjunto",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿La escalera es de uso exclusivo restringido/servicio? La relación de contrahuella (247 mm) y huella (240 mm) sobrepasa los límites del CTE DB-SUA para uso general.",
+    "¿De qué material y grosor es la estructura/muro existente donde se realizará el anclaje superior e inferior en Trebaluger?",
+    "¿El acceso para el camión grúa hasta el punto exacto de izado en la obra de Trebaluger está libre de obstáculos en altura (cables, árboles)?"
+  ],
+  "supuestos": [
+    "Se presupuesta un sistema de pintura anticorrosiva categoría C4 (imprimación epoxi + esmalte de poliuretano, sin galvanizado) acorde a la intemperie en Menorca.",
+    "El soporte de hormigón/obra existente tiene capacidad portante suficiente para recibir las cargas y reacciones de la escalera.",
+    "Tornillería y anclajes expuestos previstos en acero inoxidable A4."
+  ],
+  "riesgos": [
+    "Contrahuella de 247 mm excesivamente empinada para paso peatonal público u ordinario (requiere confirmación de uso de servicio).",
+    "Ausencia de evacuación de agua en peldaños lisos/lagrimados si no se prevén taladros o troquelado antideslizante."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Perforado de evacuación en peldaños",
+      "detalle": "Sugerir la ejecución de taladros o ranurado de drenaje en la chapa de los peldaños para evitar la acumulación de agua de lluvia y formación de charcos en exterior.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "media"
+    },
+    {
+      "id": "S2",
+      "titulo": "Verificación del tratamiento C4 en Trebaluger",
+      "detalle": "Confirmar que el sistema de pintura C4 aplicado en taller cuenta con el espesor de capa seca adecuado para resistir el ambiente salino de Menorca sin galvanizado previo.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 92338,
+    "outputTokens": 2449,
+    "totalTokens": 95599
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 2258,
+    "localBudgetTokens": null,
+    "usedTokens": 3826227,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Jaime",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "Trebaluger",
+    "referencia": ""
+  }
+}

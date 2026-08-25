@@ -1,0 +1,154 @@
+{
+  "titulo": "Presupuesto Corregido: Subestructura Galvanizada, Cerramiento Thermoclick y Mantenimiento de Postes",
+  "resumen": "Presupuesto actualizado según indicación del cliente para la fabricación e instalación de subestructura de tubo galvanizado, cerramiento con sistema Thermoclick de policarbonato en fachadas oeste y sur, pilar intermedio de refuerzo y tratamiento de conservación anticorrosiva C4/C5 en postes existentes.",
+  "tipoProducto": "Producto compuesto a medida",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Fabricacion",
+      "concepto": "Subestructura tubo galvanizado 100x50x3 mm - Fachada Oeste",
+      "descripcion": "Fabricación y montaje de 4 líneas de tubo 100x50x3 mm galvanizado base reforzado a fijar sobre estructura existente en Fachada Lateral Oeste (41 ML x 4 Uds). Incluye accesorios de montaje, anclajes y fijaciones.",
+      "cantidad": 168,
+      "unidad": "ml",
+      "precioUnitario": 35,
+      "importe": 5880,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Sistema Thermoclick Policarbonato - Fachada Oeste",
+      "descripcion": "Suministro y montaje de sistema Thermoclick de paneles celulares de policarbonato entrelazados para Fachada Lateral Oeste (41 ML x 5 m de alto). Incluye perfiles de remate, sellados y accesorios de fijación.",
+      "cantidad": 205,
+      "unidad": "m2",
+      "precioUnitario": 165,
+      "importe": 33825,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Fabricacion",
+      "concepto": "Subestructura tubo galvanizado 100x50x3 mm - Fachada Sur",
+      "descripcion": "Fabricación y montaje de 4 líneas de tubo 100x50x3 mm galvanizado base reforzado a fijar sobre estructura existente en Fachada Frontal Sur (12 ML x 4 Uds). Incluye accesorios de montaje.",
+      "cantidad": 48,
+      "unidad": "ml",
+      "precioUnitario": 35,
+      "importe": 1680,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Fabricacion",
+      "concepto": "Pilar intermedio tubo 100x100x4 mm - Fachada Sur",
+      "descripcion": "Fabricación y montaje de pilar intermedio de tubo 100x100x4 mm galvanizado para refuerzo estructural en Fachada Frontal Sur.",
+      "cantidad": 1,
+      "unidad": "ud",
+      "precioUnitario": 1400,
+      "importe": 1400,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Materiales",
+      "concepto": "Sistema Thermoclick Policarbonato - Fachada Sur",
+      "descripcion": "Suministro y montaje de sistema Thermoclick de paneles celulares de policarbonato entrelazados para Fachada Frontal Sur (12 ML x 5 m de alto). Incluye remates y sellados de estanqueidad.",
+      "cantidad": 60,
+      "unidad": "m2",
+      "precioUnitario": 165,
+      "importe": 9900,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Tratamiento",
+      "concepto": "Mantenimiento anticorrosivo C4/C5 de postes existentes",
+      "descripcion": "Tratamiento de mantenimiento para postes existentes de 150x150 mm (9 ML x 12 Uds): raspado, pasivado, imprimación rica en zinc y acabado poliuretánico apto para ambiente marino de Menorca. Incluye elementos de elevación.",
+      "cantidad": 64.8,
+      "unidad": "m2",
+      "precioUnitario": 68,
+      "importe": 4406.4,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿El color y la transmisión de luz del policarbonato Thermoclick están ya especificados (p. ej. hielo/opal, transparente, bronce)?",
+    "¿Se requiere proyecto técnico o certificado estructural firmado para la fijación de la subestructura sobre la estructura existente?"
+  ],
+  "supuestos": [
+    "Los precios indicados son netos (Base Imponible) y no incluyen el IVA.",
+    "La estructura existente se encuentra en condiciones aceptables de resistencia mecánica para soportar las cargas de viento transmitidas por el cerramiento Thermoclick.",
+    "El tratamiento anticorrosivo de los postes incluye los medios de elevación necesarios según se especifica en la partida de mantenimiento."
+  ],
+  "riesgos": [
+    "Riesgo de desviaciones o variaciones en los puntos de anclaje si la estructura existente presenta desniveles o plomos irregulares.",
+    "Limitaciones de montaje por viento elevado en altura durante la colocación de las placas de policarbonato Thermoclick."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Memorizar tarifas de sistema Thermoclick y tratamiento C4/C5",
+      "detalle": "Guardar en el aprendizaje los precios unitarios validados por el cliente: 165 €/m2 para suministro y montaje de Thermoclick, 35 €/ml para subestructura tubo 100x50x3 galvanizado y 68 €/m2 para restauración de postes con rica en zinc y poliuretano.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "alta"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 69937,
+    "outputTokens": 1554,
+    "totalTokens": 73595
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 290,
+    "localBudgetTokens": null,
+    "usedTokens": 896695,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Club Villa Carlos",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  },
+  "_folder": "presupuestos/P-2026-0020-presupuesto-corregido-subestructura-galvanizada-cerramiento-ther",
+  "_changeLog": [
+    {
+      "at": "2026-08-04T10:10:51.215Z",
+      "source": "generacion",
+      "provider": "gemini",
+      "model": "gemini-3.6-flash",
+      "titulo": "Presupuesto Corregido: Subestructura Galvanizada, Cerramiento Thermoclick y Mantenimiento de Postes"
+    }
+  ],
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Corregido: Subestructura Galvanizada, Cerramiento Thermoclick y Mantenimiento de Postes\nTipo: Producto compuesto a medida\nResumen: Presupuesto actualizado según indicación del cliente para la fabricación e instalación de subestructura de tubo galvanizado, cerramiento con sistema Thermoclick de policarbonato en fachadas oeste y sur, pilar intermedio de refuerzo y tratamiento de conservación anticorrosiva C4/C5 en postes existentes.\nCliente/obra: Menorca\nPartidas principales:\n- Fabricacion: Subestructura tubo galvanizado 100x50x3 mm - Fachada Oeste. Fabricación y montaje de 4 líneas de tubo 100x50x3 mm galvanizado base reforzado a fijar sobre estructura existente en Fachada Lateral Oeste (41 ML x 4 Uds). Incluye accesorios de montaje, anclajes y fijaciones.. 168 ml\n- Materiales: Sistema Thermoclick Policarbonato - Fachada Oeste. Suministro y montaje de sistema Thermoclick de paneles celulares de policarbonato entrelazados para Fachada Lateral Oeste (41 ML x 5 m de alto). Incluye perfiles de remate, sellados y accesorios de fijación.. 205 m2\n- Fabricacion: Subestructura tubo galvanizado 100x50x3 mm - Fachada Sur. Fabricación y montaje de 4 líneas de tubo 100x50x3 mm galvanizado base reforzado a fijar sobre estructura existente en Fachada Frontal Sur (12 ML x 4 Uds). Incluye accesorios de montaje.. 48 ml\n- Fabricacion: Pilar intermedio tubo 100x100x4 mm - Fachada Sur. Fabricación y montaje de pilar intermedio de tubo 100x100x4 mm galvanizado para refuerzo estructural en Fachada Frontal Sur.. 1 ud\n- Materiales: Sistema Thermoclick Policarbonato - Fachada Sur. Suministro y montaje de sistema Thermoclick de paneles celulares de policarbonato entrelazados para Fachada Frontal Sur (12 ML x 5 m de alto). Incluye remates y sellados de estanqueidad.. 60 m2\n- Tratamiento: Mantenimiento anticorrosivo C4/C5 de postes existentes. Tratamiento de mantenimiento para postes existentes de 150x150 mm (9 ML x 12 Uds): raspado, pasivado, imprimación rica en zinc y acabado poliuretánico apto para ambiente marino de Menorca. Incluye elementos de elevación.. 64.8 m2\n\nEstilo visual:\n- Imagen cuadrada, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-08-04T10:31:11.697Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualModo": "economico",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa4f98b/G5q3BcP_15ZjjsdEGhI_g.png"
+}

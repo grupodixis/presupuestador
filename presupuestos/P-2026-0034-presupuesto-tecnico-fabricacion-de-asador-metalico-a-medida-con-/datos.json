@@ -1,0 +1,157 @@
+{
+  "titulo": "Presupuesto Técnico: Fabricación de Asador Metálico a Medida con Tapa y Brasero (1.2 x 1.0 x 0.6 m)",
+  "resumen": "Fabricación a medida de asador/barbacoa en estructura de tubo 30x30x3 mm y cerramiento en chapa de 2 mm con tapa superior abatible, estante inferior de malla, ruedas de traslado y compartimento para brasero/fuego según especificaciones y referencia fotográfica.",
+  "tipoProducto": "herreria",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Diseño técnico, modelado CAD y despiece de corte",
+      "descripcion": "Toma de datos, replanteo de despiece para corte en taller y cálculo de plegados de la tapa y cajón del asador.",
+      "cantidad": 3,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 105,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Tubo estructural de acero 30x30x3 mm",
+      "descripcion": "Estructura principal de patas, bastidor de soporte, refuerzos diagonales decorativos y marco de tapa.",
+      "cantidad": 18,
+      "unidad": "ml",
+      "precioUnitario": 8,
+      "importe": 144,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Chapa de acero al carbono de 2 mm",
+      "descripcion": "Chapa conformada para cuerpo del asador, tapa abatible, división interior de brasero y paredes de protección.",
+      "cantidad": 55,
+      "unidad": "kg",
+      "precioUnitario": 2.4,
+      "importe": 132,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Kit de accesorios, herrajes y parrilla interior",
+      "descripcion": "Malla desplegada para bandeja inferior, ruedas de maniobra, bisagras reforzadas, tirador tubular, cadena de retención de tapa y parrilla interior ajustables.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 115,
+      "importe": 115,
+      "confianza": "media",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller: corte, armado y soldadura",
+      "descripcion": "Corte a inglete de perfiles, soldadura continua y punteado de chapa, ensamble de bisagras, ajuste de cierre de tapa y repasado de cordones.",
+      "cantidad": 14,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 420,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Tratamiento",
+      "concepto": "Tratamiento de pintura anticalórica C4 para exterior en Menorca",
+      "descripcion": "Preparación de superficie, imprimación anticorrosiva apta para ambiente salino y pintura especial alta temperatura anticalórica en negro mate.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 135,
+      "importe": 135,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Transporte",
+      "concepto": "Transporte y entrega local en Menorca",
+      "descripcion": "Desplazamiento y entrega del asador montado a nivel de calle/jardín.",
+      "cantidad": 1,
+      "unidad": "ud",
+      "precioUnitario": 60,
+      "importe": 60,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿La parrilla de cocción interior prefiere que sea en acero inoxidable AISI 304 (calidad alimentaria) o en hierro de pletina/ángulo?",
+    "¿Desea incluir revestimiento de ladrillo refractario en la base para proteger la chapa de 2 mm contra el calor directo de la leña/carbón?",
+    "¿Requiere módulo de manivela regulable en altura para la parrilla o prefiere apoyos fijos a varias alturas?"
+  ],
+  "supuestos": [
+    "Ubicación por defecto en Menorca; se contempla tratamiento exterior apto para brisa marina con pintura anticalórica especial.",
+    "El espesor de chapa del cuerpo es de 2 mm según solicitud, sin ladrillos refractarios incluidos en el coste base.",
+    "Parrilla interior extraíble fabricada en acero al carbono.",
+    "Entrega a nivel de calle sin ascensión por escaleras o accesos complejos."
+  ],
+  "riesgos": [
+    "Riesgo de deformación por calor en la chapa del fondo (2 mm) si se genera fuego de leña muy intenso sin protección de piso refractario.",
+    "Deterioro inevitable de la pintura en la zona interna de combustión directa por las altas temperaturas del fuego."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Refuerzo o piso de ladrillo refractario",
+      "detalle": "Aumentar la base a chapa de 3-4 mm o colocar piso refractario desmontable para prolongar drásticamente la vida útil del asador.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Parrilla en Acero Inoxidable AISI 304",
+      "detalle": "Fabricar el módulo de parrilla donde se apoyan los alimentos en Inox A2/AISI 304 para evitar corrosión salina y facilitar la limpieza e higiene.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "media"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 90931,
+    "outputTokens": 1693,
+    "totalTokens": 94279
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 1128,
+    "localBudgetTokens": null,
+    "usedTokens": 4109640,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Jorge",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  }
+}

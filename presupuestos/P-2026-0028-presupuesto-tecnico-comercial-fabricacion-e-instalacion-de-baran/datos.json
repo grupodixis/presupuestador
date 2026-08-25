@@ -1,0 +1,171 @@
+{
+  "titulo": "Presupuesto Técnico-Comercial: Fabricación e Instalación de Barandilla Metálica de Acero Inoxidable (20 ml) en Ciutadella de Menorca",
+  "resumen": "Presupuesto para la fabricación e instalación de 20 metros lineales de barandilla metálica dividida en 4 tramos rectos, con anclaje lateral, fabricada en acero inoxidable AISI 304 pintado con acabado C4/C5 para ambiente marino. Incluye toma de medidas, taller, transporte a Ciutadella e instalación en obra.",
+  "tipoProducto": "barandilla",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Toma de medidas, replanteo técnico y planimetría de taller",
+      "descripcion": "Visita técnica a Ciutadella de Menorca para medición precisa, comprobación de aplomado para anclaje lateral y elaboración de planos de despiece.",
+      "cantidad": 12,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 420,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Perfilería y tubo en acero inoxidable AISI 304",
+      "descripcion": "Pasamanos tubular, montantes verticales y barrotes/travesaños para 20 ml de barandilla h=1,10 m.",
+      "cantidad": 20,
+      "unidad": "ml",
+      "precioUnitario": 95,
+      "importe": 1900,
+      "confianza": "media",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Kit de anclaje lateral, tacos químicos y tornillería A4",
+      "descripcion": "Pletinas reforzadas para anclaje lateral, resina química de alta resistencia e irrompible y tornillería inoxidable calidad A4.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 320,
+      "importe": 320,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller: corte, soldadura TIG y esmerilado",
+      "descripcion": "Corte de perfiles, confección de bastidores, soldadura TIG, repasado fino de cordones y preparación de superficies.",
+      "cantidad": 45,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 1350,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Tratamiento",
+      "concepto": "Sistema de pintado C4/C5: Imprimación epoxi + esmalte poliuretano",
+      "descripcion": "Tratamiento de adherencia sobre acero inoxidable con imprimación epoxi especial y acabado lacado al horno de poliuretano apto para ambiente insular salino.",
+      "cantidad": 20,
+      "unidad": "ml",
+      "precioUnitario": 40,
+      "importe": 800,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Transporte",
+      "concepto": "Transporte de barandillas a obra en Ciutadella de Menorca",
+      "descripcion": "Desplazamiento con camión acondicionado para protección de las piezas lacadas desde el taller hasta la obra en Ciutadella.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 210,
+      "importe": 210,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Montaje",
+      "concepto": "Montaje en obra, nivelación y anclaje lateral",
+      "descripcion": "Trabajos de instalación por equipo de oficial y ayudante en Ciutadella, fijación con taco químico, aplomado de tramos y remates.",
+      "cantidad": 28,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 840,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Margen",
+      "concepto": "Margen industrial y gestión de proyecto",
+      "descripcion": "Gestión técnica, control de calidad, coordinación de transporte y margen de fabricación.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 1060,
+      "importe": 1060,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿Se desea contemplar la opción de fabricar en acero inoxidable AISI 316 en lugar de 304, considerando la exposición ambiental exterior en Ciutadella de Menorca para prevenir corrosión por picadura bajo la pintura?",
+    "¿Cuál es el diseño exacto del relleno de los tramos (barrotes verticales, varillas horizontales o cables de acero)?",
+    "¿El soporte o canto de losa para el anclaje lateral está en hormigón/obra firme y completamente libre de fisuras?"
+  ],
+  "supuestos": [
+    "Se asume que la estructura base o canto de losa sobre la que se realizará el anclaje lateral posee capacidad portante suficiente.",
+    "No se requiere andamiaje ni plataformas elevadoras complejas debido a la accesibilidad media del sitio.",
+    "El acabado es de un color RAL estándar en pintura de poliuretano exterior."
+  ],
+  "riesgos": [
+    "Uso de AISI 304 en exterior marino en Menorca: rasguños o desconchones accidentales en la pintura podrían generar picaduras de corrosión aceleradas debido al ambiente salino.",
+    "Afectación o variaciones en la distancia entre anclajes si el canto de la losa presenta irregularidades o falta de plomo."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Recomendar AISI 316 para exteriores en Menorca",
+      "detalle": "Según los criterios ambientales de Menorca (C4/C5), el acero inoxidable AISI 304 en exterior costero entraña riesgo de picadura. Se sugiere presupuestar o proponer como opción superior el acero inoxidable AISI 316.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 87251,
+    "outputTokens": 1763,
+    "totalTokens": 92748
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 185,
+    "localBudgetTokens": null,
+    "usedTokens": 2493538,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Acciona Aguas",
+    "email": "",
+    "telefono": "",
+    "nif": "A95113361",
+    "direccion": "",
+    "referencia": "Barandilla Pozos exteriores con acceso de escaleras."
+  },
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Técnico-Comercial: Fabricación e Instalación de Barandilla Metálica de Acero Inoxidable (20 ml) en Ciutadella de Menorca\nTipo: barandilla\nResumen: Presupuesto para la fabricación e instalación de 20 metros lineales de barandilla metálica dividida en 4 tramos rectos, con anclaje lateral, fabricada en acero inoxidable AISI 304 pintado con acabado C4/C5 para ambiente marino. Incluye toma de medidas, taller, transporte a Ciutadella e instalación en obra.\nCliente/obra: Menorca\nPartidas principales:\n- Diseno: Toma de medidas, replanteo técnico y planimetría de taller. Visita técnica a Ciutadella de Menorca para medición precisa, comprobación de aplomado para anclaje lateral y elaboración de planos de despiece.. 12 h\n- Materiales: Perfilería y tubo en acero inoxidable AISI 304. Pasamanos tubular, montantes verticales y barrotes/travesaños para 20 ml de barandilla h=1,10 m.. 20 ml\n- Materiales: Kit de anclaje lateral, tacos químicos y tornillería A4. Pletinas reforzadas para anclaje lateral, resina química de alta resistencia e irrompible y tornillería inoxidable calidad A4.. 1 lote\n- Fabricacion: Mano de obra de taller: corte, soldadura TIG y esmerilado. Corte de perfiles, confección de bastidores, soldadura TIG, repasado fino de cordones y preparación de superficies.. 45 h\n- Tratamiento: Sistema de pintado C4/C5: Imprimación epoxi + esmalte poliuretano. Tratamiento de adherencia sobre acero inoxidable con imprimación epoxi especial y acabado lacado al horno de poliuretano apto para ambiente insular salino.. 20 ml\n- Transporte: Transporte de barandillas a obra en Ciutadella de Menorca. Desplazamiento con camión acondicionado para protección de las piezas lacadas desde el taller hasta la obra en Ciutadella.. 1 lote\n- Montaje: Montaje en obra, nivelación y anclaje lateral. Trabajos de instalación por equipo de oficial y ayudante en Ciutadella, fijación con taco químico, aplomado de tramos y remates.. 28 h\n- Margen: Margen industrial y gestión de proyecto. Gestión técnica, control de calidad, coordinación de transporte y margen de fabricación.. 1 lote\n\nEstilo visual:\n- Imagen cuadrada, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-08-17T11:47:35.830Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualModo": "economico",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa6b228/mCiA395Zk6w9NRuZ-e621.png"
+}

@@ -1,0 +1,216 @@
+{
+  "titulo": "Presupuesto Técnico: Fabricación e Instalación de 4 Escaleras Metálicas con Peldaños Tramex",
+  "resumen": "Presupuesto para la fabricación, tratamiento y montaje de 4 escaleras metálicas iguales para salvar una altura de 1,50 m cada una. Incluye estructura en tubo rectangular 80x40x3, porta-escalones en ángulo L40x4, peldaños de entramado metálico galvanizado sin pintar, barandilla integrada (pasamanos Ø43, montantes en pletina 40x10 y dos horizontales Ø20), acabado imprimado y pintado en blanco para ambiente marino (Menorca).",
+  "tipoProducto": "Escalera metálica",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Toma de medidas, replanteo técnico y despiece de estructura",
+      "descripcion": "4 horas de oficina técnica para el cálculo de desarrollo de la escalera (1,50 m altura, 8 peldaños por escalera) y plano de despiece.",
+      "cantidad": 4,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 140,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Tubo rectangular de acero inoxidable 80x40x3 mm para zancas principales",
+      "descripcion": "Perfilería tubular de 80x40x3 mm para la conformación de zancas laterales (aprox. 5,4 ml por escalera + mermas).",
+      "cantidad": 24,
+      "unidad": "ml",
+      "precioUnitario": 18.5,
+      "importe": 444,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Ángulo de acero L40x4 mm para porta-escalones",
+      "descripcion": "Soportes en L40x4 cortados a 20 cm (2 unidades por peldaño, 16 uds por escalera, 64 uds en total = 12,8 ml + mermas).",
+      "cantidad": 14,
+      "unidad": "ml",
+      "precioUnitario": 3.8,
+      "importe": 53.2,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Peldaños de entramado metálico (Tramex) galvanizado en caliente",
+      "descripcion": "Peldaños de rejilla electrofundida galvanizada sin pintar con perfil frontal antideslizante y pletinas laterales de fijación (8 peldaños x 4 escaleras = 32 peldaños).",
+      "cantidad": 32,
+      "unidad": "ud",
+      "precioUnitario": 70,
+      "importe": 2240,
+      "confianza": "alta",
+      "origen": "edicion IA local",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Materiales",
+      "concepto": "Perfiles metálicos para barandilla integrada",
+      "descripcion": "Pasamanos en tubo Ø43 mm, montantes en pletina 40x10 mm y 2 barras horizontales intermedias en tubo Ø20 mm para las 4 escaleras.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 430,
+      "importe": 430,
+      "confianza": "media",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Materiales",
+      "concepto": "Tornillería Inox A4, anclajes químicos y elementos de aislamiento galvánico",
+      "descripcion": "Anclajes de fijación a estructura existente, tornillería A4 para unión de peldaños y separadores sintéticos para evitar par galvánico.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 160,
+      "importe": 160,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller de herrería y soldadura TIG/MIG",
+      "descripcion": "Corte, trazado, soldadura de zancas, porta-escalones y bastidores de barandilla para 4 unidades completas ( tarifa 30 €/h).",
+      "cantidad": 38,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 1140,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Tratamiento",
+      "concepto": "Tratamiento de pintura C4/C5 para ambiente marino (Estructura y Barandilla)",
+      "descripcion": "Preparación de superficie, imprimación epoxi de alta adherencia para acero/inox y acabado con esmalte de poliuretano blanco brillante resistente a ambiente salino en Menorca (excluidos peldaños galvanizados).",
+      "cantidad": 4,
+      "unidad": "ud",
+      "precioUnitario": 110,
+      "importe": 440,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L9",
+      "capitulo": "Transporte",
+      "concepto": "Transporte local de material y estructura terminada a obra en Menorca",
+      "descripcion": "Desplazamiento de las 4 escaleras montadas/pre-ensambladas y peldaños hasta ubicación de instalación.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 120,
+      "importe": 120,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L10",
+      "capitulo": "Montaje",
+      "concepto": "Mano de obra de montaje en obra, aplomado y anclaje",
+      "descripcion": "Instalación en obra de las 4 escaleras mediante equipo de 2 oficial/montador, fijación de peldaños y retoques finales de pintura (16 horas totales a 30 €/h).",
+      "cantidad": 16,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 480,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿La estructura de tubo 80x40x3 se requiere en calidad inoxidable AISI 316 o AISI 304 teniendo en cuenta la exposición en Menorca y que irá pintada en blanco?",
+    "¿Cuál es el ancho libre útil deseado para los peldaños de entramado metálico (ej. 800 mm, 900 mm o 1000 mm)?",
+    "¿Los desembarcos superior e inferior disponen de forjado/muro de hormigón adecuado para recibir la fijación mediante taco químico?"
+  ],
+  "supuestos": [
+    "Se presupuestan 4 unidades de escalera iguales para salvar un desnivel de 1,50 m cada una (8 peldaños por escalera, 16.6 cm de contrahuella aprox.).",
+    "Los peldaños son de entramado metálico (Tramex) galvanizado en caliente y se instalan sin pintar sobre la estructura metálica.",
+    "El acabado pintado en blanco de la estructura incluye imprimación especial de alta adherencia y poliuretano C4/C5 apto para ambiente marino de Menorca.",
+    "El montaje se realiza en un único desembarco y con accesos despejados para la cuadrilla de instalación."
+  ],
+  "riesgos": [
+    "Riesgo de desprendimiento de pintura sobre acero inoxidable si no se aplica una imprimación de grabado químico / epoxi adecuada.",
+    "Riesgo de corrosión galvánica en los puntos de contacto entre el acero galvanizado de los peldaños y la estructura de acero inoxidable si no se aislan convenientemente.",
+    "Desviaciones en las cotas de nivel del terreno en la base de las 4 escaleras que requieran suplementos de fijación in situ."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Aislamiento de par galvánico en peldaños galvanizados sobre inox",
+      "detalle": "Interponer arandelas y casquillos de EPDM/poliamida en los tornillos de fijación del entramado galvanizado sobre los ángulos de la estructura de acero inoxidable pintada para prevenir par galvánico.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Revision manual de linea",
+      "detalle": "El modo local ha aplicado la instruccion sobre los campos numericos de la linea.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "baja"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 70218,
+    "outputTokens": 2403,
+    "totalTokens": 75626
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 2626,
+    "localBudgetTokens": null,
+    "usedTokens": 1666414,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Acciona Aguas",
+    "email": "",
+    "telefono": "",
+    "nif": "A95113361",
+    "direccion": "",
+    "referencia": ""
+  },
+  "_changeLog": [
+    {
+      "at": "2026-08-11T13:23:43.205Z",
+      "source": "generacion",
+      "provider": "gemini",
+      "model": "gemini-3.6-flash",
+      "titulo": "Presupuesto Técnico: Fabricación e Instalación de 4 Escaleras Metálicas con Peldaños Tramex"
+    }
+  ],
+  "_folder": "presupuestos/P-2026-0024-presupuesto-tecnico-fabricacion-e-instalacion-de-4-escaleras-met",
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Técnico: Fabricación e Instalación de 4 Escaleras Metálicas con Peldaños Tramex\nTipo: Escalera metálica\nResumen: Presupuesto para la fabricación, tratamiento y montaje de 4 escaleras metálicas iguales para salvar una altura de 1,50 m cada una. Incluye estructura en tubo rectangular 80x40x3, porta-escalones en ángulo L40x4, peldaños de entramado metálico galvanizado sin pintar, barandilla integrada (pasamanos Ø43, montantes en pletina 40x10 y dos horizontales Ø20), acabado imprimado y pintado en blanco para ambiente marino (Menorca).\nCliente/obra: Menorca\nPartidas principales:\n- Diseno: Toma de medidas, replanteo técnico y despiece de estructura. 4 horas de oficina técnica para el cálculo de desarrollo de la escalera (1,50 m altura, 8 peldaños por escalera) y plano de despiece.. 4 h\n- Materiales: Tubo rectangular de acero inoxidable 80x40x3 mm para zancas principales. Perfilería tubular de 80x40x3 mm para la conformación de zancas laterales (aprox. 5,4 ml por escalera + mermas).. 24 ml\n- Materiales: Ángulo de acero L40x4 mm para porta-escalones. Soportes en L40x4 cortados a 20 cm (2 unidades por peldaño, 16 uds por escalera, 64 uds en total = 12,8 ml + mermas).. 14 ml\n- Materiales: Peldaños de entramado metálico (Tramex) galvanizado en caliente. Peldaños de rejilla electrofundida galvanizada sin pintar con perfil frontal antideslizante y pletinas laterales de fijación (8 peldaños x 4 escaleras = 32 peldaños).. 32 ud\n- Materiales: Perfiles metálicos para barandilla integrada. Pasamanos en tubo Ø43 mm, montantes en pletina 40x10 mm y 2 barras horizontales intermedias en tubo Ø20 mm para las 4 escaleras.. 1 lote\n- Materiales: Tornillería Inox A4, anclajes químicos y elementos de aislamiento galvánico. Anclajes de fijación a estructura existente, tornillería A4 para unión de peldaños y separadores sintéticos para evitar par galvánico.. 1 lote\n- Fabricacion: Mano de obra de taller de herrería y soldadura TIG/MIG. Corte, trazado, soldadura de zancas, porta-escalones y bastidores de barandilla para 4 unidades completas ( tarifa 30 €/h).. 38 h\n- Tratamiento: Tratamiento de pintura C4/C5 para ambiente marino (Estructura y Barandilla). Preparación de superficie, imprimación epoxi de alta adherencia para acero/inox y acabado con esmalte de poliuretano blanco brillante resistente a ambiente salino en Menorca (excluidos peldaños galvanizados).. 4 ud\n- Transporte: Transporte local de material y estructura terminada a obra en Menorca. Desplazamiento de las 4 escaleras montadas/pre-ensambladas y peldaños hasta ubicación de instalación.. 1 lote\n- Montaje: Mano de obra de montaje en obra, aplomado y anclaje. Instalación en obra de las 4 escaleras mediante equipo de 2 oficial/montador, fijación de peldaños y retoques finales de pintura (16 horas totales a 30 €/h).. 16 h\n\nEstilo visual:\n- Imagen cuadrada, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-08-11T13:41:56.696Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualModo": "economico",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa5ea43/xBr0pLMOLQpVKzHwn8vgY.png"
+}

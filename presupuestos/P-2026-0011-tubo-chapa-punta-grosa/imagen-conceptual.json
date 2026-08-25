@@ -1,0 +1,19 @@
+{
+  "titulo": ": Montaje Tubo Chapa Punta Grosa",
+  "resumen": "del Proyecto\n\n- **Cliente/Ubicación:** Punta Grosa\n- **Material Base:** Tubo de chapa cortado a láser (aportado por el cliente)\n- **Trabajos HAM:** Replanteo, traslados, adaptación, montaje, soldaduras (si aplican) y fijación.\n- **Canalización LED:** Suministro e instalación de perfiles LED y difusores integrados en la estructura.",
+  "tipoProducto": "presupuesto",
+  "cliente": {},
+  "lineas": [],
+  "supuestos": [],
+  "riesgos": [],
+  "preguntas": [],
+  "sugerencias": [],
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: : Montaje Tubo Chapa Punta Grosa\nTipo: presupuesto\nResumen: del Proyecto\n\n- **Cliente/Ubicación:** Punta Grosa\n- **Material Base:** Tubo de chapa cortado a láser (aportado por el cliente)\n- **Trabajos HAM:** Replanteo, traslados, adaptación, montaje, soldaduras (si aplican) y fijación.\n- **Canalización LED:** Suministro e instalación de perfiles LED y difusores integrados en la estructura.\nCliente/obra: Menorca\nPartidas principales:\n\n\nEstilo visual:\n- Imagen horizontal, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-07-21T14:07:58.188Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa3261f/ucdKVQozzNKRXgQxZQ1g1.png"
+}

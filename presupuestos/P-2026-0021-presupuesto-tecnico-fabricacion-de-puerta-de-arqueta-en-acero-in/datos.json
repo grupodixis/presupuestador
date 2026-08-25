@@ -1,0 +1,180 @@
+{
+  "titulo": "Presupuesto Técnico: Fabricación de Puerta de Arqueta en Acero Inoxidable con Resortes de Gas",
+  "resumen": "Fabricación a medida de tapa/puerta de arqueta de 1400x1140 mm en acero inoxidable AISI 316 para ambiente marino (Menorca). Incluye marco en ángulo L40x4, bastidor de hoja en L30x3 con 2 costillas de refuerzo en T30, chapa de cubierta, 2 bisagras reforzadas e integración del kit de resortes de gas (14-28 carrera 350) según especificación adjunta.",
+  "tipoProducto": "Puerta de arqueta / Registro inoxidable a medida",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Diseño técnico, despiece y simulaciónCinemática de apertura",
+      "descripcion": "Elaboración de planos de taller, cálculo de reparto de pesos (aprox. 31 kg de hoja) y verificación de puntos de anclaje para muelles de gas.",
+      "cantidad": 4,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 140,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Perfilería en Ángulo L40x4, L30x3 y Té T30 en Acero Inoxidable AISI 316",
+      "descripcion": "Ángulo L40x4 para marco exterior, ángulo L30x3 para bastidor de hoja y perfil T30x3 para costillas de refuerzo estructural contra deformación.",
+      "cantidad": 28,
+      "unidad": "kg",
+      "precioUnitario": 8.5,
+      "importe": 238,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Chapa de cubierta en Acero Inoxidable AISI 316 (3 mm)",
+      "descripcion": "Chapa Inox AISI 316 lisa o antideslizante de 3 mm para estanqueidad y resistencia al tránsito peatonal sobre la arqueta.",
+      "cantidad": 38,
+      "unidad": "kg",
+      "precioUnitario": 8.5,
+      "importe": 323,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Bisagras reforzadas de pala en Acero Inoxidable AISI 316",
+      "descripcion": "Juego de 2 bisagras reforzadas inoxidables aptas para soporte de carga superior a 50 kg y uso intensivo intemperie.",
+      "cantidad": 2,
+      "unidad": "ud",
+      "precioUnitario": 24,
+      "importe": 48,
+      "confianza": "alta",
+      "origen": "supuesto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Materiales",
+      "concepto": "Kit de resortes de gas 14-28 C350 con anclajes M10 (según adjunto)",
+      "descripcion": "Suministro de 2 resortes de gas fuerza 1200N carrera 350 mm, 2 soportes base M10 y 2 soportes laterales M10 seleccionados para asistencia de elevación.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 500,
+      "importe": 500,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller: corte, armado y soldadura TIG Inox",
+      "descripcion": "Corte de perfiles a inglete, soldadura TIG en atmósfera inerte de argón, escuadrado, soldeo de costillas T30, bastidor y alojamientos de amortiguadores.",
+      "cantidad": 8,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 240,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Tratamiento",
+      "concepto": "Decapado, pasivado y satinado de cordones de soldadura",
+      "descripcion": "Tratamiento químico de pasivado en soldaduras para restituir la capa pasiva de cromo y garantizar protección anticorrosiva C5 en ambiente salino de Menorca.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 80,
+      "importe": 80,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Montaje",
+      "concepto": "Transporte e instalación en obra con regulación de muelles",
+      "descripcion": "Desplazamiento a obra en Menorca, fijación mecánica/química del marco a la fábrica de la arqueta, montaje de amortiguadores y prueba de carrera.",
+      "cantidad": 4,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 120,
+      "confianza": "media",
+      "origen": "supuesto",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿La chapa superior debe ser antideslizante (lágrima) o lisa?",
+    "¿La arqueta requiere junta de estanqueidad de EPDM en el perímetro del marco L40x4 para evitar filtración de agua de lluvia?",
+    "¿Se requiere cerradura, pasador de seguridad o asa escamoteable para la apertura manual desde el exterior?",
+    "¿El anclaje de la pared de la arqueta es sobre hormigón, obra vista o require pletinas de garra para embutir?"
+  ],
+  "supuestos": [
+    "Ubicación en Menorca: se cotiza todo el conjunto metálico en Inox AISI 316 (A4) para prevenir la oxidación acelerada por brisa salina.",
+    "Los datos de fuerza y carrera de los muelles de gas (1200N / C350) se toman directamente de la simulación del cliente adjunta en las imágenes.",
+    "Acceso libre a la arqueta en planta baja sin necesidad de medios auxiliares de elevación especiales."
+  ],
+  "riesgos": [
+    "Desalineación o desfasaje en los puntos de reacción de los muelles de gas si la pared de la arqueta de obra no está perfectamente a plomo.",
+    "Acumulación de agua estancada dentro del perfil del marco si no se contemplan taladros de drenaje en las esquinas inferiores del ángulo L40x4."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Uso de Acero Inoxidable AISI 316 obligatorio en arquetas en Menorca",
+      "detalle": "Memorizar que para registros y arquetas de suelo exteriores en Menorca debe usarse únicamente inoxidable AISI 316 / A4, descartando AISI 304 debido al contacto con humedad de suelo y salinidad.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Adición de drenajes y junta EPDM en marcos de arqueta",
+      "detalle": "Añadir por defecto 2 taladros de drenaje Ø8 mm en las esquinas inferiores del cerco L40x4 y un canal para goma EPDM selladora en las arquetas de intemperie.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "media"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 72719,
+    "outputTokens": 2047,
+    "totalTokens": 75385
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 2499,
+    "localBudgetTokens": null,
+    "usedTokens": 1122755,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  },
+  "_folder": "presupuestos/P-2026-0021-presupuesto-tecnico-fabricacion-de-puerta-de-arqueta-en-acero-in",
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Técnico: Fabricación de Puerta de Arqueta en Acero Inoxidable con Resortes de Gas\nTipo: Puerta de arqueta / Registro inoxidable a medida\nResumen: Fabricación a medida de tapa/puerta de arqueta de 1400x1140 mm en acero inoxidable AISI 316 para ambiente marino (Menorca). Incluye marco en ángulo L40x4, bastidor de hoja en L30x3 con 2 costillas de refuerzo en T30, chapa de cubierta, 2 bisagras reforzadas e integración del kit de resortes de gas (14-28 carrera 350) según especificación adjunta.\nCliente/obra: Menorca\nPartidas principales:\n- Diseno: Diseño técnico, despiece y simulaciónCinemática de apertura. Elaboración de planos de taller, cálculo de reparto de pesos (aprox. 31 kg de hoja) y verificación de puntos de anclaje para muelles de gas.. 4 h\n- Materiales: Perfilería en Ángulo L40x4, L30x3 y Té T30 en Acero Inoxidable AISI 316. Ángulo L40x4 para marco exterior, ángulo L30x3 para bastidor de hoja y perfil T30x3 para costillas de refuerzo estructural contra deformación.. 28 kg\n- Materiales: Chapa de cubierta en Acero Inoxidable AISI 316 (3 mm). Chapa Inox AISI 316 lisa o antideslizante de 3 mm para estanqueidad y resistencia al tránsito peatonal sobre la arqueta.. 38 kg\n- Materiales: Bisagras reforzadas de pala en Acero Inoxidable AISI 316. Juego de 2 bisagras reforzadas inoxidables aptas para soporte de carga superior a 50 kg y uso intensivo intemperie.. 2 ud\n- Materiales: Kit de resortes de gas 14-28 C350 con anclajes M10 (según adjunto). Suministro de 2 resortes de gas fuerza 1200N carrera 350 mm, 2 soportes base M10 y 2 soportes laterales M10 seleccionados para asistencia de elevación.. 1 lote\n- Fabricacion: Mano de obra de taller: corte, armado y soldadura TIG Inox. Corte de perfiles a inglete, soldadura TIG en atmósfera inerte de argón, escuadrado, soldeo de costillas T30, bastidor y alojamientos de amortiguadores.. 8 h\n- Tratamiento: Decapado, pasivado y satinado de cordones de soldadura. Tratamiento químico de pasivado en soldaduras para restituir la capa pasiva de cromo y garantizar protección anticorrosiva C5 en ambiente salino de Menorca.. 1 lote\n- Montaje: Transporte e instalación en obra con regulación de muelles. Desplazamiento a obra en Menorca, fijación mecánica/química del marco a la fábrica de la arqueta, montaje de amortiguadores y prueba de carrera.. 4 h\n\nEstilo visual:\n- Imagen cuadrada, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-08-06T13:17:33.387Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualModo": "economico",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa54102/NoyLC8aFAKnIGM31u1gMK.png"
+}

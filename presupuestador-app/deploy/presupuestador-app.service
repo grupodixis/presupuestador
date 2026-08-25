@@ -1,0 +1,27 @@
+[Unit]
+Description=HAM Presupuestador IA
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=vps_hamenorca
+Group=psacln
+WorkingDirectory=/var/www/vhosts/hamenorca.com/presupuestador-runtime/Presupuestador/presupuestador-app
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=4177
+ExecStart=/opt/plesk/node/22/bin/node /var/www/vhosts/hamenorca.com/presupuestador-runtime/Presupuestador/presupuestador-app/server.js
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=20
+KillSignal=SIGTERM
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/var/www/vhosts/hamenorca.com/presupuestador-runtime/Presupuestador
+
+[Install]
+WantedBy=multi-user.target

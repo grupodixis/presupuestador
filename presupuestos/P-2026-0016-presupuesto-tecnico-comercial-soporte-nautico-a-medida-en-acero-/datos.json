@@ -1,0 +1,171 @@
+{
+  "titulo": "Presupuesto Técnico-Comercial: Soporte Náutico a Medida en Acero Inoxidable AISI 316 para Mástil",
+  "resumen": "Fabricación y suministro de soporte de alta resistencia para mástil de barco velero, compuesto por 4 placas de acero inoxidable AISI 316 (calidad marina A4) de 10 mm de espesor, perforadas, soldadas mediante proceso TIG o laser  y pasivadas para ambiente salino severo en Menorca. Incluye únicamente fabricación en taller y entrega.",
+  "tipoProducto": "Producto compuesto a medida / Cerrajería náutica",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Diseño técnico, toma de plantilla y plantilla de perforación",
+      "descripcion": "Análisis del diseño, despiece técnico y trazado de plantillas para corte y patrón de taladros del soporte",
+      "cantidad": 2,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 70,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Chapa de acero inoxidable AISI 316 (A4) e=10 mm",
+      "descripcion": "Suministro de chapa inox calidad marina C5-M para 4 placas de 200x200x10 mm, incluyendo mermas de trazado y corte",
+      "cantidad": 15,
+      "unidad": "kg",
+      "precioUnitario": 9,
+      "importe": 135,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Consumibles específicos para mecanizado y soldadura Inox 316",
+      "descripcion": "Discos de corte y desbaste limpios para inox, varilla de aportación TIG 316L, gas Argón y productos de decapado/pasivado",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 35,
+      "importe": 35,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Fabricacion",
+      "concepto": "Corte manual con amoladora/radial, taladrado y biselado de chapa 10mm",
+      "descripcion": "Corte individual de las 4 piezas de 10 mm, taladrado de orificios de paso y repaso/biselado de bordes para soldadura",
+      "cantidad": 3.5,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 105,
+      "confianza": "media",
+      "origen": "supuesto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Fabricacion",
+      "concepto": "Armado y soldadura TIG en acero inoxidable 316",
+      "descripcion": "Ensamble, alineación precisa y soldadura continua TIG con penetración estructural para soporte náutico",
+      "cantidad": 2.5,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 75,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Tratamiento",
+      "concepto": "Decapado, pasivado químico y acabado satinado náutico",
+      "descripcion": "Tratamiento químico anticorrosivo para descontaminar y regenerar la capa de cromo del inox 316, con pulido satinado manual",
+      "cantidad": 2,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 60,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Transporte",
+      "concepto": "Embalaje y entrega local en Menorca",
+      "descripcion": "Preparación del producto terminado y entrega en puerto o taller designado en Menorca (sin instalación a bordo)",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 25,
+      "importe": 25,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Margen",
+      "concepto": "Margen industrial y gestión de proyecto náutico a medida",
+      "descripcion": "Margen comercial, control de calidad y garantía de materiales para uso marino",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 101,
+      "importe": 101,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿Dispone de un plano, boceto o plantilla con el diámetro exacto del mástil y la posición de las perforaciones?",
+    "¿Las placas requieren alguna curvatura o cajeado especial para asentarse sobre el mástil o son completamente planas?",
+    "¿Requiere un acabado pulido espejo en lugar del acabado satinado/pasivado náutico estándar?"
+  ],
+  "supuestos": [
+    "Por defecto en Menorca para entorno náutico/salino C5-M, se presupuesta exclusivamente Acero Inoxidable AISI 316 (A4).",
+    "El alcance contempla únicamente la fabricación y entrega del soporte; no incluye trabajos de montaje a bordo ni tornillería de fijación al mástil.",
+    "El corte de las placas se cotiza mediante amoladora/radial manual según la instrucción del pedido."
+  ],
+  "riesgos": [
+    "El corte manual con radial en chapa de 10 mm de acero inoxidable genera un calor elevado que puede destemplar la zona y dejar acabados menos precisos que el corte por agua o láser.",
+    "Riesgo de contaminación férrica durante el corte manual si no se utilizan herramientas estrictamente dedicadas al acero inoxidable.",
+    "Si el mástil tiene una sección ovalada o cónica y no se aporta plantilla física, el asentamiento de las placas planas puede requerir ajustes posteriores."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Sustituir el corte manual por corte por agua o láser CNC",
+      "detalle": "Para chapas de inox de 10 mm en piezas con alto requerimiento estético y estructural como las de un barco, se aconseja encarecidamente utilizar corte por chorro de agua o láser. Evita el sobrecalentamiento del material, reduce las horas de taller y garantiza taladros y bordes limpios e impecables.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 68865,
+    "outputTokens": 1781,
+    "totalTokens": 73453
+  },
+  "tokenStatus": {
+    "provider": "fal",
+    "model": "fal-ai/flux/schnell",
+    "estimatedInputTokens": 638,
+    "localBudgetTokens": null,
+    "usedTokens": 0,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Imagen generada con fal.ai; sin control local por tokens."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Xavi Marti",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  },
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Técnico-Comercial: Soporte Náutico a Medida en Acero Inoxidable AISI 316 para Mástil\nTipo: Producto compuesto a medida / Cerrajería náutica\nResumen: Fabricación y suministro de soporte de alta resistencia para mástil de barco velero, compuesto por 4 placas de acero inoxidable AISI 316 (calidad marina A4) de 10 mm de espesor, perforadas, soldadas mediante proceso TIG o laser  y pasivadas para ambiente salino severo en Menorca. Incluye únicamente fabricación en taller y entrega.\nCliente/obra: Menorca\nPartidas principales:\n- Diseno: Diseño técnico, toma de plantilla y plantilla de perforación. Análisis del diseño, despiece técnico y trazado de plantillas para corte y patrón de taladros del soporte. 2 h\n- Materiales: Chapa de acero inoxidable AISI 316 (A4) e=10 mm. Suministro de chapa inox calidad marina C5-M para 4 placas de 200x200x10 mm, incluyendo mermas de trazado y corte. 15 kg\n- Materiales: Consumibles específicos para mecanizado y soldadura Inox 316. Discos de corte y desbaste limpios para inox, varilla de aportación TIG 316L, gas Argón y productos de decapado/pasivado. 1 lote\n- Fabricacion: Corte manual con amoladora/radial, taladrado y biselado de chapa 10mm. Corte individual de las 4 piezas de 10 mm, taladrado de orificios de paso y repaso/biselado de bordes para soldadura. 3.5 h\n- Fabricacion: Armado y soldadura TIG en acero inoxidable 316. Ensamble, alineación precisa y soldadura continua TIG con penetración estructural para soporte náutico. 2.5 h\n- Tratamiento: Decapado, pasivado químico y acabado satinado náutico. Tratamiento químico anticorrosivo para descontaminar y regenerar la capa de cromo del inox 316, con pulido satinado manual. 2 h\n- Transporte: Embalaje y entrega local en Menorca. Preparación del producto terminado y entrega en puerto o taller designado en Menorca (sin instalación a bordo). 1 lote\n- Margen: Margen industrial y gestión de proyecto náutico a medida. Margen comercial, control de calidad y garantía de materiales para uso marino. 1 lote\n\nEstilo visual:\n- Imagen horizontal, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-07-23T11:54:33.678Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa3667f/Tp4kgaoON2vM5fBE2Po6v.png"
+}

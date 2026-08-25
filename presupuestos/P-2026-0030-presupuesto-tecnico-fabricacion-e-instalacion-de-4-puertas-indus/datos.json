@@ -1,0 +1,213 @@
+{
+  "titulo": "Presupuesto Técnico: Fabricación e Instalación de 4 Puertas Industriales de Acero Inoxidable y PRFV - Ciutadella",
+  "resumen": "Presupuesto para la fabricación e instalación en Ciutadella de 4 puertas industriales abatibles manuales de 3,45 x 2,96 m (2 unidades con puerta peatonal integrada y 2 unidades sin peatonal). Estructura construida en acero inoxidable AISI 316 con tratamiento de pintura epoxi/poliuretano apto para ambiente marino C4/C5 de Menorca. Revestimiento por ambos lados mediante placas de fibra de vidrio (PRFV) pegadas y remachadas. Incluye herrajes de inox, transporte y montaje en obra con camión grúa. Margen industrial e imprevistos distribuidos proporcionalmente en las partidas de obra.",
+  "tipoProducto": "puerta_metalica",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Toma de medidas, ingeniería técnica y planos de taller",
+      "descripcion": "Replanteo técnico en Ciutadella, cálculo de bastidores de inox, diseño de detalles para integración de puertas peatonales y modulado de fijación para placas de PRFV.",
+      "cantidad": 12,
+      "unidad": "h",
+      "precioUnitario": 38.52,
+      "importe": 462.24,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Perfilería y tubos estructurales en Acero Inoxidable AISI 316",
+      "descripcion": "Tubos rectangulares y perfiles de refuerzo en inox AISI 316 aptos para exterior marino C5-M en Menorca para bastidores de 4 puertas (3,45 x 2,96 m).",
+      "cantidad": 580,
+      "unidad": "kg",
+      "precioUnitario": 9.35,
+      "importe": 5423,
+      "confianza": "media",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Placas de poliéster reinforced con fibra de vidrio (PRFV)",
+      "descripcion": "Suministro de paneles PRFV para cerramiento y revestimiento ciego por ambos lados de las 4 puertas (81,70 m² totales).",
+      "cantidad": 81.7,
+      "unidad": "m2",
+      "precioUnitario": 159.35,
+      "importe": 13018.9,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Herrajes industriales, bisagras pesadas y cerraduras en inox",
+      "descripcion": "Conjunto de bisagras regulables de gran carga en AISI 316, pasadores verticales de suelo/dintel, y 2 sets de cerraduras/manillas inoxidables para las puertas peatonales.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 831.23,
+      "importe": 831.23,
+      "confianza": "media",
+      "origen": "supuesto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Materiales",
+      "concepto": "Adhesivo estructural, remaches AISI 316 y consumibles TIG",
+      "descripcion": "Adhesivo de poliuretano/silano modificado para pegado de PRFV por ambas caras a la estructura inox, remaches ciegos AISI 316, hilo de soldar TIG y gas argón.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 476.44,
+      "importe": 476.44,
+      "confianza": "media",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller y ensamblaje multimaterial",
+      "descripcion": "Corte, preparación de bordes, soldadura TIG de bastidores en inox, fabricación e integración de las 2 puertas peatonales, pegado y remachado de placas PRFV por ambas caras.",
+      "cantidad": 84,
+      "unidad": "h",
+      "precioUnitario": 37.25,
+      "importe": 3129,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Tratamiento",
+      "concepto": "Sistema de pintura anticorrosivo C4/C5 sobre inox",
+      "descripcion": "Preparación superficial (matizado/desengrasado), imprimación epoxi de adherencia (wash primer) y acabado en esmalte de poliuretano alifático del color RAL a elegir.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 1165.75,
+      "importe": 1165.75,
+      "confianza": "media",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Transporte",
+      "concepto": "Transporte de elementos de gran formato a Ciutadella",
+      "descripcion": "Flete y transporte protegido de las 4 puertas industriales desde taller en Sant Lluís hasta la obra en Ciutadella.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 263.56,
+      "importe": 263.56,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L9",
+      "capitulo": "Montaje",
+      "concepto": "Mano de obra de instalación y aplomado en obra",
+      "descripcion": "Montaje de bastidores y hojas en Ciutadella, fijación mediante anclajes químicos con varilla inoxidable A4, nivelación y regulación de cerraduras/peatonales.",
+      "cantidad": 24,
+      "unidad": "h",
+      "precioUnitario": 37.25,
+      "importe": 894,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L10",
+      "capitulo": "Montaje",
+      "concepto": "Servicio de camión grúa de pluma para maniobras de elevación",
+      "descripcion": "Alquiler de camión pluma para la descarga, elevación e inserción segura de las hojas industriales de gran formato en sus huecos.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 474.88,
+      "importe": 474.88,
+      "confianza": "alta",
+      "origen": "supuesto",
+      "editable": true
+    },
+    {
+      "id": "L11",
+      "capitulo": "Riesgo",
+      "concepto": "Reserva de imprevistos dimensionales e interfaces en obra",
+      "descripcion": "Margen para pequeños ajustes in situ de encuentros de solera, pilares existentes y sellados perimetrales (distribuido proporcionalmente en las demás líneas).",
+      "cantidad": 0,
+      "unidad": "lote",
+      "precioUnitario": 0,
+      "importe": 0,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿Confirmar el código de color RAL específico para la pintura de poliuretano sobre la estructura de inoxidable?",
+    "¿La estructura de soporte existente en obra (pilares/dintel en Ciutadella) es de hormigón/acero y está lista para recibir los anclajes químicos?",
+    "¿Las 2 puertas peatonales requieren algún sentido de apertura (interior/exterior o izquierda/derecha) o barra antipánico especial?"
+  ],
+  "supuestos": [
+    "Se presupuesta acero inoxidable calidad AISI 316 (A4) por defecto al tratarse de una instalación en exterior en Menorca (criterio C4/C5).",
+    "El revestimiento de PRFV se aplica por ambas caras de cada hoja (cara exterior e interior), duplicando la superficie total a 81,70 m².",
+    "La preparación previa del hueco de obra, solera nivelada y líneas de acometida/fijación en Ciutadella corren a cargo de la propiedad.",
+    "El acabado de las placas de PRFV se considera plano/liso comercial según lo indicado por el cliente.",
+    "El permiso de ocupación de vía pública para el camión grúa en Ciutadella (si se requiere) no está incluido en este importe."
+  ],
+  "riesgos": [
+    "Diferencia de coeficientes de dilatación térmica entre el acero inoxidable y las placas de PRFV en exposición solar directa continua.",
+    "Posible necesidad de andamiaje auxiliar o corte de calle si el acceso del camión grúa en Ciutadella presenta restricciones de espacio.",
+    "Comprobación del plomo de los pilares existentes en obra; un desplome significativo requerirá calzos inoxidables adicionales."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Distribución de imprevistos y reserva de riesgos en partidas de obra",
+      "detalle": "Memorizar la eliminación de la partida explícita de riesgo/imprevistos y su prorrateo en los precios unitarios del presupuesto a petición del usuario.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "media"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 93525,
+    "outputTokens": 4172,
+    "totalTokens": 100484
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 3785,
+    "localBudgetTokens": null,
+    "usedTokens": 3440829,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Acciona Aguas",
+    "email": "",
+    "telefono": "",
+    "nif": "A95113361",
+    "direccion": "Ciutadella",
+    "referencia": "4 Puertas de PRFV y estructura de acero inox"
+  },
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Técnico: Fabricación e Instalación de 4 Puertas Industriales de Acero Inoxidable y PRFV - Ciutadella\nTipo: puerta_metalica\nResumen: Presupuesto para la fabricación e instalación en Ciutadella de 4 puertas industriales abatibles manuales de 3,45 x 2,96 m (2 unidades con puerta peatonal integrada y 2 unidades sin peatonal). Estructura construida en acero inoxidable AISI 316 con tratamiento de pintura epoxi/poliuretano apto para ambiente marino C4/C5 de Menorca. Revestimiento por ambos lados mediante placas de fibra de vidrio (PRFV) pegadas y remachadas. Incluye herrajes de inox, transporte y montaje en obra con camión grúa. Margen industrial distribuido proporcionalmente en las partidas de obra.\nCliente/obra: Ciutadella\nPartidas principales:\n- Diseno: Toma de medidas, ingeniería técnica y planos de taller. Replanteo técnico en Ciutadella, cálculo de bastidores de inox, diseño de detalles para integración de puertas peatonales y modulado de fijación para placas de PRFV.. 12 h\n- Materiales: Perfilería y tubos estructurales en Acero Inoxidable AISI 316. Tubos rectangulares y perfiles de refuerzo en inox AISI 316 aptos para exterior marino C5-M en Menorca para bastidores de 4 puertas (3,45 x 2,96 m).. 580 kg\n- Materiales: Placas de poliéster reinforced con fibra de vidrio (PRFV). Suministro de paneles PRFV para cerramiento y revestimiento ciego por ambos lados de las 4 puertas (81,70 m² totales).. 81.7 m2\n- Materiales: Herrajes industriales, bisagras pesadas y cerraduras en inox. Conjunto de bisagras regulables de gran carga en AISI 316, pasadores verticales de suelo/dintel, y 2 sets de cerraduras/manillas inoxidables para las puertas peatonales.. 1 lote\n- Materiales: Adhesivo estructural, remaches AISI 316 y consumibles TIG. Adhesivo de poliuretano/silano modificado para pegado de PRFV por ambas caras a la estructura inox, remaches ciegos AISI 316, hilo de soldar TIG y gas argón.. 1 lote\n- Fabricacion: Mano de obra de taller y ensamblaje multimaterial. Corte, preparación de bordes, soldadura TIG de bastidores en inox, fabricación e integración de las 2 puertas peatonales, pegado y remachado de placas PRFV por ambas caras.. 84 h\n- Tratamiento: Sistema de pintura anticorrosivo C4/C5 sobre inox. Preparación superficial (matizado/desengrasado), imprimación epoxi de adherencia (wash primer) y acabado en esmalte de poliuretano alifático del color RAL a elegir.. 1 lote\n- Transporte: Transporte de elementos de gran formato a Ciutadella. Flete y transporte protegido de las 4 puertas industriales desde taller en Sant Lluís hasta la obra en Ciutadella.. 1 lote\n- Montaje: Mano de obra de instalación y aplomado en obra. Montaje de bastidores y hojas en Ciutadella, fijación mediante anclajes químicos con varilla inoxidable A4, nivelación y regulación de cerraduras/peatonales.. 24 h\n- Montaje: Servicio de camión grúa de pluma para maniobras de elevación. Alquiler de camión pluma para la descarga, elevación e inserción segura de las hojas industriales de gran formato en sus huecos.. 1 lote\n- Riesgo: Reserva de imprevistos dimensionales e interfaces en obra. Margen para pequeños ajustes in situ de encuentros de solera, pilares existentes y sellados perimetrales.. 1 lote\n\nEstilo visual:\n- Imagen cuadrada, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-08-17T13:55:28.700Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualModo": "economico",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa6b514/53f8XR97NLB1kAzm4cm-0.png"
+}

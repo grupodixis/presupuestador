@@ -1,0 +1,11 @@
+[Unit]
+Description=Backup consistente de HAM Presupuestador IA
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+ExecStart=/usr/local/sbin/presupuestador-backup
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
