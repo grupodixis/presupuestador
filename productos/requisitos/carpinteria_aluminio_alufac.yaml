@@ -1,0 +1,60 @@
+producto: Carpintería de aluminio · ALUFAC
+slug: carpinteria_aluminio_alufac
+area: aluminio
+estado: scaffold
+
+datos_requeridos:
+  - campo: referencia_hueco
+    pregunta: "¿Qué referencia identifica este hueco?"
+    obligatorio: true
+  - campo: cantidad
+    pregunta: "¿Cuántas unidades iguales hay?"
+    obligatorio: true
+  - campo: dimensiones
+    pregunta: "¿Cuáles son el ancho y el alto en milímetros?"
+    obligatorio: true
+  - campo: tipo_elemento
+    pregunta: "¿Es ventana, puerta, balconera, fijo o cerramiento?"
+    obligatorio: true
+  - campo: tipo_apertura
+    pregunta: "¿Qué tipo de apertura y qué mano tiene?"
+    obligatorio: true
+  - campo: vista_apertura
+    pregunta: "¿La mano y el esquema se indican vistos desde interior o exterior?"
+    obligatorio: true
+  - campo: serie_alufac
+    pregunta: "¿Qué serie ALUFAC corresponde?"
+    obligatorio: true
+  - campo: acabado
+    pregunta: "¿Qué color y acabado se requieren?"
+    obligatorio: true
+  - campo: vidrio_o_panel
+    pregunta: "¿Qué composición de vidrio o panel lleva?"
+    obligatorio: true
+  - campo: montaje
+    pregunta: "¿Incluye medición, premarco, retirada y montaje?"
+    obligatorio: true
+
+prompt_base: |
+  Producto: Carpintería de aluminio · ALUFAC
+  Tipo interno: carpinteria_aluminio_alufac
+  Marca obligatoria para este flujo: ALUFAC
+
+  Crear una línea independiente por cada hueco o conjunto diferente:
+  - referencia_hueco:
+  - ubicacion_estancia:
+  - cantidad:
+  - dimensiones_ancho_x_alto_mm:
+  - tipo_elemento:
+  - tipo_apertura_y_mano:
+  - vista_apertura: interior/exterior
+  - serie_alufac: pendiente
+  - acabado:
+  - vidrio_o_panel:
+  - persiana:
+  - mosquitera:
+  - premarco:
+  - retirada_existente:
+  - montaje_y_acceso:
+
+  Cada línea debe devolver tipoApertura e ilustracionApertura. No inventar series, referencias, prestaciones o precios ALUFAC que no estén en la documentación aportada.

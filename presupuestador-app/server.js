@@ -880,7 +880,9 @@ Formato exacto de respuesta:
       "importe": number,
       "confianza": "alta | media | baja",
       "origen": "skill/coste/supuesto/adjunto",
-      "editable": true
+      "editable": true,
+      "tipoApertura": "solo para carpinteria_aluminio_alufac; usar una opción admitida o pendiente",
+      "ilustracionApertura": "solo para carpinteria_aluminio_alufac; mismo identificador que tipoApertura"
     }
   ],
   "preguntas": ["string"],
@@ -899,6 +901,38 @@ Formato exacto de respuesta:
 
 Contexto del repositorio:
 ${context.map((doc) => `\n--- ${doc.path} ---\n${doc.content}`).join("\n")}`;
+}
+
+function isAlufacBudget(payload = {}) {
+  return payload.budgetMode === "carpinteria_aluminio_alufac" || payload.marcaSistema === "ALUFAC";
+}
+
+function openingDiagramHtml(value) {
+  const labels = {
+    pendiente: "Pendiente de definir", fijo: "Fijo", abatible_izquierda: "Abatible izquierda", abatible_derecha: "Abatible derecha",
+    oscilobatiente_izquierda: "Oscilobatiente izquierda", oscilobatiente_derecha: "Oscilobatiente derecha",
+    practicable_2_hojas: "Practicable 2 hojas", corredera_2_hojas: "Corredera 2 hojas", corredera_3_hojas: "Corredera 3 hojas",
+    corredera_4_hojas: "Corredera 4 hojas", proyectante: "Proyectante", plegable: "Plegable", elevable: "Elevable", pivotante: "Pivotante",
+  };
+  const key = Object.hasOwn(labels, value) ? value : "pendiente";
+  const label = labels[key];
+  const leafMatch = key.match(/(3|4)_hojas/);
+  const leaves = leafMatch ? Number(leafMatch[1]) : key.includes("2_hojas") ? 2 : 1;
+  const panelWidth = 116 / leaves;
+  let panels = "";
+  for (let index = 0; index < leaves; index += 1) {
+    panels += `<rect x="${index * panelWidth + 2}" y="2" width="${panelWidth - 4}" height="66" rx="1"/>`;
+  }
+  let symbol = "";
+  if (key.includes("corredera") || key === "elevable") symbol = '<path d="M18 54h76m-8-7 8 7-8 7M30 47l-8 7 8 7"/>';
+  else if (key.includes("izquierda")) symbol = '<path d="M106 8 10 35l96 27"/>';
+  else if (key.includes("derecha")) symbol = '<path d="M10 8 106 35 10 62"/>';
+  else if (key === "practicable_2_hojas") symbol = '<path d="M2 4 58 35 2 66M114 4 58 35l56 31"/>';
+  else if (key === "proyectante") symbol = '<path d="M8 62 58 8l50 54"/>';
+  else if (key === "plegable") symbol = '<path d="M10 10 34 35 58 10l24 25 24-25"/>';
+  else if (key === "pivotante") symbol = '<path d="M58 6v58M49 14l9-8 9 8M49 56l9 8 9-8"/>';
+  else if (key === "pendiente") symbol = '<text x="58" y="46" text-anchor="middle">?</text>';
+  return `<figure class="opening-diagram"><svg viewBox="0 0 116 70" role="img" aria-label="${htmlEscape(label)}"><g>${panels}${symbol}</g></svg><figcaption>${htmlEscape(label)} · esquema orientativo</figcaption></figure>`;
 }
 
 function attachmentSummary(attachments = []) {
@@ -1574,7 +1608,15 @@ function createSummaryPdf(payload, code) {
   const pageHeight = 841.89;
   const margin = 38;
   const contentWidth = pageWidth - margin * 2;
-  const rows = summarizedBudgetRows(payload.lineas || []);
+  const alufac = isAlufacBudget(payload);
+  const rows = alufac
+    ? (payload.lineas || []).filter((item) => Number(item.importe || 0)).map((item) => ({
+        chapter: pdfSafeText(item.capitulo || "Carpintería"),
+        amount: roundMoney(item.importe ?? Number(item.cantidad || 0) * Number(item.precioUnitario || 0)),
+        concepts: [pdfSafeText(item.concepto || "Elemento ALUFAC")],
+        tipoApertura: item.tipoApertura || item.ilustracionApertura || "pendiente",
+      }))
+    : summarizedBudgetRows(payload.lineas || []);
   const total = roundMoney(rows.reduce((sum, row) => sum + row.amount, 0));
   const client = payload.cliente || {};
   const template = normalizeDocumentTemplate(payload.documentTemplate || {});
@@ -1604,6 +1646,30 @@ function createSummaryPdf(payload, code) {
   };
   const line = (x1, y1, x2, y2, r = 0.82, g = 0.84, b = 0.86) => {
     commands.push(`${r} ${g} ${b} RG ${x1.toFixed(2)} ${y1.toFixed(2)} m ${x2.toFixed(2)} ${y2.toFixed(2)} l S`);
+  };
+  const drawOpening = (value, x, top) => {
+    const key = String(value || "pendiente");
+    const w = 48;
+    const h = 29;
+    const bottom = top - h;
+    stroke(0.08, 0.13, 0.17);
+    commands.push(`${x} ${bottom} ${w} ${h} re S`);
+    if (key.includes("corredera") || key === "elevable") {
+      commands.push(`${x + 8} ${bottom + 8} m ${x + 40} ${bottom + 8} l S`);
+      commands.push(`${x + 35} ${bottom + 12} m ${x + 40} ${bottom + 8} l ${x + 35} ${bottom + 4} l S`);
+    } else if (key.includes("izquierda")) {
+      commands.push(`${x + w} ${bottom + h} m ${x} ${bottom + h / 2} l ${x + w} ${bottom} l S`);
+    } else if (key.includes("derecha")) {
+      commands.push(`${x} ${bottom + h} m ${x + w} ${bottom + h / 2} l ${x} ${bottom} l S`);
+    } else if (key === "practicable_2_hojas") {
+      commands.push(`${x} ${bottom + h} m ${x + w / 2} ${bottom + h / 2} l ${x} ${bottom} l S`);
+      commands.push(`${x + w} ${bottom + h} m ${x + w / 2} ${bottom + h / 2} l ${x + w} ${bottom} l S`);
+    } else if (key === "proyectante") {
+      commands.push(`${x} ${bottom} m ${x + w / 2} ${bottom + h} l ${x + w} ${bottom} l S`);
+    } else if (key === "pendiente") {
+      color(0.08, 0.13, 0.17);
+      text("?", x + w / 2, bottom + 8, 15, "F2", "center");
+    }
   };
   const measureText = (value, size = 10, font = "F1") => pdfSafeText(value).length * size * (font === "F2" ? 0.64 : 0.52);
   const wrapByWidth = (value, maxWidth, size = 10, font = "F1") => {
@@ -1744,17 +1810,18 @@ function createSummaryPdf(payload, code) {
 
   for (const row of rows) {
     const description = row.concepts.slice(0, 3).join(", ");
-    const wrapped = wrapPdfText(description, 82);
-    const rowHeight = Math.max(34, 18 + wrapped.length * 10);
+    const wrapped = wrapPdfText(description, alufac ? 58 : 82);
+    const rowHeight = Math.max(alufac ? 48 : 34, 18 + wrapped.length * 10);
     ensureSpace(rowHeight + 8);
     const topY = y;
     color(0.08, 0.13, 0.17);
     text(row.chapter, margin + 6, topY, 8.5);
     text(`${row.amount.toFixed(2)} EUR`, pageWidth - margin - 6, topY, 9.5, "F2", "right");
+    if (alufac) drawOpening(row.tipoApertura, margin + 92, topY + 4);
     color(0.4, 0.42, 0.45);
     let descY = topY;
     for (const descriptionLine of wrapped) {
-      text(descriptionLine, margin + 92, descY, 8.2);
+      text(descriptionLine, margin + (alufac ? 150 : 92), descY, 8.2);
       descY -= 10;
     }
     y = topY - rowHeight;
@@ -2024,6 +2091,11 @@ function budgetHtml(payload, code) {
     th { background: #16202a; color: white; text-align: left; padding: 7px 6px; }
     td { border-bottom: 1px solid #d6dde5; padding: 7px 6px; vertical-align: top; overflow-wrap: anywhere; }
     .num { text-align: right; white-space: nowrap; }
+    .opening-diagram { width: 118px; margin: 7px 0 0; page-break-inside: avoid; }
+    .opening-diagram svg { display: block; width: 100%; height: auto; }
+    .opening-diagram g { fill: none; stroke: #16202a; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .opening-diagram text { fill: #16202a; stroke: none; font: 700 30px Arial; }
+    .opening-diagram figcaption { margin-top: 3px; color: #667085; font-size: 8px; }
     .col-chapter { width: 10%; } .col-concept { width: 51%; } .col-qty { width: 8%; } .col-unit { width: 7%; } .col-price { width: 11%; } .col-amount { width: 13%; }
     .total { margin-top: 16px; text-align: right; font-size: 18px; font-weight: 700; }
     .conditions { margin-top: 14px; border-top: 1px solid #d6dde5; padding-top: 9px; color: #4b5563; font-size: 11px; display: grid; gap: 5px; }
@@ -2061,7 +2133,7 @@ function budgetHtml(payload, code) {
   <table>
     <colgroup><col class="col-chapter"><col class="col-concept"><col class="col-qty"><col class="col-unit"><col class="col-price"><col class="col-amount"></colgroup>
     <thead><tr><th>Capitulo</th><th>Concepto</th><th class="num">Cant.</th><th>Ud.</th><th class="num">EUR/Ud.</th><th class="num">Importe</th></tr></thead>
-    <tbody>${lines.map((line) => `<tr><td>${htmlEscape(line.capitulo)}</td><td><strong>${htmlEscape(line.concepto)}</strong><br>${htmlEscape(line.descripcion)}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${htmlEscape(line.unidad)}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
+    <tbody>${lines.map((line) => `<tr><td>${htmlEscape(line.capitulo)}</td><td><strong>${htmlEscape(line.concepto)}</strong><br>${htmlEscape(line.descripcion)}${isAlufacBudget(payload) ? openingDiagramHtml(line.tipoApertura || line.ilustracionApertura || "pendiente") : ""}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${htmlEscape(line.unidad)}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
   </table>
   <div class="total">Total estimado: ${total.toFixed(2)} EUR + IVA</div>
   <section class="conditions">${renderDocumentFooterText(documentTemplate.footerText)}</section>

@@ -4,6 +4,8 @@
 
 Cuando el producto a presupuestar incluye perfiles de aluminio: ventanas, puertas de aluminio, cerramientos, muros cortina, lucernarios, toldos, pérgolas bioclimáticas.
 
+Si el usuario selecciona expresamente `Carpintería de aluminio · ALUFAC`, cargar además `skill_carpinteria_aluminio_alufac.md`. La marca ALUFAC no se debe imponer fuera de ese modo seleccionable.
+
 ## Datos mínimos necesarios
 
 - Tipo de producto (ventana, puerta, cerramiento, muro cortina).

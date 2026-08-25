@@ -9,6 +9,7 @@ Usar esta área cuando el presupuesto incluya perfiles de aluminio, carpintería
 | Sector | Estado | Skills/composiciones actuales | Falta desarrollar |
 |---|---|---|---|
 | Ventanas | base activa | `skill_carpinteria_aluminio.md`, `ventana_aluminio.yaml` | series por marca, RPT/no RPT, herrajes, medición, rangos €/m2 |
+| Carpintería ALUFAC | scaffold seleccionable | `skill_carpinteria_aluminio_alufac.md`, `carpinteria_aluminio_alufac.yaml` | pendiente documentación técnica/tarifas; esquema de apertura obligatorio por línea |
 | Puertas de aluminio | parcial | `skill_carpinteria_aluminio.md` | puertas de paso, balconeras, acceso exterior, cerraduras |
 | Cerramientos | base activa | `cerramiento_aluminio.yaml` | techos móviles/fijos, cerramientos de terraza, encuentros con obra |
 | Mallorquinas | parcial | histórico de costes y proveedor Cortizo | lamas fijas/móviles, correderas/abatibles, lacados, medición |
@@ -27,10 +28,12 @@ Usar esta área cuando el presupuesto incluya perfiles de aluminio, carpintería
 ## Skills relacionadas
 
 - `skills/skill_carpinteria_aluminio.md`
+- `skills/skill_carpinteria_aluminio_alufac.md`
 - `skills/skill_montaje_en_obra.md`
 - `skills/skill_tratamientos_superficiales.md`
 - `skills/skill_productos_compuestos.md`
 - `productos/composiciones/ventana_aluminio.yaml`
+- `productos/composiciones/carpinteria_aluminio_alufac.yaml`
 - `productos/composiciones/cerramiento_aluminio.yaml`
 
 ## Aprendizaje del área

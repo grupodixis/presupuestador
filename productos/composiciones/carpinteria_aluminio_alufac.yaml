@@ -1,0 +1,61 @@
+producto: Carpintería de aluminio · ALUFAC
+unidad_base: unidad
+
+estado_documentacion: scaffold_pendiente_documentacion_usuario
+marca_presupuestacion: ALUFAC
+fuente_marca: https://www.alufac.com
+
+descripcion: Plantilla seleccionable para presupuestar huecos de carpintería de aluminio mediante ALUFAC. No contiene todavía series, referencias, prestaciones ni precios de fabricante.
+
+materiales_principales:
+  - nombre: Sistema de perfiles ALUFAC
+    tipo: serie_pendiente_de_documentacion
+  - nombre: Acristalamiento o panel
+    tipo: pendiente_de_definir
+  - nombre: Herrajes compatibles
+    tipo: pendiente_de_definir
+
+procesos:
+  - medicion_y_numeracion_de_huecos
+  - seleccion_de_sistema_alufac
+  - definicion_de_apertura_y_manos
+  - despiece_y_pedido
+  - fabricacion_y_acristalamiento
+  - transporte_y_montaje
+  - regulacion_y_sellado
+
+variables_tecnicas:
+  - referencia_hueco: código único en plano o medición
+  - ubicacion_estancia: estancia, planta o fachada
+  - cantidad: número de unidades iguales
+  - dimensiones: ancho x alto en mm
+  - tipo_elemento: ventana / puerta / balconera / fijo / cerramiento
+  - tipo_apertura: fijo / abatible_izquierda / abatible_derecha / oscilobatiente_izquierda / oscilobatiente_derecha / corredera_2_hojas / corredera_3_hojas / corredera_4_hojas / proyectante / practicable_2_hojas / plegable / elevable / pivotante / pendiente
+  - vista_apertura: vista_desde_interior / vista_desde_exterior
+  - serie_alufac: pendiente de documentación
+  - acabado: RAL / anodizado / textura / bicolor / pendiente
+  - vidrio_o_panel: composición y espesor
+  - persiana: no / manual / motorizada / pendiente
+  - mosquitera: no / fija / enrollable / corredera / pendiente
+  - premarco: sí / no / existente / pendiente
+  - montaje_y_retirada: definir
+
+reglas_de_salida:
+  - Cada hueco o conjunto diferente debe ser una línea independiente.
+  - Cada línea debe incluir tipoApertura e ilustracionApertura.
+  - La ilustración es un esquema orientativo, no un plano de fabricación.
+  - No asignar series, referencias, prestaciones o precios ALUFAC hasta disponer de documentación válida.
+  - Indicar siempre si la apertura se representa vista desde el interior o desde el exterior.
+
+costes_a_considerar:
+  sistema_alufac: pendiente_de_tarifa
+  vidrio_o_panel: true
+  herrajes: true
+  premarco: true
+  persiana_y_mosquitera: true
+  transporte: true
+  montaje: true
+  retirada_existente: true
+  medios_auxiliares: true
+  riesgo: true
+  margen: true
