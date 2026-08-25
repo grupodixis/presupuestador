@@ -325,8 +325,12 @@ function isIllustratedOpeningBudget(payload = state.result) {
 
 function isAlufacBudget(payload = state.result) {
   return payload?.budgetMode === ALUFAC_PRODUCT_SLUG
+    || CORTIZO_PRODUCT_SLUGS.has(payload?.budgetMode)
     || payload?.marcaSistema === "ALUFAC"
-    || els.productSelect?.value === ALUFAC_PRODUCT_SLUG;
+    || payload?.marcaSistema === "CORTIZO"
+    || payload?.tipoProducto === "carpinteria_aluminio"
+    || els.productSelect?.value === ALUFAC_PRODUCT_SLUG
+    || CORTIZO_PRODUCT_SLUGS.has(els.productSelect?.value);
 }
 
 function selectedOpeningBrand(slug = els.productSelect?.value || "") {

@@ -599,7 +599,9 @@ function normalizeDocumentTemplate(template = {}) {
 }
 
 function isAlufacBudget(payload = {}) {
-  return payload.budgetMode === "carpinteria_aluminio_alufac" || payload.marcaSistema === "ALUFAC";
+  return ["carpinteria_aluminio_alufac", "cortizo_abatibles", "cortizo_correderas"].includes(payload.budgetMode)
+    || ["ALUFAC", "CORTIZO"].includes(payload.marcaSistema)
+    || payload.tipoProducto === "carpinteria_aluminio";
 }
 
 function documentTemplateForBudget(payload = {}) {
