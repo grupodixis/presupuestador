@@ -1,0 +1,36 @@
+producto: Persianas mallorquinas · ALUFAC / CORTIZO
+slug: persianas_mallorquinas
+area: aluminio
+datos_requeridos:
+  - campo: referencia_y_cantidad
+    pregunta: "¿Qué referencia identifica cada hueco y cuántas unidades iguales hay?"
+    obligatorio: true
+  - campo: dimensiones
+    pregunta: "¿Ancho y alto en milímetros? ¿Medida de hueco o de fabricación?"
+    obligatorio: true
+  - campo: tipologia_y_hojas
+    pregunta: "¿Practicable, corredera, plegable o fija? ¿Número y reparto de hojas?"
+    obligatorio: true
+  - campo: apertura_y_vista
+    pregunta: "¿Sentido de apertura y vista desde interior o exterior?"
+    obligatorio: true
+  - campo: relleno
+    pregunta: "¿Lama fija, orientable, panel machihembrado o composición mixta?"
+    obligatorio: true
+  - campo: serie
+    pregunta: "¿Sistema CORTIZO Mallorquina u otra serie validada?"
+    obligatorio: true
+  - campo: acabado_y_ambiente
+    pregunta: "¿Color RAL/textura y nivel de exposición marina?"
+    obligatorio: true
+  - campo: montaje
+    pregunta: "¿Incluye retirada, transporte, premarco, montaje, acceso y medios auxiliares?"
+    obligatorio: true
+prompt_base: |
+  Producto: Persiana mallorquina de aluminio
+  Marca de presupuesto: ALUFAC
+  Sistema preferente: CORTIZO Mallorquina
+  Crear una línea independiente por hueco o configuración.
+  Pedir referencia, cantidad, medidas, tipología, hojas, sentido/vista, relleno, serie, acabado, ambiente, herrajes/guías y montaje.
+  Incluir tipoApertura e ilustracionApertura en cada línea.
+  No cerrar precio exacto si faltan medidas, configuración, relleno, acabado o alcance de montaje.
