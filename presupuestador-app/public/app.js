@@ -16,6 +16,23 @@ const ACTIVE_VIEW_KEY = "presupuestador.activeView";
 const ACTIVE_BUDGET_FOLDER_KEY = "presupuestador.activeBudgetFolder";
 const DEFAULT_VIEW = "budgetsView";
 const VALID_VIEWS = new Set(["budgetView", "budgetsView", "configView", "contextView", "usersView"]);
+const ALUFAC_PRODUCT_SLUG = "carpinteria_aluminio_alufac";
+const ALUFAC_OPENINGS = [
+  ["pendiente", "Pendiente de definir"],
+  ["fijo", "Fijo"],
+  ["abatible_izquierda", "Abatible izquierda"],
+  ["abatible_derecha", "Abatible derecha"],
+  ["oscilobatiente_izquierda", "Oscilobatiente izquierda"],
+  ["oscilobatiente_derecha", "Oscilobatiente derecha"],
+  ["practicable_2_hojas", "Practicable 2 hojas"],
+  ["corredera_2_hojas", "Corredera 2 hojas"],
+  ["corredera_3_hojas", "Corredera 3 hojas"],
+  ["corredera_4_hojas", "Corredera 4 hojas"],
+  ["proyectante", "Proyectante"],
+  ["plegable", "Plegable"],
+  ["elevable", "Elevable"],
+  ["pivotante", "Pivotante"],
+];
 
 const DEFAULT_DOCUMENT_TEMPLATE = {
   logo: "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
@@ -279,6 +296,54 @@ function normalizeDocumentTemplate(template = {}) {
 function selectedProduct() {
   const slug = els.productSelect?.value || "";
   return state.products.find((product) => product.slug === slug) || null;
+}
+
+function isAlufacBudget(payload = state.result) {
+  return payload?.budgetMode === ALUFAC_PRODUCT_SLUG
+    || payload?.marcaSistema === "ALUFAC"
+    || els.productSelect?.value === ALUFAC_PRODUCT_SLUG;
+}
+
+function openingLabel(value) {
+  return ALUFAC_OPENINGS.find(([key]) => key === value)?.[1] || "Pendiente de definir";
+}
+
+function openingDiagram(value, label = openingLabel(value)) {
+  const key = String(value || "pendiente");
+  const leafMatch = key.match(/(3|4)_hojas/);
+  const leaves = leafMatch ? Number(leafMatch[1]) : key.includes("2_hojas") ? 2 : 1;
+  const width = 116;
+  const panelWidth = width / leaves;
+  let panels = "";
+  for (let index = 0; index < leaves; index += 1) {
+    const x = index * panelWidth;
+    panels += `<rect x="${x + 2}" y="2" width="${panelWidth - 4}" height="66" rx="1"/>`;
+  }
+  let symbol = "";
+  if (key.includes("corredera") || key === "elevable") {
+    symbol = '<path d="M18 54h76m-8-7 8 7-8 7M30 47l-8 7 8 7"/>';
+  } else if (key.includes("izquierda")) {
+    symbol = '<path d="M106 8 10 35l96 27"/>';
+  } else if (key.includes("derecha")) {
+    symbol = '<path d="M10 8 106 35 10 62"/>';
+  } else if (key === "practicable_2_hojas") {
+    symbol = '<path d="M2 4 58 35 2 66M114 4 58 35l56 31"/>';
+  } else if (key === "proyectante") {
+    symbol = '<path d="M8 62 58 8l50 54"/>';
+  } else if (key === "plegable") {
+    symbol = '<path d="M10 10 34 35 58 10l24 25 24-25"/>';
+  } else if (key === "pivotante") {
+    symbol = '<path d="M58 6v58M49 14l9-8 9 8M49 56l9 8 9-8"/>';
+  } else if (key === "pendiente") {
+    symbol = '<text x="58" y="46" text-anchor="middle">?</text>';
+  }
+  return `<figure class="opening-diagram"><svg viewBox="0 0 116 70" role="img" aria-label="${escapeHtml(label)}"><g>${panels}${symbol}</g></svg><figcaption>${escapeHtml(label)} · esquema orientativo</figcaption></figure>`;
+}
+
+function openingEditor(line) {
+  const current = line.tipoApertura || "pendiente";
+  const options = ALUFAC_OPENINGS.map(([key, label]) => `<option value="${key}"${key === current ? " selected" : ""}>${label}</option>`).join("");
+  return `<div class="opening-editor"><label>Tipo de apertura<select class="line-opening">${options}</select></label>${openingDiagram(current)}</div>`;
 }
 
 function renderProductSelect() {
@@ -565,6 +630,11 @@ function clientData() {
 function resultPayload() {
   syncBudgetHeaderFromInputs();
   const payload = { ...(state.result || {}), cliente: clientData(), documentTemplate: currentDocumentTemplate() };
+  if (els.productSelect?.value === ALUFAC_PRODUCT_SLUG) {
+    payload.budgetMode = ALUFAC_PRODUCT_SLUG;
+    payload.marcaSistema = "ALUFAC";
+    payload.lineas = (payload.lineas || []).map((line) => ({ ...line, tipoApertura: line.tipoApertura || "pendiente", ilustracionApertura: line.ilustracionApertura || line.tipoApertura || "pendiente" }));
+  }
   if (state.currentBudgetFolder) payload._folder = state.currentBudgetFolder;
   if (state.budgetChangeLog.length) payload._changeLog = state.budgetChangeLog.slice(-120);
   return payload;
@@ -587,6 +657,7 @@ function lineLearningSnapshot(line) {
     unidad: line?.unidad || "",
     precioUnitario: line?.precioUnitario ?? 0,
     importe: line?.importe ?? 0,
+    tipoApertura: line?.tipoApertura || "",
   };
 }
 
@@ -729,6 +800,7 @@ function renderLines() {
       <td>
         <input data-field="concepto" value="${escapeHtml(line.concepto || "")}">
         <textarea data-field="descripcion">${escapeHtml(line.descripcion || "")}</textarea>
+        ${isAlufacBudget() ? openingEditor(line) : ""}
       </td>
       <td><input data-field="cantidad" data-number="true" inputmode="decimal" value="${line.cantidad}"></td>
       <td><input data-field="unidad" value="${escapeHtml(line.unidad || "")}"></td>
@@ -768,6 +840,15 @@ function renderLines() {
         syncLineField(input, true);
         if (input.dataset.number === "true") input.value = input.dataset.field === "cantidad" ? line.cantidad : line.precioUnitario;
       });
+    });
+    const openingSelect = tr.querySelector(".line-opening");
+    if (openingSelect) openingSelect.addEventListener("change", () => {
+      const before = line.tipoApertura || "pendiente";
+      line.tipoApertura = openingSelect.value;
+      line.ilustracionApertura = openingSelect.value;
+      recordBudgetChange({ source: "manual", action: "edit-opening", lineIndex: index, from: before, to: line.tipoApertura });
+      renderLines();
+      renderPrintPreview();
     });
     tr.querySelector(".row-delete").addEventListener("click", () => deleteLine(index));
     tr.querySelector(".line-ai-toggle").addEventListener("click", () => toggleLineAi(index));
@@ -871,7 +952,7 @@ function renderPrintPreview() {
         <col class="print-col-amount">
       </colgroup>
       <thead><tr><th>Capitulo</th><th>Concepto</th><th>Cant.</th><th>Ud.</th><th>EUR/Ud.</th><th>Importe</th></tr></thead>
-      <tbody>${lines.map((line) => `<tr><td>${escapeHtml(line.capitulo || "")}</td><td><strong>${escapeHtml(line.concepto || "")}</strong><br>${escapeHtml(line.descripcion || "")}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${escapeHtml(line.unidad || "")}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
+      <tbody>${lines.map((line) => `<tr><td>${escapeHtml(line.capitulo || "")}</td><td><strong>${escapeHtml(line.concepto || "")}</strong><br>${escapeHtml(line.descripcion || "")}${isAlufacBudget(payload) ? openingDiagram(line.tipoApertura || line.ilustracionApertura || "pendiente") : ""}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${escapeHtml(line.unidad || "")}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
     </table>
     <div class="print-total">Total estimado: ${total.toFixed(2)} EUR + IVA</div>
     <section class="print-conditions">${renderDocumentFooterText(documentTemplate.footerText)}</section>
@@ -1137,6 +1218,7 @@ async function editBudget(folder, options = {}) {
     const data = response.data || {};
     rememberActiveBudgetFolder(response.folder);
     state.result = data;
+    if (data.budgetMode === ALUFAC_PRODUCT_SLUG && els.productSelect) els.productSelect.value = ALUFAC_PRODUCT_SLUG;
     fillClientForm(data.cliente || {});
     els.prompt.value = data.prompt || "";
     state.attachments = [];
@@ -1165,15 +1247,27 @@ async function generate() {
   els.generate.disabled = true;
   setStatus("Generando propuesta...");
   try {
+    const product = selectedProduct();
+    const productInstruction = product ? `\n\nProducto seleccionado obligatoriamente: ${product.name}\nTipo interno: ${product.slug}\nUsa su composición, requisitos y skill específica del repositorio.` : "";
     const response = await api("/api/generate", {
       provider: selection.provider,
       model: selection.model,
-      prompt: els.prompt.value.trim(),
+      prompt: els.prompt.value.trim() + productInstruction,
       attachments: state.attachments,
     });
     rememberActiveBudgetFolder(null);
     state.budgetChangeLog = [];
     state.result = response.result;
+    if (product) state.result.selectedProduct = { slug: product.slug, name: product.name };
+    if (product?.slug === ALUFAC_PRODUCT_SLUG) {
+      state.result.budgetMode = ALUFAC_PRODUCT_SLUG;
+      state.result.marcaSistema = "ALUFAC";
+      state.result.lineas = (state.result.lineas || []).map((line) => ({
+        ...line,
+        tipoApertura: line.tipoApertura || line.ilustracionApertura || "pendiente",
+        ilustracionApertura: line.ilustracionApertura || line.tipoApertura || "pendiente",
+      }));
+    }
     recordBudgetChange({ source: "generacion", provider: response.provider, model: response.model, titulo: response.result?.titulo || "" });
     state.result.tokenUsage = response.usage || null;
     state.result.tokenStatus = response.tokenStatus || null;
@@ -2005,7 +2099,10 @@ els.generate.addEventListener("click", generate);
 if (els.insertProductPrompt) els.insertProductPrompt.addEventListener("click", insertSelectedProductPrompt);
 if (els.productSelect) els.productSelect.addEventListener("change", () => {
   const product = selectedProduct();
-  els.productPromptStatus.textContent = product ? `${product.variablesTecnicas?.length || 0} parametro(s) sugeridos.` : "";
+  els.productPromptStatus.textContent = product?.slug === ALUFAC_PRODUCT_SLUG
+    ? "Modo ALUFAC seleccionado: cada línea incluirá su tipo de apertura y esquema. Series y tarifas pendientes de documentación."
+    : product ? `${product.variablesTecnicas?.length || 0} parametro(s) sugeridos.` : "";
+  if (state.result) renderResult();
 });
 els.refreshContext.addEventListener("click", loadContext);
 els.saveSettings.addEventListener("click", saveSettings);
@@ -2057,6 +2154,10 @@ els.addLine.addEventListener("click", () => {
     origen: "usuario",
     editable: true,
   };
+  if (isAlufacBudget()) {
+    line.tipoApertura = "pendiente";
+    line.ilustracionApertura = "pendiente";
+  }
   state.result.lineas.push(line);
   recordBudgetChange({ source: "manual", action: "add-line", lineIndex: state.result.lineas.length - 1, after: lineLearningSnapshot(line) });
   renderResult();
