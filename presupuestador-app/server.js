@@ -22,6 +22,9 @@ const FAL_IMAGE_ACCELERATION = "none";
 const DEFAULT_PROVIDER = "gemini";
 const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash";
 const LEARNING_DIR = path.join(ROOT, "skills", "aprendizaje");
+const LEARNING_STATE_FILE = path.join(LEARNING_DIR, "estado_consolidacion.json");
+const LEARNING_RULES_FILE = path.join(LEARNING_DIR, "00_reglas_consolidadas.md");
+const LEARNING_RECENT_FILE = path.join(LEARNING_DIR, "00_memoria_reciente.md");
 const LEARNING_FILES = {
   general: "aprendizaje_general.md",
   aluminio: "aprendizaje_aluminio.md",
@@ -576,6 +579,11 @@ async function readLimited(file, max = 16000) {
   return content.length > max ? `${content.slice(0, max)}\n\n[Contenido truncado]` : content;
 }
 
+async function readLimitedTail(file, max = 16000) {
+  const content = await fs.readFile(file, "utf8");
+  return content.length > max ? `[Se muestran las observaciones mas recientes]\n\n${content.slice(-max)}` : content;
+}
+
 async function listFiles(dir, predicate) {
   const out = [];
   async function walk(current) {
@@ -844,7 +852,10 @@ function normalizeGeminiUsage(usage) {
   };
 }
 async function loadRepositoryContext() {
-  const skillFiles = await listFiles(path.join(ROOT, "skills"), (file) => file.endsWith(".md"));
+  const skillFiles = (await listFiles(path.join(ROOT, "skills"), (file) => file.endsWith(".md"))).sort((a, b) => {
+    const priority = (file) => path.basename(file).startsWith("00_") ? 0 : 1;
+    return priority(a) - priority(b) || a.localeCompare(b);
+  });
   const compositionFiles = await listFiles(path.join(ROOT, "productos", "composiciones"), (file) => file.endsWith(".yaml"));
   const requirementFiles = await listFiles(path.join(ROOT, "productos", "requisitos"), (file) => file.endsWith(".yaml") || file.endsWith(".yml"));
   const costingFiles = await listFiles(path.join(ROOT, "presupuestacion", "costes"), (file) =>
@@ -866,7 +877,9 @@ async function loadRepositoryContext() {
     if (!(await fileExists(file))) continue;
     docs.push({
       path: path.relative(ROOT, file).replaceAll("\\", "/"),
-      content: await readLimited(file, 12000),
+      content: file.startsWith(LEARNING_DIR) && path.basename(file).startsWith("aprendizaje_")
+        ? await readLimitedTail(file, 12000)
+        : await readLimited(file, 12000),
     });
   }
   return docs;
@@ -2345,6 +2358,135 @@ function summarizeChangeForLearning(change) {
   return `- ${source}: ${JSON.stringify(change).slice(0, 500)}`;
 }
 
+function compactLearningText(value, max = 180) {
+  return String(value ?? "").replace(/\s+/g, " ").trim().slice(0, max);
+}
+
+function learningFingerprintText(value) {
+  return normalizeForLearning(value).replace(/\b\d+(?:[.,]\d+)?\b/g, "#").replace(/\s+/g, " ").trim().slice(0, 220);
+}
+
+function changePatternForLearning(change, payload) {
+  const sector = compactLearningText(payload.budgetMode || payload.tipoProducto || "general", 80);
+  const line = change.after || change.line || change.before || {};
+  const concept = compactLearningText(line.concepto || "partida sin concepto", 140);
+  const conceptKey = learningFingerprintText(concept);
+  if (change.action === "edit-field") {
+    const field = compactLearningText(change.field || "campo", 50);
+    return {
+      key: `campo|${sector}|${field}|${conceptKey}`,
+      title: `${sector}: revisar ${field} en ${concept}`,
+      rule: `Para partidas equivalentes a "${concept}", revisar el campo ${field}. La correccion mas reciente fue de "${compactLearningText(change.from)}" a "${compactLearningText(change.to)}".`,
+    };
+  }
+  if (change.action === "edit-line" && change.prompt) {
+    const prompt = compactLearningText(change.prompt, 260);
+    return {
+      key: `criterio-ia|${sector}|${learningFingerprintText(prompt)}`,
+      title: `${sector}: criterio repetido indicado por el usuario`,
+      rule: `Aplicar como comprobacion en trabajos similares: "${prompt}". Validar su aplicabilidad a las medidas y alcance de cada obra.`,
+    };
+  }
+  if (change.action === "edit-opening") {
+    return {
+      key: `apertura|${sector}|${conceptKey}|${learningFingerprintText(change.to)}`,
+      title: `${sector}: apertura corregida en ${concept}`,
+      rule: `En elementos equivalentes a "${concept}", comprobar la apertura "${compactLearningText(change.to)}" antes de emitir el documento.`,
+    };
+  }
+  if (["add-line", "delete-line"].includes(change.action)) {
+    return {
+      key: `${change.action}|${sector}|${conceptKey}`,
+      title: `${sector}: ${change.action === "add-line" ? "partida necesaria" : "partida normalmente integrada o eliminada"}`,
+      rule: `${change.action === "add-line" ? "Comprobar la inclusion" : "Comprobar si debe integrarse o excluirse"} de la partida "${concept}" en presupuestos similares.`,
+    };
+  }
+  return null;
+}
+
+async function readLearningState() {
+  if (!(await fileExists(LEARNING_STATE_FILE))) return { version: 1, patterns: {}, recent: [] };
+  try {
+    const state = JSON.parse(await fs.readFile(LEARNING_STATE_FILE, "utf8"));
+    return { version: 1, patterns: state.patterns || {}, recent: Array.isArray(state.recent) ? state.recent : [] };
+  } catch {
+    return { version: 1, patterns: {}, recent: [] };
+  }
+}
+
+function renderConsolidatedLearning(state) {
+  const patterns = Object.values(state.patterns || {}).sort((a, b) => String(b.lastSeen).localeCompare(String(a.lastSeen)));
+  const consolidated = patterns.filter((item) => item.status === "consolidada");
+  const candidates = patterns.filter((item) => item.status !== "consolidada").slice(0, 40);
+  const section = (items, empty) => items.length ? items.map((item) => [
+    `### ${item.title}`,
+    `- Regla: ${item.rule}`,
+    `- Evidencias: ${item.count} correccion(es) en ${item.budgets.length} presupuesto(s): ${item.budgets.join(", ")}.`,
+    `- Ultima observacion: ${item.lastSeen}.`,
+  ].join("\n")).join("\n\n") : empty;
+  return `# Reglas consolidadas desde presupuestos reales
+
+Este archivo se actualiza automaticamente. Las reglas consolidadas tienen prioridad como comprobaciones en nuevas estimaciones, sin sustituir medidas, tarifas vigentes ni validacion tecnica.
+
+## Reglas consolidadas
+
+${section(consolidated, "Todavia no hay patrones confirmados en dos presupuestos distintos.")}
+
+## Candidatos pendientes de confirmacion
+
+No tratar estos candidatos como reglas universales hasta que aparezcan en otro presupuesto diferente.
+
+${section(candidates, "No hay candidatos registrados.")}
+`;
+}
+
+function renderRecentLearning(state) {
+  const recent = (state.recent || []).slice(-60).reverse();
+  return `# Memoria operativa reciente
+
+Correcciones recientes registradas al guardar presupuestos. Usarlas para evitar repetir errores, pero no convertir una observacion aislada en una regla universal.
+
+${recent.length ? recent.map((item) => `- ${item.at} · ${item.code} · ${item.area}: ${item.summary}`).join("\n") : "Todavia no hay correcciones recientes registradas."}
+`;
+}
+
+let learningUpdateQueue = Promise.resolve();
+
+function updateLearningConsolidation({ payload, code, area, changes }) {
+  learningUpdateQueue = learningUpdateQueue.then(async () => {
+    const state = await readLearningState();
+    for (const change of changes) {
+      const summary = summarizeChangeForLearning(change).replace(/^[- ]+/, "");
+      const evidenceId = crypto.createHash("sha256").update(`${code}|${learningFingerprintText(summary)}`).digest("hex").slice(0, 24);
+      if (!state.recent.some((item) => item.id === evidenceId)) {
+        state.recent.push({ id: evidenceId, at: new Date().toISOString(), code, area, summary: compactLearningText(summary, 420) });
+      }
+      const pattern = changePatternForLearning(change, payload);
+      if (!pattern) continue;
+      const current = state.patterns[pattern.key] || { ...pattern, count: 0, budgets: [], evidenceIds: [], status: "candidata", firstSeen: new Date().toISOString() };
+      if (!current.evidenceIds.includes(evidenceId)) {
+        current.evidenceIds.push(evidenceId);
+        current.count += 1;
+      }
+      if (!current.budgets.includes(code)) current.budgets.push(code);
+      current.rule = pattern.rule;
+      current.title = pattern.title;
+      current.lastSeen = new Date().toISOString();
+      current.status = current.budgets.length >= 2 ? "consolidada" : "candidata";
+      current.evidenceIds = current.evidenceIds.slice(-50);
+      current.budgets = current.budgets.slice(-20);
+      state.patterns[pattern.key] = current;
+    }
+    state.recent = state.recent.slice(-200);
+    state.patterns = Object.fromEntries(Object.entries(state.patterns).sort((a, b) => String(b[1].lastSeen).localeCompare(String(a[1].lastSeen))).slice(0, 500));
+    await fs.mkdir(LEARNING_DIR, { recursive: true });
+    await fs.writeFile(LEARNING_STATE_FILE, `${JSON.stringify(state, null, 2)}\n`, "utf8");
+    await fs.writeFile(LEARNING_RULES_FILE, renderConsolidatedLearning(state), "utf8");
+    await fs.writeFile(LEARNING_RECENT_FILE, renderRecentLearning(state), "utf8");
+  }).catch((error) => console.error("No se pudo consolidar el aprendizaje:", error));
+  return learningUpdateQueue;
+}
+
 async function appendBudgetLearning(payload, code, changeLog = []) {
   const usefulChanges = (Array.isArray(changeLog) ? changeLog : [])
     .filter((change) => change && change.source !== "generacion")
@@ -2357,6 +2499,7 @@ async function appendBudgetLearning(payload, code, changeLog = []) {
   const lines = usefulChanges.map(summarizeChangeForLearning).join("\n");
   const entry = `\n## ${new Date().toISOString().slice(0, 10)} - Aprendizaje desde presupuesto ${code}\n\n- Área: ${area}\n- Sector: ${payload.tipoProducto || "pendiente de clasificar"}\n- Tipo de conocimiento: cambios reales de presupuesto\n- Estado: observado\n- Origen: cambios realizados durante edición y guardado del presupuesto\n- Presupuesto: ${payload.titulo || "Sin título"}\n- Cliente/obra: ${payload.cliente?.nombre || ""} ${payload.cliente?.direccion ? `- ${payload.cliente.direccion}` : ""}\n- Total final guardado: ${total.toFixed(2)} EUR + IVA\n\n### Cambios observados\n${lines}\n\n### Acción futura\n- Revisar estas correcciones antes de cerrar cantidades, precios unitarios, capítulos y partidas omitidas en trabajos similares.\n- Si el criterio se repite, consolidarlo en la skill, composición o coste correspondiente.\n`;
   await fs.appendFile(file, entry, "utf8");
+  await updateLearningConsolidation({ payload, code, area, changes: usefulChanges });
   return path.relative(ROOT, file).replaceAll("\\", "/");
 }
 async function appendLearning({ suggestion, note }) {
