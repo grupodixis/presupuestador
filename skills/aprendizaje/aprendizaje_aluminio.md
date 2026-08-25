@@ -114,3 +114,63 @@ Este archivo guarda criterios observados desde presupuestos reales. Las entradas
 ### Acción futura
 - Revisar estas correcciones antes de cerrar cantidades, precios unitarios, capítulos y partidas omitidas en trabajos similares.
 - Si el criterio se repite, consolidarlo en la skill, composición o coste correspondiente.
+
+## 2026-08-25 - Aprendizaje desde presupuesto P-2026-0037
+
+- Área: aluminio
+- Sector: carpinteria_aluminio
+- Tipo de conocimiento: cambios reales de presupuesto
+- Estado: observado
+- Origen: cambios realizados durante edición y guardado del presupuesto
+- Presupuesto: Presupuesto Técnico-Comercial: Sustitución de Persianas Correderas de Aluminio CORTIZO Mallorquina - Puerto de Addaia, Menorca
+- Cliente/obra: Bárbara 
+- Total final guardado: 1630.00 EUR + IVA
+
+### Cambios observados
+- ia-linea: Fabricacion / Retirada y desmontaje de persianas/carpinterías existentes: IA aplicada con prompt "son dos persianas a retirar y son 2 hs de dos personas. No se incluye albañileria". Antes: cant. 1, precio 85, importe 85. Despues: cant. 4, precio 35, importe 140.
+- ia-linea: Materiales / Persiana corredera CORTIZO Mallorquina 2 hojas - Habitación (1270 x 1315 mm): IA aplicada con prompt "revisa coste de materiales y mano de obra, lo veo economico. Especifica que linea de cortizo usaras para la mallorquina. No existe perfileria Alufac. Corrige esta y las demas lineas que lo necesiten.
+Memoriza este skill". Antes: cant. 1, precio 430, importe 430. Despues: cant. 1, precio 620, importe 620.
+
+### Acción futura
+- Revisar estas correcciones antes de cerrar cantidades, precios unitarios, capítulos y partidas omitidas en trabajos similares.
+- Si el criterio se repite, consolidarlo en la skill, composición o coste correspondiente.
+
+## 2026-08-25 - Aprendizaje desde presupuesto P-2026-0037
+
+- Área: aluminio
+- Sector: carpinteria_aluminio
+- Tipo de conocimiento: cambios reales de presupuesto
+- Estado: observado
+- Origen: cambios realizados durante edición y guardado del presupuesto
+- Presupuesto: Presupuesto Técnico-Comercial: Sustitución de Persianas Correderas de Aluminio CORTIZO Mallorquina - Puerto de Addaia, Menorca
+- Cliente/obra: Bárbara 
+- Total final guardado: 1630.00 EUR + IVA
+
+### Cambios observados
+- ia-linea: Transporte / Transporte y entrega de material a obra en Puerto de Addaia: IA aplicada con prompt "integra este coste en las dos primeras lineas y borra esta linea". Antes: cant. 4, precio 35, importe 140. Despues: cant. 1, precio 80, importe 80.
+- ia-linea: Transporte / Transporte y entrega de material a obra en Puerto de Addaia: IA aplicada con prompt "integra este coste en las dos primeras lineas y borra esta linea". Antes: cant. 1, precio 80, importe 80. Despues: cant. 1, precio 80, importe 80.
+- ia-linea: Transporte / Transporte y entrega de material a obra en Puerto de Addaia: IA aplicada con prompt "integra este coste en las dos primeras lineas y borra esta linea". Antes: cant. 4, precio 35, importe 140. Despues: cant. 1, precio 80, importe 80.
+- ia-linea: Transporte / Transporte y entrega de material a obra en Puerto de Addaia: IA aplicada con prompt "integra este coste en las dos primeras lineas y borra esta linea". Antes: cant. 1, precio 80, importe 80. Despues: cant. 1, precio 80, importe 80.
+
+### Acción futura
+- Revisar estas correcciones antes de cerrar cantidades, precios unitarios, capítulos y partidas omitidas en trabajos similares.
+- Si el criterio se repite, consolidarlo en la skill, composición o coste correspondiente.
+
+## 2026-08-25 - Aprendizaje desde presupuesto P-2026-0037
+
+- Área: aluminio
+- Sector: carpinteria_aluminio
+- Tipo de conocimiento: cambios reales de presupuesto
+- Estado: observado
+- Origen: cambios realizados durante edición y guardado del presupuesto
+- Presupuesto: Presupuesto Técnico-Comercial: Sustitución de Persianas Correderas de Aluminio CORTIZO Mallorquina - Puerto de Addaia, Menorca
+- Cliente/obra: Bárbara 
+- Total final guardado: 1630.00 EUR + IVA
+
+### Cambios observados
+- ia-linea: Montaje / Instalación, ajuste de herrajes y sellado exterior de protección marina: IA aplicada con prompt "integra este coste en las dos primeras lineas y borra esta linea". Antes: cant. 1, precio 80, importe 80. Despues: cant. 8, precio 35, importe 280.
+- ia-linea: Montaje / Instalación, ajuste de herrajes y sellado exterior de protección marina: IA aplicada con prompt "integra este coste en las dos primeras lineas y borra esta linea". Antes: cant. 8, precio 35, importe 280. Despues: cant. 0, precio 0, importe 0.
+
+### Acción futura
+- Revisar estas correcciones antes de cerrar cantidades, precios unitarios, capítulos y partidas omitidas en trabajos similares.
+- Si el criterio se repite, consolidarlo en la skill, composición o coste correspondiente.
