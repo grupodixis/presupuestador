@@ -545,8 +545,8 @@ function dbStatus() {
   const tokenCount = db().prepare("SELECT COUNT(*) AS count FROM token_usage").get().count;
   return { file: DB_FILE, budgetCount, tokenUsageCount: tokenCount };
 }
-function send(res, status, body, contentType = "application/json; charset=utf-8") {
-  res.writeHead(status, { "Content-Type": contentType });
+function send(res, status, body, contentType = "application/json; charset=utf-8", headers = {}) {
+  res.writeHead(status, { "Content-Type": contentType, ...headers });
   if (Buffer.isBuffer(body)) {
     res.end(body);
     return;
@@ -2092,10 +2092,10 @@ function budgetHtml(payload, code) {
   <meta charset="utf-8">
   <title>${htmlEscape(code)} ${htmlEscape(payload.titulo || "Presupuesto")}</title>
   <style>
-    @page { size: A4; margin: 14mm; }
+    @page { size: A4; margin: 0; }
     * { box-sizing: border-box; }
     body { font-family: Arial, Helvetica, sans-serif; color: #111827; margin: 0; line-height: 1.34; background: #eef2f6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .page { width: 180mm; max-width: 100%; min-height: 267mm; margin: 0 auto; padding: 0; background: white; }
+    .page { width: 210mm; max-width: 100%; min-height: 297mm; margin: 0 auto; padding: 14mm 15mm; background: white; }
     header { border-top: 6px solid #16202a; padding-top: 12px; display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 16px; align-items: start; border-bottom: 1px solid #d6dde5; padding-bottom: 12px; }
     .company { display: flex; gap: 14px; min-width: 0; }
     .logo { width: 130px; flex: 0 0 130px; padding-top: 2px; }
@@ -2127,7 +2127,7 @@ function budgetHtml(payload, code) {
     .conditions { margin-top: 14px; border-top: 1px solid #d6dde5; padding-top: 9px; color: #4b5563; font-size: 11px; display: grid; gap: 5px; }
     ul { padding-left: 18px; font-size: 11px; color: #4b5563; }
     button { margin-top: 18px; padding: 10px 14px; border: 0; background: #16202a; color: white; border-radius: 6px; font-weight: 700; }
-    @media print { body { background: white; margin: 0; } .page { width: auto; max-width: none; min-height: 0; margin: 0; } .no-print { display: none; } }
+    @media print { body { background: white; margin: 0; } .page { width: 210mm; max-width: none; min-height: 297mm; margin: 0; } .no-print { display: none; } }
   </style>
 </head>
 <body>
@@ -2736,7 +2736,8 @@ async function route(req, res) {
   if (!target.startsWith(PUBLIC_DIR)) return send(res, 403, "Forbidden", "text/plain; charset=utf-8");
   if (!(await fileExists(target))) return send(res, 404, "Not found", "text/plain; charset=utf-8");
   const content = await fs.readFile(target);
-  send(res, 200, content, MIME[path.extname(target)] || "application/octet-stream");
+  const cacheHeaders = ["/index.html", "/app.js"].includes(requested) ? { "Cache-Control": "no-store" } : {};
+  send(res, 200, content, MIME[path.extname(target)] || "application/octet-stream", cacheHeaders);
 }
 
 const server = http.createServer((req, res) => {

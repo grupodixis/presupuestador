@@ -1003,11 +1003,11 @@ function printDocumentHtml() {
   <meta charset="utf-8">
   <title>${escapeHtml(state.result?.titulo || "Presupuesto")}</title>
   <style>
-    @page { size: A4 portrait; margin: 10mm; }
+    @page { size: A4 portrait; margin: 0; }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; background: white; color: #111827; font-family: Arial, Helvetica, sans-serif; }
     body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .print-sheet { width: 170mm; max-width: 170mm; margin: 0 auto; overflow: hidden; }
+    .print-sheet { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 10mm 20mm; overflow: hidden; }
     header { border-top: 5px solid #16202a; padding-top: 5mm; display: grid; grid-template-columns: minmax(0, 1fr) 42mm; gap: 5mm; align-items: start; border-bottom: 1px solid #d6dde5; padding-bottom: 4mm; }
     .print-company { display: flex; gap: 4mm; min-width: 0; }
     .print-logo { width: 30mm; flex: 0 0 30mm; }
