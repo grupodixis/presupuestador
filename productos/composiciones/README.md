@@ -35,6 +35,8 @@ Los archivos están en YAML para facilitar su lectura por el agente IA. Ver `bar
 | `estructura_metalica.yaml` | Estructura metálica |
 | `ventana_aluminio.yaml` | Ventana de aluminio |
 | `carpinteria_aluminio_alufac.yaml` | Carpintería de aluminio · ALUFAC (scaffold seleccionable) |
+| `cortizo_abatibles.yaml` | CORTIZO practicable y oscilobatiente |
+| `cortizo_correderas.yaml` | CORTIZO corredera, elevable y minimalista |
 | `cerramiento_aluminio.yaml` | Cerramiento de aluminio |
 | `instalacion_electrica.yaml` | Instalación eléctrica |
 | `instalacion_fontaneria.yaml` | Instalación de fontanería |

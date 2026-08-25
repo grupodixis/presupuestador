@@ -1,0 +1,104 @@
+producto: "Carpinteria de Aluminio Corredera y Elevable CORTIZO"
+marca: "CORTIZO"
+estado_datos: "documentacion_usuario_con_correcciones_oficiales_2026-08-26"
+
+variables_tecnicas:
+  - referencia_hueco: codigo de plano o medicion
+  - ubicacion_estancia: estancia, planta o fachada
+  - cantidad: numero de unidades iguales
+  - dimensiones: ancho x alto en mm
+  - serie_cortizo: variante exacta, sin inferir por familia
+  - configuracion: numero de hojas, hojas moviles/fijas y numero de carriles
+  - tipo_apertura: corredera_2_hojas / corredera_3_hojas / corredera_4_hojas / elevable / galandage / esquina_90 / pendiente
+  - vista_apertura: vista_desde_interior / vista_desde_exterior
+  - acabado: RAL / texturado / anodizado / bicolor / pendiente
+  - vidrio: composicion, espesor, peso y fabricante
+  - herraje_maniobra: manual / motorizado / pendiente
+  - premarco_drenaje_montaje: alcance y cotas de integracion
+
+reglas_de_salida:
+  - Cada hueco diferente se presenta en una linea independiente con tipoApertura e ilustracionApertura.
+  - Validar serie, variante, tipologia, inercia, dimensiones, peso, vidrio y herraje.
+  - La validacion oficial y la lista de precios activa prevalecen sobre ratios orientativos.
+series_compatibles:
+  - "COR 2000 Corredera (sin RPT)"
+  - "COR 4200 Corredera con RPT"
+  - "COR 4200 Galandage"
+  - "COR 4500 Corredera en Línea y Elevable"
+  - "COR 4600 Corredera Elevable"
+  - "COR 4600 Plus"
+  - "COR 4700 Corredera"
+  - "COR 4900 Corredera HI (High Insulation)"
+  - "COR Vision (Minimalista)"
+  - "COR Vision Plus (Minimalista Gran Formato)"
+
+componentes_principales:
+  perfiles_aluminio:
+    - nombre: "Marco perimetral (2 o 3 carriles)"
+      tipo: "Perfil extrusionado con RPT y carril de rodadura inox"
+      unidad: "ml"
+      calculo: "2 * ancho + 2 * alto"
+    - nombre: "Hojas correderas perimetrales"
+      tipo: "Perfil de hoja horizontal y vertical con RPT"
+      unidad: "ml"
+      calculo: "n_hojas * (2 * ancho_hoja + 2 * alto_hoja)"
+    - nombre: "Perfil central de cruce / nudo reducido"
+      tipo: "Perfil de encuentro central con felpa y junta labial"
+      unidad: "ml"
+      calculo: "(n_hojas - 1) * alto_hoja"
+    - nombre: "Perfiles de compensacion / cierre lateral"
+      tipo: "Perfil de recepcion de hoja en marco"
+      unidad: "ml"
+      calculo: "2 * alto"
+    - nombre: "Tapas de carril y embellecedores de desague"
+      tipo: "Perfiles clipados de acabado estanqueidad"
+      unidad: "ml"
+      calculo: "ancho"
+
+  accesorios_y_herrajes:
+    - nombre: "Kit de rodamientos / carros elevables"
+      tipo: "Carros tandem de acero inoxidable regulables o mecanismo elevable 300/400 kg"
+      unidad: "juego"
+      cantidad: "1 juego de carros por hoja móvil"
+    - nombre: "Cierre multipunto / Cremona elevable"
+      tipo: "Cremona con varilla de transmision y cerraderos de acero"
+      unidad: "ud"
+      cantidad: "1 por hoja principal"
+    - nombre: "Felpas de sellado cortavientos con lamina central de polietileno (Fin-Seal)"
+      tipo: "Felpa tratada hidrofuga con barrera plastica central"
+      unidad: "ml"
+      calculo: "perimetro_hojas_sellado"
+    - nombre: "Juntas de EPDM para corredera elevable"
+      tipo: "Junta de sellado por compresion perimetral"
+      unidad: "ml"
+      calculo: "perimetro_hojas"
+    - nombre: "Deflectores de drenaje con valvula antirretorno"
+      tipo: "Tapas desague con clapeta cortavientos"
+      unidad: "ud"
+      cantidad: "4 a 8 unidades segun ancho"
+
+  acristalamiento:
+    - nombre: "Vidrio de seguridad laminar o doble/triple vidrio"
+      tipo: "Vidrio con tratamiento de control solar y gas argon"
+      unidad: "m2"
+      calculo: "superficie_acristalada_total"
+
+procesos_y_mano_de_obra:
+  taller:
+    - "Corte de marco y hojas a 45 o 90 grados segun serie"
+    - "Mecanizado de carros, tiradores, desagues y cierres"
+    - "Armado mecanico de hojas con escuadras de alta resistencia"
+    - "Montaje de carril de acero inoxidable en marco inferior"
+    - "Instalacion de felpas, gomas y carros de rodadura"
+    - "Acristalamiento y calzado de hojas"
+  obra:
+    - "Fijacion y nivelacion milimetrica del marco inferior (fundamental en correderas)"
+    - "Insercion de hojas en carriles y regulacion de altura de carros"
+    - "Ajuste de puntos de cierre y solapes centrales"
+    - "Sellado perimetral estanco con polimero MS"
+
+criterios_ambientales_menorca:
+  - "Carriles de rodadura exclusivamente en Acero Inoxidable AISI 316"
+  - "Tratamiento QUALICOAT SEASIDE en perfiles de aluminio"
+  - "Felpas de alta densidad con lamina plastica impermeable para evitar paso de aire y salitre"
+  - "No prometer prestaciones de una muestra ensayada sin validar la configuracion ofertada"
