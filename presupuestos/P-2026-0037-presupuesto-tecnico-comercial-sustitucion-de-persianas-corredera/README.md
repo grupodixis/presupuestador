@@ -16,6 +16,10 @@ Origen: presupuestador-app
 
 Presupuesto para la fabricación, retirada de persianas existentes, transporte a obra e instalación de 2 persianas mallorquinas correderas de 2 hojas en aluminio (sistema CORTIZO Mallorquina) con lamas fijas superiores y machimbrado vertical inferior, lacadas en color marrón RAL 8017 con tratamiento Qualicoat Seaside para ambiente marino C4/C5 en Puerto de Addaia, Menorca.
 
+![Imagen conceptual orientativa](imagen-conceptual-ia.png)
+
+_Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica._
+
 ## Lineas del compuesto
 
 | ID | Capitulo | Concepto | Cantidad | Unidad | Precio unitario | Importe | Confianza |

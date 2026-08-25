@@ -82,8 +82,8 @@
     "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
   },
   "documentTemplate": {
-    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
-    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "logo": "https://alufac.es/assets/alufac-logo.svg",
+    "headerText": "ALUFAC\nCarpinteria de aluminio, PVC, cristal y cerramientos a medida en Menorca.\nCircunval·lacio, 11, 07710 Sant Lluis, Menorca\ninfo@alufac.es - +34 669 769 541 - WhatsApp +34 669 769 541\nwww.alufac.es",
     "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
   },
   "cliente": {
@@ -93,5 +93,14 @@
     "nif": "",
     "direccion": "",
     "referencia": ""
-  }
+  },
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Técnico-Comercial: Sustitución de Persianas Correderas de Aluminio CORTIZO Mallorquina - Puerto de Addaia, Menorca\nTipo: carpinteria_aluminio\nResumen: Presupuesto para la fabricación, retirada de persianas existentes, transporte a obra e instalación de 2 persianas mallorquinas correderas de 2 hojas en aluminio (sistema CORTIZO Mallorquina) con lamas fijas superiores y machimbrado vertical inferior, lacadas en color marrón RAL 8017 con tratamiento Qualicoat Seaside para ambiente marino C4/C5 en Puerto de Addaia, Menorca.\nCliente/obra: Menorca\nPartidas principales:\n- Materiales: Persiana corredera CORTIZO Mallorquina 2 hojas - Habitación (1270 x 1315 mm). Fabricación de persiana mallorquina corredera de 2 hojas en sistema CORTIZO Mallorquina. Combinación de lamas superiores y machimbrado vertical inferior. Acabado lacado marrón RAL 8017 calidad marina Qualicoat Seaside. Incluye marco perimetral, guía superior/inferior en aluminio/inox, herrajes de cierre, carros de rodadura, parte proporcional de transporte/entrega a obra, retirada y desmontaje de la persiana existente, e instalación y montaje en obra por oficiales con sellado perimetral marino.. 1 ud\n- Materiales: Persiana corredera CORTIZO Mallorquina 2 hojas - Comedor (1272 x 965 mm). Fabricación de persiana mallorquina corredera de 2 hojas en sistema CORTIZO Mallorquina. Combinación de lamas superiores y machimbrado vertical inferior. Acabado lacado marrón RAL 8017 calidad marina Qualicoat Seaside. Incluye marco perimetral, guía superior/inferior en aluminio/inox, herrajes de cierre, carros de rodadura, parte proporcional de transporte/entrega a obra, retirada y desmontaje de la persiana existente, e instalación y montaje en obra por oficiales con sellado perimetral marino.. 1 ud\n\nEstilo visual:\n- Imagen cuadrada, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-08-25T23:20:09.198Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualModo": "economico",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa7d050/k-FbKHaFiguqvSyKOId6j.png"
 }
