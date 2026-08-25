@@ -1,4 +1,4 @@
-# P-2026-0037 Presupuesto Técnico-Comercial: Sustitución de Persianas Correderas de Aluminio ALUFAC - Puerto de Addaia, Menorca
+# P-2026-0037 Presupuesto Técnico-Comercial: Sustitución de Persianas Correderas de Aluminio CORTIZO Mallorquina - Puerto de Addaia, Menorca
 
 Fecha: 2026-08-25
 Origen: presupuestador-app
@@ -6,46 +6,45 @@ Origen: presupuestador-app
 ## Cliente
 
 - Nombre: Bárbara
-- Email:
-- Telefono:
-- Direccion/obra:
-- NIF/CIF:
-- Referencia interna:
+- Email: 
+- Telefono: 
+- Direccion/obra: 
+- NIF/CIF: 
+- Referencia interna: 
 
 ## Resumen
 
-Presupuesto para la fabricación, retirada de persianas existentes e instalación de 2 persianas mallorquinas correderas de 2 hojas en aluminio (sistema ALUFAC) con lamas fijas superiores y machimbrado vertical inferior, lacadas en color marrón RAL 8017 con tratamiento para ambiente marino C4/C5 en Puerto de Addaia, Menorca.
+Presupuesto para la fabricación, retirada de persianas existentes, transporte a obra e instalación de 2 persianas mallorquinas correderas de 2 hojas en aluminio (sistema CORTIZO Mallorquina) con lamas fijas superiores y machimbrado vertical inferior, lacadas en color marrón RAL 8017 con tratamiento Qualicoat Seaside para ambiente marino C4/C5 en Puerto de Addaia, Menorca.
 
 ## Lineas del compuesto
 
 | ID | Capitulo | Concepto | Cantidad | Unidad | Precio unitario | Importe | Confianza |
 |---|---|---|---:|---|---:|---:|---|
-| L1 | Materiales | Persiana corredera ALUFAC 2 hojas - Habitación (1270 x 1315 mm) | 1 | ud | 430.00 | 430.00 | media |
-| L2 | Materiales | Persiana corredera ALUFAC 2 hojas - Comedor (1272 x 965 mm) | 1 | ud | 360.00 | 360.00 | media |
-| L3 | Fabricacion | Retirada y desmontaje de persianas/carpinterías existentes | 1 | lote | 85.00 | 85.00 | media |
-| L4 | Transporte | Transporte y entrega de material a obra en Puerto de Addaia | 1 | lote | 60.00 | 60.00 | alta |
-| L5 | Montaje | Instalación, ajuste de herrajes y sellado exterior de protección marina | 6 | h | 35.00 | 210.00 | alta |
+| L1 | Materiales | Persiana corredera CORTIZO Mallorquina 2 hojas - Habitación (1270 x 1315 mm) | 1 | ud | 870.00 | 870.00 | alta |
+| L2 | Materiales | Persiana corredera CORTIZO Mallorquina 2 hojas - Comedor (1272 x 965 mm) | 1 | ud | 760.00 | 760.00 | alta |
 
-**Total estimado:** 1145.00 EUR + IVA
+**Total estimado:** 1630.00 EUR + IVA
 
 ## Supuestos
 
-- Las medidas indicadas en el croquis adjunto (1270x1315 mm y 1272x965 mm) son cotas orientativas de hueco que se reconfirmarán en la visita previa a fabricación.
-- El acabado lacado es marrón RAL 8017 con calificación para ambiente marino C4/C5 por tratarse de la zona costera de Puerto de Addaia (Menorca).
-- Toda la tornillería expuesta y fijaciones serán de acero inoxidable A4/316 para prevenir la corrosión galvánica y salina.
+- Se utiliza la serie oficial CORTIZO Mallorquina en variante corredera con perfiles y accesorios originales de la marca CORTIZO.
+- Las medidas indicadas (1270x1315 mm y 1272x965 mm) son cotas de hueco que se reconfirmarán en visita técnica previa a fabricación.
+- El acabado es lacado marrón RAL 8017 con certificación Qualicoat Seaside para ambiente salino severo C4/C5 en Puerto de Addaia (Menorca).
+- Toda la tornillería de fijación y herrajes expuestos son de acero inoxidable AISI 316 / A4.
+- No se incluyen trabajos de albañilería, remates de yeso, mortero ni pintura perimetral.
+- El coste de desmontaje/retirada, transporte/entrega e instalación/montaje en obra se encuentra totalmente integrado en el precio unitario de las dos unidades principales de carpintería.
 
 ## Riesgos
 
-- Desplomes o irregularidades en las mochetas existentes que requieran perfiles de compensación o remates de rematado no contemplados en la toma de medidas básica.
-- Presencia de deterioro en la fachada o premarcos de madera/aluminio antiguos al retirar las persianas viejas.
+- Desplomes o irregularidades en las mochetas existentes que requieran perfiles de compensación o remates no contemplados en la toma de medidas básica.
+- Presencia de deterioro en la fachada o premarcos antiguos al retirar las persianas viejas.
 
 ## Preguntas pendientes
 
-- ¿La serie concreta de ALUFAC deseada requiere rotura de puente térmico o canal de rodadura especial?
 - ¿El canal o guía de la persiana corredera actual está empotrado en obra o va fijado directamente sobre la fachada existente?
 - ¿Hay acceso directo a las ventanas desde planta baja o se requiere andamio/escalera técnica en exterior?
 
 ## Sugerencias generadas
 
-- **Consolidación de tarifas ALUFAC para persianas en Menorca:** Validar con el distribuidor ALUFAC los precios de la serie específica de persiana con machimbrado y herrajes marinos para fijar las líneas con confianza alta.
-- **Prorrateo de replanteo técnico en elementos de carpintería:** Integrar el coste de toma de medidas y replanteo en el precio unitario de las persianas/ventanas principales para simplificar la presentación comercial.
+- **Integración de portes, desmontaje y montaje en partidas de carpintería:** Memorizar que el usuario prefiere integrar todos los costes indirectos (portes, desmontaje y mano de obra de montaje) dentro del precio unitario por unidad de carpintería.
+- **Uso preferente del sistema CORTIZO Mallorquina frente a ALUFAC:** En proyectos de mallorquinas de aluminio en Menorca, prescribir la serie CORTIZO Mallorquina con garantía Qualicoat Seaside descartando marcas no operativas.
