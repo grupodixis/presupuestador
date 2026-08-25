@@ -1,0 +1,186 @@
+{
+  "titulo": "Presupuesto Técnico-Comercial: Fabricación e Instalación de Pérgola Adosada de Acero Inoxidable (8x8m) - Torret, Sant Lluís",
+  "resumen": "Fabricación a medida e instalación de estructura de pérgola adosada de 8,00 x 8,00 x 2,30 m en acero inoxidable AISI 316 apto para el ambiente salino de Menorca (C4/C5), compuesta por eje central en 'L' (tubo 100x50x3 mm), costillas secundarias (tubo 40x40x3 mm) cada 1 m y perfiles angulares L50x5 mm para soporte perimetral a pared. Incluye soldadura láser en taller y soldadura MMA en obra, imprimación de adherencia para acero inox, pintado con sistema de poliuretano de dos componentes en color Gris Antracita (RAL 7016) y colocación de la tela de coco aportada por la propiedad.",
+  "tipoProducto": "marquesina_pergola",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Toma de medidas, replanteo técnico y planos de taller",
+      "descripcion": "Visita técnica a obra en Torret (Sant Lluís), verificación de desplomes de pared, niveles de solera y desarrollo de despiece para corte y soldadura.",
+      "cantidad": 15,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 525,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Tubo rectangular de acero inoxidable AISI 316 100x50x3 mm",
+      "descripcion": "Perfiles para el eje central estructurado en forma de 'L' (tramo horizontal de 8 m y pilar de apoyo de 2,30 m). Material calidad marina para ambiente salino.",
+      "cantidad": 12,
+      "unidad": "ml",
+      "precioUnitario": 68,
+      "importe": 816,
+      "confianza": "media",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Tubo cuadrado de acero inoxidable AISI 316 40x40x3 mm",
+      "descripcion": "Costillas transversales distribuidas a 1,00 m de separación desde las paredes laterales/posteriores hacia el eje central (18 tramos de 4,00 m aproximadamente).",
+      "cantidad": 76,
+      "unidad": "ml",
+      "precioUnitario": 28,
+      "importe": 2128,
+      "confianza": "media",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Perfil angular de acero inoxidable AISI 316 L50x5 mm",
+      "descripcion": "Angulares de soporte amurados a pared para recepción y descanso de las costillas de tubo 40x40.",
+      "cantidad": 18,
+      "unidad": "ml",
+      "precioUnitario": 22,
+      "importe": 396,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Materiales",
+      "concepto": "Kit de anclaje químico y tornillería de fijación Inox A4",
+      "descripcion": "Tacos químicos con varilla roscada M12 Inox A4 para fijación estructural a pared de obra y placas de base a solera de jardín.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 195,
+      "importe": 195,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller: corte, mecanizado, soldadura láser y repasado",
+      "descripcion": "Corte de perfiles, preparación de cajeados, soldadura láser de precisión con aportación inox en taller, pasivado de cordones y preparación de uniones.",
+      "cantidad": 36,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 1260,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Tratamiento",
+      "concepto": "Imprimación wash-primer/epoxi de adherencia + esmalte de poliuretano alifático Gris Antracita (RAL 7016)",
+      "descripcion": "Tratamiento superficial adecuado para inox en Menorca: chorreado/preparación abrasiva ligera, imprimación epoxi de adherencia especial y acabado con esmalte de poliuretano de 2 componentes apto para exterior C4/C5.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 680,
+      "importe": 680,
+      "confianza": "media",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Transporte",
+      "concepto": "Transporte de material y perfiles de gran longitud a obra en Torret (Sant Lluís)",
+      "descripcion": "Desplazamiento con vehículo adaptado para barras de 8 m de longitud e insumos de montaje.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 140,
+      "importe": 140,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L9",
+      "capitulo": "Montaje",
+      "concepto": "Montaje en obra con soldadura MMA y sujeción de tela de coco",
+      "descripcion": "Instalación de angulares a pared, nivelación y anclaje del eje central, ejecuciones y repasos de unión mediante soldadura MMA (electrodo revestido) en obra, y fijación/tensado de la cubierta de tela de coco suministrada por el cliente.",
+      "cantidad": 24,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 840,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿De qué material está construida la pared donde se amurará el angular L50x5 (muro de piedra marés, hormigón, ladrillo cerámico o termoarcilla)?",
+    "¿La luz horizontal de 8,00 m del tubo central 100x50x3 mm va en un solo tramo sin pilar intermedio? (Se recomienda valorar una viga de mayor canto como 120x60x4 o un pilar central extra para evitar flexión estructural excesiva).",
+    "¿Qué tipo de solera o cimentación existe en el punto de apoyo del pilar central en el jardín para colocar la placa de anclaje?",
+    "¿La tela de coco provista por el cliente incluye ojales o dobladillos para su trincaje a las costillas de la pérgola?"
+  ],
+  "supuestos": [
+    "Ubicación en ambiente marino (Torret, Sant Lluís, Menorca): se prescribe acero inoxidable grado AISI 316 y tornillería A4 para evitar corrosión.",
+    "Se contempla el uso de soldadura láser en taller para alta estética y menor deformación térmica, y soldadura MMA en obra con electrodos específicos para acero inoxidable AISI 316.",
+    "El tubo de 100x50x3 mm en un vano de 8,00 m puede presentar una flecha/deformación visible si se tensiona mucho la tela de coco o si soporta bolsa de agua/viento; el cálculo asume uso de tela permeable sin carga de agua acumulada.",
+    "La tela de coco es aportada íntegramente por el cliente y solo se incluye la mano de obra de su colocación y cinchado inicial.",
+    "Existe acometida eléctrica adecuada a pie de obra para los equipos de soldadura MMA y herramientas de montaje."
+  ],
+  "riesgos": [
+    "Un tubo de 100x50x3 mm en una luz libre de 8,00 m tiene un canto ajustado para cargas de viento moderadas sobre telas tensadas, pudiendo transmitir empujes a los anclajes de pared.",
+    "Si la pared de fijación es de piedra de marés blanda, requerirá tacos químicos de métrica mayor (M16) e inyección en tamiz especial.",
+    "Las uniones soldadas MMA en obra sobre acero inoxidable AISI 316 requieren limpieza cuidadosa y pasivado localizado previo al pintado para prevenir corrosión galvánica o bajo depósito en ambiente de Menorca."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Aumento de sección estructural para vano libre de 8 metros",
+      "detalle": "En luces de 8 m en ambiente exterior de Menorca con vientos frecuentes, la sección 100x50x3 mm resulta justa en inercia. Se aconseja proponer perfil 120x60x4 mm o 150x50x4 mm en AISI 316 para el eje central para garantizar rigidez estética y estructural.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Procedimiento de soldadura combinada Láser (Taller) y MMA (Obra) en Inox 316",
+      "detalle": "Memorizar el criterio de empleo de soldadura láser en taller por su mínima deformación y acabado, combinado con soldadura MMA con electrodo E316L en montaje de obra, asegurando siempre el posterior decapado y pasivado de la zona soldada antes del pintado.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "media"
+    }
+  ],
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Alexandra",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "Torret, 2",
+    "referencia": "Pergola Acero inox"
+  },
+  "tokenUsage": {
+    "inputTokens": 91708,
+    "outputTokens": 2855,
+    "totalTokens": 95252
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 2680,
+    "localBudgetTokens": null,
+    "usedTokens": 3053188,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  }
+}

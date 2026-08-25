@@ -1,0 +1,206 @@
+{
+  "titulo": "Presupuesto Puerta Peatonal de Tubo y Malla Hércules - Menorca",
+  "resumen": "Fabricación y montaje de puerta peatonal a medida de 1.00 x 2.00 m con bastidor de tubo de acero 40x40x2 mm, relleno de malla Hércules, equipada con cerradura de seguridad, 3 bisagras reforzadas y acabado con tratamiento anticorrosivo Oxirón verde carruaje apto para el ambiente salino de Menorca.",
+  "tipoProducto": "Puerta metálica",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Diseño y despiece técnico",
+      "descripcion": "Elaboración de planos de taller, despiece de perfiles y preparación de plantilla de fabricación para puerta a medida.",
+      "cantidad": 1,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 30,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Tubo de acero al carbono 40x40x2 mm",
+      "descripcion": "Perfiles de acero laminado en frío para la formación del bastidor perimetral de la hoja, incluyendo mermas de corte.",
+      "cantidad": 15,
+      "unidad": "kg",
+      "precioUnitario": 1.8,
+      "importe": 27,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Malla Hércules verde carruaje",
+      "descripcion": "Panel de malla electrosoldada rígida tipo Hércules para el relleno del bastidor de la puerta.",
+      "cantidad": 2,
+      "unidad": "m2",
+      "precioUnitario": 25,
+      "importe": 50,
+      "confianza": "media",
+      "origen": "supuesto",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Cerradura de seguridad para exterior",
+      "descripcion": "Cerradura de embutir para exterior con maneta, cilindro de seguridad y juego de llaves.",
+      "cantidad": 1,
+      "unidad": "ud",
+      "precioUnitario": 45,
+      "importe": 45,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Materiales",
+      "concepto": "Bisagras de seguridad reforzadas",
+      "descripcion": "Bisagras de tres cuerpos soldadas al bastidor para garantizar la estabilidad y el correcto giro de la hoja.",
+      "cantidad": 3,
+      "unidad": "ud",
+      "precioUnitario": 12,
+      "importe": 36,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller",
+      "descripcion": "Trabajos de corte a inglete, preparación de perfiles, soldadura MIG/MAG del bastidor, fijación de malla y herrajes.",
+      "cantidad": 4,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 120,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Tratamiento",
+      "concepto": "Tratamiento anticorrosivo Oxirón Verde Carruaje",
+      "descripcion": "Preparación superficial mediante desengrasado, aplicación de imprimación epoxi rica en zinc (C4) y acabado con esmalte Oxirón verde carruaje.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 85,
+      "importe": 85,
+      "confianza": "media",
+      "origen": "supuesto",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Transporte",
+      "concepto": "Transporte local en Menorca",
+      "descripcion": "Porte y entrega de la puerta terminada a pie de obra en Menorca.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 45,
+      "importe": 45,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L9",
+      "capitulo": "Montaje",
+      "concepto": "Instalación en obra",
+      "descripcion": "Trabajos de replanteo, fijación de bisagras a soporte existente, colgado de la hoja, ajuste de cerradura y remates de pintura.",
+      "cantidad": 3,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 90,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L10",
+      "capitulo": "Margen",
+      "concepto": "Margen de gestión y mermas",
+      "descripcion": "Margen comercial de gestión de compras, coordinación técnica y mermas de consumibles de taller.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 50,
+      "importe": 50,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿Cuáles son las dimensiones exactas del hueco de la puerta (ancho x alto)?",
+    "¿La puerta se anclará a pilares metálicos existentes, pilares de obra o requiere que fabriquemos postes de soporte adicionales?",
+    "¿El sentido de apertura de la puerta es hacia el interior o exterior, y hacia la derecha o izquierda?",
+    "¿La ubicación de la instalación está en primera línea de mar o zona de alta exposición salina para valorar bisagras y tornillería en acero inoxidable AISI 316?"
+  ],
+  "supuestos": [
+    "Se asume una dimensión estándar de puerta peatonal de 1.00 m de ancho por 2.00 m de alto para la estimación de materiales y horas.",
+    "Se asume que existen pilares o soportes firmes y aplomados donde fijar las bisagras y el recibidor de la cerradura.",
+    "Se incluye tratamiento anticorrosivo de alta resistencia (C4) con imprimación epoxi y acabado Oxirón verde carruaje, adecuado para el clima de Menorca."
+  ],
+  "riesgos": [
+    "Corrosión prematura si la puerta se instala en primera línea de mar sin herrajes ni bisagras de acero inoxidable AISI 316.",
+    "Desajustes en la apertura si los pilares existentes no están perfectamente aplomados o sufren movimientos estructurales.",
+    "Variación de costes si las medidas reales en obra difieren significativamente de las asumidas (1.00 x 2.00 m)."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Uso de bisagras de acero inoxidable AISI 316",
+      "detalle": "Para evitar la oxidación prematura en el ambiente salino de Menorca, se recomienda sustituir las bisagras de acero al carbono por bisagras de acero inoxidable AISI 316.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Galvanizado en caliente previo al pintado",
+      "detalle": "Si la puerta va a estar muy expuesta a la intemperie, se sugiere realizar un proceso de galvanizado en caliente antes de aplicar el acabado Oxirón para garantizar una durabilidad superior a 10 años sin mantenimiento.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "media"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 68219,
+    "outputTokens": 2093,
+    "totalTokens": 73025
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash",
+    "estimatedInputTokens": 28,
+    "localBudgetTokens": null,
+    "usedTokens": 222144,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "giovanna",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  },
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Puerta Peatonal de Tubo y Malla Hércules - Menorca\nTipo: Puerta metálica\nResumen: Fabricación y montaje de puerta peatonal a medida de 1.00 x 2.00 m con bastidor de tubo de acero 40x40x2 mm, relleno de malla Hércules, equipada con cerradura de seguridad, 3 bisagras reforzadas y acabado con tratamiento anticorrosivo Oxirón verde carruaje apto para el ambiente salino de Menorca.\nCliente/obra: Menorca\nPartidas principales:\n- Diseno: Diseño y despiece técnico. Elaboración de planos de taller, despiece de perfiles y preparación de plantilla de fabricación para puerta a medida.. 1 h\n- Materiales: Tubo de acero al carbono 40x40x2 mm. Perfiles de acero laminado en frío para la formación del bastidor perimetral de la hoja, incluyendo mermas de corte.. 15 kg\n- Materiales: Malla Hércules verde carruaje. Panel de malla electrosoldada rígida tipo Hércules para el relleno del bastidor de la puerta.. 2 m2\n- Materiales: Cerradura de seguridad para exterior. Cerradura de embutir para exterior con maneta, cilindro de seguridad y juego de llaves.. 1 ud\n- Materiales: Bisagras de seguridad reforzadas. Bisagras de tres cuerpos soldadas al bastidor para garantizar la estabilidad y el correcto giro de la hoja.. 3 ud\n- Fabricacion: Mano de obra de taller. Trabajos de corte a inglete, preparación de perfiles, soldadura MIG/MAG del bastidor, fijación de malla y herrajes.. 4 h\n- Tratamiento: Tratamiento anticorrosivo Oxirón Verde Carruaje. Preparación superficial mediante desengrasado, aplicación de imprimación epoxi rica en zinc (C4) y acabado con esmalte Oxirón verde carruaje.. 1 lote\n- Transporte: Transporte local en Menorca. Porte y entrega de la puerta terminada a pie de obra en Menorca.. 1 lote\n- Montaje: Instalación en obra. Trabajos de replanteo, fijación de bisagras a soporte existente, colgado de la hoja, ajuste de cerradura y remates de pintura.. 3 h\n- Margen: Margen de gestión y mermas. Margen comercial de gestión de compras, coordinación técnica y mermas de consumibles de taller.. 1 lote\n\nEstilo visual:\n- Imagen horizontal, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-07-21T13:45:00.902Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa32595/1XZ76zs-Gdhwl0rDlEHgZ.png",
+  "_folder": "presupuestos/P-2026-0014-presupuesto-puerta-peatonal-de-tubo-y-malla-hercules-menorca"
+}

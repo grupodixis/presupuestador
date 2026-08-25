@@ -1,0 +1,215 @@
+{
+  "titulo": "Presupuesto Técnico: Fabricación e Instalación de Escalera y Barandillas en Acero Inoxidable (AISI 316) con Peldaños Tramex Galvanizados",
+  "resumen": "Fabricación e instalación a medida de escalera de acceso a plataforma de 1.5 m de altura y 2.0 m de desarrollo horizontal en Menorca. Incluye zancas en tubo rectangular 80x40x2 mm en inox AISI 316, soportes en L40x4 mm, peldaños de entramado metálico (Tramex) en acero galvanizado en caliente y barandilla lateral a ambos lados, con acabado pintado en color blanco sobre la estructura de acero inoxidable.",
+  "tipoProducto": "Escalera metálica con barandilla integrada",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Toma de medidas, replanteo y diseño técnico de despiece",
+      "descripcion": "Medición in situ, cálculo geométrico de huella/contrahuella y planos de taller para corte y preparación de zancas y barandillas.",
+      "cantidad": 4,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 140,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Tubo rectangular inoxidable AISI 316 80x40x2 mm",
+      "descripcion": "Estructura principal de zancas laterales (longitud de desarrollo inclinado ~2.5 m por zanca).",
+      "cantidad": 6,
+      "unidad": "ml",
+      "precioUnitario": 26,
+      "importe": 156,
+      "confianza": "alta",
+      "origen": "costes-materiales",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Perfil angular inoxidable AISI 316 L40x4 mm",
+      "descripcion": "Soportes laterales para fijación y rigidización de peldaños (aprox. 8 peldaños).",
+      "cantidad": 6,
+      "unidad": "ml",
+      "precioUnitario": 12,
+      "importe": 72,
+      "confianza": "alta",
+      "origen": "costes-materiales",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Peldaños de entramado metálico (Tramex) galvanizado en caliente",
+      "descripcion": "Peldaños en rejilla electrofundida/Tramex de acero galvanizado en caliente con pletina perforada lateral para fijación y frontal antideslizante (ancho útil 900 mm).",
+      "cantidad": 8,
+      "unidad": "ud",
+      "precioUnitario": 70,
+      "importe": 560,
+      "confianza": "alta",
+      "origen": "skill_escaleras.md",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Materiales",
+      "concepto": "Tubo redondo inoxidable AISI 316 Ø43x2 mm",
+      "descripcion": "Pasamanos superior para barandillas laterales a ambos lados (2 tramos de 2.5 m).",
+      "cantidad": 6,
+      "unidad": "ml",
+      "precioUnitario": 18,
+      "importe": 108,
+      "confianza": "alta",
+      "origen": "costes-materiales",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Materiales",
+      "concepto": "Pletina inoxidable AISI 316 40x10 mm",
+      "descripcion": "Montantes verticales de barandilla h=1.0 m (3 soportes por lado).",
+      "cantidad": 6,
+      "unidad": "ml",
+      "precioUnitario": 22,
+      "importe": 132,
+      "confianza": "alta",
+      "origen": "costes-materiales",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Materiales",
+      "concepto": "Tubo redondo inoxidable AISI 316 Ø20x1.5 mm",
+      "descripcion": "Barras horizontales intermedias de protección (2 líneas por barandilla x 2 lados).",
+      "cantidad": 12,
+      "unidad": "ml",
+      "precioUnitario": 15,
+      "importe": 180,
+      "confianza": "alta",
+      "origen": "costes-materiales",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Materiales",
+      "concepto": "Tornillería A4, anclajes químicos y consumibles",
+      "descripcion": "Tornillería inoxidable calidad A4, tacos químicos con varilla M12 A4.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 135,
+      "importe": 135,
+      "confianza": "media",
+      "origen": "supuesto",
+      "editable": true
+    },
+    {
+      "id": "L9",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller (corte, armado y soldadura TIG)",
+      "descripcion": "Fabricación completa de zancas, preparación de ángulos, peldaños y ensamble de barandillas laterales.",
+      "cantidad": 20,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 700,
+      "confianza": "alta",
+      "origen": "skill_escaleras.md",
+      "editable": true
+    },
+    {
+      "id": "L10",
+      "capitulo": "Tratamiento",
+      "concepto": "Imprimación especial y lacado/pintado en blanco blanco de la estructura de inox",
+      "descripcion": "Tratamiento superficial de pintado sobre acero inoxidable compuesto por lijado/imprimación de adherencia epoxi y acabado en esmalte de poliuretano blanco apto para ambiente marino (C4/C5).",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 280,
+      "importe": 280,
+      "confianza": "alta",
+      "origen": "skill_tratamientos_superficiales.md",
+      "editable": true
+    },
+    {
+      "id": "L11",
+      "capitulo": "Transporte",
+      "concepto": "Transporte local de material y estructura ensamblada en Menorca",
+      "descripcion": "Porte de elementos de taller a obra en la isla de Menorca.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 90,
+      "importe": 90,
+      "confianza": "alta",
+      "origen": "costes-transporte.json",
+      "editable": true
+    },
+    {
+      "id": "L12",
+      "capitulo": "Montaje",
+      "concepto": "Mano de obra de instalación en obra y anclajes",
+      "descripcion": "Posicionado, aplomado, nivelación y anclaje químico en plataforma y solera existente (2 operarios x 5h).",
+      "cantidad": 10,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 350,
+      "confianza": "alta",
+      "origen": "skill_montaje_en_obra.md",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿Se requiere un código de color RAL específico para el acabado blanco (ej. RAL 9010, RAL 9016)?",
+    "¿Cuál es el ancho útil de paso deseado para la escalera (se han asumido 900 mm)?",
+    "¿La plataforma superior a la que se accede es de acero, hormigón o madera para prever las platinas de unión?"
+  ],
+  "supuestos": [
+    "Estructura y barandillas presupuestadas en Acero Inoxidable AISI 316 (A4) pintado en color blanco con imprimación de adherencia especial para inox en ambiente salino de Menorca.",
+    "Los peldaños son de acero galvanizado en caliente tipo Tramex sin pintar.",
+    "La solera de apoyo y la estructura de la plataforma existente son lo suficientemente resistentes para absorber las cargas mecánicas de la escalera.",
+    "El ancho útil de la escalera considerado es de 900 mm."
+  ],
+  "riesgos": [
+    "Pintura sobre acero inoxidable: requiere una rigurosa preparación superficial (mordentado/imprimación de promotor de adherencia epoxi) para evitar desconchados en ambiente marino.",
+    "Posible corrosión galvánica en el contacto directo entre las zancas/soportes de Inox y los peldaños de acero galvanizado. Se recomienda colocar arandelas o aislamiento de neopreno/EPDM en las uniones atornilladas."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Imprimación de agarre especial sobre Inox",
+      "detalle": "Al pintar acero inoxidable AISI 316 en exteriores de Menorca, emplear imprimación epoxi reactiva de 2 componentes (wash primer/promotor de adherencia) antes del poliuretano blanco para garantizar la durabilidad del recubrimiento.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 89973,
+    "outputTokens": 2458,
+    "totalTokens": 93124
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 2834,
+    "localBudgetTokens": null,
+    "usedTokens": 1944288,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Acciona Aguas",
+    "email": "",
+    "telefono": "",
+    "nif": "A95113361",
+    "direccion": "",
+    "referencia": ""
+  }
+}

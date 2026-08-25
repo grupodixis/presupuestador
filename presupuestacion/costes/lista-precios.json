@@ -1,25 +1,25 @@
 {
-  "updatedAt": "2026-08-12T09:22:45.556Z",
+  "updatedAt": "2026-08-12T11:34:38.802Z",
   "prices": [
     {
-      "id": 148,
+      "id": 147,
       "category": "mano_obra",
       "area": "aluminio",
       "name": "Mano de obra carpinteria aluminio",
       "description": "Referencia historico Mallorquinas Cortizo",
       "unit": "h",
-      "costPrice": 35,
-      "salePrice": 35,
-      "marginPercent": 0,
+      "costPrice": 30,
+      "salePrice": 40,
+      "marginPercent": 33.33,
       "supplier": "",
       "confidence": "estimado",
       "notes": "historico-mallorquinas-cortizo.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.554Z",
-      "updatedAt": "2026-08-12T09:22:45.554Z"
+      "createdAt": "2026-08-12T09:23:16.182Z",
+      "updatedAt": "2026-08-12T09:33:26.661Z"
     },
     {
-      "id": 138,
+      "id": 137,
       "category": "material",
       "area": "aluminio",
       "name": "04.AC.R150 Carril acero inox",
@@ -32,11 +32,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.403Z",
-      "updatedAt": "2026-08-12T09:22:45.403Z"
+      "createdAt": "2026-08-12T09:23:14.617Z",
+      "updatedAt": "2026-08-12T09:23:14.617Z"
     },
     {
-      "id": 139,
+      "id": 138,
       "category": "material",
       "area": "aluminio",
       "name": "04.AC.R150 Carril acero inox por ml",
@@ -49,11 +49,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.415Z",
-      "updatedAt": "2026-08-12T09:22:45.415Z"
+      "createdAt": "2026-08-12T09:23:14.756Z",
+      "updatedAt": "2026-08-12T09:23:14.756Z"
     },
     {
-      "id": 140,
+      "id": 139,
       "category": "material",
       "area": "aluminio",
       "name": "10320 Solape 40 mm atornillado",
@@ -66,11 +66,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.426Z",
-      "updatedAt": "2026-08-12T09:22:45.426Z"
+      "createdAt": "2026-08-12T09:23:14.897Z",
+      "updatedAt": "2026-08-12T09:23:14.897Z"
     },
     {
-      "id": 141,
+      "id": 140,
       "category": "material",
       "area": "aluminio",
       "name": "10320 Solape 40 mm atornillado por ml",
@@ -83,11 +83,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.438Z",
-      "updatedAt": "2026-08-12T09:22:45.438Z"
+      "createdAt": "2026-08-12T09:23:15.039Z",
+      "updatedAt": "2026-08-12T09:23:15.039Z"
     },
     {
-      "id": 130,
+      "id": 129,
       "category": "material",
       "area": "aluminio",
       "name": "16341 Cierre lateral E150",
@@ -100,11 +100,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.286Z",
-      "updatedAt": "2026-08-12T09:22:45.286Z"
+      "createdAt": "2026-08-12T09:23:13.309Z",
+      "updatedAt": "2026-08-12T09:23:13.309Z"
     },
     {
-      "id": 131,
+      "id": 130,
       "category": "material",
       "area": "aluminio",
       "name": "16341 Cierre lateral E150 por ml",
@@ -117,11 +117,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.299Z",
-      "updatedAt": "2026-08-12T09:22:45.299Z"
+      "createdAt": "2026-08-12T09:23:13.493Z",
+      "updatedAt": "2026-08-12T09:23:13.493Z"
     },
     {
-      "id": 132,
+      "id": 131,
       "category": "material",
       "area": "aluminio",
       "name": "16342 Tapa canal E150",
@@ -134,11 +134,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.311Z",
-      "updatedAt": "2026-08-12T09:22:45.311Z"
+      "createdAt": "2026-08-12T09:23:13.633Z",
+      "updatedAt": "2026-08-12T09:23:13.633Z"
     },
     {
-      "id": 133,
+      "id": 132,
       "category": "material",
       "area": "aluminio",
       "name": "16342 Tapa canal E150 por ml",
@@ -151,11 +151,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.322Z",
-      "updatedAt": "2026-08-12T09:22:45.322Z"
+      "createdAt": "2026-08-12T09:23:13.797Z",
+      "updatedAt": "2026-08-12T09:23:13.797Z"
     },
     {
-      "id": 134,
+      "id": 133,
       "category": "material",
       "area": "aluminio",
       "name": "16343 Tapa marco E150",
@@ -168,11 +168,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.357Z",
-      "updatedAt": "2026-08-12T09:22:45.357Z"
+      "createdAt": "2026-08-12T09:23:13.956Z",
+      "updatedAt": "2026-08-12T09:23:13.956Z"
     },
     {
-      "id": 135,
+      "id": 134,
       "category": "material",
       "area": "aluminio",
       "name": "16343 Tapa marco E150 por ml",
@@ -185,11 +185,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.368Z",
-      "updatedAt": "2026-08-12T09:22:45.368Z"
+      "createdAt": "2026-08-12T09:23:14.126Z",
+      "updatedAt": "2026-08-12T09:23:14.126Z"
     },
     {
-      "id": 136,
+      "id": 135,
       "category": "material",
       "area": "aluminio",
       "name": "16347 Hoja central E150",
@@ -202,11 +202,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.379Z",
-      "updatedAt": "2026-08-12T09:22:45.379Z"
+      "createdAt": "2026-08-12T09:23:14.286Z",
+      "updatedAt": "2026-08-12T09:23:14.286Z"
     },
     {
-      "id": 137,
+      "id": 136,
       "category": "material",
       "area": "aluminio",
       "name": "16347 Hoja central E150 por ml",
@@ -219,11 +219,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.391Z",
-      "updatedAt": "2026-08-12T09:22:45.391Z"
+      "createdAt": "2026-08-12T09:23:14.440Z",
+      "updatedAt": "2026-08-12T09:23:14.440Z"
     },
     {
-      "id": 15,
+      "id": 14,
       "category": "material",
       "area": "aluminio",
       "name": "anodizado",
@@ -236,11 +236,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.819Z",
-      "updatedAt": "2026-08-12T09:22:43.819Z"
+      "createdAt": "2026-08-12T09:22:57.886Z",
+      "updatedAt": "2026-08-12T09:22:57.886Z"
     },
     {
-      "id": 143,
+      "id": 142,
       "category": "material",
       "area": "aluminio",
       "name": "Carpinteria corredera E150 solo perfiles",
@@ -253,11 +253,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.482Z",
-      "updatedAt": "2026-08-12T09:22:45.482Z"
+      "createdAt": "2026-08-12T09:23:15.374Z",
+      "updatedAt": "2026-08-12T09:23:15.374Z"
     },
     {
-      "id": 76,
+      "id": 75,
       "category": "material",
       "area": "aluminio",
       "name": "Chapa de aluminio lacado",
@@ -270,11 +270,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.620Z",
-      "updatedAt": "2026-08-12T09:22:44.620Z"
+      "createdAt": "2026-08-12T09:23:05.332Z",
+      "updatedAt": "2026-08-12T09:23:05.332Z"
     },
     {
-      "id": 75,
+      "id": 74,
       "category": "material",
       "area": "aluminio",
       "name": "Chapa de aluminio liso",
@@ -287,11 +287,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.601Z",
-      "updatedAt": "2026-08-12T09:22:44.601Z"
+      "createdAt": "2026-08-12T09:23:05.200Z",
+      "updatedAt": "2026-08-12T09:23:05.200Z"
     },
     {
-      "id": 16,
+      "id": 15,
       "category": "material",
       "area": "aluminio",
       "name": "doble acristalamiento 4 12 4",
@@ -304,11 +304,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.844Z",
-      "updatedAt": "2026-08-12T09:22:43.844Z"
+      "createdAt": "2026-08-12T09:22:58.016Z",
+      "updatedAt": "2026-08-12T09:22:58.016Z"
     },
     {
-      "id": 78,
+      "id": 77,
       "category": "material",
       "area": "aluminio",
       "name": "Doble acristalamiento 4+12+4",
@@ -321,11 +321,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.634Z",
-      "updatedAt": "2026-08-12T09:22:44.634Z"
+      "createdAt": "2026-08-12T09:23:05.621Z",
+      "updatedAt": "2026-08-12T09:23:05.621Z"
     },
     {
-      "id": 17,
+      "id": 16,
       "category": "material",
       "area": "aluminio",
       "name": "doble bajo emisivo",
@@ -338,11 +338,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.850Z",
-      "updatedAt": "2026-08-12T09:22:43.850Z"
+      "createdAt": "2026-08-12T09:22:58.114Z",
+      "updatedAt": "2026-08-12T09:22:58.114Z"
     },
     {
-      "id": 79,
+      "id": 78,
       "category": "material",
       "area": "aluminio",
       "name": "Doble bajo emisivo 4+12+4",
@@ -355,11 +355,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.641Z",
-      "updatedAt": "2026-08-12T09:22:44.641Z"
+      "createdAt": "2026-08-12T09:23:05.766Z",
+      "updatedAt": "2026-08-12T09:23:05.766Z"
     },
     {
-      "id": 14,
+      "id": 13,
       "category": "material",
       "area": "aluminio",
       "name": "lacado color RAL",
@@ -372,11 +372,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.815Z",
-      "updatedAt": "2026-08-12T09:22:43.815Z"
+      "createdAt": "2026-08-12T09:22:57.785Z",
+      "updatedAt": "2026-08-12T09:22:57.785Z"
     },
     {
-      "id": 20,
+      "id": 19,
       "category": "material",
       "area": "aluminio",
       "name": "laminar seguridad",
@@ -389,11 +389,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.874Z",
-      "updatedAt": "2026-08-12T09:22:43.874Z"
+      "createdAt": "2026-08-12T09:22:58.423Z",
+      "updatedAt": "2026-08-12T09:22:58.423Z"
     },
     {
-      "id": 145,
+      "id": 144,
       "category": "material",
       "area": "aluminio",
       "name": "Mallorquina Cortizo blanca coste neto historico",
@@ -406,11 +406,11 @@
       "confidence": "antiguo",
       "notes": "historico-mallorquinas-cortizo.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.503Z",
-      "updatedAt": "2026-08-12T09:22:45.503Z"
+      "createdAt": "2026-08-12T09:23:15.696Z",
+      "updatedAt": "2026-08-12T09:23:15.696Z"
     },
     {
-      "id": 147,
+      "id": 146,
       "category": "material",
       "area": "aluminio",
       "name": "Mallorquina Cortizo blanca suministro prudente alto",
@@ -423,11 +423,11 @@
       "confidence": "estimado",
       "notes": "historico-mallorquinas-cortizo.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.545Z",
-      "updatedAt": "2026-08-12T09:22:45.545Z"
+      "createdAt": "2026-08-12T09:23:16.034Z",
+      "updatedAt": "2026-08-12T09:23:16.034Z"
     },
     {
-      "id": 146,
+      "id": 145,
       "category": "material",
       "area": "aluminio",
       "name": "Mallorquina Cortizo blanca suministro prudente bajo",
@@ -440,11 +440,11 @@
       "confidence": "estimado",
       "notes": "historico-mallorquinas-cortizo.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.514Z",
-      "updatedAt": "2026-08-12T09:22:45.514Z"
+      "createdAt": "2026-08-12T09:23:15.881Z",
+      "updatedAt": "2026-08-12T09:23:15.881Z"
     },
     {
-      "id": 77,
+      "id": 76,
       "category": "material",
       "area": "aluminio",
       "name": "Panel composite (Dibond / Alucobond)",
@@ -457,11 +457,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.627Z",
-      "updatedAt": "2026-08-12T09:22:44.627Z"
+      "createdAt": "2026-08-12T09:23:05.471Z",
+      "updatedAt": "2026-08-12T09:23:05.471Z"
     },
     {
-      "id": 85,
+      "id": 84,
       "category": "material",
       "area": "aluminio",
       "name": "Pasamanos haya / fresno",
@@ -474,11 +474,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.705Z",
-      "updatedAt": "2026-08-12T09:22:44.705Z"
+      "createdAt": "2026-08-12T09:23:06.617Z",
+      "updatedAt": "2026-08-12T09:23:06.617Z"
     },
     {
-      "id": 87,
+      "id": 86,
       "category": "material",
       "area": "aluminio",
       "name": "Pasamanos iroko / teca (exterior)",
@@ -491,11 +491,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.721Z",
-      "updatedAt": "2026-08-12T09:22:44.721Z"
+      "createdAt": "2026-08-12T09:23:06.916Z",
+      "updatedAt": "2026-08-12T09:23:06.916Z"
     },
     {
-      "id": 86,
+      "id": 85,
       "category": "material",
       "area": "aluminio",
       "name": "Pasamanos roble macizo",
@@ -508,11 +508,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.713Z",
-      "updatedAt": "2026-08-12T09:22:44.713Z"
+      "createdAt": "2026-08-12T09:23:06.755Z",
+      "updatedAt": "2026-08-12T09:23:06.755Z"
     },
     {
-      "id": 144,
+      "id": 143,
       "category": "material",
       "area": "aluminio",
       "name": "Perfil EXTRUAL por peso neto unidad",
@@ -525,11 +525,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.492Z",
-      "updatedAt": "2026-08-12T09:22:45.492Z"
+      "createdAt": "2026-08-12T09:23:15.534Z",
+      "updatedAt": "2026-08-12T09:23:15.534Z"
     },
     {
-      "id": 13,
+      "id": 12,
       "category": "material",
       "area": "aluminio",
       "name": "perfil extrusion con RPT",
@@ -542,11 +542,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.799Z",
-      "updatedAt": "2026-08-12T09:22:43.799Z"
+      "createdAt": "2026-08-12T09:22:57.637Z",
+      "updatedAt": "2026-08-12T09:22:57.637Z"
     },
     {
-      "id": 12,
+      "id": 11,
       "category": "material",
       "area": "aluminio",
       "name": "perfil extrusion sin RPT",
@@ -559,11 +559,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.766Z",
-      "updatedAt": "2026-08-12T09:22:43.766Z"
+      "createdAt": "2026-08-12T09:22:57.527Z",
+      "updatedAt": "2026-08-12T09:22:57.527Z"
     },
     {
-      "id": 71,
+      "id": 70,
       "category": "material",
       "area": "aluminio",
       "name": "Perfil extrusión estándar (sin RPT)",
@@ -576,11 +576,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.538Z",
-      "updatedAt": "2026-08-12T09:22:44.538Z"
+      "createdAt": "2026-08-12T09:23:04.640Z",
+      "updatedAt": "2026-08-12T09:23:04.640Z"
     },
     {
-      "id": 72,
+      "id": 71,
       "category": "material",
       "area": "aluminio",
       "name": "Perfil extrusión RPT",
@@ -593,11 +593,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.569Z",
-      "updatedAt": "2026-08-12T09:22:44.569Z"
+      "createdAt": "2026-08-12T09:23:04.768Z",
+      "updatedAt": "2026-08-12T09:23:04.768Z"
     },
     {
-      "id": 142,
+      "id": 141,
       "category": "material",
       "area": "aluminio",
       "name": "Perfileria EXTRUAL lacada blanca comprada",
@@ -610,11 +610,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.448Z",
-      "updatedAt": "2026-08-12T09:22:45.448Z"
+      "createdAt": "2026-08-12T09:23:15.219Z",
+      "updatedAt": "2026-08-12T09:23:15.219Z"
     },
     {
-      "id": 122,
+      "id": 121,
       "category": "material",
       "area": "aluminio",
       "name": "R941 Marco 2 carriles E150",
@@ -627,11 +627,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.196Z",
-      "updatedAt": "2026-08-12T09:22:45.196Z"
+      "createdAt": "2026-08-12T09:23:12.097Z",
+      "updatedAt": "2026-08-12T09:23:12.097Z"
     },
     {
-      "id": 123,
+      "id": 122,
       "category": "material",
       "area": "aluminio",
       "name": "R941 Marco 2 carriles E150 por ml",
@@ -644,11 +644,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.206Z",
-      "updatedAt": "2026-08-12T09:22:45.206Z"
+      "createdAt": "2026-08-12T09:23:12.252Z",
+      "updatedAt": "2026-08-12T09:23:12.252Z"
     },
     {
-      "id": 124,
+      "id": 123,
       "category": "material",
       "area": "aluminio",
       "name": "R943 Hoja lateral E150",
@@ -661,11 +661,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.218Z",
-      "updatedAt": "2026-08-12T09:22:45.218Z"
+      "createdAt": "2026-08-12T09:23:12.408Z",
+      "updatedAt": "2026-08-12T09:23:12.408Z"
     },
     {
-      "id": 125,
+      "id": 124,
       "category": "material",
       "area": "aluminio",
       "name": "R943 Hoja lateral E150 por ml",
@@ -678,11 +678,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.233Z",
-      "updatedAt": "2026-08-12T09:22:45.233Z"
+      "createdAt": "2026-08-12T09:23:12.569Z",
+      "updatedAt": "2026-08-12T09:23:12.569Z"
     },
     {
-      "id": 126,
+      "id": 125,
       "category": "material",
       "area": "aluminio",
       "name": "R945 Hoja superior/inferior E150",
@@ -695,11 +695,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.244Z",
-      "updatedAt": "2026-08-12T09:22:45.244Z"
+      "createdAt": "2026-08-12T09:23:12.711Z",
+      "updatedAt": "2026-08-12T09:23:12.711Z"
     },
     {
-      "id": 127,
+      "id": 126,
       "category": "material",
       "area": "aluminio",
       "name": "R945 Hoja superior/inferior E150 por ml",
@@ -712,11 +712,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.255Z",
-      "updatedAt": "2026-08-12T09:22:45.255Z"
+      "createdAt": "2026-08-12T09:23:12.866Z",
+      "updatedAt": "2026-08-12T09:23:12.866Z"
     },
     {
-      "id": 128,
+      "id": 127,
       "category": "material",
       "area": "aluminio",
       "name": "R946 Cierre 4 hojas E150",
@@ -729,11 +729,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.265Z",
-      "updatedAt": "2026-08-12T09:22:45.265Z"
+      "createdAt": "2026-08-12T09:23:13.007Z",
+      "updatedAt": "2026-08-12T09:23:13.007Z"
     },
     {
-      "id": 129,
+      "id": 128,
       "category": "material",
       "area": "aluminio",
       "name": "R946 Cierre 4 hojas E150 por ml",
@@ -746,11 +746,11 @@
       "confidence": "antiguo",
       "notes": "historico-aluminio-extrual.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.277Z",
-      "updatedAt": "2026-08-12T09:22:45.277Z"
+      "createdAt": "2026-08-12T09:23:13.168Z",
+      "updatedAt": "2026-08-12T09:23:13.168Z"
     },
     {
-      "id": 88,
+      "id": 87,
       "category": "material",
       "area": "aluminio",
       "name": "Tabla de madera para peldaños",
@@ -763,11 +763,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.728Z",
-      "updatedAt": "2026-08-12T09:22:44.728Z"
+      "createdAt": "2026-08-12T09:23:07.050Z",
+      "updatedAt": "2026-08-12T09:23:07.050Z"
     },
     {
-      "id": 19,
+      "id": 18,
       "category": "material",
       "area": "aluminio",
       "name": "templado seguridad 6mm",
@@ -780,11 +780,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.870Z",
-      "updatedAt": "2026-08-12T09:22:43.870Z"
+      "createdAt": "2026-08-12T09:22:58.316Z",
+      "updatedAt": "2026-08-12T09:22:58.316Z"
     },
     {
-      "id": 18,
+      "id": 17,
       "category": "material",
       "area": "aluminio",
       "name": "triple acristalamiento",
@@ -797,11 +797,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.855Z",
-      "updatedAt": "2026-08-12T09:22:43.855Z"
+      "createdAt": "2026-08-12T09:22:58.220Z",
+      "updatedAt": "2026-08-12T09:22:58.220Z"
     },
     {
-      "id": 80,
+      "id": 79,
       "category": "material",
       "area": "aluminio",
       "name": "Triple acristalamiento",
@@ -814,11 +814,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.666Z",
-      "updatedAt": "2026-08-12T09:22:44.666Z"
+      "createdAt": "2026-08-12T09:23:05.906Z",
+      "updatedAt": "2026-08-12T09:23:05.906Z"
     },
     {
-      "id": 74,
+      "id": 73,
       "category": "material",
       "area": "aluminio",
       "name": "Tubo cuadrado / rectangular aluminio",
@@ -831,11 +831,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.593Z",
-      "updatedAt": "2026-08-12T09:22:44.593Z"
+      "createdAt": "2026-08-12T09:23:05.050Z",
+      "updatedAt": "2026-08-12T09:23:05.050Z"
     },
     {
-      "id": 73,
+      "id": 72,
       "category": "material",
       "area": "aluminio",
       "name": "Tubo redondo aluminio",
@@ -848,11 +848,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.586Z",
-      "updatedAt": "2026-08-12T09:22:44.586Z"
+      "createdAt": "2026-08-12T09:23:04.913Z",
+      "updatedAt": "2026-08-12T09:23:04.913Z"
     },
     {
-      "id": 82,
+      "id": 81,
       "category": "material",
       "area": "aluminio",
       "name": "Vidrio laminar seguridad (PVB)",
@@ -865,11 +865,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.682Z",
-      "updatedAt": "2026-08-12T09:22:44.682Z"
+      "createdAt": "2026-08-12T09:23:06.204Z",
+      "updatedAt": "2026-08-12T09:23:06.204Z"
     },
     {
-      "id": 84,
+      "id": 83,
       "category": "material",
       "area": "aluminio",
       "name": "Vidrio reflectante / espejo",
@@ -882,11 +882,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.697Z",
-      "updatedAt": "2026-08-12T09:22:44.697Z"
+      "createdAt": "2026-08-12T09:23:06.487Z",
+      "updatedAt": "2026-08-12T09:23:06.487Z"
     },
     {
-      "id": 83,
+      "id": 82,
       "category": "material",
       "area": "aluminio",
       "name": "Vidrio serigrafiado",
@@ -899,11 +899,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.690Z",
-      "updatedAt": "2026-08-12T09:22:44.690Z"
+      "createdAt": "2026-08-12T09:23:06.356Z",
+      "updatedAt": "2026-08-12T09:23:06.356Z"
     },
     {
-      "id": 81,
+      "id": 80,
       "category": "material",
       "area": "aluminio",
       "name": "Vidrio templado seguridad 6 mm",
@@ -916,11 +916,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.675Z",
-      "updatedAt": "2026-08-12T09:22:44.675Z"
+      "createdAt": "2026-08-12T09:23:06.073Z",
+      "updatedAt": "2026-08-12T09:23:06.073Z"
     },
     {
-      "id": 21,
+      "id": 20,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "disco corte acero",
@@ -933,11 +933,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.901Z",
-      "updatedAt": "2026-08-12T09:22:43.901Z"
+      "createdAt": "2026-08-12T09:22:58.530Z",
+      "updatedAt": "2026-08-12T09:22:58.530Z"
     },
     {
-      "id": 22,
+      "id": 21,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "disco corte inox",
@@ -950,11 +950,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.906Z",
-      "updatedAt": "2026-08-12T09:22:43.906Z"
+      "createdAt": "2026-08-12T09:22:58.638Z",
+      "updatedAt": "2026-08-12T09:22:58.638Z"
     },
     {
-      "id": 89,
+      "id": 88,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "Disco de corte para acero (Ø230)",
@@ -967,11 +967,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.760Z",
-      "updatedAt": "2026-08-12T09:22:44.760Z"
+      "createdAt": "2026-08-12T09:23:07.177Z",
+      "updatedAt": "2026-08-12T09:23:07.177Z"
     },
     {
-      "id": 90,
+      "id": 89,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "Disco de corte para inoxidable (Ø230)",
@@ -984,11 +984,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.768Z",
-      "updatedAt": "2026-08-12T09:22:44.768Z"
+      "createdAt": "2026-08-12T09:23:07.306Z",
+      "updatedAt": "2026-08-12T09:23:07.306Z"
     },
     {
-      "id": 91,
+      "id": 90,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "Disco de desbaste (Ø230)",
@@ -1001,11 +1001,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.777Z",
-      "updatedAt": "2026-08-12T09:22:44.777Z"
+      "createdAt": "2026-08-12T09:23:07.438Z",
+      "updatedAt": "2026-08-12T09:23:07.438Z"
     },
     {
-      "id": 25,
+      "id": 24,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "electrodo rutilico",
@@ -1018,11 +1018,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.938Z",
-      "updatedAt": "2026-08-12T09:22:43.938Z"
+      "createdAt": "2026-08-12T09:22:58.939Z",
+      "updatedAt": "2026-08-12T09:22:58.939Z"
     },
     {
-      "id": 94,
+      "id": 93,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "Electrodo rutilico Ø2.5 (5 kg)",
@@ -1035,11 +1035,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.840Z",
-      "updatedAt": "2026-08-12T09:22:44.840Z"
+      "createdAt": "2026-08-12T09:23:07.897Z",
+      "updatedAt": "2026-08-12T09:23:07.897Z"
     },
     {
-      "id": 96,
+      "id": 95,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "Gas Argón puro (botella 20 L)",
@@ -1052,11 +1052,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.880Z",
-      "updatedAt": "2026-08-12T09:22:44.880Z"
+      "createdAt": "2026-08-12T09:23:08.210Z",
+      "updatedAt": "2026-08-12T09:23:08.210Z"
     },
     {
-      "id": 95,
+      "id": 94,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "Gas CO₂ / mezcla Argón (botella 20 L)",
@@ -1069,11 +1069,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.871Z",
-      "updatedAt": "2026-08-12T09:22:44.871Z"
+      "createdAt": "2026-08-12T09:23:08.067Z",
+      "updatedAt": "2026-08-12T09:23:08.067Z"
     },
     {
-      "id": 23,
+      "id": 22,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "hilo MIG 1mm",
@@ -1086,11 +1086,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.912Z",
-      "updatedAt": "2026-08-12T09:22:43.912Z"
+      "createdAt": "2026-08-12T09:22:58.732Z",
+      "updatedAt": "2026-08-12T09:22:58.732Z"
     },
     {
-      "id": 92,
+      "id": 91,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "Hilo MIG/MAG 1 mm (15 kg bobina)",
@@ -1103,11 +1103,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.808Z",
-      "updatedAt": "2026-08-12T09:22:44.808Z"
+      "createdAt": "2026-08-12T09:23:07.571Z",
+      "updatedAt": "2026-08-12T09:23:07.571Z"
     },
     {
-      "id": 24,
+      "id": 23,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "hilo TIG inox",
@@ -1120,11 +1120,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.933Z",
-      "updatedAt": "2026-08-12T09:22:43.933Z"
+      "createdAt": "2026-08-12T09:22:58.829Z",
+      "updatedAt": "2026-08-12T09:22:58.829Z"
     },
     {
-      "id": 93,
+      "id": 92,
       "category": "insumo",
       "area": "carpinteria_metalica",
       "name": "Hilo TIG inoxidable 316L (5 kg)",
@@ -1137,113 +1137,113 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.816Z",
-      "updatedAt": "2026-08-12T09:22:44.816Z"
-    },
-    {
-      "id": 30,
-      "category": "mano_obra",
-      "area": "carpinteria_metalica",
-      "name": "ayudante montaje obra",
-      "description": "Ayudante de montaje en obra",
-      "unit": "h",
-      "costPrice": 35,
-      "salePrice": 35,
-      "marginPercent": 0,
-      "supplier": "",
-      "confidence": "confirmado",
-      "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
-      "active": true,
-      "createdAt": "2026-08-12T09:22:43.980Z",
-      "updatedAt": "2026-08-12T09:22:43.980Z"
-    },
-    {
-      "id": 28,
-      "category": "mano_obra",
-      "area": "carpinteria_metalica",
-      "name": "ayudante taller",
-      "description": "Ayudante de taller",
-      "unit": "h",
-      "costPrice": 28,
-      "salePrice": 28,
-      "marginPercent": 0,
-      "supplier": "",
-      "confidence": "confirmado",
-      "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
-      "active": true,
-      "createdAt": "2026-08-12T09:22:43.953Z",
-      "updatedAt": "2026-08-12T09:22:43.953Z"
-    },
-    {
-      "id": 34,
-      "category": "mano_obra",
-      "area": "carpinteria_metalica",
-      "name": "ingeniero oficina tecnica",
-      "description": "Ingeniero/Delineante de oficina técnica",
-      "unit": "h",
-      "costPrice": 55,
-      "salePrice": 55,
-      "marginPercent": 0,
-      "supplier": "",
-      "confidence": "confirmado",
-      "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
-      "active": true,
-      "createdAt": "2026-08-12T09:22:44.021Z",
-      "updatedAt": "2026-08-12T09:22:44.021Z"
-    },
-    {
-      "id": 26,
-      "category": "mano_obra",
-      "area": "carpinteria_metalica",
-      "name": "oficial 1 taller",
-      "description": "Oficial de primera en taller (soldadura, mecanizado)",
-      "unit": "h",
-      "costPrice": 40,
-      "salePrice": 40,
-      "marginPercent": 0,
-      "supplier": "",
-      "confidence": "confirmado",
-      "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
-      "active": true,
-      "createdAt": "2026-08-12T09:22:43.942Z",
-      "updatedAt": "2026-08-12T09:22:43.942Z"
-    },
-    {
-      "id": 27,
-      "category": "mano_obra",
-      "area": "carpinteria_metalica",
-      "name": "oficial 2 taller",
-      "description": "Oficial de segunda en taller (corte, preparación)",
-      "unit": "h",
-      "costPrice": 35,
-      "salePrice": 35,
-      "marginPercent": 0,
-      "supplier": "",
-      "confidence": "confirmado",
-      "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
-      "active": true,
-      "createdAt": "2026-08-12T09:22:43.947Z",
-      "updatedAt": "2026-08-12T09:22:43.947Z"
+      "createdAt": "2026-08-12T09:23:07.709Z",
+      "updatedAt": "2026-08-12T09:23:07.709Z"
     },
     {
       "id": 29,
       "category": "mano_obra",
       "area": "carpinteria_metalica",
-      "name": "oficial montaje obra",
-      "description": "Oficial de montaje en obra (incluye dietas)",
+      "name": "ayudante montaje obra",
+      "description": "Ayudante de montaje en obra",
       "unit": "h",
-      "costPrice": 45,
-      "salePrice": 45,
-      "marginPercent": 0,
+      "costPrice": 22,
+      "salePrice": 30,
+      "marginPercent": 36.36,
       "supplier": "",
       "confidence": "confirmado",
       "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.957Z",
-      "updatedAt": "2026-08-12T09:22:43.957Z"
+      "createdAt": "2026-08-12T09:22:59.425Z",
+      "updatedAt": "2026-08-12T09:39:19.734Z"
     },
     {
-      "id": 98,
+      "id": 27,
+      "category": "mano_obra",
+      "area": "carpinteria_metalica",
+      "name": "ayudante taller",
+      "description": "Ayudante de taller",
+      "unit": "h",
+      "costPrice": 22,
+      "salePrice": 30,
+      "marginPercent": 36.36,
+      "supplier": "",
+      "confidence": "confirmado",
+      "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
+      "active": true,
+      "createdAt": "2026-08-12T09:22:59.217Z",
+      "updatedAt": "2026-08-12T09:39:32.688Z"
+    },
+    {
+      "id": 33,
+      "category": "mano_obra",
+      "area": "carpinteria_metalica",
+      "name": "ingeniero oficina tecnica",
+      "description": "Ingeniero/Delineante de oficina técnica",
+      "unit": "h",
+      "costPrice": 25,
+      "salePrice": 45,
+      "marginPercent": 80,
+      "supplier": "",
+      "confidence": "confirmado",
+      "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
+      "active": true,
+      "createdAt": "2026-08-12T09:22:59.863Z",
+      "updatedAt": "2026-08-12T09:40:36.428Z"
+    },
+    {
+      "id": 25,
+      "category": "mano_obra",
+      "area": "carpinteria_metalica",
+      "name": "oficial 1 taller",
+      "description": "Oficial de primera en taller (soldadura, mecanizado)",
+      "unit": "h",
+      "costPrice": 25,
+      "salePrice": 40,
+      "marginPercent": 60,
+      "supplier": "",
+      "confidence": "confirmado",
+      "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
+      "active": true,
+      "createdAt": "2026-08-12T09:22:59.033Z",
+      "updatedAt": "2026-08-12T09:40:50.029Z"
+    },
+    {
+      "id": 26,
+      "category": "mano_obra",
+      "area": "carpinteria_metalica",
+      "name": "oficial 2 taller",
+      "description": "Oficial de segunda en taller (corte, preparación)",
+      "unit": "h",
+      "costPrice": 22,
+      "salePrice": 35,
+      "marginPercent": 59.09,
+      "supplier": "",
+      "confidence": "confirmado",
+      "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
+      "active": true,
+      "createdAt": "2026-08-12T09:22:59.125Z",
+      "updatedAt": "2026-08-12T09:41:19.374Z"
+    },
+    {
+      "id": 28,
+      "category": "mano_obra",
+      "area": "carpinteria_metalica",
+      "name": "oficial montaje obra",
+      "description": "Oficial de montaje en obra (incluye dietas)",
+      "unit": "h",
+      "costPrice": 22,
+      "salePrice": 35,
+      "marginPercent": 48.15,
+      "supplier": "",
+      "confidence": "confirmado",
+      "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
+      "active": true,
+      "createdAt": "2026-08-12T09:22:59.320Z",
+      "updatedAt": "2026-08-12T09:55:01.253Z"
+    },
+    {
+      "id": 97,
       "category": "maquinaria",
       "area": "carpinteria_metalica",
       "name": "Corte recto",
@@ -1256,11 +1256,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.900Z",
-      "updatedAt": "2026-08-12T09:22:44.900Z"
+      "createdAt": "2026-08-12T09:23:08.498Z",
+      "updatedAt": "2026-08-12T09:23:08.498Z"
     },
     {
-      "id": 101,
+      "id": 100,
       "category": "maquinaria",
       "area": "carpinteria_metalica",
       "name": "Escote",
@@ -1273,11 +1273,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.943Z",
-      "updatedAt": "2026-08-12T09:22:44.943Z"
+      "createdAt": "2026-08-12T09:23:08.906Z",
+      "updatedAt": "2026-08-12T09:23:08.906Z"
     },
     {
-      "id": 99,
+      "id": 98,
       "category": "maquinaria",
       "area": "carpinteria_metalica",
       "name": "Perforacion",
@@ -1290,11 +1290,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.909Z",
-      "updatedAt": "2026-08-12T09:22:44.909Z"
+      "createdAt": "2026-08-12T09:23:08.631Z",
+      "updatedAt": "2026-08-12T09:23:08.631Z"
     },
     {
-      "id": 111,
+      "id": 110,
       "category": "maquinaria",
       "area": "carpinteria_metalica",
       "name": "Taladrar",
@@ -1307,28 +1307,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.068Z",
-      "updatedAt": "2026-08-12T09:22:45.068Z"
+      "createdAt": "2026-08-12T09:23:10.319Z",
+      "updatedAt": "2026-08-12T09:23:10.319Z"
     },
     {
-      "id": 70,
-      "category": "material",
-      "area": "carpinteria_metalica",
-      "name": "2026-05-25",
-      "description": "Acero inoxidable. Novacero",
-      "unit": "kg",
-      "costPrice": 3.66,
-      "salePrice": 3.66,
-      "marginPercent": 0,
-      "supplier": "",
-      "confidence": "estimado",
-      "notes": "Rango medio desde costes-materiales.md",
-      "active": true,
-      "createdAt": "2026-08-12T09:22:44.532Z",
-      "updatedAt": "2026-08-12T09:22:44.532Z"
-    },
-    {
-      "id": 10,
+      "id": 9,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "AISI 304 pletina",
@@ -1341,28 +1324,28 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.757Z",
-      "updatedAt": "2026-08-12T09:22:43.757Z"
+      "createdAt": "2026-08-12T09:22:57.301Z",
+      "updatedAt": "2026-08-12T09:22:57.301Z"
     },
     {
-      "id": 8,
+      "id": 7,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "AISI 304 tubo",
       "description": "acero_inoxidable desde costes-materiales.json",
       "unit": "kg",
-      "costPrice": 5.5,
-      "salePrice": 5.5,
-      "marginPercent": 0,
+      "costPrice": 6,
+      "salePrice": 9,
+      "marginPercent": -8.33,
       "supplier": "",
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.738Z",
-      "updatedAt": "2026-08-12T09:22:43.738Z"
+      "createdAt": "2026-08-12T09:22:57.099Z",
+      "updatedAt": "2026-08-12T11:32:12.981Z"
     },
     {
-      "id": 11,
+      "id": 10,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "AISI 316 pletina",
@@ -1375,11 +1358,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.762Z",
-      "updatedAt": "2026-08-12T09:22:43.762Z"
+      "createdAt": "2026-08-12T09:22:57.406Z",
+      "updatedAt": "2026-08-12T09:22:57.406Z"
     },
     {
-      "id": 9,
+      "id": 8,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "AISI 316 tubo",
@@ -1392,11 +1375,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.752Z",
-      "updatedAt": "2026-08-12T09:22:43.752Z"
+      "createdAt": "2026-08-12T09:22:57.190Z",
+      "updatedAt": "2026-08-12T09:22:57.190Z"
     },
     {
-      "id": 49,
+      "id": 48,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Angular L",
@@ -1409,11 +1392,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.198Z",
-      "updatedAt": "2026-08-12T09:22:44.198Z"
+      "createdAt": "2026-08-12T09:23:01.668Z",
+      "updatedAt": "2026-08-12T09:23:01.668Z"
     },
     {
-      "id": 6,
+      "id": 5,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "chapa 6mm",
@@ -1426,11 +1409,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.728Z",
-      "updatedAt": "2026-08-12T09:22:43.728Z"
+      "createdAt": "2026-08-12T09:22:56.889Z",
+      "updatedAt": "2026-08-12T09:22:56.889Z"
     },
     {
-      "id": 66,
+      "id": 65,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Chapa AISI 304 2B",
@@ -1443,11 +1426,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.507Z",
-      "updatedAt": "2026-08-12T09:22:44.507Z"
+      "createdAt": "2026-08-12T09:23:03.959Z",
+      "updatedAt": "2026-08-12T09:23:03.959Z"
     },
     {
-      "id": 67,
+      "id": 66,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Chapa AISI 316 2B",
@@ -1460,11 +1443,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.514Z",
-      "updatedAt": "2026-08-12T09:22:44.514Z"
+      "createdAt": "2026-08-12T09:23:04.110Z",
+      "updatedAt": "2026-08-12T09:23:04.110Z"
     },
     {
-      "id": 54,
+      "id": 53,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Chapa laminada en caliente 3-15 mm",
@@ -1477,11 +1460,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.289Z",
-      "updatedAt": "2026-08-12T09:22:44.289Z"
+      "createdAt": "2026-08-12T09:23:02.352Z",
+      "updatedAt": "2026-08-12T09:23:02.352Z"
     },
     {
-      "id": 55,
+      "id": 54,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Chapa laminada en frío 0.5-3 mm",
@@ -1494,11 +1477,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.295Z",
-      "updatedAt": "2026-08-12T09:22:44.295Z"
+      "createdAt": "2026-08-12T09:23:02.487Z",
+      "updatedAt": "2026-08-12T09:23:02.487Z"
     },
     {
-      "id": 56,
+      "id": 55,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Chapa plegada / grecada",
@@ -1511,11 +1494,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.320Z",
-      "updatedAt": "2026-08-12T09:22:44.320Z"
+      "createdAt": "2026-08-12T09:23:02.618Z",
+      "updatedAt": "2026-08-12T09:23:02.618Z"
     },
     {
-      "id": 57,
+      "id": 56,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Chapa trepadora / antideslizante",
@@ -1528,11 +1511,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.351Z",
-      "updatedAt": "2026-08-12T09:22:44.351Z"
+      "createdAt": "2026-08-12T09:23:02.753Z",
+      "updatedAt": "2026-08-12T09:23:02.753Z"
     },
     {
-      "id": 107,
+      "id": 106,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Coste medio productos",
@@ -1545,11 +1528,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.028Z",
-      "updatedAt": "2026-08-12T09:22:45.028Z"
+      "createdAt": "2026-08-12T09:23:09.719Z",
+      "updatedAt": "2026-08-12T09:23:09.719Z"
     },
     {
-      "id": 117,
+      "id": 116,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Escote",
@@ -1562,11 +1545,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.129Z",
-      "updatedAt": "2026-08-12T09:22:45.129Z"
+      "createdAt": "2026-08-12T09:23:11.256Z",
+      "updatedAt": "2026-08-12T09:23:11.256Z"
     },
     {
-      "id": 104,
+      "id": 103,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Frontal 100x172+4T S275 10 mm",
@@ -1579,11 +1562,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.990Z",
-      "updatedAt": "2026-08-12T09:22:44.990Z"
+      "createdAt": "2026-08-12T09:23:09.336Z",
+      "updatedAt": "2026-08-12T09:23:09.336Z"
     },
     {
-      "id": 100,
+      "id": 99,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "G+I rojo",
@@ -1596,11 +1579,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.935Z",
-      "updatedAt": "2026-08-12T09:22:44.935Z"
+      "createdAt": "2026-08-12T09:23:08.770Z",
+      "updatedAt": "2026-08-12T09:23:08.770Z"
     },
     {
-      "id": 46,
+      "id": 45,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "HEB 100-300",
@@ -1613,11 +1596,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.138Z",
-      "updatedAt": "2026-08-12T09:22:44.138Z"
+      "createdAt": "2026-08-12T09:23:01.294Z",
+      "updatedAt": "2026-08-12T09:23:01.294Z"
     },
     {
-      "id": 47,
+      "id": 46,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "HEB 320-1000",
@@ -1630,11 +1613,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.167Z",
-      "updatedAt": "2026-08-12T09:22:44.167Z"
+      "createdAt": "2026-08-12T09:23:01.417Z",
+      "updatedAt": "2026-08-12T09:23:01.417Z"
     },
     {
-      "id": 44,
+      "id": 43,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "IPE 220-400",
@@ -1647,11 +1630,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.126Z",
-      "updatedAt": "2026-08-12T09:22:44.126Z"
+      "createdAt": "2026-08-12T09:23:01.082Z",
+      "updatedAt": "2026-08-12T09:23:01.082Z"
     },
     {
-      "id": 45,
+      "id": 44,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "IPE 450-600",
@@ -1664,11 +1647,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.132Z",
-      "updatedAt": "2026-08-12T09:22:44.132Z"
+      "createdAt": "2026-08-12T09:23:01.185Z",
+      "updatedAt": "2026-08-12T09:23:01.185Z"
     },
     {
-      "id": 43,
+      "id": 42,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "IPE 80-200",
@@ -1681,11 +1664,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.120Z",
-      "updatedAt": "2026-08-12T09:22:44.120Z"
+      "createdAt": "2026-08-12T09:23:00.972Z",
+      "updatedAt": "2026-08-12T09:23:00.972Z"
     },
     {
-      "id": 97,
+      "id": 96,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "IPN 280 S275",
@@ -1698,11 +1681,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.891Z",
-      "updatedAt": "2026-08-12T09:22:44.891Z"
+      "createdAt": "2026-08-12T09:23:08.359Z",
+      "updatedAt": "2026-08-12T09:23:08.359Z"
     },
     {
-      "id": 68,
+      "id": 67,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Perfil angular AISI 304",
@@ -1715,11 +1698,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.519Z",
-      "updatedAt": "2026-08-12T09:22:44.519Z"
+      "createdAt": "2026-08-12T09:23:04.244Z",
+      "updatedAt": "2026-08-12T09:23:04.244Z"
     },
     {
-      "id": 69,
+      "id": 68,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Perfil angular AISI 316",
@@ -1732,11 +1715,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.526Z",
-      "updatedAt": "2026-08-12T09:22:44.526Z"
+      "createdAt": "2026-08-12T09:23:04.367Z",
+      "updatedAt": "2026-08-12T09:23:04.367Z"
     },
     {
-      "id": 112,
+      "id": 111,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Perfil laminado S275 cortado",
@@ -1749,11 +1732,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.078Z",
-      "updatedAt": "2026-08-12T09:22:45.078Z"
+      "createdAt": "2026-08-12T09:23:10.483Z",
+      "updatedAt": "2026-08-12T09:23:10.483Z"
     },
     {
-      "id": 105,
+      "id": 104,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "PL200x172+8T S275 10 mm",
@@ -1766,11 +1749,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.013Z",
-      "updatedAt": "2026-08-12T09:22:45.013Z"
+      "createdAt": "2026-08-12T09:23:09.467Z",
+      "updatedAt": "2026-08-12T09:23:09.467Z"
     },
     {
-      "id": 115,
+      "id": 114,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Placa S275 10 mm cortada pequeña",
@@ -1783,11 +1766,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.107Z",
-      "updatedAt": "2026-08-12T09:22:45.107Z"
+      "createdAt": "2026-08-12T09:23:10.931Z",
+      "updatedAt": "2026-08-12T09:23:10.931Z"
     },
     {
-      "id": 109,
+      "id": 108,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Plano 50x12",
@@ -1800,11 +1783,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.047Z",
-      "updatedAt": "2026-08-12T09:22:45.047Z"
+      "createdAt": "2026-08-12T09:23:10.018Z",
+      "updatedAt": "2026-08-12T09:23:10.018Z"
     },
     {
-      "id": 7,
+      "id": 6,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "pletina",
@@ -1817,11 +1800,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.733Z",
-      "updatedAt": "2026-08-12T09:22:43.733Z"
+      "createdAt": "2026-08-12T09:22:56.989Z",
+      "updatedAt": "2026-08-12T09:22:56.989Z"
     },
     {
-      "id": 62,
+      "id": 61,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Pletina AISI 304",
@@ -1834,11 +1817,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.441Z",
-      "updatedAt": "2026-08-12T09:22:44.441Z"
+      "createdAt": "2026-08-12T09:23:03.412Z",
+      "updatedAt": "2026-08-12T09:23:03.412Z"
     },
     {
-      "id": 63,
+      "id": 62,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Pletina AISI 316",
@@ -1851,11 +1834,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.447Z",
-      "updatedAt": "2026-08-12T09:22:44.447Z"
+      "createdAt": "2026-08-12T09:23:03.553Z",
+      "updatedAt": "2026-08-12T09:23:03.553Z"
     },
     {
-      "id": 64,
+      "id": 63,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Redondo AISI 304",
@@ -1868,11 +1851,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.477Z",
-      "updatedAt": "2026-08-12T09:22:44.477Z"
+      "createdAt": "2026-08-12T09:23:03.679Z",
+      "updatedAt": "2026-08-12T09:23:03.679Z"
     },
     {
-      "id": 65,
+      "id": 64,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Redondo AISI 316",
@@ -1885,11 +1868,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.483Z",
-      "updatedAt": "2026-08-12T09:22:44.483Z"
+      "createdAt": "2026-08-12T09:23:03.819Z",
+      "updatedAt": "2026-08-12T09:23:03.819Z"
     },
     {
-      "id": 108,
+      "id": 107,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Redondo liso 12 mm",
@@ -1902,11 +1885,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.038Z",
-      "updatedAt": "2026-08-12T09:22:45.038Z"
+      "createdAt": "2026-08-12T09:23:09.859Z",
+      "updatedAt": "2026-08-12T09:23:09.859Z"
     },
     {
-      "id": 58,
+      "id": 57,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Redondo macizo Ø10-50 mm",
@@ -1919,11 +1902,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.378Z",
-      "updatedAt": "2026-08-12T09:22:44.378Z"
+      "createdAt": "2026-08-12T09:23:02.899Z",
+      "updatedAt": "2026-08-12T09:23:02.899Z"
     },
     {
-      "id": 59,
+      "id": 58,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Redondo macizo Ø60-100 mm",
@@ -1936,11 +1919,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.410Z",
-      "updatedAt": "2026-08-12T09:22:44.410Z"
+      "createdAt": "2026-08-12T09:23:03.034Z",
+      "updatedAt": "2026-08-12T09:23:03.034Z"
     },
     {
-      "id": 113,
+      "id": 112,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Redondo/plano acero negro comercial",
@@ -1953,11 +1936,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.087Z",
-      "updatedAt": "2026-08-12T09:22:45.087Z"
+      "createdAt": "2026-08-12T09:23:10.641Z",
+      "updatedAt": "2026-08-12T09:23:10.641Z"
     },
     {
-      "id": 2,
+      "id": 1,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "S235 IPE",
@@ -1970,11 +1953,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.707Z",
-      "updatedAt": "2026-08-12T09:22:43.707Z"
+      "createdAt": "2026-08-12T09:22:56.478Z",
+      "updatedAt": "2026-08-12T09:22:56.478Z"
     },
     {
-      "id": 3,
+      "id": 2,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "S275 IPE",
@@ -1987,11 +1970,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.714Z",
-      "updatedAt": "2026-08-12T09:22:43.714Z"
+      "createdAt": "2026-08-12T09:22:56.581Z",
+      "updatedAt": "2026-08-12T09:22:56.581Z"
     },
     {
-      "id": 4,
+      "id": 3,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "S355 IPE",
@@ -2004,11 +1987,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.719Z",
-      "updatedAt": "2026-08-12T09:22:43.719Z"
+      "createdAt": "2026-08-12T09:22:56.688Z",
+      "updatedAt": "2026-08-12T09:22:56.688Z"
     },
     {
-      "id": 116,
+      "id": 115,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Taladro/perforacion",
@@ -2021,11 +2004,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.117Z",
-      "updatedAt": "2026-08-12T09:22:45.117Z"
+      "createdAt": "2026-08-12T09:23:11.103Z",
+      "updatedAt": "2026-08-12T09:23:11.103Z"
     },
     {
-      "id": 5,
+      "id": 4,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "tubo acero carbono",
@@ -2038,11 +2021,11 @@
       "confidence": "estimado",
       "notes": "Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.723Z",
-      "updatedAt": "2026-08-12T09:22:43.723Z"
+      "createdAt": "2026-08-12T09:22:56.799Z",
+      "updatedAt": "2026-08-12T09:22:56.799Z"
     },
     {
-      "id": 60,
+      "id": 59,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Tubo AISI 304",
@@ -2055,11 +2038,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.429Z",
-      "updatedAt": "2026-08-12T09:22:44.429Z"
+      "createdAt": "2026-08-12T09:23:03.156Z",
+      "updatedAt": "2026-08-12T09:23:03.156Z"
     },
     {
-      "id": 61,
+      "id": 60,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Tubo AISI 316",
@@ -2072,11 +2055,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.435Z",
-      "updatedAt": "2026-08-12T09:22:44.435Z"
+      "createdAt": "2026-08-12T09:23:03.277Z",
+      "updatedAt": "2026-08-12T09:23:03.277Z"
     },
     {
-      "id": 114,
+      "id": 113,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Tubo cuadrado S235 50x50x4",
@@ -2089,11 +2072,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.097Z",
-      "updatedAt": "2026-08-12T09:22:45.097Z"
+      "createdAt": "2026-08-12T09:23:10.788Z",
+      "updatedAt": "2026-08-12T09:23:10.788Z"
     },
     {
-      "id": 53,
+      "id": 52,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Tubo de pared delgada",
@@ -2106,11 +2089,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.258Z",
-      "updatedAt": "2026-08-12T09:22:44.258Z"
+      "createdAt": "2026-08-12T09:23:02.194Z",
+      "updatedAt": "2026-08-12T09:23:02.194Z"
     },
     {
-      "id": 110,
+      "id": 109,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Tubo laminado cuadrado S235 50x50x4 a 6 m",
@@ -2123,11 +2106,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.058Z",
-      "updatedAt": "2026-08-12T09:22:45.058Z"
+      "createdAt": "2026-08-12T09:23:10.176Z",
+      "updatedAt": "2026-08-12T09:23:10.176Z"
     },
     {
-      "id": 51,
+      "id": 50,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Tubo rectangular / cuadrado",
@@ -2140,11 +2123,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.234Z",
-      "updatedAt": "2026-08-12T09:22:44.234Z"
+      "createdAt": "2026-08-12T09:23:01.936Z",
+      "updatedAt": "2026-08-12T09:23:01.936Z"
     },
     {
-      "id": 52,
+      "id": 51,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Tubo redondo sin soldadura",
@@ -2157,11 +2140,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.239Z",
-      "updatedAt": "2026-08-12T09:22:44.239Z"
+      "createdAt": "2026-08-12T09:23:02.064Z",
+      "updatedAt": "2026-08-12T09:23:02.064Z"
     },
     {
-      "id": 50,
+      "id": 49,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "Tubo redondo soldado",
@@ -2174,11 +2157,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.228Z",
-      "updatedAt": "2026-08-12T09:22:44.228Z"
+      "createdAt": "2026-08-12T09:23:01.815Z",
+      "updatedAt": "2026-08-12T09:23:01.815Z"
     },
     {
-      "id": 48,
+      "id": 47,
       "category": "material",
       "area": "carpinteria_metalica",
       "name": "UPN 80-300",
@@ -2191,62 +2174,11 @@
       "confidence": "estimado",
       "notes": "Rango medio desde costes-materiales.md",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.173Z",
-      "updatedAt": "2026-08-12T09:22:44.173Z"
+      "createdAt": "2026-08-12T09:23:01.531Z",
+      "updatedAt": "2026-08-12T09:23:01.531Z"
     },
     {
       "id": 102,
-      "category": "montaje",
-      "area": "carpinteria_metalica",
-      "name": "Montaje",
-      "description": "Usar 400 € para montaje sencillo asociado",
-      "unit": "servicio",
-      "costPrice": 400,
-      "salePrice": 400,
-      "marginPercent": 0,
-      "supplier": "Ferros Puig Sallent",
-      "confidence": "antiguo",
-      "notes": "Historico Ferros Puig",
-      "active": true,
-      "createdAt": "2026-08-12T09:22:44.952Z",
-      "updatedAt": "2026-08-12T09:22:44.952Z"
-    },
-    {
-      "id": 119,
-      "category": "montaje",
-      "area": "carpinteria_metalica",
-      "name": "Montaje grande",
-      "description": "4.000 €/servicio",
-      "unit": "servicio",
-      "costPrice": 4000,
-      "salePrice": 4000,
-      "marginPercent": 0,
-      "supplier": "Ferros Puig Sallent",
-      "confidence": "antiguo",
-      "notes": "Historico Ferros Puig",
-      "active": true,
-      "createdAt": "2026-08-12T09:22:45.151Z",
-      "updatedAt": "2026-08-12T09:22:45.151Z"
-    },
-    {
-      "id": 118,
-      "category": "montaje",
-      "area": "carpinteria_metalica",
-      "name": "Montaje sencillo",
-      "description": "400 €/servicio",
-      "unit": "servicio",
-      "costPrice": 400,
-      "salePrice": 400,
-      "marginPercent": 0,
-      "supplier": "Ferros Puig Sallent",
-      "confidence": "antiguo",
-      "notes": "Historico Ferros Puig",
-      "active": true,
-      "createdAt": "2026-08-12T09:22:45.140Z",
-      "updatedAt": "2026-08-12T09:22:45.140Z"
-    },
-    {
-      "id": 103,
       "category": "transporte",
       "area": "carpinteria_metalica",
       "name": "Envio",
@@ -2259,11 +2191,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.981Z",
-      "updatedAt": "2026-08-12T09:22:44.981Z"
+      "createdAt": "2026-08-12T09:23:09.205Z",
+      "updatedAt": "2026-08-12T09:23:09.205Z"
     },
     {
-      "id": 121,
+      "id": 120,
       "category": "transporte",
       "area": "carpinteria_metalica",
       "name": "Envio medio/grande",
@@ -2276,11 +2208,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.185Z",
-      "updatedAt": "2026-08-12T09:22:45.185Z"
+      "createdAt": "2026-08-12T09:23:11.933Z",
+      "updatedAt": "2026-08-12T09:23:11.933Z"
     },
     {
-      "id": 106,
+      "id": 105,
       "category": "transporte",
       "area": "carpinteria_metalica",
       "name": "Envio pedido pequeño",
@@ -2293,11 +2225,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.021Z",
-      "updatedAt": "2026-08-12T09:22:45.021Z"
+      "createdAt": "2026-08-12T09:23:09.604Z",
+      "updatedAt": "2026-08-12T09:23:09.604Z"
     },
     {
-      "id": 120,
+      "id": 119,
       "category": "transporte",
       "area": "carpinteria_metalica",
       "name": "Envio pequeño",
@@ -2310,11 +2242,11 @@
       "confidence": "antiguo",
       "notes": "Historico Ferros Puig",
       "active": true,
-      "createdAt": "2026-08-12T09:22:45.163Z",
-      "updatedAt": "2026-08-12T09:22:45.163Z"
+      "createdAt": "2026-08-12T09:23:11.779Z",
+      "updatedAt": "2026-08-12T09:23:11.779Z"
     },
     {
-      "id": 33,
+      "id": 32,
       "category": "mano_obra",
       "area": "clima",
       "name": "tecnico clima",
@@ -2327,11 +2259,11 @@
       "confidence": "confirmado",
       "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.016Z",
-      "updatedAt": "2026-08-12T09:22:44.016Z"
+      "createdAt": "2026-08-12T09:22:59.731Z",
+      "updatedAt": "2026-08-12T09:22:59.731Z"
     },
     {
-      "id": 32,
+      "id": 31,
       "category": "mano_obra",
       "area": "fontaneria",
       "name": "fontanero oficial",
@@ -2344,28 +2276,28 @@
       "confidence": "confirmado",
       "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.011Z",
-      "updatedAt": "2026-08-12T09:22:44.011Z"
+      "createdAt": "2026-08-12T09:22:59.639Z",
+      "updatedAt": "2026-08-12T09:22:59.639Z"
     },
     {
-      "id": 39,
+      "id": 38,
       "category": "transporte",
       "area": "general",
-      "name": "1 a 50 kg",
+      "name": "1 a 200 kg (40€ x 200 Kg o menos.)",
       "description": "Tarifa orientativa peninsular",
       "unit": "kg",
-      "costPrice": 15,
-      "salePrice": 15,
-      "marginPercent": 0,
+      "costPrice": 0.5,
+      "salePrice": 2,
+      "marginPercent": -25,
       "supplier": "",
       "confidence": "estimado",
       "notes": "Desde costes-transporte.json",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.075Z",
-      "updatedAt": "2026-08-12T09:22:44.075Z"
+      "createdAt": "2026-08-12T09:23:00.476Z",
+      "updatedAt": "2026-08-12T11:34:38.799Z"
     },
     {
-      "id": 41,
+      "id": 40,
       "category": "transporte",
       "area": "general",
       "name": "201 a 1000 kg",
@@ -2378,11 +2310,11 @@
       "confidence": "estimado",
       "notes": "Desde costes-transporte.json",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.085Z",
-      "updatedAt": "2026-08-12T09:22:44.085Z"
+      "createdAt": "2026-08-12T09:23:00.734Z",
+      "updatedAt": "2026-08-12T09:23:00.734Z"
     },
     {
-      "id": 40,
+      "id": 39,
       "category": "transporte",
       "area": "general",
       "name": "51 a 200 kg",
@@ -2395,11 +2327,11 @@
       "confidence": "estimado",
       "notes": "Desde costes-transporte.json",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.079Z",
-      "updatedAt": "2026-08-12T09:22:44.079Z"
+      "createdAt": "2026-08-12T09:23:00.614Z",
+      "updatedAt": "2026-08-12T09:23:00.614Z"
     },
     {
-      "id": 35,
+      "id": 34,
       "category": "transporte",
       "area": "general",
       "name": "barcelona a menorca",
@@ -2412,11 +2344,11 @@
       "confidence": "estimado",
       "notes": "Ruta fija desde costes-transporte.json",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.043Z",
-      "updatedAt": "2026-08-12T09:22:44.043Z"
+      "createdAt": "2026-08-12T09:22:59.961Z",
+      "updatedAt": "2026-08-12T09:22:59.961Z"
     },
     {
-      "id": 36,
+      "id": 35,
       "category": "transporte",
       "area": "general",
       "name": "barcelona a menorca minimo",
@@ -2429,11 +2361,11 @@
       "confidence": "estimado",
       "notes": "Coste minimo desde costes-transporte.json",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.058Z",
-      "updatedAt": "2026-08-12T09:22:44.058Z"
+      "createdAt": "2026-08-12T09:23:00.074Z",
+      "updatedAt": "2026-08-12T09:23:00.074Z"
     },
     {
-      "id": 42,
+      "id": 41,
       "category": "transporte",
       "area": "general",
       "name": "mas de 1000 kg",
@@ -2446,11 +2378,11 @@
       "confidence": "estimado",
       "notes": "Desde costes-transporte.json",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.090Z",
-      "updatedAt": "2026-08-12T09:22:44.090Z"
+      "createdAt": "2026-08-12T09:23:00.851Z",
+      "updatedAt": "2026-08-12T09:23:00.851Z"
     },
     {
-      "id": 37,
+      "id": 36,
       "category": "transporte",
       "area": "general",
       "name": "menorca a barcelona",
@@ -2463,11 +2395,11 @@
       "confidence": "estimado",
       "notes": "Ruta fija desde costes-transporte.json",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.064Z",
-      "updatedAt": "2026-08-12T09:22:44.064Z"
+      "createdAt": "2026-08-12T09:23:00.214Z",
+      "updatedAt": "2026-08-12T09:23:00.214Z"
     },
     {
-      "id": 38,
+      "id": 37,
       "category": "transporte",
       "area": "general",
       "name": "menorca a barcelona minimo",
@@ -2480,11 +2412,11 @@
       "confidence": "estimado",
       "notes": "Coste minimo desde costes-transporte.json",
       "active": true,
-      "createdAt": "2026-08-12T09:22:44.069Z",
-      "updatedAt": "2026-08-12T09:22:44.069Z"
+      "createdAt": "2026-08-12T09:23:00.337Z",
+      "updatedAt": "2026-08-12T09:23:00.337Z"
     },
     {
-      "id": 31,
+      "id": 30,
       "category": "mano_obra",
       "area": "instalaciones_electricas",
       "name": "electricista oficial",
@@ -2497,8 +2429,8 @@
       "confidence": "confirmado",
       "notes": "Incluye cargas sociales. Actualizado 2026-05-01",
       "active": true,
-      "createdAt": "2026-08-12T09:22:43.986Z",
-      "updatedAt": "2026-08-12T09:22:43.986Z"
+      "createdAt": "2026-08-12T09:22:59.530Z",
+      "updatedAt": "2026-08-12T09:22:59.530Z"
     }
   ]
 }

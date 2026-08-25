@@ -1,0 +1,38 @@
+producto: Carros De 1 O 2 Ejes
+unidad_base: unidad / conjunto
+
+descripcion: Carros de 1 eje para distintos tipos de transportes. con distintos tipos de cierre acabado (chapa, rejas)
+Abierto o cerrados.
+
+materiales_principales:
+  - nombre: Material principal
+    tipo: definir
+
+materiales_auxiliares:
+  - nombre: Fijaciones y consumibles
+    tipo: definir
+
+procesos:
+  - medicion_y_replanteo
+  - diseno_y_despiece
+  - fabricacion
+  - tratamiento_superficial
+  - transporte
+  - montaje_en_obra
+
+variables_tecnicas:
+  - tipo_producto: pendiente
+  - dimensiones_principales: pendiente
+  - materiales: pendiente
+  - acabado: pendiente
+  - ubicacion: pendiente
+  - montaje_en_obra: pendiente
+  - acceso_obra: pendiente
+
+costes_a_considerar:
+  materiales: true
+  mano_obra_taller: true
+  mano_obra_montaje: true
+  transporte: true
+  riesgo: true
+  margen: true

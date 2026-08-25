@@ -1,0 +1,178 @@
+{
+  "titulo": "Presupuesto Técnico: Fabricación e Instalación de Barandilla de Acero Inoxidable (AISI 304L) Pintada en Blanco",
+  "resumen": "Fabricación a medida e instalación de 20 ML de barandilla repartidos en 4 tramos de 5 ML. Estructura compuesta por pasamanos en tubo Ø43x2 mm, montantes verticales en pletina 40x10 mm, barras horizontales intermedias en tubo Ø20x1.5 mm y anclaje lateral mediante placas de 10 mm con 4 tacos metálicos inoxidables Ø10. Acabado imprimado y pintado en color blanco.",
+  "tipoProducto": "Barandilla metálica",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseño",
+      "concepto": "Toma de medidas, diseño y despiece técnico",
+      "descripcion": "Toma de datos, replanteo de tramos, desarrollo del despiece para corte e ingeniería básica de anclajes.",
+      "cantidad": 3,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 105,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Tubo de acero inoxidable AISI 304L Ø43x2 mm para pasamanos",
+      "descripcion": "Suministro de tubo redondo en acero inoxidable AISI 304L con mermas de corte incluidas (21 ml).",
+      "cantidad": 21,
+      "unidad": "ml",
+      "precioUnitario": 12.5,
+      "importe": 262.5,
+      "confianza": "media",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Pletina de acero inoxidable AISI 304L 40x10 mm para montantes verticales",
+      "descripcion": "Montantes verticales repartidos a 1 m máximo y en extremos (22 soportes aprox.).",
+      "cantidad": 45,
+      "unidad": "kg",
+      "precioUnitario": 6.5,
+      "importe": 292.5,
+      "confianza": "media",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Tubo de acero inoxidable AISI 304L Ø20x1.5 mm para barras horizontales",
+      "descripcion": "Relleno intermedio de 5 líneas horizontales continuas para protección y cumplimiento CTE (105 ml inc. mermas).",
+      "cantidad": 105,
+      "unidad": "ml",
+      "precioUnitario": 5.5,
+      "importe": 577.5,
+      "confianza": "media",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Materiales",
+      "concepto": "Placas base laterales en e=10 mm e hidrorreparto con tacos metálicos Ø10 inox",
+      "descripcion": "Placas de anclaje de e=10 mm cortadas a medida y fijaciones con 4 tacos expandibles de acero inoxidable Ø10 A4 por montante.",
+      "cantidad": 22,
+      "unidad": "ud",
+      "precioUnitario": 11,
+      "importe": 242,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Fabricación",
+      "concepto": "Mano de obra de taller: corte, armado y soldadura TIG",
+      "descripcion": "Procesos de mecanizado, preparación de uniones, soldadura TIG en acero inoxidable, pulido e higienización del material.",
+      "cantidad": 30,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 900,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Tratamiento",
+      "concepto": "Imprimación epoxi de adherencia para inox y lacado/pintado exterior blanco",
+      "descripcion": "Preparación previa de la superficie inoxidables, imprimación de alta adherencia y acabado con esmalte poliuretano blanco apto para intemperie.",
+      "cantidad": 20,
+      "unidad": "ml",
+      "precioUnitario": 22,
+      "importe": 440,
+      "confianza": "media",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Transporte",
+      "concepto": "Transporte local a obra en Menorca",
+      "descripcion": "Flete y traslado de tramos fabricados desde taller hasta obra en vehículo acondicionado.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 90,
+      "importe": 90,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L9",
+      "capitulo": "Montaje",
+      "concepto": "Mano de obra de montaje en obra",
+      "descripcion": "Alineación, nivelación, taladros en paramento lateral, fijación con tacos metálicos inox y retoques de pintura finales.",
+      "cantidad": 16,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 480,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿La barandilla irá instalada en un ambiente exterior expuesto a brisa marina o en un espacio interior/protegido?",
+    "¿Se requiere un tono de blanco o código RAL específico (ej. RAL 9010, RAL 9016) y acabado brillo, mate o satinado?",
+    "¿De qué material es el murete/forjado lateral donde se anclarán las placas (hormigón armado, bloque, piedra)?",
+    "¿Cuál es la altura total requerida para la barandilla (ej. 100 cm o 110 cm según normativa del CTE)?"
+  ],
+  "supuestos": [
+    "Se asumen 5 líneas de tubos horizontales de Ø20x1.5 mm para asegurar que la luz vertical entre barrotes no supere los 10 cm (normativa CTE SUA).",
+    "Se presupuesta en calidad AISI 304L atendiendo a la especificación dada por el cliente.",
+    "El soporte lateral de la obra cuenta con resistencia estructural suficiente para la fijación con tacos expandibles de Ø10 mm.",
+    "El montaje se realizará en jornada laboral estándar con accesibilidad directa a los paramentos."
+  ],
+  "riesgos": [
+    "En ambientes exteriores de Menorca (entorno salino/C4-C5), el acero inoxidable AISI 304L puede presentar picaduras de óxido prematuras en soldaduras o arañazos si se vulnera la capa de pintura; para exterior expuesto se recomienda AISI 316 / A4.",
+    "Riesgo de falta de adherencia en el pintado del acero inoxidable si no se aplica el tratamiento previo adecuado o la imprimación epoxi fotocurable específica.",
+    "Falta de plomo en el soporte lateral existente que obligue a incorporar calzos de nivelación no previstos."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Sustituir AISI 304L por AISI 316 para instalaciones exteriores en Menorca",
+      "detalle": "Por defecto en Menorca, dada la elevada exposición marina y corrosión salina, se aconseja emplear AISI 316 en exteriores o valorar soluciones galvanizadas + lacadas para garantizar máxima durabilidad anticorrosiva.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "alta"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 86861,
+    "outputTokens": 2089,
+    "totalTokens": 91946
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 73,
+    "localBudgetTokens": null,
+    "usedTokens": 2218006,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Acciona Aguas",
+    "email": "",
+    "telefono": "",
+    "nif": "A95113361",
+    "direccion": "",
+    "referencia": ""
+  }
+}

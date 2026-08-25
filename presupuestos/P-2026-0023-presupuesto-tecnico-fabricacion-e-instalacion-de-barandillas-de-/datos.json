@@ -1,0 +1,185 @@
+{
+  "titulo": "Presupuesto Técnico: Fabricación e Instalación de Barandillas de Acero Inoxidable Lacadas y Pasarela de Tramex PRFV",
+  "resumen": "Presupuesto para la fabricación a medida de 14 ML de barandilla de acero inoxidable AISI 316 (pletina 50x10, pasamanos Ø43 mm y 3 líneas de Ø20 mm) con imprimación y acabado lacado blanco marino, más el suministro e instalación de suelo de tramex de PRFV sobre soporte amurado de tubo inox 80x40 mm en ambiente costero de Menorca.",
+  "tipoProducto": "Producto compuesto a medida",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Toma de medidas, diseño técnico y planos de despiece",
+      "descripcion": "Levantamiento de cotas en obra, replanteo de anclajes y preparación de despiece técnico para taller.",
+      "cantidad": 4,
+      "unidad": "h",
+      "precioUnitario": 42,
+      "importe": 168,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Perfilería de acero inoxidable AISI 316 para barandillas (14 ML)",
+      "descripcion": "Postes verticales en pletina 50x10 mm, pasamanos superior en tubo Ø43 mm y 3 barras horizontales intermedias en tubo Ø20 mm.",
+      "cantidad": 14,
+      "unidad": "ml",
+      "precioUnitario": 62.4,
+      "importe": 873.6,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Placas de rejilla Tramex PRFV (Poliéster Reforzado con Fibra de Vidrio)",
+      "descripcion": "Placas de tramex de PRFV anticorrosivo de 1x2 m (2 placas completas + 1 placa para fraccionamiento de tramo de 1 ML x 0,60 m).",
+      "cantidad": 2,
+      "unidad": "ud",
+      "precioUnitario": 480,
+      "importe": 960,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Tubo estructural de acero inoxidable AISI 316 80x40 mm",
+      "descripcion": "Estructura de soporte amurada a pared para apoyo y fijación de la rejilla de tramex PRFV.",
+      "cantidad": 2,
+      "unidad": "ml",
+      "precioUnitario": 42,
+      "importe": 84,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Materiales",
+      "concepto": "Kit de anclajes químicos y tornillería inoxidable A4",
+      "descripcion": "Tacos químicos de alta resistencia, varillas roscadas y tornillería A4 (AISI 316) para fijación al suelo y soporte de pared.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 150,
+      "importe": 150,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller: corte, mecanizado y soldadura TIG",
+      "descripcion": "Conformado de marcos, corte e ingletado de perfiles, soldadura TIG en inoxidable y esmerilado de cordones.",
+      "cantidad": 24,
+      "unidad": "h",
+      "precioUnitario": 36,
+      "importe": 864,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Tratamiento",
+      "concepto": "Tratamiento superficial anticorrosivo C4 y acabado blanco",
+      "descripcion": "Preparación de superficie sobre inoxidable, imprimación epoxi de alta adherencia y pintura poliuretano líquida/lacado en blanco apto ambiente salino de Menorca.",
+      "cantidad": 14,
+      "unidad": "ml",
+      "precioUnitario": 30,
+      "importe": 420,
+      "confianza": "media",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Transporte",
+      "concepto": "Transporte de material y medios auxiliares a obra en Menorca",
+      "descripcion": "Desplazamiento de perfiles, placas de tramex y herramientas hasta el lugar de instalación.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 216,
+      "importe": 216,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L9",
+      "capitulo": "Montaje",
+      "concepto": "Mano de obra de montaje e instalación en obra",
+      "descripcion": "Presentación de barandillas (14 ML), perforación de soporte, sellado químico, fijación de tramex PRFV sobre tubo 80x40 mm y retoques finales.",
+      "cantidad": 16,
+      "unidad": "h",
+      "precioUnitario": 42,
+      "importe": 672,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿La ubicación exacta del montaje está expuesta directamente a primera línea de mar?",
+    "¿El pintado/lacado blanco sobre acero inoxidable requiere un código RAL blanco específico (ej. RAL 9010 o 9016)?",
+    "¿El piso donde se atornillan las 2 placas de tramex PRFV es forjado de hormigón sano o solera sobre terreno?"
+  ],
+  "supuestos": [
+    "Se presupuesta acero inoxidable calidad AISI 316 por defecto al tratarse de una obra en Menorca.",
+    "Para cubrir los 2 tramex de 1x2 ml y el tramo adicional de 1 ML x 0,60 m se contemplan 3 placas comerciales completas de 1x2 ml.",
+    "El acabado sobre inoxidable incluye tratamiento de imprimación epoxi química especial para garantizar adherencia antes del poliuretano blanco C4/C5.",
+    "El margen industrial y de gestión se ha prorrateado de forma proporcional (+20%) en los precios unitarios del resto de partidas."
+  ],
+  "riesgos": [
+    "Pérdida de adherencia del esmalte blanco sobre acero inoxidable si la superficie no recibe un pasivado/imprimación epoxi de máxima calidad.",
+    "Desniveles o irregularidades en el suelo/muro de obra que requieran calzos o pletinas de nivelación suplementarias durante el montaje."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Memorizar el coste base de placas de Tramex PRFV en skills de carpintería metálica",
+      "detalle": "Guardar el precio de coste de 400 € por placa de PRFV de 1x2 m como valor de referencia para futuras pasarelas e instalaciones industriales en ambiente salino.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 72965,
+    "outputTokens": 2638,
+    "totalTokens": 76962
+  },
+  "tokenStatus": {
+    "provider": "fal",
+    "model": "fal-ai/flux/schnell",
+    "estimatedInputTokens": 712,
+    "localBudgetTokens": null,
+    "usedTokens": 0,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Imagen generada con fal.ai en modo economico; sin control local por tokens."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Acciona Aguas",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  },
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Técnico: Fabricación e Instalación de Barandillas de Acero Inoxidable Lacadas y Pasarela de Tramex PRFV\nTipo: Producto compuesto a medida\nResumen: Presupuesto para la fabricación a medida de 14 ML de barandilla de acero inoxidable AISI 316 (pletina 50x10, pasamanos Ø43 mm y 3 líneas de Ø20 mm) con imprimación y acabado lacado blanco marino, más el suministro e instalación de suelo de tramex de PRFV sobre soporte amurado de tubo inox 80x40 mm en ambiente costero de Menorca.\nCliente/obra: Menorca\nPartidas principales:\n- Diseno: Toma de medidas, diseño técnico y planos de despiece. Levantamiento de cotas en obra, replanteo de anclajes y preparación de despiece técnico para taller.. 4 h\n- Materiales: Perfilería de acero inoxidable AISI 316 para barandillas (14 ML). Postes verticales en pletina 50x10 mm, pasamanos superior en tubo Ø43 mm y 3 barras horizontales intermedias en tubo Ø20 mm.. 14 ml\n- Materiales: Placas de rejilla Tramex PRFV (Poliéster Reforzado con Fibra de Vidrio). Placas de tramex de PRFV anticorrosivo de 1x2 m (2 placas completas + 1 placa para fraccionamiento de tramo de 1 ML x 0,60 m).. 2 ud\n- Materiales: Tubo estructural de acero inoxidable AISI 316 80x40 mm. Estructura de soporte amurada a pared para apoyo y fijación de la rejilla de tramex PRFV.. 2 ml\n- Materiales: Kit de anclajes químicos y tornillería inoxidable A4. Tacos químicos de alta resistencia, varillas roscadas y tornillería A4 (AISI 316) para fijación al suelo y soporte de pared.. 1 lote\n- Fabricacion: Mano de obra de taller: corte, mecanizado y soldadura TIG. Conformado de marcos, corte e ingletado de perfiles, soldadura TIG en inoxidable y esmerilado de cordones.. 24 h\n- Tratamiento: Tratamiento superficial anticorrosivo C4 y acabado blanco. Preparación de superficie sobre inoxidable, imprimación epoxi de alta adherencia y pintura poliuretano líquida/lacado en blanco apto ambiente salino de Menorca.. 14 ml\n- Transporte: Transporte de material y medios auxiliares a obra en Menorca. Desplazamiento de perfiles, placas de tramex y herramientas hasta el lugar de instalación.. 1 lote\n- Montaje: Mano de obra de montaje e instalación en obra. Presentación de barandillas (14 ML), perforación de soporte, sellado químico, fijación de tramex PRFV sobre tubo 80x40 mm y retoques finales.. 16 h\n\nEstilo visual:\n- Imagen cuadrada, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-08-11T07:13:02.420Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualModo": "economico",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa5e126/zxCh79reLo37BuFlXzQcs.png"
+}

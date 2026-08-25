@@ -1,0 +1,165 @@
+{
+  "titulo": "Presupuesto Técnico: Fabricación e Instalación de Barandilla Metálica (20 ml) - Ciutadella de Menorca",
+  "resumen": "Presupuesto para la fabricación e instalación de 20 metros lineales de barandilla recta dividida en 4 tramos con anclaje lateral y acabado pintado para exterior en Ciutadella de Menorca.",
+  "tipoProducto": "Barandilla metálica",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Toma de medidas, replanteo técnico y planos de taller",
+      "descripcion": "Desplazamiento a Ciutadella, toma de medidas, verificación de cotas en obra, creación de planimetría, despiece y plano de modulación para 4 tramos de barandilla.",
+      "cantidad": 12,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 420,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Perfilería y tubos de acero inoxidable AISI 304",
+      "descripcion": "Pasamanos, bastidores y barrotes en acero inoxidable AISI 304 según CTE (separación máxima 10 cm entre barrotes).",
+      "cantidad": 20,
+      "unidad": "ml",
+      "precioUnitario": 85,
+      "importe": 1700,
+      "confianza": "media",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Placas de anclaje lateral y anclajes químicos inoxidable A4",
+      "descripcion": "Pletinas de fijación lateral, tacos químicos de resina epoxi y tornillería inoxidable calidad A4 para alta resistencia marina.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 280,
+      "importe": 280,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller (Corte, ensamblado y soldadura laser)",
+      "descripcion": "Corte a medida, preparación de cantos, soldadura TIG, repasado de cordones y preparación de soportes de fijación lateral.",
+      "cantidad": 32,
+      "unidad": "h",
+      "precioUnitario": 40,
+      "importe": 1280,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Tratamiento",
+      "concepto": "Imprimación promotora de adherencia y sistema de pintura exterior C4",
+      "descripcion": "Tratamiento de preparación superficial sobre acero inox, aplicación de imprimación epoxi especial y acabado en esmalte poliuretano para exterior salino.",
+      "cantidad": 20,
+      "unidad": "ml",
+      "precioUnitario": 35,
+      "importe": 700,
+      "confianza": "media",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Transporte",
+      "concepto": "Transporte de material a obra en Ciutadella de Menorca",
+      "descripcion": "Desplazamiento de camión con material protegido desde taller hasta el punto de instalación en Ciutadella.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 120,
+      "importe": 120,
+      "confianza": "alta",
+      "origen": "supuesto",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Montaje",
+      "concepto": "Mano de obra de instalación en obra y remates",
+      "descripcion": "Posicionado, nivelación, taladrado e inyección química para anclajes laterales, fijación final y repasos de pintura.",
+      "cantidad": 16,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 560,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿Dada la ubicación en exterior en Ciutadella (Menorca), se acepta cambiar la especificación a Acero Inoxidable AISI 316 en lugar de AISI 304 para prevenir picaduras por brisa salina?",
+    "¿Sobre qué tipo de paramento (hormigón armado, obra de fábrica, canto de forjado) se realizará el anclaje lateral?"
+  ],
+  "supuestos": [
+    "Ubicación de la obra en Ciutadella de Menorca con acceso habilitado para camión de transporte.",
+    "El paramento base para el anclaje lateral tiene capacidad estructural suficiente para soportar la sobrecarga de 1.6 kN/m según el CTE.",
+    "Se presupuesta el sistema con pintura promotora de adherencia especial sobre acero inoxidable.",
+    "La toma de medidas incluye desplazamiento a Ciutadella y elaboración completa de planimetría/despiece de taller (12 h)."
+  ],
+  "riesgos": [
+    "Uso de AISI 304 en exterior en ambiente salino de Menorca: alto riesgo de contaminación/pitting por cloruros marinos, produciendo manchas de óxido prematuras.",
+    "Riesgo de descascarillado de pintura sobre acero inoxidable si no se realiza un granallado o lijado químico especializado previo a la imprimación."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Sustitución de AISI 304 por AISI 316 (A4) o acero galvanizado + lacado",
+      "detalle": "En Menorca (ambiente marino C4/C5), se aconseja utilizar AISI 316 si la barandilla es de inoxidable vista, o acero al carbono galvanizado en caliente si se va a pintar, garantizando mayor adherencia y durabilidad anticorrosiva.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Criterio de horas técnicas para toma de medidas y planimetría en Ciutadella",
+      "detalle": "Para trabajos que requieran desplazamiento a Ciutadella y levantamiento completo de planimetría/despiece técnico de barandillas, considerar un mínimo de 12 horas técnicas.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "media"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 89244,
+    "outputTokens": 1727,
+    "totalTokens": 92445
+  },
+  "tokenStatus": {
+    "provider": "fal",
+    "model": "fal-ai/flux/schnell",
+    "estimatedInputTokens": 586,
+    "localBudgetTokens": null,
+    "usedTokens": 0,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Imagen generada con fal.ai en modo economico; sin control local por tokens."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Acciona Aguas",
+    "email": "",
+    "telefono": "",
+    "nif": "A95113361",
+    "direccion": "",
+    "referencia": "Barandilla Pozos exteriores con acceso de escaleras."
+  },
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Técnico: Fabricación e Instalación de Barandilla Metálica (20 ml) - Ciutadella de Menorca\nTipo: Barandilla metálica\nResumen: Presupuesto para la fabricación e instalación de 20 metros lineales de barandilla recta dividida en 4 tramos con anclaje lateral y acabado pintado para exterior en Ciutadella de Menorca.\nCliente/obra: Menorca\nPartidas principales:\n- Diseno: Toma de medidas, replanteo técnico y planos de taller. Desplazamiento a Ciutadella, toma de medidas, verificación de cotas en obra, creación de planimetría, despiece y plano de modulación para 4 tramos de barandilla.. 12 h\n- Materiales: Perfilería y tubos de acero inoxidable AISI 304. Pasamanos, bastidores y barrotes en acero inoxidable AISI 304 según CTE (separación máxima 10 cm entre barrotes).. 20 ml\n- Materiales: Placas de anclaje lateral y anclajes químicos inoxidable A4. Pletinas de fijación lateral, tacos químicos de resina epoxi y tornillería inoxidable calidad A4 para alta resistencia marina.. 1 lote\n- Fabricacion: Mano de obra de taller (Corte, ensamblado y soldadura laser). Corte a medida, preparación de cantos, soldadura TIG, repasado de cordones y preparación de soportes de fijación lateral.. 32 h\n- Tratamiento: Imprimación promotora de adherencia y sistema de pintura exterior C4. Tratamiento de preparación superficial sobre acero inox, aplicación de imprimación epoxi especial y acabado en esmalte poliuretano para exterior salino.. 20 ml\n- Transporte: Transporte de material a obra en Ciutadella de Menorca. Desplazamiento de camión con material protegido desde taller hasta el punto de instalación en Ciutadella.. 1 lote\n- Montaje: Mano de obra de instalación en obra y remates. Posicionado, nivelación, taladrado e inyección química para anclajes laterales, fijación final y repasos de pintura.. 16 h\n\nEstilo visual:\n- Imagen cuadrada, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-08-17T11:36:24.184Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualModo": "economico",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa6b1d2/jS0Eutz5iwiPVwlbdeXsO.png"
+}

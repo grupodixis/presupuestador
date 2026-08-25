@@ -1,0 +1,143 @@
+{
+  "titulo": "Presupuesto Técnico: Cerramiento Translucido Thermoclick y Subestructura de Fachadas",
+  "resumen": "Suministro, fabricación e instalación de subestructura de acero galvanizado y cerramiento de policarbonato celular entrelazado tipo Thermoclick para fachadas lateral oeste y frontal sur, incluyendo pilar de refuerzo y tratamiento anticorrosivo C4/C5 con rica en zinc y poliuretano para postes existentes en Menorca.",
+  "tipoProducto": "Producto compuesto a medida",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Fabricacion",
+      "concepto": "Subestructura acero galvanizado 100x50x3 - Fachada Lateral Oeste",
+      "descripcion": "Fabricación y montaje de 4 líneas de tubo 100x50x3 mm galvanizado base reforzado a fijar en estructura existente en fachada oeste, incluyendo accesorios de fijación de acero inoxidable / A4 para ambiente marino.",
+      "cantidad": 168,
+      "unidad": "ml",
+      "precioUnitario": 35,
+      "importe": 5880,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Sistema Thermoclick Policarbonato Celular - Fachada Lateral Oeste",
+      "descripcion": "Suministro y montaje de sistema Thermoclick de paneles celulares de policarbonato entrelazados con protección UV para cerramiento exterior (41 ML x 5 ML de altura).",
+      "cantidad": 205,
+      "unidad": "m2",
+      "precioUnitario": 165,
+      "importe": 33825,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Fabricacion",
+      "concepto": "Subestructura acero galvanizado 100x50x3 - Fachada Frontal Sur",
+      "descripcion": "Fabricación y montaje de 4 líneas de tubo 100x50x3 mm galvanizado base reforzado a fijar en estructura existente en fachada sur, con herrajes anticorrosivos.",
+      "cantidad": 96,
+      "unidad": "ml",
+      "precioUnitario": 35,
+      "importe": 3360,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Fabricacion",
+      "concepto": "Pilar intermedio tubo 100x100x4 mm - Fachada Sur",
+      "descripcion": "Fabricación, preparación de placas base y montaje de pilar intermedio estructural de tubo 100x100x4 mm galvanizado para soporte de fachada sur.",
+      "cantidad": 1,
+      "unidad": "ud",
+      "precioUnitario": 1400,
+      "importe": 1400,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Materiales",
+      "concepto": "Sistema Thermoclick Policarbonato Celular - Fachada Frontal Sur",
+      "descripcion": "Suministro y montaje de sistema Thermoclick de paneles celulares de policarbonato entrelazados para cerramiento exterior en fachada sur (21 ML x 5 ML de altura).",
+      "cantidad": 105,
+      "unidad": "m2",
+      "precioUnitario": 165,
+      "importe": 17325,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Tratamiento",
+      "concepto": "Mantenimiento y tratamiento anticorrosivo C4/C5 en postes existentes 150x150 mm",
+      "descripcion": "Raspado manual/mecánico, pasivado, imprimación rica en zinc y acabado poliuretánico en postes existentes de 150x150 mm (12 uds de 9 ML). Incluye medios auxiliares y plataformas de elevación para trabajo en altura.",
+      "cantidad": 64.8,
+      "unidad": "m2",
+      "precioUnitario": 68,
+      "importe": 4406.4,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿Qué espesor y tonalidad/transmisión de luz específica se requiere para el panel celular Thermoclick?",
+    "¿La estructura existente donde se anclarán los perfiles 100x50x3 dispone de puntos de fijación probados o requiere tacos químicos/placas especiales?",
+    "¿El acceso a las fachadas está libre de obstáculos para el posicionamiento de plataformas elevadoras de brazo o tijera?"
+  ],
+  "supuestos": [
+    "Se asume que la estructura base existente está aplomada y en condiciones estructurales idóneas para soportar el cerramiento.",
+    "El tratamiento en postes existentes se presupuesta con sistema C4/C5 (imprimación rica en zinc + acabado poliuretano) adaptado al ambiente marino de Menorca.",
+    "Tornillería y anclajes expuestos a la intemperie previstos en acero inoxidable AISI 316 / A4."
+  ],
+  "riesgos": [
+    "Presencia de corrosión interna no visible o degradación en las uniones de los postes existentes que requieran refuerzo previo o saneado estructural extra.",
+    "Cargas de viento elevadas durante la fase de instalación de los paneles celulares de gran formato a 5 metros de altura."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Memorizar coste de referencia de mantenimiento C4/C5 con elevación",
+      "detalle": "Guardar el precio de 68 €/m2 para raspado, imprimación rica en zinc y esmalte poliuretano en postes estructurales con medios de elevación incluidos.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Consolidar ratio de precio para paneles celulares Thermoclick montados",
+      "detalle": "Registrar la referencia de 165 €/m2 para suministro y montaje de paneles entrelazados de policarbonato en fachada exterior.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "media"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 69941,
+    "outputTokens": 1655,
+    "totalTokens": 73226
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 295,
+    "localBudgetTokens": null,
+    "usedTokens": 823100,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Club Villa Carlos",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  }
+}

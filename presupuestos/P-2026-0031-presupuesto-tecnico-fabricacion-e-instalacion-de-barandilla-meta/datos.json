@@ -1,0 +1,162 @@
+{
+  "titulo": "Presupuesto Técnico: Fabricación e Instalación de Barandilla Metálica Exterior (30 ml) - Ciutadella",
+  "resumen": "Presupuesto técnico y comercial ajustado a un objetivo de 344 €/ml (Total: 10.320,00 €) para la fabricación e instalación de 30 ml de barandilla metálica de 1,1 m de altura en acero inoxidable AISI 304 pintado, distribuida en 2 tramos rectos con anclaje superior y montaje con camión grúa en Ciutadella.",
+  "tipoProducto": "barandilla",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Toma de medidas, replanteo técnico y planos de taller",
+      "descripcion": "Verificación dimensional en obra en Ciutadella, cálculo de despiece y elaboración de planos de taller cumpliendo CTE DB SUA (separación <10 cm).",
+      "cantidad": 6,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 210,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Perfiles y tubos de acero inoxidable AISI 304",
+      "descripcion": "Pasamanos, montantes verticales y barrotes en acero inoxidable AISI 304 para 30 ml de barandilla de h=1,1 m.",
+      "cantidad": 30,
+      "unidad": "ml",
+      "precioUnitario": 125,
+      "importe": 3750,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Anclajes superiores y tornillería inoxidable A4",
+      "descripcion": "Pletinas base de fijación superior, resina e inyección de taco químico y tornillería/varilla de acero inoxidable.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 540,
+      "importe": 540,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller: corte, soldadura TIG y repasado",
+      "descripcion": "Corte de perfiles, armado de bastidores, soldadura TIG con aportación inox y repasado/limpieza de cordones de soldadura.",
+      "cantidad": 64,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 2240,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Tratamiento",
+      "concepto": "Sistema de imprimación epoxi + pintura de poliuretano C4/C5",
+      "descripcion": "Preparación de superficie en inox, imprimación de adherencia tipo wash-primer/epoxi y esmalte de poliuretano alifático para exterior salino.",
+      "cantidad": 30,
+      "unidad": "ml",
+      "precioUnitario": 50,
+      "importe": 1500,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Transporte",
+      "concepto": "Transporte de material a obra en Ciutadella",
+      "descripcion": "Desplazamiento de material protegido desde taller hasta ubicación final en Ciutadella de Menorca.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 180,
+      "importe": 180,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Montaje",
+      "concepto": "Mano de obra de instalación y nivelación en obra",
+      "descripcion": "Replanteo sobre forjado/soporte, perforación, fijación química de anclajes, aplomado, ensamblaje de los 2 tramos y sellados.",
+      "cantidad": 45,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 1575,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Montaje",
+      "concepto": "Medios auxiliares: Camión grúa con pluma",
+      "descripcion": "Servicio de camión pluma/grúa durante 3 horas para elevación y posicionado seguro del material en obra.",
+      "cantidad": 3,
+      "unidad": "h",
+      "precioUnitario": 120,
+      "importe": 360,
+      "confianza": "alta",
+      "origen": "supuesto",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿Se ha especificado un código de color RAL concreto para la pintura de acabado?",
+    "¿El soporte base para el anclaje superior es forjado de hormigón armado resistente?",
+    "¿El uso de acero inoxidable AISI 304 es un requisito cerrado del cliente o se puede proponer AISI 316 para la intemperie de Ciutadella?"
+  ],
+  "supuestos": [
+    "Ubicación en Ciutadella (Menorca) con distribución del objetivo de precio comercial a 344 €/ml sobre 30 ml (Total: 10.320,00 € + IVA).",
+    "La barandilla cumple con el CTE DB SUA garantizando huecos verticales libres inferiores a 10 cm.",
+    "El soporte donde se realiza el anclaje superior se encuentra estructuralmente apto para fijación con taco químico."
+  ],
+  "riesgos": [
+    "Ambiente salino de Ciutadella (C4/C5): el acero inoxidable AISI 304 en exterior marino presenta riesgo de corrosión por picadura si la capa de pintura sufre roces o desconchones.",
+    "Posible necesidad de refuerzos o placas especiales si la estructura base sobre la que se ancla presenta grietas o material no denso."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Sustitución de inoxidable AISI 304 por AISI 316 para exterior en Menorca",
+      "detalle": "Dado que la instalación se realiza en Ciutadella (ambiente marino C4/C5), se recomienda prescribir acero inoxidable AISI 316 en lugar de 304 para evitar corrosión bajo la capa de pintura a medio plazo.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 89491,
+    "outputTokens": 1783,
+    "totalTokens": 93844
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 160,
+    "localBudgetTokens": null,
+    "usedTokens": 3627642,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Acciona Aguas",
+    "email": "",
+    "telefono": "",
+    "nif": "A95113361",
+    "direccion": "Ciutadella Sud",
+    "referencia": "Barandilla"
+  }
+}

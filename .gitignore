@@ -5,4 +5,8 @@ datos-privados/
 presupuestador-app/data/
 .agents/
 tmp/
+presupuestador-app/public/deploy-status.txt
+presupuestador-app/public/fal-economical-check.txt
+presupuestador-app/public/last-restart-status.txt
+presupuestador-app/public/runtime-settings-check.json
 

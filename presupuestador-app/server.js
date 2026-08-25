@@ -6,6 +6,7 @@ const crypto = require("crypto");
 const { DatabaseSync } = require("node:sqlite");
 
 const PORT = Number(process.env.PORT || 4177);
+const HOST = String(process.env.HOST || "127.0.0.1");
 const BASE_PATH = normalizeBasePath(process.env.BASE_PATH || "");
 const ROOT = path.resolve(__dirname, "..");
 const PUBLIC_DIR = path.join(__dirname, "public");
@@ -143,6 +144,7 @@ function db() {
     );
   `);
   ensureDefaultAdminUser();
+  cleanupExpiredSessions();
   return database;
 }
 
@@ -161,9 +163,22 @@ function verifyPassword(password, stored) {
 function ensureDefaultAdminUser() {
   const row = database.prepare("SELECT COUNT(*) AS count FROM app_users").get();
   if (row.count > 0) return;
+  const username = String(process.env.INITIAL_ADMIN_USERNAME || "admin").trim().toLowerCase();
+  const password = String(process.env.INITIAL_ADMIN_PASSWORD || "");
+  if (!/^[a-z0-9._-]{3,40}$/.test(username)) {
+    throw new Error("INITIAL_ADMIN_USERNAME invalido. Usa 3-40 caracteres seguros.");
+  }
+  if (password.length < 12) {
+    throw new Error("Base de datos sin usuarios. Define INITIAL_ADMIN_PASSWORD con al menos 12 caracteres antes de arrancar.");
+  }
   const now = new Date().toISOString();
   database.prepare("INSERT INTO app_users (username, password_hash, role, active, created_at, updated_at) VALUES (?, ?, ?, 1, ?, ?)")
-    .run("admin", hashPassword("admin"), "admin", now, now);
+    .run(username, hashPassword(password), "admin", now, now);
+}
+
+function cleanupExpiredSessions() {
+  if (!database) return 0;
+  return Number(database.prepare("DELETE FROM app_sessions WHERE expires_at <= ?").run(new Date().toISOString()).changes || 0);
 }
 
 function publicUser(user) {
@@ -219,7 +234,7 @@ function listUsers() {
 function createUser({ username, password, role = "user", active = true }) {
   const clean = String(username || "").trim().toLowerCase();
   if (!/^[a-z0-9._-]{3,40}$/.test(clean)) throw new Error("Usuario invalido. Usa 3-40 caracteres: letras, numeros, punto, guion o guion bajo.");
-  if (String(password || "").length < 4) throw new Error("La contraseña debe tener al menos 4 caracteres.");
+  if (String(password || "").length < 12) throw new Error("La contraseña debe tener al menos 12 caracteres.");
   const safeRole = role === "admin" ? "admin" : "user";
   const now = new Date().toISOString();
   db().prepare("INSERT INTO app_users (username, password_hash, role, active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)")
@@ -239,7 +254,7 @@ function updateUser(id, patch) {
   }
   const now = new Date().toISOString();
   if (patch.password) {
-    if (String(patch.password).length < 4) throw new Error("La contraseña debe tener al menos 4 caracteres.");
+    if (String(patch.password).length < 12) throw new Error("La contraseña debe tener al menos 12 caracteres.");
     db().prepare("UPDATE app_users SET password_hash = ?, role = ?, active = ?, updated_at = ? WHERE id = ?")
       .run(hashPassword(patch.password), role, active, now, userId);
     db().prepare("DELETE FROM app_sessions WHERE user_id = ?").run(userId);
@@ -2094,7 +2109,8 @@ async function listBudgets() {
     const imageFile = budgetData?.imagenConceptual || (fileNames.includes("imagen-conceptual-ia.png") ? "imagen-conceptual-ia.png" : "");
     const imageUrl = imageFile ? `/presupuestos/${encodeURIComponent(entry.name)}/${encodeURIComponent(imageFile)}` : "";
     const code = `P-${match[1]}-${match[2]}`;
-    if (budgetData) saveBudgetRecord({ folder, code, payload: budgetData, htmlPath: `presupuestos/${entry.name}/presupuesto-final.html` });
+    const indexedData = budgetData || await readMinimalBudgetPayload(folder, title);
+    saveBudgetRecord({ folder, code, payload: indexedData, htmlPath: `presupuestos/${entry.name}/presupuesto-final.html` });
     budgets.push({
       code,
       year: match[1],
@@ -2113,6 +2129,13 @@ async function listBudgets() {
       editable: fileNames.includes("datos.json"),
       updatedAt: (await fs.stat(folder)).mtime.toISOString(),
     });
+  }
+  const existingFolders = budgets.map((budget) => budget.folder);
+  if (existingFolders.length) {
+    const placeholders = existingFolders.map(() => "?").join(",");
+    db().prepare(`DELETE FROM budgets WHERE folder NOT IN (${placeholders})`).run(...existingFolders);
+  } else {
+    db().exec("DELETE FROM budgets");
   }
   budgets.sort((a, b) => b.year.localeCompare(a.year) || b.number - a.number);
   const years = [...new Set(budgets.map((budget) => budget.year))].sort((a, b) => b.localeCompare(a));
@@ -2625,6 +2648,17 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Presupuestador app: http://localhost:${PORT}`);
+async function startServer() {
+  db();
+  const indexed = await listBudgets();
+  const sessionCleanupTimer = setInterval(() => cleanupExpiredSessions(), 60 * 60 * 1000);
+  sessionCleanupTimer.unref();
+  server.listen(PORT, HOST, () => {
+    console.log(`Presupuestador app: http://${HOST}:${PORT} (${indexed.budgets.length} presupuestos indexados)`);
+  });
+}
+
+startServer().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
 });

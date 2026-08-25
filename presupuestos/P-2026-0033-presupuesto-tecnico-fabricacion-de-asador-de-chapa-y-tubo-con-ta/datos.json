@@ -1,0 +1,175 @@
+{
+  "titulo": "Presupuesto Técnico: Fabricación de Asador de Chapa y Tubo con Tapa (1.2 x 1.0 x 0.6 m)",
+  "resumen": "Fabricación a medida de asador/barbacoa metálica en acero al carbono con estructura en tubo 30x30x3 mm y cuba/tapa en chapa de 2 mm. Dimensiones 1200x600x1000 mm. Incluye tapa abatible con bisagras y topes, según referencia visual. Excluye parrilla y quemador lateral por indicación expresa del cliente.",
+  "tipoProducto": "herreria",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Diseño técnico y despiece de carpintería metálica",
+      "descripcion": "Diseño de conjunto, plano de taller y optimización de corte/plegado para chapa de 2 mm y estructura en tubo 30x30x3 mm.",
+      "cantidad": 2,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 70,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Tubo estructural de acero 30x30x3 mm",
+      "descripcion": "Perfil tubular de acero al carbono para bastidor principal, patas, refuerzos y marco de la tapa abatible (~3 barras de 6m).",
+      "cantidad": 18,
+      "unidad": "ml",
+      "precioUnitario": 5.8,
+      "importe": 104.4,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Chapa de acero al carbono de 2 mm de espesor",
+      "descripcion": "Chapa conformada y cortada para cuerpo de la cuba, laterales, fondo y cubierta/tapa abatible.",
+      "cantidad": 38,
+      "unidad": "kg",
+      "precioUnitario": 2.4,
+      "importe": 91.2,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Herrajes, ruedas y consumibles de montaje",
+      "descripcion": "Bisagras pesadas para tapa, cadenas de retención de apertura, tirador anticalórico, juego de ruedas traseras para traslado y discos/gas/hilo de soldadura.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 65,
+      "importe": 65,
+      "confianza": "media",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller: corte, plegado, soldadura y repasado",
+      "descripcion": "Corte de perfiles, plegado de chapa, soldadura continua MIG/MAG en cuba y estructura, esmerilado de cordones y ajuste de tapa abatible.",
+      "cantidad": 10,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 350,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Tratamiento",
+      "concepto": "Pintura anticalórica especial para exterior en Menorca",
+      "descripcion": "Desengrasado, preparación de superficie y aplicación de acabado anticalórico resistente a altas temperaturas (hasta 600°C) apto para ambiente marino salino.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 95,
+      "importe": 95,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Transporte",
+      "concepto": "Transporte y entrega local en Menorca",
+      "descripcion": "Desplazamiento y entrega del módulo terminado en obra o domicilio del cliente.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 50,
+      "importe": 50,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿Desea prever soportes interiores o guías para colocar posteriormente una parrilla a distintas alturas?",
+    "¿Prefiere que la base de la cuba lleve piso de ladrillo refractario para aislar la chapa del fuego directo?",
+    "¿Requiere ruedas de mayor diámetro/resistencia si el asador va a rodar sobre césped o grava?"
+  ],
+  "supuestos": [
+    "Ubicación por defecto en Menorca.",
+    "No se incluye parrilla ni quemador lateral/fogonero, de acuerdo con la instrucción explícita del cliente.",
+    "El asador se entrega completamente pintado en negro anticalórico apto para intemperie."
+  ],
+  "riesgos": [
+    "El uso de brasas directas sobre chapa de 2 mm sin ladrillos refractarios puede provocar deformación térmica del fondo con el tiempo.",
+    "En ambiente salino costero de Menorca, el acero al carbono requiere mantenimiento/retoque periódico con pintura anticalórica para prevenir oxidación."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Protección interior con piso refractario",
+      "detalle": "Añadir piso de ladrillo refractario en la base de la cuba para prolongar la vida útil de la chapa de 2 mm y lograr mejor retención del calor.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "media"
+    },
+    {
+      "id": "S2",
+      "titulo": "Fabricación parcial o total en Acero Inoxidable AISI 316",
+      "detalle": "Para instalaciones cerca del mar en Menorca, la opción en inox 316 evita por completo el deterioro por corrosión salina.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "baja"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 90940,
+    "outputTokens": 1702,
+    "totalTokens": 94209
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 1138,
+    "localBudgetTokens": null,
+    "usedTokens": 4015361,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Jorge",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  },
+  "_folder": "presupuestos/P-2026-0033-presupuesto-tecnico-fabricacion-de-asador-de-chapa-y-tubo-con-ta",
+  "_changeLog": [
+    {
+      "at": "2026-08-18T10:05:24.776Z",
+      "source": "generacion",
+      "provider": "gemini",
+      "model": "gemini-3.6-flash",
+      "titulo": "Presupuesto Técnico: Fabricación de Asador de Chapa y Tubo con Tapa (1.2 x 1.0 x 0.6 m)"
+    }
+  ],
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Técnico: Fabricación de Asador de Chapa y Tubo con Tapa (1.2 x 1.0 x 0.6 m)\nTipo: herreria\nResumen: Fabricación a medida de asador/barbacoa metálica en acero al carbono con estructura en tubo 30x30x3 mm y cuba/tapa en chapa de 2 mm. Dimensiones 1200x600x1000 mm. Incluye tapa abatible con bisagras y topes, según referencia visual. Excluye parrilla y quemador lateral por indicación expresa del cliente.\nCliente/obra: Menorca\nPartidas principales:\n- Diseno: Diseño técnico y despiece de carpintería metálica. Diseño de conjunto, plano de taller y optimización de corte/plegado para chapa de 2 mm y estructura en tubo 30x30x3 mm.. 2 h\n- Materiales: Tubo estructural de acero 30x30x3 mm. Perfil tubular de acero al carbono para bastidor principal, patas, refuerzos y marco de la tapa abatible (~3 barras de 6m).. 18 ml\n- Materiales: Chapa de acero al carbono de 2 mm de espesor. Chapa conformada y cortada para cuerpo de la cuba, laterales, fondo y cubierta/tapa abatible.. 38 kg\n- Materiales: Herrajes, ruedas y consumibles de montaje. Bisagras pesadas para tapa, cadenas de retención de apertura, tirador anticalórico, juego de ruedas traseras para traslado y discos/gas/hilo de soldadura.. 1 lote\n- Fabricacion: Mano de obra de taller: corte, plegado, soldadura y repasado. Corte de perfiles, plegado de chapa, soldadura continua MIG/MAG en cuba y estructura, esmerilado de cordones y ajuste de tapa abatible.. 10 h\n- Tratamiento: Pintura anticalórica especial para exterior en Menorca. Desengrasado, preparación de superficie y aplicación de acabado anticalórico resistente a altas temperaturas (hasta 600°C) apto para ambiente marino salino.. 1 lote\n- Transporte: Transporte y entrega local en Menorca. Desplazamiento y entrega del módulo terminado en obra o domicilio del cliente.. 1 lote\n\nEstilo visual:\n- Imagen cuadrada, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-08-18T10:07:58.192Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualModo": "economico",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa6d17f/UCjCiw0uP7g8bvr5aXbjE.png"
+}

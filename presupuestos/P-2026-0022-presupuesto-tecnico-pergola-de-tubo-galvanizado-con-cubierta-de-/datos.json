@@ -1,0 +1,192 @@
+{
+  "titulo": "Presupuesto Técnico: Pérgola de Tubo Galvanizado con Cubierta de Cañizo",
+  "resumen": "Fabricación e instalación de pérgola metálica a medida de 7,00 x 4,00 m con estructura en tubo galvanizado de 40x40x2 mm, cubierta ligera de cañizo, acabado imprimado y pintado en negro con protección para ambiente marino en Menorca, y cimentación mediante 8 zapatas de hormigón de 50x50x50 cm.",
+  "tipoProducto": "Pérgola y Marquesina Metálica",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Toma de medidas, diseño técnico y cálculo de replanteo",
+      "descripcion": "Definición dimensional, despiece de tubos, modulación de correas para soporte de cañizo y distribución de los 8 pilares.",
+      "cantidad": 3,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 105,
+      "confianza": "alta",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Tubo de acero galvanizado 40x40x2 mm",
+      "descripcion": "Perfiles para pilares (8 ud), vigas perimetrales y correas de reparto para fijación de cañizo (aprox. 105 ml totales).",
+      "cantidad": 105,
+      "unidad": "ml",
+      "precioUnitario": 8.5,
+      "importe": 892.5,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Cubierta de cañizo natural reforzado",
+      "descripcion": "Suministro e instalación de cañizo tejido para sombraje en cubierta de 28 m² más solapes y mermas.",
+      "cantidad": 32,
+      "unidad": "m2",
+      "precioUnitario": 12,
+      "importe": 384,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Placas base y anclajes químicos en Acero Inox A4 (AISI 316)",
+      "descripcion": "Placas de reparto soldadas a pilares y varillas roscadas de acero inoxidable AISI 316 con taco químico para ambiente marino C4/C5.",
+      "cantidad": 8,
+      "unidad": "ud",
+      "precioUnitario": 28,
+      "importe": 224,
+      "confianza": "alta",
+      "origen": "supuesto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller para corte, ensamblaje y soldadura",
+      "descripcion": "Corte a inglete, soldadura de bastidores y corcovado, saneado y repaso de cordones con imprimación rica en zinc.",
+      "cantidad": 18,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 540,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Tratamiento",
+      "concepto": "Sistema de pintura especial C4/C5 Negro Satinado",
+      "descripcion": "Preparación de superficie sobre galvanizado, imprimación epoxi adherente y acabado en poliuretano negro resistente a radiación UV y brisa marina.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 380,
+      "importe": 380,
+      "confianza": "media",
+      "origen": "skill",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Montaje",
+      "concepto": "Excavación y vertido de 8 zapatas de hormigón (50x50x50 cm)",
+      "descripcion": "Excavación manual/mecánica de 0,125 m³ por zapata (1 m³ total) y hormigonado H-250 para cimentación de pilares.",
+      "cantidad": 8,
+      "unidad": "ud",
+      "precioUnitario": 120,
+      "importe": 960,
+      "confianza": "alta",
+      "origen": "supuesto",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Montaje",
+      "concepto": "Mano de obra de montaje en obra, nivelado y fijación de cañizo",
+      "descripcion": "Erección de estructura de pérgola, aplomado, fijación de anclajes, tendido y fijación perimetral del cañizo.",
+      "cantidad": 16,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 480,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L9",
+      "capitulo": "Transporte",
+      "concepto": "Transporte y medios auxiliares a obra en Menorca",
+      "descripcion": "Desplazamiento de perfiles de 7 m de longitud, cañizo, herramientas y materiales de cimentación a pie de obra.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 140,
+      "importe": 140,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿La superficie del terreno para las zapatas es de tierra, pavimento o losa existente?",
+    "¿Hay disponibilidad de toma de agua y electricidad en el lugar de montaje?",
+    "¿La luz libre de 7 metros requiere algún pilar intermedio adicional o prefiere mantener luz diáfana con cercha/viga reforzada?",
+    "¿El cañizo requiere ser de bambú pelado, tejido sintético o cañizo nacional estándar?"
+  ],
+  "supuestos": [
+    "Se asume terreno excavable sin presencia de roca dura para la ejecución de las 8 zapatas de 50x50x50 cm.",
+    "Por defecto Menorca, se aplica sistema anticorrosivo C4/C5 con imprimación rica en zinc en soldaduras e Inox A4 en anclajes expuestos.",
+    "La sección de tubo de 40x40x2 mm para vigas de 7 metros requiere correas y jácena adecuadamente arriostradas para evitar flexión."
+  ],
+  "riesgos": [
+    "Riesgo de flexión o pandeo excesivo en vanos de 7 metros si se usa únicamente tubo de 40x40x2 mm sin viga de mayor canto o jácenas de refuerzo.",
+    "Elevada carga de viento en Menorca que puede rasgar o levantar el cañizo si no se fija con suficiente densidad de bridas/alambre Inox."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Refuerzo estructural de vigas principales",
+      "detalle": "Para luces de 7 metros, el tubo de 40x40x2 mm resulta demasiado flector. Se sugiere utilizar tubo rectangular de 80x40x2 mm o 100x50x3 mm para las vigas maestras y mantener 40x40x2 mm para correas intermedias.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Fijación anticorrosiva para cubierta vegetal",
+      "detalle": "Utilizar grapas o alambre de acero inoxidable AISI 316 para la fijación del cañizo, evitando alambre galvanizado común que se oxida rápidamente con la brisa salina de Menorca.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "media"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 78926,
+    "outputTokens": 2116,
+    "totalTokens": 84309
+  },
+  "tokenStatus": {
+    "provider": "fal",
+    "model": "fal-ai/flux/schnell",
+    "estimatedInputTokens": 677,
+    "localBudgetTokens": null,
+    "usedTokens": 0,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Imagen generada con fal.ai en modo economico; sin control local por tokens."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Fontenille Torre Vela SL",
+    "email": "g.tulic@fontenillecollection.com",
+    "telefono": "",
+    "nif": "B57991135",
+    "direccion": "",
+    "referencia": ""
+  },
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Técnico: Pérgola de Tubo Galvanizado con Cubierta de Cañizo\nTipo: Pérgola y Marquesina Metálica\nResumen: Fabricación e instalación de pérgola metálica a medida de 7,00 x 4,00 m con estructura en tubo galvanizado de 40x40x2 mm, cubierta ligera de cañizo, acabado imprimado y pintado en negro con protección para ambiente marino en Menorca, y cimentación mediante 8 zapatas de hormigón de 50x50x50 cm.\nCliente/obra: Menorca\nPartidas principales:\n- Diseno: Toma de medidas, diseño técnico y cálculo de replanteo. Definición dimensional, despiece de tubos, modulación de correas para soporte de cañizo y distribución de los 8 pilares.. 3 h\n- Materiales: Tubo de acero galvanizado 40x40x2 mm. Perfiles para pilares (8 ud), vigas perimetrales y correas de reparto para fijación de cañizo (aprox. 105 ml totales).. 105 ml\n- Materiales: Cubierta de cañizo natural reforzado. Suministro e instalación de cañizo tejido para sombraje en cubierta de 28 m² más solapes y mermas.. 32 m2\n- Materiales: Placas base y anclajes químicos en Acero Inox A4 (AISI 316). Placas de reparto soldadas a pilares y varillas roscadas de acero inoxidable AISI 316 con taco químico para ambiente marino C4/C5.. 8 ud\n- Fabricacion: Mano de obra de taller para corte, ensamblaje y soldadura. Corte a inglete, soldadura de bastidores y corcovado, saneado y repaso de cordones con imprimación rica en zinc.. 18 h\n- Tratamiento: Sistema de pintura especial C4/C5 Negro Satinado. Preparación de superficie sobre galvanizado, imprimación epoxi adherente y acabado en poliuretano negro resistente a radiación UV y brisa marina.. 1 lote\n- Montaje: Excavación y vertido de 8 zapatas de hormigón (50x50x50 cm). Excavación manual/mecánica de 0,125 m³ por zapata (1 m³ total) y hormigonado H-250 para cimentación de pilares.. 8 ud\n- Montaje: Mano de obra de montaje en obra, nivelado y fijación de cañizo. Erección de estructura de pérgola, aplomado, fijación de anclajes, tendido y fijación perimetral del cañizo.. 16 h\n- Transporte: Transporte y medios auxiliares a obra en Menorca. Desplazamiento de perfiles de 7 m de longitud, cañizo, herramientas y materiales de cimentación a pie de obra.. 1 lote\n\nEstilo visual:\n- Imagen cuadrada, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-08-10T11:18:13.783Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualModo": "economico",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa5c525/rrLm4I6UYuZumIlYABz6I.png"
+}

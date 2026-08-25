@@ -1,0 +1,123 @@
+{
+  "titulo": "Presupuesto Técnico: Tratamiento y Pintado de Persiana Enrollable Comercial (RAL 7043 Oxiron)",
+  "resumen": "Servicio de preparación de superficie (limpieza con disolvente y lijado matizado), aplicación de imprimación multiadherente anticorrosiva C4/C5 y pintura de acabado Oxiron gris antracita RAL 7043 sobre persiana metálica enrollable de 3,65 x 3,03 m (11,06 m²), incluyendo protección de elementos limítrofes y limpieza.",
+  "tipoProducto": "Tratamientos Superficiales / Pintura Comercial",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Tratamiento",
+      "concepto": "Preparación de superficie: Limpieza con disolvente y lijado matizado",
+      "descripcion": "Limpieza técnica con agua y disolvente desengrasante para eliminar grasas y contaminación ambiental salina, seguido de lijado manual/mecánico matizado de las lamas de la persiana para garantizar adherencia química y mecánica.",
+      "cantidad": 11.06,
+      "unidad": "m2",
+      "precioUnitario": 8.5,
+      "importe": 94.01,
+      "confianza": "alta",
+      "origen": "adjunto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Kit de Imprimación Multiadherente y Esmalte Oxiron RAL 7043",
+      "descripcion": "Suministro de imprimación multiadherente de alta resistencia anticorrosiva apta para ambiente marino de Menorca (C4/C5), esmalte acabado Oxiron gris antracita RAL 7043, disolventes de dilución/limpieza y material de lija.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 185,
+      "importe": 185,
+      "confianza": "alta",
+      "origen": "coste",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de aplicación de pintura a pistola / rodillo",
+      "descripcion": "Horas de oficial pintor para la aplicación de 1 capa de imprimación multiadherente y 2 capas de esmalte de acabado Oxiron RAL 7043, respetando tiempos de secado y repintado entre capas.",
+      "cantidad": 12,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 420,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto/adjunto",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Montaje",
+      "concepto": "Protección de entorno, enmascarado y limpieza final",
+      "descripcion": "Enmascarado y protección con plástico y cinta de carrocero de rótulo superior, aplacados de piedra laterales, guías, cerraduras y pavimento de acera para evitar pulverizaciones y manchas.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 65,
+      "importe": 65,
+      "confianza": "alta",
+      "origen": "supuesto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Transporte",
+      "concepto": "Desplazamiento y medios auxiliares de pintura en obra",
+      "descripcion": "Porte de herramientas, equipo de pulverización airless/pistola, escaleras y pequeño material a la ubicación del local en Menorca.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 50,
+      "importe": 50,
+      "confianza": "alta",
+      "origen": "supuesto",
+      "editable": true
+    }
+  ],
+  "preguntas": [
+    "¿El trabajo debe realizarse fuera del horario comercial del establecimiento para no interferir con la actividad?",
+    "¿Se requiere pintar únicamente la cara exterior expuesta a la calle o también la cara interior de la persiana?",
+    "¿Hay disponibilidad de punto de agua y toma eléctrica en la fachada del local?"
+  ],
+  "supuestos": [
+    "Se presupuesta exclusivamente la pintura de la cara exterior vista de la persiana (11,06 m² de hueco).",
+    "La persiana enrollable se encuentra en buen estado estructural, sin deformaciones ni oxidaciones penetrantes que requieran sustitución de lamas.",
+    "El trabajo se ejecuta en Menorca bajo condiciones ambientales de C4/C5 con materiales resistentes a brisa salina."
+  ],
+  "riesgos": [
+    "Riesgo de adherencia si la persiana presenta restos de ceras o siliconas previas no eliminadas en la fase de desengrase.",
+    "Condiciones de viento excesivo o humedad elevada durante la aplicación exterior que puedan afectar al acabado pulverizado o a los tiempos de secado."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Memorizar rendimiento y coste m² de pintado de persiana enrollable en Oxiron",
+      "detalle": "Consolidar el coste de lijado, imprimación y 2 manos de esmalte Oxiron para persianas metálicas en ~55 €/m² en Menorca.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "media"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 70642,
+    "outputTokens": 1371,
+    "totalTokens": 73176
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "estimatedInputTokens": 1135,
+    "localBudgetTokens": null,
+    "usedTokens": 597304,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Es Cardo",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "DIA MAHON",
+    "referencia": "DIA MAHON"
+  }
+}

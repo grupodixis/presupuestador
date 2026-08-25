@@ -1,0 +1,221 @@
+{
+  "titulo": "Presupuesto Técnico-Comercial: Rampa de Accesibilidad a Medida con Barandilla",
+  "resumen": "Fabricación e instalación de rampa para personas con movilidad reducida (PMR) realizada en chapa lágrima de acero al carbono de 5/3 mm, reforzada inferiormente con costillas estructurales, incluyendo barandilla de 12 metros lineales en tubo de 40x40x2 mm. Tratamiento superficial mediante imprimación rica en zinc y acabado sintético, adaptado al ambiente salino de Menorca.",
+  "tipoProducto": "Producto compuesto a medida",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Diseno",
+      "concepto": "Toma de medidas, diseño, despiece y cálculo de pendiente",
+      "descripcion": "Toma de medidas in situ, modelado 3D, planos de taller para fabricación de rampa PMR y verificación de cumplimiento de pendiente máxima según normativa de accesibilidad.",
+      "cantidad": 4,
+      "unidad": "h",
+      "precioUnitario": 35,
+      "importe": 140,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto",
+      "editable": true
+    },
+    {
+      "id": "L2",
+      "capitulo": "Materiales",
+      "concepto": "Chapa de acero lágrima 5/3 mm",
+      "descripcion": "Chapa de acero al carbono con relieve antideslizante de 5 mm de espesor base (3 mm de huella) para superficie de rodadura (estimado 3.00 x 1.00 m).",
+      "cantidad": 130,
+      "unidad": "kg",
+      "precioUnitario": 2.4,
+      "importe": 312,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto",
+      "editable": true
+    },
+    {
+      "id": "L3",
+      "capitulo": "Materiales",
+      "concepto": "Perfiles de acero para costillas de refuerzo",
+      "descripcion": "Tubos rectangulares y pletinas de acero S275JR para la estructura portante y costillas de refuerzo soldadas bajo la chapa lágrima.",
+      "cantidad": 50,
+      "unidad": "kg",
+      "precioUnitario": 2.4,
+      "importe": 120,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto",
+      "editable": true
+    },
+    {
+      "id": "L4",
+      "capitulo": "Materiales",
+      "concepto": "Tubo de acero 40x40x2 mm para barandilla",
+      "descripcion": "Perfiles tubulares cuadrados de acero al carbono para la fabricación de barandilla simple (pasamanos y montantes) medidos en metros lineales.",
+      "cantidad": 12,
+      "unidad": "ml",
+      "precioUnitario": 8,
+      "importe": 96,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto",
+      "editable": true
+    },
+    {
+      "id": "L5",
+      "capitulo": "Materiales",
+      "concepto": "Material auxiliar de fijación y anclaje",
+      "descripcion": "Tacos químicos de resina epoxi, varillas roscadas de acero inoxidable A4/316 y discos de corte/soldadura.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 45,
+      "importe": 45,
+      "confianza": "media",
+      "origen": "skill/coste/supuesto",
+      "editable": true
+    },
+    {
+      "id": "L6",
+      "capitulo": "Fabricacion",
+      "concepto": "Mano de obra de taller (Herrería)",
+      "descripcion": "Corte, conformado, soldadura MIG/MAG de la estructura de la rampa, costillas inferiores y ensamblaje de la barandilla de protección.",
+      "cantidad": 12,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 360,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto",
+      "editable": true
+    },
+    {
+      "id": "L7",
+      "capitulo": "Tratamiento",
+      "concepto": "Tratamiento anticorrosivo C4 (Imprimación Zinc + Sintético)",
+      "descripcion": "Preparación de superficie mediante desengrasado, aplicación de imprimación rica en zinc y acabado con esmalte sintético de alta resistencia para ambiente exterior de Menorca.",
+      "cantidad": 7,
+      "unidad": "m2",
+      "precioUnitario": 25,
+      "importe": 175,
+      "confianza": "media",
+      "origen": "skill/coste/supuesto",
+      "editable": true
+    },
+    {
+      "id": "L8",
+      "capitulo": "Transporte",
+      "concepto": "Transporte local en Menorca",
+      "descripcion": "Porte y entrega de la rampa y barandilla en el lugar de la obra mediante vehículo adaptado.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 80,
+      "importe": 80,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto",
+      "editable": true
+    },
+    {
+      "id": "L9",
+      "capitulo": "Montaje",
+      "concepto": "Mano de obra de montaje en obra",
+      "descripcion": "Instalación, replanteo, perforación, fijación química de la rampa al pavimento y soldadura/atornillado de la barandilla de seguridad.",
+      "cantidad": 4,
+      "unidad": "h",
+      "precioUnitario": 30,
+      "importe": 120,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto",
+      "editable": true
+    },
+    {
+      "id": "L10",
+      "capitulo": "Margen",
+      "concepto": "Margen de riesgo y contingencias de integración",
+      "descripcion": "Margen comercial y de seguridad técnica por tratarse de un producto compuesto multimaterial a medida.",
+      "cantidad": 1,
+      "unidad": "lote",
+      "precioUnitario": 177.84,
+      "importe": 177.84,
+      "confianza": "alta",
+      "origen": "skill/coste/supuesto",
+      "editable": false
+    }
+  ],
+  "preguntas": [
+    "¿Cuáles son las dimensiones exactas requeridas para la rampa (longitud, ancho y altura total a salvar)?",
+    "¿La rampa se instalará en un espacio público (sujeto a normativa estricta de accesibilidad del 8-10% de pendiente máxima) o privado?",
+    "¿El pavimento o base donde se va a anclar la rampa es de hormigón sólido o requiere alguna solera previa?",
+    "¿Se requiere que la barandilla incorpore un doble pasamanos a diferentes alturas según normativa PMR?"
+  ],
+  "supuestos": [
+    "Se asume una dimensión estimada de rampa de 3.00 metros de longitud por 1.00 metro de ancho útil (3 m² de superficie).",
+    "Se asume que existe una solera de hormigón firme y nivelada para realizar el anclaje químico de la rampa.",
+    "No se incluye obra civil, demoliciones ni preparación previa del terreno.",
+    "El presupuesto se calcula bajo las condiciones ambientales por defecto de Menorca (ambiente salino C4)."
+  ],
+  "riesgos": [
+    "Riesgo de oxidación prematura: El uso de acero al carbono con pintura sintética simple en exteriores de Menorca tiene una durabilidad limitada frente al galvanizado en caliente.",
+    "Riesgo de deslizamiento: Si la pendiente final supera el 12% debido a limitaciones de espacio, la chapa lágrima podría resultar resbaladiza en días lluviosos.",
+    "Corrosión galvánica: Riesgo de degradación rápida en los puntos de unión si se utiliza tornillería de acero al carbono sin protección en contacto con el anclaje."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Mejora de tratamiento: Galvanizado en Caliente",
+      "detalle": "Sustituir la imprimación de zinc por un proceso de galvanizado en caliente por inmersión antes del lacado (sistema dúplex). Esto garantiza una protección C5 marina de más de 20 años sin mantenimiento.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S2",
+      "titulo": "Barandilla en Acero Inoxidable AISI 316",
+      "detalle": "Fabricar el metro lineal de barandilla en acero inoxidable AISI 316 pulido o satinado en lugar de acero pintado, evitando el desgaste por rozamiento continuo en el pasamanos.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "media"
+    },
+    {
+      "id": "S3",
+      "titulo": "Memorizar tarifa de hora técnica de diseño a 35 €/h",
+      "detalle": "Actualizar el repositorio local para consolidar que la tarifa de diseño, toma de medidas y oficina técnica se fije en 35 €/h por defecto.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_general.md",
+      "prioridad": "alta"
+    },
+    {
+      "id": "S4",
+      "titulo": "Memorizar tarifa de tubo de acero para barandilla a 8 €/ML",
+      "detalle": "Actualizar el repositorio local para consolidar que el tubo de acero de 40x40x2 mm para barandilla se presupueste por defecto a 8 €/ML.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_carpinteria_metalica.md",
+      "prioridad": "alta"
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 72502,
+    "outputTokens": 2519,
+    "totalTokens": 76519
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash",
+    "estimatedInputTokens": 3359,
+    "localBudgetTokens": null,
+    "usedTokens": 745622,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://www.hamenorca.com/images/logo-hamenorca-dark.svg",
+    "headerText": "HAM Estructuras Metalicas\nFabricacion y montaje de estructuras metalicas, herreria y soluciones a medida en Menorca.\nAv. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca\ninfo@hamenorca.com - +34 971 35 20 18 - WhatsApp +34 669 769 541\nwww.hamenorca.com",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Antonio y diego",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  },
+  "_folder": "presupuestos/P-2026-0015-presupuesto-tecnico-comercial-rampa-de-accesibilidad-a-medida-co",
+  "imagenConceptual": "imagen-conceptual-ia.png",
+  "imagenConceptualNota": "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.",
+  "imagenConceptualPrompt": "Imagen conceptual comercial, realista y limpia para un presupuesto tecnico de HAM en Menorca.\n\nProducto: Presupuesto Técnico-Comercial: Rampa de Accesibilidad a Medida con Barandilla\nTipo: Producto compuesto a medida\nResumen: Fabricación e instalación de rampa para personas con movilidad reducida (PMR) realizada en chapa lágrima de acero al carbono de 5/3 mm, reforzada inferiormente con costillas estructurales, incluyendo barandilla de 12 metros lineales en tubo de 40x40x2 mm. Tratamiento superficial mediante imprimación rica en zinc y acabado sintético, adaptado al ambiente salino de Menorca.\nCliente/obra: Menorca\nPartidas principales:\n- Diseno: Toma de medidas, diseño, despiece y cálculo de pendiente. Toma de medidas in situ, modelado 3D, planos de taller para fabricación de rampa PMR y verificación de cumplimiento de pendiente máxima según normativa de accesibilidad.. 4 h\n- Materiales: Chapa de acero lágrima 5/3 mm. Chapa de acero al carbono con relieve antideslizante de 5 mm de espesor base (3 mm de huella) para superficie de rodadura (estimado 3.00 x 1.00 m).. 130 kg\n- Materiales: Perfiles de acero para costillas de refuerzo. Tubos rectangulares y pletinas de acero S275JR para la estructura portante y costillas de refuerzo soldadas bajo la chapa lágrima.. 50 kg\n- Materiales: Tubo de acero 40x40x2 mm para barandilla. Perfiles tubulares cuadrados de acero al carbono para la fabricación de barandilla simple (pasamanos y montantes) medidos en metros lineales.. 12 ml\n- Materiales: Material auxiliar de fijación y anclaje. Tacos químicos de resina epoxi, varillas roscadas de acero inoxidable A4/316 y discos de corte/soldadura.. 1 lote\n- Fabricacion: Mano de obra de taller (Herrería). Corte, conformado, soldadura MIG/MAG de la estructura de la rampa, costillas inferiores y ensamblaje de la barandilla de protección.. 12 h\n- Tratamiento: Tratamiento anticorrosivo C4 (Imprimación Zinc + Sintético). Preparación de superficie mediante desengrasado, aplicación de imprimación rica en zinc y acabado con esmalte sintético de alta resistencia para ambiente exterior de Menorca.. 7 m2\n- Transporte: Transporte local en Menorca. Porte y entrega de la rampa y barandilla en el lugar de la obra mediante vehículo adaptado.. 1 lote\n- Montaje: Mano de obra de montaje en obra. Instalación, replanteo, perforación, fijación química de la rampa al pavimento y soldadura/atornillado de la barandilla de seguridad.. 4 h\n- Margen: Margen de riesgo y contingencias de integración. Margen comercial y de seguridad técnica por tratarse de un producto compuesto multimaterial a medida.. 1 lote\n\nEstilo visual:\n- Imagen horizontal, luminosa, profesional, sin texto, sin logotipos, sin marcas de agua.\n- Mostrar el producto terminado de forma plausible en su entorno.\n- Si es exterior en Menorca, reflejar ambiente mediterraneo y materiales adecuados al ambiente salino.\n- Priorizar claridad comercial sobre detalle tecnico milimetrico.\n- No incluir planos con cotas ni textos ilegibles.\n- No representar personas reconocibles.",
+  "imagenConceptualGenerada": "2026-07-22T10:14:41.811Z",
+  "imagenConceptualProveedor": "fal.ai",
+  "imagenConceptualModelo": "fal-ai/flux/schnell",
+  "imagenConceptualRequestId": null,
+  "imagenConceptualUrlRemota": "https://v3b.fal.media/files/b/0aa34268/627vp2dmkFh6OFvVqikMl.png"
+}

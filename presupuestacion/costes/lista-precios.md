@@ -3,7 +3,7 @@
 Archivo generado automaticamente desde SQLite cada vez que se actualiza un precio.
 Editar los precios desde `Configuracion > Lista de precios`.
 
-Actualizado: 2026-08-12T09:22:45.559Z
+Actualizado: 2026-08-12T11:34:38.805Z
 
 ## Uso por el agente
 
@@ -15,7 +15,7 @@ Actualizado: 2026-08-12T09:22:45.559Z
 
 | Categoria | Nombre | Unidad | Coste | Venta | Margen % | Proveedor | Confianza |
 |---|---|---:|---:|---:|---:|---|---|
-| mano_obra | Mano de obra carpinteria aluminio | h | 35.0000 | 35.0000 | 0.00 |  | estimado |
+| mano_obra | Mano de obra carpinteria aluminio | h | 30.0000 | 40.0000 | 33.33 |  | estimado |
 | material | 04.AC.R150 Carril acero inox | kg | 11.4200 | 11.4200 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
 | material | 04.AC.R150 Carril acero inox por ml | ml | 2.9700 | 2.9700 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
 | material | 10320 Solape 40 mm atornillado | kg | 9.0400 | 9.0400 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
@@ -87,19 +87,18 @@ Actualizado: 2026-08-12T09:22:45.559Z
 | insumo | Hilo MIG/MAG 1 mm (15 kg bobina) | kg | 65.0000 | 65.0000 | 0.00 |  | estimado |
 | insumo | hilo TIG inox | kg | 18.0000 | 18.0000 | 0.00 |  | estimado |
 | insumo | Hilo TIG inoxidable 316L (5 kg) | kg | 75.0000 | 75.0000 | 0.00 |  | estimado |
-| mano_obra | ayudante montaje obra | h | 35.0000 | 35.0000 | 0.00 |  | confirmado |
-| mano_obra | ayudante taller | h | 28.0000 | 28.0000 | 0.00 |  | confirmado |
-| mano_obra | ingeniero oficina tecnica | h | 55.0000 | 55.0000 | 0.00 |  | confirmado |
-| mano_obra | oficial 1 taller | h | 40.0000 | 40.0000 | 0.00 |  | confirmado |
-| mano_obra | oficial 2 taller | h | 35.0000 | 35.0000 | 0.00 |  | confirmado |
-| mano_obra | oficial montaje obra | h | 45.0000 | 45.0000 | 0.00 |  | confirmado |
+| mano_obra | ayudante montaje obra | h | 22.0000 | 30.0000 | 36.36 |  | confirmado |
+| mano_obra | ayudante taller | h | 22.0000 | 30.0000 | 36.36 |  | confirmado |
+| mano_obra | ingeniero oficina tecnica | h | 25.0000 | 45.0000 | 80.00 |  | confirmado |
+| mano_obra | oficial 1 taller | h | 25.0000 | 40.0000 | 60.00 |  | confirmado |
+| mano_obra | oficial 2 taller | h | 22.0000 | 35.0000 | 59.09 |  | confirmado |
+| mano_obra | oficial montaje obra | h | 22.0000 | 35.0000 | 48.15 |  | confirmado |
 | maquinaria | Corte recto | corte | 15.0000 | 15.0000 | 0.00 | Ferros Puig Sallent | antiguo |
 | maquinaria | Escote | escote | 40.0000 | 40.0000 | 0.00 | Ferros Puig Sallent | antiguo |
 | maquinaria | Perforacion | perforacion | 2.7500 | 2.7500 | 0.00 | Ferros Puig Sallent | antiguo |
 | maquinaria | Taladrar | taladro | 3.0000 | 3.0000 | 0.00 | Ferros Puig Sallent | antiguo |
-| material | 2026-05-25 | kg | 3.6600 | 3.6600 | 0.00 |  | estimado |
 | material | AISI 304 pletina | kg | 6.0000 | 6.0000 | 0.00 |  | estimado |
-| material | AISI 304 tubo | kg | 5.5000 | 5.5000 | 0.00 |  | estimado |
+| material | AISI 304 tubo | kg | 6.0000 | 9.0000 | -8.33 |  | estimado |
 | material | AISI 316 pletina | kg | 9.0000 | 9.0000 | 0.00 |  | estimado |
 | material | AISI 316 tubo | kg | 8.2000 | 8.2000 | 0.00 |  | estimado |
 | material | Angular L | kg | 1.3500 | 1.3500 | 0.00 |  | estimado |
@@ -149,9 +148,6 @@ Actualizado: 2026-08-12T09:22:45.559Z
 | material | Tubo redondo sin soldadura | kg | 2.5000 | 2.5000 | 0.00 |  | estimado |
 | material | Tubo redondo soldado | kg | 1.7000 | 1.7000 | 0.00 |  | estimado |
 | material | UPN 80-300 | kg | 1.2000 | 1.2000 | 0.00 |  | estimado |
-| montaje | Montaje | servicio | 400.0000 | 400.0000 | 0.00 | Ferros Puig Sallent | antiguo |
-| montaje | Montaje grande | servicio | 4000.0000 | 4000.0000 | 0.00 | Ferros Puig Sallent | antiguo |
-| montaje | Montaje sencillo | servicio | 400.0000 | 400.0000 | 0.00 | Ferros Puig Sallent | antiguo |
 | transporte | Envio | ud | 60.0000 | 60.0000 | 0.00 | Ferros Puig Sallent | antiguo |
 | transporte | Envio medio/grande | kg | 0.0400 | 0.0400 | 0.00 | Ferros Puig Sallent | antiguo |
 | transporte | Envio pedido pequeño | ud | 46.0000 | 46.0000 | 0.00 | Ferros Puig Sallent | antiguo |
@@ -173,7 +169,7 @@ Actualizado: 2026-08-12T09:22:45.559Z
 
 | Categoria | Nombre | Unidad | Coste | Venta | Margen % | Proveedor | Confianza |
 |---|---|---:|---:|---:|---:|---|---|
-| transporte | 1 a 50 kg | kg | 15.0000 | 15.0000 | 0.00 |  | estimado |
+| transporte | 1 a 200 kg (40€ x 200 Kg o menos.) | kg | 0.5000 | 2.0000 | -25.00 |  | estimado |
 | transporte | 201 a 1000 kg | kg | 0.1800 | 0.1800 | 0.00 |  | estimado |
 | transporte | 51 a 200 kg | kg | 0.2500 | 0.2500 | 0.00 |  | estimado |
 | transporte | barcelona a menorca | kg | 0.2000 | 0.2000 | 0.00 |  | estimado |
