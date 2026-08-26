@@ -850,6 +850,7 @@ tbody tr:hover td { background: #fbfcfd; }
 .opening-editor label { display: grid; gap: 5px; color: var(--muted); font-size: 11px; font-weight: 700; }
 .opening-editor select { width: 100%; padding: 7px; border: 1px solid var(--line); border-radius: 5px; background: white; }
 .opening-diagram { width: 116px; margin: 0; page-break-inside: avoid; }
+.opening-diagram > div { display: block; width: 116px; height: 72px; }
 .opening-diagram svg { display: block; width: 100%; height: auto; }
 .opening-diagram g { fill: none; stroke: var(--brand); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .opening-diagram text { fill: var(--brand); stroke: none; font: 700 30px Arial; }

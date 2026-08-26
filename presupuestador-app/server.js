@@ -956,21 +956,21 @@ function openingDiagramHtml(value) {
   const label = labels[key];
   const leafMatch = key.match(/(3|4|6)_hojas/);
   const leaves = leafMatch ? Number(leafMatch[1]) : key.includes("2_hojas") ? 2 : 1;
-  const panelWidth = 116 / leaves;
+  const panelWidth = 100 / leaves;
   let panels = "";
   for (let index = 0; index < leaves; index += 1) {
-    panels += `<rect x="${index * panelWidth + 2}" y="2" width="${panelWidth - 4}" height="66" rx="1"/>`;
+    panels += `<span style="position:absolute;left:${index * panelWidth + 4}%;top:10px;width:${panelWidth - 8}%;height:42px;border:1.5px solid #16202a;background:#ffffff;border-radius:2px;box-shadow:inset 0 0 0 4px #f8fbfd;"></span>`;
   }
   let symbol = "";
-  if (key.includes("corredera") || key === "elevable" || key === "galandage") symbol = '<path d="M18 54h76m-8-7 8 7-8 7M30 47l-8 7 8 7"/>';
-  else if (key.includes("izquierda")) symbol = '<path d="M106 8 10 35l96 27"/>';
-  else if (key.includes("derecha")) symbol = '<path d="M10 8 106 35 10 62"/>';
-  else if (key === "practicable_2_hojas") symbol = '<path d="M2 4 58 35 2 66M114 4 58 35l56 31"/>';
-  else if (key === "proyectante") symbol = '<path d="M8 62 58 8l50 54"/>';
-  else if (key === "plegable") symbol = '<path d="M10 10 34 35 58 10l24 25 24-25"/>';
-  else if (key === "pivotante") symbol = '<path d="M58 6v58M49 14l9-8 9 8M49 56l9 8 9-8"/>';
-  else if (key === "pendiente") symbol = '<text x="58" y="46" text-anchor="middle">?</text>';
-  return `<figure class="opening-diagram"><svg viewBox="0 0 116 70" role="img" aria-label="${htmlEscape(label)}"><g>${panels}${symbol}</g></svg><figcaption>${htmlEscape(label)} · esquema orientativo</figcaption></figure>`;
+  if (key.includes("corredera") || key === "elevable" || key === "galandage") symbol = '<span style="position:absolute;left:16px;right:16px;bottom:9px;border-top:2px solid #b9863a;"></span><span style="position:absolute;left:10px;bottom:1px;color:#b9863a;font:700 18px Arial;">&larr;</span><span style="position:absolute;right:10px;bottom:1px;color:#b9863a;font:700 18px Arial;">&rarr;</span>';
+  else if (key.includes("izquierda")) symbol = '<span style="position:absolute;left:15px;top:32px;width:88px;border-top:2px solid #b9863a;transform:rotate(-15deg);transform-origin:left center;"></span><span style="position:absolute;left:15px;top:32px;width:88px;border-top:2px solid #b9863a;transform:rotate(15deg);transform-origin:left center;"></span><span style="position:absolute;left:12px;top:28px;width:6px;height:6px;border-radius:50%;background:#16202a;"></span>';
+  else if (key.includes("derecha")) symbol = '<span style="position:absolute;right:15px;top:32px;width:88px;border-top:2px solid #b9863a;transform:rotate(15deg);transform-origin:right center;"></span><span style="position:absolute;right:15px;top:32px;width:88px;border-top:2px solid #b9863a;transform:rotate(-15deg);transform-origin:right center;"></span><span style="position:absolute;right:12px;top:28px;width:6px;height:6px;border-radius:50%;background:#16202a;"></span>';
+  else if (key === "practicable_2_hojas") symbol = '<span style="position:absolute;left:10px;top:34px;width:49px;border-top:2px solid #b9863a;transform:rotate(-24deg);transform-origin:left center;"></span><span style="position:absolute;left:10px;top:34px;width:49px;border-top:2px solid #b9863a;transform:rotate(24deg);transform-origin:left center;"></span><span style="position:absolute;right:10px;top:34px;width:49px;border-top:2px solid #b9863a;transform:rotate(24deg);transform-origin:right center;"></span><span style="position:absolute;right:10px;top:34px;width:49px;border-top:2px solid #b9863a;transform:rotate(-24deg);transform-origin:right center;"></span>';
+  else if (key === "proyectante") symbol = '<span style="position:absolute;left:18px;top:37px;width:48px;border-top:2px solid #b9863a;transform:rotate(-42deg);transform-origin:left center;"></span><span style="position:absolute;right:18px;top:37px;width:48px;border-top:2px solid #b9863a;transform:rotate(42deg);transform-origin:right center;"></span>';
+  else if (key === "plegable") symbol = '<span style="position:absolute;left:9px;right:9px;top:30px;color:#b9863a;font:700 22px Arial;text-align:center;letter-spacing:2px;">W</span>';
+  else if (key === "pivotante") symbol = '<span style="position:absolute;left:57px;top:9px;height:48px;border-left:2px solid #b9863a;"></span><span style="position:absolute;left:47px;top:6px;color:#b9863a;font:700 16px Arial;">&uarr;</span><span style="position:absolute;left:47px;bottom:4px;color:#b9863a;font:700 16px Arial;">&darr;</span>';
+  else if (key === "pendiente") symbol = '<span style="position:absolute;left:0;right:0;top:21px;text-align:center;color:#16202a;font:700 24px Arial;">?</span>';
+  return `<figure class="opening-diagram"><div role="img" aria-label="${htmlEscape(label)}" style="position:relative;width:116px;height:72px;border:1.5px solid #d6dde5;border-radius:5px;background:#ffffff;overflow:hidden;">${panels}${symbol}</div><figcaption>${htmlEscape(label)} · esquema orientativo</figcaption></figure>`;
 }
 
 function attachmentSummary(attachments = []) {
@@ -1690,24 +1690,29 @@ function createSummaryPdf(payload, code) {
     const w = 48;
     const h = 29;
     const bottom = top - h;
-    stroke(0.08, 0.13, 0.17);
-    commands.push(`${x} ${bottom} ${w} ${h} re S`);
+    rect(x, bottom, w, h, [1, 1, 1]);
+    strokedRect(x, bottom, w, h, [0.84, 0.87, 0.9]);
+    rect(x + 4, bottom + 5, w - 8, h - 10, [0.97, 0.99, 1]);
+    strokedRect(x + 4, bottom + 5, w - 8, h - 10, [0.09, 0.13, 0.17]);
+    stroke(0.73, 0.53, 0.23);
     if (key.includes("corredera") || key === "elevable" || key === "galandage") {
-      commands.push(`${x + 8} ${bottom + 8} m ${x + 40} ${bottom + 8} l S`);
-      commands.push(`${x + 35} ${bottom + 12} m ${x + 40} ${bottom + 8} l ${x + 35} ${bottom + 4} l S`);
+      commands.push(`${x + 8} ${bottom + 4} m ${x + 40} ${bottom + 4} l S`);
+      commands.push(`${x + 35} ${bottom + 8} m ${x + 40} ${bottom + 4} l ${x + 35} ${bottom} l S`);
+      commands.push(`${x + 13} ${bottom + 8} m ${x + 8} ${bottom + 4} l ${x + 13} ${bottom} l S`);
     } else if (key.includes("izquierda")) {
-      commands.push(`${x + w} ${bottom + h} m ${x} ${bottom + h / 2} l ${x + w} ${bottom} l S`);
+      commands.push(`${x + w - 4} ${bottom + h - 5} m ${x + 5} ${bottom + h / 2} l ${x + w - 4} ${bottom + 5} l S`);
     } else if (key.includes("derecha")) {
-      commands.push(`${x} ${bottom + h} m ${x + w} ${bottom + h / 2} l ${x} ${bottom} l S`);
+      commands.push(`${x + 4} ${bottom + h - 5} m ${x + w - 5} ${bottom + h / 2} l ${x + 4} ${bottom + 5} l S`);
     } else if (key === "practicable_2_hojas") {
-      commands.push(`${x} ${bottom + h} m ${x + w / 2} ${bottom + h / 2} l ${x} ${bottom} l S`);
-      commands.push(`${x + w} ${bottom + h} m ${x + w / 2} ${bottom + h / 2} l ${x + w} ${bottom} l S`);
+      commands.push(`${x + 4} ${bottom + h - 5} m ${x + w / 2} ${bottom + h / 2} l ${x + 4} ${bottom + 5} l S`);
+      commands.push(`${x + w - 4} ${bottom + h - 5} m ${x + w / 2} ${bottom + h / 2} l ${x + w - 4} ${bottom + 5} l S`);
     } else if (key === "proyectante") {
-      commands.push(`${x} ${bottom} m ${x + w / 2} ${bottom + h} l ${x + w} ${bottom} l S`);
+      commands.push(`${x + 6} ${bottom + 5} m ${x + w / 2} ${bottom + h - 5} l ${x + w - 6} ${bottom + 5} l S`);
     } else if (key === "pendiente") {
       color(0.08, 0.13, 0.17);
       text("?", x + w / 2, bottom + 8, 15, "F2", "center");
     }
+    stroke(0.84, 0.87, 0.9);
   };
   const measureText = (value, size = 10, font = "F1") => pdfSafeText(value).length * size * (font === "F2" ? 0.64 : 0.52);
   const wrapByWidth = (value, maxWidth, size = 10, font = "F1") => {
@@ -2033,7 +2038,7 @@ function budgetImageHtml(payload, className = "concept-image") {
   const src = budgetImagePublicUrl(payload);
   if (!src) return "";
   const note = payload.imagenConceptualNota || "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.";
-  return `<figure class="${className}"><img src="${htmlEscape(src)}" alt="Imagen conceptual del presupuesto"><figcaption>${htmlEscape(note)}</figcaption></figure>`;
+  return `<figure class="${className}"><img src="${htmlEscape(src)}" alt="Imagen conceptual del presupuesto" loading="eager" decoding="sync" onerror="this.closest('figure').remove()"><figcaption>${htmlEscape(note)}</figcaption></figure>`;
 }
 
 function buildBudgetImagePrompt(payload) {
@@ -2140,6 +2145,7 @@ function budgetHtml(payload, code) {
     .conditions { margin-top: 14px; border-top: 1px solid #d6dde5; padding-top: 9px; color: #4b5563; font-size: 11px; display: grid; gap: 5px; }
     ul { padding-left: 18px; font-size: 11px; color: #4b5563; }
     button { margin-top: 18px; padding: 10px 14px; border: 0; background: #16202a; color: white; border-radius: 6px; font-weight: 700; }
+    .opening-diagram > div { display: block; width: 116px; height: 72px; }
     @media print { body { background: white; margin: 0; } .page { width: 210mm; max-width: none; min-height: 297mm; margin: 0; } .no-print { display: none; } }
   </style>
 </head>
@@ -2161,7 +2167,6 @@ function budgetHtml(payload, code) {
     <h2>${htmlEscape(payload.titulo || "Presupuesto")}</h2>
     <p>${htmlEscape(payload.resumen || "")}</p>
   </section>
-  ${budgetImageHtml(payload)}
   <section class="box">
     <strong>Cliente:</strong> ${htmlEscape(client.nombre || "")}<br>
     <strong>Email:</strong> ${htmlEscape(client.email || "")} | <strong>Tel.:</strong> ${htmlEscape(client.telefono || "")}<br>

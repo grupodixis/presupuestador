@@ -347,32 +347,30 @@ function openingDiagram(value, label = openingLabel(value)) {
   const key = String(value || "pendiente");
   const leafMatch = key.match(/(3|4|6)_hojas/);
   const leaves = leafMatch ? Number(leafMatch[1]) : key.includes("2_hojas") ? 2 : 1;
-  const width = 116;
-  const panelWidth = width / leaves;
+  const panelWidth = 100 / leaves;
   let panels = "";
   for (let index = 0; index < leaves; index += 1) {
-    const x = index * panelWidth;
-    panels += `<rect x="${x + 2}" y="2" width="${panelWidth - 4}" height="66" rx="1"/>`;
+    panels += `<span style="position:absolute;left:${index * panelWidth + 4}%;top:10px;width:${panelWidth - 8}%;height:42px;border:1.5px solid #16202a;background:#ffffff;border-radius:2px;box-shadow:inset 0 0 0 4px #f8fbfd;"></span>`;
   }
   let symbol = "";
   if (key.includes("corredera") || key === "elevable" || key === "galandage") {
-    symbol = '<path d="M18 54h76m-8-7 8 7-8 7M30 47l-8 7 8 7"/>';
+    symbol = '<span style="position:absolute;left:16px;right:16px;bottom:9px;border-top:2px solid #b9863a;"></span><span style="position:absolute;left:10px;bottom:1px;color:#b9863a;font:700 18px Arial;">&larr;</span><span style="position:absolute;right:10px;bottom:1px;color:#b9863a;font:700 18px Arial;">&rarr;</span>';
   } else if (key.includes("izquierda")) {
-    symbol = '<path d="M106 8 10 35l96 27"/>';
+    symbol = '<span style="position:absolute;left:15px;top:32px;width:88px;border-top:2px solid #b9863a;transform:rotate(-15deg);transform-origin:left center;"></span><span style="position:absolute;left:15px;top:32px;width:88px;border-top:2px solid #b9863a;transform:rotate(15deg);transform-origin:left center;"></span><span style="position:absolute;left:12px;top:28px;width:6px;height:6px;border-radius:50%;background:#16202a;"></span>';
   } else if (key.includes("derecha")) {
-    symbol = '<path d="M10 8 106 35 10 62"/>';
+    symbol = '<span style="position:absolute;right:15px;top:32px;width:88px;border-top:2px solid #b9863a;transform:rotate(15deg);transform-origin:right center;"></span><span style="position:absolute;right:15px;top:32px;width:88px;border-top:2px solid #b9863a;transform:rotate(-15deg);transform-origin:right center;"></span><span style="position:absolute;right:12px;top:28px;width:6px;height:6px;border-radius:50%;background:#16202a;"></span>';
   } else if (key === "practicable_2_hojas") {
-    symbol = '<path d="M2 4 58 35 2 66M114 4 58 35l56 31"/>';
+    symbol = '<span style="position:absolute;left:10px;top:34px;width:49px;border-top:2px solid #b9863a;transform:rotate(-24deg);transform-origin:left center;"></span><span style="position:absolute;left:10px;top:34px;width:49px;border-top:2px solid #b9863a;transform:rotate(24deg);transform-origin:left center;"></span><span style="position:absolute;right:10px;top:34px;width:49px;border-top:2px solid #b9863a;transform:rotate(24deg);transform-origin:right center;"></span><span style="position:absolute;right:10px;top:34px;width:49px;border-top:2px solid #b9863a;transform:rotate(-24deg);transform-origin:right center;"></span>';
   } else if (key === "proyectante") {
-    symbol = '<path d="M8 62 58 8l50 54"/>';
+    symbol = '<span style="position:absolute;left:18px;top:37px;width:48px;border-top:2px solid #b9863a;transform:rotate(-42deg);transform-origin:left center;"></span><span style="position:absolute;right:18px;top:37px;width:48px;border-top:2px solid #b9863a;transform:rotate(42deg);transform-origin:right center;"></span>';
   } else if (key === "plegable") {
-    symbol = '<path d="M10 10 34 35 58 10l24 25 24-25"/>';
+    symbol = '<span style="position:absolute;left:9px;right:9px;top:30px;color:#b9863a;font:700 22px Arial;text-align:center;letter-spacing:2px;">W</span>';
   } else if (key === "pivotante") {
-    symbol = '<path d="M58 6v58M49 14l9-8 9 8M49 56l9 8 9-8"/>';
+    symbol = '<span style="position:absolute;left:57px;top:9px;height:48px;border-left:2px solid #b9863a;"></span><span style="position:absolute;left:47px;top:6px;color:#b9863a;font:700 16px Arial;">&uarr;</span><span style="position:absolute;left:47px;bottom:4px;color:#b9863a;font:700 16px Arial;">&darr;</span>';
   } else if (key === "pendiente") {
-    symbol = '<text x="58" y="46" text-anchor="middle">?</text>';
+    symbol = '<span style="position:absolute;left:0;right:0;top:21px;text-align:center;color:#16202a;font:700 24px Arial;">?</span>';
   }
-  return `<figure class="opening-diagram"><svg viewBox="0 0 116 70" role="img" aria-label="${escapeHtml(label)}"><g>${panels}${symbol}</g></svg><figcaption>${escapeHtml(label)} · esquema orientativo</figcaption></figure>`;
+  return `<figure class="opening-diagram"><div role="img" aria-label="${escapeHtml(label)}" style="position:relative;width:116px;height:72px;border:1.5px solid #d6dde5;border-radius:5px;background:#ffffff;overflow:hidden;">${panels}${symbol}</div><figcaption>${escapeHtml(label)} · esquema orientativo</figcaption></figure>`;
 }
 
 function openingEditor(line) {
@@ -623,7 +621,7 @@ function conceptImageFigure(payload, className = "print-concept-image") {
   const src = conceptImageSrc(payload);
   if (!src) return "";
   const note = payload.imagenConceptualNota || "Imagen orientativa generada por IA. El diseno final dependera de medidas, materiales, acabados y validacion tecnica.";
-  return `<figure class="${className}"><img src="${escapeHtml(src)}" alt="Imagen conceptual del presupuesto"><figcaption>${escapeHtml(note)}</figcaption></figure>`;
+  return `<figure class="${className}"><img src="${escapeHtml(src)}" alt="Imagen conceptual del presupuesto" loading="eager" decoding="sync" onerror="this.closest('figure').remove()"><figcaption>${escapeHtml(note)}</figcaption></figure>`;
 }
 function syncBudgetHeaderFromInputs() {
   if (!state.result) return;
@@ -971,7 +969,6 @@ function renderPrintPreview() {
       <h2>${escapeHtml(payload.titulo || "Presupuesto")}</h2>
       <p>${escapeHtml(payload.resumen || "")}</p>
     </section>
-    ${conceptImageFigure(payload)}
     <section class="print-box">
       <strong>Cliente:</strong> ${escapeHtml(client.nombre || "")}<br>
       <strong>Email:</strong> ${escapeHtml(client.email || "")} | <strong>Tel.:</strong> ${escapeHtml(client.telefono || "")}<br>
@@ -1023,6 +1020,9 @@ function printDocumentHtml() {
     .print-concept-image { margin: 0 0 4mm; page-break-inside: avoid; }
     .print-concept-image img { width: 100%; max-height: 52mm; object-fit: cover; border: 1px solid #d6dde5; border-radius: 3px; display: block; }
     .print-concept-image figcaption { margin-top: 1.5mm; color: #667085; font-size: 7pt; }
+    .opening-diagram { width: 116px; margin: 2mm 0 0; page-break-inside: avoid; }
+    .opening-diagram > div { display: block; width: 116px; height: 72px; }
+    .opening-diagram figcaption { margin-top: 1mm; color: #667085; font-size: 6.8pt; }
     .print-box { border: 1px solid #d6dde5; background: #f6f8fa; padding: 3.3mm; margin: 5mm 0 4mm; font-size: 8.8pt; line-height: 1.2; overflow-wrap: anywhere; }
     table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 7.6pt; line-height: 1.18; }
     th { background: #16202a; color: white; text-align: left; }
@@ -1043,6 +1043,29 @@ function printDocumentHtml() {
 </html>`;
 }
 window.printDocumentHtml = printDocumentHtml;
+
+function waitForPrintAssets(doc, timeoutMs = 2500) {
+  const images = Array.from(doc.images || []);
+  if (!images.length) return Promise.resolve();
+  const waiters = images.map((image) => {
+    if (image.complete) {
+      if (!image.naturalWidth) image.closest("figure")?.remove();
+      return Promise.resolve();
+    }
+    return new Promise((resolve) => {
+      const done = () => resolve();
+      image.addEventListener("load", done, { once: true });
+      image.addEventListener("error", () => {
+        image.closest("figure")?.remove();
+        resolve();
+      }, { once: true });
+    });
+  });
+  return Promise.race([
+    Promise.all(waiters),
+    new Promise((resolve) => setTimeout(resolve, timeoutMs)),
+  ]);
+}
 
 function renderResult(renderTable = true) {
   if (!state.result) return;
@@ -2063,11 +2086,12 @@ function printBudget() {
   doc.close();
   const cleanup = () => setTimeout(() => frame.remove(), 500);
   frame.contentWindow.onafterprint = cleanup;
-  setTimeout(() => {
+  setTimeout(async () => {
+    await waitForPrintAssets(doc);
     frame.contentWindow.focus();
     frame.contentWindow.print();
     setTimeout(cleanup, 3000);
-  }, 150);
+  }, 50);
 }
 
 async function generateSummaryPdf() {
