@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Presupuestador IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260826-opening-print-fix">
+  <link rel="stylesheet" href="styles.css?v=20260828-brand-selector">
 </head>
 <body>
   <div class="app-shell">
@@ -113,6 +113,7 @@
         <section id="resultPanel" class="result hidden">
           <div class="summary">
             <div class="budget-heading-editor">
+              <label><span>Membrete</span><select id="budgetBrand"><option value="ham">HAM</option><option value="alufac">ALUFAC</option></select></label>
               <label><span>Tipo / cabecera</span><input id="productType" placeholder="Estructuras metalicas / Herreria"></label>
               <label><span>Titulo</span><input id="title" placeholder="Titulo del presupuesto"></label>
               <label class="wide"><span>Resumen</span><textarea id="summaryText" rows="3" placeholder="Resumen tecnico y comercial del presupuesto"></textarea></label>
@@ -325,7 +326,7 @@
     </main>
   </div>
 
-  <script src="app.js?v=20260826-opening-print-fix"></script>
+  <script src="app.js?v=20260828-brand-selector"></script>
 </body>
 </html>
 

@@ -607,6 +607,9 @@ function normalizeDocumentTemplate(template = {}) {
 }
 
 function isAlufacBudget(payload = {}) {
+  const explicit = String(payload.documentBrand || "").toLowerCase();
+  if (explicit === "ham") return false;
+  if (explicit === "alufac") return true;
   return ["carpinteria_aluminio_alufac", "cortizo_abatibles", "cortizo_correderas", "persianas_mallorquinas"].includes(payload.budgetMode)
     || ["ALUFAC", "CORTIZO"].includes(payload.marcaSistema)
     || payload.tipoProducto === "carpinteria_aluminio";

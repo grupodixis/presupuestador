@@ -103,6 +103,7 @@ const els = {
   resultPanel: document.querySelector("#resultPanel"),
   title: document.querySelector("#title"),
   summaryText: document.querySelector("#summaryText"),
+  budgetBrand: document.querySelector("#budgetBrand"),
   productType: document.querySelector("#productType"),
   total: document.querySelector("#total"),
   linesBody: document.querySelector("#linesBody"),
@@ -323,14 +324,28 @@ function isIllustratedOpeningBudget(payload = state.result) {
     || CORTIZO_PRODUCT_SLUGS.has(selected);
 }
 
-function isAlufacBudget(payload = state.result) {
+function inferredBudgetBrand(payload = state.result) {
+  const explicit = String(payload?.documentBrand || "").toLowerCase();
+  if (explicit === "ham" || explicit === "alufac") return explicit;
   return payload?.budgetMode === ALUFAC_PRODUCT_SLUG
     || CORTIZO_PRODUCT_SLUGS.has(payload?.budgetMode)
     || payload?.marcaSistema === "ALUFAC"
     || payload?.marcaSistema === "CORTIZO"
     || payload?.tipoProducto === "carpinteria_aluminio"
     || els.productSelect?.value === ALUFAC_PRODUCT_SLUG
-    || CORTIZO_PRODUCT_SLUGS.has(els.productSelect?.value);
+    || CORTIZO_PRODUCT_SLUGS.has(els.productSelect?.value)
+    ? "alufac"
+    : "ham";
+}
+
+function selectedBudgetBrand(payload = state.result) {
+  const selected = String(els.budgetBrand?.value || "").toLowerCase();
+  if (selected === "ham" || selected === "alufac") return selected;
+  return inferredBudgetBrand(payload);
+}
+
+function isAlufacBudget(payload = state.result) {
+  return selectedBudgetBrand(payload) === "alufac";
 }
 
 function selectedOpeningBrand(slug = els.productSelect?.value || "") {
@@ -591,8 +606,8 @@ function templateFromSettingsFields() {
 }
 
 function currentDocumentTemplate() {
-  if (isAlufacBudget()) return normalizeDocumentTemplate(ALUFAC_DOCUMENT_TEMPLATE);
-  return normalizeDocumentTemplate(state.result?.documentTemplate || state.settings?.documentTemplate || templateFromSettingsFields());
+  if (selectedBudgetBrand() === "alufac") return normalizeDocumentTemplate(ALUFAC_DOCUMENT_TEMPLATE);
+  return normalizeDocumentTemplate(state.settings?.documentTemplate || templateFromSettingsFields() || DEFAULT_DOCUMENT_TEMPLATE);
 }
 
 function renderDocumentHeaderText(headerText) {
@@ -625,6 +640,8 @@ function conceptImageFigure(payload, className = "print-concept-image") {
 }
 function syncBudgetHeaderFromInputs() {
   if (!state.result) return;
+  state.result.documentBrand = selectedBudgetBrand();
+  state.result.marcaSistema = state.result.documentBrand === "alufac" ? "ALUFAC" : "HAM";
   state.result.tipoProducto = els.productType.value.trim();
   state.result.titulo = els.title.value.trim() || "Presupuesto";
   state.result.resumen = els.summaryText.value.trim();
@@ -663,8 +680,9 @@ function clientData() {
 
 function resultPayload() {
   syncBudgetHeaderFromInputs();
-  const payload = { ...(state.result || {}), cliente: clientData(), documentTemplate: currentDocumentTemplate() };
-  if (selectedOpeningBrand()) {
+  const brand = selectedBudgetBrand();
+  const payload = { ...(state.result || {}), documentBrand: brand, marcaSistema: brand === "alufac" ? "ALUFAC" : "HAM", cliente: clientData(), documentTemplate: currentDocumentTemplate() };
+  if (selectedOpeningBrand() && brand === "alufac") {
     payload.budgetMode = els.productSelect.value;
     payload.marcaSistema = selectedOpeningBrand();
     payload.lineas = (payload.lineas || []).map((line) => ({ ...line, tipoApertura: line.tipoApertura || "pendiente", ilustracionApertura: line.ilustracionApertura || line.tipoApertura || "pendiente" }));
@@ -1078,7 +1096,10 @@ function renderResult(renderTable = true) {
   els.printBudget.disabled = false;
   if (els.summaryPdfBudget) els.summaryPdfBudget.disabled = false;
   if (els.generateBudgetImage) els.generateBudgetImage.disabled = false;
-  if (!state.result.documentTemplate) state.result.documentTemplate = currentDocumentTemplate();
+  if (els.budgetBrand) els.budgetBrand.value = inferredBudgetBrand(state.result);
+  state.result.documentBrand = selectedBudgetBrand();
+  state.result.marcaSistema = state.result.documentBrand === "alufac" ? "ALUFAC" : "HAM";
+  state.result.documentTemplate = currentDocumentTemplate();
   els.title.value = state.result.titulo || "Presupuesto";
   els.summaryText.value = state.result.resumen || "";
   els.productType.value = state.result.tipoProducto || "producto_compuesto";
@@ -2194,6 +2215,7 @@ els.saveMd.addEventListener("click", saveMd);
 els.mdEditMode.addEventListener("click", () => setMdMode("edit"));
 els.mdPreviewMode.addEventListener("click", () => setMdMode("preview"));
 els.mdEditor.addEventListener("input", () => { if (!els.mdPreview.classList.contains("hidden")) els.mdPreview.innerHTML = renderMarkdown(els.mdEditor.value); });
+if (els.budgetBrand) els.budgetBrand.addEventListener("change", () => { syncBudgetHeaderFromInputs(); renderResult(false); });
 els.printBudget.addEventListener("click", printBudget);
 if (els.summaryPdfBudget) els.summaryPdfBudget.addEventListener("click", generateSummaryPdf);
 if (els.generateBudgetImage) els.generateBudgetImage.addEventListener("click", generateBudgetImageForCurrent);
