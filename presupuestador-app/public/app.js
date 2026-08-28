@@ -316,6 +316,7 @@ function selectedProduct() {
 }
 
 function isIllustratedOpeningBudget(payload = state.result) {
+  if (selectedBudgetBrand(payload) !== "alufac") return false;
   const selected = els.productSelect?.value || "";
   return payload?.budgetMode === ALUFAC_PRODUCT_SLUG
     || CORTIZO_PRODUCT_SLUGS.has(payload?.budgetMode)

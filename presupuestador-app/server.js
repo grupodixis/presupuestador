@@ -943,6 +943,9 @@ ${context.map((doc) => `\n--- ${doc.path} ---\n${doc.content}`).join("\n")}`;
 }
 
 function isIllustratedOpeningBudget(payload = {}) {
+  const explicitBrand = String(payload.documentBrand || "").toLowerCase();
+  if (explicitBrand === "ham") return false;
+  if (explicitBrand && explicitBrand !== "alufac") return false;
   return ["carpinteria_aluminio_alufac", "cortizo_abatibles", "cortizo_correderas", "persianas_mallorquinas"].includes(payload.budgetMode)
     || ["ALUFAC", "CORTIZO"].includes(payload.marcaSistema);
 }
