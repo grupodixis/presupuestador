@@ -104,6 +104,10 @@ const els = {
   title: document.querySelector("#title"),
   summaryText: document.querySelector("#summaryText"),
   budgetBrand: document.querySelector("#budgetBrand"),
+  budgetFooterText: document.querySelector("#budgetFooterText"),
+  budgetConditionsAiPrompt: document.querySelector("#budgetConditionsAiPrompt"),
+  applyBudgetConditionsAi: document.querySelector("#applyBudgetConditionsAi"),
+  budgetConditionsStatus: document.querySelector("#budgetConditionsStatus"),
   productType: document.querySelector("#productType"),
   total: document.querySelector("#total"),
   linesBody: document.querySelector("#linesBody"),
@@ -606,9 +610,18 @@ function templateFromSettingsFields() {
   });
 }
 
-function currentDocumentTemplate() {
-  if (selectedBudgetBrand() === "alufac") return normalizeDocumentTemplate(ALUFAC_DOCUMENT_TEMPLATE);
+function baseDocumentTemplateForBrand(brand = selectedBudgetBrand()) {
+  if (brand === "alufac") return normalizeDocumentTemplate(ALUFAC_DOCUMENT_TEMPLATE);
   return normalizeDocumentTemplate(state.settings?.documentTemplate || templateFromSettingsFields() || DEFAULT_DOCUMENT_TEMPLATE);
+}
+
+function currentDocumentTemplate(options = {}) {
+  const preferUi = options.preferUi !== false;
+  const base = baseDocumentTemplateForBrand(selectedBudgetBrand());
+  const savedFooter = state.result?.documentTemplate?.footerText;
+  const uiFooter = preferUi ? els.budgetFooterText?.value : "";
+  const footerText = state.result ? (uiFooter || savedFooter || base.footerText) : base.footerText;
+  return normalizeDocumentTemplate({ ...base, footerText });
 }
 
 function renderDocumentHeaderText(headerText) {
@@ -1100,10 +1113,11 @@ function renderResult(renderTable = true) {
   if (els.budgetBrand) els.budgetBrand.value = inferredBudgetBrand(state.result);
   state.result.documentBrand = selectedBudgetBrand();
   state.result.marcaSistema = state.result.documentBrand === "alufac" ? "ALUFAC" : "HAM";
-  state.result.documentTemplate = currentDocumentTemplate();
+  state.result.documentTemplate = currentDocumentTemplate({ preferUi: false });
   els.title.value = state.result.titulo || "Presupuesto";
   els.summaryText.value = state.result.resumen || "";
   els.productType.value = state.result.tipoProducto || "producto_compuesto";
+  if (els.budgetFooterText) els.budgetFooterText.value = state.result.documentTemplate.footerText || baseDocumentTemplateForBrand().footerText;
   els.total.textContent = formatMoney(total);
   if (renderTable) renderLines();
   renderList(els.questions, state.result.preguntas);
@@ -1949,6 +1963,60 @@ async function applyDocumentTemplateAi() {
   }
 }
 
+async function applyBudgetConditionsAi() {
+  const prompt = els.budgetConditionsAiPrompt?.value.trim() || "";
+  if (!prompt) {
+    if (els.budgetConditionsStatus) els.budgetConditionsStatus.textContent = "Escribe una instruccion para la IA.";
+    return;
+  }
+  if (!state.result) {
+    if (els.budgetConditionsStatus) els.budgetConditionsStatus.textContent = "Primero genera o abre un presupuesto.";
+    return;
+  }
+  const selection = effectiveModelSelection();
+  if (!selection.selected) {
+    if (els.budgetConditionsStatus) els.budgetConditionsStatus.textContent = "Selecciona un modelo disponible en configuracion.";
+    return;
+  }
+  const before = currentDocumentTemplate().footerText;
+  const instruction = [
+    "Modifica solo las condiciones comerciales del presupuesto actual.",
+    "Trabaja sobre footerText. No cambies logo, membrete ni cabecera.",
+    "Incluye, si aplica, forma de pago, validez, plazo de entrega/ejecucion, exclusiones y notas comerciales.",
+    prompt,
+  ].join("\n");
+  els.applyBudgetConditionsAi.disabled = true;
+  if (els.budgetConditionsStatus) els.budgetConditionsStatus.textContent = "Editando condiciones con IA...";
+  try {
+    const response = await api("/api/document-template/ai", {
+      provider: selection.provider,
+      model: selection.model,
+      prompt: instruction,
+      documentTemplate: currentDocumentTemplate(),
+    });
+    const edited = normalizeDocumentTemplate(response.documentTemplate);
+    state.result.documentTemplate = normalizeDocumentTemplate({ ...currentDocumentTemplate(), footerText: edited.footerText });
+    if (els.budgetFooterText) els.budgetFooterText.value = state.result.documentTemplate.footerText;
+    recordBudgetChange({ source: "ai", action: "edit-budget-conditions", prompt, from: before, to: state.result.documentTemplate.footerText });
+    renderResult(false);
+    if (els.budgetConditionsStatus) els.budgetConditionsStatus.textContent = response.warning ? "Edicion local: " + response.warning : "Condiciones actualizadas con " + response.provider + ".";
+    if (response.usage) {
+      state.result.tokenUsage = response.usage;
+      await loadModels(selection.provider, false);
+      renderModelTokenInfo();
+    }
+  } catch (error) {
+    try {
+      const parsed = JSON.parse(error.message);
+      if (els.budgetConditionsStatus) els.budgetConditionsStatus.textContent = parsed.error || error.message;
+    } catch {
+      if (els.budgetConditionsStatus) els.budgetConditionsStatus.textContent = error.message;
+    }
+  } finally {
+    els.applyBudgetConditionsAi.disabled = false;
+  }
+}
+
 async function saveSettings() {
   els.saveSettings.disabled = true;
   els.settingsStatus.textContent = "Guardando...";
@@ -2217,6 +2285,8 @@ els.mdEditMode.addEventListener("click", () => setMdMode("edit"));
 els.mdPreviewMode.addEventListener("click", () => setMdMode("preview"));
 els.mdEditor.addEventListener("input", () => { if (!els.mdPreview.classList.contains("hidden")) els.mdPreview.innerHTML = renderMarkdown(els.mdEditor.value); });
 if (els.budgetBrand) els.budgetBrand.addEventListener("change", () => { syncBudgetHeaderFromInputs(); renderResult(false); });
+if (els.budgetFooterText) els.budgetFooterText.addEventListener("input", () => { syncBudgetHeaderFromInputs(); renderPrintPreview(); });
+if (els.applyBudgetConditionsAi) els.applyBudgetConditionsAi.addEventListener("click", applyBudgetConditionsAi);
 els.printBudget.addEventListener("click", printBudget);
 if (els.summaryPdfBudget) els.summaryPdfBudget.addEventListener("click", generateSummaryPdf);
 if (els.generateBudgetImage) els.generateBudgetImage.addEventListener("click", generateBudgetImageForCurrent);
