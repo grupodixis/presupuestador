@@ -849,6 +849,39 @@ tbody tr:hover td { background: #fbfcfd; }
   border-radius: 7px;
   background: var(--soft);
 }
+.line-class-editor {
+  display: grid;
+  gap: 8px;
+  align-items: start;
+  margin-top: 8px;
+}
+.aluminum-line-editor {
+  grid-template-columns: minmax(150px, 220px) minmax(260px, 1fr);
+}
+.aluminum-line-editor .opening-editor { margin-top: 0; }
+.metalwork-line-editor {
+  grid-template-columns: minmax(150px, 260px);
+}
+.line-class-editor label {
+  display: grid;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+.line-class-editor select {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: white;
+}
+.line-technical-meta {
+  margin-top: 3px;
+  color: #53657a;
+  font-size: 11px;
+  font-weight: 700;
+}
 .opening-editor label { display: grid; gap: 5px; color: var(--muted); font-size: 11px; font-weight: 700; }
 .opening-editor select { width: 100%; padding: 7px; border: 1px solid var(--line); border-radius: 5px; background: white; }
 .opening-diagram { width: 116px; margin: 0; page-break-inside: avoid; }
@@ -860,7 +893,7 @@ tbody tr:hover td { background: #fbfcfd; }
 .print-table .opening-diagram { margin-top: 5px; }
 
 @media (max-width: 700px) {
-  .opening-editor { grid-template-columns: 1fr; }
+  .opening-editor, .aluminum-line-editor { grid-template-columns: 1fr; }
 }
 
 @media print {

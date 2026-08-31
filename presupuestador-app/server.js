@@ -901,18 +901,25 @@ Objetivo:
 - Si el usuario rellena una plantilla de producto, usar esos parametros como fuente principal del presupuesto.
 - En CORTIZO, validar la variante exacta y aplicar cortizo-validacion-oficial.md; no heredar prestaciones o límites entre Industrial, Hoja Oculta, CC/CC16, Evolution o Passivhaus.
 - Prioridad de costes: lista de precios activa u oferta real identificada > tarifa vigente > ratios orientativos. Nunca presentar costes-aluminio-cortizo.md como tarifa oficial.
+- Separar dominios: aluminio y herreria no se presupuestan igual.
+- En aluminio, cada linea debe representar una abertura/hueco de un tipo por una cantidad de unidades iguales. Incluir perfilSistema y tipoApertura por linea.
+- En herreria, no usar tipoApertura ni ilustracionApertura. Cada linea debe indicar productoLinea cuando aplique: barandilla, reja, puerta_metalica, porton_cancela, escalera_metalica, estructura_metalica, pergola_marquesina, dintel_refuerzo, chapa_remate, montaje o transporte.
 
 Formato exacto de respuesta:
 {
   "titulo": "string",
   "resumen": "string",
   "tipoProducto": "string",
+  "budgetFamily": "aluminio | herreria",
   "lineas": [
     {
       "id": "L1",
       "capitulo": "Diseno | Materiales | Fabricacion | Tratamiento | Transporte | Montaje | Riesgo | Margen",
       "concepto": "string",
       "descripcion": "string",
+      "familiaLinea": "aluminio | herreria",
+      "productoLinea": "solo herreria: barandilla | reja | puerta_metalica | porton_cancela | escalera_metalica | estructura_metalica | pergola_marquesina | dintel_refuerzo | chapa_remate | montaje | transporte | pendiente",
+      "perfilSistema": "solo aluminio: COR 2000 | COR 3000 | COR 3500 | COR 4200 | COR 4500 | COR 4600 | COR 4700 | COR 4900 | COR Vision | ALUFAC pendiente | pendiente",
       "cantidad": number,
       "unidad": "ud | ml | m2 | kg | h | lote",
       "precioUnitario": number,
@@ -920,8 +927,8 @@ Formato exacto de respuesta:
       "confianza": "alta | media | baja",
       "origen": "skill/coste/supuesto/adjunto",
       "editable": true,
-      "tipoApertura": "solo para carpinteria_aluminio_alufac; usar una opción admitida o pendiente",
-      "ilustracionApertura": "solo para carpinteria_aluminio_alufac; mismo identificador que tipoApertura"
+      "tipoApertura": "solo aluminio; usar una opción admitida o pendiente. En herreria omitir",
+      "ilustracionApertura": "solo aluminio; mismo identificador que tipoApertura. En herreria omitir"
     }
   ],
   "preguntas": ["string"],
@@ -1070,6 +1077,8 @@ ${JSON.stringify(budget, null, 2)}
 Devuelve SIEMPRE el presupuesto completo en el mismo formato JSON esperado por el sistema.
 Reglas:
 - Modifica solo la linea seleccionada salvo que el prompt pida expresamente ajustar otras partidas relacionadas.
+- Si budgetFamily es aluminio, trata la linea como abertura/hueco por cantidad de unidades e incluye perfilSistema y tipoApertura cuando el usuario lo pida.
+- Si budgetFamily es herreria, no agregues tipoApertura ni ilustracionApertura; usa productoLinea para clasificar el producto de esa linea.
 - Si el usuario pide cambiar precio, precio unitario, cantidad, descuento, subida/bajada, subtotal o importe, actualiza los campos numericos correspondientes; no lo escribas solo en descripcion.
 - Conserva datos de cliente, supuestos, riesgos, preguntas y sugerencias si no hay razon para cambiarlos.
 - Recalcula importe = cantidad * precioUnitario en las lineas que modifiques.
@@ -2002,6 +2011,14 @@ function renderDocumentFooterText(footerText) {
   return effective.map((line) => `<div>${htmlEscape(line)}</div>`).join("");
 }
 
+function lineTechnicalMetaHtml(line, payload = {}) {
+  const isAluminum = String(payload.budgetFamily || "").toLowerCase() === "aluminio" || isAlufacBudget(payload);
+  const parts = [];
+  if (isAluminum && line.perfilSistema && line.perfilSistema !== "pendiente") parts.push(`Perfil: ${line.perfilSistema}`);
+  if (!isAluminum && line.productoLinea && line.productoLinea !== "pendiente") parts.push(`Producto: ${line.productoLinea}`);
+  return parts.length ? `<div class="line-technical-meta">${parts.map(htmlEscape).join(" · ")}</div>` : "";
+}
+
 function fallbackDocumentTemplateEdit({ documentTemplate, prompt }) {
   const current = normalizeDocumentTemplate(documentTemplate);
   const instruction = String(prompt || "").trim();
@@ -2141,6 +2158,7 @@ function budgetHtml(payload, code) {
     th { background: #16202a; color: white; text-align: left; padding: 7px 6px; }
     td { border-bottom: 1px solid #d6dde5; padding: 7px 6px; vertical-align: top; overflow-wrap: anywhere; }
     .num { text-align: right; white-space: nowrap; }
+    .line-technical-meta { margin-top: 3px; color: #53657a; font-size: 9px; font-weight: 700; }
     .opening-diagram { width: 118px; margin: 7px 0 0; page-break-inside: avoid; }
     .opening-diagram svg { display: block; width: 100%; height: auto; }
     .opening-diagram g { fill: none; stroke: #16202a; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -2183,7 +2201,7 @@ function budgetHtml(payload, code) {
   <table>
     <colgroup><col class="col-chapter"><col class="col-concept"><col class="col-qty"><col class="col-unit"><col class="col-price"><col class="col-amount"></colgroup>
     <thead><tr><th>Capitulo</th><th>Concepto</th><th class="num">Cant.</th><th>Ud.</th><th class="num">EUR/Ud.</th><th class="num">Importe</th></tr></thead>
-    <tbody>${lines.map((line) => `<tr><td>${htmlEscape(line.capitulo)}</td><td><strong>${htmlEscape(line.concepto)}</strong><br>${htmlEscape(line.descripcion)}${isIllustratedOpeningBudget(payload) ? openingDiagramHtml(line.tipoApertura || line.ilustracionApertura || "pendiente") : ""}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${htmlEscape(line.unidad)}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
+    <tbody>${lines.map((line) => `<tr><td>${htmlEscape(line.capitulo)}</td><td><strong>${htmlEscape(line.concepto)}</strong>${lineTechnicalMetaHtml(line, payload)}<br>${htmlEscape(line.descripcion)}${isIllustratedOpeningBudget(payload) ? openingDiagramHtml(line.tipoApertura || line.ilustracionApertura || "pendiente") : ""}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${htmlEscape(line.unidad)}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
   </table>
   <div class="total">Total estimado: ${total.toFixed(2)} EUR + IVA</div>
   <section class="conditions">${renderDocumentFooterText(documentTemplate.footerText)}</section>

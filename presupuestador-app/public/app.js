@@ -18,6 +18,33 @@ const DEFAULT_VIEW = "budgetsView";
 const VALID_VIEWS = new Set(["budgetView", "budgetsView", "configView", "contextView", "usersView"]);
 const ALUFAC_PRODUCT_SLUG = "carpinteria_aluminio_alufac";
 const CORTIZO_PRODUCT_SLUGS = new Set(["cortizo_abatibles", "cortizo_correderas", "persianas_mallorquinas"]);
+const ALUMINUM_PROFILE_OPTIONS = [
+  ["pendiente", "Perfil pendiente"],
+  ["COR 2000", "CORTIZO COR 2000"],
+  ["COR 3000", "CORTIZO COR 3000"],
+  ["COR 3500", "CORTIZO COR 3500"],
+  ["COR 4200", "CORTIZO COR 4200"],
+  ["COR 4500", "CORTIZO COR 4500"],
+  ["COR 4600", "CORTIZO COR 4600"],
+  ["COR 4700", "CORTIZO COR 4700"],
+  ["COR 4900", "CORTIZO COR 4900"],
+  ["COR Vision", "CORTIZO COR Vision"],
+  ["ALUFAC pendiente", "ALUFAC pendiente"],
+];
+const METALWORK_PRODUCT_OPTIONS = [
+  ["pendiente", "Producto pendiente"],
+  ["barandilla", "Barandilla"],
+  ["reja", "Reja"],
+  ["puerta_metalica", "Puerta metalica"],
+  ["porton_cancela", "Porton / cancela"],
+  ["escalera_metalica", "Escalera metalica"],
+  ["estructura_metalica", "Estructura metalica"],
+  ["pergola_marquesina", "Pergola / marquesina"],
+  ["dintel_refuerzo", "Dintel / refuerzo"],
+  ["chapa_remate", "Chapa / remate"],
+  ["montaje", "Montaje"],
+  ["transporte", "Transporte"],
+];
 const ALUFAC_OPENINGS = [
   ["pendiente", "Pendiente de definir"],
   ["fijo", "Fijo"],
@@ -329,6 +356,24 @@ function isIllustratedOpeningBudget(payload = state.result) {
     || CORTIZO_PRODUCT_SLUGS.has(selected);
 }
 
+function budgetFamily(payload = state.result) {
+  const explicit = String(payload?.budgetFamily || payload?.familiaPresupuesto || "").toLowerCase();
+  if (["aluminio", "herreria"].includes(explicit)) return explicit;
+  const mode = String(payload?.budgetMode || els.productSelect?.value || "").toLowerCase();
+  const type = String(payload?.tipoProducto || "").toLowerCase();
+  const brand = selectedBudgetBrand(payload);
+  if (brand === "alufac" || mode.includes("aluminio") || mode.includes("cortizo") || type.includes("aluminio")) return "aluminio";
+  return "herreria";
+}
+
+function isAluminumBudget(payload = state.result) {
+  return budgetFamily(payload) === "aluminio";
+}
+
+function isMetalworkBudget(payload = state.result) {
+  return budgetFamily(payload) === "herreria";
+}
+
 function inferredBudgetBrand(payload = state.result) {
   const explicit = String(payload?.documentBrand || "").toLowerCase();
   if (explicit === "ham" || explicit === "alufac") return explicit;
@@ -397,6 +442,25 @@ function openingEditor(line) {
   const current = line.tipoApertura || "pendiente";
   const options = ALUFAC_OPENINGS.map(([key, label]) => `<option value="${key}"${key === current ? " selected" : ""}>${label}</option>`).join("");
   return `<div class="opening-editor"><label>Tipo de apertura<select class="line-opening">${options}</select></label>${openingDiagram(current)}</div>`;
+}
+
+function aluminumLineEditor(line) {
+  const current = line.perfilSistema || line.serieCortizo || line.serieAlufac || "pendiente";
+  const options = ALUMINUM_PROFILE_OPTIONS.map(([key, label]) => `<option value="${escapeHtml(key)}"${key === current ? " selected" : ""}>${escapeHtml(label)}</option>`).join("");
+  return `<div class="line-class-editor aluminum-line-editor"><label>Perfil / sistema<select class="line-profile">${options}</select></label>${isIllustratedOpeningBudget() ? openingEditor(line) : ""}</div>`;
+}
+
+function metalworkLineEditor(line) {
+  const current = line.productoLinea || line.tipoProductoLinea || "pendiente";
+  const options = METALWORK_PRODUCT_OPTIONS.map(([key, label]) => `<option value="${escapeHtml(key)}"${key === current ? " selected" : ""}>${escapeHtml(label)}</option>`).join("");
+  return `<div class="line-class-editor metalwork-line-editor"><label>Producto de herreria<select class="line-product-type">${options}</select></label></div>`;
+}
+
+function lineTechnicalMetaHtml(line, payload = state.result) {
+  const parts = [];
+  if (isAluminumBudget(payload) && line.perfilSistema && line.perfilSistema !== "pendiente") parts.push(`Perfil: ${line.perfilSistema}`);
+  if (isMetalworkBudget(payload) && line.productoLinea && line.productoLinea !== "pendiente") parts.push(`Producto: ${line.productoLinea}`);
+  return parts.length ? `<div class="line-technical-meta">${parts.map(escapeHtml).join(" · ")}</div>` : "";
 }
 
 function renderProductSelect() {
@@ -695,11 +759,12 @@ function clientData() {
 function resultPayload() {
   syncBudgetHeaderFromInputs();
   const brand = selectedBudgetBrand();
-  const payload = { ...(state.result || {}), documentBrand: brand, marcaSistema: brand === "alufac" ? "ALUFAC" : "HAM", cliente: clientData(), documentTemplate: currentDocumentTemplate() };
+  const family = budgetFamily(state.result || {});
+  const payload = { ...(state.result || {}), budgetFamily: family, documentBrand: brand, marcaSistema: brand === "alufac" ? "ALUFAC" : "HAM", cliente: clientData(), documentTemplate: currentDocumentTemplate() };
+  normalizeBudgetLinesForFamily(payload);
   if (selectedOpeningBrand() && brand === "alufac") {
     payload.budgetMode = els.productSelect.value;
     payload.marcaSistema = selectedOpeningBrand();
-    payload.lineas = (payload.lineas || []).map((line) => ({ ...line, tipoApertura: line.tipoApertura || "pendiente", ilustracionApertura: line.ilustracionApertura || line.tipoApertura || "pendiente" }));
   }
   if (state.currentBudgetFolder) payload._folder = state.currentBudgetFolder;
   if (state.budgetChangeLog.length) payload._changeLog = state.budgetChangeLog.slice(-120);
@@ -723,8 +788,35 @@ function lineLearningSnapshot(line) {
     unidad: line?.unidad || "",
     precioUnitario: line?.precioUnitario ?? 0,
     importe: line?.importe ?? 0,
+    familiaLinea: line?.familiaLinea || "",
+    productoLinea: line?.productoLinea || "",
+    perfilSistema: line?.perfilSistema || "",
     tipoApertura: line?.tipoApertura || "",
   };
+}
+
+function normalizeBudgetLinesForFamily(payload = state.result) {
+  if (!payload?.lineas) return payload;
+  const family = budgetFamily(payload);
+  payload.budgetFamily = family;
+  payload.lineas = payload.lineas.map((line) => {
+    if (family === "aluminio") {
+      return {
+        ...line,
+        familiaLinea: "aluminio",
+        perfilSistema: line.perfilSistema || line.serieCortizo || line.serieAlufac || "pendiente",
+        tipoApertura: line.tipoApertura || line.ilustracionApertura || "pendiente",
+        ilustracionApertura: line.ilustracionApertura || line.tipoApertura || "pendiente",
+      };
+    }
+    const { tipoApertura, ilustracionApertura, serieCortizo, serieAlufac, perfilSistema, ...cleanLine } = line;
+    return {
+      ...cleanLine,
+      familiaLinea: "herreria",
+      productoLinea: cleanLine.productoLinea || cleanLine.tipoProductoLinea || "pendiente",
+    };
+  });
+  return payload;
 }
 
 function readFileAsData(file) {
@@ -834,7 +926,7 @@ async function applyLineAi(index, row) {
     });
     const afterLine = lineLearningSnapshot(response.result?.lineas?.[index]);
     recordBudgetChange({ source: "ia-linea", action: "edit-line", prompt, lineIndex: index, before: beforeLine, after: afterLine });
-    state.result = response.result;
+    state.result = normalizeBudgetLinesForFamily(response.result);
     state.result.tokenUsage = response.usage || state.result.tokenUsage || null;
     state.result.tokenStatus = response.tokenStatus || state.result.tokenStatus || null;
     state.activeLineAiIndex = null;
@@ -866,7 +958,7 @@ function renderLines() {
       <td>
         <input data-field="concepto" value="${escapeHtml(line.concepto || "")}">
         <textarea data-field="descripcion">${escapeHtml(line.descripcion || "")}</textarea>
-        ${isIllustratedOpeningBudget() ? openingEditor(line) : ""}
+        ${isAluminumBudget() ? aluminumLineEditor(line) : metalworkLineEditor(line)}
       </td>
       <td><input data-field="cantidad" data-number="true" inputmode="decimal" value="${line.cantidad}"></td>
       <td><input data-field="unidad" value="${escapeHtml(line.unidad || "")}"></td>
@@ -914,6 +1006,24 @@ function renderLines() {
       line.ilustracionApertura = openingSelect.value;
       recordBudgetChange({ source: "manual", action: "edit-opening", lineIndex: index, from: before, to: line.tipoApertura });
       renderLines();
+      renderPrintPreview();
+    });
+    const profileSelect = tr.querySelector(".line-profile");
+    if (profileSelect) profileSelect.addEventListener("change", () => {
+      const before = line.perfilSistema || line.serieCortizo || line.serieAlufac || "pendiente";
+      line.familiaLinea = "aluminio";
+      line.perfilSistema = profileSelect.value;
+      recordBudgetChange({ source: "manual", action: "edit-profile", lineIndex: index, from: before, to: line.perfilSistema, line: lineLearningSnapshot(line) });
+      renderPrintPreview();
+    });
+    const productTypeSelect = tr.querySelector(".line-product-type");
+    if (productTypeSelect) productTypeSelect.addEventListener("change", () => {
+      const before = line.productoLinea || line.tipoProductoLinea || "pendiente";
+      line.familiaLinea = "herreria";
+      line.productoLinea = productTypeSelect.value;
+      delete line.tipoApertura;
+      delete line.ilustracionApertura;
+      recordBudgetChange({ source: "manual", action: "edit-line-product", lineIndex: index, from: before, to: line.productoLinea, line: lineLearningSnapshot(line) });
       renderPrintPreview();
     });
     tr.querySelector(".row-delete").addEventListener("click", () => deleteLine(index));
@@ -1017,7 +1127,7 @@ function renderPrintPreview() {
         <col class="print-col-amount">
       </colgroup>
       <thead><tr><th>Capitulo</th><th>Concepto</th><th>Cant.</th><th>Ud.</th><th>EUR/Ud.</th><th>Importe</th></tr></thead>
-      <tbody>${lines.map((line) => `<tr><td>${escapeHtml(line.capitulo || "")}</td><td><strong>${escapeHtml(line.concepto || "")}</strong><br>${escapeHtml(line.descripcion || "")}${isIllustratedOpeningBudget(payload) ? openingDiagram(line.tipoApertura || line.ilustracionApertura || "pendiente") : ""}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${escapeHtml(line.unidad || "")}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
+      <tbody>${lines.map((line) => `<tr><td>${escapeHtml(line.capitulo || "")}</td><td><strong>${escapeHtml(line.concepto || "")}</strong>${lineTechnicalMetaHtml(line, payload)}<br>${escapeHtml(line.descripcion || "")}${isIllustratedOpeningBudget(payload) ? openingDiagram(line.tipoApertura || line.ilustracionApertura || "pendiente") : ""}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${escapeHtml(line.unidad || "")}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
     </table>
     <div class="print-total">Total estimado: ${total.toFixed(2)} EUR + IVA</div>
     <section class="print-conditions">${renderDocumentFooterText(documentTemplate.footerText)}</section>
@@ -1052,6 +1162,7 @@ function printDocumentHtml() {
     .print-concept-image { margin: 0 0 4mm; page-break-inside: avoid; }
     .print-concept-image img { width: 100%; max-height: 52mm; object-fit: cover; border: 1px solid #d6dde5; border-radius: 3px; display: block; }
     .print-concept-image figcaption { margin-top: 1.5mm; color: #667085; font-size: 7pt; }
+    .line-technical-meta { margin-top: 1mm; color: #53657a; font-size: 6.8pt; font-weight: 700; }
     .opening-diagram { width: 116px; margin: 2mm 0 0; page-break-inside: avoid; }
     .opening-diagram > div { display: block; width: 116px; height: 72px; }
     .opening-diagram figcaption { margin-top: 1mm; color: #667085; font-size: 6.8pt; }
@@ -1101,6 +1212,10 @@ function waitForPrintAssets(doc, timeoutMs = 2500) {
 
 function renderResult(renderTable = true) {
   if (!state.result) return;
+  if (els.budgetBrand) els.budgetBrand.value = inferredBudgetBrand(state.result);
+  state.result.documentBrand = selectedBudgetBrand();
+  state.result.marcaSistema = state.result.documentBrand === "alufac" ? "ALUFAC" : "HAM";
+  normalizeBudgetLinesForFamily(state.result);
   const total = (state.result.lineas || []).reduce((sum, line) => {
     recalcLine(line);
     return sum + line.importe;
@@ -1110,9 +1225,6 @@ function renderResult(renderTable = true) {
   els.printBudget.disabled = false;
   if (els.summaryPdfBudget) els.summaryPdfBudget.disabled = false;
   if (els.generateBudgetImage) els.generateBudgetImage.disabled = false;
-  if (els.budgetBrand) els.budgetBrand.value = inferredBudgetBrand(state.result);
-  state.result.documentBrand = selectedBudgetBrand();
-  state.result.marcaSistema = state.result.documentBrand === "alufac" ? "ALUFAC" : "HAM";
   state.result.documentTemplate = currentDocumentTemplate({ preferUi: false });
   els.title.value = state.result.titulo || "Presupuesto";
   els.summaryText.value = state.result.resumen || "";
@@ -1352,7 +1464,7 @@ async function generate() {
     });
     rememberActiveBudgetFolder(null);
     state.budgetChangeLog = [];
-    state.result = response.result;
+    state.result = normalizeBudgetLinesForFamily(response.result);
     if (product) state.result.selectedProduct = { slug: product.slug, name: product.name };
     if (selectedOpeningBrand(product?.slug)) {
       state.result.budgetMode = product.slug;
@@ -2250,12 +2362,12 @@ if (els.insertProductPrompt) els.insertProductPrompt.addEventListener("click", i
 if (els.productSelect) els.productSelect.addEventListener("change", () => {
   const product = selectedProduct();
   els.productPromptStatus.textContent = product?.slug === ALUFAC_PRODUCT_SLUG
-    ? "Modo ALUFAC seleccionado: cada línea incluirá su tipo de apertura y esquema. Series y tarifas pendientes de documentación."
+    ? "Modo aluminio ALUFAC: cada línea será una abertura con perfil/sistema, cantidad y tipo de apertura."
     : CORTIZO_PRODUCT_SLUGS.has(product?.slug)
       ? product?.slug === "persianas_mallorquinas"
-        ? "Modo persiana mallorquina seleccionado: se pedirán medidas, hojas, apertura, relleno, acabado marino, herrajes y montaje. Cada línea incluirá su esquema."
-        : "Modo CORTIZO seleccionado: cada línea incluirá su apertura y esquema. Se aplicarán las reglas y costes CORTIZO con prioridad para tarifas y ofertas reales."
-    : product ? `${product.variablesTecnicas?.length || 0} parametro(s) sugeridos.` : "";
+        ? "Modo aluminio: cada línea será una abertura con perfil/sistema, cantidad, hojas, apertura y acabado."
+        : "Modo aluminio CORTIZO: cada línea será una abertura con perfil/sistema, cantidad y tipo de apertura."
+    : product ? `Modo herreria/producto compuesto: cada línea puede clasificarse por producto y mantiene prompt individual. ${product.variablesTecnicas?.length || 0} parametro(s) sugeridos.` : "";
   if (state.result) renderResult();
 });
 els.refreshContext.addEventListener("click", loadContext);
@@ -2311,9 +2423,14 @@ els.addLine.addEventListener("click", () => {
     origen: "usuario",
     editable: true,
   };
-  if (isIllustratedOpeningBudget()) {
+  if (isAluminumBudget()) {
+    line.familiaLinea = "aluminio";
+    line.perfilSistema = "pendiente";
     line.tipoApertura = "pendiente";
     line.ilustracionApertura = "pendiente";
+  } else {
+    line.familiaLinea = "herreria";
+    line.productoLinea = "pendiente";
   }
   state.result.lineas.push(line);
   recordBudgetChange({ source: "manual", action: "add-line", lineIndex: state.result.lineas.length - 1, after: lineLearningSnapshot(line) });
