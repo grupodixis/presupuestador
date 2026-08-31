@@ -29,6 +29,7 @@ const ALUMINUM_PROFILE_OPTIONS = [
   ["COR 4700", "CORTIZO COR 4700"],
   ["COR 4900", "CORTIZO COR 4900"],
   ["COR Vision", "CORTIZO COR Vision"],
+  ["CORTIZO Mallorquina", "CORTIZO Mallorquina"],
   ["ALUFAC pendiente", "ALUFAC pendiente"],
 ];
 const METALWORK_PRODUCT_OPTIONS = [

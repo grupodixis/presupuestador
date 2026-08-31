@@ -3,6 +3,10 @@ unidad_base: unidad
 area: aluminio
 marca_presupuestacion: ALUFAC
 sistema_preferente: CORTIZO Mallorquina
+fuente_oficial:
+  url: https://www.cortizo.com/en/sistemas/ver/10/mallorquina.html
+  fecha_revision: 2026-08-31
+  tipo: ficha oficial CORTIZO consultada
 
 descripcion: Plantilla para persianas mallorquinas de aluminio practicables, correderas o plegables, con lamas fijas, orientables o panel machihembrado.
 
@@ -29,6 +33,34 @@ componentes_principales:
   - guías superior e inferior para sistemas correderos
   - fijaciones, sellantes y remates de montaje
 
+datos_tecnicos_cortizo_mallorquina:
+  familia: proteccion_solar
+  descripcion_sistema: sistema de contraventana mallorquina
+  lamas: fijas u orientables
+  aperturas_oficiales:
+    - practicable_1_hoja
+    - practicable_2_hojas
+    - practicable_3_hojas
+    - practicable_4_hojas
+  secciones:
+    marco: 40 mm
+    hoja: 48 mm
+  espesor_perfil:
+    ventana: 1.3 mm
+    puerta: 1.4 mm
+  limites_por_hoja:
+    ancho_maximo: 1600 mm
+    alto_maximo: 2500 mm
+    peso_maximo: 100 kg
+  acabados:
+    - lacado RAL
+    - lacado moteado o rugoso
+    - efecto madera
+    - lacado antibacteriano
+    - anodizado
+  resistencia_viento: UNE 13659:2004 clase 5 en ensayo 1.50 x 1.50 m de 2 hojas
+  regla_validacion: consultar CORTIZO para pesos y dimensiones maximas de otros tipos de apertura
+
 procesos:
   - medicion_y_numeracion_de_huecos
   - validacion_de_tipologia_y_despiece
@@ -45,6 +77,7 @@ criterios_menorca:
   - Validar resistencia al viento, refuerzos, anclajes y número de bisagras o carros.
   - Separar cada hueco o configuración diferente en una línea del presupuesto.
   - Cada línea debe incluir tipoApertura e ilustracionApertura.
+  - Si se selecciona CORTIZO Mallorquina como perfilSistema, no presupuestar como carpinteria generica ni como perfileria ALUFAC.
 
 costes_a_considerar:
   perfiles_y_refuerzos: true

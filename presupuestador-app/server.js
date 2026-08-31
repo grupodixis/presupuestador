@@ -919,7 +919,7 @@ Formato exacto de respuesta:
       "descripcion": "string",
       "familiaLinea": "aluminio | herreria",
       "productoLinea": "solo herreria: barandilla | reja | puerta_metalica | porton_cancela | escalera_metalica | estructura_metalica | pergola_marquesina | dintel_refuerzo | chapa_remate | montaje | transporte | pendiente",
-      "perfilSistema": "solo aluminio: COR 2000 | COR 3000 | COR 3500 | COR 4200 | COR 4500 | COR 4600 | COR 4700 | COR 4900 | COR Vision | ALUFAC pendiente | pendiente",
+      "perfilSistema": "solo aluminio: COR 2000 | COR 3000 | COR 3500 | COR 4200 | COR 4500 | COR 4600 | COR 4700 | COR 4900 | COR Vision | CORTIZO Mallorquina | ALUFAC pendiente | pendiente",
       "cantidad": number,
       "unidad": "ud | ml | m2 | kg | h | lote",
       "precioUnitario": number,
