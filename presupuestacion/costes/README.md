@@ -6,7 +6,7 @@ Tablas, factores y criterios para calcular el coste técnico base de un producto
 
 | Componente | Descripción |
 |---|---|
-| Materiales principales | Acero, aluminio, inoxidable, vidrio, etc. |
+| Materiales principales | Acero, inoxidable, vidrio y materiales auxiliares de herrería |
 | Materiales auxiliares | Tornillería, anclajes, consumibles |
 | Mano de obra de taller | Horas de fabricación |
 | Mano de obra de montaje | Horas de instalación en obra |
@@ -33,8 +33,6 @@ Se pueden crear archivos específicos para:
 - `proveedores-config.example.json` — plantilla segura de configuracion local para Notion/email.
 - `proveedores-conocidos.md` — catálogo de proveedores habituales (Ferros Puig Sallent, corte láser, etc.).
 - `historico-ferros-puig.md` — precios reales extraidos de presupuestos/pedidos de Ferros Puig.
-- `historico-aluminio-extrual.md` — precios reales de perfileria EXTRUAL / Perfila Menorca para calculo de aluminio.
-- `historico-mallorquinas-cortizo.md` — precios reales de mallorquinas Cortizo para estimar persianas/mallorquinas de aluminio desde costes.
 - `historico-factusol-sintesis.md` — memoria anonima agregada de facturas FACTUSOL para contraste comercial de precios historicos.
 
 ## Criterios generales
@@ -46,3 +44,5 @@ Se pueden crear archivos específicos para:
 - Las mermas estándar son del 5-10% según el producto.
 - El **transporte peninsular** debe calcularse según el peso real o volumétrico.
 - La **ruta Barcelona → Menorca** tiene un coste de referencia de **0.20 €/kg** (ver `costes-transporte.json`).
+
+Los costes específicos de carpintería de aluminio quedan archivados en `archivo-carpinteria-aluminio/`.

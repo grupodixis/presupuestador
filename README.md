@@ -1,6 +1,6 @@
 # Entorno de presupuestación técnica y comercial
 
-Repositorio de conocimiento, reglas, costes, proveedores y procedimientos para que un agente IA genere presupuestos técnicos y comerciales de trabajos industriales, instalaciones y productos fabricados a medida.
+Repositorio de conocimiento, reglas, costes, proveedores y procedimientos para que un agente IA genere presupuestos técnicos y comerciales de herrería, metalistería y productos metálicos fabricados a medida.
 
 ## Visión
 
@@ -11,16 +11,13 @@ El repositorio debe funcionar como una base de conocimiento viva:
 - La app guarda esas correcciones como aprendizaje por área.
 - Los aprendizajes repetidos o validados se consolidan en skills, composiciones, costes o fichas de proveedor.
 
-## Áreas objetivo
+## Área operativa
 
 | Área | Estado | Carpeta |
 |---|---|---|
-| Aluminio | activa | `skills/areas/aluminio/` |
 | Carpintería metálica | activa | `skills/areas/carpinteria_metalica/` |
-| Instalaciones eléctricas | preparada | `skills/areas/instalaciones_electricas/` |
-| Fontanería | preparada | `skills/areas/fontaneria/` |
-| Clima | preparada | `skills/areas/clima/` |
-| Otras industrias | incubadora | `skills/areas/otras_industrias/` |
+
+La carpintería de aluminio se conserva aparte en `archivo-carpinteria-aluminio/` para una app independiente.
 
 ## Estructura del repositorio
 
@@ -50,9 +47,9 @@ El repositorio debe funcionar como una base de conocimiento viva:
 
 ## Flujo de trabajo del agente IA
 
-1. Identificar área, sector y tipo de producto.
+1. Identificar sector y tipo de producto de herrería.
 2. Cargar `skills/skill_presupuestacion_general.md`.
-3. Cargar el README del área en `skills/areas/`.
+3. Cargar `skills/areas/carpinteria_metalica/README.md`.
 4. Cargar la skill específica del producto o proceso.
 5. Consultar composición YAML en `productos/composiciones/`.
 6. Consultar costes, históricos y proveedores.

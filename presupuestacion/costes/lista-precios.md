@@ -3,72 +3,13 @@
 Archivo generado automaticamente desde SQLite cada vez que se actualiza un precio.
 Editar los precios desde `Configuracion > Lista de precios`.
 
-Actualizado: 2026-08-12T11:34:38.805Z
+Actualizado: 2026-09-14T10:20:56.778Z
 
 ## Uso por el agente
 
 - Priorizar estos precios frente a supuestos genericos cuando coincidan area, categoria, nombre o unidad.
 - Si un precio esta marcado como estimado, antiguo o pendiente, indicar la confianza y proponer validarlo.
 - Si no existe precio aplicable, generar la linea como supuesto y sugerir alta en lista de precios.
-
-## aluminio
-
-| Categoria | Nombre | Unidad | Coste | Venta | Margen % | Proveedor | Confianza |
-|---|---|---:|---:|---:|---:|---|---|
-| mano_obra | Mano de obra carpinteria aluminio | h | 30.0000 | 40.0000 | 33.33 |  | estimado |
-| material | 04.AC.R150 Carril acero inox | kg | 11.4200 | 11.4200 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | 04.AC.R150 Carril acero inox por ml | ml | 2.9700 | 2.9700 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | 10320 Solape 40 mm atornillado | kg | 9.0400 | 9.0400 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | 10320 Solape 40 mm atornillado por ml | ml | 2.4900 | 2.4900 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | 16341 Cierre lateral E150 | kg | 9.1900 | 9.1900 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | 16341 Cierre lateral E150 por ml | ml | 5.1200 | 5.1200 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | 16342 Tapa canal E150 | kg | 16.8300 | 16.8300 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | 16342 Tapa canal E150 por ml | ml | 1.0100 | 1.0100 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | 16343 Tapa marco E150 | kg | 9.5700 | 9.5700 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | 16343 Tapa marco E150 por ml | ml | 4.3600 | 4.3600 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | 16347 Hoja central E150 | kg | 9.0500 | 9.0500 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | 16347 Hoja central E150 por ml | ml | 8.2400 | 8.2400 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | anodizado | kg | 1.0000 | 1.0000 | 0.00 |  | estimado |
-| material | Carpinteria corredera E150 solo perfiles | m2 | 122.0200 | 122.0200 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | Chapa de aluminio lacado | kg | 6.0000 | 6.0000 | 0.00 |  | estimado |
-| material | Chapa de aluminio liso | kg | 4.5000 | 4.5000 | 0.00 |  | estimado |
-| material | doble acristalamiento 4 12 4 | m2 | 45.0000 | 45.0000 | 0.00 |  | estimado |
-| material | Doble acristalamiento 4+12+4 | kg | 47.5000 | 47.5000 | 0.00 |  | estimado |
-| material | doble bajo emisivo | m2 | 65.0000 | 65.0000 | 0.00 |  | estimado |
-| material | Doble bajo emisivo 4+12+4 | kg | 65.0000 | 65.0000 | 0.00 |  | estimado |
-| material | lacado color RAL | kg | 1.5000 | 1.5000 | 0.00 |  | estimado |
-| material | laminar seguridad | m2 | 70.0000 | 70.0000 | 0.00 |  | estimado |
-| material | Mallorquina Cortizo blanca coste neto historico | m2 | 163.0000 | 163.0000 | 0.00 | Cortizo | antiguo |
-| material | Mallorquina Cortizo blanca suministro prudente alto | m2 | 230.0000 | 230.0000 | 0.00 | Cortizo | estimado |
-| material | Mallorquina Cortizo blanca suministro prudente bajo | m2 | 200.0000 | 200.0000 | 0.00 | Cortizo | estimado |
-| material | Panel composite (Dibond / Alucobond) | kg | 47.5000 | 47.5000 | 0.00 |  | estimado |
-| material | Pasamanos haya / fresno | ml | 22.5000 | 22.5000 | 0.00 |  | estimado |
-| material | Pasamanos iroko / teca (exterior) | ml | 52.5000 | 52.5000 | 0.00 |  | estimado |
-| material | Pasamanos roble macizo | ml | 45.0000 | 45.0000 | 0.00 |  | estimado |
-| material | Perfil EXTRUAL por peso neto unidad | kg | 16.7400 | 16.7400 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | perfil extrusion con RPT | kg | 6.5000 | 6.5000 | 0.00 |  | estimado |
-| material | perfil extrusion sin RPT | kg | 4.5000 | 4.5000 | 0.00 |  | estimado |
-| material | Perfil extrusión estándar (sin RPT) | kg | 4.7500 | 4.7500 | 0.00 |  | estimado |
-| material | Perfil extrusión RPT | kg | 6.5000 | 6.5000 | 0.00 |  | estimado |
-| material | Perfileria EXTRUAL lacada blanca comprada | kg | 11.2400 | 11.2400 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | R941 Marco 2 carriles E150 | kg | 10.5800 | 10.5800 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | R941 Marco 2 carriles E150 por ml | ml | 22.3900 | 22.3900 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | R943 Hoja lateral E150 | kg | 12.6000 | 12.6000 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | R943 Hoja lateral E150 por ml | ml | 12.4100 | 12.4100 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | R945 Hoja superior/inferior E150 | kg | 14.9400 | 14.9400 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | R945 Hoja superior/inferior E150 por ml | ml | 8.7600 | 8.7600 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | R946 Cierre 4 hojas E150 | kg | 14.6800 | 14.6800 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | R946 Cierre 4 hojas E150 por ml | ml | 8.8300 | 8.8300 | 0.00 | Perfila Menorca / EXTRUAL | antiguo |
-| material | Tabla de madera para peldaños | ml | 80.0000 | 80.0000 | 0.00 |  | estimado |
-| material | templado seguridad 6mm | m2 | 55.0000 | 55.0000 | 0.00 |  | estimado |
-| material | triple acristalamiento | m2 | 95.0000 | 95.0000 | 0.00 |  | estimado |
-| material | Triple acristalamiento | kg | 102.5000 | 102.5000 | 0.00 |  | estimado |
-| material | Tubo cuadrado / rectangular aluminio | kg | 5.2500 | 5.2500 | 0.00 |  | estimado |
-| material | Tubo redondo aluminio | kg | 5.2500 | 5.2500 | 0.00 |  | estimado |
-| material | Vidrio laminar seguridad (PVB) | kg | 72.5000 | 72.5000 | 0.00 |  | estimado |
-| material | Vidrio reflectante / espejo | kg | 17.5000 | 17.5000 | 0.00 |  | estimado |
-| material | Vidrio serigrafiado | kg | 22.5000 | 22.5000 | 0.00 |  | estimado |
-| material | Vidrio templado seguridad 6 mm | kg | 57.5000 | 57.5000 | 0.00 |  | estimado |
 
 ## carpinteria_metalica
 
@@ -87,18 +28,19 @@ Actualizado: 2026-08-12T11:34:38.805Z
 | insumo | Hilo MIG/MAG 1 mm (15 kg bobina) | kg | 65.0000 | 65.0000 | 0.00 |  | estimado |
 | insumo | hilo TIG inox | kg | 18.0000 | 18.0000 | 0.00 |  | estimado |
 | insumo | Hilo TIG inoxidable 316L (5 kg) | kg | 75.0000 | 75.0000 | 0.00 |  | estimado |
-| mano_obra | ayudante montaje obra | h | 22.0000 | 30.0000 | 36.36 |  | confirmado |
-| mano_obra | ayudante taller | h | 22.0000 | 30.0000 | 36.36 |  | confirmado |
-| mano_obra | ingeniero oficina tecnica | h | 25.0000 | 45.0000 | 80.00 |  | confirmado |
-| mano_obra | oficial 1 taller | h | 25.0000 | 40.0000 | 60.00 |  | confirmado |
-| mano_obra | oficial 2 taller | h | 22.0000 | 35.0000 | 59.09 |  | confirmado |
-| mano_obra | oficial montaje obra | h | 22.0000 | 35.0000 | 48.15 |  | confirmado |
+| mano_obra | ayudante montaje obra | h | 35.0000 | 35.0000 | 0.00 |  | confirmado |
+| mano_obra | ayudante taller | h | 28.0000 | 28.0000 | 0.00 |  | confirmado |
+| mano_obra | ingeniero oficina tecnica | h | 55.0000 | 55.0000 | 0.00 |  | confirmado |
+| mano_obra | oficial 1 taller | h | 40.0000 | 40.0000 | 0.00 |  | confirmado |
+| mano_obra | oficial 2 taller | h | 35.0000 | 35.0000 | 0.00 |  | confirmado |
+| mano_obra | oficial montaje obra | h | 45.0000 | 45.0000 | 0.00 |  | confirmado |
 | maquinaria | Corte recto | corte | 15.0000 | 15.0000 | 0.00 | Ferros Puig Sallent | antiguo |
 | maquinaria | Escote | escote | 40.0000 | 40.0000 | 0.00 | Ferros Puig Sallent | antiguo |
 | maquinaria | Perforacion | perforacion | 2.7500 | 2.7500 | 0.00 | Ferros Puig Sallent | antiguo |
 | maquinaria | Taladrar | taladro | 3.0000 | 3.0000 | 0.00 | Ferros Puig Sallent | antiguo |
+| material | 2026-05-25 | kg | 3.6600 | 3.6600 | 0.00 |  | estimado |
 | material | AISI 304 pletina | kg | 6.0000 | 6.0000 | 0.00 |  | estimado |
-| material | AISI 304 tubo | kg | 6.0000 | 9.0000 | -8.33 |  | estimado |
+| material | AISI 304 tubo | kg | 5.5000 | 5.5000 | 0.00 |  | estimado |
 | material | AISI 316 pletina | kg | 9.0000 | 9.0000 | 0.00 |  | estimado |
 | material | AISI 316 tubo | kg | 8.2000 | 8.2000 | 0.00 |  | estimado |
 | material | Angular L | kg | 1.3500 | 1.3500 | 0.00 |  | estimado |
@@ -148,28 +90,19 @@ Actualizado: 2026-08-12T11:34:38.805Z
 | material | Tubo redondo sin soldadura | kg | 2.5000 | 2.5000 | 0.00 |  | estimado |
 | material | Tubo redondo soldado | kg | 1.7000 | 1.7000 | 0.00 |  | estimado |
 | material | UPN 80-300 | kg | 1.2000 | 1.2000 | 0.00 |  | estimado |
+| montaje | Montaje | servicio | 400.0000 | 400.0000 | 0.00 | Ferros Puig Sallent | antiguo |
+| montaje | Montaje grande | servicio | 4000.0000 | 4000.0000 | 0.00 | Ferros Puig Sallent | antiguo |
+| montaje | Montaje sencillo | servicio | 400.0000 | 400.0000 | 0.00 | Ferros Puig Sallent | antiguo |
 | transporte | Envio | ud | 60.0000 | 60.0000 | 0.00 | Ferros Puig Sallent | antiguo |
 | transporte | Envio medio/grande | kg | 0.0400 | 0.0400 | 0.00 | Ferros Puig Sallent | antiguo |
 | transporte | Envio pedido pequeño | ud | 46.0000 | 46.0000 | 0.00 | Ferros Puig Sallent | antiguo |
 | transporte | Envio pequeño | ud | 46.0000 | 46.0000 | 0.00 | Ferros Puig Sallent | antiguo |
 
-## clima
-
-| Categoria | Nombre | Unidad | Coste | Venta | Margen % | Proveedor | Confianza |
-|---|---|---:|---:|---:|---:|---|---|
-| mano_obra | tecnico clima | h | 45.0000 | 45.0000 | 0.00 |  | confirmado |
-
-## fontaneria
-
-| Categoria | Nombre | Unidad | Coste | Venta | Margen % | Proveedor | Confianza |
-|---|---|---:|---:|---:|---:|---|---|
-| mano_obra | fontanero oficial | h | 42.0000 | 42.0000 | 0.00 |  | confirmado |
-
 ## general
 
 | Categoria | Nombre | Unidad | Coste | Venta | Margen % | Proveedor | Confianza |
 |---|---|---:|---:|---:|---:|---|---|
-| transporte | 1 a 200 kg (40€ x 200 Kg o menos.) | kg | 0.5000 | 2.0000 | -25.00 |  | estimado |
+| transporte | 1 a 50 kg | kg | 15.0000 | 15.0000 | 0.00 |  | estimado |
 | transporte | 201 a 1000 kg | kg | 0.1800 | 0.1800 | 0.00 |  | estimado |
 | transporte | 51 a 200 kg | kg | 0.2500 | 0.2500 | 0.00 |  | estimado |
 | transporte | barcelona a menorca | kg | 0.2000 | 0.2000 | 0.00 |  | estimado |
@@ -177,9 +110,3 @@ Actualizado: 2026-08-12T11:34:38.805Z
 | transporte | mas de 1000 kg | kg | 0.1200 | 0.1200 | 0.00 |  | estimado |
 | transporte | menorca a barcelona | kg | 0.2000 | 0.2000 | 0.00 |  | estimado |
 | transporte | menorca a barcelona minimo | servicio | 60.0000 | 60.0000 | 0.00 |  | estimado |
-
-## instalaciones_electricas
-
-| Categoria | Nombre | Unidad | Coste | Venta | Margen % | Proveedor | Confianza |
-|---|---|---:|---:|---:|---:|---|---|
-| mano_obra | electricista oficial | h | 42.0000 | 42.0000 | 0.00 |  | confirmado |

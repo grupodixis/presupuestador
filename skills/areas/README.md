@@ -6,13 +6,12 @@ Esta carpeta organiza las skills por industria y sector. Sirve para saber qué t
 
 | Carpeta | Estado | Uso |
 |---|---|---|
-| `aluminio/` | activa | Carpintería de aluminio y cerramientos. |
 | `carpinteria_metalica/` | activa | Metalistería, herrería, estructuras y productos metálicos. |
-| `instalaciones_electricas/` | preparada | Electricidad y baja tensión. |
-| `fontaneria/` | preparada | Agua, saneamiento y ACS. |
-| `clima/` | preparada | Climatización, ventilación y RITE. |
-| `otras_industrias/` | abierta | Nuevas industrias antes de crear un área propia. |
+| `instalaciones_electricas/` | fuera del flujo actual | Electricidad y baja tensión. |
+| `fontaneria/` | fuera del flujo actual | Agua, saneamiento y ACS. |
+| `clima/` | fuera del flujo actual | Climatización, ventilación y RITE. |
+| `otras_industrias/` | referencia | Nuevas industrias antes de crear un área propia. |
 
 ## Criterio de uso
 
-El agente debe leer primero el README del área detectada y después las skills/productos concretos que apliquen. Si el trabajo mezcla áreas, debe cargar todas las áreas relevantes y tratar las interfaces como riesgo.
+El agente debe leer primero `carpinteria_metalica/README.md` y después las skills/productos concretos que apliquen. Si el trabajo no es de herrería, debe indicarlo en vez de mezclar áreas.

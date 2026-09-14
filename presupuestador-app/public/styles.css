@@ -184,6 +184,61 @@ td textarea { min-height: 58px; resize: vertical; }
   gap: 8px;
   flex-wrap: wrap;
 }
+.selection-ai-menu {
+  position: absolute;
+  z-index: 250;
+  width: 220px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: 0 14px 34px rgba(16,24,40,.2);
+}
+.selection-ai-menu button {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+}
+.selection-ai-panel {
+  position: absolute;
+  z-index: 260;
+  width: min(380px, calc(100vw - 24px));
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--accent-2);
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: 0 22px 55px rgba(16,24,40,.22);
+}
+.selection-ai-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.selection-ai-head button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+}
+.selection-ai-panel p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.selection-ai-panel textarea {
+  min-height: 82px;
+  background: white;
+}
+.selection-ai-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 .note-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .note-grid article, .suggestion { border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; background: var(--soft); }
 .note-grid ul { margin-bottom: 0; padding-left: 18px; }

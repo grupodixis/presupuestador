@@ -7,7 +7,6 @@ Esta carpeta guarda el conocimiento que nace del uso real de la app: cambios man
 | Archivo | Uso |
 |---|---|
 | `aprendizaje_general.md` | Criterios transversales o sin área clara. |
-| `aprendizaje_aluminio.md` | Correcciones sobre aluminio, cerramientos, vidrios, persianas y mallorquinas. |
 | `aprendizaje_carpinteria_metalica.md` | Metalistería, estructuras, barandillas, rejas, puertas, cancelas, escaleras y herrería. |
 | `aprendizaje_instalaciones_electricas.md` | Electricidad, cuadros, cableado, iluminación, boletines y fotovoltaica auxiliar. |
 | `aprendizaje_fontaneria.md` | Fontanería, ACS, saneamiento y pruebas. |

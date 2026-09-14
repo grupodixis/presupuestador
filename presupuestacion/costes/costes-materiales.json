@@ -16,12 +16,6 @@
       "AISI_304_pletina": { "unidad": "kg", "precio": 6.00 },
       "AISI_316_pletina": { "unidad": "kg", "precio": 9.00 }
     },
-    "aluminio": {
-      "perfil_extrusion_sin_RPT": { "unidad": "kg", "precio": 4.50 },
-      "perfil_extrusion_con_RPT": { "unidad": "kg", "precio": 6.50 },
-      "lacado_color_RAL": { "unidad": "kg", "precio": 1.50 },
-      "anodizado": { "unidad": "kg", "precio": 1.00 }
-    },
     "vidrio": {
       "doble_acristalamiento_4_12_4": { "unidad": "m2", "precio": 45.00 },
       "doble_bajo_emisivo": { "unidad": "m2", "precio": 65.00 },

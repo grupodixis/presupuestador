@@ -88,38 +88,6 @@ Tabla de referencia de precios de materiales y medidas estándar de suministro. 
 
 ---
 
-## Aluminio
-
-| Tipo | Medida estándar | Precio €/kg |
-|---|---|---|
-| Perfil extrusión estándar (sin RPT) | 5-6 m | 4.00 - 5.50 |
-| Perfil extrusión RPT | 5-6 m | 5.50 - 7.50 |
-| Tubo redondo aluminio | 5-6 m | 4.50 - 6.00 |
-| Tubo cuadrado / rectangular aluminio | 5-6 m | 4.50 - 6.00 |
-| Chapa de aluminio liso | 1.5 x 3 m | 4.00 - 5.00 |
-| Chapa de aluminio lacado | 1.5 x 3 m | 5.00 - 7.00 |
-| Panel composite (Dibond / Alucobond) | 1.25 x 3.05 m | 35-60 €/panel |
-
-### Sobrecostes de acabado
-
-| Acabado | €/kg adicional |
-|---|---|
-| Lacado color RAL liso | +1.00 - 1.50 |
-| Lacado imitación madera | +2.00 - 3.00 |
-| Anodizado natural | +0.80 - 1.20 |
-| Anodizado color | +1.50 - 2.50 |
-
-### Mermas aluminio
-
-| Material | Merma recomendada |
-|---|---|
-| Perfil extrusión | 5% |
-| Tubo | 5% |
-| Chapa | 8-10% |
-| Panel composite | 5% |
-
----
-
 ## Vidrio
 
 | Tipo | Medida máxima estándar | Precio €/m² |
@@ -189,7 +157,7 @@ Tabla de referencia de precios de materiales y medidas estándar de suministro. 
 
 ---
 
-*Los precios de esta tabla deben actualizarse cada 3 meses o cuando haya fluctuación del mercado del acero/aluminio.*
+*Los precios de esta tabla deben actualizarse cada 3 meses o cuando haya fluctuación del mercado del acero.*
 
 ---
 

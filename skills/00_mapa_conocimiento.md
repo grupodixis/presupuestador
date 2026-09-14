@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Mantener una base de conocimiento modular, auditable y evolutiva para que el agente pueda presupuestar trabajos actuales y ampliar sectores sin mezclar criterios.
+Mantener una base de conocimiento modular, auditable y evolutiva para que el agente presupueste herrería y carpintería metálica sin mezclar criterios de otras industrias.
 
 ## Capas de conocimiento
 
@@ -21,24 +21,23 @@ Mantener una base de conocimiento modular, auditable y evolutiva para que el age
 
 - Presupuestación general.
 - Carpintería metálica: barandillas, rejas, puertas, cancelas, escaleras, estructuras, herrería, marquesinas y pérgolas.
-- Carpintería de aluminio: ventanas y cerramientos como base.
 - Procesos transversales: montaje, tratamientos superficiales, complejidad, revisión y oferta/demanda.
-- Instalaciones como skill genérica.
 
 ### Falta profundizar
 
-- Aluminio por sectores: mallorquinas, correderas, practicables, cerramientos, mosquiteras, persianas, vidrios, RPT, series y marcas.
-- Electricidad por sectores: vivienda, local, nave, fotovoltaica auxiliar, cuadros, boletines, alumbrado, domótica.
-- Fontanería por sectores: baños, cocinas, saneamiento, ACS, bombeo, pruebas de presión.
-- Clima por sectores: split, multisplit, conductos, ventilación/extracción, aerotermia, mantenimiento.
 - Márgenes por industria y tipo de cliente.
 - Proveedores homologados por área y rangos de precio actualizados.
+
+### Archivado para otra app
+
+- Carpintería de aluminio, ALUFAC, CORTIZO, mallorquinas, ventanas, cerramientos y precios asociados viven en `archivo-carpinteria-aluminio/`.
+- Esta app no debe cargar ni aplicar ese conocimiento en presupuestos nuevos.
 
 ## Regla de evolución
 
 Toda mejora debe clasificarse con estas etiquetas mínimas:
 
-- Área: aluminio, carpinteria_metalica, instalaciones_electricas, fontaneria, clima, general u otra.
+- Área: carpinteria_metalica, general u otra.
 - Sector: producto o familia concreta.
 - Tipo de conocimiento: coste, composición, criterio técnico, riesgo, pregunta, proveedor, margen o condición comercial.
 - Estado: observado, validado, consolidado o descartado.

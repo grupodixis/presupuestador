@@ -27,13 +27,41 @@ const LEARNING_RULES_FILE = path.join(LEARNING_DIR, "00_reglas_consolidadas.md")
 const LEARNING_RECENT_FILE = path.join(LEARNING_DIR, "00_memoria_reciente.md");
 const LEARNING_FILES = {
   general: "aprendizaje_general.md",
-  aluminio: "aprendizaje_aluminio.md",
   carpinteria_metalica: "aprendizaje_carpinteria_metalica.md",
   instalaciones_electricas: "aprendizaje_instalaciones_electricas.md",
   fontaneria: "aprendizaje_fontaneria.md",
   clima: "aprendizaje_clima.md",
   otras_industrias: "aprendizaje_otras_industrias.md",
 };
+const ARCHIVED_PRICE_AREAS = new Set(["aluminio", "instalaciones_electricas", "fontaneria", "clima"]);
+const METALWORK_PRODUCT_SLUGS = new Set([
+  "barandilla",
+  "carros_de_1_o_2_ejes",
+  "escalera_metalica",
+  "estructura_metalica",
+  "herreria",
+  "marquesina_pergola",
+  "porton_cancela",
+  "producto_compuesto",
+  "puerta_metalica",
+  "rejas",
+]);
+const ARCHIVED_CONTEXT_PATTERNS = [
+  /(^|\/)aluminio(\/|$)/i,
+  /alufac/i,
+  /cortizo/i,
+  /mallorquina/i,
+  /ventana_aluminio/i,
+  /cerramiento_aluminio/i,
+  /pergolas-extrual/i,
+  /(^|\/)instalaciones_electricas(\/|$)/i,
+  /(^|\/)fontaneria(\/|$)/i,
+  /(^|\/)clima(\/|$)/i,
+  /skill_instalaciones/i,
+  /instalacion_electrica/i,
+  /instalacion_fontaneria/i,
+  /instalacion_clima/i,
+];
 const EDITABLE_DIRS = ["skills", "presupuestacion", "productos", "plantillas", "proveedores", "glosario"];
 const EDITABLE_EXTENSIONS = new Set([".md", ".yaml", ".yml", ".json"]);
 const DEFAULT_DOCUMENT_TEMPLATE = {
@@ -50,18 +78,6 @@ const DEFAULT_DOCUMENT_TEMPLATE = {
     "Forma de pago: 100% a la aceptacion del presupuesto.",
   ].join("\n"),
 };
-const ALUFAC_DOCUMENT_TEMPLATE = {
-  logo: "https://alufac.es/assets/alufac-logo.svg",
-  headerText: [
-    "ALUFAC",
-    "Carpinteria de aluminio, PVC, cristal y cerramientos a medida en Menorca.",
-    "Circunval·lacio, 11, 07710 Sant Lluis, Menorca",
-    "info@alufac.es - +34 669 769 541 - WhatsApp +34 669 769 541",
-    "www.alufac.es",
-  ].join("\n"),
-  footerText: DEFAULT_DOCUMENT_TEMPLATE.footerText,
-};
-
 const MIME = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -356,12 +372,22 @@ function priceRowToApi(row) {
 }
 
 function listPriceItems({ includeInactive = true } = {}) {
+  const where = [];
+  if (!includeInactive) where.push("active = 1");
+  for (const area of ARCHIVED_PRICE_AREAS) {
+    where.push(`LOWER(COALESCE(area, '')) <> '${area}'`);
+  }
   const rows = db().prepare(`
     SELECT * FROM price_items
-    ${includeInactive ? "" : "WHERE active = 1"}
+    ${where.length ? `WHERE ${where.join(" AND ")}` : ""}
     ORDER BY active DESC, area COLLATE NOCASE, category COLLATE NOCASE, name COLLATE NOCASE
   `).all();
   return rows.map(priceRowToApi);
+}
+
+function isArchivedContextFile(file) {
+  const rel = path.relative(ROOT, file).replaceAll("\\", "/");
+  return ARCHIVED_CONTEXT_PATTERNS.some((pattern) => pattern.test(rel));
 }
 
 function yamlScalar(value) {
@@ -607,16 +633,11 @@ function normalizeDocumentTemplate(template = {}) {
 }
 
 function isAlufacBudget(payload = {}) {
-  const explicit = String(payload.documentBrand || "").toLowerCase();
-  if (explicit === "ham") return false;
-  if (explicit === "alufac") return true;
-  return ["carpinteria_aluminio_alufac", "cortizo_abatibles", "cortizo_correderas", "persianas_mallorquinas"].includes(payload.budgetMode)
-    || ["ALUFAC", "CORTIZO"].includes(payload.marcaSistema)
-    || payload.tipoProducto === "carpinteria_aluminio";
+  return false;
 }
 
 function documentTemplateForBudget(payload = {}) {
-  return normalizeDocumentTemplate(isAlufacBudget(payload) ? ALUFAC_DOCUMENT_TEMPLATE : payload.documentTemplate);
+  return normalizeDocumentTemplate(payload.documentTemplate);
 }
 
 function defaultConfig() {
@@ -873,7 +894,7 @@ async function loadRepositoryContext() {
     ...compositionFiles,
     ...requirementFiles,
     ...costingFiles,
-  ];
+  ].filter((file) => !isArchivedContextFile(file));
 
   const docs = [];
   for (const file of selected) {
@@ -899,36 +920,32 @@ Objetivo:
 - Respetar Menorca por defecto: ambiente salino, corrosivo, tratamientos C4/C5, inox A4/316 cuando aplique.
 - Antes de cerrar un precio exacto, revisar skills y productos/requisitos. Si faltan datos obligatorios, incluir preguntas concretas y marcar confianza baja/media; no inventar medidas criticas.
 - Si el usuario rellena una plantilla de producto, usar esos parametros como fuente principal del presupuesto.
-- En CORTIZO, validar la variante exacta y aplicar cortizo-validacion-oficial.md; no heredar prestaciones o límites entre Industrial, Hoja Oculta, CC/CC16, Evolution o Passivhaus.
-- Prioridad de costes: lista de precios activa u oferta real identificada > tarifa vigente > ratios orientativos. Nunca presentar costes-aluminio-cortizo.md como tarifa oficial.
-- Separar dominios: aluminio y herreria no se presupuestan igual.
-- En aluminio, cada linea debe representar una abertura/hueco de un tipo por una cantidad de unidades iguales. Incluir perfilSistema y tipoApertura por linea.
-- En herreria, no usar tipoApertura ni ilustracionApertura. Cada linea debe indicar productoLinea cuando aplique: barandilla, reja, puerta_metalica, porton_cancela, escalera_metalica, estructura_metalica, pergola_marquesina, dintel_refuerzo, chapa_remate, montaje o transporte.
+- Esta app es solo para herreria y carpinteria metalica HAM.
+- No presupuestes carpinteria de aluminio, sistemas ALUFAC/CORTIZO, aberturas, ventanas, mallorquinas ni cerramientos de aluminio.
+- No uses tipoApertura, ilustracionApertura ni perfilSistema. Cada linea debe indicar productoLinea cuando aplique: barandilla, reja, puerta_metalica, porton_cancela, escalera_metalica, estructura_metalica, pergola_marquesina, dintel_refuerzo, chapa_remate, montaje o transporte.
+- Prioridad de costes: lista de precios activa u oferta real identificada > tarifa vigente > ratios orientativos.
 
 Formato exacto de respuesta:
 {
   "titulo": "string",
   "resumen": "string",
   "tipoProducto": "string",
-  "budgetFamily": "aluminio | herreria",
+  "budgetFamily": "herreria",
   "lineas": [
     {
       "id": "L1",
       "capitulo": "Diseno | Materiales | Fabricacion | Tratamiento | Transporte | Montaje | Riesgo | Margen",
       "concepto": "string",
       "descripcion": "string",
-      "familiaLinea": "aluminio | herreria",
-      "productoLinea": "solo herreria: barandilla | reja | puerta_metalica | porton_cancela | escalera_metalica | estructura_metalica | pergola_marquesina | dintel_refuerzo | chapa_remate | montaje | transporte | pendiente",
-      "perfilSistema": "solo aluminio: COR 2000 | COR 3000 | COR 3500 | COR 4200 | COR 4500 | COR 4600 | COR 4700 | COR 4900 | COR Vision | CORTIZO Mallorquina | ALUFAC pendiente | pendiente",
+      "familiaLinea": "herreria",
+      "productoLinea": "barandilla | reja | puerta_metalica | porton_cancela | escalera_metalica | estructura_metalica | pergola_marquesina | dintel_refuerzo | chapa_remate | montaje | transporte | pendiente",
       "cantidad": number,
       "unidad": "ud | ml | m2 | kg | h | lote",
       "precioUnitario": number,
       "importe": number,
       "confianza": "alta | media | baja",
       "origen": "skill/coste/supuesto/adjunto",
-      "editable": true,
-      "tipoApertura": "solo aluminio; usar una opción admitida o pendiente. En herreria omitir",
-      "ilustracionApertura": "solo aluminio; mismo identificador que tipoApertura. En herreria omitir"
+      "editable": true
     }
   ],
   "preguntas": ["string"],
@@ -950,11 +967,7 @@ ${context.map((doc) => `\n--- ${doc.path} ---\n${doc.content}`).join("\n")}`;
 }
 
 function isIllustratedOpeningBudget(payload = {}) {
-  const explicitBrand = String(payload.documentBrand || "").toLowerCase();
-  if (explicitBrand === "ham") return false;
-  if (explicitBrand && explicitBrand !== "alufac") return false;
-  return ["carpinteria_aluminio_alufac", "cortizo_abatibles", "cortizo_correderas", "persianas_mallorquinas"].includes(payload.budgetMode)
-    || ["ALUFAC", "CORTIZO"].includes(payload.marcaSistema);
+  return false;
 }
 
 function openingDiagramHtml(value) {
@@ -1077,8 +1090,8 @@ ${JSON.stringify(budget, null, 2)}
 Devuelve SIEMPRE el presupuesto completo en el mismo formato JSON esperado por el sistema.
 Reglas:
 - Modifica solo la linea seleccionada salvo que el prompt pida expresamente ajustar otras partidas relacionadas.
-- Si budgetFamily es aluminio, trata la linea como abertura/hueco por cantidad de unidades e incluye perfilSistema y tipoApertura cuando el usuario lo pida.
-- Si budgetFamily es herreria, no agregues tipoApertura ni ilustracionApertura; usa productoLinea para clasificar el producto de esa linea.
+- Esta app es solo para herreria/carpinteria metalica. No agregues perfilSistema, tipoApertura ni ilustracionApertura.
+- Usa productoLinea para clasificar el producto de esa linea.
 - Si el usuario pide cambiar precio, precio unitario, cantidad, descuento, subida/bajada, subtotal o importe, actualiza los campos numericos correspondientes; no lo escribas solo en descripcion.
 - Conserva datos de cliente, supuestos, riesgos, preguntas y sugerencias si no hay razon para cambiarlos.
 - Recalcula importe = cantidad * precioUnitario en las lineas que modifiques.
@@ -1282,6 +1295,46 @@ Contenido actual:
 ${content}`;
 }
 
+function fallbackSelectionEdit({ selection, prompt, numeric }) {
+  const selected = String(selection || "");
+  const instruction = String(prompt || "").trim();
+  const quoted = instruction.match(/["“”'`](.+?)["“”'`]/);
+  if (quoted?.[1]) return quoted[1].trim();
+  if (/^(borra|borrar|elimina|eliminar|quita|quitar)\b/i.test(instruction)) return "";
+  const number = instruction.match(/-?\d+(?:[.,]\d+)?/);
+  if (numeric && number) return number[0].replace(",", ".");
+  return instruction ? `${selected} (${instruction})` : selected;
+}
+
+function buildSelectionEditPrompt({ prompt, selection, fullText, field, scope, lineIndex, numeric, budget }) {
+  return `Edita exclusivamente el texto seleccionado por el usuario dentro de un presupuesto.
+
+Reglas:
+- Devuelve SOLO el texto final que reemplazara la seleccion, sin JSON, sin explicaciones y sin cercas de codigo.
+- No devuelvas el texto completo del campo ni el presupuesto completo.
+- Respeta el idioma, tono tecnico-comercial y formato del campo.
+- Si el campo es numerico, devuelve solo un numero valido con punto decimal si hace falta.
+- Si la instruccion implica precio, cantidad, subtotal o total, aplica el cambio al texto seleccionado cuando sea ese campo.
+- No inventes informacion tecnica no derivada del presupuesto, la seleccion o la instruccion.
+
+Campo: ${field || "texto"}
+Ambito: ${scope || "budget"}
+Indice de linea: ${lineIndex ?? ""}
+Campo numerico: ${numeric ? "si" : "no"}
+
+Texto seleccionado:
+${selection}
+
+Texto completo del campo:
+${fullText}
+
+Instruccion del usuario:
+${prompt}
+
+Presupuesto actual:
+${JSON.stringify(budget || {}, null, 2)}`;
+}
+
 async function callOpenAIText({ prompt, context, model }) {
   const config = await readConfig();
   const key = process.env.OPENAI_API_KEY || config.openaiApiKey;
@@ -1401,6 +1454,7 @@ async function listProducts() {
   for (const file of files) {
     const content = await fs.readFile(file, "utf8");
     const slug = path.basename(file, ".yaml");
+    if (!METALWORK_PRODUCT_SLUGS.has(slug)) continue;
     const product = {
       slug,
       name: yamlTopValue(content, "producto") || productLabelFromSlug(slug),
@@ -1661,15 +1715,7 @@ function createSummaryPdf(payload, code) {
   const pageHeight = 841.89;
   const margin = 38;
   const contentWidth = pageWidth - margin * 2;
-  const illustratedOpenings = isIllustratedOpeningBudget(payload);
-  const rows = illustratedOpenings
-    ? (payload.lineas || []).filter((item) => Number(item.importe || 0)).map((item) => ({
-        chapter: pdfSafeText(item.capitulo || "Carpintería"),
-        amount: roundMoney(item.importe ?? Number(item.cantidad || 0) * Number(item.precioUnitario || 0)),
-        concepts: [pdfSafeText(item.concepto || "Elemento ALUFAC")],
-        tipoApertura: item.tipoApertura || item.ilustracionApertura || "pendiente",
-      }))
-    : summarizedBudgetRows(payload.lineas || []);
+  const rows = summarizedBudgetRows(payload.lineas || []);
   const total = roundMoney(rows.reduce((sum, row) => sum + row.amount, 0));
   const client = payload.cliente || {};
   const template = documentTemplateForBudget(payload);
@@ -1768,7 +1814,7 @@ function createSummaryPdf(payload, code) {
     y -= 32;
 
     color(0.02, 0.03, 0.04);
-    text(isAlufacBudget(payload) ? "ALUFAC" : "HAM", margin + 4, y - 26, isAlufacBudget(payload) ? 22 : 28, "F2");
+    text("HAM", margin + 4, y - 26, 28, "F2");
     color(0.08, 0.13, 0.17);
     text(companyTitle, margin + 108, y, 15, "F2");
     let detailY = y - 13;
@@ -1868,18 +1914,17 @@ function createSummaryPdf(payload, code) {
 
   for (const row of rows) {
     const description = row.concepts.slice(0, 3).join(", ");
-    const wrapped = wrapPdfText(description, illustratedOpenings ? 58 : 82);
-    const rowHeight = Math.max(illustratedOpenings ? 48 : 34, 18 + wrapped.length * 10);
+    const wrapped = wrapPdfText(description, 82);
+    const rowHeight = Math.max(34, 18 + wrapped.length * 10);
     ensureSpace(rowHeight + 8);
     const topY = y;
     color(0.08, 0.13, 0.17);
     text(row.chapter, margin + 6, topY, 8.5);
     text(`${row.amount.toFixed(2)} EUR`, pageWidth - margin - 6, topY, 9.5, "F2", "right");
-    if (illustratedOpenings) drawOpening(row.tipoApertura, margin + 92, topY + 4);
     color(0.4, 0.42, 0.45);
     let descY = topY;
     for (const descriptionLine of wrapped) {
-      text(descriptionLine, margin + (illustratedOpenings ? 150 : 92), descY, 8.2);
+      text(descriptionLine, margin + 92, descY, 8.2);
       descY -= 10;
     }
     y = topY - rowHeight;
@@ -2012,10 +2057,8 @@ function renderDocumentFooterText(footerText) {
 }
 
 function lineTechnicalMetaHtml(line, payload = {}) {
-  const isAluminum = String(payload.budgetFamily || "").toLowerCase() === "aluminio" || isAlufacBudget(payload);
   const parts = [];
-  if (isAluminum && line.perfilSistema && line.perfilSistema !== "pendiente") parts.push(`Perfil: ${line.perfilSistema}`);
-  if (!isAluminum && line.productoLinea && line.productoLinea !== "pendiente") parts.push(`Producto: ${line.productoLinea}`);
+  if (line.productoLinea && line.productoLinea !== "pendiente") parts.push(`Producto: ${line.productoLinea}`);
   return parts.length ? `<div class="line-technical-meta">${parts.map(htmlEscape).join(" · ")}</div>` : "";
 }
 
@@ -2126,7 +2169,7 @@ function budgetHtml(payload, code) {
   const total = totalOf(lines);
   const today = new Date().toISOString().slice(0, 10);
   const documentTemplate = documentTemplateForBudget(payload);
-  const documentBrand = isAlufacBudget(payload) ? "ALUFAC" : "HAM";
+  const documentBrand = "HAM";
   return `<!doctype html>
 <html lang="es">
 <head>
@@ -2201,7 +2244,7 @@ function budgetHtml(payload, code) {
   <table>
     <colgroup><col class="col-chapter"><col class="col-concept"><col class="col-qty"><col class="col-unit"><col class="col-price"><col class="col-amount"></colgroup>
     <thead><tr><th>Capitulo</th><th>Concepto</th><th class="num">Cant.</th><th>Ud.</th><th class="num">EUR/Ud.</th><th class="num">Importe</th></tr></thead>
-    <tbody>${lines.map((line) => `<tr><td>${htmlEscape(line.capitulo)}</td><td><strong>${htmlEscape(line.concepto)}</strong>${lineTechnicalMetaHtml(line, payload)}<br>${htmlEscape(line.descripcion)}${isIllustratedOpeningBudget(payload) ? openingDiagramHtml(line.tipoApertura || line.ilustracionApertura || "pendiente") : ""}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${htmlEscape(line.unidad)}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
+    <tbody>${lines.map((line) => `<tr><td>${htmlEscape(line.capitulo)}</td><td><strong>${htmlEscape(line.concepto)}</strong>${lineTechnicalMetaHtml(line, payload)}<br>${htmlEscape(line.descripcion)}</td><td class="num">${Number(line.cantidad || 0).toFixed(2)}</td><td>${htmlEscape(line.unidad)}</td><td class="num">${Number(line.precioUnitario || 0).toFixed(2)}</td><td class="num">${Number(line.importe || 0).toFixed(2)}</td></tr>`).join("")}</tbody>
   </table>
   <div class="total">Total estimado: ${total.toFixed(2)} EUR + IVA</div>
   <section class="conditions">${renderDocumentFooterText(documentTemplate.footerText)}</section>
@@ -2343,7 +2386,6 @@ function detectLearningArea(input = {}) {
     ["instalaciones_electricas", /\b(electric|cuadro|cable|mecanismo|enchufe|luminaria|iluminacion|rebt|boletin|fotovoltaic|domotic)\b/],
     ["fontaneria", /\b(fontaner|tuberia|agua|saneamiento|desague|acs|sanitario|grifer|bomba|presion)\b/],
     ["clima", /\b(clima|climatizacion|split|conducto|ventilacion|extraccion|aeroterm|rite|frigorific)\b/],
-    ["aluminio", /\b(aluminio|cerramiento|ventana|mallorquina|persiana|mosquitera|rpt|lacado|anodizado|vidrio|cristal|corredera|abatible)\b/],
     ["carpinteria_metalica", /\b(metal|metalic|acero|inox|hierro|barandilla|reja|puerta|cancela|porton|escalera|estructura|dintel|pergola|marquesina|galvanizado|soldadura|chapa|tubo|s275|s235)\b/],
   ];
   return checks.find(([, pattern]) => pattern.test(text))?.[0] || "general";
@@ -2658,6 +2700,51 @@ async function route(req, res) {
     const file = resolveEditable(body.path);
     await fs.writeFile(file, String(body.content || ""), "utf8");
     return send(res, 200, { ok: true, path: path.relative(ROOT, file).replaceAll("\\", "/") });
+  }
+  if (req.method === "POST" && url.pathname === "/api/selection-ai") {
+    const body = await readJson(req);
+    const provider = body.provider || "fallback";
+    const model = body.model || "fallback";
+    const instruction = String(body.prompt || "").trim();
+    const selection = String(body.selection || "");
+    if (!instruction) return send(res, 400, { error: "Falta instruccion para editar la seleccion." });
+    if (!selection.trim()) return send(res, 400, { error: "Falta texto seleccionado." });
+    const context = await loadRepositoryContext();
+    const selectionPrompt = buildSelectionEditPrompt({
+      prompt: instruction,
+      selection,
+      fullText: body.fullText || "",
+      field: body.field || "",
+      scope: body.scope || "",
+      lineIndex: body.lineIndex,
+      numeric: !!body.numeric,
+      budget: body.budget || {},
+    });
+    const estimatedTokens = estimateRequestTokens(selectionPrompt, []);
+    const status = await modelStatus(provider, model, estimatedTokens);
+    if (provider !== "fallback" && status.blocked) {
+      return send(res, 402, { error: "Saldo local insuficiente para este modelo.", tokenStatus: status });
+    }
+    let text;
+    let usage = null;
+    try {
+      if (provider === "openai") {
+        const response = await callOpenAIText({ prompt: selectionPrompt, context, model });
+        text = response.content;
+        usage = response.usage;
+      } else if (provider === "gemini") {
+        const response = await callGeminiText({ prompt: selectionPrompt, context, model });
+        text = response.content;
+        usage = response.usage;
+      } else {
+        text = fallbackSelectionEdit({ selection, prompt: instruction, numeric: !!body.numeric });
+      }
+      await recordTokenUsage(provider, model, usage);
+      return send(res, 200, { provider, model, text: stripMarkdownEnvelope(text), usage, tokenStatus: await modelStatus(provider, model, estimatedTokens) });
+    } catch (error) {
+      text = fallbackSelectionEdit({ selection, prompt: instruction, numeric: !!body.numeric });
+      return send(res, 200, { provider: "fallback", warning: error.message, text, usage: null, tokenStatus: status });
+    }
   }
   if (req.method === "POST" && url.pathname === "/api/document-template/ai") {
     const body = await readJson(req);

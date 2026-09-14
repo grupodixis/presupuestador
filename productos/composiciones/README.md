@@ -33,20 +33,14 @@ Los archivos están en YAML para facilitar su lectura por el agente IA. Ver `bar
 | `barandilla.yaml` | Barandilla metálica |
 | `puerta_metalica.yaml` | Puerta metálica |
 | `estructura_metalica.yaml` | Estructura metálica |
-| `ventana_aluminio.yaml` | Ventana de aluminio |
-| `carpinteria_aluminio_alufac.yaml` | Carpintería de aluminio · ALUFAC (scaffold seleccionable) |
-| `cortizo_abatibles.yaml` | CORTIZO practicable y oscilobatiente |
-| `cortizo_correderas.yaml` | CORTIZO corredera, elevable y minimalista |
-| `cerramiento_aluminio.yaml` | Cerramiento de aluminio |
-| `instalacion_electrica.yaml` | Instalación eléctrica |
-| `instalacion_fontaneria.yaml` | Instalación de fontanería |
-| `instalacion_clima.yaml` | Instalación de climatización |
 | `escalera_metalica.yaml` | Escalera metálica |
 | `herreria.yaml` | Herrería (forja artística y funcional) |
 | `rejas.yaml` | Rejas de protección |
 | `porton_cancela.yaml` | Portón y cancela metálica |
 | `marquesina_pergola.yaml` | Marquesina, pérgola y toldo |
 | `producto_compuesto.yaml` | Producto compuesto a medida (multimaterial) |
+
+Las composiciones de carpintería de aluminio se movieron a `archivo-carpinteria-aluminio/` para una app separada.
 
 ## Uso por el agente
 
