@@ -1,0 +1,78 @@
+{
+  "titulo": "Presupuesto Técnico-Comercial: Kit de Lamas Orientables de Aluminio a Medida",
+  "resumen": "Suministro de un panel de lamas orientables de aluminio a medida (1300 x 840 mm) diseñado para ser atornillado sobre un marco metálico preexistente. Incluye mecanismo de orientación de arriba a abajo y tratamiento marino Qualicoat Seaside para alta resistencia a la corrosión en Menorca.",
+  "tipoProducto": "Lamas Orientables",
+  "budgetFamily": "aluminio",
+  "lineas": [
+    {
+      "id": "L1",
+      "capitulo": "Materiales",
+      "concepto": "Kit de Lamas Orientables de Aluminio a Medida (1300 x 840 mm)",
+      "descripcion": "Suministro de lamas de aluminio orientables (mecanismo de orientación manual de arriba a abajo) para hueco de 130x84 cm. Diseñado específicamente para acoplar y atornillar sobre marco metálico existente del cliente. Acabado lacado estándar con tratamiento marino Qualicoat Seaside. Tornillería de fijación y ejes en acero inoxidable A4 (AISI 316) para evitar corrosión galvánica y ambiental.",
+      "familiaLinea": "aluminio",
+      "perfilSistema": "CORTIZO Mallorquina",
+      "cantidad": 1,
+      "unidad": "ud",
+      "precioUnitario": 825,
+      "importe": 825,
+      "confianza": "media",
+      "origen": "historico-mallorquinas-cortizo.md",
+      "editable": true,
+      "tipoApertura": "fijo",
+      "ilustracionApertura": "fijo"
+    }
+  ],
+  "preguntas": [
+    "¿Qué color o acabado RAL exacto requiere para las lamas de aluminio?",
+    "¿Cuáles son las dimensiones de la sección (espesor y ancho de la pletina/perfil) del marco metálico existente donde se atornillará el kit?",
+    "¿El accionamiento de la orientación de las lamas será manual mediante palanca/mando directo o requiere preinstalación para motorización?"
+  ],
+  "supuestos": [
+    "Se asume que el marco metálico existente del cliente está perfectamente escuadrado, nivelado y posee la resistencia estructural necesaria.",
+    "El presupuesto contempla el suministro del kit a medida listo para montar, excluyendo la mano de obra de instalación en obra.",
+    "Se incluye tratamiento Qualicoat Seaside por defecto debido a la ubicación en Menorca (ambiente salino severo)."
+  ],
+  "riesgos": [
+    "Riesgo de incompatibilidad dimensional o tropiezo del mecanismo de orientación si el marco existente tiene desviaciones o rebabas internas.",
+    "Riesgo de corrosión galvánica si el marco existente es de acero al carbono sin tratar y entra en contacto directo con el aluminio (se recomienda interponer una junta de EPDM o polímero aislante, incluida en el suministro)."
+  ],
+  "sugerencias": [
+    {
+      "id": "S1",
+      "titulo": "Uso de juntas aislantes galvánicas",
+      "detalle": "Interponer siempre una banda de EPDM o cinta de neopreno adhesiva entre el marco de acero existente y el nuevo kit de aluminio para evitar el par galvánico en ambientes de alta salinidad.",
+      "skillDestino": "skills/aprendizaje/aprendizaje_aluminio.md",
+      "prioridad": "alta"
+    }
+  ],
+  "documentBrand": "alufac",
+  "marcaSistema": "ALUFAC",
+  "tokenUsage": {
+    "inputTokens": 114527,
+    "outputTokens": 840,
+    "totalTokens": 117749
+  },
+  "tokenStatus": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash",
+    "estimatedInputTokens": 109,
+    "localBudgetTokens": null,
+    "usedTokens": 1088470,
+    "remainingTokens": null,
+    "blocked": false,
+    "note": "Sin presupuesto local configurado; la API no expone saldo restante por modelo con una key normal."
+  },
+  "documentTemplate": {
+    "logo": "https://alufac.es/assets/alufac-logo.svg",
+    "headerText": "ALUFAC\nCarpinteria de aluminio, PVC, cristal y cerramientos a medida en Menorca.\nCircunval·lacio, 11, 07710 Sant Lluis, Menorca\ninfo@alufac.es - +34 669 769 541 - WhatsApp +34 669 769 541\nwww.alufac.es",
+    "footerText": "Validez: 30 dias desde la fecha de emision.\nForma de pago: 100% a la aceptacion del presupuesto."
+  },
+  "cliente": {
+    "nombre": "Felix Miro",
+    "email": "",
+    "telefono": "",
+    "nif": "",
+    "direccion": "",
+    "referencia": ""
+  }
+}

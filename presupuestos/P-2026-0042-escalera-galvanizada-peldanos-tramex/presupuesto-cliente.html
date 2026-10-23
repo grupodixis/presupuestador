@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>P-2026-0042 Presupuesto Técnico: Escalera de Servicio en Acero Galvanizado y Peldaños Tramex</title>
+  <style>
+    @page { 
+      size: A4 portrait; 
+      margin: 8mm; 
+    }
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      background: #f1f5f9; 
+      color: #0f172a; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      font-size: 10.5px; 
+      line-height: 1.35; 
+    }
+    .sheet { 
+      width: 210mm; 
+      margin: 10px auto; 
+      background: #ffffff; 
+      box-shadow: 0 10px 30px rgba(0,0,0,.08); 
+      padding: 8mm 12mm;
+      page-break-after: always;
+    }
+    .sheet:last-child {
+      page-break-after: auto;
+    }
+
+    /* Cabecera Corporativa */
+    header { 
+      background: #0f172a; 
+      color: #fff; 
+      padding: 10px 16px; 
+      border-radius: 8px;
+      display: grid; 
+      grid-template-columns: 1fr auto; 
+      gap: 14px; 
+      align-items: center; 
+      border-bottom: 3px solid #0284c7;
+      margin-bottom: 10px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 38px; height: 38px; border-radius: 6px; background: rgba(255,255,255,0.1); padding: 4px; }
+    h1 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: -.01em; color: #ffffff; }
+    .subtitle { margin: 2px 0 0; color: #94a3b8; font-size: 10px; }
+    .meta { text-align: right; color: #cbd5e1; font-size: 10px; line-height: 1.35; }
+    .meta strong { color: #38bdf8; display: block; font-size: 11.5px; margin-bottom: 1px; }
+
+    /* Tarjeta Resumen Destacada */
+    .summary-card { 
+      border: 1px solid #cbd5e1; 
+      border-radius: 6px; 
+      padding: 10px 14px; 
+      margin-bottom: 10px; 
+      background: #f8fafc; 
+      display: grid; 
+      grid-template-columns: 1.4fr 1fr; 
+      gap: 14px; 
+      align-items: center;
+    }
+    .summary-desc strong { color: #0369a1; font-size: 12px; }
+    .summary-desc p { margin: 3px 0 0; color: #334155; font-size: 10px; line-height: 1.3; }
+    .price-box { 
+      text-align: right; 
+      border-left: 2px solid #e2e8f0; 
+      padding-left: 14px; 
+    }
+    .price-box .total-label { font-size: 9.5px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .price-box .total-price { display: block; font-size: 22px; color: #0284c7; font-weight: 800; letter-spacing: -.02em; margin: 1px 0; }
+    .price-box .iva-tag { font-size: 9.5px; color: #475569; }
+
+    /* Ficha Técnica / Especificaciones */
+    h2 { 
+      margin: 10px 0 6px; 
+      font-size: 10.5px; 
+      text-transform: uppercase; 
+      letter-spacing: .05em; 
+      color: #0f172a; 
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .specs-grid { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 6px; 
+      margin-bottom: 10px; 
+    }
+    .spec-item { 
+      background: #f8fafc; 
+      border: 1px solid #e2e8f0; 
+      border-radius: 5px; 
+      padding: 5px 8px; 
+    }
+    .spec-label { font-size: 8.5px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 1px; }
+    .spec-val { font-size: 10.5px; font-weight: 700; color: #0f172a; }
+
+    /* Tabla de Partidas */
+    table { width: 100%; border-collapse: collapse; margin: 6px 0 8px; }
+    th { background: #1e293b; color: #ffffff; text-align: left; padding: 5px 7px; font-size: 9px; text-transform: uppercase; letter-spacing: .04em; }
+    td { border-bottom: 1px solid #e2e8f0; padding: 5px 7px; vertical-align: top; font-size: 9.8px; }
+    .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .col-code { width: 5%; font-weight: bold; color: #0284c7; text-align: center; }
+    .col-concept { width: 55%; }
+    .col-unit { width: 8%; text-align: center; }
+    .col-cant { width: 8%; text-align: right; }
+    .col-price { width: 12%; text-align: right; }
+    .col-total { width: 12%; text-align: right; font-weight: bold; color: #0f172a; }
+
+    .partida-title { font-weight: 700; color: #0f172a; margin-bottom: 1px; font-size: 10px; }
+    .partida-desc { font-size: 9px; color: #475569; line-height: 1.25; }
+
+    /* Totales */
+    .totals-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+    .totals-table { width: 42%; border: none; }
+    .totals-table td { padding: 3px 6px; border: none; font-size: 10px; }
+    .totals-table tr.total-final { 
+      font-size: 12px; 
+      font-weight: 800; 
+      color: #0284c7; 
+      background: #f0f9ff; 
+      border-top: 2px solid #0284c7; 
+      border-bottom: 2px solid #0284c7; 
+    }
+    .totals-table tr.total-final td { padding: 5px 6px; }
+
+    /* Galería Fotográfica y Análisis del Levantamiento */
+    .photos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.3fr;
+      gap: 8px;
+      margin-top: 6px;
+      margin-bottom: 10px;
+    }
+    .photo-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      overflow: hidden;
+      background: #f8fafc;
+    }
+    .photo-card img {
+      width: 100%;
+      height: 145px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .photo-card-wide img {
+      height: 145px;
+      object-fit: cover;
+    }
+    .photo-caption {
+      padding: 4px 6px;
+      font-size: 9px;
+      color: #334155;
+      font-weight: 600;
+    }
+    .photo-sub {
+      display: block;
+      font-size: 8px;
+      color: #64748b;
+      font-weight: 400;
+      margin-top: 1px;
+    }
+
+    /* Bloques de Condiciones y Garantía */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px; }
+    .box { border: 1px solid #cbd5e1; border-radius: 6px; padding: 7px 10px; background: #ffffff; }
+    .box h3 { margin: 0 0 4px; font-size: 10px; text-transform: uppercase; color: #0284c7; letter-spacing: .03em; }
+    .box ul { margin: 0; padding-left: 14px; font-size: 9.2px; color: #334155; }
+    .box ul li { margin-bottom: 3px; }
+
+    /* Firmas */
+    .signatures { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 16px; 
+      margin-top: 8px; 
+      padding-top: 6px;
+      border-top: 1px dashed #cbd5e1;
+    }
+    .sig-box { 
+      border: 1px solid #e2e8f0; 
+      border-radius: 5px; 
+      padding: 6px 10px; 
+      height: 58px; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between; 
+      background: #f8fafc;
+    }
+    .sig-title { font-size: 8.5px; font-weight: 700; color: #64748b; text-transform: uppercase; }
+    .sig-line { font-size: 8px; color: #94a3b8; border-top: 1px solid #cbd5e1; padding-top: 2px; text-align: center; }
+
+    footer {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 8px;
+      color: #94a3b8;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PÁGINA 1: PORTADA TÉCNICA, MEMORIA Y FOTOS DEL LEVANTAMIENTO -->
+  <div class="sheet">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo-ham.svg" alt="HAM Logo">
+        <div>
+          <h1>HAM ESTRUCTURAS METÁLICAS</h1>
+          <div class="subtitle">Cerrajería Técnica e Industrial · Estructuras de Acero Galvanizado · Menorca</div>
+        </div>
+      </div>
+      <div class="meta">
+        <strong>PRESUPUESTO P-2026-0042</strong>
+        Ref: PRE-2026-1024-ESC<br>
+        Fecha: 23 de octubre de 2026<br>
+        Validez: 30 días naturales
+      </div>
+    </header>
+
+    <div class="summary-card">
+      <div class="summary-desc">
+        <strong>Sustitución de Escalera Subterránea de Servicio en Acero Galvanizado y Tramex</strong>
+        <p>
+          Reposición integral de escalera técnica en cámara/pozo subterráneo de <strong>5,73 m de desnivel vertical</strong> accesible desde trampilla en acera (161 x 53 cm). Diseño optimizado en <strong>2 tramos compensados con descansillo intermedio</strong> conforme a la normativa industrial <strong>UNE-EN ISO 14122-3</strong>, zancas reforzadas, tratamiento anticorrosivo de <strong>Galvanizado en Caliente (UNE-EN ISO 1461)</strong> frente a ambiente húmedo C4/C5, peldaños antideslizantes Tramex y fijaciones Inox A4.
+        </p>
+      </div>
+      <div class="price-box">
+        <div class="total-label">Presupuesto Llave en Mano (IVA incl.)</div>
+        <div class="total-price">13.564,10 €</div>
+        <div class="iva-tag">Base Imponible: <strong>11.210,00 €</strong> · IVA 21%: <strong>2.354,10 €</strong></div>
+      </div>
+    </div>
+
+    <h2>1. Parámetros Técnicos y Criterios Dimensionales</h2>
+    <div class="specs-grid">
+      <div class="spec-item">
+        <div class="spec-label">Desnivel Total (H)</div>
+        <div class="spec-val">5,73 m (573 cm)</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Desarrollo en Planta</div>
+        <div class="spec-val">3,48 m (348 cm)</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Boca Registro Superior</div>
+        <div class="spec-val">161 cm x 53 cm</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Configuración</div>
+        <div class="spec-val">2 Tramos + 1 Descansillo</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Peldaños / Tabicas</div>
+        <div class="spec-val">26 Peldaños (28 contrah.)</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Relación Huella/Contra.</div>
+        <div class="spec-val">H: 24 cm / C: 20,5 cm</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Peldaños Tramex</div>
+        <div class="spec-val">Rejilla 30x30 / Galv. / Antid.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Protección Acero</div>
+        <div class="spec-val">Galvanizado ISO 1461</div>
+      </div>
+    </div>
+
+    <h2>2. Levantamiento Técnico Fotográfico de la Ubicación</h2>
+    <div class="photos-grid">
+      <div class="photo-card">
+        <img src="img/foto-01-acceso-calle-hueco.jpg" alt="Hueco de acceso">
+        <div class="photo-caption">
+          Acceso Vía Pública / Acera
+          <span class="photo-sub">Hueco libre 161 x 53 cm. Introducción vertical de módulos con camión pluma.</span>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="img/foto-02-vista-descenso-desnivel.jpg" alt="Vista en picado">
+        <div class="photo-caption">
+          Descenso a Cota -5,73 m
+          <span class="photo-sub">Pozo vertical profundo con alta condensación y degradación de estructura previa.</span>
+        </div>
+      </div>
+      <div class="photo-card photo-card-wide">
+        <img src="img/foto-03-alzado-dos-tramos-meseta.jpg" alt="Alzado interior">
+        <div class="photo-caption">
+          Cámara Subterránea y Descansillo
+          <span class="photo-sub">Desarrollo horizontal 3,48 m. Distribución en 2 tramos con meseta intermedia arriostrada.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="box" style="margin-top: 10px;">
+      <h3 style="margin-bottom: 4px;">Justificación Técnica de Seguridad (UNE-EN ISO 14122-3)</h3>
+      <p style="margin: 0; font-size: 10px; color: #334155; line-height: 1.4;">
+        La normativa técnica de seguridad en accesos industriales y recintos de servicio establece que ninguna escalera recta continua debe superar los 3,00 m de desnivel sin una plataforma intermedia de descanso. Para este pozo de <strong>5,73 m de profundidad</strong>, se proyecta una meseta intermedia a mitad de cota (-2,86 m) sustentada por pilares estructurales anclados a solera. Dicha meseta permite cortar el riesgo de caída en altura, otorga rigidez frente a vibraciones y facilita un descenso ergonómico y seguro con herramientas de mantenimiento.
+      </p>
+    </div>
+
+    <footer>
+      HAM ESTRUCTURAS METÁLICAS · Polígono Industrial de Sant Lluís, Menorca · contacto@ham-estructuras.es · Pág 1 de 2
+    </footer>
+  </div>
+
+  <!-- PÁGINA 2: CUADRO DE PRECIOS, CONDICIONES Y FIRMAS -->
+  <div class="sheet">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo-ham.svg" alt="HAM Logo">
+        <div>
+          <h1>HAM ESTRUCTURAS METÁLICAS</h1>
+          <div class="subtitle">Presupuesto Técnico Desglosado · Escalera Galvanizada con Peldaños Tramex</div>
+        </div>
+      </div>
+      <div class="meta">
+        <strong>PRESUPUESTO P-2026-0042</strong>
+        Fecha: 23/10/2026 · Pág 2 de 2
+      </div>
+    </header>
+
+    <h2>3. Cuadro Detallado de Partidas Presupuestarias</h2>
+    <table>
+      <thead>
+        <tr>
+          <th class="col-code">Cód.</th>
+          <th class="col-concept">Concepto Técnico y Alcance de Trabajos</th>
+          <th class="col-unit">Ud.</th>
+          <th class="col-cant">Cant.</th>
+          <th class="col-price">Precio (€)</th>
+          <th class="col-total">Importe (€)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-code">01</td>
+          <td class="col-concept">
+            <div class="partida-title">Desmontaje, oxicorte y retirada de escalera existente deteriorada</div>
+            <div class="partida-desc">Corte con oxicorte y radial en tramos manejables de la escalera existente afectada por óxido severo. Izado vertical secuencial por la boca superior de 161x53 cm mediante pluma/cabestrante de seguridad. Carga, transporte y canon de gestión de residuos metálicos en centro autorizado de Menorca. Incluye medios de seguridad para acceso a espacios confinados (ventilación forzada, arnés anticaídas y trípode homologado).</div>
+          </td>
+          <td class="col-unit">lote</td>
+          <td class="col-cant">1,00</td>
+          <td class="col-price">1.450,00</td>
+          <td class="col-total">1.450,00</td>
+        </tr>
+        <tr>
+          <td class="col-code">02</td>
+          <td class="col-concept">
+            <div class="partida-title">Fabricación de estructura portante, zancas y descansillo en acero S275JR</div>
+            <div class="partida-desc">Estructura portante de 4 zancas laterales en UPN 140 / tubo estructural 140x60x4 mm para salvar 5,73 m de desnivel en 2 tramos. Cartelas escuadradas soldadas para soporte de peldaños (52 uds). Bastidor perimetral de meseta de 140x70 cm con 2 pilares de apoyo en tubo estructural 80x80x4 mm y placas de anclaje de 10 mm. Barandillas de seguridad integradas (aprox. 11 ml) con pasamanos Ø42,4x2 mm, montantes, barra intermedia y rodapié de seguridad de 100x3 mm (UNE-EN ISO 14122-3). Taladros normalizados de aireación y purga para inmersión en zinc.</div>
+          </td>
+          <td class="col-unit">lote</td>
+          <td class="col-cant">1,00</td>
+          <td class="col-price">3.650,00</td>
+          <td class="col-total">3.650,00</td>
+        </tr>
+        <tr>
+          <td class="col-code">03</td>
+          <td class="col-concept">
+            <div class="partida-title">Tratamiento anticorrosivo de Galvanizado en Caliente por inmersión (UNE-EN ISO 1461)</div>
+            <div class="partida-desc">Tratamiento integral de la totalidad de la estructura de acero fabricada (aprox. 620 kg) mediante desengrase, decapado químico e inmersión en baño de zinc fundido a 450 °C según norma UNE-EN ISO 1461. Espesor medio mínimo de recubrimiento de 70 a 85 µm para protección catódica permanente frente a condensación y ambiente subterráneo C4/C5. Incluye transporte marítimo y terrestre ida y vuelta entre taller y planta galvanizadora de la península.</div>
+          </td>
+          <td class="col-unit">lote</td>
+          <td class="col-cant">1,00</td>
+          <td class="col-price">1.280,00</td>
+          <td class="col-total">1.280,00</td>
+        </tr>
+        <tr>
+          <td class="col-code">04</td>
+          <td class="col-concept">
+            <div class="partida-title">Peldaños normalizados y meseta en rejilla electrofundida Tramex galvanizada</div>
+            <div class="partida-desc">Suministro de 26 peldaños Tramex galvanizados en caliente (malla 30x30 mm, pletina 30x2 mm) con perfil frontal perforado antideslizante y pletinas laterales taladradas con colisos (13 uds de ancho 530x240 mm para tramo superior y 13 uds de 600x240 mm para tramo inferior). Plataforma de descansillo en rejilla Tramex galvanizada a medida de 1400x700 mm. Tornillería cincada de alta resistencia / Inox A4 con tuercas autoblocantes y arandelas de aislamiento galvánico.</div>
+          </td>
+          <td class="col-unit">lote</td>
+          <td class="col-cant">1,00</td>
+          <td class="col-price">2.180,00</td>
+          <td class="col-total">2.180,00</td>
+        </tr>
+        <tr>
+          <td class="col-code">05</td>
+          <td class="col-concept">
+            <div class="partida-title">Transporte, izado con camión pluma e instalación técnica en obra</div>
+            <div class="partida-desc">Transporte de módulos hasta pie de pozo. Camión grúa pluma en vía pública para izado, maniobra y descenso vertical controlado a través de la boca de registro de 161x53 cm. Montaje por oficiales especialistas: aplomado, nivelación, fijación química con varillas roscadas M12 de acero inoxidable A4 y resina viniléster en solera y muros de hormigón, ensamblaje atornillado de tramos y peldaños, empalme de barandillas de protección y remates finales.</div>
+          </td>
+          <td class="col-unit">lote</td>
+          <td class="col-cant">1,00</td>
+          <td class="col-price">2.650,00</td>
+          <td class="col-total">2.650,00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totals-wrapper">
+      <table class="totals-table">
+        <tr>
+          <td style="text-align: right; color: #475569; font-weight: 600;">Base Imponible:</td>
+          <td style="text-align: right; font-weight: 700; width: 40%;">11.210,00 €</td>
+        </tr>
+        <tr>
+          <td style="text-align: right; color: #475569; font-weight: 600;">I.V.A. Régimen General (21%):</td>
+          <td style="text-align: right; font-weight: 700;">2.354,10 €</td>
+        </tr>
+        <tr class="total-final">
+          <td style="text-align: right;">TOTAL PRESUPUESTO:</td>
+          <td style="text-align: right;">13.564,10 €</td>
+        </tr>
+      </table>
+    </div>
+
+    <h2>4. Condiciones Comerciales y Garantías</h2>
+    <div class="grid-2">
+      <div class="box">
+        <h3>Condiciones de Suministro y Plazos</h3>
+        <ul>
+          <li><strong>Forma de pago:</strong> 40% a la aceptación y replanteo en obra, 30% al envío de estructura a galvanizadora, y 30% a la finalización y recepción conforme en obra.</li>
+          <li><strong>Plazo de ejecución:</strong> 3 a 4 semanas para fabricación en taller, galvanizado en caliente y logística peninsular. Montaje en obra: 2 a 3 jornadas laborables.</li>
+          <li><strong>Permisos:</strong> Coordinación de ocupación temporal de vía pública para estacionamiento de camión grúa durante maniobras de izado.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Garantías y Calidad Certificada</h3>
+        <ul>
+          <li><strong>Tratamiento anticorrosión:</strong> 5 años de garantía sobre el recubrimiento de galvanizado en caliente según norma UNE-EN ISO 1461.</li>
+          <li><strong>Estructura y montaje:</strong> 2 años de garantía en uniones soldadas, anclajes químicos Inox A4 y estabilidad mecánica general.</li>
+          <li><strong>Seguridad laboral:</strong> Cuadrilla con acreditación para trabajos en espacios confinados y prevención de riesgos según RD 486/1997.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="signatures">
+      <div class="sig-box">
+        <div class="sig-title">Por HAM ESTRUCTURAS METÁLICAS</div>
+        <div class="sig-line">Dpto. Técnico y Presupuestos · Sello y Firma</div>
+      </div>
+      <div class="sig-box">
+        <div class="sig-title">Aceptación del Cliente</div>
+        <div class="sig-line">Nombre / DNI / NIF y Firma Conforme · Fecha: ____ / ____ / 2026</div>
+      </div>
+    </div>
+
+    <footer>
+      HAM ESTRUCTURAS METÁLICAS · Polígono Industrial de Sant Lluís, Menorca · CIF: B-07XXXXXX · Pág 2 de 2
+    </footer>
+  </div>
+
+</body>
+</html>

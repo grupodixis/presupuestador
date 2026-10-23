@@ -57,6 +57,16 @@ La carpintería de aluminio se conserva aparte en `archivo-carpinteria-aluminio/
 8. Mostrar supuestos, riesgos, preguntas y sugerencias memorizables.
 9. Registrar cambios reales del usuario en `skills/aprendizaje/`.
 10. Revisar y consolidar aprendizajes validados en skills, composiciones o costes.
+11. **Actualización obligatoria en Git:** Tras crear un nuevo presupuesto o realizar cualquier modificación en el repositorio, realizar `commit` y `push` inmediato a la rama correspondiente (`ordenador-trabajo` en el taller/oficina o `ordenador-casa` en el domicilio).
+
+## Directiva Obligatoria de Sincronización en Git
+
+Con cada presupuesto nuevo que se genere, actualización de presupuesto o modificación técnica/comercial en la base de datos de conocimiento:
+- **Actualización inmediata:** Es obligatorio registrar los cambios mediante `git add`, `git commit -m "..."` y subirlos con `git push origin <rama-activa>`.
+- **Estructura de ramas por estación de trabajo:**
+  - `ordenador-trabajo`: Rama de trabajo para el equipo de la oficina/taller.
+  - `ordenador-casa`: Rama de trabajo para el equipo del domicilio.
+- **Sincronización:** Permite mantener ambos ordenadores perfectamente sincronizados mediante ramas independientes y unificables vía remoto (`origin`).
 
 ## Convenciones
 

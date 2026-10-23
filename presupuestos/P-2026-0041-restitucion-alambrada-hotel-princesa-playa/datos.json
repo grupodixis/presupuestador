@@ -1,0 +1,74 @@
+{
+  "numeroPresupuesto": "P-2026-0041",
+  "referencia": "PRE-2026-1023",
+  "fecha": "2026-10-23",
+  "validezDias": 30,
+  "cliente": {
+    "nombre": "Hotel Princesa Playa",
+    "ubicacion": "Cala'n Bosch / Son Xoriguer, Ciutadella de Menorca",
+    "isla": "Menorca"
+  },
+  "emisor": {
+    "empresa": "HAM Estructuras Metálicas",
+    "direccion": "Av. Circunval·lació, 11, Polígono de Sant Lluís, 07710 Sant Lluís, Menorca",
+    "email": "info@hamenorca.com",
+    "telefonos": "+34 971 35 20 18 / +34 669 769 541"
+  },
+  "trabajo": {
+    "titulo": "Restitución de Cerramiento de Alambrada de Simple Torsión (h=3,00 m)",
+    "longitudML": 80.0,
+    "alturaM": 3.0,
+    "color": "Verde (RAL 6005)",
+    "precioUnitarioML": 210.0,
+    "baseImponible": 16800.0,
+    "ivaPorcentaje": 21.0,
+    "ivaImporte": 3528.0,
+    "totalConIva": 20328.0
+  },
+  "partidas": [
+    {
+      "id": "01",
+      "concepto": "Desmontaje, retirada y gestión de cerramiento previo",
+      "descripcion": "Desmontaje cuidadoso del vallado existente degradado en 80 metros lineales, corte o desanclaje de postes antiguos, acopio, carga y transporte a gestor autorizado de residuos de Menorca.",
+      "unidad": "ml",
+      "cantidad": 80,
+      "precioUnitario": 35.0,
+      "importe": 2800.0
+    },
+    {
+      "id": "02",
+      "concepto": "Postes metálicos galvanizados y plastificados verde (h=3,00 m)",
+      "descripcion": "Suministro e instalación de postes tubulares de acero de alta resistencia galvanizado en caliente y plastificado poliéster verde RAL 6005 para altura vista de 3,00 m (postes intermedios, extremos, esquinas y tornapuntas de refuerzo diagonal). Incluye anclaje rígido/cimentación.",
+      "unidad": "ml",
+      "cantidad": 80,
+      "precioUnitario": 75.0,
+      "importe": 6000.0
+    },
+    {
+      "id": "03",
+      "concepto": "Malla simple torsión 3,00 m plastificada verde + accesorios de tesado",
+      "descripcion": "Suministro e instalación de malla de simple torsión galvanizada y plastificada en verde RAL 6005, altura 3,00 m, alambres guía longitudinales de tesado en 4 niveles, tensores roscados M8 y grapado continuo de alta resistencia.",
+      "unidad": "ml",
+      "cantidad": 80,
+      "precioUnitario": 65.0,
+      "importe": 5200.0
+    },
+    {
+      "id": "04",
+      "concepto": "Mano de obra especializada, replanteo, montaje y remates",
+      "descripcion": "Mano de obra de cuadrilla oficial montadora especializada en cerramientos perimetrales, replanteo topográfico de alineación, tensado uniforme, aplomado de postes y remates de seguridad en todo el trazado.",
+      "unidad": "ml",
+      "cantidad": 80,
+      "precioUnitario": 35.0,
+      "importe": 2800.0
+    }
+  ],
+  "condiciones": {
+    "validezDias": 30,
+    "formaDePago": "80% a la aceptación del presupuesto y 20% a la finalización",
+    "anticipoPorcentaje": 80,
+    "finalizacionPorcentaje": 20,
+    "plazoEjecucion": "4 a 6 días laborables",
+    "garantia": "1 año"
+  }
+}

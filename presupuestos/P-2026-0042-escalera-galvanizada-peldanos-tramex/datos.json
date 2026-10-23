@@ -1,0 +1,104 @@
+{
+  "id": "P-2026-0042",
+  "referencia": "PRE-2026-1024-ESC",
+  "fecha": "2026-10-23",
+  "titulo": "Presupuesto Técnico: Fabricación e Instalación de Escalera de Servicio en Acero Galvanizado y Peldaños Tramex",
+  "resumen": "Presupuesto para la sustitución completa de escalera de servicio subterránea en pozo/cámara técnica de 5,73 m de profundidad total accesible desde trampilla de calzada/acera (161 x 53 cm). Incluye desmontaje de estructura existente degradada, fabricación en taller de estructura de 2 tramos y descansillo intermedio en acero al carbono S275JR, barandillas con rodapié de seguridad UNE-EN ISO 14122-3, tratamiento integral de galvanizado en caliente por inmersión (UNE-EN ISO 1461), 26 peldaños normalizados de rejilla electrofundida Tramex con cantonera antideslizante, plataforma de meseta, izado con camión pluma, medios de espacio confinado y anclaje químico Inox A4.",
+  "cliente": {
+    "nombre": "Comunidad de Propietarios / Gestión de Infraestructuras",
+    "contacto": "Dirección Técnica / Mantenimiento",
+    "ubicacion": "Cámara subterránea / Pozo de registro técnico",
+    "isla": "Menorca"
+  },
+  "emisor": {
+    "nombre": "HAM ESTRUCTURAS METÁLICAS",
+    "cif": "B-07XXXXXX",
+    "direccion": "Polígono Industrial de Sant Lluís, Menorca",
+    "telefono": "+34 971 XX XX XX",
+    "email": "contacto@ham-estructuras.es"
+  },
+  "parametrosTecnicos": {
+    "desnivelTotal": "5.73 m (573 cm)",
+    "desarrolloHorizontal": "3.48 m (348 cm)",
+    "huecoAccesoSuperior": "161 cm x 53 cm",
+    "anchoTramo": "70 cm (zancas / barandilla)",
+    "anchoPasoPeldaño": "53 cm a 60 cm (luz libre útil)",
+    "numeroTramos": 2,
+    "numeroMesetas": 1,
+    "dimensionesMeseta": "140 cm x 70 cm",
+    "numeroContrahuellas": "28 (14 por tramo)",
+    "alturaContrahuella": "20.46 cm (~20.5 cm)",
+    "huellaPeldano": "24.0 cm",
+    "anguloInclinacion": "40.5° (conforme UNE-EN ISO 14122-3 para escaleras de servicio/técnicas)",
+    "materialEstructura": "Acero al carbono S275JR",
+    "perfilZancas": "UPN 140 / Tubo rectangular estructural 140x60x4 mm",
+    "pilaresDescansillo": "Tubo estructural 80x80x4 mm con placas de anclaje de 10 mm",
+    "tipoPeldano": "Rejilla electrofundida Tramex galvanizada con perfil frontal perforado antideslizante",
+    "acabadoProteccion": "Galvanizado en caliente por inmersión en zinc fundido a 450 °C (UNE-EN ISO 1461), 70-85 µm",
+    "tornilleriaAnclajes": "Acero Inoxidable AISI 316 (A4) / Cincado grado 8.8 con aislamiento galvánico"
+  },
+  "partidas": [
+    {
+      "codigo": "01",
+      "capitulo": "Demolicion",
+      "concepto": "Desmontaje, oxicorte y retirada de escalera existente degradada",
+      "descripcion": "Corte mediante oxicorte/radial en tramos manejables de la escalera metálica existente afectada por corrosión profunda. Izado vertical secuencial por la boca superior de 161x53 cm mediante pluma/cabestrante de seguridad. Carga, transporte y canon de gestión de residuos metálicos en centro autorizado de Menorca. Incluye medidas de seguridad para acceso a espacios confinados (ventilación forzada, arnés anticaídas y trípode homologado).",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precioUnitario": 1450.00,
+      "importe": 1450.00
+    },
+    {
+      "codigo": "02",
+      "capitulo": "Fabricacion",
+      "concepto": "Fabricación en taller de estructura portante, zancas y descansillo en acero S275JR",
+      "descripcion": "Estructura portante compuesta por 4 zancas laterales en UPN 140 / tubo estructural 140x60x4 mm para salvar 5,73 m de desnivel en 2 tramos rectos. Cartelas escuadradas soldadas para soporte atornillado de peldaños (52 uds). Bastidor perimetral de meseta intermedia de 140x70 cm con 2 pilares de sustentación de solera en tubo 80x80x4 mm y placas de anclaje de 10 mm. Barandilla de seguridad integrada (aprox. 11 ml) con pasamanos en tubo Ø42,4x2 mm, montantes, barra intermedia de protección y rodapié de chapa de 100x3 mm según UNE-EN ISO 14122-3. Incluye orificios normalizados de purga y desgasificado para inmersión en cuba de zinc.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precioUnitario": 3650.00,
+      "importe": 3650.00
+    },
+    {
+      "codigo": "03",
+      "capitulo": "Tratamiento",
+      "concepto": "Tratamiento anticorrosivo de Galvanizado en Caliente por inmersión (UNE-EN ISO 1461)",
+      "descripcion": "Tratamiento integral de la totalidad de la estructura de acero fabricada (aprox. 620 kg) mediante desengrase, decapado ácido e inmersión en baño de zinc fundido a 450 °C según norma UNE-EN ISO 1461. Espesor medio mínimo de recubrimiento de 70 a 85 micras para protección catódica permanente frente a condensación constante y ambiente subterráneo C4/C5. Incluye transporte marítimo y terrestre ida y vuelta entre taller y planta galvanizadora de la península.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precioUnitario": 1280.00,
+      "importe": 1280.00
+    },
+    {
+      "codigo": "04",
+      "capitulo": "Materiales",
+      "concepto": "Peldaños normalizados y meseta en rejilla electrofundida Tramex galvanizada",
+      "descripcion": "Suministro de 26 uds de peldaño Tramex electrofundido galvanizado en caliente (malla de seguridad 30x30 mm, pletina portante 30x2 mm) con perfil frontal antideslizante perforado de seguridad y pletinas laterales con colisos taladrados (13 uds de ancho 530x240 mm para tramo superior y 13 uds de ancho 600x240 mm para tramo inferior). Plataforma de meseta intermedia en rejilla Tramex galvanizada a medida de 1400x700 mm. Tornillería cincada de alta resistencia / Inox A4 con tuercas autoblocantes y arandelas de aislamiento galvánico.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precioUnitario": 2180.00,
+      "importe": 2180.00
+    },
+    {
+      "codigo": "05",
+      "capitulo": "Montaje",
+      "concepto": "Transporte, medios auxiliares de izado e instalación técnica en obra",
+      "descripcion": "Transporte de módulos hasta pie de pozo. Camión grúa pluma en vía pública para izado, maniobra y descenso vertical controlado de los tramos de escalera y pilares a través de la boca de registro de 161x53 cm. Montaje por cuadrilla de oficiales especialistas en cerrajería y espacios confinados: aplomado, nivelación, fijación química mediante varillas roscadas M12 de acero inoxidable A4 y resina de inyección viniléster sobre muros de hormigón y solera, ensamblaje atornillado de tramos y peldaños, empalme de barandillas de protección y remates finales.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precioUnitario": 2650.00,
+      "importe": 2650.00
+    }
+  ],
+  "totales": {
+    "baseImponible": 11210.00,
+    "ivaPorcentaje": 21,
+    "ivaImporte": 2354.10,
+    "totalPresupuesto": 13564.10
+  },
+  "condiciones": {
+    "formaPago": "40% a la confirmación del encargo para acopio de perfiles y peldaños tramex, 30% a la salida de taller hacia galvanizadora, y 30% a la finalización y recepción conforme en obra.",
+    "plazoEjecucion": "3 a 4 semanas para fabricación en taller, proceso de galvanizado en caliente y transporte península-Menorca. Montaje en obra: 2 a 3 jornadas laborables.",
+    "garantia": "Garantía de 5 años frente a corrosión del recubrimiento galvanizado según UNE-EN ISO 1461 y 2 años en montaje y soldaduras estructurales.",
+    "validez": "30 días naturales desde la fecha de emisión."
+  }
+}

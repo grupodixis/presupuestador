@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Cabinet IoT - Prototipo Final de 4 Pantallas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #060b18;
+      --bg-panel: #0b132b;
+      --bg-card: rgba(18, 28, 54, 0.7);
+      --bg-hover: rgba(30, 41, 59, 0.8);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(0, 240, 255, 0.35);
+      --cyan: #00f0ff;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --purple: #a855f7;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at 85% 10%, #162447 0%, var(--bg-base) 55%);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: rgba(11, 19, 43, 0.85);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #00f0ff 0%, #0284c7 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.4);
+    }
+
+    .brand-text h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* 4 MASTER TABS */
+    .master-tabs {
+      display: flex;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover { color: #fff; }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.2) 0%, rgba(2, 132, 199, 0.25) 100%);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 240, 255, 0.4);
+      box-shadow: 0 4px 12px rgba(0, 240, 255, 0.15);
+    }
+
+    .header-status {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.85rem;
+    }
+
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--emerald);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 8px var(--emerald);
+    }
+
+    main {
+      flex: 1;
+      padding: 24px;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .view-container {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .view-container.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .toolbar-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .search-input-wrap {
+      position: relative;
+      flex: 1;
+      max-width: 480px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(11, 19, 43, 0.8);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      padding: 10px 16px 10px 42px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+
+    .btn-action {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-cyan {
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.2) 0%, rgba(2, 132, 199, 0.3) 100%);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 240, 255, 0.4);
+    }
+
+    .btn-cyan:hover {
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.35) 0%, rgba(2, 132, 199, 0.45) 100%);
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.3);
+    }
+
+    .btn-purple {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(126, 34, 206, 0.3) 100%);
+      color: var(--purple);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+    }
+
+    .btn-purple:hover {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.35) 0%, rgba(126, 34, 206, 0.45) 100%);
+      box-shadow: 0 0 16px rgba(168, 85, 247, 0.3);
+    }
+
+    .table-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(12px);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: rgba(0, 0, 0, 0.25);
+      padding: 14px 18px;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: middle;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--bg-hover); }
+
+    .drawer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      color: var(--cyan);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .unit-bold {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .weight-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .subtabs-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 4px;
+      border-radius: 10px;
+      width: fit-content;
+    }
+
+    .subtab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .subtab-btn.active {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .product-row-parent td {
+      background: rgba(0, 240, 255, 0.04);
+      border-top: 1px solid rgba(0, 240, 255, 0.2);
+    }
+
+    .sub-drawer-row td {
+      background: rgba(0, 0, 0, 0.25);
+      padding-left: 48px;
+      font-size: 0.86rem;
+    }
+
+    /* PROVEEDORES SCREEN (P4) */
+    .prov-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 24px;
+    }
+
+    .prov-card-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .prov-card-item.active {
+      border-color: var(--cyan);
+      background: rgba(0, 240, 255, 0.08);
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.15);
+    }
+
+    .prov-settings-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .channels-3-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .channel-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .channel-box h4 {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(11, 19, 43, 0.9);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--cyan);
+    }
+
+    /* LED NOTIFICATION TOAST */
+    .led-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(11, 19, 43, 0.95);
+      border: 1px solid var(--cyan);
+      box-shadow: 0 0 24px rgba(0, 240, 255, 0.4);
+      padding: 14px 20px;
+      border-radius: 12px;
+      display: none;
+      align-items: center;
+      gap: 12px;
+      z-index: 1000;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">📦</div>
+      <div class="brand-text">
+        <h1>SMARTCABINET IoT</h1>
+        <p>Almacén Pesimétrico de 200 Cajones Modulares</p>
+      </div>
+    </div>
+
+    <!-- 4 TABS REFINADAS -->
+    <nav class="master-tabs">
+      <button class="tab-btn active" onclick="switchTab('tab-p1')">
+        <span>01</span> Inventario
+      </button>
+      <button class="tab-btn" onclick="switchTab('tab-p2')">
+        <span>02</span> Movimientos & Conflictos
+      </button>
+      <button class="tab-btn" onclick="switchTab('tab-p3')">
+        <span>03</span> Pedidos & Stock Mínimo
+      </button>
+      <button class="tab-btn" onclick="switchTab('tab-p4')">
+        <span>04</span> Proveedores
+      </button>
+    </nav>
+
+    <div class="header-status">
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>200/200 CAJONES ONLINE</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PANTALLA 01: INVENTARIO (FUSIÓN 01 Y 03) -->
+    <section id="tab-p1" class="view-container active">
+      <div class="toolbar-box">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" placeholder="Buscar producto o SKU en el inventario..." onkeyup="filterInventory(this.value)">
+        </div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+          <span>ℹ️ La tara se realiza físicamente pulsando el botón en cada cajón</span>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Producto / SKU</th>
+              <th>Stock Total Consolidado (Σ)</th>
+              <th>Cajones Asignados</th>
+              <th>Estado</th>
+              <th style="text-align: right;">Localización Visual</th>
+            </tr>
+          </thead>
+          <tbody id="inventory-tbody">
+            <!-- PRODUCTO 1 -->
+            <tr class="product-row-parent">
+              <td>
+                <strong>Tornillo Allen DIN 912 M4x16</strong><br>
+                <span class="weight-sub">SKU: 00329-32T1 · Peso unitario: 4,00 g/ud</span>
+              </td>
+              <td>
+                <span class="unit-bold">1.250 uds</span><br>
+                <span class="weight-sub">5.000,0 g total</span>
+              </td>
+              <td>2 Cajones físicos (C-42, D-15)</td>
+              <td><span style="color: var(--emerald); font-weight: 700;">● Stock Óptimo</span></td>
+              <td style="text-align: right;">
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Usa el LED del cajón abajo ▾</span>
+              </td>
+            </tr>
+            <tr class="sub-drawer-row">
+              <td>↳ Cajón C-42</td>
+              <td><strong>750 uds</strong> (3.000,0 g)</td>
+              <td>Torre C · Fila 5</td>
+              <td><span style="color: var(--emerald);">✓ Calibrado</span></td>
+              <td style="text-align: right;">
+                <button class="btn-action btn-cyan" onclick="triggerLed('C-42', 'Tornillo Allen M4x16')">
+                  💡 LED de Ubicación
+                </button>
+              </td>
+            </tr>
+            <tr class="sub-drawer-row">
+              <td>↳ Cajón D-15</td>
+              <td><strong>500 uds</strong> (2.000,0 g)</td>
+              <td>Torre D · Fila 3</td>
+              <td><span style="color: var(--emerald);">✓ Calibrado</span></td>
+              <td style="text-align: right;">
+                <button class="btn-action btn-cyan" onclick="triggerLed('D-15', 'Tornillo Allen M4x16')">
+                  💡 LED de Ubicación
+                </button>
+              </td>
+            </tr>
+
+            <!-- PRODUCTO 2 -->
+            <tr class="product-row-parent" style="border-top: 2px solid rgba(245, 158, 11, 0.3);">
+              <td>
+                <strong>Arandela Plana M8 Inox</strong><br>
+                <span class="weight-sub">SKU: 00329-44K2 · Peso unitario: 2,50 g/ud</span>
+              </td>
+              <td>
+                <span class="unit-bold" style="color: var(--amber);">320 uds</span><br>
+                <span class="weight-sub" style="color: var(--amber);">QT Mín: 400 uds (Suma de 2 cajones)</span>
+              </td>
+              <td>2 Cajones físicos (A-05, B-12)</td>
+              <td><span style="color: var(--amber); font-weight: 700;">⚠️ Bajo Mínimo</span></td>
+              <td style="text-align: right;">
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Usa el LED del cajón abajo ▾</span>
+              </td>
+            </tr>
+            <tr class="sub-drawer-row">
+              <td>↳ Cajón A-05</td>
+              <td><strong>200 uds</strong> (500,0 g)</td>
+              <td>Torre A · Fila 2</td>
+              <td><span style="color: var(--amber);">Bajo nivel</span></td>
+              <td style="text-align: right;">
+                <button class="btn-action btn-cyan" onclick="triggerLed('A-05', 'Arandela Plana M8 Inox')">
+                  💡 LED de Ubicación
+                </button>
+              </td>
+            </tr>
+            <tr class="sub-drawer-row">
+              <td>↳ Cajón B-12</td>
+              <td><strong>120 uds</strong> (300,0 g)</td>
+              <td>Torre B · Fila 4</td>
+              <td><span style="color: var(--amber);">Bajo nivel</span></td>
+              <td style="text-align: right;">
+                <button class="btn-action btn-cyan" onclick="triggerLed('B-12', 'Arandela Plana M8 Inox')">
+                  💡 LED de Ubicación
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PANTALLA 02: MOVIMIENTOS & CONFLICTOS -->
+    <section id="tab-p2" class="view-container">
+      <div class="subtabs-bar">
+        <button class="subtab-btn active" onclick="switchSubtab('sub-movs')">1. Movimientos (Histórico)</button>
+        <button class="subtab-btn" onclick="switchSubtab('sub-sinasignar')">2. Sin Asignar (3 pendientes)</button>
+        <button class="subtab-btn" onclick="switchSubtab('sub-conflictos')">3. Conflictos (1) ⚠️</button>
+      </div>
+
+      <div id="sub-sinasignar">
+        <div class="toolbar-box">
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <input type="checkbox" id="master-check" onchange="toggleAllChecks(this.checked)" style="width: 18px; height: 18px;">
+            <label for="master-check" style="font-weight: 600; cursor: pointer;">Seleccionar Todo (3)</label>
+            <select class="search-input" style="max-width: 280px; padding: 8px 12px;">
+              <option>Asignar a: [ OT #1042 - Montaje Chasis Robot ]</option>
+              <option>Asignar a: [ OT #1043 - Cabina Pintura ]</option>
+              <option>Asignar a: [ Mantenimiento General ]</option>
+            </select>
+            <button class="btn-action btn-cyan" onclick="alert('Transacciones imputadas con éxito a OT #1042')">
+              📌 Asignar Seleccionadas
+            </button>
+          </div>
+          <div>
+            <button class="btn-action btn-purple" onclick="alert('Función RETARA ejecutada en báscula.')">
+              ⚖️ RETARA (Puesta a Cero)
+            </button>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <table>
+            <thead>
+              <tr>
+                <th width="40"></th>
+                <th>Hora</th>
+                <th>Cajón</th>
+                <th>Producto</th>
+                <th>Variación Peso</th>
+                <th>Piezas</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" class="row-check" checked></td>
+                <td>15:02:11</td>
+                <td><span class="drawer-badge">C-42</span></td>
+                <td>Tornillo Allen DIN 912 M4x16</td>
+                <td style="color: var(--rose); font-weight: 700;">-100,0 g</td>
+                <td><span class="unit-bold">-25 uds</span></td>
+                <td><span style="color: var(--emerald);">✓ Estable</span></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="row-check" checked></td>
+                <td>14:58:45</td>
+                <td><span class="drawer-badge">A-05</span></td>
+                <td>Arandela Plana M8 Inox</td>
+                <td style="color: var(--rose); font-weight: 700;">-40,0 g</td>
+                <td><span class="unit-bold">-10 uds</span></td>
+                <td><span style="color: var(--emerald);">✓ Estable</span></td>
+              </tr>
+              <tr style="background: rgba(245, 158, 11, 0.05); border-left: 3px solid var(--amber);">
+                <td><input type="checkbox" class="row-check"></td>
+                <td>14:35:12</td>
+                <td><span class="drawer-badge">B-04</span></td>
+                <td>Tuerca M10</td>
+                <td style="color: var(--amber); font-weight: 700;">+22,6 g</td>
+                <td><span style="color: var(--amber); font-weight: 700;">⚠️ +2,6 g no encajan</span></td>
+                <td>
+                  <button class="btn-action btn-cyan" style="padding: 4px 8px;" onclick="triggerLed('B-04', 'Tuerca M10')">💡 Pick Light</button>
+                  <button class="btn-action btn-purple" style="padding: 4px 8px;" onclick="alert('Retara ejecutada en B-04')">⚖️ RETARA</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANTALLA 03: PEDIDOS & STOCK MÍNIMO (PRODUCTO / PROVEEDOR / METODO / QT MINIMO) -->
+    <section id="tab-p3" class="view-container">
+      <div class="toolbar-box">
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem;">Configuración de Pedidos y Reaprovisionamiento</h2>
+        <button class="btn-action btn-purple" onclick="alert('Se han disparado los pedidos para las referencias bajo QT Mínimo usando sus métodos asignados.')">
+          🚀 Emitir Pedidos Bajo Mínimo
+        </button>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Producto / SKU</th>
+              <th>Stock Actual (Σ Cajones)</th>
+              <th>QT Mínimo</th>
+              <th>Proveedor</th>
+              <th>Método</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-left: 3px solid var(--amber);">
+              <td>
+                <strong>Arandela Plana M8 Inox</strong><br>
+                <span class="weight-sub">SKU: 00329-44K2</span>
+              </td>
+              <td>
+                <strong style="color: var(--amber);">320 uds</strong><br>
+                <span class="weight-sub">Suma: A-05 (200) + B-12 (120)</span>
+              </td>
+              <td>
+                <input type="number" class="form-input" value="400" style="width: 90px; text-align: center; font-weight: 700;">
+              </td>
+              <td>
+                <select class="form-input" style="max-width: 170px;">
+                  <option selected>Wurth B2B</option>
+                  <option>Hoffmann Group</option>
+                  <option>Reyher Fijación</option>
+                </select>
+              </td>
+              <td>
+                <select class="form-input" style="max-width: 160px; color: var(--cyan); font-weight: 600;">
+                  <option selected>⚡ Automático</option>
+                  <option>📧 Email</option>
+                  <option>💬 WhatsApp</option>
+                </select>
+              </td>
+              <td>
+                <span style="background: rgba(245, 158, 11, 0.15); color: var(--amber); border: 1px solid rgba(245, 158, 11, 0.3); padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.8rem;">
+                  ⚠️ Bajo Mínimo
+                </span>
+              </td>
+            </tr>
+
+            <tr style="border-left: 3px solid var(--emerald);">
+              <td>
+                <strong>Tornillo Allen DIN 912 M4x16</strong><br>
+                <span class="weight-sub">SKU: 00329-32T1</span>
+              </td>
+              <td>
+                <strong style="color: var(--emerald);">1.250 uds</strong><br>
+                <span class="weight-sub">Suma: C-42 (750) + D-15 (500)</span>
+              </td>
+              <td>
+                <input type="number" class="form-input" value="500" style="width: 90px; text-align: center; font-weight: 700;">
+              </td>
+              <td>
+                <select class="form-input" style="max-width: 170px;">
+                  <option selected>Wurth B2B</option>
+                  <option>Hoffmann Group</option>
+                  <option>Reyher Fijación</option>
+                </select>
+              </td>
+              <td>
+                <select class="form-input" style="max-width: 160px; color: var(--purple); font-weight: 600;">
+                  <option>⚡ Automático</option>
+                  <option selected>📧 Email</option>
+                  <option>💬 WhatsApp</option>
+                </select>
+              </td>
+              <td>
+                <span style="color: var(--emerald); font-weight: 700; font-size: 0.85rem;">✓ OK</span>
+              </td>
+            </tr>
+
+            <tr style="border-left: 3px solid var(--emerald);">
+              <td>
+                <strong>Tuerca Autofrenante M6</strong><br>
+                <span class="weight-sub">SKU: 00329-88F9</span>
+              </td>
+              <td>
+                <strong style="color: var(--emerald);">850 uds</strong><br>
+                <span class="weight-sub">Cajón B-18</span>
+              </td>
+              <td>
+                <input type="number" class="form-input" value="200" style="width: 90px; text-align: center; font-weight: 700;">
+              </td>
+              <td>
+                <select class="form-input" style="max-width: 170px;">
+                  <option>Wurth B2B</option>
+                  <option selected>Hoffmann Group</option>
+                  <option>Reyher Fijación</option>
+                </select>
+              </td>
+              <td>
+                <select class="form-input" style="max-width: 160px; color: var(--emerald); font-weight: 600;">
+                  <option>⚡ Automático</option>
+                  <option>📧 Email</option>
+                  <option selected>💬 WhatsApp</option>
+                </select>
+              </td>
+              <td>
+                <span style="color: var(--emerald); font-weight: 700; font-size: 0.85rem;">✓ OK</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PANTALLA 04: PROVEEDORES & CONFIGURACIÓN DE CANALES -->
+    <section id="tab-p4" class="view-container">
+      <div class="toolbar-box">
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem;">Configuración de Proveedores y Canales de Disparo</h2>
+        <button class="btn-action btn-cyan" onclick="alert('Configuración de canales guardada correctamente.')">
+          💾 Guardar Canales
+        </button>
+      </div>
+
+      <div class="prov-grid">
+        <!-- LIST OF SUPPLIERS -->
+        <div>
+          <div class="prov-card-item active" onclick="selectProv(this, 'Wurth España B2B')">
+            <h3 style="font-size: 1rem; margin-bottom: 4px;">Wurth España B2B</h3>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">CIF: A-08123456 · 42 productos asignados</p>
+          </div>
+          <div class="prov-card-item" onclick="selectProv(this, 'Hoffmann Group')">
+            <h3 style="font-size: 1rem; margin-bottom: 4px;">Hoffmann Group</h3>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">CIF: B-98765432 · 28 productos asignados</p>
+          </div>
+          <div class="prov-card-item" onclick="selectProv(this, 'Reyher Fijación')">
+            <h3 style="font-size: 1rem; margin-bottom: 4px;">Reyher Fijación</h3>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">CIF: A-11223344 · 15 productos asignados</p>
+          </div>
+        </div>
+
+        <!-- CHANNEL SETTINGS PANEL FOR SELECTED SUPPLIER -->
+        <div class="prov-settings-panel">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 14px;">
+            <h3 id="current-prov-title" style="font-family: 'Outfit', sans-serif; color: var(--cyan);">Proveedor: Wurth España B2B</h3>
+            <button class="btn-action" style="font-size: 0.8rem;" onclick="alert('Prueba enviada con éxito al canal activo.')">
+              🧪 Enviar Prueba de Conexión
+            </button>
+          </div>
+
+          <div class="channels-3-col">
+            <!-- CANAL 1: AUTOMATICO -->
+            <div class="channel-box" style="border-color: rgba(0, 240, 255, 0.3);">
+              <h4 style="color: var(--cyan);">⚡ Canal Automático</h4>
+              <div class="form-group">
+                <label class="form-label">Endpoint API / Webhook URL</label>
+                <input type="text" class="form-input" value="https://api.wurth.es/v1/orders/b2b">
+              </div>
+              <div class="form-group">
+                <label class="form-label">API Key / Token Bearer</label>
+                <input type="password" class="form-input" value="sk_live_9812487124912">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Formato de Envío</label>
+                <select class="form-input">
+                  <option selected>JSON REST Payload</option>
+                  <option>cXML PurchaseOrder</option>
+                  <option>EDIFACT D96A</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- CANAL 2: EMAIL -->
+            <div class="channel-box" style="border-color: rgba(168, 85, 247, 0.3);">
+              <h4 style="color: var(--purple);">📧 Canal Email</h4>
+              <div class="form-group">
+                <label class="form-label">Email de Pedidos Proveedor</label>
+                <input type="email" class="form-input" value="pedidos.industria@wurth.es">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email de Compras en Copia (CC)</label>
+                <input type="email" class="form-input" value="compras@fabrica.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Opciones</label>
+                <label style="font-size: 0.82rem; display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+                  <input type="checkbox" checked> Adjuntar PDF de Albarán Previsto
+                </label>
+              </div>
+            </div>
+
+            <!-- CANAL 3: WHATSAPP -->
+            <div class="channel-box" style="border-color: rgba(16, 185, 129, 0.3);">
+              <h4 style="color: var(--emerald);">💬 Canal WhatsApp</h4>
+              <div class="form-group">
+                <label class="form-label">Teléfono Delegado Comercial</label>
+                <input type="text" class="form-input" value="+34 620 889 900">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Mensaje Plantilla</label>
+                <textarea class="form-input" rows="3" style="resize: none;">Hola, solicitamos reposición de pedido automático para el armario de Planta 1. Pulsa el enlace para validar.</textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMMERCIAL CONDITIONS -->
+          <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-subtle); display: flex; gap: 24px; font-size: 0.86rem; color: var(--text-muted);">
+            <div>Lead Time (Plazo de entrega): <strong style="color: #fff;">24-48 horas</strong></div>
+            <div>Pedido mínimo sin portes: <strong style="color: #fff;">150,00 €</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LED TOAST NOTIFICATION -->
+  <div id="led-toast" class="led-toast">
+    <div style="font-size: 1.5rem;">💡</div>
+    <div>
+      <div style="font-weight: 700; color: var(--cyan);" id="led-title">LED DE UBICACIÓN ENCENDIDO</div>
+      <div style="font-size: 0.82rem; color: var(--text-muted);" id="led-subtitle">Cajón iluminado físicamente</div>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.view-container').forEach(view => view.classList.remove('active'));
+
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function switchSubtab(subId) {
+      document.querySelectorAll('.subtab-btn').forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+    }
+
+    function toggleAllChecks(checked) {
+      document.querySelectorAll('.row-check').forEach(chk => chk.checked = checked);
+    }
+
+    function triggerLed(drawer, product) {
+      const toast = document.getElementById('led-toast');
+      document.getElementById('led-title').innerText = '💡 LED ENCENDIDO: ' + drawer;
+      document.getElementById('led-subtitle').innerText = product + ' iluminado en el armario físico';
+      toast.style.display = 'flex';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3500);
+    }
+
+    function selectProv(el, name) {
+      document.querySelectorAll('.prov-card-item').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('current-prov-title').innerText = 'Proveedor: ' + name;
+    }
+
+    function filterInventory(text) {
+      const rows = document.querySelectorAll('#inventory-tbody tr.product-row-parent');
+      rows.forEach(row => {
+        const rowText = row.innerText.toLowerCase();
+        row.style.display = rowText.includes(text.toLowerCase()) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

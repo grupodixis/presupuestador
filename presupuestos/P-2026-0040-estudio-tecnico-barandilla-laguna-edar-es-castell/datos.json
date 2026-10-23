@@ -1,0 +1,43 @@
+{
+  "numeroPresupuesto": "P-2026-0040",
+  "fecha": "2026-10-09",
+  "cliente": "EDAR Es Castell / Mahón",
+  "ubicacion": "Es Castell / Mahón, Menorca",
+  "longitudML": 175.0,
+  "fotomontajes": {
+    "opcion1": "img/fotomontaje_op1.jpg",
+    "opcion2": "img/fotomontaje_op2.jpg",
+    "opcion3": "img/fotomontaje_op3.jpg",
+    "avisoInfografia": "Imágenes fotorrealistas creadas con Inteligencia Artificial (IA)"
+  },
+  "opciones": [
+    {
+      "id": 1,
+      "nombre": "Verticales Inox 316L + Cuerdas",
+      "pvpUnitarioML": 175.0,
+      "baseImponible": 30625.0,
+      "iva": 6431.25,
+      "totalConIva": 37056.25,
+      "cumpleNorma": false
+    },
+    {
+      "id": 2,
+      "nombre": "Barandilla Modular Inox 316L (Tubo 40x40x1.5)",
+      "pvpUnitarioML": 245.0,
+      "baseImponible": 42875.0,
+      "iva": 9003.75,
+      "totalConIva": 51878.75,
+      "cumpleNorma": true
+    },
+    {
+      "id": 3,
+      "nombre": "Barandilla Articulada PRFV (Ficha Técnica)",
+      "pvpUnitarioML": 265.0,
+      "baseImponible": 46375.0,
+      "iva": 9738.75,
+      "totalConIva": 56113.75,
+      "cumpleNorma": true,
+      "recomendada": true
+    }
+  ]
+}

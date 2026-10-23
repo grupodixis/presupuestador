@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Anteproyecto Valorado de Demolición</title>
+    <style>
+        @page {
+            margin: 25mm 20mm; 
+        }
+        body { 
+            font-family: 'Cambria', 'Georgia', serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            color: #2b2b2b; 
+            font-size: 11pt;
+            box-sizing: border-box;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+            color: #1a365d;
+            page-break-after: avoid;
+        }
+        
+        /* Header */
+        .header { 
+            border-bottom: 2px solid #1a365d; 
+            padding-bottom: 15px; 
+            margin-bottom: 40px; 
+            display: table;
+            width: 100%;
+        }
+        .header-logo { 
+            display: table-cell;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 20pt; 
+            font-weight: 700; 
+            color: #1a365d; 
+            vertical-align: bottom;
+        }
+        .header-logo span { color: #d9534f; }
+        .header-info { 
+            display: table-cell;
+            text-align: right; 
+            font-size: 9pt; 
+            color: #555;
+            vertical-align: bottom;
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.4;
+        }
+
+        /* Title block */
+        .title-block {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .title-block h1 { 
+            font-size: 22pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .title-block .subtitle {
+            font-size: 14pt;
+            color: #4a5568;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Content */
+        .section { margin-bottom: 25px; }
+        .section h2 {
+            font-size: 14pt;
+            border-bottom: 1px solid #cbd5e0;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        
+        p, li {
+            text-align: justify;
+        }
+        ol, ul {
+            padding-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* Callout */
+        .critical-note { 
+            background-color: #f7fafc; 
+            border-left: 4px solid #1a365d; 
+            padding: 15px 20px; 
+            margin: 15px 0; 
+            font-size: 10.5pt;
+        }
+        .critical-note strong {
+            color: #1a365d;
+            font-family: 'Segoe UI', sans-serif;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 11pt;
+            text-transform: uppercase;
+        }
+
+        /* Table */
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 20px; 
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 9.5pt;
+        }
+        th, td { 
+            border: 1px solid #a0aec0; 
+            padding: 8px 10px; 
+            text-align: left; 
+        }
+        th { 
+            background-color: #edf2f7; 
+            color: #1a365d; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+        }
+        .total-row { 
+            font-weight: bold; 
+            background-color: #e2e8f0; 
+            font-size: 11pt; 
+        }
+        .currency { 
+            text-align: right; 
+            white-space: nowrap; 
+        }
+
+        /* Footer */
+        .footer { 
+            margin-top: 40px; 
+            text-align: center; 
+            font-size: 8pt; 
+            color: #718096; 
+            border-top: 1px solid #e2e8f0; 
+            padding-top: 15px; 
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .page-break { page-break-before: always; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-logo">DIXIS<span>.</span> INGENIERÍA Y OBRAS</div>
+        <div class="header-info">
+            <strong>Ref. Doc:</strong> AP-2026-084-V4<br>
+            <strong>Fecha:</strong> 20 de Agosto de 2026<br>
+            <strong>Proyecto:</strong> Demolición Tanque Metálico<br>
+            <strong>Ubicación:</strong> Entorno de Alta Montaña
+        </div>
+    </div>
+
+    <div class="title-block">
+        <h1>Anteproyecto Técnico y Valorado</h1>
+        <div class="subtitle">Demolición Controlada de Estructura Metálica Elevada</div>
+    </div>
+    
+    <div class="section">
+        <h2>1. Objeto del Anteproyecto</h2>
+        <p>El presente documento tiene por objeto definir, a nivel de anteproyecto, el marco técnico y la valoración económica de los trabajos necesarios para la demolición controlada y posterior extracción de un tanque de almacenamiento hídrico en desuso, cuya estructura metálica alcanza una cota de altura de 25 metros.</p>
+        
+        <div class="critical-note">
+            <strong>Condicionante Crítico de Ejecución: Orografía y Acceso</strong>
+            La ubicación de la estructura presenta una topografía escarpada característica de entornos de alta montaña. Esta situación orográfica imposibilita el despliegue de maquinaria de demolición convencional, obligando a planificar una logística de ejecución basada en el empleo de maquinaria de movimiento de tierras adaptada (excavadora de cadenas tipo CAT 320), técnicos especialistas para el acceso a la coronación de la estructura, y una metodología de reducción volumétrica (troceado) de carácter estrictamente manual in situ.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>2. Procedimiento Constructivo y Metodología</h2>
+        <p>Atendiendo a las limitaciones del entorno, se adopta como método de demolición el vuelco controlado de la estructura mediante tracción mecánica direccional. Las fases operativas se definen de la siguiente manera:</p>
+        <ol>
+            <li><strong>Adecuación de Viales de Acceso:</strong> Ejecución de labores de desbroce y refuerzo temporal de las pistas existentes. Esta adecuación garantizará el tránsito de vehículos ligeros (dúmperes 4x4) y de la excavadora hidráulica de cadenas (tipo CAT 320 o similar).</li>
+            <li><strong>Fijación de la Línea de Tracción:</strong> El acceso a la cota +25m será efectuado por técnicos certificados en trabajos verticales (estándar IRATA/ANETVA). Se instalará un cable de acero estructural anclado firmemente al sombrerete de la instalación.</li>
+            <li><strong>Cortes Direccionales (Oxicorte):</strong> Intervención en la base estructural. Previo al inicio de los trabajos de oxicorte, se ejecutará un <strong>apuntalamiento provisional y refuerzo estructural temporario</strong> de los soportes. Esta medida es de carácter obligatorio para garantizar la protección e integridad física de los operarios durante el debilitamiento de las patas. Una vez asegurada la zona, se practicarán cortes geométricos en cuña en los soportes posteriores y se procederá al debilitamiento calculado de los anteriores. Esta geometría actuará a modo de bisagra mecánica, dirigiendo el vector de caída.</li>
+            <li><strong>Maniobra de Colapso Estructural:</strong> Aplicación de tracción mecánica sostenida mediante la excavadora de cadenas anclada a un punto estable del terreno. El equipo traccionador operará fuera del radio de colapso, garantizando una distancia de seguridad mínima de 40 metros.</li>
+            <li><strong>Reducción Volumétrica y Extracción:</strong> Tras el abatimiento, se ejecutará el oxicorte manual de la estructura. Los residuos metálicos serán evacuados mediante dúmperes 4x4 hasta un punto de acopio provisional.</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>3. Planificación de Seguridad y Salud</h2>
+        <ul>
+            <li><strong>Coordinación Preventiva:</strong> Redacción del Plan de Seguridad y Salud. Presencia de un Recurso Preventivo a pie de obra durante las maniobras de apuntalamiento, oxicorte y tracción.</li>
+            <li><strong>Prevención de Incendios Forestales (PRIF):</strong> Limpieza de la cobertura vegetal en un radio de 10 metros y presencia de medios de extinción portátiles (motobombas, líneas de manguera).</li>
+            <li><strong>Seguridad en Trabajos Verticales:</strong> Aplicación de protocolos de rescate en altura. Uso de equipos de protección individual anticaídas de doble línea con absorbedor de energía.</li>
+            <li><strong>Perimetración y Control de Accesos:</strong> Establecimiento de un área de exclusión física delimitada mediante vallado y señalización, restringiendo el tránsito en un radio mínimo de 40m.</li>
+        </ul>
+    </div>
+
+    <div class="section page-break">
+        <h2>4. Valoración Económica</h2>
+        <p>A continuación, se detalla la estimación presupuestaria de los trabajos descritos, habiendo deducido y absorbido internamente el posible valor residual de la chatarra metálica por las complejas labores logísticas de su extracción en alta montaña.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Descripción de la Unidad de Obra</th>
+                    <th>Ud.</th>
+                    <th>Cant.</th>
+                    <th class="currency">Precio Unit.</th>
+                    <th class="currency">Importe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01.01</td>
+                    <td>Estudio, Plan de Seguridad y Salud, y Coordinación (CSS)</td>
+                    <td>Ud</td>
+                    <td>1</td>
+                    <td class="currency">2.540,50 €</td>
+                    <td class="currency">2.540,50 €</td>
+                </tr>
+                <tr>
+                    <td>01.02</td>
+                    <td>Implantación de medios preventivos (PRIF, vallado y rescate)</td>
+                    <td>Ud</td>
+                    <td>1</td>
+                    <td class="currency">3.615,20 €</td>
+                    <td class="currency">3.615,20 €</td>
+                </tr>
+                <tr>
+                    <td>02.01</td>
+                    <td>Adecuación de accesos y movilización de maquinaria (excavadora cadenas)</td>
+                    <td>Ud</td>
+                    <td>1</td>
+                    <td class="currency">6.826,00 €</td>
+                    <td class="currency">6.826,00 €</td>
+                </tr>
+                <tr>
+                    <td>02.02</td>
+                    <td>Amarre de línea de tracción en cota +25m (Técnicos verticales)</td>
+                    <td>Ud</td>
+                    <td>1</td>
+                    <td class="currency">4.150,00 €</td>
+                    <td class="currency">4.150,00 €</td>
+                </tr>
+                <tr>
+                    <td>03.01</td>
+                    <td>Apuntalamiento provisional, cortes direccionales y oxicorte base</td>
+                    <td>Ud</td>
+                    <td>1</td>
+                    <td class="currency">3.960,00 €</td>
+                    <td class="currency">3.960,00 €</td>
+                </tr>
+                <tr>
+                    <td>03.02</td>
+                    <td>Ejecución de maniobra de colapso con tracción (Excavadora CAT 320)</td>
+                    <td>Ud</td>
+                    <td>1</td>
+                    <td class="currency">5.745,50 €</td>
+                    <td class="currency">5.745,50 €</td>
+                </tr>
+                <tr>
+                    <td>04.01</td>
+                    <td>Reducción volumétrica (troceado manual in situ)</td>
+                    <td>t</td>
+                    <td>15</td>
+                    <td class="currency">460,00 €</td>
+                    <td class="currency">6.900,00 €</td>
+                </tr>
+                <tr>
+                    <td>04.02</td>
+                    <td>Extracción en dúmperes 4x4 y transporte final a centro autorizado</td>
+                    <td>t</td>
+                    <td>15</td>
+                    <td class="currency">371,80 €</td>
+                    <td class="currency">5.577,00 €</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="5" style="text-align: right; border-right: none;">PRESUPUESTO DE EJECUCIÓN MATERIAL (Sin IVA):</td>
+                    <td class="currency">39.314,20 €</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="footer">
+        Este documento constituye un Anteproyecto Técnico y su valoración está sujeta a inspección final in situ. <br>
+        DIXIS INGENIERÍA Y OBRAS - Departamento de Proyectos
+    </div>
+
+</body>
+</html>

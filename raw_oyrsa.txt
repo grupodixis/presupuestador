@@ -1,0 +1,151 @@
+ICR050b Partida Ud Rejilla de retorno. 4,00 0,00 0,00 0,00 0,00 0,00
+ICR070 Partida Ud Rejilla de intemperie. 1,00 0,00 0,00 0,00 0,00 0,00
+ICR070b Partida Ud Rejilla de intemperie. 1,00 0,00 0,00 0,00 0,00 0,00
+PICS2796 Partida Ud Armario rack de 19" de 42U 2200x600x800 mm 1,00 0,00 0,00 0,00 0,00 0,00
+m23E19IP050 Partida Ud PANEL DE CONEXIÓN 24 PUERTOS CAT. 6 1,00 0,00 0,00 0,00 0,00 0,00
+IEA010b Partida Ud Sistema de alimentación ininterrumpida (SAI). 1,00 0,00 0,00 0,00 0,00 0,00
+IEO040b Partida Ml Bandeja para soporte y conducción de cables eléctricos. 42,00 0,00 0,00 0,00 0,00 0,00
+07.01.03.01bb Partida Ud AP exterior 2,00 0,00 0,00 0,00 0,00 0,00
+IAF070e Partida Ml Cable de pares de cobre. 560,00 0,00 0,00 0,00 0,00 0,00
+IAF07UTP01 Partida Ud Conector RJ45 Cat6 16,00 0,00 0,00 0,00 0,00 0,00
+IEO010e Partida Ml Canalización empotrada en elemento de construcción de 280,00 0,00 0,00 0,00 0,00 0,00
+IEO010p Partida Ml Canalización de tubo rígido de PVC de 25 mm 120,00 0,00 0,00 0,00 0,00 0,00
+07.01.03.02bb Partida Ud Previsión ampliación controladora Wifi 1,00 0,00 0,00 0,00 0,00 0,00
+IAF070c Partida Ml Cable de pares de cobre. 1.150,00 0,00 0,00 0,00 0,00 0,00
+IAF07UTP01 Partida Ud Conector RJ45 Cat6 48,00 0,00 0,00 0,00 0,00 0,00
+IEO010e Partida Ml Canalización empotrada en elemento de construcción de 575,00 0,00 0,00 0,00 0,00 0,00
+m23E19M150 Partida Ud DIFUSOR FALSO TECHO 6W 8,00 0,00 0,00 0,00 0,00 0,00
+m23E19M121 Partida Ud COLUMNA ACÚSTICA EXTERIOR 60 W 2,00 0,00 0,00 0,00 0,00 0,00
+m23E19M060b Partida Ud DISTRIBUCIÓN SONIDO AMBIENTAL PARA RESTAURANTE Y 1,00 0,00 0,00 0,00 0,00 0,00
+CAM Partida Ud Cámaras de vigilancia 6,00 0,00 0,00 0,00 0,00 0,00
+CAMbb Partida Ud Programación y conexionado nueva instalación a red 1,00 0,00 0,00 0,00 0,00 0,00
+IAF070d Partida Ml Cable de pares de cobre. 770,00 0,00 0,00 0,00 0,00 0,00
+IAF07UTP01 Partida Ud Conector RJ45 Cat6 16,00 0,00 0,00 0,00 0,00 0,00
+IEO010e Partida Ml Canalización empotrada en elemento de construcción de 385,00 0,00 0,00 0,00 0,00 0,00
+IOB022b Partida Ml Red de distribución de agua. 24,00 0,00 0,00 0,00 0,00 0,00
+6.08 Partida Ud Bancada metálica antivibración. 1,00 0,00 0,00 0,00 0,00 0,00
+6.09 Partida Ud Ayudas de albañileria 1,00 0,00 0,00 0,00 0,00 0,00
+6.10 Partida Ud Ayudas de albañileria 1,00 0,00 0,00 0,00 0,00 0,00
+ICS030ebbbb Partida Ud Modificación de colectores de distribución de AGS, ACS, 1,00 0,00 0,00 0,00 0,00 0,00
+IFI005 Partida Ml Tubería para instalación interior, colocada 178,00 0,00 0,00 0,00 0,00 0,00
+IFI005b Partida Ml Tubería para instalación interior, colocada 124,00 0,00 0,00 0,00 0,00 0,00
+IFI005i Partida Ml Tubería para instalación interior, colocada 62,00 0,00 0,00 0,00 0,00 0,00
+IFI005k Partida Ml Tubería para instalación interior, colocada 34,00 0,00 0,00 0,00 0,00 0,00
+IFI005j Partida Ml Tubería para instalación interior, colocada 34,00 0,00 0,00 0,00 0,00 0,00
+IFW010j Partida Ud Válvula de corte. 2,00 0,00 0,00 0,00 0,00 0,00
+IFW010i Partida Ud Válvula de corte. 3,00 0,00 0,00 0,00 0,00 0,00
+IFW010k Partida Ud Válvula de corte. 3,00 0,00 0,00 0,00 0,00 0,00
+IFW010l Partida Ud Válvula de corte. 7,00 0,00 0,00 0,00 0,00 0,00
+SGA010 Partida Ud Válvula de escuadra. 22,00 0,00 0,00 0,00 0,00 0,00
+SGA010b Partida Ud Válvula de escuadra. 3,00 0,00 0,00 0,00 0,00 0,00
+SPL010bb Partida Ud Lavabo mural. 1,00 0,00 0,00 0,00 0,00 0,00
+SGL010 Partida Ud Grifería temporizada para lavabo. 1,00 0,00 0,00 0,00 0,00 0,00
+SAI005 Partida Ud Inodoro con tanque bajo, de porcelana sanitaria. 1,00 0,00 0,00 0,00 0,00 0,00
+SAV010 Partida Ud Vertedero de porcelana sanitaria "ROCA". 1,00 0,00 0,00 0,00 0,00 0,00
+ASA010b Partida Ud Arqueta de obra de fábrica. 1,00 0,00 0,00 0,00 0,00 0,00
+ASA010c Partida Ud Arqueta de obra de fábrica. 1,00 0,00 0,00 0,00 0,00 0,00
+ASB010d Partida Ml Conexión a instalación existente 3,00 0,00 0,00 0,00 0,00 0,00
+USA010c Partida Ud Separador de grasas 7 l/s 1,00 0,00 0,00 0,00 0,00 0,00
+ISBsif01 Partida Ud Sifón de polipropileno resistente al agua caliente para red 2,00 0,00 0,00 0,00 0,00 0,00
+ISD005f Partida Ml Red de pequeña evacuación, empotrada. 4,85 0,00 0,00 0,00 0,00 0,00
+ISD005g Partida Ml Red de pequeña evacuación, empotrada. 6,15 0,00 0,00 0,00 0,00 0,00
+ISD005h Partida Ml Red de pequeña evacuación, empotrada. 39,00 0,00 0,00 0,00 0,00 0,00
+ISD005i Partida Ml Red de pequeña evacuación, empotrada. 6,45 0,00 0,00 0,00 0,00 0,00
+ICN018b Partida Ml Red de evacuación de condensados. 37,83 0,00 0,00 0,00 0,00 0,00
+ASC010 Partida Ml Colector enterrado D= 110 mm. 63,90 0,00 0,00 0,00 0,00 0,00
+ASC010f Partida Ml Colector enterrado D= 125 mm. 4,80 0,00 0,00 0,00 0,00 0,00
+ASC010c Partida Ml Colector enterrado D= 160 mm. 8,90 0,00 0,00 0,00 0,00 0,00
+ASI020 Partida Ud Sumidero sifónico. 1,00 0,00 0,00 0,00 0,00 0,00
+ASI050c Partida Ml Canaleta de drenaje. 13,50 0,00 0,00 0,00 0,00 0,00
+ICR010cbb Partida Ud Ventilador centrífugo en línea. Neosilent 150 de Sodeca. 1,00 0,00 0,00 0,00 0,00 0,00
+IVG016bb Partida Ud Ventilador para extracción de humos 1,00 0,00 0,00 0,00 0,00 0,00
+ICR010bbbbc Partida Ud Ventilador centrífugo para extracción CJBD/F-2828-6M 1/3 1,00 0,00 0,00 0,00 0,00 0,00
+IVG010b Partida Ud Ventilador de impulsión de aire exterior. CJDXR/AL560-3 1,00 0,00 0,00 0,00 0,00 0,00
+ICR015q Partida Ml Conducto circular de pared simple helicoidal de acero 5,20 0,00 0,00 0,00 0,00 0,00
+ICR015m Partida Ml Conducto circular de pared simple helicoidal de acero 3,60 0,00 0,00 0,00 0,00 0,00
+ICR015l Partida Ml Conducto circular de pared simple helicoidal de acero 38,60 0,00 0,00 0,00 0,00 0,00
+ICR016bw Partida Ud Codo 90° para conducto circular de acero galvanizado, de 5,00 0,00 0,00 0,00 0,00 0,00
+ICR016bx Partida Ud Pieza para conducto circular. 6,00 0,00 0,00 0,00 0,00 0,00
+ICR016bs Partida Ud Te simple 90° para conducto circular de acero galvanizado, 1,00 0,00 0,00 0,00 0,00 0,00
+ICR016by Partida Ud Pieza para conducto circular. 1,00 0,00 0,00 0,00 0,00 0,00
+ICR016bz Partida Ud Pieza para conducto circular. 2,00 0,00 0,00 0,00 0,00 0,00
+ICR016ca Partida Ud Pieza para conducto circular. 1,00 0,00 0,00 0,00 0,00 0,00
+ICR025c Partida Ml Tubo flexible de 102 mm de diámetro, Flexiver D "ISOVER", 4,00 0,00 0,00 0,00 0,00 0,00
+ICR020c Partida M2 Red de conductos de distribución de aire para 122,00 0,00 0,00 0,00 0,00 0,00
+ICR020f Partida M2 Conducto de chapa galvanizada. 145,22 0,00 0,00 0,00 0,00 0,00
+IOJ200 Partida M2 Protección pasiva contra incendios de conductos metálicos 64,58 0,00 0,00 0,00 0,00 0,00
+ICR060b Partida Ud Boca de ventilación. 2,00 0,00 0,00 0,00 0,00 0,00
+ICR040b Partida Ud Difusor. 2,00 0,00 0,00 0,00 0,00 0,00
+ICR060 Partida Ud Boca de ventilación en ejecución redonda adecuada para 2,00 0,00 0,00 0,00 0,00 0,00
+IEO010b Partida Ml Canalización empotrada en elemento de construcción de 2.170,00 0,00 0,00 0,00 0,00 0,00
+IEO010c Partida Ml Canalización empotrada en elemento de construcción de 1.714,00 0,00 0,00 0,00 0,00 0,00
+IEP010bba Partida Ud Red de toma de tierra para estructura. 1,00 0,00 0,00 0,00 0,00 0,00
+IEP030b Partida Ud Red de equipotencialidad en cuarto húmedo. 2,00 0,00 0,00 0,00 0,00 0,00
+IOA020gb Partida Ud Luminaria de emergencia DAISALUX modelo IZAR N30. 16,00 0,00 0,00 0,00 0,00 0,00
+IOA020gbbd Partida Ud Luminaria de emergencia DAISALUX modelo IKUS 8,00 0,00 0,00 0,00 0,00 0,00
+m22E18G150 Partida Ud BLOQUE AUTÓNOMO EMERGENCIA ESTANCO IP-65 LED 28,00 0,00 0,00 0,00 0,00 0,00
+ICR110 Partida Ud Recuperador de calor aire-aire. Instalación en techo. 1,00 0,00 0,00 0,00 0,00 0,00
+IBL600 Partida Ud Unidad exterior de aire acondicionado. 1,00 0,00 0,00 0,00 0,00 0,00
+IBL620 Partida Ud Unidad interior de aire acondicionado con distribución por 2,00 0,00 0,00 0,00 0,00 0,00
+IBL680 Partida Ud Derivación para línea frigorífica. 1,00 0,00 0,00 0,00 0,00 0,00
+IBL690 Partida Ud Control centralizado. 1,00 0,00 0,00 0,00 0,00 0,00
+IBL695 Partida Ml Cable bus de comunicaciones. 68,67 0,00 0,00 0,00 0,00 0,00
+ICN010 Partida Ml Línea frigorífica. 31,34 0,00 0,00 0,00 0,00 0,00
+ICN010b Partida Ml Línea frigorífica. 3,05 0,00 0,00 0,00 0,00 0,00
+ICN010c Partida Ml Línea frigorífica. 2,28 0,00 0,00 0,00 0,00 0,00
+ICN010d Partida Ml Línea frigorífica. 15,00 0,00 0,00 0,00 0,00 0,00
+ICN012VAL Partida Ud Kit válvula corte CMR-M100KT-E 2,00 0,00 0,00 0,00 0,00 0,00
+ICN012 Partida Kg Carga de gas refrigerante. 5,99 0,00 0,00 0,00 0,00 0,00
+ICR021 Partida M2 Conducto de lana mineral. 178,53 0,00 0,00 0,00 0,00 0,00
+ICR030 Partida Ud Rejilla de impulsión, de chapa perfilada de acero, pintado 6,00 0,00 0,00 0,00 0,00 0,00
+ICR040 Partida Ud Difusor. 15,00 0,00 0,00 0,00 0,00 0,00
+ICR050 Partida Ud Rejilla de retorno. 4,00 0,00 0,00 0,00 0,00 0,00
+ICR050b Partida Ud Rejilla de retorno. 4,00 0,00 0,00 0,00 0,00 0,00
+ICR070 Partida Ud Rejilla de intemperie. 1,00 0,00 0,00 0,00 0,00 0,00
+ICR070b Partida Ud Rejilla de intemperie. 1,00 0,00 0,00 0,00 0,00 0,00
+PICS2796 Partida Ud Armario rack de 19" de 42U 2200x600x800 mm 1,00 0,00 0,00 0,00 0,00 0,00
+m23E19IP050 Partida Ud PANEL DE CONEXIÓN 24 PUERTOS CAT. 6 1,00 0,00 0,00 0,00 0,00 0,00
+IECECOCDIA Partida Ud Subcuadro de protección CÁMARAS FRIGORIFICAS COCINA 1,00 0,00 0,00 0,00 0,00 0,00
+IEC010 Partida Ud Cuadro general de distribución. Restaurante 1,00 0,00 0,00 0,00 0,00 0,00
+IECECOCDIAb Partida Ud Subcuadro de protección VENTILACION 1,00 0,00 0,00 0,00 0,00 0,00
+IE05.1 Partida Ud Botonera general 1,00 0,00 0,00 0,00 0,00 0,00
+m23E17MA071 Partida Ud BASE DE ENCHUFE 16A GAMA ALTA 29,00 0,00 0,00 0,00 0,00 0,00
+m23E17MEE080 Partida Ud BASE DE ENCHUFE 16A ESTANCA IP-55 GAMA MEDIA 7,00 0,00 0,00 0,00 0,00 0,00
+m23E17MEE080b Partida Ud BASE DE ENCHUFE 16A ESTANCA IP-66 GAMA MEDIA 3,00 0,00 0,00 0,00 0,00 0,00
+m23E18CI030 Partida Ud DETECTOR DE PRESENCIA/LUZ DIURNA AUTÓNOMO 1,00 0,00 0,00 0,00 0,00 0,00
+ILTIRALEDbb Partida Ml MONTAJE DE TIRA LED 50,00 0,00 0,00 0,00 0,00 0,00
+m23E17E010 Partida Ud MONTAJE DE LUMINARIA INTERIOR / EXTERIOR 60,00 0,00 0,00 0,00 0,00 0,00
+m23E17E010b Partida Ud MONTAJE DE CARRIL 6,00 0,00 0,00 0,00 0,00 0,00
+m23E17E010bb Partida Ud MONTAJE DE VENTILADOR DE TECHO 7,00 0,00 0,00 0,00 0,00 0,00
+IEM090b Partida Ud Kit de alarma KSLBM-4 GOLMAR para aseos y vestuarios 1,00 0,00 0,00 0,00 0,00 0,00
+MEPTCEOPS80 Partida Ud PT 1 KIT TIPO CAJA A EMPOTRAR O SUPERFÍCIE DE 6 MOD. 5,00 0,00 0,00 0,00 0,00 0,00
+MPT2CEOS80 Partida Ud PT 2 KIT TIPO CAJA A EMPOTRAR 2,00 0,00 0,00 0,00 0,00 0,00
+IMC010 Partida Ud Sistema domótico abierto KNX. 1,00 0,00 0,00 0,00 0,00 0,00
+IEO010bc Partida Ml Canalización de tubo rígido de PVC de 16 mm 35,00 0,00 0,00 0,00 0,00 0,00
+IEO010bf Partida Ml Canalización de tubo rígido de PVC de 32 mm 160,00 0,00 0,00 0,00 0,00 0,00
+IEO010b Partida Ml Canalización empotrada en elemento de construcción de 2.108,00 0,00 0,00 0,00 0,00 0,00
+IEO010c Partida Ml Canalización empotrada en elemento de construcción de 215,50 0,00 0,00 0,00 0,00 0,00
+IEO010e Partida Ml Canalización empotrada en elemento de construcción de 115,00 0,00 0,00 0,00 0,00 0,00
+IEO010d Partida Ml Canalización empotrada en elemento de construcción de 1.214,30 0,00 0,00 0,00 0,00 0,00
+IE05.1 Partida Ud Botonera general 1,00 0,00 0,00 0,00 0,00 0,00
+m22E18CI030 Partida Ud DETECTOR DE PRESENCIA/LUZ DIURNA AUTÓNOMO 3,00 0,00 0,00 0,00 0,00 0,00
+m23E17MS071 Partida Ud BASE DE ENCHUFE 16A GAMA BÁSICA 16,00 0,00 0,00 0,00 0,00 0,00
+m23E17MS081 Partida Ud BASE DE ENCHUFE DOBLE 16A GAMA BÁSICA 3,00 0,00 0,00 0,00 0,00 0,00
+m23E17MI040b Partida Ud BASE SUPERFICIAL IP447 de 16A a 32 A 3P+TT 19,00 0,00 0,00 0,00 0,00 0,00
+m23E17MS011 Partida Ud PUNTO LUZ SENCILLO GAMA BÁSICA 2,00 0,00 0,00 0,00 0,00 0,00
+m23E17MI030 Partida Ud BASE SUPERFICIAL IP447 16 A 3P+TT 2,00 0,00 0,00 0,00 0,00 0,00
+m23E17MI040 Partida Ud BASE SUPERFICIAL IP447 32 A 3P+TT 1,00 0,00 0,00 0,00 0,00 0,00
+m23E17MI040ca Partida Ud BASE SUPERFICIAL IP447 125 A 3P+TT 1,00 0,00 0,00 0,00 0,00 0,00
+m23E17MI040ca Partida Ud BASE SUPERFICIAL IP447 125 A 3P+TT 1,00 0,00 0,00 0,00 0,00 0,00
+m23E17MI010 Partida Ud BASE SUPERFICIAL IP447 16 A 2P+TT 2,00 0,00 0,00 0,00 0,00 0,00
+m23E18IEB230 Partida Ud PANTALLA ESTANCA LED DE 1500mm DE 28W a 75W 10,00 0,00 0,00 0,00 0,00 0,00
+m23E18IEB210 Partida Ud PANTALLA ESTANCA LED DE 1200mm DE 19W a 50W 4,00 0,00 0,00 0,00 0,00 0,00
+m23E18IEC011 Partida Ud REGLETA ESTANCA BAJAS TEMPERATURAS 1x58 W T8 - HF 2,00 0,00 0,00 0,00 0,00 0,00
+m23E18IDE480 Partida Ud DOWNLIGHT LED DE 23W A 28W 1,00 0,00 0,00 0,00 0,00 0,00
+m23E18IDE440 Partida Ud DOWNLIGHT LED DE 15W A 18W IP55 2,00 0,00 0,00 0,00 0,00 0,00
+IEP010bba Partida Ud Red de toma de tierra para estructura. 1,00 0,00 0,00 0,00 0,00 0,00
+IEP030b Partida Ud Red de equipotencialidad en cuarto húmedo. 2,00 0,00 0,00 0,00 0,00 0,00
+IOA020gb Partida Ud Luminaria de emergencia DAISALUX modelo IZAR N30. 16,00 0,00 0,00 0,00 0,00 0,00
+IOA020gbbd Partida Ud Luminaria de emergencia DAISALUX modelo IKUS 8,00 0,00 0,00 0,00 0,00 0,00
+m22E18G150 Partida Ud BLOQUE AUTÓNOMO EMERGENCIA ESTANCO IP-65 LED 28,00 0,00 0,00 0,00 0,00 0,00
+ICR110 Partida Ud Recuperador de calor aire-aire. Instalación en techo. 1,00 0,00 0,00 0,00 0,00 0,00

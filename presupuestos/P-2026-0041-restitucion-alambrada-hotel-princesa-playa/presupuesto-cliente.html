@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuesto Restitución Alambrada - Hotel Princesa Playa</title>
+  <style>
+    @page { size: A4; margin: 8mm; }
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      background: #eaedf0; 
+      color: #1e262c; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      font-size: 11.2px; 
+      line-height: 1.35; 
+    }
+    .page { 
+      width: 210mm; 
+      min-height: 297mm; 
+      margin: 20px auto; 
+      background: #ffffff; 
+      box-shadow: 0 16px 50px rgba(0,0,0,.10); 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    header { 
+      background: #14221c; 
+      color: #fff; 
+      padding: 12mm 15mm 10mm; 
+      display: grid; 
+      grid-template-columns: 1fr auto; 
+      gap: 16px; 
+      align-items: center; 
+      border-bottom: 4px solid #2d7a58;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .logo { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.2); border-radius: 10px; padding: 6px; background: rgba(255,255,255,0.05); }
+    h1 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: #ffffff; }
+    .subtitle { margin: 5px 0 0; color: #a4c5b5; font-size: 12px; }
+    .meta { text-align: right; color: #d0e0d8; font-size: 11px; line-height: 1.4; }
+    .meta strong { color: #ffffff; display: block; font-size: 13.5px; margin-bottom: 3px; }
+    main { padding: 9mm 15mm 8mm; flex: 1; }
+    
+    .summary-card { 
+      border: 1px solid #d2ded7; 
+      border-radius: 12px; 
+      padding: 12px 16px; 
+      margin-bottom: 14px; 
+      background: #f4f8f6; 
+      display: grid; 
+      grid-template-columns: 1.3fr 1fr; 
+      gap: 16px; 
+      align-items: center;
+    }
+    .summary-desc strong { color: #153928; font-size: 13px; }
+    .summary-desc p { margin: 4px 0 0; color: #42524a; font-size: 11px; }
+    .price-box { 
+      text-align: right; 
+      border-left: 1px solid #d2ded7; 
+      padding-left: 20px; 
+    }
+    .price-box .unit-price { font-size: 12px; color: #4b6357; font-weight: 600; }
+    .price-box .total-price { display: block; font-size: 26px; color: #166534; font-weight: 800; letter-spacing: -.02em; margin: 2px 0; }
+    .price-box .iva-tag { font-size: 10.5px; color: #64748b; }
+
+    h2 { 
+      margin: 14px 0 7px; 
+      font-size: 12px; 
+      text-transform: uppercase; 
+      letter-spacing: .06em; 
+      color: #14221c; 
+      border-bottom: 2px solid #e2ece7;
+      padding-bottom: 3px;
+    }
+    
+    table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; }
+    th { background: #20352b; color: #ffffff; text-align: left; padding: 7px 8px; font-size: 10px; text-transform: uppercase; letter-spacing: .05em; }
+    td { border-bottom: 1px solid #e2e8e5; padding: 7px 8px; vertical-align: top; font-size: 11px; }
+    .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .col-code { width: 5%; font-weight: bold; color: #2d7a58; }
+    .col-concept { width: 55%; }
+    .col-unit { width: 8%; text-align: center; }
+    .col-cant { width: 10%; text-align: right; }
+    .col-price { width: 11%; text-align: right; }
+    .col-total { width: 11%; text-align: right; font-weight: bold; color: #14221c; }
+
+    .totals-table { width: 45%; margin-left: auto; margin-top: 6px; margin-bottom: 14px; border: none; }
+    .totals-table td { padding: 4px 8px; border: none; }
+    .totals-table tr.total-final { font-size: 13.5px; font-weight: 800; color: #14532d; background: #eef7f2; border-top: 2px solid #2d7a58; }
+    .totals-table tr.total-final td { padding: 7px 8px; }
+
+    .specs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
+    .spec-item { background: #f8faf9; border: 1px solid #d9e2dd; border-radius: 8px; padding: 8px 10px; }
+    .spec-label { font-size: 9.5px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 2px; }
+    .spec-val { font-size: 11.5px; font-weight: 700; color: #1e262c; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .box { border: 1px solid #dce4e0; border-radius: 10px; padding: 10px 12px; background: #ffffff; }
+    .box h3 { margin: 0 0 6px; font-size: 11px; text-transform: uppercase; color: #1d3328; letter-spacing: .04em; }
+    ul { margin: 0 0 0 16px; padding: 0; }
+    li { margin: 3px 0; font-size: 10.5px; color: #374151; }
+
+    .cond-box { background: #fdfbf7; border: 1px solid #f0e6d6; border-left: 4px solid #b9863a; padding: 8px 12px; border-radius: 6px; font-size: 10.5px; margin-bottom: 12px; }
+
+    footer { 
+      padding: 10px 15mm; 
+      border-top: 1px solid #dce4e0; 
+      color: #64748b; 
+      font-size: 9.5px; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+      background: #fcfdfc;
+    }
+
+    @media print { 
+      body { background: #fff; } 
+      .page { width: 100%; min-height: 100vh; margin: 0; box-shadow: none; } 
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo-ham.svg" alt="HAM Estructuras Metálicas">
+        <div>
+          <h1>HAM Estructuras Metálicas</h1>
+          <p class="subtitle">Carpintería metálica, cerramientos perimetrales y estructuras en Menorca</p>
+        </div>
+      </div>
+      <div class="meta">
+        <strong>Hotel Princesa Playa</strong>
+        Ref: PRE-2026-1023 / P-2026-0041<br>
+        Ubicación: Son Xoriguer, Ciutadella de Menorca<br>
+        Fecha de emisión: 23 de octubre de 2026
+      </div>
+    </header>
+
+    <main>
+      <section class="summary-card">
+        <div class="summary-desc">
+          <strong>Restitución Integral de Cerramiento de Alambrada de Simple Torsión</strong>
+          <p>Desmontaje del vallado anterior deteriorado, suministro e instalación de nuevo cerramiento de simple torsión de 3,00 m de altura en acabado verde plastificado RAL 6005, postes reforzados, 4 líneas de tesado y remates en Hotel Princesa Playa (Menorca).</p>
+        </div>
+        <div class="price-box">
+          <div class="unit-price">80 ML &times; 210,00 €/ML</div>
+          <span class="total-price">16.800,00 €</span>
+          <span class="iva-tag">Base Imponible (IVA 21% no incluido)</span>
+        </div>
+      </section>
+
+      <div class="specs-grid">
+        <div class="spec-item">
+          <div class="spec-label">Longitud Total</div>
+          <div class="spec-val">80,00 Metros Lineales</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Altura Cerramiento</div>
+          <div class="spec-val">3,00 Metros</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Tipo de Malla</div>
+          <div class="spec-val">Simple Torsión 50/14 Verde</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Acabado Protección</div>
+          <div class="spec-val">Galvanizado + Plastificado RAL 6005</div>
+        </div>
+      </div>
+
+      <h2>Desglose Técnico y Económico por Partidas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th class="col-code">Nº</th>
+            <th class="col-concept">Concepto y Descripción de la Partida</th>
+            <th class="col-unit">Ud.</th>
+            <th class="col-cant">Cant.</th>
+            <th class="col-price">Precio Ud.</th>
+            <th class="col-total">Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-code">01</td>
+            <td class="col-concept">
+              <strong>Desmontaje, retirada y gestión autorizada de cerramiento previo</strong><br>
+              Desmontaje minucioso del vallado existente en 80 metros lineales. Retirada de alambres, malla y postes dañados o corroídos por el ambiente costero. Acopio, carga, transporte y gestión ambiental en gestor autorizado de residuos de Menorca.
+            </td>
+            <td class="col-unit">ml</td>
+            <td class="col-cant">80,00</td>
+            <td class="col-price">35,00 €</td>
+            <td class="col-total">2.800,00 €</td>
+          </tr>
+          <tr>
+            <td class="col-code">02</td>
+            <td class="col-concept">
+              <strong>Postes metálicos tubulares galvanizados y plastificados verde (h=3,00 m)</strong><br>
+              Suministro y colocación de postes de acero galvanizado en caliente y revestidos por termolacado/plastificado poliéster verde RAL 6005 para altura vista de 3,00 m. Distribución de postes intermedios cada 2,50-3,00 m, postes de arranque, esquinas y tornapuntas de refuerzo diagonal. Incluye anclaje rígido mediante perforación / fijación a murete o zapata de hormigón.
+            </td>
+            <td class="col-unit">ml</td>
+            <td class="col-cant">80,00</td>
+            <td class="col-price">75,00 €</td>
+            <td class="col-total">6.000,00 €</td>
+          </tr>
+          <tr>
+            <td class="col-code">03</td>
+            <td class="col-concept">
+              <strong>Malla simple torsión h=3,00 m plastificada verde y accesorios de tesado</strong><br>
+              Suministro e instalación de malla romboidal de simple torsión galvanizada y plastificada en verde RAL 6005 de 3,00 m de altura. Tendido de 4 líneas longitudinales de alambre tensor plastificado de alta resistencia, tensores mecánicos M8 plastificados, varillas de tensión en postes extremos y grapado continuo galvanizado.
+            </td>
+            <td class="col-unit">ml</td>
+            <td class="col-cant">80,00</td>
+            <td class="col-price">65,00 €</td>
+            <td class="col-total">5.200,00 €</td>
+          </tr>
+          <tr>
+            <td class="col-code">04</td>
+            <td class="col-concept">
+              <strong>Mano de obra especializada de montaje, alineación, tesado y remates</strong><br>
+              Trabajos especializados de cuadrilla oficial de cerramientos: replanteo, plomado de postes, tesado uniforme de paños para asegurar verticalidad y resistencia al viento, ajuste de esquinas y remates de seguridad en todo el trazado.
+            </td>
+            <td class="col-unit">ml</td>
+            <td class="col-cant">80,00</td>
+            <td class="col-price">35,00 €</td>
+            <td class="col-total">2.800,00 €</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="totals-table">
+        <tr>
+          <td><strong>Base Imponible (80 ML @ 210,00 €/ML):</strong></td>
+          <td class="num"><strong>16.800,00 €</strong></td>
+        </tr>
+        <tr>
+          <td>IVA aplicable (21%):</td>
+          <td class="num">3.528,00 €</td>
+        </tr>
+        <tr class="total-final">
+          <td>TOTAL PRESUPUESTO (IVA INCL.):</td>
+          <td class="num">20.328,00 €</td>
+        </tr>
+      </table>
+
+      <div class="grid-2">
+        <div class="box">
+          <h3>Incluido en el Presupuesto</h3>
+          <ul>
+            <li>Desmontaje y retirada completa de la alambrada existente (80 ML).</li>
+            <li>Transporte de materiales a obra en Hotel Princesa Playa (Son Xoriguer).</li>
+            <li>Postes reforzados para 3 metros de altura con protección anticorrosión marina.</li>
+            <li>4 líneas de alambre tensor plastificado y tensores de acero galvanizado/plastificado.</li>
+            <li>Mano de obra cualificada de replanteo, aplomado, montaje y tensado.</li>
+            <li>Limpieza final de la zona de actuación y entrega terminada.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Condiciones del Servicio</h3>
+          <ul>
+            <li><strong>Validez de la oferta:</strong> 30 días naturales desde la fecha de emisión.</li>
+            <li><strong>Forma de pago:</strong> 80% a la aceptación del presupuesto y 20% a la finalización de los trabajos.</li>
+            <li><strong>Plazo de ejecución estimado:</strong> 4 a 6 días laborables tras recepción de materiales y replanteo de obra.</li>
+            <li><strong>Garantía:</strong> 1 año en materiales y montaje frente a defectos de fabricación o instalación.</li>
+            <li><strong>Exclusiones:</strong> Obra civil mayor o muros de contención nuevos no especificados; acometidas ajenas al vallado.</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <span><strong>HAM Estructuras Metálicas</strong> · Av. Circunval·lació, 11, Pol. Sant Lluís, 07710 Sant Lluís, Menorca</span>
+      <span>info@hamenorca.com · +34 971 35 20 18 / +34 669 769 541</span>
+    </footer>
+  </div>
+</body>
+</html>

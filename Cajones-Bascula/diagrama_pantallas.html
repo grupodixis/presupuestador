@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arquitectura de 4 Pantallas Maestras - Smart Cabinet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        darkMode: true,
+        background: '#0b132b',
+        primaryColor: '#1c2541',
+        primaryBorderColor: '#00f0ff',
+        primaryTextColor: '#f8fafc',
+        lineColor: '#38bdf8',
+        secondaryColor: '#1e293b',
+        tertiaryColor: '#0f172a'
+      }
+    });
+  </script>
+  <style>
+    :root {
+      --bg-main: #070c1a;
+      --bg-card: rgba(18, 28, 54, 0.75);
+      --border-card: rgba(56, 189, 248, 0.2);
+      --cyan: #00f0ff;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --purple: #a855f7;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at top right, #111f42 0%, var(--bg-main) 60%);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      padding: 40px 24px;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1400px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .badge-header {
+      display: inline-block;
+      background: rgba(0, 240, 255, 0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #ffffff 40%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .diagram-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 32px 24px;
+      margin-bottom: 48px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(16px);
+    }
+
+    .diagram-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mermaid {
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+
+    .grid-screens {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .screen-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 24px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .screen-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--cyan);
+    }
+
+    .screen-num {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      opacity: 0.15;
+      color: #ffffff;
+    }
+
+    .screen-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .tag-blue { background: rgba(0, 240, 255, 0.15); color: var(--cyan); border: 1px solid rgba(0, 240, 255, 0.3); }
+    .tag-amber { background: rgba(245, 158, 11, 0.15); color: var(--amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .tag-purple { background: rgba(168, 85, 247, 0.15); color: var(--purple); border: 1px solid rgba(168, 85, 247, 0.3); }
+    .tag-emerald { background: rgba(16, 185, 129, 0.15); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+
+    .screen-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .screen-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 16px;
+    }
+
+    .feature-list {
+      list-style: none;
+      font-size: 0.88rem;
+    }
+
+    .feature-list li {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .feature-list li::before {
+      content: "▹";
+      color: var(--cyan);
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge-header">Arquitectura de 4 Pantallas Maestras</div>
+      <h1>Smart Cabinet IoT: Arquitectura Definitiva</h1>
+      <p class="subtitle">Estructura limpia y desacoplada: Inventario centralizado en torno al producto con desglose de cajones y LED de ubicación (la tara se realiza en el propio cajón), pantalla de movimientos y conciliación, pedidos basados en suma de stock y pantalla de proveedores para configurar los canales de disparo.</p>
+    </header>
+
+    <div class="diagram-card">
+      <div class="diagram-title">
+        <span>🗺️</span> Flujo de Datos y Navegación entre las 4 Pantallas
+      </div>
+      <div class="mermaid">
+flowchart TD
+    %% Hardware
+    subgraph HW ["🔌 CAPA HARDWARE & CONTROL"]
+        Sensors["200 Básculas HX711"] -->|ΔPeso en tiempo real| GW["Gateway Raspberry Pi"]
+        GW -->|Control Pick Light| LEDs["200 LEDs de Ubicación en Cajones"]
+        DrawerTara["Botón Físico de Tara en cada Cajón"] -.->|Puesta a cero directa| Sensors
+    end
+
+    %% P1
+    subgraph P1 ["PANTALLA 01: INVENTARIO (Fusión 01 y 03)"]
+        Search["🔍 BUSCADOR de Producto o SKU"]
+        Prod["Fila de Producto:\n• Stock Total Consolidado (Σ Cajones)\n• Desglose de Cajones asociados"]
+        PickLightBtn["💡 Botón: LED de Ubicación (por cajón)"]
+        Search --> Prod --> PickLightBtn ==>|Enciende luz física| LEDs
+    end
+
+    %% P2
+    subgraph P2 ["PANTALLA 02: MOVIMIENTOS & CONFLICTOS"]
+        Tab1["1. MOVIMIENTOS (Histórico)"]
+        Tab2["2. SIN ASIGNAR (Select Múltiple + Asignar a OT/Proyecto)"]
+        Tab3["3. CONFLICTOS (Gramos que no encajan / Desfase)"]
+        BtnRetara["⚖️ Botón RETARA (Puesta a cero remota)"]
+        Tab3 --> BtnRetara
+    end
+
+    %% P3
+    subgraph P3 ["PANTALLA 03: PEDIDOS Y STOCK MÍNIMO"]
+        Thresholds["Asignación por Producto:\n• Producto (Stock Σ Cajones)\n• Proveedor asignado\n• Método asignado\n• QT Mínimo (Umbral de reposición)"]
+        TriggerOrder["🚀 Botón: Emitir Pedidos Bajo Mínimo"]
+        Thresholds --> TriggerOrder
+    end
+
+    %% P4
+    subgraph P4 ["PANTALLA 04: PROVEEDORES & CANALES (Nueva)"]
+        SuppliersList["Catálogo de Proveedores (Wurth, Hoffmann, etc.)"]
+        ChannelSettings["Configuración de Canales de Disparo:\n⚡ Canal Automático: API Endpoint / Webhook / EDI\n📧 Canal Email: Destinatarios / Plantilla PDF\n💬 Canal WhatsApp: Teléfono delegado / Confirmación 1-click\n• Condiciones comerciales (Lead Time, Pedido Mínimo €)"]
+        SuppliersList --> ChannelSettings
+    end
+
+    %% Conexiones
+    GW ==>|Pesaje exacto en cajón| Tab2
+    GW ==>|Pesaje anómalo con desfase| Tab3
+    GW -.->|Actualiza peso en vivo| Prod
+    Prod -.->|Suma de stock de todos los cajones < QT Mínimo| Thresholds
+    P4 -.->|Provee canales de comunicación configurados a| TriggerOrder
+      </div>
+    </div>
+
+    <div class="grid-screens">
+      <!-- P1 -->
+      <div class="screen-item">
+        <div class="screen-num">01</div>
+        <span class="screen-tag tag-blue">Operativa & Localización</span>
+        <h2 class="screen-title">Pantalla 01: Inventario</h2>
+        <p class="screen-desc">Fusión completa de la lista de cajones y el inventario general. Estructurada en torno al producto.</p>
+        <ul class="feature-list">
+          <li><strong>Visión de producto:</strong> Muestra el stock total consolidado de cada referencia sumando todos sus cajones.</li>
+          <li><strong>Desglose multicajón:</strong> Muestra qué cajones contienen el producto (ej. C-42 y D-15) con su peso y unidades.</li>
+          <li><strong>💡 LED de Ubicación:</strong> Botón por fila de cajón para encender físicamente el LED en el mueble.</li>
+          <li><strong>Tara física:</strong> La tara se efectúa directamente desde el pulsador físico del propio cajón.</li>
+        </ul>
+      </div>
+
+      <!-- P2 -->
+      <div class="screen-item">
+        <div class="screen-num">02</div>
+        <span class="screen-tag tag-amber">Trazabilidad & Auditoría</span>
+        <h2 class="screen-title">Pantalla 02: Movimientos & Conflictos</h2>
+        <p class="screen-desc">Control y conciliación de eventos físicos registrados por las básculas en segundo plano.</p>
+        <ul class="feature-list">
+          <li><strong>Movimientos:</strong> Log histórico cronológico de extracciones y entradas.</li>
+          <li><strong>Sin Asignar:</strong> Cola de pesajes con <strong>select múltiple</strong> y botón <strong>Asignar a OT/Proyecto</strong>.</li>
+          <li><strong>Conflictos:</strong> Muestra los <strong>gramos que no encajan</strong> (ej. <code>⚠️ +2.6 g no encajan</code>).</li>
+          <li><strong>Botón RETARA:</strong> Corrección remota de tara ante suciedad acumulada.</li>
+        </ul>
+      </div>
+
+      <!-- P3 -->
+      <div class="screen-item">
+        <div class="screen-num">03</div>
+        <span class="screen-tag tag-purple">Aprovisionamiento</span>
+        <h2 class="screen-title">Pantalla 03: Pedidos y Stock Mínimo</h2>
+        <p class="screen-desc">Asignación de reglas de compra y disparo de reposición para referencias bajo mínimo.</p>
+        <ul class="feature-list">
+          <li><strong>Columnas exactas:</strong> <strong>Producto</strong>, <strong>Proveedor</strong>, <strong>Método</strong> y <strong>QT Mínimo</strong>.</li>
+          <li><strong>Regla sumatoria:</strong> Compara la <strong>suma de todos los cajones</strong> del producto contra la QT Mínima.</li>
+          <li><strong>Pedido unificado:</strong> Genera un único pedido por referencia (no pedidos duplicados por cajón).</li>
+          <li><strong>Botón de emisión:</strong> Dispara los pedidos a los proveedores usando el canal configurado.</li>
+        </ul>
+      </div>
+
+      <!-- P4 -->
+      <div class="screen-item">
+        <div class="screen-num">04</div>
+        <span class="screen-tag tag-emerald">Configuración Canales</span>
+        <h2 class="screen-title">Pantalla 04: Proveedores</h2>
+        <p class="screen-desc">Mantenimiento de distribuidores y configuración técnica de los canales de disparo de pedidos.</p>
+        <ul class="feature-list">
+          <li><strong>⚡ Canal Automático:</strong> Endpoint API, Webhook token y formato de payload (JSON, cXML).</li>
+          <li><strong>📧 Canal Email:</strong> Dirección de pedidos del proveedor, copia a compras y adjunto de PDF.</li>
+          <li><strong>💬 Canal WhatsApp:</strong> Teléfono del delegado comercial y plantilla con botón de confirmación en 1-click.</li>
+          <li><strong>Condiciones comerciales:</strong> Plazo de entrega (Lead Time) y pedido mínimo (€).</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      <p>Sistema Modular de Almacén Inteligente · Arquitectura Front-End Raspberry Pi · 2026</p>
+    </footer>
+  </div>
+</body>
+</html>
