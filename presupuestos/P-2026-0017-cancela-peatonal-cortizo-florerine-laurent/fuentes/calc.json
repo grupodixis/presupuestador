@@ -1,0 +1,736 @@
+{
+ "params": {
+  "eur_kg": 9.0,
+  "ral_extra": 2.0,
+  "hour": 40.0,
+  "hour_m": 45.0,
+  "transport": 100.0,
+  "gg": 15.0,
+  "mg": 20.0,
+  "motor_mat": 570,
+  "motor_h": 5,
+  "margin": 1.4375,
+  "LC": 3585,
+  "LP": 905,
+  "HP": 1780,
+  "ALTO": 1800,
+  "tubo_kg_m": 1.2528
+ },
+ "variants": {
+  "portales": {
+   "cancela": {
+    "rows": [
+     {
+      "ref": "COR-2245",
+      "desc": "Hoja para portales 101x50",
+      "m": 10.77,
+      "kg_m": 2.4327,
+      "kg": 26.2
+     },
+     {
+      "ref": "COR-2240",
+      "desc": "Guía hoja portal corredera",
+      "m": 3.58,
+      "kg_m": 1.1421,
+      "kg": 4.1
+     },
+     {
+      "ref": "COR-2205",
+      "desc": "Perfil emboque portales",
+      "m": 1.8,
+      "kg_m": 2.9781,
+      "kg": 5.4
+     },
+     {
+      "ref": "COR-2243",
+      "desc": "Travesaño/montante portales 101x50",
+      "m": 3.42,
+      "kg_m": 2.5272,
+      "kg": 8.7
+     },
+     {
+      "ref": "COR-2290",
+      "desc": "Lama apilable 200x20",
+      "m": 26.81,
+      "kg_m": 2.0439,
+      "kg": 54.8
+     }
+    ],
+    "kg_neto": 99.2,
+    "kg_merma": 109.1,
+    "info": {
+     "lamas": 17,
+     "campos": 2
+    }
+   },
+   "peatonal": {
+    "rows": [
+     {
+      "ref": "COR-2245",
+      "desc": "Hoja para portales 101x50",
+      "m": 5.37,
+      "kg_m": 2.4327,
+      "kg": 13.1
+     },
+     {
+      "ref": "COR-2222",
+      "desc": "Marco para portales 56,4x70",
+      "m": 4.58,
+      "kg_m": 1.728,
+      "kg": 7.9
+     },
+     {
+      "ref": "COR-2243",
+      "desc": "Travesaño/montante portales 101x50",
+      "m": 0.74,
+      "kg_m": 2.5272,
+      "kg": 1.9
+     },
+     {
+      "ref": "COR-2290",
+      "desc": "Lama apilable 200x20",
+      "m": 6.23,
+      "kg_m": 2.0439,
+      "kg": 12.7
+     }
+    ],
+    "kg_neto": 35.6,
+    "kg_merma": 39.2,
+    "info": {
+     "lamas": 4,
+     "campos": 2
+    }
+   },
+   "kg_total": 148.3,
+   "colors": {
+    "blanco": {
+     "name": "Blanco RAL 9016",
+     "lines": [
+      [
+       "Perfilería aluminio lacado Seaside (148.3 kg con merma 10 % × 9.00 €/kg)",
+       1334.7
+      ],
+      [
+       "Herrajes rodadura inox AISI 316 (carril, 2 ruedas, puente guía, tope)",
+       420
+      ],
+      [
+       "Cerrajería corredera (cerradura gancho, bombillo, pasador)",
+       110
+      ],
+      [
+       "Herraje peatonal: cerradura + bombillo + manilla (P-0016) y bisagras 3 palas (ref. skill)",
+       215
+      ],
+      [
+       "Tornillería inox A2/A4, escuadras, juntas y sellado MS",
+       100
+      ],
+      [
+       "Mano de obra taller (16.5 h × 40 €/h)",
+       660.0
+      ],
+      [
+       "Desmontaje cancela, peatonal y motor existentes (5 h × 45 €/h)",
+       225.0
+      ],
+      [
+       "Montaje en obra cancela + peatonal (14 h × 45 €/h)",
+       630.0
+      ]
+     ],
+     "cost": 3694.7,
+     "motor_cost": 795.0,
+     "sale_puertas": 5411.13,
+     "motor": 1142.81,
+     "base": 6553.94,
+     "iva": 1376.33,
+     "total": 7930.27
+    },
+    "antracita": {
+     "name": "Gris antracita RAL 7016",
+     "lines": [
+      [
+       "Perfilería aluminio lacado Seaside (148.3 kg con merma 10 % × 11.00 €/kg)",
+       1631.3
+      ],
+      [
+       "Herrajes rodadura inox AISI 316 (carril, 2 ruedas, puente guía, tope)",
+       420
+      ],
+      [
+       "Cerrajería corredera (cerradura gancho, bombillo, pasador)",
+       110
+      ],
+      [
+       "Herraje peatonal: cerradura + bombillo + manilla (P-0016) y bisagras 3 palas (ref. skill)",
+       215
+      ],
+      [
+       "Tornillería inox A2/A4, escuadras, juntas y sellado MS",
+       100
+      ],
+      [
+       "Mano de obra taller (16.5 h × 40 €/h)",
+       660.0
+      ],
+      [
+       "Desmontaje cancela, peatonal y motor existentes (5 h × 45 €/h)",
+       225.0
+      ],
+      [
+       "Montaje en obra cancela + peatonal (14 h × 45 €/h)",
+       630.0
+      ]
+     ],
+     "cost": 3991.3,
+     "motor_cost": 795.0,
+     "sale_puertas": 5837.49,
+     "motor": 1142.81,
+     "base": 6980.3,
+     "iva": 1465.86,
+     "total": 8446.16
+    },
+    "verde": {
+     "name": "Verde carruaje",
+     "lines": [
+      [
+       "Perfilería aluminio lacado Seaside (148.3 kg con merma 10 % × 11.00 €/kg)",
+       1631.3
+      ],
+      [
+       "Herrajes rodadura inox AISI 316 (carril, 2 ruedas, puente guía, tope)",
+       420
+      ],
+      [
+       "Cerrajería corredera (cerradura gancho, bombillo, pasador)",
+       110
+      ],
+      [
+       "Herraje peatonal: cerradura + bombillo + manilla (P-0016) y bisagras 3 palas (ref. skill)",
+       215
+      ],
+      [
+       "Tornillería inox A2/A4, escuadras, juntas y sellado MS",
+       100
+      ],
+      [
+       "Mano de obra taller (16.5 h × 40 €/h)",
+       660.0
+      ],
+      [
+       "Desmontaje cancela, peatonal y motor existentes (5 h × 45 €/h)",
+       225.0
+      ],
+      [
+       "Montaje en obra cancela + peatonal (14 h × 45 €/h)",
+       630.0
+      ]
+     ],
+     "cost": 3991.3,
+     "motor_cost": 795.0,
+     "sale_puertas": 5837.49,
+     "motor": 1142.81,
+     "base": 6980.3,
+     "iva": 1465.86,
+     "total": 8446.16
+    }
+   }
+  },
+  "mallorquina": {
+   "cancela": {
+    "rows": [
+     {
+      "ref": "COR-2245",
+      "desc": "Hoja para portales 101x50",
+      "m": 10.77,
+      "kg_m": 2.4327,
+      "kg": 26.2
+     },
+     {
+      "ref": "COR-2240",
+      "desc": "Guía hoja portal corredera",
+      "m": 3.58,
+      "kg_m": 1.1421,
+      "kg": 4.1
+     },
+     {
+      "ref": "COR-2205",
+      "desc": "Perfil emboque portales",
+      "m": 1.8,
+      "kg_m": 2.9781,
+      "kg": 5.4
+     },
+     {
+      "ref": "COR-2243",
+      "desc": "Travesaño/montante portales 101x50",
+      "m": 3.28,
+      "kg_m": 2.5272,
+      "kg": 8.3
+     },
+     {
+      "ref": "729",
+      "desc": "Marco lama fija (Mallorquina)",
+      "m": 16.29,
+      "kg_m": 0.7209,
+      "kg": 11.7
+     },
+     {
+      "ref": "11494",
+      "desc": "Complemento (Mallorquina)",
+      "m": 14.97,
+      "kg_m": 0.27,
+      "kg": 4.0
+     },
+     {
+      "ref": "COR-2440",
+      "desc": "Lama fija rigidizadora 50,3x10,5",
+      "m": 105.23,
+      "kg_m": 0.3996,
+      "kg": 42.0
+     },
+     {
+      "ref": "11495",
+      "desc": "Media lama (Mallorquina)",
+      "m": 6.0,
+      "kg_m": 0.4455,
+      "kg": 2.7
+     }
+    ],
+    "kg_neto": 104.4,
+    "kg_merma": 114.8,
+    "info": {
+     "paneles": 3,
+     "ancho_panel": 1060,
+     "lamas_por_panel": 36,
+     "lama": "COR-2440",
+     "portalamas_300355": 114,
+     "escuadras_920347": 12
+    }
+   },
+   "peatonal": {
+    "rows": [
+     {
+      "ref": "COR-2245",
+      "desc": "Hoja para portales 101x50",
+      "m": 5.37,
+      "kg_m": 2.4327,
+      "kg": 13.1
+     },
+     {
+      "ref": "COR-2222",
+      "desc": "Marco para portales 56,4x70",
+      "m": 4.58,
+      "kg_m": 1.728,
+      "kg": 7.9
+     },
+     {
+      "ref": "729",
+      "desc": "Marco lama fija (Mallorquina)",
+      "m": 4.67,
+      "kg_m": 0.7209,
+      "kg": 3.4
+     },
+     {
+      "ref": "11494",
+      "desc": "Complemento (Mallorquina)",
+      "m": 4.23,
+      "kg_m": 0.27,
+      "kg": 1.1
+     },
+     {
+      "ref": "COR-440",
+      "desc": "Lama fija 50,3x10,5",
+      "m": 22.21,
+      "kg_m": 0.3537,
+      "kg": 7.9
+     },
+     {
+      "ref": "11495",
+      "desc": "Media lama (Mallorquina)",
+      "m": 1.29,
+      "kg_m": 0.4455,
+      "kg": 0.6
+     }
+    ],
+    "kg_neto": 34.0,
+    "kg_merma": 37.4,
+    "info": {
+     "paneles": 1,
+     "ancho_panel": 703,
+     "lamas_por_panel": 36,
+     "lama": "COR-440",
+     "portalamas_300355": 38,
+     "escuadras_920347": 4
+    }
+   },
+   "kg_total": 152.2,
+   "colors": {
+    "blanco": {
+     "name": "Blanco RAL 9016",
+     "lines": [
+      [
+       "Perfilería aluminio lacado Seaside (152.2 kg con merma 10 % × 9.00 €/kg)",
+       1369.8
+      ],
+      [
+       "Herrajes rodadura inox AISI 316 (carril, 2 ruedas, puente guía, tope)",
+       420
+      ],
+      [
+       "Cerrajería corredera (cerradura gancho, bombillo, pasador)",
+       110
+      ],
+      [
+       "Herraje peatonal: cerradura + bombillo + manilla (P-0016) y bisagras 3 palas (ref. skill)",
+       215
+      ],
+      [
+       "Tornillería inox A2/A4, escuadras, juntas y sellado MS",
+       100
+      ],
+      [
+       "Accesorios Mallorquina (portalamas 300355, escuadras 920347)",
+       436.0
+      ],
+      [
+       "Mano de obra taller (21 h × 40 €/h)",
+       840.0
+      ],
+      [
+       "Desmontaje cancela, peatonal y motor existentes (5 h × 45 €/h)",
+       225.0
+      ],
+      [
+       "Montaje en obra cancela + peatonal (14 h × 45 €/h)",
+       630.0
+      ]
+     ],
+     "cost": 4345.8,
+     "motor_cost": 795.0,
+     "sale_puertas": 6347.09,
+     "motor": 1142.81,
+     "base": 7489.9,
+     "iva": 1572.88,
+     "total": 9062.78
+    },
+    "antracita": {
+     "name": "Gris antracita RAL 7016",
+     "lines": [
+      [
+       "Perfilería aluminio lacado Seaside (152.2 kg con merma 10 % × 11.00 €/kg)",
+       1674.2
+      ],
+      [
+       "Herrajes rodadura inox AISI 316 (carril, 2 ruedas, puente guía, tope)",
+       420
+      ],
+      [
+       "Cerrajería corredera (cerradura gancho, bombillo, pasador)",
+       110
+      ],
+      [
+       "Herraje peatonal: cerradura + bombillo + manilla (P-0016) y bisagras 3 palas (ref. skill)",
+       215
+      ],
+      [
+       "Tornillería inox A2/A4, escuadras, juntas y sellado MS",
+       100
+      ],
+      [
+       "Accesorios Mallorquina (portalamas 300355, escuadras 920347)",
+       436.0
+      ],
+      [
+       "Mano de obra taller (21 h × 40 €/h)",
+       840.0
+      ],
+      [
+       "Desmontaje cancela, peatonal y motor existentes (5 h × 45 €/h)",
+       225.0
+      ],
+      [
+       "Montaje en obra cancela + peatonal (14 h × 45 €/h)",
+       630.0
+      ]
+     ],
+     "cost": 4650.2,
+     "motor_cost": 795.0,
+     "sale_puertas": 6784.66,
+     "motor": 1142.81,
+     "base": 7927.47,
+     "iva": 1664.77,
+     "total": 9592.24
+    },
+    "verde": {
+     "name": "Verde carruaje",
+     "lines": [
+      [
+       "Perfilería aluminio lacado Seaside (152.2 kg con merma 10 % × 11.00 €/kg)",
+       1674.2
+      ],
+      [
+       "Herrajes rodadura inox AISI 316 (carril, 2 ruedas, puente guía, tope)",
+       420
+      ],
+      [
+       "Cerrajería corredera (cerradura gancho, bombillo, pasador)",
+       110
+      ],
+      [
+       "Herraje peatonal: cerradura + bombillo + manilla (P-0016) y bisagras 3 palas (ref. skill)",
+       215
+      ],
+      [
+       "Tornillería inox A2/A4, escuadras, juntas y sellado MS",
+       100
+      ],
+      [
+       "Accesorios Mallorquina (portalamas 300355, escuadras 920347)",
+       436.0
+      ],
+      [
+       "Mano de obra taller (21 h × 40 €/h)",
+       840.0
+      ],
+      [
+       "Desmontaje cancela, peatonal y motor existentes (5 h × 45 €/h)",
+       225.0
+      ],
+      [
+       "Montaje en obra cancela + peatonal (14 h × 45 €/h)",
+       630.0
+      ]
+     ],
+     "cost": 4650.2,
+     "motor_cost": 795.0,
+     "sale_puertas": 6784.66,
+     "motor": 1142.81,
+     "base": 7927.47,
+     "iva": 1664.77,
+     "total": 9592.24
+    }
+   }
+  },
+  "rejas": {
+   "cancela": {
+    "rows": [
+     {
+      "ref": "COR-2245",
+      "desc": "Hoja para portales 101x50",
+      "m": 10.77,
+      "kg_m": 2.4327,
+      "kg": 26.2
+     },
+     {
+      "ref": "COR-2240",
+      "desc": "Guía hoja portal corredera",
+      "m": 3.58,
+      "kg_m": 1.1421,
+      "kg": 4.1
+     },
+     {
+      "ref": "COR-2205",
+      "desc": "Perfil emboque portales",
+      "m": 1.8,
+      "kg_m": 2.9781,
+      "kg": 5.4
+     },
+     {
+      "ref": "COR-2265",
+      "desc": "Soporte para barrotes",
+      "m": 6.77,
+      "kg_m": 0.378,
+      "kg": 2.6
+     },
+     {
+      "ref": "TUBO-100x20x2",
+      "desc": "Tubo rectangular 100x20x2 (no Cortizo)",
+      "m": 26.21,
+      "kg_m": 1.2528,
+      "kg": 32.8
+     }
+    ],
+    "kg_neto": 71.1,
+    "kg_merma": 78.2,
+    "info": {
+     "tubos": 16,
+     "hueco_libre_mm": 104.9
+    }
+   },
+   "peatonal": {
+    "rows": [
+     {
+      "ref": "COR-2245",
+      "desc": "Hoja para portales 101x50",
+      "m": 5.37,
+      "kg_m": 2.4327,
+      "kg": 13.1
+     },
+     {
+      "ref": "COR-2222",
+      "desc": "Marco para portales 56,4x70",
+      "m": 4.58,
+      "kg_m": 1.728,
+      "kg": 7.9
+     },
+     {
+      "ref": "COR-2265",
+      "desc": "Soporte para barrotes",
+      "m": 1.41,
+      "kg_m": 0.378,
+      "kg": 0.5
+     },
+     {
+      "ref": "TUBO-100x20x2",
+      "desc": "Tubo rectangular 100x20x2 (no Cortizo)",
+      "m": 4.85,
+      "kg_m": 1.2528,
+      "kg": 6.1
+     }
+    ],
+    "kg_neto": 27.6,
+    "kg_merma": 30.4,
+    "info": {
+     "tubos": 3,
+     "hueco_libre_mm": 100.8
+    }
+   },
+   "kg_total": 108.6,
+   "colors": {
+    "blanco": {
+     "name": "Blanco RAL 9016",
+     "lines": [
+      [
+       "Perfilería aluminio lacado Seaside (108.6 kg con merma 10 % × 9.00 €/kg)",
+       977.4
+      ],
+      [
+       "Herrajes rodadura inox AISI 316 (carril, 2 ruedas, puente guía, tope)",
+       420
+      ],
+      [
+       "Cerrajería corredera (cerradura gancho, bombillo, pasador)",
+       110
+      ],
+      [
+       "Herraje peatonal: cerradura + bombillo + manilla (P-0016) y bisagras 3 palas (ref. skill)",
+       215
+      ],
+      [
+       "Tornillería inox A2/A4, escuadras, juntas y sellado MS",
+       100
+      ],
+      [
+       "Mano de obra taller (15.5 h × 40 €/h)",
+       620.0
+      ],
+      [
+       "Desmontaje cancela, peatonal y motor existentes (5 h × 45 €/h)",
+       225.0
+      ],
+      [
+       "Montaje en obra cancela + peatonal (14 h × 45 €/h)",
+       630.0
+      ]
+     ],
+     "cost": 3297.4,
+     "motor_cost": 795.0,
+     "sale_puertas": 4840.01,
+     "motor": 1142.81,
+     "base": 5982.82,
+     "iva": 1256.39,
+     "total": 7239.21
+    },
+    "antracita": {
+     "name": "Gris antracita RAL 7016",
+     "lines": [
+      [
+       "Perfilería aluminio lacado Seaside (108.6 kg con merma 10 % × 11.00 €/kg)",
+       1194.6
+      ],
+      [
+       "Herrajes rodadura inox AISI 316 (carril, 2 ruedas, puente guía, tope)",
+       420
+      ],
+      [
+       "Cerrajería corredera (cerradura gancho, bombillo, pasador)",
+       110
+      ],
+      [
+       "Herraje peatonal: cerradura + bombillo + manilla (P-0016) y bisagras 3 palas (ref. skill)",
+       215
+      ],
+      [
+       "Tornillería inox A2/A4, escuadras, juntas y sellado MS",
+       100
+      ],
+      [
+       "Mano de obra taller (15.5 h × 40 €/h)",
+       620.0
+      ],
+      [
+       "Desmontaje cancela, peatonal y motor existentes (5 h × 45 €/h)",
+       225.0
+      ],
+      [
+       "Montaje en obra cancela + peatonal (14 h × 45 €/h)",
+       630.0
+      ]
+     ],
+     "cost": 3514.6,
+     "motor_cost": 795.0,
+     "sale_puertas": 5152.24,
+     "motor": 1142.81,
+     "base": 6295.05,
+     "iva": 1321.96,
+     "total": 7617.01
+    },
+    "verde": {
+     "name": "Verde carruaje",
+     "lines": [
+      [
+       "Perfilería aluminio lacado Seaside (108.6 kg con merma 10 % × 11.00 €/kg)",
+       1194.6
+      ],
+      [
+       "Herrajes rodadura inox AISI 316 (carril, 2 ruedas, puente guía, tope)",
+       420
+      ],
+      [
+       "Cerrajería corredera (cerradura gancho, bombillo, pasador)",
+       110
+      ],
+      [
+       "Herraje peatonal: cerradura + bombillo + manilla (P-0016) y bisagras 3 palas (ref. skill)",
+       215
+      ],
+      [
+       "Tornillería inox A2/A4, escuadras, juntas y sellado MS",
+       100
+      ],
+      [
+       "Mano de obra taller (15.5 h × 40 €/h)",
+       620.0
+      ],
+      [
+       "Desmontaje cancela, peatonal y motor existentes (5 h × 45 €/h)",
+       225.0
+      ],
+      [
+       "Montaje en obra cancela + peatonal (14 h × 45 €/h)",
+       630.0
+      ]
+     ],
+     "cost": 3514.6,
+     "motor_cost": 795.0,
+     "sale_puertas": 5152.24,
+     "motor": 1142.81,
+     "base": 6295.05,
+     "iva": 1321.96,
+     "total": 7617.01
+    }
+   }
+  }
+ }
+}

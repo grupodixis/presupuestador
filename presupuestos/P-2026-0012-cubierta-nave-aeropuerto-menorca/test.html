@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+body { margin: 0; padding: 0; font-family: sans-serif; }
+.sheet { width: 210mm; height: 277mm; break-after: page; padding: 10mm; } .sheet:last-child { break-after: avoid; }
+</style>
+</head>
+<body>
+<div class="sheet" style="background:#eee;"><h1>Page 1</h1></div>
+<div class="sheet" style="background:#ddd;"><h1>Page 2</h1></div>
+<div class="sheet" style="background:#ccc;"><h1>Page 3</h1></div>
+</body>
+</html>

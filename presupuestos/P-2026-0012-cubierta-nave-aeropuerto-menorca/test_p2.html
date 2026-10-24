@@ -1,0 +1,318 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    @page { size: A4 portrait; margin: 0; }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body { margin: 0; padding: 0; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; font-size: 8.8px; line-height: 1.25; }
+    .page-container { width: 210mm; margin: 0; background: #fff; }
+    .sheet { width: 210mm; height: 290mm; max-height: 290mm; overflow: hidden; padding: 0; background: #fff; display: flex; flex-direction: column; justify-content: space-between; }
+    header { background: #18201d; color: #fff; padding: 7mm 10mm 5mm; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; flex-shrink: 0; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .logo { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.28); border-radius: 8px; padding: 4px; background: rgba(255,255,255,0.05); }
+    h1 { margin: 0; font-size: 16px; letter-spacing: -.03em; line-height: 1.1; font-weight: 700; color: #fff; }
+    .subtitle { margin: 2px 0 0; color: #cbd5d1; font-size: 9.5px; }
+    .meta { text-align: right; color: #dce5e0; font-size: 9px; line-height: 1.25; }
+    .meta strong { color: #fff; display: block; font-size: 11px; margin-bottom: 2px; }
+    .content { padding: 5mm 10mm 4mm; flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-start; }
+    .summary { border: 1px solid #d9dedb; border-radius: 7px; padding: 6px 10px; margin-bottom: 6px; background: #faf8f2; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
+    .summary-text h3 { margin: 0 0 2px; font-size: 10.5px; color: #18201d; text-transform: uppercase; letter-spacing: 0.05em; }
+    .summary-text p { margin: 0; color: #4a5568; font-size: 9px; line-height: 1.3; }
+    .price-box { text-align: right; border-left: 2px solid #e2e8f0; padding-left: 12px; min-width: 155px; }
+    .price-box span { font-size: 8.5px; text-transform: uppercase; color: #718096; letter-spacing: 0.05em; display: block; }
+    .price-box b { display: block; font-size: 18px; color: #8b2f16; letter-spacing: -.03em; margin: 1px 0; }
+    .price-box small { font-size: 8.5px; color: #4a5568; }
+    h2 { margin: 6px 0 3px; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: #18201d; border-bottom: 1.2px solid #18201d; padding-bottom: 2px; }
+    h3.chap-title { background: #27312f; color: #fff; padding: 3px 6px; font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.05em; margin: 4px 0 0; border-radius: 3px 3px 0 0; }
+    table { width: 100%; border-collapse: collapse; margin: 0 0 4px; font-size: 8.5px; }
+    th { background: #27312f; color: #fff; text-align: left; padding: 3px 5px; font-size: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+    th.num, td.num { text-align: right; white-space: nowrap; }
+    th.center, td.center { text-align: center; }
+    td { border-bottom: 1px solid #e2e8f0; padding: 2.8px 5px; vertical-align: top; color: #2d3748; line-height: 1.2; }
+    tr:nth-child(even) td { background: #fcfdfd; }
+    tr.subtotal-row td { background: #f1f5f9; font-weight: bold; color: #1a202c; border-top: 1px solid #cbd5e1; border-bottom: 1.2px solid #94a3b8; padding: 2.8px 5px; }
+    .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 5px 0; }
+    .img-card { border: 1px solid #e2e8f0; border-radius: 5px; overflow: hidden; background: #f8fafc; }
+    .img-card img { width: 100%; height: 105px; object-fit: cover; display: block; }
+    .img-caption { padding: 3px 6px; font-size: 8px; color: #64748b; background: #f8fafc; border-top: 1px solid #e2e8f0; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
+    .box { border: 1px solid #d9dedb; border-radius: 5px; padding: 4px 8px; background: #fff; }
+    .box h4 { margin: 0 0 2px; font-size: 8.8px; text-transform: uppercase; color: #18201d; letter-spacing: 0.04em; }
+    ul { margin: 2px 0 0 12px; padding: 0; }
+    li { margin: 1px 0; color: #4a5568; font-size: 8.2px; }
+    footer { padding: 2.5mm 10mm 3.5mm; border-top: 1px solid #cbd5e1; color: #64748b; font-size: 8px; display: flex; justify-content: space-between; gap: 10px; flex-shrink: 0; background: #fff; }
+    .signature-box { margin-top: 5px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .sig-card { border: 1px dashed #cbd5e1; border-radius: 5px; padding: 5px 8px; min-height: 50px; }
+    .sig-card span { font-size: 8px; font-weight: bold; color: #475569; display: block; }
+  </style>
+</head>
+<body>
+<div class="page-container">
+<section class="sheet">
+      <header>
+        <div class="brand">
+          <img class="logo" src="logo-ham.svg" alt="HAM">
+          <div>
+            <h1>PRESUPUESTO Y MEDICIONES DETALLADAS</h1>
+            <p class="subtitle">Desglose de Unidades de Obra y Partidas de Ejecución</p>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>HAM Estructuras Metálicas</strong>
+          Ref: <b>ANT-2026-0827-AERO</b><br>
+          Cliente: Aviapartner Menorca
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- CAPITULO 1 -->
+        <h3 class="chap-title">CAPÍTULO 01 · TRABAJOS PREVIOS, SEGURIDAD Y TRAMITACIÓN LADO AIRE (AENA)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>01.01</b></td>
+              <td>Tramitación de acreditaciones de seguridad AENA, cursos AVSEC de operarios, autorizaciones de vehículos y maquinaria especial para acceso a plataforma y Lado Aire.</td>
+              <td class="center">PA</td>
+              <td class="num">1,20</td>
+              <td class="num">2.800,00 €</td>
+              <td class="num">3.360,00 €</td>
+            </tr>
+            <tr>
+              <td><b>01.02</b></td>
+              <td>Suministro, montaje y posterior desmontaje de redes de seguridad anticaídas bajo cubierta fijadas a correas metálicas, para protección colectiva continua de operarios.</td>
+              <td class="center">m²</td>
+              <td class="num">1.950,00</td>
+              <td class="num">4,20 €</td>
+              <td class="num">8.190,00 €</td>
+            </tr>
+            <tr>
+              <td><b>01.03</b></td>
+              <td>Balizamiento perimetral en zona de maniobra, control de residuos ligeros volátiles (protocolo FOD) y líneas de anclaje provisionales de montaje.</td>
+              <td class="center">PA</td>
+              <td class="num">1,20</td>
+              <td class="num">1.850,00 €</td>
+              <td class="num">2.220,00 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 01:</td>
+              <td class="num">13.770,00 €</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- CAPITULO 2 -->
+        <h3 class="chap-title">CAPÍTULO 02 · DESMONTAJE Y GESTIÓN DE RESIDUOS</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>02.01</b></td>
+              <td>Desmontaje manual y mecánico de cubierta dañada existente (panel sándwich y placas translúcidas), desatornillado ordenado y acopio en cubierta.</td>
+              <td class="center">m²</td>
+              <td class="num">1.950,00</td>
+              <td class="num">7,80 €</td>
+              <td class="num">15.210,00 €</td>
+            </tr>
+            <tr>
+              <td><b>02.02</b></td>
+              <td>Desmontaje de chapas de petos exteriores, panel de peto interior, rematería y canalones viejos deteriorados.</td>
+              <td class="center">m²</td>
+              <td class="num">794,88</td>
+              <td class="num">6,50 €</td>
+              <td class="num">5.166,72 €</td>
+            </tr>
+            <tr>
+              <td><b>02.03</b></td>
+              <td>Bajada controlada de material retirado desde cubierta a cota cero mediante camión grúa / manipulador telescópico homologado.</td>
+              <td class="center">h</td>
+              <td class="num">72,00</td>
+              <td class="num">95,00 €</td>
+              <td class="num">6.840,00 €</td>
+            </tr>
+            <tr>
+              <td><b>02.04</b></td>
+              <td>Carga en contenedores estancos, transporte a planta autorizada de Menorca y abono de tasas de gestión y reciclaje de residuos no peligrosos.</td>
+              <td class="center">t</td>
+              <td class="num">48,00</td>
+              <td class="num">110,00 €</td>
+              <td class="num">5.280,00 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 02:</td>
+              <td class="num">32.496,72 €</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- CAPITULO 3 -->
+        <h3 class="chap-title">CAPÍTULO 03 · SUMINISTRO E INSTALACIÓN DE NUEVA CUBIERTA Y LUCERNARIOS</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>03.01</b></td>
+              <td><b>Panel sándwich de cubierta de 50 mm de espesor</b>, chapa exterior grecada lacada con recubrimiento especial marino, núcleo rígido aislante PIR/PUR y chapa interior blanco pirineo. Incluye flete marítimo a Menorca.</td>
+              <td class="center">m²</td>
+              <td class="num">1.755,00</td>
+              <td class="num">55,00 €</td>
+              <td class="num">96.525,00 €</td>
+            </tr>
+            <tr>
+              <td><b>03.02</b></td>
+              <td><b>Lucernarios de policarbonato celular grecado</b> de 30-40 mm con protección UV en masa, perfectamente compatibles con la greca del panel para iluminación natural (10% de faldones).</td>
+              <td class="center">m²</td>
+              <td class="num">195,00</td>
+              <td class="num">48,00 €</td>
+              <td class="num">9.360,00 €</td>
+            </tr>
+            <tr>
+              <td><b>03.03</b></td>
+              <td>Tornillería autotaladrante reforzada con arandela vulcanizada EPDM y caballetes de fijación para óptimo reparto de presiones de viento.</td>
+              <td class="center">Ud.</td>
+              <td class="num">7.500,00</td>
+              <td class="num">0,38 €</td>
+              <td class="num">2.850,00 €</td>
+            </tr>
+            <tr>
+              <td><b>03.04</b></td>
+              <td><b>Mano de obra especializada de colocación de cubierta y lucernarios</b>, solapes, fijación reforzada a correas y sellado estanco longitudinal y transversal con butilo.</td>
+              <td class="center">m²</td>
+              <td class="num">1.950,00</td>
+              <td class="num">65,30 €</td>
+              <td class="num">127.335,00 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 03:</td>
+              <td class="num">236.070,00 €</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- CAPITULO 4 -->
+        <h3 class="chap-title">CAPÍTULO 04 · PETOS PERIMETRALES (CHAPA HDX Y PANEL FACHADA) Y REMATERÍA</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>04.01</b></td>
+              <td><b>Chapa prelacada blanca Granite HDX 55 µm</b> (alta resistencia marina C5-M, e=0,6-0,8 mm conformada) para revestimiento exterior de peto superior e inferior (184 ml &times; 1,2 m &times; 2).</td>
+              <td class="center">m²</td>
+              <td class="num">529,92</td>
+              <td class="num">22,00 €</td>
+              <td class="num">11.658,24 €</td>
+            </tr>
+            <tr>
+              <td><b>04.02</b></td>
+              <td><b>Panel sándwich de fachada de 50 mm</b> cara interior de peto, chapa microperfilada blanca y núcleo aislante térmico.</td>
+              <td class="center">m²</td>
+              <td class="num">264,96</td>
+              <td class="num">32,00 €</td>
+              <td class="num">8.478,72 €</td>
+            </tr>
+            <tr>
+              <td><b>04.03</b></td>
+              <td>Mano de obra de montaje de chapas HDX y panel sándwich de fachada en petos perimetrales.</td>
+              <td class="center">m²</td>
+              <td class="num">794,88</td>
+              <td class="num">12,50 €</td>
+              <td class="num">9.936,00 €</td>
+            </tr>
+            <tr>
+              <td><b>04.04</b></td>
+              <td>Rematería conformada en chapa HDX: cumbrera troquelada (70 ml), albardillas de coronación con goterón (184 ml), esquineros y baberos peto-cubierta (184 ml).</td>
+              <td class="center">ml</td>
+              <td class="num">525,60</td>
+              <td class="num">16,50 €</td>
+              <td class="num">8.672,40 €</td>
+            </tr>
+            <tr>
+              <td><b>04.05</b></td>
+              <td>Mano de obra de colocación de rematería perimetral y sellados de estanqueidad con polímero MS.</td>
+              <td class="center">ml</td>
+              <td class="num">525,60</td>
+              <td class="num">8,00 €</td>
+              <td class="num">4.204,80 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 04:</td>
+              <td class="num">42.950,16 €</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- CAPITULO 5 -->
+        <h3 class="chap-title">CAPÍTULO 05 · CANALONES HDX, BAJANTES Y BABEROS DE ENTREGA</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>05.01</b></td>
+              <td>Canalón continuo conformado en chapa Granite HDX (desarrollo 450-500 mm, calidad marina C5-M) para ambos aleros (2 &times; 70 ml) con baberos HDX, ganchos de pletina cada 60 cm, bajantes exteriores y sellados estancos.</td>
+              <td class="center">ml</td>
+              <td class="num">168,00</td>
+              <td class="num">81,03 €</td>
+              <td class="num">13.612,80 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 05:</td>
+              <td class="num">13.612,80 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer>
+        <span>HAM Estructuras Metálicas · Av. Circunvalació, 11, Polígon de Sant Lluís, 07710 Menorca</span>
+        <span>info@hamenorca.com · +34 971 35 20 18 · Pág. 2 de 3</span>
+      </footer>
+    </section>
+</div>
+</body>
+</html>

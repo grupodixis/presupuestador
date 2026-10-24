@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuesto Técnico Interno - P-2026-0011 (Renueva M2 SL)</title>
+  <style>
+    :root {
+      --ink: #20242a;
+      --muted: #667085;
+      --line: #d9e0e8;
+      --soft: #f6f8fb;
+      --brand: #121820;
+      --accent: #b9863a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #dfe4ea;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 1.38;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 18px auto;
+      background: #fff;
+      box-shadow: 0 14px 40px rgba(15,23,42,.14);
+      padding: 14mm;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+      border-top: 6px solid var(--brand);
+      padding-top: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .company { display: flex; gap: 16px; }
+    .logo { width: 155px; flex: 0 0 155px; }
+    .logo img { width: 100%; filter: brightness(0) saturate(100%); }
+    h1, h2, h3 { color: var(--brand); }
+    .company h1 { font-size: 18px; margin: 0; }
+    .company p, .meta p, .small { margin: 2px 0; color: var(--muted); font-size: 11px; }
+    .meta { text-align: right; }
+    .meta h2 { font-size: 25px; margin: 0 0 6px; text-transform: uppercase; }
+    .ref {
+      display: inline-block;
+      padding: 5px 9px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      font-weight: 700;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 14px 0;
+    }
+    .card {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 9px;
+    }
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+    .value {
+      display: block;
+      font-weight: 700;
+      font-size: 15px;
+      margin-top: 3px;
+    }
+    h3 {
+      font-size: 15px;
+      margin: 18px 0 7px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--line);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6px 0 13px;
+    }
+    th {
+      background: var(--brand);
+      color: #fff;
+      text-align: left;
+      padding: 7px;
+      font-size: 11px;
+    }
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 7px;
+      vertical-align: top;
+    }
+    .right { text-align: right; white-space: nowrap; }
+    .total-row td {
+      background: #fbf8f2;
+      border-top: 2px solid var(--accent);
+      font-weight: 700;
+    }
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .note {
+      border-left: 4px solid var(--accent);
+      background: #fff8ed;
+      padding: 9px 11px;
+      margin: 10px 0;
+    }
+    .price {
+      border: 2px solid var(--brand);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 12px;
+    }
+    .price div { padding: 13px; }
+    .price .base { background: var(--soft); }
+    .price .final {
+      background: var(--brand);
+      color: #fff;
+      text-align: right;
+    }
+    .amount {
+      font-size: 25px;
+      font-weight: 700;
+      margin-top: 3px;
+    }
+    footer {
+      margin-top: 18px;
+      padding-top: 9px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 10px;
+    }
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { background: #fff; font-size: 10px; line-height: 1.18; }
+      .page { width: 210mm; min-height: 297mm; margin: 0; box-shadow: none; padding: 8mm 9mm; }
+      header { padding-top: 8px; padding-bottom: 7px; }
+      .logo { width: 115px; flex-basis: 115px; }
+      .company h1 { font-size: 14px; }
+      .company p, .meta p, .small { font-size: 8.8px; }
+      .meta h2 { font-size: 19px; }
+      .grid { gap: 6px; margin: 8px 0; }
+      .card { padding: 6px; }
+      .label { font-size: 8px; }
+      .value { font-size: 11px; }
+      h3 { font-size: 11.5px; margin: 9px 0 4px; }
+      table { margin: 4px 0 7px; }
+      th, td { padding: 4px 5px; }
+      th { font-size: 9px; }
+      .note { padding: 6px 8px; margin: 6px 0; }
+      .price div { padding: 8px; }
+      .amount { font-size: 20px; }
+      footer { font-size: 8px; margin-top: 8px; padding-top: 5px; }
+      table, .price, h3 { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <section class="company">
+      <div class="logo"><img src="https://www.hamenorca.com/images/logo-hamenorca-dark.svg" alt="HAM"></div>
+      <div>
+        <h1>HAM Estructuras Metálicas</h1>
+        <p>Preview técnico interno de presupuestación - Acero Negro.</p>
+        <p>Av. Circunvalacio, 11, Poligono de Sant Lluis, 07710 Sant Lluis, Menorca</p>
+        <p>info@hamenorca.com · +34 971 35 20 18 · WhatsApp +34 669 769 541</p>
+      </div>
+    </section>
+    <section class="meta">
+      <h2>Técnico</h2>
+      <div class="ref">P-2026-0011-TEC</div>
+      <p>Fecha: 10/06/2026</p>
+      <p>Validez comercial: 30 días</p>
+    </section>
+  </header>
+
+  <section class="grid">
+    <article class="card"><span class="label">Cliente</span><span class="value">Renueva M2 SL</span></article>
+    <article class="card"><span class="label">Superficie</span><span class="value">25,76 m²</span></article>
+    <article class="card"><span class="label">Material</span><span class="value">Acero Negro S275</span></article>
+    <article class="card"><span class="label">Ubicación</span><span class="value">Menorca (Pool)</span></article>
+  </section>
+
+  <h3>Datos De Partida</h3>
+  <table>
+    <tbody>
+      <tr><td>Dimensiones Área Grande</td><td class="right">5,30 m (ancho) x 3,20 m (vuelo/proyección) = 16,96 m²</td></tr>
+      <tr><td>Dimensiones Área Derecha</td><td class="right">8,00 m (largo) x 1,10 m (vuelo/proyección) = 8,80 m²</td></tr>
+      <tr><td>Pórtico Estructural</td><td class="right">Tubo 100x50x3 mm (pilar lateral de 2,60 m + viga frontal de 5,30 m y viga lateral de 3,20 m formando una L en planta, con el otro extremo fijado a pared)</td></tr>
+      <tr><td>Viguetas / Soporte Caña</td><td class="right">Perfiles simple T de 60 mm (T60x60x7) invertidos, apoyados sobre pórtico en L, uno cada 1,00 ml aprox.</td></tr>
+      <tr><td>Fijación de Cubierta</td><td class="right">Caña completa sobre las alas de las T con L de chapa galvanizada pegada con MS polímero y atornillada</td></tr>
+      <tr><td>Tratamiento y Acabado</td><td class="right">Imprimación de Zinc y acabado Titan 550 Gris Antracita</td></tr>
+      <tr><td>Tornillería y Anclajes</td><td class="right">Acero Inoxidable A4 (fijación química estructural lateral a muros y canto de forjado, sin perforación de baldosas)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="two">
+    <section>
+      <h3>Despiece y Pesos de Acero</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Perfil / Elemento</th>
+            <th class="right">ml Neto</th>
+            <th class="right">ml Bruto</th>
+            <th class="right">Peso (kg)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tubo 100x50x3 mm (6,60 kg/m)</td>
+            <td class="right">11,10 ml</td>
+            <td class="right">12,00 ml <span class="small">(2x6m)</span></td>
+            <td class="right">79,20 kg</td>
+          </tr>
+          <tr>
+            <td>T60 viguetas largas (6,23 kg/m)</td>
+            <td class="right">22,40 ml</td>
+            <td class="right">42,00 ml <span class="small">(7x6m)*</span></td>
+            <td class="right">261,66 kg</td>
+          </tr>
+          <tr>
+            <td>Perfiles L chapa galva 20x20x1.5 (0.45 kg/m)</td>
+            <td class="right">34,00 ml</td>
+            <td class="right">34,00 ml</td>
+            <td class="right">15,30 kg</td>
+          </tr>
+          <tr>
+            <td>Pletinas y anclajes (S275 10mm)</td>
+            <td class="right">19 uds</td>
+            <td class="right">global</td>
+            <td class="right">12,00 kg</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="3">Peso total material a aprovisionar</td>
+            <td class="right">368,16 kg</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="small">*Nota: Las viguetas cortas de 1,20 m (9 uds) se obtienen de los 7 retales de 2,80 m sobrantes de las viguetas largas de 3,20 m, optimizando la merma.</p>
+    </section>
+    <section>
+      <h3>Instalación y Logística</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td>Tornillería y anclaje químico</td>
+            <td class="right">Varilla M16 Inox A4 + resina epoxi (anclaje lateral a pared inferior al piso)</td>
+          </tr>
+          <tr>
+            <td>Transporte Península -> Menorca</td>
+            <td class="right">370 kg @ 0,20 €/kg = 74,00 €</td>
+          </tr>
+          <tr>
+            <td>Fijación cañizo decorativo</td>
+            <td class="right">L chapa galvanizada + adhesivo MS + tornillos autotaladrantes</td>
+          </tr>
+          <tr>
+            <td>Mano de obra montaje</td>
+            <td class="right">2 instaladores x 2 jornadas (32 h)</td>
+          </tr>
+          <tr>
+            <td>Mano de obra taller</td>
+            <td class="right">Corte, soldadura, pintura (32 h)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <h3>Desglose de Costes Directos (Coste Técnico)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th class="right">Cantidad</th>
+        <th class="right">Precio Unitario</th>
+        <th class="right">Importe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Material de acero al carbono S275 (Tubo 100x50, T60, placas)</td>
+        <td class="right">355 kg</td>
+        <td class="right">1,68 €/kg</td>
+        <td class="right">597,00 €</td>
+      </tr>
+      <tr>
+        <td>Perfiles L chapa galvanizada plegada a medida (Fijación de caña)</td>
+        <td class="right">34 ml</td>
+        <td class="right">3,53 €/ml</td>
+        <td class="right">120,00 €</td>
+      </tr>
+      <tr>
+        <td>Cartuchos adhesivo MS Polímero y tornillos autotaladrantes</td>
+        <td class="right">1 global</td>
+        <td class="right">86,00 €</td>
+        <td class="right">86,00 €</td>
+      </tr>
+      <tr>
+        <td>Transporte marítimo Barcelona -> Menorca (acero + chapas)</td>
+        <td class="right">370 kg</td>
+        <td class="right">0,20 €/kg</td>
+        <td class="right">74,00 €</td>
+      </tr>
+      <tr>
+        <td>Suministro de caña completa decorativa</td>
+        <td class="right">25,76 m²</td>
+        <td class="right">25,00 €/m²</td>
+        <td class="right">644,00 €</td>
+      </tr>
+      <tr>
+        <td>Fijaciones inoxidables A4 y resinas químicas estructurales</td>
+        <td class="right">1 global</td>
+        <td class="right">250,00 €</td>
+        <td class="right">250,00 €</td>
+      </tr>
+      <tr>
+        <td>Consumibles de soldadura y corte taller</td>
+        <td class="right">1 global</td>
+        <td class="right">180,00 €</td>
+        <td class="right">180,00 €</td>
+      </tr>
+      <tr>
+        <td>Tratamiento superficial (Imprimación Zinc + Titan 550 Gris Antracita)</td>
+        <td class="right">1 global</td>
+        <td class="right">549,00 €</td>
+        <td class="right">549,00 €</td>
+      </tr>
+      <tr>
+        <td>Mano de obra taller (Fabricación y pintura)</td>
+        <td class="right">32 h</td>
+        <td class="right">30,00 €/h</td>
+        <td class="right">960,00 €</td>
+      </tr>
+      <tr>
+        <td>Mano de obra montaje (Instalación en obra)</td>
+        <td class="right">32 h</td>
+        <td class="right">30,00 €/h</td>
+        <td class="right">960,00 €</td>
+      </tr>
+      <tr>
+        <td>Desplazamientos, dietas y combustible Menorca</td>
+        <td class="right">1 global</td>
+        <td class="right">140,00 €</td>
+        <td class="right">140,00 €</td>
+      </tr>
+      <tr>
+        <td>Transporte local a pie de obra y descarga con grúa</td>
+        <td class="right">1 global</td>
+        <td class="right">200,00 €</td>
+        <td class="right">200,00 €</td>
+      </tr>
+      <tr>
+        <td>Oficina técnica (replanteo, diseño, planos y despiece CNC)</td>
+        <td class="right">1 global</td>
+        <td class="right">350,00 €</td>
+        <td class="right">350,00 €</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="3">Coste Técnico Base (CTB)</td>
+        <td class="right">5.110,00 €</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Análisis de Ajustes y Margen Comercial</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><strong>Coste Técnico Base (CTB)</strong></td>
+        <td class="right">5.110,00 €</td>
+      </tr>
+      <tr>
+        <td>Factor de Complejidad (1,15) - *Ajuste por pórtico en L y encuentro con step de pared de 2,03 m*</td>
+        <td class="right">766,50 €</td>
+      </tr>
+      <tr>
+        <td>Factor de Riesgo (1,10) - *Verificación de estabilidad de la viga frontal*</td>
+        <td class="right">587,65 €</td>
+      </tr>
+      <tr class="total-row">
+        <td>Coste Técnico Ajustado</td>
+        <td class="right">6.464,15 €</td>
+      </tr>
+      <tr>
+        <td>Margen Comercial Aplicado (131,74%) - *Alineado con el precio objetivo comercial*</td>
+        <td class="right">8.515,85 €</td>
+      </tr>
+      <tr class="total-row" style="background:#121820; color:#fff;">
+        <td>Precio de Venta Base Recomendado (sin IVA)</td>
+        <td class="right">14.980,00 €</td>
+      </tr>
+      <tr>
+        <td><strong>Precio de Venta Oferta Comercial (Objetivo del Usuario)</strong></td>
+        <td class="right"><strong>14.980,00 €</strong></td>
+      </tr>
+      <tr>
+        <td>IVA General Aplicable (21%)</td>
+        <td class="right">3.145,80 €</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <section class="price">
+    <div class="base">
+      <span class="label">Base Imponible</span>
+      <div class="amount">14.980,00 €</div>
+    </div>
+    <div class="final">
+      <span class="label">Total (IVA Incluido)</span>
+      <div class="amount">18.125,80 €</div>
+    </div>
+  </section>
+
+  <h3>Notas Técnicas Internas</h3>
+  <div class="note">
+    <strong>Detalle de anclaje estructural:</strong> El pilar vertical de la estructura de soporte se fijará mediante anclaje lateral al canto del forjado / pared inferior de la terraza (por debajo del nivel del piso), de forma que no se perfore ni se altere el pavimento de baldosa superior. Se utilizará una placa de anclaje vertical soldada al pilar y fijación química con varillas roscadas M16 en acero inoxidable A4 y resina epoxi. El extremo de la viga frontal y las viguetas murales se fijarán mediante anclajes químicos a las paredes verticales.
+  </div>
+  <div class="note">
+    <strong>Detalle de fijación de caña:</strong> Para cumplir con la especificación del cliente, la caña se colocará directamente apoyada sobre las alas horizontales de las T60x6 invertidas. Sobre la caña, a lo largo de cada vigueta, se colocará un perfil L de chapa galvanizada plegada a medida (20x20x1,5 mm). Se aplicará adhesivo MS polímero en la zona de contacto con la T para sellar y fijar la caña, y se atornillará con tornillos autotaladrantes inoxidables atravesando el perfil L de chapa galvanizada y las alas del perfil T. Esto proporciona una excelente resistencia al viento y una terminación limpia.
+  </div>
+
+  <footer>
+    <span>P-2026-0011-TEC · Pérgola Renueva M2 SL (25,76 m²)</span>
+    <span>Base Venta: 14.980,00 € · Total: 18.125,80 €</span>
+  </footer>
+</main>
+</body>
+</html>

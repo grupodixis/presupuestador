@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Presupuesto Oficial - Rehabilitación Cubierta Lado Aire Nave AENA Aeropuerto Menorca</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #616e7c;
+      --line: #cbd5e1;
+      --soft: #f8fafc;
+      --brand: #18201d;
+      --brand-light: #27312f;
+      --accent: #8b2f16;
+      --accent-gold: #b9863a;
+    }
+    
+    * { 
+      box-sizing: border-box; 
+      -webkit-print-color-adjust: exact; 
+      print-color-adjust: exact; 
+    }
+    
+    @page { 
+      size: A4 portrait; 
+      margin: 10mm 12mm 12mm 12mm; 
+    }
+    
+    html, body { 
+      margin: 0; 
+      padding: 0; 
+      background: #eef0f2; 
+      color: var(--ink); 
+      font-family: Arial, Helvetica, sans-serif; 
+      font-size: 9.3px; 
+      line-height: 1.32; 
+    }
+    
+    .doc-container {
+      width: 210mm;
+      margin: 0 auto;
+      background: #fff;
+    }
+    
+    .page-sheet {
+      padding: 0;
+      background: #fff;
+      position: relative;
+    }
+    
+    .page-break {
+      break-before: page;
+      page-break-before: always;
+      padding-top: 4mm;
+    }
+    
+    .no-break {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    
+    /* Header Oficial HAM */
+    header { 
+      background: var(--brand); 
+      color: #fff; 
+      padding: 9px 13px; 
+      display: grid; 
+      grid-template-columns: 1fr auto; 
+      gap: 14px; 
+      align-items: center; 
+      border-radius: 4px;
+      margin-bottom: 9px;
+    }
+    .brand { display: flex; align-items: center; gap: 11px; }
+    .logo { 
+      width: 40px; 
+      height: 40px; 
+      border: 1px solid rgba(255,255,255,.3); 
+      border-radius: 7px; 
+      padding: 4px; 
+      background: rgba(255,255,255,0.06);
+    }
+    header h1 { margin: 0; font-size: 15.5px; letter-spacing: -.02em; line-height: 1.1; font-weight: bold; color: #fff; }
+    header .subtitle { margin: 3px 0 0; color: #cbd5d1; font-size: 9.5px; }
+    header .meta { text-align: right; color: #dce5e0; font-size: 9.2px; line-height: 1.28; }
+    header .meta strong { color: #fff; display: block; font-size: 11px; margin-bottom: 2px; }
+    
+    /* Hero / Summary Box */
+    .hero {
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--accent-gold);
+      border-radius: 4px;
+      padding: 8px 11px;
+      margin-bottom: 9px;
+      background: linear-gradient(135deg, #faf8f2 0%, #fff 75%);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+    .hero-text h3 { margin: 0 0 2px; font-size: 11px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.04em; }
+    .hero-text p { margin: 0; color: #475569; font-size: 9.2px; line-height: 1.32; }
+    
+    .price-badge {
+      text-align: right;
+      border-left: 2px solid var(--line);
+      padding-left: 12px;
+      min-width: 165px;
+    }
+    .price-badge span { font-size: 8.5px; text-transform: uppercase; color: var(--muted); letter-spacing: 0.04em; display: block; }
+    .price-badge b { display: block; font-size: 19px; color: var(--accent); letter-spacing: -.03em; margin: 1px 0; }
+    .price-badge small { font-size: 8px; color: #475569; }
+    
+    /* Metrics Grid */
+    .grid-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      margin-bottom: 9px;
+    }
+    .metric-card {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      border-radius: 4px;
+      padding: 5px 7px;
+    }
+    .metric-card .label { display: block; color: var(--muted); font-size: 8px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 1px; }
+    .metric-card .val { font-weight: bold; font-size: 10.5px; color: var(--brand); }
+    
+    /* Section Headings */
+    h2 { 
+      margin: 7px 0 4px; 
+      font-size: 10.5px; 
+      text-transform: uppercase; 
+      letter-spacing: .05em; 
+      color: var(--brand); 
+      border-bottom: 1.5px solid var(--brand);
+      padding-bottom: 2px;
+    }
+    h3.chap-header {
+      background: var(--brand-light);
+      color: #fff;
+      padding: 3.5px 6px;
+      font-size: 8.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 5px 0 0;
+      border-radius: 3px 3px 0 0;
+    }
+    
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin: 0 0 5px; font-size: 8.8px; }
+    th { 
+      background: var(--brand-light); 
+      color: #fff; 
+      text-align: left; 
+      padding: 3.5px 5px; 
+      font-size: 8.2px; 
+      text-transform: uppercase; 
+      letter-spacing: 0.03em; 
+    }
+    th.num, td.num { text-align: right; white-space: nowrap; }
+    th.center, td.center { text-align: center; }
+    td { 
+      border-bottom: 1px solid #e2e8f0; 
+      padding: 3px 5px; 
+      vertical-align: top; 
+      color: #2d3748;
+      line-height: 1.22;
+    }
+    tr:nth-child(even) td { background: #fafbfc; }
+    tr.subtotal-row td { 
+      background: #f1f5f9; 
+      font-weight: bold; 
+      color: #0f172a; 
+      border-top: 1px solid #cbd5e1; 
+      border-bottom: 1.5px solid #94a3b8; 
+      padding: 3px 5px;
+    }
+    
+    /* Photos */
+    .photos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin: 6px 0;
+    }
+    .photo-card {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+      background: #f8fafc;
+    }
+    .photo-card img {
+      width: 100%;
+      height: 105px;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-card .caption {
+      padding: 3.5px 5px;
+      font-size: 7.8px;
+      color: var(--muted);
+      background: #f8fafc;
+      border-top: 1px solid var(--line);
+    }
+    
+    /* Grids & Boxes */
+    .two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 5px; }
+    .info-box { 
+      border: 1px solid var(--line); 
+      border-radius: 4px; 
+      padding: 5px 8px; 
+      background: #fff;
+    }
+    .info-box h4 { margin: 0 0 2px; font-size: 9px; text-transform: uppercase; color: var(--brand); letter-spacing: 0.03em; }
+    ul { margin: 2px 0 0 12px; padding: 0; }
+    li { margin: 1px 0; color: #475569; font-size: 8.2px; }
+    
+    /* Signatures */
+    .sig-grid {
+      margin-top: 7px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+    }
+    .sig-box {
+      border: 1px dashed var(--line);
+      border-radius: 4px;
+      padding: 5px 7px;
+      min-height: 48px;
+    }
+    .sig-box span { font-size: 8.2px; font-weight: bold; color: #334155; display: block; }
+    
+    /* Footer */
+    footer { 
+      margin-top: 7px; 
+      padding-top: 3px; 
+      border-top: 1px solid var(--line); 
+      color: var(--muted); 
+      font-size: 7.8px; 
+      display: flex; 
+      justify-content: space-between; 
+      gap: 10px; 
+    }
+    
+    @media print { 
+      body { background: #fff; } 
+      .doc-container { width: 100%; }
+      .page-sheet { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="doc-container">
+
+    <!-- ========================================================= -->
+    <!-- PÁGINA 1: PORTADA, ANTEPROYECTO, MEMORIA TÉCNICA Y DIAGNÓSTICO -->
+    <!-- ========================================================= -->
+    <div class="page-sheet">
+      <header>
+        <div class="brand">
+          <img class="logo" src="logo-ham.svg" alt="HAM">
+          <div>
+            <h1>HAM ESTRUCTURAS METÁLICAS</h1>
+            <div class="subtitle">Estudio Técnico y Presupuesto · Rehabilitación Cubierta Nave Operativa AENA (Lado Aire)</div>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>Ref: ANT-2026-0831-AENA</strong>
+          Cliente: <b>AENA</b><br>
+          Fecha: 31/08/2026 · Menorca
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-text">
+          <h3>Objeto de la Actuación Técnica</h3>
+          <p>Rehabilitación integral de la envolvente de cubierta y petos perimetrales en la <b>nave operativa de AENA</b> (Lado Aire del Aeropuerto de Menorca - Maó), afectada por <b>vientos huracanados</b>. Suministro e instalación de nuevo panel sándwich de 50 mm calidad marina (1.755 m²), lucernarios de policarbonato celular (195 m²), revestimiento de petos en chapa Granite HDX 55 µm calidad C5-M, panel de fachada interior de 50 mm, canalones continuos HDX, línea de vida continua LUX-TOP inox AISI 316 (EN 795-C), <b>escalera de gato inoxidable con protección dorsal de 12 m de altura</b> y <b>gestión integral de residuos contaminados</b> en vertedero homologado.</p>
+        </div>
+        <div class="price-badge">
+          <span>Presupuesto Ejecución</span>
+          <b>411.755,42 €</b>
+          <small>Base Imponible (IVA no incl.)</small>
+        </div>
+      </section>
+
+      <div class="grid-metrics">
+        <div class="metric-card"><span class="label">Cliente / Instalación</span><span class="val">AENA · Lado Aire</span></div>
+        <div class="metric-card"><span class="label">Superficie Cubierta</span><span class="val">1.950,00 m²</span></div>
+        <div class="metric-card"><span class="label">Plazo de Ejecución</span><span class="val">3 Meses (12 sem.)</span></div>
+        <div class="metric-card"><span class="label">Ambiente Exposición</span><span class="val">Marino Salino C5-M</span></div>
+      </div>
+
+      <h2>1. Diagnóstico de Daños y Condiciones de Emplazamiento</h2>
+      <p style="margin: 2px 0 5px; text-align: justify; font-size: 8.8px; color: #334155;">
+        El episodio de viento extremo en el recinto aeroportuario causó daños severos por esfuerzos de succión dinámica, arrancando fijaciones y deformando grecas, petos y lucernarios. La ejecución en <b>Lado Aire (zona restringida de AENA)</b> exige materiales de máxima durabilidad ante la salinidad de Menorca (Granite HDX 55 µm y Acero Inoxidable AISI 316), una exhaustiva <b>gestión de residuos contaminados</b> (núcleos PIR/PUR y aislamientos degradados) y un estricto protocolo de seguridad y control FOD durante los <b>3 meses de obra</b>.
+      </p>
+
+      <div class="photos-grid">
+        <div class="photo-card">
+          <img src="vista-aerea-medicion.jpg" alt="Vista Aérea Aeropuerto">
+          <div class="caption"><b>Fig. 1:</b> Emplazamiento nave operativa AENA (70 &times; 22 m) en Lado Aire - Aeropuerto de Menorca.</div>
+        </div>
+        <div class="photo-card">
+          <img src="vista-interior-nave.png" alt="Vista Interior Nave">
+          <div class="caption"><b>Fig. 2:</b> Estructura portante interior y faldones a intervenir con redes de seguridad colectiva.</div>
+        </div>
+      </div>
+
+      <h2>2. Cuadro Resumen de Geometría y Materiales del Proyecto</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Elemento Constructivo</th>
+            <th>Dimensiones / Superficie</th>
+            <th>Especificación Técnica y Acabado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Cubierta Principal</b></td>
+            <td>70,00 ml longitud &times; 22,00 ml ancho (1.950 m² presupuestados)</td>
+            <td><b>Panel Sándwich 50 mm</b> (PIR/PUR chapa marina exterior + blanco interior)</td>
+          </tr>
+          <tr>
+            <td><b>Iluminación Natural (10%)</b></td>
+            <td>195,00 m² de superficie de faldones</td>
+            <td><b>Policarbonato Celular Grecado 30-40 mm</b> con protección UV en masa</td>
+          </tr>
+          <tr>
+            <td><b>Petos Perimetrales</b></td>
+            <td>184,00 ml perímetro exterior e interior</td>
+            <td><b>Chapa Granite HDX 55 µm (38 €/m²)</b> + <b>Panel Fachada 50 mm (55 €/m²)</b></td>
+          </tr>
+          <tr>
+            <td><b>Evacuación Pluvial</b></td>
+            <td>140,00 ml en ambos aleros + 64 ml bajantes</td>
+            <td><b>Canalón continuo HDX C5-M</b> con baberos de retención y bajantes exteriores</td>
+          </tr>
+          <tr>
+            <td><b>Seguridad Anticaídas</b></td>
+            <td>70,00 ml a lo largo de cumbrera</td>
+            <td><b>Línea de Vida Continua LUX-TOP</b> acero inoxidable AISI 316 (120 €/ml, EN 795-C)</td>
+          </tr>
+          <tr>
+            <td><b>Acceso Mantenimiento</b></td>
+            <td>12,00 ml altura vertical</td>
+            <td><b>Escalera de Gato Inoxidable AISI 316</b> con jaula dorsal (UNE-EN ISO 14122-4)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <footer>
+        <span>HAM Estructuras Metálicas · Av. Circunvalació, 11, Polígon de Sant Lluís, 07710 Menorca</span>
+        <span>info@hamenorca.com · +34 971 35 20 18 · Pág. 1 de 3</span>
+      </footer>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- PÁGINA 2: MEDICIONES Y PRESUPUESTO TÉCNICO (CAPÍTULOS 1 AL 5) -->
+    <!-- ========================================================= -->
+    <div class="page-sheet page-break">
+      <header>
+        <div class="brand">
+          <img class="logo" src="logo-ham.svg" alt="HAM">
+          <div>
+            <h1>PRESUPUESTO Y MEDICIONES DETALLADAS</h1>
+            <div class="subtitle">Desglose de Unidades de Obra y Partidas de Ejecución · Nave AENA</div>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>HAM Estructuras Metálicas</strong>
+          Ref: <b>ANT-2026-0831-AENA</b><br>
+          Cliente: <b>AENA</b>
+        </div>
+      </header>
+
+      <!-- CAPITULO 1 -->
+      <div class="no-break">
+        <h3 class="chap-header">CAPÍTULO 01 · TRABAJOS PREVIOS, SEGURIDAD Y TRAMITACIÓN LADO AIRE (AENA - 3 MESES)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>01.01</b></td>
+              <td>Tramitación de acreditaciones de seguridad AENA, cursos AVSEC de operarios, autorizaciones de vehículos y maquinaria especial para acceso a plataforma y Lado Aire (cobertura 3 meses de obra).</td>
+              <td class="center">PA</td>
+              <td class="num">1,00</td>
+              <td class="num">4.200,00 €</td>
+              <td class="num">4.200,00 €</td>
+            </tr>
+            <tr>
+              <td><b>01.02</b></td>
+              <td>Suministro, montaje y posterior desmontaje de redes de seguridad anticaídas bajo cubierta fijadas a correas metálicas, para protección colectiva continua de operarios durante los 3 meses.</td>
+              <td class="center">m²</td>
+              <td class="num">1.950,00</td>
+              <td class="num">4,20 €</td>
+              <td class="num">8.190,00 €</td>
+            </tr>
+            <tr>
+              <td><b>01.03</b></td>
+              <td>Balizamiento perimetral en zona de maniobra, control continuo de residuos ligeros volátiles (protocolo FOD) y líneas de anclaje provisionales de montaje para 3 meses.</td>
+              <td class="center">PA</td>
+              <td class="num">1,00</td>
+              <td class="num">3.000,00 €</td>
+              <td class="num">3.000,00 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 01:</td>
+              <td class="num">15.390,00 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CAPITULO 2 -->
+      <div class="no-break">
+        <h3 class="chap-header">CAPÍTULO 02 · DESMONTAJE Y GESTIÓN INTEGRAL DE RESIDUOS CONTAMINADOS</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>02.01</b></td>
+              <td>Desmontaje manual y mecánico de cubierta dañada existente (panel sándwich y placas translúcidas), desatornillado ordenado y acopio en cubierta.</td>
+              <td class="center">m²</td>
+              <td class="num">1.950,00</td>
+              <td class="num">7,80 €</td>
+              <td class="num">15.210,00 €</td>
+            </tr>
+            <tr>
+              <td><b>02.02</b></td>
+              <td>Desmontaje de chapas de petos exteriores, panel de peto interior, rematería y canalones viejos deteriorados.</td>
+              <td class="center">m²</td>
+              <td class="num">794,88</td>
+              <td class="num">6,50 €</td>
+              <td class="num">5.166,72 €</td>
+            </tr>
+            <tr>
+              <td><b>02.03</b></td>
+              <td>Bajada controlada de material retirado desde cubierta a cota cero mediante camión grúa / manipulador telescópico homologado.</td>
+              <td class="center">h</td>
+              <td class="num">72,00</td>
+              <td class="num">95,00 €</td>
+              <td class="num">6.840,00 €</td>
+            </tr>
+            <tr>
+              <td><b>02.04</b></td>
+              <td><b>Gestión integral de residuos contaminados:</b> carga mecánica, alquiler de contenedores estancos homologados para Lado Aire durante los 3 meses, transporte autorizado a planta insular de transferencia y <b>canon oficial de vertedero homologado</b> para residuo contaminado de panel sándwich con espuma aislante rígida PUR/PIR, policarbonatos, chapas y petos degradados.</td>
+              <td class="center">m²</td>
+              <td class="num">2.744,88</td>
+              <td class="num">8,80 €</td>
+              <td class="num">24.154,94 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 02:</td>
+              <td class="num">51.371,66 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CAPITULO 3 -->
+      <div class="no-break">
+        <h3 class="chap-header">CAPÍTULO 03 · SUMINISTRO E INSTALACIÓN DE NUEVA CUBIERTA Y LUCERNARIOS</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>03.01</b></td>
+              <td><b>Panel sándwich de cubierta de 50 mm de espesor</b>, chapa exterior grecada lacada con recubrimiento especial marino, núcleo rígido aislante PIR/PUR y chapa interior blanco pirineo. Incluye flete marítimo a Menorca.</td>
+              <td class="center">m²</td>
+              <td class="num">1.755,00</td>
+              <td class="num">55,00 €</td>
+              <td class="num">96.525,00 €</td>
+            </tr>
+            <tr>
+              <td><b>03.02</b></td>
+              <td><b>Lucernarios de policarbonato celular grecado</b> de 30-40 mm con protección UV en masa, perfectamente compatibles con la greca del panel para iluminación natural (10% de faldones).</td>
+              <td class="center">m²</td>
+              <td class="num">195,00</td>
+              <td class="num">48,00 €</td>
+              <td class="num">9.360,00 €</td>
+            </tr>
+            <tr>
+              <td><b>03.03</b></td>
+              <td>Tornillería autotaladrante reforzada con arandela vulcanizada EPDM y caballetes de fijación para óptimo reparto de presiones de viento.</td>
+              <td class="center">Ud.</td>
+              <td class="num">7.500,00</td>
+              <td class="num">0,38 €</td>
+              <td class="num">2.850,00 €</td>
+            </tr>
+            <tr>
+              <td><b>03.04</b></td>
+              <td><b>Mano de obra especializada de colocación de cubierta y lucernarios</b>, solapes, fijación reforzada a correas y sellado estanco longitudinal y transversal con butilo.</td>
+              <td class="center">m²</td>
+              <td class="num">1.950,00</td>
+              <td class="num">65,30 €</td>
+              <td class="num">127.335,00 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 03:</td>
+              <td class="num">236.070,00 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CAPITULO 4 -->
+      <div class="no-break">
+        <h3 class="chap-header">CAPÍTULO 04 · PETOS PERIMETRALES (CHAPA HDX Y PANEL FACHADA) Y REMATERÍA</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>04.01</b></td>
+              <td><b>Chapa prelacada blanca Granite HDX 55 µm</b> (alta resistencia marina C5-M, e=0,6-0,8 mm conformada) para revestimiento exterior de peto superior e inferior (184 ml &times; 1,2 m &times; 2).</td>
+              <td class="center">m²</td>
+              <td class="num">529,92</td>
+              <td class="num">38,00 €</td>
+              <td class="num">20.136,96 €</td>
+            </tr>
+            <tr>
+              <td><b>04.02</b></td>
+              <td><b>Panel sándwich de fachada de 50 mm</b> cara interior de peto, chapa microperfilada blanca y núcleo rígido aislante térmico PIR/PUR (184 ml &times; 1,2 m).</td>
+              <td class="center">m²</td>
+              <td class="num">264,96</td>
+              <td class="num">55,00 €</td>
+              <td class="num">14.572,80 €</td>
+            </tr>
+            <tr>
+              <td><b>04.03</b></td>
+              <td>Mano de obra de montaje de chapas HDX y panel sándwich de fachada en petos perimetrales.</td>
+              <td class="center">m²</td>
+              <td class="num">794,88</td>
+              <td class="num">12,50 €</td>
+              <td class="num">9.936,00 €</td>
+            </tr>
+            <tr>
+              <td><b>04.04</b></td>
+              <td>Rematería conformada en chapa HDX: cumbrera troquelada (70 ml), albardillas de coronación con goterón (184 ml), esquineros y baberos peto-cubierta (184 ml).</td>
+              <td class="center">ml</td>
+              <td class="num">525,60</td>
+              <td class="num">16,50 €</td>
+              <td class="num">8.672,40 €</td>
+            </tr>
+            <tr>
+              <td><b>04.05</b></td>
+              <td>Mano de obra de colocación de rematería perimetral y sellados de estanqueidad con polímero MS.</td>
+              <td class="center">ml</td>
+              <td class="num">525,60</td>
+              <td class="num">8,00 €</td>
+              <td class="num">4.204,80 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 04:</td>
+              <td class="num">57.522,96 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CAPITULO 5 -->
+      <div class="no-break">
+        <h3 class="chap-header">CAPÍTULO 05 · CANALONES HDX, BAJANTES Y BABEROS DE ENTREGA</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>05.01</b></td>
+              <td>Canalón continuo conformado en chapa Granite HDX (desarrollo 450-500 mm, calidad marina C5-M) para ambos aleros (2 &times; 70 ml) con baberos HDX, ganchos de pletina cada 60 cm, bajantes exteriores y sellados estancos.</td>
+              <td class="center">ml</td>
+              <td class="num">168,00</td>
+              <td class="num">81,03 €</td>
+              <td class="num">13.612,80 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 05:</td>
+              <td class="num">13.612,80 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer>
+        <span>HAM Estructuras Metálicas · Av. Circunvalació, 11, Polígon de Sant Lluís, 07710 Menorca</span>
+        <span>info@hamenorca.com · +34 971 35 20 18 · Pág. 2 de 3</span>
+      </footer>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- PÁGINA 3: INSTALACIONES ESPECIALES, RESUMEN, CONDICIONES Y FIRMAS -->
+    <!-- ========================================================= -->
+    <div class="page-sheet page-break">
+      <header>
+        <div class="brand">
+          <img class="logo" src="logo-ham.svg" alt="HAM">
+          <div>
+            <h1>PRESUPUESTO GENERAL Y CONDICIONES</h1>
+            <div class="subtitle">Línea de Vida LUX-TOP, Escalera Inox 12 m, Maquinaria 3 Meses y Resumen · AENA</div>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>HAM Estructuras Metálicas</strong>
+          Ref: <b>ANT-2026-0831-AENA</b><br>
+          Validez: 30 días
+        </div>
+      </header>
+
+      <!-- CAPITULO 6 -->
+      <div class="no-break">
+        <h3 class="chap-header">CAPÍTULO 06 · SISTEMA DE LÍNEA DE VIDA LUX-TOP (EN 795 CLASE C)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>06.01</b></td>
+              <td><b>Sistema de línea de vida horizontal continua LUX-TOP</b> (normas UNE-EN 795 Clase C y CEN/TS 16415 para uso multiusuario) en acero inoxidable AISI 316 Ø8 mm de 70 ml en cumbrera. Incluye postes extremos e intermedios fijados a estructura con absorbedores dinámicos, kit de tensión con indicador de carga, 2 carros lanzadera de paso continuo, fijaciones reforzadas, pruebas de tiro, verificación y <b>Certificado de Homologación oficial</b> visado.</td>
+              <td class="center">ml</td>
+              <td class="num">84,00</td>
+              <td class="num">120,00 €</td>
+              <td class="num">10.080,00 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 06:</td>
+              <td class="num">10.080,00 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CAPITULO 7 -->
+      <div class="no-break">
+        <h3 class="chap-header">CAPÍTULO 07 · ESCALERA DE GATO INOX CON PROTECCIÓN DORSAL PARA MANTENIMIENTO (12 ML)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>07.01</b></td>
+              <td><b>Escalera fija vertical de gato en acero inoxidable AISI 316 de 12,00 m de altura</b> según norma <b>UNE-EN ISO 14122-4</b>. Incluye jaula dorsal (crinolina inox), peldaños antideslizantes, rellano intermedio abatible, desembarco superior a cubierta con barandilla y portilla de cierre automático, y chapa inferior abatible con candado de bloqueo de acceso antiasalto para lado aire.</td>
+              <td class="center">ml</td>
+              <td class="num">14,40</td>
+              <td class="num">325,00 €</td>
+              <td class="num">4.680,00 €</td>
+            </tr>
+            <tr>
+              <td><b>07.02</b></td>
+              <td>Mano de obra especializada de montaje, izado con plataforma, anclaje y fijación estructural reforzada con tornillería inox A4.</td>
+              <td class="center">ml</td>
+              <td class="num">14,40</td>
+              <td class="num">99,17 €</td>
+              <td class="num">1.428,00 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 07:</td>
+              <td class="num">6.108,00 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CAPITULO 8 -->
+      <div class="no-break">
+        <h3 class="chap-header">CAPÍTULO 08 · MEDIOS AUXILIARES Y MAQUINARIA EN OBRA (PLAZO 3 MESES)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 7%;">CÓD.</th>
+              <th style="width: 63%;">DESCRIPCIÓN DE LA UNIDAD DE OBRA</th>
+              <th class="center" style="width: 6%;">UD.</th>
+              <th class="num" style="width: 8%;">CANT.</th>
+              <th class="num" style="width: 14%;">PRECIO</th>
+              <th class="num" style="width: 14%;">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>08.01</b></td>
+              <td>Alquiler y permanencia de 2 plataformas elevadoras articuladas/tijera diésel 4x4 homologadas AENA durante los <b>3 meses de obra</b> (incl. seguro y mantenimiento), camión grúa autopropulsada para izado de paquetes y desescombro en fases continuas, combustible y logística interior en Lado Aire.</td>
+              <td class="center">PA</td>
+              <td class="num">1,00</td>
+              <td class="num">21.600,00 €</td>
+              <td class="num">21.600,00 €</td>
+            </tr>
+            <tr class="subtotal-row">
+              <td colspan="5" style="text-align:right;">SUBTOTAL CAPÍTULO 08:</td>
+              <td class="num">21.600,00 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RESUMEN FINAL -->
+      <div class="no-break">
+        <h2>Resumen Económico General</h2>
+        <table>
+          <tbody>
+            <tr><td><b>CAPÍTULO 01 · Trabajos Previos, Seguridad y AENA (3 Meses)</b></td><td class="num">15.390,00 €</td></tr>
+            <tr><td><b>CAPÍTULO 02 · Desmontaje y Gestión Integral Residuos Contaminados</b></td><td class="num">51.371,66 €</td></tr>
+            <tr><td><b>CAPÍTULO 03 · Suministro e Instalación Cubierta y Lucernarios (1.950 m²)</b></td><td class="num">236.070,00 €</td></tr>
+            <tr><td><b>CAPÍTULO 04 · Petos Perimetrales (Chapa HDX a 38 €/m² + Panel a 55 €/m²)</b></td><td class="num">57.522,96 €</td></tr>
+            <tr><td><b>CAPÍTULO 05 · Canalones HDX, Bajantes y Baberos de Entrega</b></td><td class="num">13.612,80 €</td></tr>
+            <tr><td><b>CAPÍTULO 06 · Sistema de Línea de Vida LUX-TOP (120 €/ml, EN 795-C)</b></td><td class="num">10.080,00 €</td></tr>
+            <tr><td><b>CAPÍTULO 07 · Escalera de Gato Inox AISI 316 con Protección Dorsal (12 ml)</b></td><td class="num">6.108,00 €</td></tr>
+            <tr><td><b>CAPÍTULO 08 · Medios Auxiliares y Maquinaria en Obra (3 Meses)</b></td><td class="num">21.600,00 €</td></tr>
+            <tr style="background:#f8fafc; font-size:9.5px; font-weight:bold;">
+              <td style="border-top:1.5px solid var(--brand);">TOTAL BASE IMPONIBLE (IVA no incluido)</td>
+              <td class="num" style="border-top:1.5px solid var(--brand); color:var(--accent); font-size:11px;">411.755,42 €</td>
+            </tr>
+            <tr>
+              <td>Impuesto sobre el Valor Añadido (IVA 21%)</td>
+              <td class="num">86.468,64 €</td>
+            </tr>
+            <tr style="background:var(--brand); color:#fff; font-size:10px; font-weight:bold;">
+              <td style="color:#fff;">TOTAL GENERAL PRESUPUESTO CON IVA</td>
+              <td class="num" style="color:#fff; font-size:12px;">498.224,06 €</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="two-cols">
+          <div class="info-box">
+            <h4>Incluye</h4>
+            <ul>
+              <li>Acreditaciones AENA, AVSEC y control FOD para 3 meses.</li>
+              <li>Redes anticaídas y gestión oficial de residuo contaminado.</li>
+              <li>Paneles sándwich 50 mm (1.755 m²) y lucernarios (195 m²).</li>
+              <li>Petos en chapa Granite HDX 55 µm y panel fachada 50 mm.</li>
+              <li>Canalones continuos HDX, bajantes y rematería.</li>
+              <li>Línea de vida LUX-TOP inox AISI 316 homologada (120 €/ml).</li>
+              <li>Escalera de gato inox AISI 316 (12 m) con jaula dorsal.</li>
+              <li>Plataformas elevadoras 4x4 y grúas telescópicas (3 meses).</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>Condiciones Comerciales</h4>
+            <ul>
+              <li><b>Plazo de ejecución:</b> 3 meses (12 semanas) desde inicio.</li>
+              <li><b>Forma de pago:</b> 35% al acopio, 35% por certificaciones de avance y 30% a finalización y entrega oficial.</li>
+              <li><b>Garantía:</b> 10 años en estanqueidad y recubrimiento HDX según fabricante.</li>
+              <li><b>Validez de la oferta:</b> 30 días naturales.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sig-grid">
+          <div class="sig-box">
+            <span>Por HAM Estructuras Metálicas</span>
+            <div style="margin-top:16px; font-size:8px; color:var(--muted);">Fdo. Dirección Técnica y de Obra</div>
+          </div>
+          <div class="sig-box">
+            <span>Conforme y Aceptado por el Cliente (AENA)</span>
+            <div style="margin-top:16px; font-size:8px; color:var(--muted);">Fecha, Firma y Sello:</div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <span>HAM Estructuras Metálicas · Av. Circunvalació, 11, Polígon de Sant Lluís, 07710 Menorca</span>
+        <span>info@hamenorca.com · +34 971 35 20 18 · Pág. 3 de 3</span>
+      </footer>
+    </div>
+
+  </div>
+</body>
+</html>

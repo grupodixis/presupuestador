@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuesto Interno Técnico - P-2026-0015 (Alambrado Simple Torsión con Postes Nuevos)</title>
+  <style>
+    :root {
+      --ink: #1e293b;
+      --muted: #64748b;
+      --line: #cbd5e1;
+      --soft: #f8fafc;
+      --brand: #0f172a;
+      --accent: #d97706;
+      --tech: #0284c7;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #e2e8f0; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 13.5px; line-height: 1.45; }
+    .page { width: 210mm; min-height: 297mm; margin: 18px auto; background: #fff; box-shadow: 0 14px 40px rgba(15,23,42,.14); padding: 16mm; }
+    header { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; border-top: 6px solid var(--tech); padding-top: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .company h1 { margin: 0; color: var(--brand); font-size: 19px; }
+    .company p, .meta p { margin: 2px 0; color: var(--muted); font-size: 11.5px; }
+    .meta { text-align: right; }
+    .meta h2 { margin: 0 0 6px; color: var(--tech); font-size: 24px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .ref { display: inline-block; padding: 4px 8px; background: #e0f2fe; border: 1px solid #7dd3fc; color: #0369a1; font-weight: 700; border-radius: 4px; }
+    .hero { margin: 14px 0; padding: 14px 18px; border-left: 5px solid var(--tech); background: #f0f9ff; }
+    .hero h2 { margin: 0 0 6px; color: var(--brand); font-size: 18px; }
+    .hero p { margin: 0; color: #334155; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px 0; }
+    .card { border: 1px solid var(--line); background: var(--soft); padding: 10px; border-radius: 4px; }
+    .label { display: block; color: var(--muted); font-size: 10.5px; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 3px; }
+    .value { font-weight: 700; font-size: 14px; color: var(--brand); }
+    h3 { margin: 18px 0 8px; padding-bottom: 4px; border-bottom: 2px solid var(--tech); color: var(--brand); font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 12.5px; }
+    th { background: var(--brand); color: #fff; text-align: left; padding: 8px 10px; font-size: 11.5px; }
+    td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .right { text-align: right; white-space: nowrap; }
+    .center { text-align: center; }
+    .total-row td { background: #f1f5f9; font-weight: 700; border-top: 2px solid var(--brand); }
+    .highlight-row td { background: #e0f2fe; font-weight: 700; color: #0369a1; }
+    .price-box { margin: 18px 0; border: 2px solid var(--brand); display: grid; grid-template-columns: 1fr 1fr 1fr; text-align: center; }
+    .price-box div { padding: 14px; }
+    .price-box .cost { background: var(--soft); border-right: 1px solid var(--line); }
+    .price-box .margin { background: #fef3c7; border-right: 1px solid var(--line); }
+    .price-box .final { background: var(--brand); color: #fff; }
+    .amount { font-size: 24px; font-weight: 700; margin-top: 4px; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+    ul { margin: 6px 0 10px 16px; padding: 0; }
+    li { margin: 3px 0; }
+    .notice { padding: 10px 12px; background: #fffbe6; border-left: 4px solid var(--accent); margin: 12px 0; font-size: 12px; }
+    footer { margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; color: var(--muted); font-size: 10.5px; }
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { background: #fff; font-size: 10.5px; line-height: 1.25; }
+      .page { width: 210mm; min-height: 297mm; margin: 0; box-shadow: none; padding: 10mm 12mm; }
+    }
+  </style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <section class="company">
+      <h1>HAM Estructuras Metálicas — Hoja de Cálculo Técnica Interna</h1>
+      <p>Estudio de costes y margen — Sustitución completa con postes NUEVOS e instalación de malla simple torsión</p>
+      <p>Ubicación objetivo: Menorca (Criterio ambiental insular C4/C5 — Acero galvanizado para ambiente salino)</p>
+    </section>
+    <section class="meta">
+      <h2>Estudio Técnico</h2>
+      <div class="ref">P-2026-0015-INT</div>
+      <p>Fecha: 30/09/2026</p>
+      <p>PVP Ajustado por Usuario: 2.350,00 €</p>
+    </section>
+  </header>
+
+  <section class="hero">
+    <h2>Descripción del Trabajo: Alambrado Simple Torsión 10 ML (h=1,00 m) con POSTES NUEVOS</h2>
+    <p>Retirada completa del cerramiento y postes antiguos en 10 metros lineales, suministro e instalación de 5 postes metálicos galvanizados NUEVOS recibidos con hormigón, y montaje de nueva malla de simple torsión plastificada/galvanizada de 1,00 m de altura con alambres de tensión y tensores regulables.</p>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <span class="label">Longitud Total</span>
+      <span class="value">10,00 ML</span>
+    </article>
+    <article class="card">
+      <span class="label">Altura Malla</span>
+      <span class="value">1,00 m</span>
+    </article>
+    <article class="card">
+      <span class="label">Postes Nuevos</span>
+      <span class="value">5 Uds Galvanizados</span>
+    </article>
+    <article class="card">
+      <span class="label">Precio Venta (Base)</span>
+      <span class="value">2.350,00 €</span>
+    </article>
+  </section>
+
+  <h3>1. Desglose de Materiales y Consumibles (Coste Directo)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Concepto / Material</th>
+        <th class="center">Cant.</th>
+        <th class="center">Ud.</th>
+        <th class="right">Precio Ud.</th>
+        <th class="right">Subtotal (€)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Malla simple torsión 50/14 (h=1,00m) plastificada verde / galva.</td>
+        <td class="center">10.5</td>
+        <td class="center">ML</td>
+        <td class="right">4.00 €</td>
+        <td class="right">42.00 €</td>
+      </tr>
+      <tr>
+        <td>Postes metálicos tubulares galvanizados Ø48 mm (h=1,30m) + tapones/accesorios NUEVOS</td>
+        <td class="center">5</td>
+        <td class="center">Ud</td>
+        <td class="right">16.50 €</td>
+        <td class="right">82.50 €</td>
+      </tr>
+      <tr>
+        <td>Alambre de tensión galvanizado/plastificado Ø2.7 mm (3 líneas x 10 ML)</td>
+        <td class="center">35</td>
+        <td class="center">ML</td>
+        <td class="right">0.23 €</td>
+        <td class="right">8.05 €</td>
+      </tr>
+      <tr>
+        <td>Tensores de trinquete galvanizados/verde (nº 2)</td>
+        <td class="center">3</td>
+        <td class="center">Ud</td>
+        <td class="right">1.50 €</td>
+        <td class="right">4.50 €</td>
+      </tr>
+      <tr>
+        <td>Alambre de coser, grapas de fijación y consumibles de amarre</td>
+        <td class="center">1</td>
+        <td class="center">Gl</td>
+        <td class="right">5.00 €</td>
+        <td class="right">5.00 €</td>
+      </tr>
+      <tr>
+        <td>Mortero / Hormigón rápido para cimentación de los 5 postes (5 sacos x 25kg)</td>
+        <td class="center">5</td>
+        <td class="center">Saco</td>
+        <td class="right">6.00 €</td>
+        <td class="right">30.00 €</td>
+      </tr>
+      <tr>
+        <td>Logística local taller-obra en Menorca y pequeño utillaje</td>
+        <td class="center">1</td>
+        <td class="center">Gl</td>
+        <td class="right">20.00 €</td>
+        <td class="right">20.00 €</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="4">TOTAL COSTE MATERIALES Y CONSUMIBLES</td>
+        <td class="right">192.05 €</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>2. Estimación de Mano de Obra y Tiempos de Ejecución</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Operación / Fase de Trabajo</th>
+        <th class="center">Horas Est.</th>
+        <th class="center">Tarifa Referencia</th>
+        <th class="right">Coste MO (€)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Retirada de alambre viejo (10 ML) y desanclaje/extracción de los 5 postes viejos</td>
+        <td class="center">2.5 h</td>
+        <td class="center">30.00 €/h</td>
+        <td class="right">75.00 €</td>
+      </tr>
+      <tr>
+        <td>Replanteo, excavación e instalación de 5 postes galvanizados nuevos recibidos con hormigón rápido</td>
+        <td class="center">3.5 h</td>
+        <td class="center">30.00 €/h</td>
+        <td class="right">105.00 €</td>
+      </tr>
+      <tr>
+        <td>Tendido de 3 líneas de alambre, colocación de tensores, desplegado y tensado de malla simple torsión (10 ML)</td>
+        <td class="center">2.5 h</td>
+        <td class="center">30.00 €/h</td>
+        <td class="right">75.00 €</td>
+      </tr>
+      <tr>
+        <td>Desplazamientos ida/vuelta, carga y transporte de residuos (alambre y postes viejos) a punto limpio</td>
+        <td class="center">1.5 h</td>
+        <td class="center">30.00 €/h</td>
+        <td class="right">45.00 €</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="3">SUBTOTAL MANO DE OBRA (10.0 horas x 30.00 €/h)</td>
+        <td class="right">300.00 €</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>3. Síntesis de Costes y Análisis del Margen Comercial (PVP Fijado: 2.350,00 €)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th class="right">Importe (€)</th>
+        <th>Observaciones / Criterio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Directo Materiales y Consumibles</td>
+        <td class="right">192.05 €</td>
+        <td>Malla, 5 postes galva nuevos, alambres, tensores, mortero.</td>
+      </tr>
+      <tr>
+        <td>Directo Mano de Obra (10.0 h)</td>
+        <td class="right">300.00 €</td>
+        <td>Retirada completa, colocación 5 postes nuevos y tensado.</td>
+      </tr>
+      <tr>
+        <td>Canon y gestión de residuos / vertedero</td>
+        <td class="right">25.00 €</td>
+        <td>Transporte y entrega de postes viejos y malla a gestor.</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>COSTE TÉCNICO BASE TOTAL (CTB)</td>
+        <td class="right">517.05 €</td>
+        <td>Coste neto estimado de ejecución.</td>
+      </tr>
+      <tr>
+        <td>Riesgo técnico e imprevistos (5%)</td>
+        <td class="right">25.85 €</td>
+        <td>Reserva de contingencia técnica.</td>
+      </tr>
+      <tr>
+        <td>Subtotal Coste Ajustado</td>
+        <td class="right">542.90 €</td>
+        <td>Base de coste real expuesta al trabajo.</td>
+      </tr>
+      <tr>
+        <td>Margen Comercial / Beneficio Bruto (76,9% sobre venta)</td>
+        <td class="right">1.807.10 €</td>
+        <td>Margen resultante con postes totalmente NUEVOS.</td>
+      </tr>
+      <tr class="total-row">
+        <td>PRECIO DE VENTA FIJADO (Base Imponible)</td>
+        <td class="right">2.350.00 €</td>
+        <td>Importe base fijado por el cliente / usuario.</td>
+      </tr>
+      <tr>
+        <td>IVA Aplicable (21%)</td>
+        <td class="right">493.50 €</td>
+        <td>Impuesto sobre el Valor Añadido.</td>
+      </tr>
+      <tr class="total-row">
+        <td>TOTAL CLIENTE (IVA Incluido)</td>
+        <td class="right">2.843.50 €</td>
+        <td>Importe final a pagar por el cliente.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <section class="price-box">
+    <div class="cost">
+      <span class="label">Coste Técnico Base</span>
+      <div class="amount">517.05 €</div>
+    </div>
+    <div class="margin">
+      <span class="label">Margen Comercial Net</span>
+      <div class="amount">1.807.10 €</div>
+    </div>
+    <div class="final">
+      <span class="label">Base Imponible Venta</span>
+      <div class="amount">2.350.00 €</div>
+    </div>
+  </section>
+
+  <div class="notice">
+    <strong>Nota de alternativa fiscal:</strong> Si los <strong>2.350,00 €</strong> representan el <strong>Total IVA Incluido</strong>, la Base Imponible es de <strong>1.942,15 €</strong> + IVA (21%) <strong>407,85 €</strong> = 2.350,00 € Total, produciendo un margen bruto sobre coste de <strong>1.399,25 €</strong> (72,0% sobre la venta).
+  </div>
+
+  <footer>
+    <span>Estudio Interno P-2026-0015-INT · HAM Estructuras Metálicas</span>
+    <span>CTB: 517.05 € | Base Venta: 2.350.00 € | Total: 2.843.50 €</span>
+  </footer>
+</main>
+</body>
+</html>

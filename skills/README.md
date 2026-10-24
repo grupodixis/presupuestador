@@ -10,7 +10,7 @@ Esta carpeta es el punto de entrada del agente para presupuestar. La organizaci�
 
 | Área | Estado | Entrada principal | Sectores incluidos |
 |---|---|---|---|
-| Carpintería metálica | Activa | `areas/carpinteria_metalica/README.md` | barandillas, rejas, puertas, cancelas, escaleras, estructuras, herrería, marquesinas |
+| Carpintería metálica | Activa | `areas/carpinteria_metalica/README.md` | barandillas, rejas, puertas, cancelas, escaleras, estructuras, naves industriales, herrería, marquesinas |
 | Instalaciones eléctricas | Archivada fuera del flujo | `areas/instalaciones_electricas/README.md` | no cargar para presupuestos de herrería |
 | Fontanería | Archivada fuera del flujo | `areas/fontaneria/README.md` | no cargar para presupuestos de herrería |
 | Clima | Archivada fuera del flujo | `areas/clima/README.md` | no cargar para presupuestos de herrería |
@@ -34,6 +34,7 @@ Esta carpeta es el punto de entrada del agente para presupuestar. La organizaci�
 | `skill_portones_cancelas.md` | producto | Portones y cancelas. |
 | `skill_escaleras.md` | producto | Escaleras metálicas. |
 | `skill_estructuras_metalicas.md` | producto | Estructuras metálicas. |
+| `skill_naves_industriales.md` | producto | Naves industriales, agrícolas y ganaderas (estructura, cerramientos, cimentación y solera). |
 | `skill_herreria.md` | producto | Herrería funcional/decorativa. |
 | `skill_marquesinas_pergolas.md` | producto | Marquesinas y pérgolas metálicas de herrería. |
 | `skill_productos_compuestos.md` | transversal | Trabajos con varios oficios, materiales o interfaces. |

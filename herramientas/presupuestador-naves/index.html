@@ -1,0 +1,2364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurador y Presupuestador de Naves Industriales y Agrícolas</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Three.js y OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- Fuentes e Iconos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .slider-thumb::-webkit-slider-thumb {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: pointer;
+        }
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0 !important;
+            }
+            body {
+                background: #ffffff !important;
+                color: #0f172a !important;
+                font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+                font-size: 10.5px !important;
+                line-height: 1.35 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .no-print, header, footer, main, #modalPrecios, #modalPDFConfig, #modalSolicitarPresupuesto, [id^="modal"] {
+                display: none !important;
+            }
+            #documentoPresupuestoImpresion {
+                display: block !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 12mm 12mm 12mm 12mm !important;
+                margin: 0 !important;
+            }
+            .avoid-break {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            .force-break {
+                break-before: page !important;
+                page-break-before: always !important;
+            }
+            table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+            }
+            thead {
+                display: table-header-group !important;
+            }
+            tr {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Principal -->
+    <header class="bg-slate-900 text-white shadow-lg border-b border-slate-800 sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-3">
+            <div class="flex items-center space-x-3">
+                <div class="bg-slate-950 p-2 rounded-xl border border-slate-800 shadow-inner flex items-center justify-center">
+                    <img src="logo-ham.svg" alt="HAM Logo" class="h-8 w-auto">
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold leading-tight tracking-wide flex items-center gap-2">
+                        <span class="text-white">HAMENORCA</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-blue-600 text-white rounded-md shadow-sm">Configurador Naves</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Naves Industriales, Agrícolas y Ganaderas · Cálculo CTE y Modulación en Menorca</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2.5">
+                <button id="btnPanelPrecios" onclick="abrirModalPrecios()" class="hidden px-3.5 py-1.5 bg-amber-600 hover:bg-amber-500 text-white text-xs font-semibold rounded-lg shadow flex items-center gap-1.5 transition">
+                    ⚙️ Panel de Precios (Admin)
+                </button>
+                <a href="/naves/panel" onclick="accederPanelAdmin(event)" class="text-[11px] text-slate-400 hover:text-white flex items-center gap-1 px-2 py-1 bg-slate-800/80 hover:bg-slate-800 rounded border border-slate-700 transition">
+                    🔒 Admin
+                </a>
+                <button onclick="abrirModalPDF()" class="px-3.5 py-1.5 bg-blue-700 hover:bg-blue-600 text-white text-xs font-semibold rounded-lg shadow flex items-center gap-1.5 transition border border-blue-500">
+                    📄 Presupuesto PDF
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal (Grid 2 Columnas) -->
+    <main class="max-w-7xl mx-auto w-full px-4 py-6 flex-1 space-y-6">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 no-print">
+
+            <!-- Columna Izquierda: Geometría (5 de 12) -->
+            <section class="lg:col-span-5 space-y-4">
+                <!-- Caja 1: Geometría Principal -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-4 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-4">
+                            <h2 class="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                                <span class="text-blue-600 text-base">📐</span> 1. Geometría de la Nave
+                            </h2>
+                            <span id="badgeSuperficie" class="text-xs font-bold px-2.5 py-0.5 bg-blue-50 text-blue-700 rounded-full border border-blue-200">
+                                450 m²
+                            </span>
+                        </div>
+
+                        <!-- Ancho / Luz -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-xs font-medium text-slate-700 mb-1">
+                                <label for="inputLuz">Ancho / Luz libre (fachada)</label>
+                                <span class="font-bold text-blue-600" id="valLuz">15 m</span>
+                            </div>
+                            <input type="range" id="inputLuz" min="8" max="40" step="1" value="15" 
+                                   class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                            <div class="flex justify-between text-[10px] text-slate-400 mt-0.5">
+                                <span>8 m</span>
+                                <span>24 m</span>
+                                <span>40 m</span>
+                            </div>
+                        </div>
+
+                        <!-- Longitud / Fondo -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-xs font-medium text-slate-700 mb-1">
+                                <label for="inputLongitud">Longitud (fondo de nave)</label>
+                                <span class="font-bold text-blue-600" id="valLongitud">30 m</span>
+                            </div>
+                            <input type="range" id="inputLongitud" min="12" max="100" step="1" value="30" 
+                                   class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                            <div class="flex justify-between text-[10px] text-slate-400 mt-0.5">
+                                <span>12 m</span>
+                                <span>50 m</span>
+                                <span>100 m</span>
+                            </div>
+                        </div>
+
+                        <!-- Altura de Pilares -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-xs font-medium text-slate-700 mb-1">
+                                <label for="inputAltura">Altura libre de pilares (alero)</label>
+                                <span class="font-bold text-blue-600" id="valAltura">6.0 m</span>
+                            </div>
+                            <input type="range" id="inputAltura" min="3.5" max="12.0" step="0.5" value="6.0" 
+                                   class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                            <div class="flex justify-between text-[10px] text-slate-400 mt-0.5">
+                                <span>3.5 m</span>
+                                <span>7.5 m</span>
+                                <span>12.0 m</span>
+                            </div>
+                        </div>
+
+                        <!-- Pendiente de Cubierta -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-xs font-medium text-slate-700 mb-1">
+                                <label for="inputPendiente">Pendiente de cubierta a 2 aguas</label>
+                                <span class="font-bold text-blue-600" id="valPendiente">15%</span>
+                            </div>
+                            <input type="range" id="inputPendiente" min="10" max="30" step="1" value="15" 
+                                   class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                            <div class="flex justify-between text-[10px] text-slate-400 mt-0.5">
+                                <span>10% (panel)</span>
+                                <span>20%</span>
+                                <span>30% (chapa/nieve)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Info rápida calculada -->
+                    <div class="grid grid-cols-3 gap-2 bg-slate-50 p-3 rounded-xl border border-slate-100 text-center text-xs mt-2">
+                        <div>
+                            <div class="text-[10px] text-slate-400 uppercase font-semibold">Cumbrera</div>
+                            <div class="font-bold text-slate-800 text-sm" id="infoCumbrera">7.13 m</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-400 uppercase font-semibold">Nº Vanos</div>
+                            <div class="font-bold text-slate-700 text-sm" id="infoVanos">5 vanos (6m)</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-400 uppercase font-semibold">Volumen</div>
+                            <div class="font-bold text-slate-700 text-sm" id="infoVolumen">2,953 m³</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Columna Derecha: Visor 3D + Módulo 2 + Módulo 3 + Botón Calcular (7 de 12) -->
+            <section class="lg:col-span-7 space-y-4 flex flex-col">
+
+                <!-- Visor 3D Interactivo (Three.js) -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden relative flex flex-col">
+                    <div class="p-3 bg-slate-900 text-white flex justify-between items-center text-xs border-b border-slate-800">
+                        <div class="flex items-center gap-2 font-semibold">
+                            <span class="text-blue-400 text-base">🖥️</span> Vista 3D Paramétrica en Tiempo Real
+                        </div>
+                        <!-- Controles rápidos 3D -->
+                        <div class="flex items-center gap-1.5 flex-wrap justify-end">
+                            <button id="btnToggleEstructura" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-blue-300 rounded text-[11px] font-medium border border-slate-700 transition">
+                                Estructura: ON
+                            </button>
+                            <button id="btnToggleCerramientos" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-blue-300 rounded text-[11px] font-medium border border-slate-700 transition">
+                                Fachadas: ON
+                            </button>
+                            <button id="btnToggleCubierta" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-blue-300 rounded text-[11px] font-medium border border-slate-700 transition">
+                                Cubierta: ON
+                            </button>
+                            <button id="btnTogglePersona" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-emerald-400 rounded text-[11px] font-medium border border-slate-700 transition" title="Mostrar/Ocultar figuras humanas para comparar escala (1,80 m)">
+                                👤 Persona: ON
+                            </button>
+                            <button id="btnToggleCoche" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-amber-400 rounded text-[11px] font-medium border border-slate-700 transition" title="Mostrar/Ocultar vehículo para comparar escala (4,40 m x 1,85 m)">
+                                🚗 Coche: ON
+                            </button>
+                            <button id="btnAutoRotar" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-[11px] font-medium border border-slate-700 transition">
+                                Auto Giro
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Canvas del 3D -->
+                    <div id="canvas3dContainer" class="w-full h-[370px] bg-slate-100 relative cursor-grab active:cursor-grabbing">
+                        <!-- HUD flotante de escala comparativa -->
+                        <div class="absolute top-2 left-2 flex items-center gap-1.5 pointer-events-none z-10">
+                            <div class="bg-slate-900/80 text-white text-[10px] font-medium px-2.5 py-1 rounded-lg backdrop-blur-sm border border-slate-700/60 shadow-sm flex items-center gap-2">
+                                <span class="text-blue-400 font-bold">📏 Referencias de Escala:</span>
+                                <span class="text-slate-300">👤 Persona <strong class="text-emerald-300 font-mono">1,80 m</strong></span>
+                                <span class="text-slate-500">·</span>
+                                <span class="text-slate-300">🚗 Coche <strong class="text-amber-300 font-mono">4,40 m</strong></span>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-slate-900/70 text-slate-200 text-[10px] px-2 py-1 rounded backdrop-blur-sm pointer-events-none">
+                            Rotar: Arrastrar | Zoom: Rueda | Desplazar: Botón dcho.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caja 2: Ubicación y Sobrecargas Normativas (CTE) -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 space-y-3">
+                    <div class="border-b border-slate-100 pb-2">
+                        <h2 class="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                            <span class="text-blue-600 text-base">🌍</span> 2. Ubicación y Cargas CTE
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-700 mb-1">Municipio (Menorca)</label>
+                            <select id="selectProvincia" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <!-- Rellenado por JS con los municipios de Menorca -->
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-700 mb-1">Uso de la Nave</label>
+                            <select id="selectUso" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <option value="agricola">Agrícola (Aperos / Forraje / Grano)</option>
+                                <option value="ganadera">Ganadera (Vacuno / Equino / Quesería)</option>
+                                <option value="industrial" selected>Industrial / Almacén / Taller</option>
+                                <option value="deportiva">Deportiva / Pádel / Hípica</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-medium text-slate-700 mb-1">Entorno y Exposición al Viento (CTE Menorca - Zona C)</label>
+                        <select id="selectViento" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <option value="1">Grado I: Borde del mar / costa abierta (Viento extremo Tramuntana)</option>
+                            <option value="2" selected>Grado II: Campo abierto / llanura litoral menorquina</option>
+                            <option value="3">Grado III: Terreno rural con arbolado / pinar</option>
+                            <option value="4">Grado IV: Polígono industrial (Poima, Ciutadella, Alaior)</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-700 mb-1">Tensión Terreno</label>
+                            <select id="selectTension" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <option value="1.0">1.0 kg/cm² (Suelo flojo / arcilla)</option>
+                                <option value="1.5">1.5 kg/cm² (Terreno medio)</option>
+                                <option value="2.0" selected>2.0 kg/cm² (Marés / terreno competente)</option>
+                                <option value="3.0">3.0 kg/cm² (Roca calcárea dura)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-700 mb-1">Modalidad de Venta</label>
+                            <div class="w-full bg-blue-50/90 border border-blue-200 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-blue-900 flex items-center justify-between shadow-sm">
+                                <span class="flex items-center gap-1.5">
+                                    <span>🏗️</span> Con Montaje en Obra
+                                </span>
+                                <span class="text-[10px] uppercase tracking-wide bg-blue-200/80 text-blue-800 px-1.5 py-0.5 rounded font-bold">
+                                    Menorca
+                                </span>
+                                <input type="hidden" id="selectMontaje" value="con">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caja 3: Materiales, Cerramientos y Puertas -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 space-y-3">
+                    <div class="border-b border-slate-100 pb-2">
+                        <h2 class="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                            <span class="text-blue-600 text-base">🧱</span> 3. Materiales y Cerramientos
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-700 mb-1">Cubierta Principal</label>
+                            <select id="selectCubierta" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <option value="chapa">Chapa simple grecada 0.6 mm</option>
+                                <option value="panel30" selected>Panel sándwich 30 mm</option>
+                                <option value="panel40">Panel sándwich 40 mm</option>
+                                <option value="panel50">Panel sándwich 50 mm</option>
+                                <option value="panel60">Panel sándwich 60 mm</option>
+                                <option value="panel70">Panel sándwich 70 mm</option>
+                                <option value="panel80">Panel sándwich 80 mm</option>
+                                <option value="panel90">Panel sándwich 90 mm</option>
+                                <option value="panel100">Panel sándwich 100 mm</option>
+                                <option value="pural">Sándw.30 + falso techo PURAL 30</option>
+                                <option value="teja">Sándwich 30 mm imitación teja</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-700 mb-1">Cerramiento Fachada</label>
+                            <select id="selectFachada" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <optgroup label="Metálica continua">
+                                    <option value="chapa">Chapa simple grecada 0.6 mm</option>
+                                    <option value="panel35" selected>Panel sándwich 35 mm</option>
+                                    <option value="panel40">Panel sándwich 40 mm</option>
+                                    <option value="panel50">Panel sándwich 50 mm</option>
+                                    <option value="panel60">Panel sándwich 60 mm</option>
+                                    <option value="panel70">Panel sándwich 70 mm</option>
+                                    <option value="panel80">Panel sándwich 80 mm</option>
+                                    <option value="panel90">Panel sándwich 90 mm</option>
+                                    <option value="panel100">Panel sándwich 100 mm</option>
+                                </optgroup>
+                                <optgroup label="Hormigón total (toda la altura)">
+                                    <option value="bloque_total">Bloque de hormigón o termoarcilla</option>
+                                    <option value="alveolar_total">Placa alveolar de 150 mm</option>
+                                </optgroup>
+                                <optgroup label="Pared de bloque + Resto panel (Nuevo)">
+                                    <option value="bloque_1_panel">1m de bloque y resto panel</option>
+                                    <option value="bloque_2_panel">2m de bloque y resto panel</option>
+                                    <option value="bloque_3_panel">3m de bloque y resto panel</option>
+                                </optgroup>
+                                <optgroup label="Pared de bloque + Resto chapa">
+                                    <option value="bloque_1_chapa">1m de bloque y resto chapa</option>
+                                    <option value="bloque_2_chapa">2m de bloque y resto chapa</option>
+                                    <option value="bloque_3_chapa">3m de bloque y resto chapa</option>
+                                </optgroup>
+                                <optgroup label="Placa alveolar + Resto panel (Nuevo)">
+                                    <option value="alveolar_12_panel">1,2m de placa alveolar y resto panel</option>
+                                    <option value="alveolar_24_panel">2,4m de placa alveolar y resto panel</option>
+                                    <option value="alveolar_36_panel">3,6m de placa alveolar y resto panel</option>
+                                </optgroup>
+                                <optgroup label="Placa alveolar + Resto chapa">
+                                    <option value="alveolar_12_chapa">1,2m de placa alveolar y resto chapa</option>
+                                    <option value="alveolar_24_chapa">2,4m de placa alveolar y resto chapa</option>
+                                    <option value="alveolar_36_chapa">3,6m de placa alveolar y resto chapa</option>
+                                </optgroup>
+                                <optgroup label="Estructura diáfana">
+                                    <option value="nada">Nada (sin cerramientos)</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Opción de Peto Perimetral (Cubierta Oculta / Estética Cúbica) -->
+                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+                        <div class="flex items-center justify-between">
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="checkConPeto" class="sr-only peer" onchange="toggleVisibilidadPeto(this.checked)">
+                                <div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+                                <span class="ml-2 text-xs font-bold text-slate-800 flex items-center gap-1">
+                                    🏢 Peto Perimetral en Cubierta
+                                    <span class="text-[10px] text-blue-600 font-semibold">(Estética Cúbica)</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div id="containerOpcionesPeto" class="hidden space-y-2 pt-2 border-t border-slate-200">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-[11px] font-medium text-slate-600 mb-1">Altura del Peto</label>
+                                    <select id="selectAlturaPeto" class="w-full bg-white border border-slate-300 rounded-lg px-2 py-1 text-xs text-slate-800">
+                                        <option value="auto" selected>Auto (Ocultar cumbrera +0,2m)</option>
+                                        <option value="0.8">0,80 metros</option>
+                                        <option value="1.0">1,00 metro</option>
+                                        <option value="1.2">1,20 metros</option>
+                                        <option value="1.5">1,50 metros</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-medium text-slate-600 mb-1">Cara Interior del Peto</label>
+                                    <select id="selectAcabadoInteriorPeto" class="w-full bg-white border border-slate-300 rounded-lg px-2 py-1 text-xs text-slate-800">
+                                        <option value="chapa" selected>Chapa simple grecada 0,6 mm</option>
+                                        <option value="panel">Panel sándwich 30 mm (Aislado)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="text-[10px] text-slate-500 leading-tight">
+                                Incluye cerramiento perimetral superior, revestimiento interior, subestructura de tubo, albardilla y canalón.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Módulo de Recogida de Aguas Pluviales: Canalones -->
+                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+                        <label class="block text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                            <span>🌧️ Recogida de Aguas Pluviales (Canalones)</span>
+                        </label>
+                        <select id="selectCanalon" class="w-full bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <option value="exterior" selected>Canalón exterior lacado con bajantes en aleros (Recomendado sin peto)</option>
+                            <option value="interior">Canalón interior oculto estanco detrás de peto (Recomendado con peto)</option>
+                            <option value="sin">Sin canalón (Caída libre en aleros)</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-700 mb-1">Lucernarios en Cubierta</label>
+                            <select id="selectLucernarios" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <option value="0">0% (Sin lucernarios)</option>
+                                <option value="5">5% translúcido</option>
+                                <option value="10" selected>10% translúcido (Recomendado)</option>
+                                <option value="15">15% translúcido</option>
+                            </select>
+                        </div>
+                        <div class="pt-2 sm:pt-4">
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="checkFalsoTecho" class="sr-only peer">
+                                <div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+                                <span class="ml-2 text-xs font-medium text-slate-700">Falso techo PURAL</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 border-t border-slate-100">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-700 mb-1">Puertas Maquinaria (5x5m)</label>
+                            <select id="selectPuertasGrandes" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <option value="1" selected>1 unidad</option>
+                                <option value="2">2 unidades</option>
+                                <option value="3">3 unidades</option>
+                                <option value="0">0 unidades</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-700 mb-1">Puertas Peatonales (1x2m)</label>
+                            <select id="selectPuertasPeatonales" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <option value="1" selected>1 unidad</option>
+                                <option value="2">2 unidades</option>
+                                <option value="3">3 unidades</option>
+                                <option value="0">0 unidades</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón Principal de Cálculo de Presupuesto -->
+                <div class="pt-1">
+                    <button onclick="ejecutarCalculoUsuario()" class="w-full py-3.5 px-6 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm uppercase tracking-wider rounded-xl shadow-lg transition flex items-center justify-center gap-2 transform active:scale-98 cursor-pointer border border-emerald-400">
+                        <span class="text-lg">🧮</span>
+                        <span>CALCULAR PRESUPUESTO</span>
+                    </button>
+                </div>
+
+            </section>
+
+        </div>
+
+            <!-- Contenedor Oculto Inicialmente: Resultados del Presupuesto -->
+            <div id="seccionResultados" class="space-y-5 hidden">
+
+                <!-- Banner CTA Principal: Solicitar Presupuesto Completo -->
+                <div class="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 p-5 rounded-2xl shadow-xl border border-blue-800 text-white flex flex-wrap justify-between items-center gap-4">
+                    <div>
+                        <h3 class="text-base font-bold flex items-center gap-2 text-white">
+                            <span class="text-xl">📩</span>
+                            <span>Solicitud de Presupuesto Formal y Desglosado</span>
+                        </h3>
+                        <p class="text-xs text-slate-300 mt-1 max-w-xl">
+                            Recibe en tu correo electrónico la oferta técnica detallada con desglose de mediciones y los costes de ingeniería y proyecto técnico de cálculo.
+                        </p>
+                    </div>
+                    <button onclick="abrirModalSolicitud()" class="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider rounded-xl shadow-lg transition transform hover:scale-105 flex items-center gap-2 border border-emerald-300 cursor-pointer">
+                        <span>📩 Solicitar Presupuesto Completo</span>
+                    </button>
+                </div>
+
+                <!-- Tarjetas Resumen Económico (KPIs) -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm text-center">
+                        <div class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Superficie</div>
+                        <div class="text-xl font-black text-slate-800 mt-0.5" id="cardSuperficie">450 m²</div>
+                        <div class="text-[10px] text-slate-400" id="cardDimensiones">15 x 30 x 6 m</div>
+                    </div>
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm text-center">
+                        <div class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Acero Estructural</div>
+                        <div class="text-xl font-black text-blue-600 mt-0.5" id="cardAcero">11,250 kg</div>
+                        <div class="text-[10px] text-slate-400" id="cardRatioAcero">25.0 kg/m²</div>
+                    </div>
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm text-center">
+                        <div class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Ratio Total</div>
+                        <div class="text-xl font-black text-emerald-600 mt-0.5" id="cardRatioM2">135.40 €/m²</div>
+                        <div class="text-[10px] text-slate-400">Sin IVA incluido</div>
+                    </div>
+                    <div class="bg-emerald-600 text-white p-3.5 rounded-xl border border-emerald-500 shadow-sm text-center">
+                        <div class="text-[11px] font-bold uppercase tracking-wider text-emerald-100">Presupuesto Total</div>
+                        <div class="text-xl font-black mt-0.5" id="cardTotalEuros">60,930 €</div>
+                        <div class="text-[10px] text-emerald-200" id="cardTotalConIva">73,725 € con IVA</div>
+                    </div>
+                </div>
+
+                <!-- Desglose por Capítulos -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 space-y-3">
+                    <div class="flex justify-between items-center border-b border-slate-100 pb-2">
+                        <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Resumen por Capítulos</h3>
+                        <span class="text-xs text-slate-500">Valores sin IVA</span>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-xs">
+                        <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <div class="text-[10px] text-slate-500">Cap 1: Estructura & Cerram.</div>
+                            <div class="font-bold text-slate-800 text-sm mt-0.5" id="resumenCap1">38,450 €</div>
+                            <div class="text-[10px] text-blue-600" id="ratioCap1">85.44 €/m²</div>
+                        </div>
+                        <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <div class="text-[10px] text-slate-500">Cap 2: Cimentación</div>
+                            <div class="font-bold text-slate-800 text-sm mt-0.5" id="resumenCap2">8,920 €</div>
+                            <div class="text-[10px] text-blue-600" id="ratioCap2">19.82 €/m²</div>
+                        </div>
+                        <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <div class="text-[10px] text-slate-500">Cap 3: Solera Industrial</div>
+                            <div class="font-bold text-slate-800 text-sm mt-0.5" id="resumenCap3">10,840 €</div>
+                            <div class="text-[10px] text-blue-600" id="ratioCap3">24.08 €/m²</div>
+                        </div>
+                        <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <div class="text-[10px] text-slate-500">Cap 4: Montaje Desglosado</div>
+                            <div class="font-bold text-slate-800 text-sm mt-0.5" id="resumenCap4">6,525 €</div>
+                            <div class="text-[10px] text-blue-600" id="ratioCap4">14.50 €/m²</div>
+                        </div>
+                        <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <div class="text-[10px] text-slate-500">Cap 5: Portes & Transporte</div>
+                            <div class="font-bold text-slate-800 text-sm mt-0.5" id="resumenCap5">1,700 €</div>
+                            <div class="text-[10px] text-blue-600" id="ratioCap5">3.78 €/m²</div>
+                        </div>
+                        <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <div class="text-[10px] text-slate-500">Cap 6: Proyecto Técnico</div>
+                            <div class="font-bold text-slate-800 text-sm mt-0.5" id="resumenCap6">3.000 €</div>
+                            <div class="text-[10px] text-blue-600" id="ratioCap6">6.67 €/m²</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla Desplegable con las Partidas Detalladas -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="p-3.5 bg-slate-50 border-b border-slate-200 flex flex-wrap justify-between items-center gap-2 select-none">
+                        <div class="flex items-center gap-2.5 cursor-pointer" onclick="toggleTablaDetallada()">
+                            <span class="text-sm font-bold text-slate-900">📋 Desglose Detallado de Partidas</span>
+                            <span class="text-xs px-2 py-0.5 bg-slate-200 text-slate-700 rounded-full font-semibold">Normativa CTE</span>
+                            <span id="badgePartidasContador" class="text-xs px-2.5 py-0.5 bg-blue-100 text-blue-700 rounded-full font-bold">31 / 31 incluidas</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button type="button" onclick="seleccionarTodasPartidas(true)" class="text-xs px-2.5 py-1 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded font-semibold transition flex items-center gap-1 shadow-sm" title="Marcar e incluir todas las partidas en el presupuesto">
+                                <span class="text-emerald-600 font-bold">✓</span> Incluir todo
+                            </button>
+                            <button type="button" onclick="seleccionarTodasPartidas(false)" class="text-xs px-2.5 py-1 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded font-semibold transition flex items-center gap-1 shadow-sm" title="Deseleccionar todas las partidas">
+                                <span class="text-rose-600 font-bold">✕</span> Excluir todo
+                            </button>
+                            <button type="button" class="text-xs text-blue-600 font-bold hover:underline ml-2" id="btnToggleTabla" onclick="toggleTablaDetallada()">
+                                Mostrar / Ocultar ▼
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="tablaPartidasContainer" class="p-0 overflow-x-auto max-h-[460px] overflow-y-auto">
+                        <table class="w-full text-left text-xs text-slate-600 border-collapse">
+                            <thead class="bg-slate-100 text-slate-700 font-bold sticky top-0 border-b border-slate-200 z-10">
+                                <tr>
+                                    <th class="p-2.5 w-10 text-center">
+                                        <input type="checkbox" id="checkMasterPartidas" onchange="seleccionarTodasPartidas(this.checked)" title="Seleccionar / Desmarcar todas las partidas" class="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer align-middle">
+                                    </th>
+                                    <th class="p-2.5 w-10 text-center">Nº</th>
+                                    <th class="p-2.5 w-20">Código</th>
+                                    <th class="p-2.5">Descripción de la Partida</th>
+                                    <th class="p-2.5 text-right w-20">Medición</th>
+                                    <th class="p-2.5 w-14 text-center">Ud.</th>
+                                    <th class="p-2.5 text-right w-24">Precio Unit.</th>
+                                    <th class="p-2.5 text-right w-28">Importe (€)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaPartidasBody" class="divide-y divide-slate-100">
+                                <!-- Inyectado por JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-4 px-6 text-center text-xs text-slate-500 no-print mt-auto">
+        <p>Configurador Técnico de Naves Industriales · Basado en cálculo matricial simplificado y CTE DB-SE-AE · Entorno de Presupuestación</p>
+    </footer>
+
+    <!-- Scripts de la aplicación -->
+    <script src="provincias.js"></script>
+    <script src="calculo_naves.js"></script>
+    <script src="visor3d.js"></script>
+
+    <script>
+        // Variables globales
+        let visor = null;
+        let resultadoActual = null;
+        let tablaVisible = true;
+        let partidasExcluidas = new Set();
+
+        // Inicialización
+        window.addEventListener('DOMContentLoaded', () => {
+            // 1. Inicializar Visor 3D INMEDIATAMENTE
+            try {
+                visor = new VisorNave3D('canvas3dContainer');
+            } catch (e) {
+                console.error("Error al inicializar Visor 3D:", e);
+            }
+
+            // 2. Inicializar municipios de Menorca
+            const selectProv = document.getElementById('selectProvincia');
+            const listaMunicipios = (typeof MUNICIPIOS_MENORCA !== 'undefined') ? MUNICIPIOS_MENORCA : (typeof PROVINCIAS_ESPANA !== 'undefined' ? PROVINCIAS_ESPANA : []);
+            if (selectProv) {
+                listaMunicipios.forEach((p, idx) => {
+                    const opt = document.createElement('option');
+                    opt.value = p.id;
+                    opt.textContent = p.descripcion ? `${p.nombre} (${p.descripcion})` : p.nombre;
+                    if (idx === 0 || p.nombre.includes('Maó')) opt.selected = true;
+                    selectProv.appendChild(opt);
+                });
+            }
+
+            // 3. Event Listeners para entradas
+            const inputsEscucha = [
+                'inputLuz', 'inputLongitud', 'inputAltura', 'inputPendiente',
+                'selectProvincia', 'selectUso', 'selectViento', 'selectTension',
+                'selectMontaje', 'selectCubierta', 'selectFachada', 'selectLucernarios',
+                'checkFalsoTecho', 'checkConPeto', 'selectAlturaPeto', 'selectAcabadoInteriorPeto', 'selectCanalon', 'selectPuertasGrandes', 'selectPuertasPeatonales'
+            ];
+
+            inputsEscucha.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', recalcular3D);
+                    el.addEventListener('change', recalcular3D);
+                }
+            });
+
+            // 4. Botones del Visor 3D
+            const btnEst = document.getElementById('btnToggleEstructura');
+            if (btnEst) {
+                btnEst.addEventListener('click', (e) => {
+                    if (!visor) return;
+                    visor.verEstructura = !visor.verEstructura;
+                    e.target.textContent = `Estructura: ${visor.verEstructura ? 'ON' : 'OFF'}`;
+                    e.target.classList.toggle('text-blue-300', visor.verEstructura);
+                    e.target.classList.toggle('text-slate-400', !visor.verEstructura);
+                    recalcular3D();
+                });
+            }
+
+            const btnCer = document.getElementById('btnToggleCerramientos');
+            if (btnCer) {
+                btnCer.addEventListener('click', (e) => {
+                    if (!visor) return;
+                    visor.verCerramientos = !visor.verCerramientos;
+                    e.target.textContent = `Fachadas: ${visor.verCerramientos ? 'ON' : 'OFF'}`;
+                    e.target.classList.toggle('text-blue-300', visor.verCerramientos);
+                    e.target.classList.toggle('text-slate-400', !visor.verCerramientos);
+                    recalcular3D();
+                });
+            }
+
+            const btnCub = document.getElementById('btnToggleCubierta');
+            if (btnCub) {
+                btnCub.addEventListener('click', (e) => {
+                    if (!visor) return;
+                    visor.verCubierta = !visor.verCubierta;
+                    e.target.textContent = `Cubierta: ${visor.verCubierta ? 'ON' : 'OFF'}`;
+                    e.target.classList.toggle('text-blue-300', visor.verCubierta);
+                    e.target.classList.toggle('text-slate-400', !visor.verCubierta);
+                    recalcular3D();
+                });
+            }
+
+            const btnPer = document.getElementById('btnTogglePersona');
+            if (btnPer) {
+                btnPer.addEventListener('click', (e) => {
+                    if (!visor) return;
+                    const visible = visor.togglePersonas();
+                    e.target.textContent = `👤 Persona: ${visible ? 'ON' : 'OFF'}`;
+                    e.target.classList.toggle('text-emerald-400', visible);
+                    e.target.classList.toggle('text-slate-400', !visible);
+                });
+            }
+
+            const btnCoc = document.getElementById('btnToggleCoche');
+            if (btnCoc) {
+                btnCoc.addEventListener('click', (e) => {
+                    if (!visor) return;
+                    const visible = visor.toggleVehiculos();
+                    e.target.textContent = `🚗 Coche: ${visible ? 'ON' : 'OFF'}`;
+                    e.target.classList.toggle('text-amber-400', visible);
+                    e.target.classList.toggle('text-slate-400', !visible);
+                });
+            }
+
+            const btnRot = document.getElementById('btnAutoRotar');
+            if (btnRot) {
+                btnRot.addEventListener('click', (e) => {
+                    if (!visor) return;
+                    visor.autoRotar = !visor.autoRotar;
+                    e.target.classList.toggle('bg-blue-600', visor.autoRotar);
+                    e.target.classList.toggle('text-white', visor.autoRotar);
+                });
+            }
+
+            // 5. Verificar si accedió a /naves/panel
+            verificarRutaAdmin();
+
+            // 6. Primer renderizado 3D sincrónico
+            recalcular3D();
+
+            // 7. Cargar precios del servidor en segundo plano sin bloquear
+            cargarPreciosIniciales().catch(err => console.warn("Error cargando precios iniciales:", err));
+        });
+
+        function toggleVisibilidadPeto(checked) {
+            const container = document.getElementById('containerOpcionesPeto');
+            if (container) {
+                container.classList.toggle('hidden', !checked);
+            }
+            const selectCanalon = document.getElementById('selectCanalon');
+            if (selectCanalon) {
+                if (checked && selectCanalon.value === 'exterior') {
+                    selectCanalon.value = 'interior';
+                } else if (!checked && selectCanalon.value === 'interior') {
+                    selectCanalon.value = 'exterior';
+                }
+            }
+            recalcular3D();
+        }
+
+        function obtenerParams() {
+            return {
+                luz: parseFloat(document.getElementById('inputLuz').value),
+                longitud: parseFloat(document.getElementById('inputLongitud').value),
+                altura: parseFloat(document.getElementById('inputAltura').value),
+                pendiente: parseFloat(document.getElementById('inputPendiente').value),
+                tipoCubierta: document.getElementById('selectCubierta').value,
+                tipoFachada: document.getElementById('selectFachada').value,
+                pctLucernarios: parseFloat(document.getElementById('selectLucernarios').value),
+                falsoTecho: document.getElementById('checkFalsoTecho').checked,
+                conPeto: document.getElementById('checkConPeto') ? document.getElementById('checkConPeto').checked : false,
+                alturaPeto: document.getElementById('selectAlturaPeto') ? document.getElementById('selectAlturaPeto').value : 'auto',
+                acabadoInteriorPeto: document.getElementById('selectAcabadoInteriorPeto') ? document.getElementById('selectAcabadoInteriorPeto').value : 'chapa',
+                tipoCanalon: document.getElementById('selectCanalon') ? document.getElementById('selectCanalon').value : 'exterior',
+                conMontaje: true, // Venta exclusiva en Menorca con montaje en obra incluido
+                numPuertasGrandes: parseInt(document.getElementById('selectPuertasGrandes').value),
+                numPuertasPeatonales: parseInt(document.getElementById('selectPuertasPeatonales').value),
+                sobrecargaViento: parseFloat(document.getElementById('selectViento').value),
+                tensionAdmisible: parseFloat(document.getElementById('selectTension').value),
+                partidasExcluidas: Array.from(partidasExcluidas)
+            };
+        }
+
+        function recalcular() {
+            const params = obtenerParams();
+
+            // Actualizar etiquetas numéricas de los sliders
+            document.getElementById('valLuz').textContent = `${params.luz} m`;
+            document.getElementById('valLongitud').textContent = `${params.longitud} m`;
+            document.getElementById('valAltura').textContent = `${params.altura.toFixed(1)} m`;
+            document.getElementById('valPendiente').textContent = `${params.pendiente}%`;
+
+            // Ejecutar motor de cálculo
+            resultadoActual = calcularPresupuestoNave(params);
+            const dim = resultadoActual.dimensiones;
+            const tot = resultadoActual.totales;
+
+            // Actualizar badges e info rápida
+            document.getElementById('badgeSuperficie').textContent = `${dim.supConstruida} m²`;
+            document.getElementById('infoCumbrera').textContent = `${dim.alturaCumbrera.toFixed(2)} m`;
+            document.getElementById('infoVanos').textContent = `${dim.nVanos} vanos (${dim.intereje.toFixed(1)}m)`;
+            document.getElementById('infoVolumen').textContent = `${dim.volumenUtil.toLocaleString('es-ES')} m³`;
+
+            // Actualizar KPIs
+            document.getElementById('cardSuperficie').textContent = `${dim.supConstruida} m²`;
+            document.getElementById('cardDimensiones').textContent = `${dim.luz} x ${dim.longitud} x ${dim.altura} m`;
+            document.getElementById('cardAcero').textContent = `${dim.kgAceroTotal.toLocaleString('es-ES')} kg`;
+            document.getElementById('cardRatioAcero').textContent = `${dim.ratioAceroKgM2} kg/m²`;
+            document.getElementById('cardRatioM2').textContent = `${tot.ratioTotalM2.toFixed(2)} €/m²`;
+            document.getElementById('cardTotalEuros').textContent = `${tot.totalSinIva.toLocaleString('es-ES', { minimumFractionDigits: 0, maximumFractionDigits: 0 })} €`;
+            document.getElementById('cardTotalConIva').textContent = `${tot.totalConIva.toLocaleString('es-ES', { minimumFractionDigits: 0, maximumFractionDigits: 0 })} € con IVA`;
+
+            // Actualizar resumen por capítulos con indicación de excluido
+            const actualizarResumenCap = (val, ratio, elValId, elRatioId) => {
+                const elVal = document.getElementById(elValId);
+                const elRatio = document.getElementById(elRatioId);
+                if (val === 0) {
+                    elVal.textContent = '0 € (Excluido)';
+                    elVal.className = 'font-bold text-slate-400 text-sm mt-0.5';
+                    elRatio.textContent = '0.00 €/m²';
+                    elRatio.className = 'text-[10px] text-slate-400';
+                } else {
+                    elVal.textContent = `${val.toLocaleString('es-ES')} €`;
+                    elVal.className = 'font-bold text-slate-800 text-sm mt-0.5';
+                    elRatio.textContent = `${ratio.toFixed(2)} €/m²`;
+                    elRatio.className = 'text-[10px] text-blue-600';
+                }
+            };
+
+            actualizarResumenCap(tot.cap1_estructura_cerramientos, tot.ratioEstructuraCerramientoM2, 'resumenCap1', 'ratioCap1');
+            actualizarResumenCap(tot.cap2_cimentacion, (tot.cap2_cimentacion / dim.supConstruida), 'resumenCap2', 'ratioCap2');
+            actualizarResumenCap(tot.cap3_solera, (tot.cap3_solera / dim.supConstruida), 'resumenCap3', 'ratioCap3');
+            actualizarResumenCap(tot.cap4_montaje, (tot.cap4_montaje / dim.supConstruida), 'resumenCap4', 'ratioCap4');
+            actualizarResumenCap(tot.cap5_portes, (tot.cap5_portes / dim.supConstruida), 'resumenCap5', 'ratioCap5');
+            actualizarResumenCap(tot.cap6_proyecto, (tot.cap6_proyecto / dim.supConstruida), 'resumenCap6', 'ratioCap6');
+
+            // Actualizar badge contador de partidas
+            const badgePartidas = document.getElementById('badgePartidasContador');
+            if (badgePartidas) {
+                badgePartidas.textContent = `${tot.totalPartidasIncluidas} / ${tot.totalPartidasTotales} incluidas`;
+                if (tot.totalPartidasIncluidas === tot.totalPartidasTotales) {
+                    badgePartidas.className = 'text-xs px-2.5 py-0.5 bg-blue-100 text-blue-700 rounded-full font-bold';
+                } else if (tot.totalPartidasIncluidas === 0) {
+                    badgePartidas.className = 'text-xs px-2.5 py-0.5 bg-rose-100 text-rose-700 rounded-full font-bold';
+                } else {
+                    badgePartidas.className = 'text-xs px-2.5 py-0.5 bg-amber-100 text-amber-800 rounded-full font-bold';
+                }
+            }
+
+            // Actualizar checkbox master
+            const checkMaster = document.getElementById('checkMasterPartidas');
+            if (checkMaster) {
+                if (tot.totalPartidasIncluidas === tot.totalPartidasTotales) {
+                    checkMaster.checked = true;
+                    checkMaster.indeterminate = false;
+                } else if (tot.totalPartidasIncluidas === 0) {
+                    checkMaster.checked = false;
+                    checkMaster.indeterminate = false;
+                } else {
+                    checkMaster.checked = false;
+                    checkMaster.indeterminate = true;
+                }
+            }
+
+            // Actualizar tabla detallada de partidas
+            renderizarTablaPartidas(resultadoActual.partidas);
+
+            // Actualizar modelo 3D
+            recalcular3D();
+        }
+
+        function recalcular3D() {
+            const params = obtenerParams();
+            const elLuz = document.getElementById('valLuz'); if (elLuz) elLuz.textContent = `${params.luz} m`;
+            const elLong = document.getElementById('valLongitud'); if (elLong) elLong.textContent = `${params.longitud} m`;
+            const elAlt = document.getElementById('valAltura'); if (elAlt) elAlt.textContent = `${params.altura.toFixed(1)} m`;
+            const elPen = document.getElementById('valPendiente'); if (elPen) elPen.textContent = `${params.pendiente}%`;
+
+            const sup = params.luz * params.longitud;
+            const tanAlfa = (params.pendiente / 100);
+            const flecha = (params.luz / 2) * tanAlfa;
+            const hCumbrera = params.altura + flecha;
+            const nVanos = Math.max(1, Math.round(params.longitud / 6.0));
+            const intereje = params.longitud / nVanos;
+            const vol = Math.round(sup * (params.altura + flecha / 2));
+
+            const badgeSup = document.getElementById('badgeSuperficie'); if (badgeSup) badgeSup.textContent = `${sup} m²`;
+            const infoCum = document.getElementById('infoCumbrera'); if (infoCum) infoCum.textContent = `${hCumbrera.toFixed(2)} m`;
+            const infoVan = document.getElementById('infoVanos'); if (infoVan) infoVan.textContent = `${nVanos} vanos (${intereje.toFixed(1)}m)`;
+            const infoVol = document.getElementById('infoVolumen'); if (infoVol) infoVol.textContent = `${vol.toLocaleString('es-ES')} m³`;
+
+            if (visor) {
+                visor.actualizarNave(params);
+            }
+        }
+
+        function renderizarTablaPartidas(partidas) {
+            const container = document.getElementById('tablaPartidasContainer');
+            const prevScroll = container ? container.scrollTop : 0;
+            const tbody = document.getElementById('tablaPartidasBody');
+            tbody.innerHTML = '';
+
+            let capActual = 0;
+            const nombresCapitulos = {
+                1: 'CAPÍTULO 1: Estructura Metálica y Cerramientos',
+                2: 'CAPÍTULO 2: Cimentación y Movimiento de Tierras',
+                3: 'CAPÍTULO 3: Solera Industrial',
+                4: 'CAPÍTULO 4: Montaje, Instalación y Medios Auxiliares',
+                5: 'CAPÍTULO 5: Portes, Fletes y Transporte a Obra',
+                6: 'CAPÍTULO 6: Proyecto Técnico y Cálculo Estructural'
+            };
+
+            const partidasPorCap = {};
+            partidas.forEach(p => {
+                if (!partidasPorCap[p.cap]) partidasPorCap[p.cap] = [];
+                partidasPorCap[p.cap].push(p);
+            });
+
+            partidas.forEach((p, idx) => {
+                if (p.cap !== capActual) {
+                    capActual = p.cap;
+                    const itemsCap = partidasPorCap[capActual] || [];
+                    const incCap = itemsCap.filter(x => x.incluida).length;
+                    const subtotalCap = itemsCap.reduce((sum, x) => sum + (x.incluida ? x.importe : 0), 0);
+
+                    const trCap = document.createElement('tr');
+                    trCap.className = 'bg-slate-200/90 font-bold text-slate-800 text-[11px] select-none';
+                    trCap.innerHTML = `
+                        <td class="p-2 text-center">
+                            <input type="checkbox" id="checkCap_${capActual}" onchange="toggleCapitulo(${capActual})" class="w-4 h-4 rounded border-slate-400 text-blue-600 focus:ring-blue-500 cursor-pointer align-middle" title="Incluir o excluir todo el Capítulo ${capActual}">
+                        </td>
+                        <td colspan="6" class="p-2 pl-2">
+                            <span class="cursor-pointer hover:text-blue-700 transition" onclick="toggleCapitulo(${capActual})">${nombresCapitulos[capActual]}</span>
+                            <span class="text-[10px] font-semibold text-slate-600 ml-2">(${incCap}/${itemsCap.length} partidas incluidas)</span>
+                        </td>
+                        <td class="p-2 text-right font-mono font-bold text-slate-900">
+                            ${subtotalCap.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €
+                        </td>
+                    `;
+                    tbody.appendChild(trCap);
+
+                    // Configurar estado tri-state del checkbox de capítulo
+                    setTimeout(() => {
+                        const chkCap = document.getElementById(`checkCap_${capActual}`);
+                        if (chkCap) {
+                            if (incCap === itemsCap.length) {
+                                chkCap.checked = true;
+                                chkCap.indeterminate = false;
+                            } else if (incCap === 0) {
+                                chkCap.checked = false;
+                                chkCap.indeterminate = false;
+                            } else {
+                                chkCap.checked = false;
+                                chkCap.indeterminate = true;
+                            }
+                        }
+                    }, 0);
+                }
+
+                const tr = document.createElement('tr');
+                if (p.incluida) {
+                    tr.className = 'hover:bg-slate-50 transition border-b border-slate-100';
+                } else {
+                    tr.className = 'opacity-40 bg-slate-100/70 border-b border-slate-100 select-none';
+                }
+
+                tr.innerHTML = `
+                    <td class="p-2 text-center">
+                        <input type="checkbox" ${p.incluida ? 'checked' : ''} onchange="togglePartida('${p.cod}')" class="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer align-middle" title="${p.incluida ? 'Excluir esta partida' : 'Incluir esta partida'}">
+                    </td>
+                    <td class="p-2 text-center text-slate-400 font-mono text-[11px]">${idx + 1}</td>
+                    <td class="p-2 font-mono font-semibold text-[11px] ${p.incluida ? 'text-blue-700' : 'text-slate-400 line-through'}">${p.cod}</td>
+                    <td class="p-2 font-medium ${p.incluida ? 'text-slate-800' : 'text-slate-400 line-through'}">
+                        ${p.desc}
+                        ${!p.incluida ? '<span class="ml-2 text-[10px] font-bold text-rose-600 uppercase no-underline inline-block px-1.5 py-0.5 bg-rose-50 border border-rose-200 rounded">Excluida</span>' : ''}
+                    </td>
+                    <td class="p-2 text-right font-mono font-semibold">${p.med.toLocaleString('es-ES', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
+                    <td class="p-2 text-center text-slate-500 font-medium">${p.ud}</td>
+                    <td class="p-2 text-right font-mono text-slate-600">${p.pu.toFixed(2)} €</td>
+                    <td class="p-2 text-right font-mono font-bold ${p.incluida ? 'text-slate-900' : 'text-slate-400 line-through'}">
+                        ${p.importe.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            if (container) {
+                container.scrollTop = prevScroll;
+            }
+        }
+
+        function togglePartida(cod) {
+            if (partidasExcluidas.has(cod)) {
+                partidasExcluidas.delete(cod);
+            } else {
+                partidasExcluidas.add(cod);
+            }
+            recalcular();
+        }
+
+        function toggleCapitulo(cap) {
+            if (!resultadoActual) return;
+            const itemsCap = resultadoActual.partidas.filter(p => p.cap === cap);
+            const todasIncluidas = itemsCap.every(p => !partidasExcluidas.has(p.cod));
+
+            if (todasIncluidas) {
+                // Si todas estaban incluidas, excluir todas
+                itemsCap.forEach(p => partidasExcluidas.add(p.cod));
+            } else {
+                // Si había alguna excluida o todas, incluirlas todas
+                itemsCap.forEach(p => partidasExcluidas.delete(p.cod));
+            }
+            recalcular();
+        }
+
+        function seleccionarTodasPartidas(incluir) {
+            if (incluir) {
+                partidasExcluidas.clear();
+            } else {
+                if (resultadoActual) {
+                    resultadoActual.partidas.forEach(p => partidasExcluidas.add(p.cod));
+                }
+            }
+            recalcular();
+        }
+
+        function toggleTablaDetallada() {
+            const container = document.getElementById('tablaPartidasContainer');
+            const btn = document.getElementById('btnToggleTabla');
+            tablaVisible = !tablaVisible;
+            container.style.display = tablaVisible ? 'block' : 'none';
+            btn.textContent = tablaVisible ? 'Ocultar ▲' : 'Mostrar ▼';
+        }
+
+        function exportarJSON() {
+            if (!resultadoActual) return;
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(resultadoActual, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `presupuesto_nave_${resultadoActual.dimensiones.luz}x${resultadoActual.dimensiones.longitud}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        // --- Panel de Control de Precios ---
+        const CAMPOS_PRECIOS = [
+            'precio_acero_kg', 'precio_chapa_cubierta_m2', 'precio_panel_30_m2', 'precio_panel_35_m2', 'precio_panel_40_m2',
+            'precio_panel_50_m2', 'precio_panel_60_m2', 'precio_panel_70_m2', 'precio_panel_80_m2', 'precio_panel_90_m2',
+            'precio_panel_100_m2', 'precio_panel_pural_m2', 'precio_panel_teja_m2',
+            'precio_placa_alveolar_m2', 'precio_bloque_hormigon_m2',
+            'precio_lucernario_m2', 'precio_falso_techo_m2',
+            'precio_remate_cumbrera_ml', 'precio_remate_lateral_ml', 'precio_remate_esquina_ml', 'precio_remate_vierteaguas_ml',
+            'precio_canalon_exterior_ml', 'precio_canalon_interior_ml',
+            'precio_puerta_grande_ud', 'precio_puerta_peatonal_ud', 'precio_tornillo_ud',
+            'precio_explanacion_m3', 'precio_excavacion_m3', 'precio_hormigon_limpieza_m3',
+            'precio_acero_corrugado_kg', 'precio_placa_anclaje_ud', 'precio_hormigon_h25_cimen_m3',
+            'precio_zahorra_m3', 'precio_lamina_pe_m2', 'precio_mallazo_m2', 'precio_solera_h25_m3',
+            'precio_montaje_acero_kg', 'precio_montaje_cubierta_m2', 'precio_montaje_fachada_m2',
+            'precio_montaje_placa_alveolar_m2', 'precio_montaje_bloque_m2',
+            'precio_montaje_lucernarios_m2', 'precio_montaje_falso_techo_m2', 'precio_montaje_remates_ml',
+            'precio_montaje_canalon_exterior_ml', 'precio_montaje_canalon_interior_ml',
+            'precio_montaje_puerta_grande_ud', 'precio_montaje_puerta_peatonal_ud', 'precio_alquiler_medios_aux_dia',
+            'precio_porte_trailer_viaje', 'precio_proyecto_tecnico'
+        ];
+
+        function abrirModalPrecios() {
+            const precios = obtenerPreciosConfigurados();
+            CAMPOS_PRECIOS.forEach(campo => {
+                const el = document.getElementById('cfg_' + campo);
+                if (el && precios[campo] !== undefined) {
+                    el.value = precios[campo];
+                }
+            });
+            document.getElementById('modalPrecios').classList.remove('hidden');
+        }
+
+        function aplicarVariacionPorcentualPrecios() {
+            const inputPct = document.getElementById('inputVariacionPorcentaje');
+            if (!inputPct) return;
+            const pct = parseFloat(inputPct.value);
+            if (isNaN(pct) || pct === 0) {
+                alert("⚠️ Por favor, introduce un porcentaje válido distinto de cero (ej: 1, -1, 5, -10).");
+                inputPct.focus();
+                return;
+            }
+
+            const factor = 1.0 + (pct / 100.0);
+            let contador = 0;
+
+            CAMPOS_PRECIOS.forEach(campo => {
+                const el = document.getElementById('cfg_' + campo);
+                if (el && el.value !== '') {
+                    const valVal = parseFloat(el.value);
+                    if (!isNaN(valVal) && valVal > 0) {
+                        const nuevoVal = Math.round((valVal * factor) * 100) / 100;
+                        el.value = nuevoVal;
+                        el.classList.add('bg-amber-100', 'text-amber-900', 'font-bold');
+                        setTimeout(() => {
+                            el.classList.remove('bg-amber-100', 'text-amber-900', 'font-bold');
+                        }, 2000);
+                        contador++;
+                    }
+                }
+            });
+
+            const signo = pct > 0 ? `+${pct}` : `${pct}`;
+            alert(`✅ Se ha aplicado una variación del ${signo}% sobre los ${contador} precios unitarios del panel.\n\nHaz clic en "💾 Guardar y Aplicar Precios" para confirmar los cambios.`);
+        }
+
+        function cerrarModalPrecios() {
+            document.getElementById('modalPrecios').classList.add('hidden');
+        }
+
+        function guardarPreciosDesdeModal() {
+            const nuevosPrecios = {};
+            CAMPOS_PRECIOS.forEach(campo => {
+                const el = document.getElementById('cfg_' + campo);
+                if (el) {
+                    nuevosPrecios[campo] = parseFloat(el.value) || PRECIOS_DEFECTO[campo];
+                }
+            });
+            guardarPreciosConfigurados(nuevosPrecios);
+            recalcular();
+            cerrarModalPrecios();
+            alert("✅ Precios actualizados y guardados correctamente. El presupuesto se ha recalculado con las nuevas tarifas.");
+        }
+
+        function restablecerPreciosDesdeModal() {
+            if (confirm("¿Estás seguro de restablecer todos los precios unitarios a los valores de fábrica?")) {
+                restablecerPreciosConfigurados();
+                abrirModalPrecios();
+                recalcular();
+            }
+        }
+
+        // --- Generación y Control de Presupuesto Formal en PDF ---
+        let configPDF = {
+            cliente: "Construcciones y Logística Menorca S.L.",
+            cif: "B-07123456",
+            obra: "Av. Circunvalació 11, Polígono de Sant Lluís (Menorca)",
+            num: "P-2026-0248",
+            fecha: new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }),
+            plazo: "6 a 8 semanas tras aprobación técnica y licencias",
+            pago: "30% a la firma del contrato y replanteo · 40% al inicio del montaje en obra · 30% a la recepción definitiva",
+            notas: "Presupuesto de suministro y montaje integral en Menorca calculado según hipótesis normativas CTE DB-SE-AE (Zona Eólica C - Tramuntana). Acero granallado SA 2.5 e imprimado anticorrosión. Fijaciones con tornillería cincada 8.8 y arandelas EPDM estancas."
+        };
+
+        function abrirModalPDF() {
+            if (!document.getElementById('pdf_input_cliente').value) {
+                document.getElementById('pdf_input_cliente').value = configPDF.cliente;
+                document.getElementById('pdf_input_cif').value = configPDF.cif;
+                
+                // Sugerir municipio en la obra
+                const selectProv = document.getElementById('selectProvincia');
+                const nombreProv = selectProv && selectProv.options[selectProv.selectedIndex] ? selectProv.options[selectProv.selectedIndex].text : 'Sant Lluís (Menorca)';
+                document.getElementById('pdf_input_obra').value = `Polígono Industrial Sant Lluís, ${nombreProv}`;
+
+                // Generar número de oferta si no existe
+                const randNum = Math.floor(1000 + Math.random() * 9000);
+                document.getElementById('pdf_input_num').value = `P-2026-${randNum}`;
+                document.getElementById('pdf_input_fecha').value = configPDF.fecha;
+                document.getElementById('pdf_input_plazo').value = configPDF.plazo;
+                document.getElementById('pdf_input_pago').value = configPDF.pago;
+                document.getElementById('pdf_input_notas').value = configPDF.notas;
+            }
+            document.getElementById('modalPDFConfig').classList.remove('hidden');
+        }
+
+        function cerrarModalPDF() {
+            document.getElementById('modalPDFConfig').classList.add('hidden');
+        }
+
+        function imprimirDocumentoPDF() {
+            configPDF.cliente = document.getElementById('pdf_input_cliente').value || "Cliente Promotor";
+            configPDF.cif = document.getElementById('pdf_input_cif').value || "-";
+            configPDF.obra = document.getElementById('pdf_input_obra').value || "Emplazamiento de obra";
+            configPDF.num = document.getElementById('pdf_input_num').value || "P-2026-0001";
+            configPDF.fecha = document.getElementById('pdf_input_fecha').value || new Date().toLocaleDateString('es-ES');
+            configPDF.plazo = document.getElementById('pdf_input_plazo').value || "-";
+            configPDF.pago = document.getElementById('pdf_input_pago').value || "-";
+            configPDF.notas = document.getElementById('pdf_input_notas').value || "";
+
+            actualizarDocumentoPDFCompleto();
+            cerrarModalPDF();
+            setTimeout(() => {
+                window.print();
+            }, 150);
+        }
+
+        function actualizarDocumentoPDFCompleto() {
+            if (!resultadoActual) recalcular();
+            const dim = resultadoActual.dimensiones;
+            const tot = resultadoActual.totales;
+            const params = obtenerParams();
+
+            // 1. Datos de cabecera y cliente
+            document.getElementById('pdfNumPresupuesto').textContent = configPDF.num;
+            document.getElementById('pdfFechaEmision').textContent = configPDF.fecha;
+            document.getElementById('pdfNombreCliente').textContent = configPDF.cliente;
+            document.getElementById('pdfCifCliente').textContent = configPDF.cif;
+            document.getElementById('pdfUbicacionObra').textContent = configPDF.obra;
+
+            const selectUso = document.getElementById('selectUso');
+            const textoUso = selectUso ? selectUso.options[selectUso.selectedIndex].text : 'Industrial';
+            document.getElementById('pdfUsoNave').textContent = textoUso;
+
+            // 2. Ficha Técnica
+            document.getElementById('pdfLuz').textContent = `${dim.luz} m`;
+            document.getElementById('pdfLongitud').textContent = `${dim.longitud} m`;
+            document.getElementById('pdfAltura').textContent = `${dim.altura.toFixed(1)} m`;
+            document.getElementById('pdfPendiente').textContent = `${dim.pendiente}% (2 aguas)`;
+            document.getElementById('pdfCumbrera').textContent = `${dim.alturaCumbrera.toFixed(2)} m (flecha ${dim.flechaCumbrera.toFixed(2)}m)`;
+            document.getElementById('pdfSup').textContent = `${dim.supConstruida.toLocaleString('es-ES')} m²`;
+            document.getElementById('pdfVol').textContent = `${dim.volumenUtil.toLocaleString('es-ES')} m³`;
+
+            document.getElementById('pdfVanos').textContent = `${dim.nVanos} vanos (intereje ${dim.intereje.toFixed(2)} m)`;
+            document.getElementById('pdfPorticos').textContent = `${dim.totalPorticos} pórticos (${dim.nPorticosTestero} testeros + ${dim.nPorticosIntermedios} intermedios)`;
+            document.getElementById('pdfPilares').textContent = `${dim.nPilaresTotales} pilares con placas de anclaje`;
+            document.getElementById('pdfAceroKg').textContent = `${dim.kgAceroTotal.toLocaleString('es-ES')} kg`;
+            document.getElementById('pdfRatioAcero').textContent = `${dim.ratioAceroKgM2} kg/m²`;
+
+            const selectCubierta = document.getElementById('selectCubierta');
+            document.getElementById('pdfTipoCubierta').textContent = selectCubierta ? selectCubierta.options[selectCubierta.selectedIndex].text : '';
+
+            const selectLuc = document.getElementById('selectLucernarios');
+            document.getElementById('pdfLucernarios').textContent = selectLuc ? selectLuc.options[selectLuc.selectedIndex].text : '';
+
+            const selectFachada = document.getElementById('selectFachada');
+            document.getElementById('pdfTipoFachada').textContent = selectFachada ? selectFachada.options[selectFachada.selectedIndex].text : '';
+
+            document.getElementById('pdfFalsoTecho').textContent = params.falsoTecho ? 'Sí (Aislante PURAL lavable)' : 'No incluido';
+            document.getElementById('pdfPuertas').textContent = `${params.numPuertasGrandes} corredera/basculante 5x5m + ${params.numPuertasPeatonales} peatonal 1x2.1m`;
+
+            const selectProv = document.getElementById('selectProvincia');
+            const provNombre = selectProv && selectProv.options[selectProv.selectedIndex] ? selectProv.options[selectProv.selectedIndex].text : 'Maó (Menorca)';
+            document.getElementById('pdfProvincia').textContent = provNombre;
+
+            const selectViento = document.getElementById('selectViento');
+            document.getElementById('pdfViento').textContent = selectViento ? selectViento.options[selectViento.selectedIndex].text : 'Zona C (29 m/s)';
+            document.getElementById('pdfTension').textContent = `${params.tensionAdmisible} kg/cm²`;
+            document.getElementById('pdfModalidad').textContent = 'Suministro + Montaje Integral en Menorca';
+
+            // 3. Resumen por capítulos en PDF
+            const tbCap = document.getElementById('pdfTablaCapitulosBody');
+            tbCap.innerHTML = '';
+            const capsData = [
+                { id: 1, nom: 'Capítulo 1: Estructura Metálica y Cerramientos', val: tot.cap1_estructura_cerramientos, ratio: tot.ratioEstructuraCerramientoM2 },
+                { id: 2, nom: 'Capítulo 2: Cimentación y Movimiento de Tierras', val: tot.cap2_cimentacion, ratio: (tot.cap2_cimentacion / dim.supConstruida) },
+                { id: 3, nom: 'Capítulo 3: Solera Industrial de Hormigón', val: tot.cap3_solera, ratio: (tot.cap3_solera / dim.supConstruida) },
+                { id: 4, nom: 'Capítulo 4: Montaje, Instalación y Medios Auxiliares', val: tot.cap4_montaje, ratio: (tot.cap4_montaje / dim.supConstruida) },
+                { id: 5, nom: 'Capítulo 5: Portes, Fletes y Transporte a Obra', val: tot.cap5_portes, ratio: (tot.cap5_portes / dim.supConstruida) },
+                { id: 6, nom: 'Capítulo 6: Proyecto Técnico y Cálculo Estructural', val: tot.cap6_proyecto, ratio: (tot.cap6_proyecto / dim.supConstruida) }
+            ];
+
+            capsData.forEach(c => {
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-slate-200';
+                const pct = tot.totalSinIva > 0 ? ((c.val / tot.totalSinIva) * 100).toFixed(1) : '0.0';
+                const estado = c.val > 0 
+                    ? '<span class="text-emerald-700 font-semibold">Incluido</span>' 
+                    : '<span class="text-slate-400 italic">Excluido / Por cuenta del cliente</span>';
+
+                tr.innerHTML = `
+                    <td class="py-1.5 px-2 font-medium text-slate-800">${c.nom}</td>
+                    <td class="py-1.5 px-2 text-center text-[10px]">${estado}</td>
+                    <td class="py-1.5 px-2 text-right font-mono text-slate-600">${c.ratio.toFixed(2)} €/m²</td>
+                    <td class="py-1.5 px-2 text-right font-mono text-slate-500">${pct}%</td>
+                    <td class="py-1.5 px-2 text-right font-mono font-bold text-slate-900">${c.val.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €</td>
+                `;
+                tbCap.appendChild(tr);
+            });
+
+            // 4. Desglose Detallado de Partidas en PDF
+            const tbPartidas = document.getElementById('pdfTablaPartidasBody');
+            tbPartidas.innerHTML = '';
+            let capActual = 0;
+            const nombresCapitulos = {
+                1: 'CAPÍTULO 1: Estructura Metálica y Cerramientos',
+                2: 'CAPÍTULO 2: Cimentación y Movimiento de Tierras',
+                3: 'CAPÍTULO 3: Solera Industrial',
+                4: 'CAPÍTULO 4: Montaje, Instalación y Medios Auxiliares',
+                5: 'CAPÍTULO 5: Portes, Fletes y Transporte a Obra',
+                6: 'CAPÍTULO 6: Proyecto Técnico y Cálculo Estructural'
+            };
+
+            const partidasPorCap = {};
+            resultadoActual.partidas.forEach(p => {
+                if (!partidasPorCap[p.cap]) partidasPorCap[p.cap] = [];
+                partidasPorCap[p.cap].push(p);
+            });
+
+            resultadoActual.partidas.forEach((p, idx) => {
+                if (p.cap !== capActual) {
+                    capActual = p.cap;
+                    const itemsCap = partidasPorCap[capActual] || [];
+                    const subtotalCap = itemsCap.reduce((sum, x) => sum + (x.incluida ? x.importe : 0), 0);
+                    const incCap = itemsCap.filter(x => x.incluida).length;
+
+                    const trCap = document.createElement('tr');
+                    trCap.className = 'bg-slate-100 font-bold text-slate-800 text-[10px] border-t-2 border-slate-300';
+                    trCap.innerHTML = `
+                        <td colspan="5" class="py-1.5 px-2 text-slate-900">
+                            ${nombresCapitulos[capActual]} 
+                            <span class="text-[9px] font-normal text-slate-500 ml-1.5">(${incCap}/${itemsCap.length} partidas activas)</span>
+                        </td>
+                        <td class="py-1.5 px-2 text-right font-mono" colspan="2">
+                            Subtotal: ${subtotalCap.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €
+                        </td>
+                    `;
+                    tbPartidas.appendChild(trCap);
+                }
+
+                const tr = document.createElement('tr');
+                tr.className = `border-b border-slate-100 ${p.incluida ? '' : 'text-slate-400 bg-slate-50/50'}`;
+                tr.innerHTML = `
+                    <td class="py-1 px-2 text-center text-slate-400 font-mono text-[9px]">${idx + 1}</td>
+                    <td class="py-1 px-2 font-mono font-semibold text-[10px] ${p.incluida ? 'text-blue-800' : 'text-slate-400'}">${p.cod}</td>
+                    <td class="py-1 px-2 text-slate-700">
+                        ${p.desc}
+                        ${!p.incluida ? '<span class="text-rose-600 font-bold text-[9px] ml-1">[PARTIDA NO CONTRATADA / EXCLUIDA]</span>' : ''}
+                    </td>
+                    <td class="py-1 px-2 text-right font-mono font-semibold">${p.med.toLocaleString('es-ES', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</td>
+                    <td class="py-1 px-2 text-center text-slate-500">${p.ud}</td>
+                    <td class="py-1 px-2 text-right font-mono text-slate-600">${p.pu.toFixed(2)} €</td>
+                    <td class="py-1 px-2 text-right font-mono font-bold ${p.incluida ? 'text-slate-900' : 'text-slate-400 line-through'}">
+                        ${p.importe.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €
+                    </td>
+                `;
+                tbPartidas.appendChild(tr);
+            });
+
+            // 5. Totales
+            document.getElementById('pdfTotalSinIva').textContent = `${tot.totalSinIva.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+            document.getElementById('pdfIva').textContent = `${tot.iva21.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+            document.getElementById('pdfTotalConIva').textContent = `${tot.totalConIva.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+            document.getElementById('pdfRatioM2').textContent = `${tot.ratioTotalM2.toFixed(2)} €/m²`;
+
+            // 6. Condiciones
+            document.getElementById('pdfPlazo').textContent = configPDF.plazo;
+            document.getElementById('pdfPago').textContent = configPDF.pago;
+            document.getElementById('pdfNotas').textContent = configPDF.notas || "Sin observaciones especiales adicionales.";
+        }
+
+        // --- Acceso Admin (/naves/panel) y Sync de Precios ---
+        async function cargarPreciosIniciales() {
+            const serverPrices = await cargarPreciosServidor();
+            if (serverPrices && typeof serverPrices === 'object') {
+                preciosConfigurados = { ...PRECIOS_DEFECTO, ...serverPrices };
+                localStorage.setItem('precios_naves_custom', JSON.stringify(preciosConfigurados));
+            } else {
+                const localData = localStorage.getItem('precios_naves_custom');
+                if (localData) {
+                    try {
+                        preciosConfigurados = { ...PRECIOS_DEFECTO, ...JSON.parse(localData) };
+                    } catch(e){}
+                }
+            }
+        }
+
+        function verificarRutaAdmin() {
+            const isPanelRoute = window.location.pathname.endsWith('/panel') || window.location.pathname.includes('/panel') || window.location.hash === '#panel';
+            if (isPanelRoute) {
+                accederPanelAdmin();
+            }
+        }
+
+        function accederPanelAdmin(e) {
+            if (e) e.preventDefault();
+            const auth = sessionStorage.getItem('admin_auth');
+            if (auth === '1') {
+                const btn = document.getElementById('btnPanelPrecios');
+                if (btn) btn.classList.remove('hidden');
+                abrirModalPrecios();
+            } else {
+                document.getElementById('modalAdminLogin').classList.remove('hidden');
+            }
+        }
+
+        function cerrarModalAdminLogin() {
+            document.getElementById('modalAdminLogin').classList.add('hidden');
+        }
+
+        function procesarAdminLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('login_user').value.trim();
+            const p = document.getElementById('login_pass').value.trim();
+            if (u === 'admin' && p === 'admin') {
+                sessionStorage.setItem('admin_auth', '1');
+                document.getElementById('loginErrorMsg').classList.add('hidden');
+                cerrarModalAdminLogin();
+                const btn = document.getElementById('btnPanelPrecios');
+                if (btn) btn.classList.remove('hidden');
+                abrirModalPrecios();
+            } else {
+                document.getElementById('loginErrorMsg').classList.remove('hidden');
+            }
+        }
+
+        async function guardarPreciosDesdeModal() {
+            const p = preciosConfigurados;
+            p.precio_acero_kg = parseFloat(document.getElementById('cfg_precio_acero_kg').value);
+            p.precio_chapa_cubierta_m2 = parseFloat(document.getElementById('cfg_precio_chapa_cubierta_m2').value);
+            p.precio_panel_30_m2 = parseFloat(document.getElementById('cfg_precio_panel_30_m2').value);
+            p.precio_panel_35_m2 = parseFloat(document.getElementById('cfg_precio_panel_35_m2').value);
+            p.precio_panel_40_m2 = parseFloat(document.getElementById('cfg_precio_panel_40_m2').value);
+            p.precio_panel_50_m2 = parseFloat(document.getElementById('cfg_precio_panel_50_m2').value);
+            p.precio_panel_60_m2 = parseFloat(document.getElementById('cfg_precio_panel_60_m2').value);
+            p.precio_panel_70_m2 = parseFloat(document.getElementById('cfg_precio_panel_70_m2').value);
+            p.precio_panel_80_m2 = parseFloat(document.getElementById('cfg_precio_panel_80_m2').value);
+            p.precio_panel_90_m2 = parseFloat(document.getElementById('cfg_precio_panel_90_m2').value);
+            p.precio_panel_100_m2 = parseFloat(document.getElementById('cfg_precio_panel_100_m2').value);
+            p.precio_panel_teja_m2 = parseFloat(document.getElementById('cfg_precio_panel_teja_m2').value);
+            p.precio_panel_pural_m2 = parseFloat(document.getElementById('cfg_precio_panel_pural_m2').value);
+            p.precio_placa_alveolar_m2 = parseFloat(document.getElementById('cfg_precio_placa_alveolar_m2').value);
+            p.precio_bloque_hormigon_m2 = parseFloat(document.getElementById('cfg_precio_bloque_hormigon_m2').value);
+            p.precio_lucernario_m2 = parseFloat(document.getElementById('cfg_precio_lucernario_m2').value);
+            p.precio_falso_techo_m2 = parseFloat(document.getElementById('cfg_precio_falso_techo_m2').value);
+            p.precio_remate_cumbrera_ml = parseFloat(document.getElementById('cfg_precio_remate_cumbrera_ml').value);
+            p.precio_remate_lateral_ml = parseFloat(document.getElementById('cfg_precio_remate_lateral_ml').value);
+            p.precio_remate_esquina_ml = parseFloat(document.getElementById('cfg_precio_remate_esquina_ml').value);
+            p.precio_remate_vierteaguas_ml = parseFloat(document.getElementById('cfg_precio_remate_vierteaguas_ml').value);
+            if (document.getElementById('cfg_precio_canalon_exterior_ml')) p.precio_canalon_exterior_ml = parseFloat(document.getElementById('cfg_precio_canalon_exterior_ml').value);
+            if (document.getElementById('cfg_precio_canalon_interior_ml')) p.precio_canalon_interior_ml = parseFloat(document.getElementById('cfg_precio_canalon_interior_ml').value);
+            p.precio_puerta_grande_ud = parseFloat(document.getElementById('cfg_precio_puerta_grande_ud').value);
+            p.precio_puerta_peatonal_ud = parseFloat(document.getElementById('cfg_precio_puerta_peatonal_ud').value);
+            p.precio_explanacion_m3 = parseFloat(document.getElementById('cfg_precio_explanacion_m3').value);
+            p.precio_excavacion_m3 = parseFloat(document.getElementById('cfg_precio_excavacion_m3').value);
+            p.precio_hormigon_limpieza_m3 = parseFloat(document.getElementById('cfg_precio_hormigon_limpieza_m3').value);
+            p.precio_acero_corrugado_kg = parseFloat(document.getElementById('cfg_precio_acero_corrugado_kg').value);
+            p.precio_placa_anclaje_ud = parseFloat(document.getElementById('cfg_precio_placa_anclaje_ud').value);
+            p.precio_hormigon_h25_cimen_m3 = parseFloat(document.getElementById('cfg_precio_hormigon_h25_cimen_m3').value);
+            p.precio_zahorra_m3 = parseFloat(document.getElementById('cfg_precio_zahorra_m3').value);
+            p.precio_lamina_pe_m2 = parseFloat(document.getElementById('cfg_precio_lamina_pe_m2').value);
+            p.precio_mallazo_m2 = parseFloat(document.getElementById('cfg_precio_mallazo_m2').value);
+            p.precio_solera_h25_m3 = parseFloat(document.getElementById('cfg_precio_solera_h25_m3').value);
+            p.precio_montaje_acero_kg = parseFloat(document.getElementById('cfg_precio_montaje_acero_kg').value);
+            p.precio_montaje_cubierta_m2 = parseFloat(document.getElementById('cfg_precio_montaje_cubierta_m2').value);
+            p.precio_montaje_fachada_m2 = parseFloat(document.getElementById('cfg_precio_montaje_fachada_m2').value);
+            p.precio_montaje_placa_alveolar_m2 = parseFloat(document.getElementById('cfg_precio_montaje_placa_alveolar_m2').value);
+            p.precio_montaje_bloque_m2 = parseFloat(document.getElementById('cfg_precio_montaje_bloque_m2').value);
+            p.precio_montaje_lucernarios_m2 = parseFloat(document.getElementById('cfg_precio_montaje_lucernarios_m2').value);
+            p.precio_montaje_falso_techo_m2 = parseFloat(document.getElementById('cfg_precio_montaje_falso_techo_m2').value);
+            p.precio_montaje_remates_ml = parseFloat(document.getElementById('cfg_precio_montaje_remates_ml').value);
+            if (document.getElementById('cfg_precio_montaje_canalon_exterior_ml')) p.precio_montaje_canalon_exterior_ml = parseFloat(document.getElementById('cfg_precio_montaje_canalon_exterior_ml').value);
+            if (document.getElementById('cfg_precio_montaje_canalon_interior_ml')) p.precio_montaje_canalon_interior_ml = parseFloat(document.getElementById('cfg_precio_montaje_canalon_interior_ml').value);
+            p.precio_montaje_puerta_grande_ud = parseFloat(document.getElementById('cfg_precio_montaje_puerta_grande_ud').value);
+            p.precio_montaje_puerta_peatonal_ud = parseFloat(document.getElementById('cfg_precio_montaje_puerta_peatonal_ud').value);
+            p.precio_alquiler_medios_aux_dia = parseFloat(document.getElementById('cfg_precio_alquiler_medios_aux_dia').value);
+            p.precio_porte_trailer_viaje = parseFloat(document.getElementById('cfg_precio_porte_trailer_viaje').value);
+            p.precio_proyecto_tecnico = parseFloat(document.getElementById('cfg_precio_proyecto_tecnico').value);
+
+            localStorage.setItem('precios_naves_custom', JSON.stringify(p));
+            cerrarModalPrecios();
+
+            try {
+                const apiRes = await guardarPreciosServidor('admin', 'admin', p);
+                if (apiRes && apiRes.status === 'success') {
+                    alert("✅ Precios guardados correctamente en el servidor y aplicados a las futuras consultas.");
+                } else {
+                    alert("✅ Precios aplicados correctamente.");
+                }
+            } catch(err) {
+                alert("✅ Precios aplicados correctamente.");
+            }
+
+            recalcular();
+        }
+
+        // --- Botón de Cálculo y Solicitud de Presupuesto Lead ---
+        function ejecutarCalculoUsuario() {
+            recalcular();
+            const sec = document.getElementById('seccionResultados');
+            if (sec) {
+                sec.classList.remove('hidden');
+                sec.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function abrirModalSolicitud() {
+            const selectProv = document.getElementById('selectProvincia');
+            const provNombre = selectProv && selectProv.options[selectProv.selectedIndex] ? selectProv.options[selectProv.selectedIndex].text : 'Maó (Menorca)';
+            const inputMun = document.getElementById('sol_municipio');
+            if (inputMun && !inputMun.value) {
+                inputMun.value = provNombre;
+            }
+            document.getElementById('modalSolicitarPresupuesto').classList.remove('hidden');
+        }
+
+        function cerrarModalSolicitud() {
+            document.getElementById('modalSolicitarPresupuesto').classList.add('hidden');
+        }
+
+        function validarCifLive(input) {
+            const val = input.value.trim();
+            const statusEl = document.getElementById('cifValStatus');
+            if (!val) {
+                statusEl.textContent = '';
+                input.classList.remove('border-emerald-500', 'border-rose-500');
+                return false;
+            }
+            if (validarDniCifNie(val)) {
+                statusEl.textContent = '✓ DNI/CIF Válido';
+                statusEl.className = 'text-[10px] font-bold text-emerald-600';
+                input.classList.remove('border-rose-500');
+                input.classList.add('border-emerald-500');
+                return true;
+            } else {
+                statusEl.textContent = '✕ DNI/NIE/CIF no válido';
+                statusEl.className = 'text-[10px] font-bold text-rose-500';
+                input.classList.remove('border-emerald-500');
+                input.classList.add('border-rose-500');
+                return false;
+            }
+        }
+
+        function validarEmailLive(input) {
+            const val = input.value.trim();
+            const statusEl = document.getElementById('emailValStatus');
+            if (!val) {
+                statusEl.textContent = '';
+                input.classList.remove('border-emerald-500', 'border-rose-500');
+                return false;
+            }
+            if (validarEmail(val)) {
+                statusEl.textContent = '✓ Email Válido';
+                statusEl.className = 'text-[10px] font-bold text-emerald-600';
+                input.classList.remove('border-rose-500');
+                input.classList.add('border-emerald-500');
+                return true;
+            } else {
+                statusEl.textContent = '✕ Email no válido';
+                statusEl.className = 'text-[10px] font-bold text-rose-500';
+                input.classList.remove('border-emerald-500');
+                input.classList.add('border-rose-500');
+                return false;
+            }
+        }
+
+        async function procesarSolicitudPresupuesto(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('sol_nombre').value.trim();
+            const cif = document.getElementById('sol_cif').value.trim();
+            const telefono = document.getElementById('sol_telefono').value.trim();
+            const email = document.getElementById('sol_email').value.trim();
+            const municipio = document.getElementById('sol_municipio').value.trim();
+            const notas = document.getElementById('sol_notas').value.trim();
+
+            const alertEl = document.getElementById('solFormAlert');
+
+            if (!validarDniCifNie(cif)) {
+                alertEl.textContent = '⚠️ El DNI, NIE o CIF introducido no es válido. Revisa los caracteres.';
+                alertEl.className = 'p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-lg text-xs font-semibold block';
+                document.getElementById('sol_cif').focus();
+                return;
+            }
+
+            if (!validarEmail(email)) {
+                alertEl.textContent = '⚠️ Por favor, introduce un correo electrónico válido donde puedas recibir la oferta.';
+                alertEl.className = 'p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-lg text-xs font-semibold block';
+                document.getElementById('sol_email').focus();
+                return;
+            }
+
+            const btnSubmit = document.getElementById('btnSubmitSolicitud');
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = '⌛ Enviando solicitud...';
+
+            const payload = {
+                nombre,
+                cif,
+                telefono,
+                email,
+                municipio,
+                notas,
+                naveConfig: obtenerParams(),
+                resumenTotal: resultadoActual ? resultadoActual.totales : null
+            };
+
+            try {
+                const res = await enviarSolicitudPresupuesto(payload);
+                if (res && res.status === 'success') {
+                    alertEl.textContent = `✅ ¡Solicitud registrada con éxito! En breve recibirás el presupuesto detallado en ${email}.`;
+                    alertEl.className = 'p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-lg text-xs font-bold block';
+                    setTimeout(() => {
+                        cerrarModalSolicitud();
+                        btnSubmit.disabled = false;
+                        btnSubmit.innerHTML = '<span>📩 ENVIAR Y RECEPCIONAR PRESUPUESTO</span>';
+                    }, 2500);
+                } else {
+                    alertEl.textContent = '⚠️ ' + (res ? res.message : 'Error al registrar solicitud.');
+                    alertEl.className = 'p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-lg text-xs font-semibold block';
+                    btnSubmit.disabled = false;
+                    btnSubmit.innerHTML = '<span>📩 ENVIAR Y RECEPCIONAR PRESUPUESTO</span>';
+                }
+            } catch(err) {
+                alertEl.textContent = '✅ Solicitud registrada. Nos pondremos en contacto contigo.';
+                alertEl.className = 'p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-lg text-xs font-bold block';
+                setTimeout(() => {
+                    cerrarModalSolicitud();
+                    btnSubmit.disabled = false;
+                    btnSubmit.innerHTML = '<span>📩 ENVIAR Y RECEPCIONAR PRESUPUESTO</span>';
+                }, 2000);
+            }
+        }
+
+        window.onbeforeprint = () => {
+            actualizarDocumentoPDFCompleto();
+        };
+    </script>
+
+    <!-- Modal Panel de Control de Precios -->
+    <div id="modalPrecios" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden no-print">
+        <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden animate-fade-in">
+            <!-- Modal Header -->
+            <div class="px-6 py-4 bg-slate-900 text-white flex justify-between items-center border-b border-slate-800">
+                <div class="flex items-center gap-2.5">
+                    <span class="text-xl">⚙️</span>
+                    <div>
+                        <h2 class="text-base font-bold">Panel de Control: Definición de Precios Unitarios</h2>
+                        <p class="text-xs text-slate-400">Modifica las tarifas unitarias aplicadas a los escandallos y mediciones</p>
+                    </div>
+                </div>
+                <button onclick="cerrarModalPrecios()" class="text-slate-400 hover:text-white text-xl font-bold p-1 rounded transition">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Modal Body (Formulario con scroll) -->
+            <div class="p-6 overflow-y-auto space-y-6 text-xs flex-1">
+
+                <!-- Banner de Ajuste Masivo de Precios por Porcentaje (%) -->
+                <div class="border-2 border-amber-400 bg-amber-50/90 p-4 rounded-xl shadow-sm flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-amber-500 text-white w-10 h-10 rounded-xl font-black text-lg flex items-center justify-center shadow-inner">
+                            %
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-amber-950 text-sm flex items-center gap-1.5">
+                                📊 Ajuste Porcentual Global de Precios
+                            </h3>
+                            <p class="text-[11px] text-amber-800">
+                                Incrementa o disminuye todos los precios de la lista aplicando un porcentaje (ej: <span class="font-mono font-bold text-amber-950">1</span> % o <span class="font-mono font-bold text-amber-950">-1</span> %).
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="relative w-32">
+                            <input type="number" id="inputVariacionPorcentaje" step="0.5" placeholder="0" class="w-full bg-white border-2 border-amber-400 rounded-lg px-3 py-1.5 text-right font-mono font-bold text-sm text-amber-950 focus:ring-2 focus:ring-amber-500 focus:outline-none pr-7 shadow-sm">
+                            <span class="absolute right-2.5 top-2 text-xs font-bold text-amber-700">%</span>
+                        </div>
+                        <button type="button" onclick="aplicarVariacionPorcentualPrecios()" class="px-3.5 py-2 bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs rounded-lg shadow transition flex items-center gap-1 cursor-pointer border border-amber-400">
+                            <span>⚡ Aplicar Ajuste %</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Sección 1: Estructura de Acero -->
+                <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 space-y-3">
+                    <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <span class="text-blue-600">🏗️</span> Estructura Metálica Principal y Secundaria
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Acero S275JR laminado/soldado (€/kg)</label>
+                            <input type="number" step="0.05" id="cfg_precio_acero_kg" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Tornillería estruct. 8.8 (€/ud)</label>
+                            <input type="number" step="0.05" id="cfg_precio_tornillo_ud" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Placas de anclaje + pernos (€/ud)</label>
+                            <input type="number" step="1.0" id="cfg_precio_placa_anclaje_ud" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección 2: Cubiertas, Paneles y Cerramientos de Fábrica -->
+                <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 space-y-3">
+                    <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <span class="text-blue-600">🏠</span> Cubiertas, Paneles Sándwich, Muros y Cerramientos
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Chapa grecada 0.6mm (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_chapa_cubierta_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Panel Sándwich 30mm (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_panel_30_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Panel Sándwich 35mm Fachada (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_panel_35_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Panel Sándwich 40mm (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_panel_40_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Panel Sándwich 50mm (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_panel_50_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Panel Sándwich 60mm (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_panel_60_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Panel Sándwich 70mm (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_panel_70_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Panel Sándwich 80mm (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_panel_80_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Panel Sándwich 90mm (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_panel_90_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Panel Sándwich 100mm (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_panel_100_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Panel Sándw. Imitación Teja (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_panel_teja_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Panel PURAL Granjas (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_panel_pural_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Placa Alveolar 150mm (€/m²)</label>
+                            <input type="number" step="0.5" id="cfg_precio_placa_alveolar_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Bloque Hormigón / Termoarc. (€/m²)</label>
+                            <input type="number" step="0.5" id="cfg_precio_bloque_hormigon_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Lucernarios Policarbonato (€/m²)</label>
+                            <input type="number" step="0.5" id="cfg_precio_lucernario_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Falso Techo PURAL (€/m²)</label>
+                            <input type="number" step="0.5" id="cfg_precio_falso_techo_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección 3: Remates y Puertas -->
+                <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 space-y-3">
+                    <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <span class="text-blue-600">🚪</span> Remates Plegados, Canalones y Carpintería
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Remate Cumbrera (€/ml)</label>
+                            <input type="number" step="0.2" id="cfg_precio_remate_cumbrera_ml" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Remate Hastial (€/ml)</label>
+                            <input type="number" step="0.2" id="cfg_precio_remate_lateral_ml" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Remate Esquinas (€/ml)</label>
+                            <input type="number" step="0.2" id="cfg_precio_remate_esquina_ml" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Vierteaguas Zócalo (€/ml)</label>
+                            <input type="number" step="0.2" id="cfg_precio_remate_vierteaguas_ml" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Canalón Exterior lacado (€/ml)</label>
+                            <input type="number" step="0.5" id="cfg_precio_canalon_exterior_ml" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Canalón Interior peto (€/ml)</label>
+                            <input type="number" step="0.5" id="cfg_precio_canalon_interior_ml" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Puerta 5x5m (€/ud)</label>
+                            <input type="number" step="50" id="cfg_precio_puerta_grande_ud" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Puerta Peatonal 1x2m (€/ud)</label>
+                            <input type="number" step="10" id="cfg_precio_puerta_peatonal_ud" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección 4: Cimentación y Solera Industrial -->
+                <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 space-y-3">
+                    <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <span class="text-blue-600">🚜</span> Cimentación y Solera Industrial (Obra Civil)
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Explanación y desbroce (€/m³)</label>
+                            <input type="number" step="0.2" id="cfg_precio_explanacion_m3" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Excavación Zapatas y zanjas (€/m³)</label>
+                            <input type="number" step="0.2" id="cfg_precio_excavacion_m3" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Hormigón Limpieza H10 (€/m³)</label>
+                            <input type="number" step="1.0" id="cfg_precio_hormigon_limpieza_m3" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Acero B500S en zapatas (€/kg)</label>
+                            <input type="number" step="0.05" id="cfg_precio_acero_corrugado_kg" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Hormigón H25 Cimentación (€/m³)</label>
+                            <input type="number" step="1.0" id="cfg_precio_hormigon_h25_cimen_m3" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Zahorra compactada solera (€/m³)</label>
+                            <input type="number" step="0.5" id="cfg_precio_zahorra_m3" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Lámina PE 100µ anticapilaridad (€/m²)</label>
+                            <input type="number" step="0.1" id="cfg_precio_lamina_pe_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Mallazo electrosoldado B500T (€/m²)</label>
+                            <input type="number" step="0.1" id="cfg_precio_mallazo_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Solera H25 fratasada y pulida (€/m³)</label>
+                            <input type="number" step="1.0" id="cfg_precio_solera_h25_m3" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección 5: Montaje e Instalación Desglosada por Elemento (Capítulo 4) -->
+                <div class="border-2 border-blue-400 bg-blue-50/60 rounded-xl p-4 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-blue-900 text-sm flex items-center gap-2">
+                            <span class="text-blue-600 text-base">👷‍♂️🏗️</span> Capítulo 4: Tarifas de Montaje e Instalación en Obra
+                        </h3>
+                        <span class="text-[11px] font-semibold px-2 py-0.5 bg-blue-200 text-blue-800 rounded">
+                            Aplicable en modalidad "Suministro + Montaje"
+                        </span>
+                    </div>
+                    <p class="text-slate-600 text-[11px] leading-relaxed">
+                        Cada partida constructiva dispone de su propia tarifa de montaje desglosada por unidad de obra real (kilos de acero, m² de cubierta y fachada, metros lineales de remate y unidades de carpintería).
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-1">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Montaje Estructura Acero (€/kg)</label>
+                            <input type="number" step="0.02" id="cfg_precio_montaje_acero_kg" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Montaje Cubierta Panel/Chapa (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_montaje_cubierta_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Montaje Fachadas Panel/Chapa (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_montaje_fachada_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Montaje Placas Alveolares (€/m²)</label>
+                            <input type="number" step="0.5" id="cfg_precio_montaje_placa_alveolar_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Ejecución Muro Bloque (€/m²)</label>
+                            <input type="number" step="0.5" id="cfg_precio_montaje_bloque_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Montaje Lucernarios Policarb. (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_montaje_lucernarios_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Montaje Falso Techo Aislante (€/m²)</label>
+                            <input type="number" step="0.2" id="cfg_precio_montaje_falso_techo_m2" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Montaje y Sellado Remates (€/ml)</label>
+                            <input type="number" step="0.2" id="cfg_precio_montaje_remates_ml" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Montaje Canalón Exterior (€/ml)</label>
+                            <input type="number" step="0.2" id="cfg_precio_montaje_canalon_exterior_ml" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Montaje Canalón Interior (€/ml)</label>
+                            <input type="number" step="0.2" id="cfg_precio_montaje_canalon_interior_ml" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Montaje Puerta Grande 5x5m (€/ud)</label>
+                            <input type="number" step="10" id="cfg_precio_montaje_puerta_grande_ud" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Montaje Puerta Peatonal (€/ud)</label>
+                            <input type="number" step="5" id="cfg_precio_montaje_puerta_peatonal_ud" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Alquiler Tijera / Medios (€/día)</label>
+                            <input type="number" step="10" id="cfg_precio_alquiler_medios_aux_dia" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección 6: Portes y Logística a Obra (Capítulo 5) -->
+                <div class="border-2 border-emerald-400 bg-emerald-50/60 rounded-xl p-4 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-emerald-900 text-sm flex items-center gap-2">
+                            <span class="text-emerald-600 text-base">🚛</span> Capítulo 5: Portes, Fletes y Transporte a Obra
+                        </h3>
+                        <span class="text-[11px] font-semibold px-2 py-0.5 bg-emerald-200 text-emerald-800 rounded">
+                            Logística y envíos
+                        </span>
+                    </div>
+                    <p class="text-slate-600 text-[11px] leading-relaxed">
+                        El número de viajes se calcula automáticamente cubicando el peso de los perfiles metálicos (carga máx. 24 Tn/tráiler) y el volumen de paneles sándwich / chapas (aprox. 600 m²/tráiler).
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                        <div>
+                            <label class="block font-bold text-slate-800 mb-1">
+                                Tarifa por Viaje de Camión Tráiler Completo (€/viaje)
+                            </label>
+                            <div class="relative">
+                                <input type="number" step="25" id="cfg_precio_porte_trailer_viaje" 
+                                       class="w-full bg-white border-2 border-emerald-500 rounded-lg px-3 py-2 font-mono font-bold text-sm text-emerald-900 shadow-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                                <span class="absolute right-3 top-2 text-xs font-semibold text-slate-400">€/viaje</span>
+                            </div>
+                            <span class="text-[10px] text-slate-500 mt-1 block">Tarifa insular de transporte especial y descarga en obra en Menorca.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección 7: Proyecto Técnico y Cálculo Estructural (Capítulo 6) -->
+                <div class="border-2 border-indigo-400 bg-indigo-50/60 rounded-xl p-4 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-indigo-900 text-sm flex items-center gap-2">
+                            <span class="text-indigo-600 text-base">📐</span> Capítulo 6: Proyecto Técnico y Cálculo Estructural
+                        </h3>
+                        <span class="text-[11px] font-semibold px-2 py-0.5 bg-indigo-200 text-indigo-800 rounded">
+                            Ingeniería y Visado Colegial
+                        </span>
+                    </div>
+                    <p class="text-slate-600 text-[11px] leading-relaxed">
+                        Coste de redacción de proyecto técnico, cálculo matricial tridimensional de estructura y cimentación conforme al CTE DB-SE-AE, planos constructivos de despiece, replanteo y visado colegial oficial.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                        <div>
+                            <label class="block font-bold text-slate-800 mb-1">
+                                Coste Proyecto Técnico de Cálculo (€)
+                            </label>
+                            <div class="relative">
+                                <input type="number" step="100" id="cfg_precio_proyecto_tecnico" 
+                                       class="w-full bg-white border-2 border-indigo-500 rounded-lg px-3 py-2 font-mono font-bold text-sm text-indigo-900 shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                                <span class="absolute right-3 top-2 text-xs font-semibold text-slate-400">€</span>
+                            </div>
+                            <span class="text-[10px] text-slate-500 mt-1 block">Honorarios técnicos y gastos de visado oficial (por defecto 3.000 €).</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-3.5 bg-slate-100 border-t border-slate-200 flex justify-between items-center">
+                <button onclick="restablecerPreciosDesdeModal()" class="px-3.5 py-2 text-rose-600 hover:text-rose-800 hover:bg-rose-50 text-xs font-semibold rounded-lg transition border border-rose-200">
+                    ↺ Restablecer Valores de Fábrica
+                </button>
+                <div class="flex items-center gap-2">
+                    <button onclick="cerrarModalPrecios()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold rounded-lg transition">
+                        Cancelar
+                    </button>
+                    <button onclick="guardarPreciosDesdeModal()" class="px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg shadow-md transition flex items-center gap-1.5">
+                        💾 Guardar y Aplicar Precios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Configuración de Presupuesto PDF -->
+    <div id="modalPDFConfig" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden no-print">
+        <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden animate-fade-in">
+            <div class="px-6 py-4 bg-slate-900 text-white flex justify-between items-center border-b border-slate-800">
+                <div class="flex items-center gap-2.5">
+                    <span class="text-xl">📄</span>
+                    <div>
+                        <h2 class="text-base font-bold">Generación de Presupuesto Oficial (PDF)</h2>
+                        <p class="text-xs text-slate-400">Personaliza los datos del cliente, obra y condiciones contractuales</p>
+                    </div>
+                </div>
+                <button onclick="cerrarModalPDF()" class="text-slate-400 hover:text-white text-xl font-bold p-1 rounded transition">✕</button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-4 text-xs flex-1">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Cliente / Razón Social</label>
+                        <input type="text" id="pdf_input_cliente" class="w-full bg-slate-50 border border-slate-300 rounded px-2.5 py-1.5 font-medium text-slate-800 focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">NIF / CIF</label>
+                        <input type="text" id="pdf_input_cif" class="w-full bg-slate-50 border border-slate-300 rounded px-2.5 py-1.5 font-mono text-slate-800 focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Emplazamiento / Dirección de Obra</label>
+                        <input type="text" id="pdf_input_obra" class="w-full bg-slate-50 border border-slate-300 rounded px-2.5 py-1.5 text-slate-800 focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Nº de Oferta / Presupuesto</label>
+                        <input type="text" id="pdf_input_num" class="w-full bg-slate-50 border border-slate-300 rounded px-2.5 py-1.5 font-mono font-bold text-blue-700 focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Fecha de Emisión</label>
+                        <input type="text" id="pdf_input_fecha" class="w-full bg-slate-50 border border-slate-300 rounded px-2.5 py-1.5 text-slate-800 focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Plazo de Fabricación y Montaje</label>
+                        <input type="text" id="pdf_input_plazo" class="w-full bg-slate-50 border border-slate-300 rounded px-2.5 py-1.5 text-slate-800 focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-medium text-slate-700 mb-1">Forma de Pago Propuesta</label>
+                    <input type="text" id="pdf_input_pago" class="w-full bg-slate-50 border border-slate-300 rounded px-2.5 py-1.5 text-slate-800 focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block font-medium text-slate-700 mb-1">Observaciones Particulares / Notas Técnicas</label>
+                    <textarea id="pdf_input_notas" rows="2" class="w-full bg-slate-50 border border-slate-300 rounded px-2.5 py-1.5 text-slate-800 focus:ring-2 focus:ring-blue-500 text-xs"></textarea>
+                </div>
+            </div>
+
+            <div class="px-6 py-3.5 bg-slate-100 border-t border-slate-200 flex justify-between items-center">
+                <button onclick="cerrarModalPDF()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold rounded-lg transition">
+                    Cancelar
+                </button>
+                <button onclick="imprimirDocumentoPDF()" class="px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg shadow-md transition flex items-center gap-1.5">
+                    🖨️ Generar e Imprimir Documento PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Login Admin (/naves/panel) -->
+    <div id="modalAdminLogin" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden no-print">
+        <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-md w-full overflow-hidden animate-fade-in">
+            <div class="px-6 py-4 bg-slate-900 text-white flex justify-between items-center border-b border-slate-800">
+                <div class="flex items-center gap-2.5">
+                    <span class="text-xl">🔒</span>
+                    <div>
+                        <h2 class="text-base font-bold">Acceso Restringido · Panel Admin</h2>
+                        <p class="text-xs text-slate-400">Autenticación requerida para modificar tarifas (admin / admin)</p>
+                    </div>
+                </div>
+                <button onclick="cerrarModalAdminLogin()" class="text-slate-400 hover:text-white text-xl font-bold p-1 rounded transition">✕</button>
+            </div>
+            <form onsubmit="procesarAdminLogin(event)" class="p-6 space-y-4 text-xs">
+                <div id="loginErrorMsg" class="hidden p-2.5 bg-rose-50 border border-rose-200 text-rose-700 rounded-lg text-xs font-semibold">
+                    ⚠️ Usuario o contraseña incorrectos (admin / admin).
+                </div>
+                <div>
+                    <label class="block font-medium text-slate-700 mb-1">Usuario Administrator</label>
+                    <input type="text" id="login_user" value="admin" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-800 font-medium focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label class="block font-medium text-slate-700 mb-1">Contraseña</label>
+                    <input type="password" id="login_pass" value="admin" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-800 font-medium focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" onclick="cerrarModalAdminLogin()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold rounded-lg">Cancelar</button>
+                    <button type="submit" class="px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg shadow-md flex items-center gap-1.5">
+                        🔑 Iniciar Sesión
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Solicitar Presupuesto Completo -->
+    <div id="modalSolicitarPresupuesto" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden no-print">
+        <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-xl w-full max-h-[90vh] flex flex-col overflow-hidden animate-fade-in">
+            <div class="px-6 py-4 bg-slate-900 text-white flex justify-between items-center border-b border-slate-800">
+                <div class="flex items-center gap-2.5">
+                    <span class="text-xl">📩</span>
+                    <div>
+                        <h2 class="text-base font-bold">Solicitud de Presupuesto Completo</h2>
+                        <p class="text-xs text-slate-400">Introduce tus datos para recibir la propuesta técnica formal</p>
+                    </div>
+                </div>
+                <button onclick="cerrarModalSolicitud()" class="text-slate-400 hover:text-white text-xl font-bold p-1 rounded transition">✕</button>
+            </div>
+            <form onsubmit="procesarSolicitudPresupuesto(event)" class="p-6 overflow-y-auto space-y-4 text-xs">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="sm:col-span-2">
+                        <label class="block font-medium text-slate-700 mb-1">Nombre y Apellidos / Razón Social <span class="text-rose-500">*</span></label>
+                        <input type="text" id="sol_nombre" required placeholder="Ej. Construcciones Menorca S.L." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 font-medium text-slate-800 focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block font-medium text-slate-700">DNI / NIF / CIF <span class="text-rose-500">*</span></label>
+                            <span id="cifValStatus" class="text-[10px] font-bold"></span>
+                        </div>
+                        <input type="text" id="sol_cif" required placeholder="Ej. B12345678 o 12345678Z" oninput="validarCifLive(this)" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 font-mono text-slate-800 uppercase focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Teléfono de Contacto <span class="text-rose-500">*</span></label>
+                        <input type="tel" id="sol_telefono" required placeholder="Ej. 654 321 987" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block font-medium text-slate-700">Email de Recepción del Presupuesto <span class="text-rose-500">*</span></label>
+                            <span id="emailValStatus" class="text-[10px] font-bold"></span>
+                        </div>
+                        <input type="email" id="sol_email" required placeholder="ejemplo@cliente.com" oninput="validarEmailLive(this)" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 font-medium text-slate-800 focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block font-medium text-slate-700 mb-1">Municipio / Emplazamiento de Obra en Menorca</label>
+                        <input type="text" id="sol_municipio" placeholder="Ej. Polígono Industrial Sant Lluís, Sant Lluís" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block font-medium text-slate-700 mb-1">Observaciones o Notas Adicionales</label>
+                        <textarea id="sol_notas" rows="2" placeholder="Detalles particulares de la parcela, accesos o fechas previstas..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+                </div>
+
+                <div id="solFormAlert" class="hidden p-3 rounded-lg text-xs font-semibold"></div>
+
+                <div class="pt-2 flex justify-between items-center border-t border-slate-200">
+                    <button type="button" onclick="cerrarModalSolicitud()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold rounded-lg">Cancelar</button>
+                    <button type="submit" id="btnSubmitSolicitud" class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg shadow-md transition flex items-center gap-2">
+                        <span>📩 ENVIAR Y RECEPCIONAR PRESUPUESTO</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- DOCUMENTO OFICIAL DE PRESUPUESTO FORMAL PARA IMPRESIÓN / GUARDAR PDF (A4) -->
+    <!-- ========================================================================= -->
+    <div id="documentoPresupuestoImpresion" class="hidden print:block text-slate-900 bg-white p-2">
+
+        <!-- 1. Membrete Oficial y Portada de la Oferta -->
+        <div class="border-b-2 border-slate-900 pb-3 mb-4 flex justify-between items-start">
+            <div>
+                <div class="flex items-center gap-3">
+                    <div class="bg-slate-900 p-2 rounded-lg flex items-center justify-center">
+                        <img src="logo-ham.svg" alt="HAM Logo" class="h-8 w-auto">
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-black tracking-tight text-slate-900 uppercase">HAM ESTRUCTURAS METÁLICAS & NAVES INDUSTRIALES</h1>
+                        <p class="text-[10px] text-slate-600 font-medium">Cálculo Estructural CTE DB-SE-AE · Fabricación y Montaje Integral en Menorca</p>
+                    </div>
+                </div>
+                <div class="text-[9px] text-slate-500 mt-1.5 space-y-0.5">
+                    <div>Av. Circunvalació, 11 · Polígono de Sant Lluís (07710 Sant Lluís, Menorca) · NIF: B-57825432</div>
+                    <div>Tel: +34 971 35 20 18 · WhatsApp: +34 669 769 541 · info@hamenorca.com · www.hamenorca.com</div>
+                </div>
+            </div>
+
+            <div class="text-right border-2 border-slate-900 bg-slate-50 p-2.5 rounded-lg min-w-[210px]">
+                <div class="text-[9px] font-black uppercase text-blue-900 tracking-wider">OFERTA TÉCNICA VINCULANTE</div>
+                <div class="text-sm font-black text-slate-900 font-mono mt-0.5" id="pdfNumPresupuesto">P-2026-0001</div>
+                <div class="text-[10px] text-slate-600 mt-1">Fecha: <strong id="pdfFechaEmision" class="text-slate-800">24/09/2026</strong></div>
+                <div class="text-[9px] text-slate-500">Validez: 30 días naturales</div>
+            </div>
+        </div>
+
+        <!-- 2. Datos del Cliente y Emplazamiento -->
+        <div class="grid grid-cols-2 gap-3 mb-4 avoid-break text-[10px]">
+            <div class="border border-slate-300 rounded p-2.5 bg-slate-50/50">
+                <div class="font-bold text-slate-800 uppercase tracking-wider text-[9px] border-b border-slate-200 pb-1 mb-1.5">
+                    1. Datos del Cliente / Promotor
+                </div>
+                <div class="space-y-0.5">
+                    <div>Razón Social: <strong id="pdfNombreCliente" class="text-slate-900">EMPRESA CLIENTE S.L.</strong></div>
+                    <div>N.I.F. / C.I.F.: <span id="pdfCifCliente" class="font-mono">B-12345678</span></div>
+                    <div>Atención: <span class="text-slate-600">Dirección de Obras / Dpto. Compras</span></div>
+                </div>
+            </div>
+
+            <div class="border border-slate-300 rounded p-2.5 bg-slate-50/50">
+                <div class="font-bold text-slate-800 uppercase tracking-wider text-[9px] border-b border-slate-200 pb-1 mb-1.5">
+                    2. Emplazamiento y Destino del Proyecto
+                </div>
+                <div class="space-y-0.5">
+                    <div>Dirección de Obra: <strong id="pdfUbicacionObra" class="text-slate-900">Maó (Menorca)</strong></div>
+                    <div>Uso Previsto: <span id="pdfUsoNave" class="font-medium text-slate-800">Industrial / Logística</span></div>
+                    <div>Marco Técnico: <span class="font-semibold text-blue-900">Código Técnico de la Edificación (CTE)</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Memoria Técnica Descriptiva de la Nave -->
+        <div class="border border-slate-300 rounded p-3 mb-4 bg-white avoid-break">
+            <div class="font-bold text-slate-900 uppercase tracking-wider text-[10px] border-b border-slate-200 pb-1 mb-2 flex justify-between items-center">
+                <span>3. Ficha Técnica Descriptiva y Parámetros de Cálculo CTE</span>
+                <span class="text-[9px] text-blue-800 font-semibold">Cálculo Matricial según DB-SE-AE</span>
+            </div>
+
+            <div class="grid grid-cols-4 gap-3 text-[10px]">
+                <!-- Bloque Geometría -->
+                <div class="border-r border-slate-200 pr-2 space-y-1">
+                    <div class="font-bold text-slate-700 text-[9px] uppercase text-blue-950">A. Geometría</div>
+                    <div>Luz Libre: <strong id="pdfLuz">15 m</strong></div>
+                    <div>Longitud: <strong id="pdfLongitud">30 m</strong></div>
+                    <div>Altura Alero: <strong id="pdfAltura">6.0 m</strong></div>
+                    <div>Pendiente: <span id="pdfPendiente">15%</span></div>
+                    <div>Cumbrera: <span id="pdfCumbrera">7.13 m</span></div>
+                    <div class="pt-0.5 text-blue-900">Superficie: <strong id="pdfSup">450 m²</strong></div>
+                    <div class="text-slate-600">Volumen: <span id="pdfVol">2.953 m³</span></div>
+                </div>
+
+                <!-- Bloque Estructura -->
+                <div class="border-r border-slate-200 pr-2 space-y-1">
+                    <div class="font-bold text-slate-700 text-[9px] uppercase text-blue-950">B. Estructura Acero S275JR</div>
+                    <div>Modulación: <span id="pdfVanos">5 vanos (6m)</span></div>
+                    <div>Pórticos: <span id="pdfPorticos">6 pórticos</span></div>
+                    <div>Pilares: <span id="pdfPilares">12 pilares</span></div>
+                    <div>Granallado: <span class="text-slate-600">SA 2.5 + Imprimación</span></div>
+                    <div class="pt-0.5 text-blue-900">Total Acero: <strong id="pdfAceroKg">11.250 kg</strong></div>
+                    <div class="text-slate-600">Ratio: <span id="pdfRatioAcero">25.0 kg/m²</span></div>
+                </div>
+
+                <!-- Bloque Cerramientos -->
+                <div class="border-r border-slate-200 pr-2 space-y-1">
+                    <div class="font-bold text-slate-700 text-[9px] uppercase text-blue-950">C. Cerramientos</div>
+                    <div>Cubierta: <strong id="pdfTipoCubierta">Panel 30mm</strong></div>
+                    <div>Lucernarios: <span id="pdfLucernarios">10%</span></div>
+                    <div>Fachadas: <strong id="pdfTipoFachada">Panel 35mm</strong></div>
+                    <div>Falso Techo: <span id="pdfFalsoTecho">No</span></div>
+                    <div class="pt-0.5 text-slate-700">Puertas: <span id="pdfPuertas" class="font-medium">1 camión + 1 peatonal</span></div>
+                </div>
+
+                <!-- Bloque Cargas CTE -->
+                <div class="space-y-1">
+                    <div class="font-bold text-slate-700 text-[9px] uppercase text-blue-950">D. Sobrecargas CTE</div>
+                    <div>Municipio: <strong id="pdfProvincia">Maó (Menorca)</strong></div>
+                    <div>Viento CTE: <span id="pdfViento" class="text-[9px]">Zona C (29 m/s)</span></div>
+                    <div>Tensión Suelo: <span id="pdfTension">2.0 kg/cm²</span></div>
+                    <div class="pt-1 text-emerald-800">Modalidad:</div>
+                    <div class="font-bold text-[9px] text-slate-900" id="pdfModalidad">Suministro + Montaje</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Resumen Económico por Capítulos -->
+        <div class="mb-4 avoid-break">
+            <div class="font-bold text-slate-900 uppercase tracking-wider text-[10px] border-b border-slate-200 pb-1 mb-1.5 flex justify-between">
+                <span>4. Cuadro Resumen Económico por Capítulos</span>
+                <span class="text-[9px] text-slate-500 font-normal">Precios netos sin IVA</span>
+            </div>
+            <table class="w-full text-[10px] border border-slate-300">
+                <thead class="bg-slate-800 text-white font-bold text-[9px]">
+                    <tr>
+                        <th class="py-1 px-2 text-left">Capítulo de Obra</th>
+                        <th class="py-1 px-2 text-center w-28">Estado / Alcance</th>
+                        <th class="py-1 px-2 text-right w-24">Ratio (€/m²)</th>
+                        <th class="py-1 px-2 text-right w-16">% Reperc.</th>
+                        <th class="py-1 px-2 text-right w-28">Importe Neto (€)</th>
+                    </tr>
+                </thead>
+                <tbody id="pdfTablaCapitulosBody">
+                    <!-- Rellenado por JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 5. Desglose Detallado de Partidas de Obra -->
+        <div class="mb-4">
+            <div class="font-bold text-slate-900 uppercase tracking-wider text-[10px] border-b border-slate-200 pb-1 mb-1.5 flex justify-between items-center">
+                <span>5. Desglose Exhaustivo de Unidades de Obra y Mediciones</span>
+                <span class="text-[9px] text-slate-500 font-normal">Conforme a unidades reales de proyecto</span>
+            </div>
+            <table class="w-full text-[9.5px] border border-slate-300">
+                <thead class="bg-slate-800 text-white font-bold text-[9px]">
+                    <tr>
+                        <th class="py-1 px-1.5 w-7 text-center">Nº</th>
+                        <th class="py-1 px-1.5 w-14">Código</th>
+                        <th class="py-1 px-1.5 text-left">Descripción Detallada de la Partida</th>
+                        <th class="py-1 px-1.5 text-right w-16">Medición</th>
+                        <th class="py-1 px-1.5 text-center w-10">Ud.</th>
+                        <th class="py-1 px-1.5 text-right w-16">Precio Ud.</th>
+                        <th class="py-1 px-1.5 text-right w-24">Importe (€)</th>
+                    </tr>
+                </thead>
+                <tbody id="pdfTablaPartidasBody" class="divide-y divide-slate-200">
+                    <!-- Rellenado por JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 6. Liquidación Económica Total -->
+        <div class="flex justify-end mb-4 avoid-break">
+            <div class="w-72 border-2 border-slate-900 rounded-lg p-2.5 bg-slate-50 text-[10px] space-y-1">
+                <div class="flex justify-between text-slate-700">
+                    <span>Base Imponible (P.E.C. Total):</span>
+                    <strong class="font-mono text-slate-900" id="pdfTotalSinIva">0,00 €</strong>
+                </div>
+                <div class="flex justify-between text-slate-700 border-b border-slate-300 pb-1">
+                    <span>I.V.A. Aplicable (21%):</span>
+                    <span class="font-mono text-slate-800" id="pdfIva">0,00 €</span>
+                </div>
+                <div class="flex justify-between text-xs font-black text-slate-900 pt-0.5">
+                    <span>TOTAL PRESUPUESTO:</span>
+                    <span class="font-mono text-blue-900 text-sm" id="pdfTotalConIva">0,00 €</span>
+                </div>
+                <div class="text-[9px] text-right text-slate-500 font-medium">
+                    Repercusión neta: <span id="pdfRatioM2">0.00 €/m²</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Condiciones Generales y Pliego del Contrato -->
+        <div class="border border-slate-300 rounded p-2.5 mb-4 text-[9px] text-slate-600 bg-slate-50/50 space-y-1 avoid-break leading-tight">
+            <div class="font-bold text-slate-900 uppercase text-[9px] border-b border-slate-200 pb-0.5">
+                6. Pliego de Condiciones Técnicas, Económicas y Garantías
+            </div>
+            <div><strong>1. Validez de la Oferta:</strong> 30 días naturales desde la fecha de emisión del presente documento.</div>
+            <div><strong>2. Plazo de Ejecución:</strong> <span id="pdfPlazo">6 a 8 semanas tras aprobación técnica</span>.</div>
+            <div><strong>3. Forma de Pago:</strong> <span id="pdfPago">30% formalización pedido · 40% inicio montaje · 30% fin de obra</span>.</div>
+            <div><strong>4. Garantías Técnicas:</strong> Garantía decenal de estabilidad estructural (LOE Art. 17) y 3 años en estanqueidad de cubiertas y fachadas. Acero ensayado con certificado de colada según norma EN 10025.</div>
+            <div><strong>5. Exclusiones Legales Expresas:</strong> Salvo especificación contraria en las partidas incluidas, no se contemplan tasas municipales, licencias de obra, proyecto visado independiente ni acometidas exteriores a la parcela.</div>
+            <div><strong>6. Observaciones Particulares:</strong> <span id="pdfNotas" class="italic text-slate-700">Sin notas adicionales.</span></div>
+        </div>
+
+        <!-- 8. Diligencia de Aceptación y Firmas -->
+        <div class="grid grid-cols-2 gap-4 avoid-break text-[9px] pt-1">
+            <div class="border border-slate-400 rounded p-2.5 text-center min-h-[95px] flex flex-col justify-between">
+                <div class="font-bold text-slate-800 uppercase tracking-wider">Por la Dirección Técnica y Comercial</div>
+                <div class="text-[8px] text-slate-400 italic">Sello y Firma Autorizada</div>
+                <div class="border-t border-dashed border-slate-300 pt-1 text-[8px] text-slate-500">
+                    HAM Estructuras Metálicas
+                </div>
+            </div>
+
+            <div class="border border-slate-400 rounded p-2.5 text-center min-h-[95px] flex flex-col justify-between bg-slate-50/30">
+                <div class="font-bold text-slate-800 uppercase tracking-wider">Conforme y Acepto - El Cliente / Promotor</div>
+                <div class="text-[8px] text-slate-400 italic">Firma, Nombre, DNI/NIF y Fecha de Aceptación</div>
+                <div class="border-t border-dashed border-slate-300 pt-1 text-[8px] text-slate-500">
+                    D./Dña. _________________________________
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

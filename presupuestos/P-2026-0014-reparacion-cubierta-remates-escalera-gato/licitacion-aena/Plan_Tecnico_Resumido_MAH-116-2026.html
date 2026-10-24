@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Documentación Técnica y Plan de Ejecución - Aena MAH-116/2026 - DIXIS</title>
+  <style>
+    @page { 
+      size: A4 portrait; 
+      margin: 0; 
+    }
+    * { 
+      box-sizing: border-box; 
+      -webkit-print-color-adjust: exact; 
+      print-color-adjust: exact; 
+    }
+    html, body { 
+      margin: 0; 
+      padding: 0; 
+      background: #fff; 
+      color: #1f2933; 
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif; 
+      font-size: 8.5px; 
+      line-height: 1.35; 
+    }
+    .page-container {
+      width: 210mm;
+      height: 296mm;
+      margin: 0 auto;
+      background: #fff;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+
+    /* Header Corporate */
+    header { 
+      background: #006633; 
+      color: #fff; 
+      padding: 6mm 10mm 5mm; 
+      display: flex; 
+      justify-content: space-between;
+      align-items: center; 
+      flex-shrink: 0;
+    }
+    .brand-title h1 { margin: 0; font-size: 13.5px; font-weight: bold; color: #fff; letter-spacing: 0.02em; }
+    .brand-title p { margin: 3px 0 0; color: #e2f0d9; font-size: 8.5px; font-weight: 600; }
+    .meta { text-align: right; color: #ffffff; font-size: 8.5px; line-height: 1.3; }
+    .meta strong { font-size: 10px; display: block; margin-bottom: 2px; }
+
+    .content { 
+      padding: 6mm 10mm 4mm; 
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    
+    /* Summary Block */
+    .summary-box { 
+      border: 1.5px solid #006633; 
+      border-radius: 4px; 
+      padding: 8px 12px; 
+      margin-bottom: 10px; 
+      background: #f4f9f4; 
+      display: flex; 
+      justify-content: space-between;
+      align-items: center; 
+    }
+    .summary-text h3 { margin: 0 0 3px; font-size: 10px; color: #006633; text-transform: uppercase; font-weight: bold; }
+    .summary-text p { margin: 0; color: #1f2933; font-size: 8.5px; line-height: 1.35; }
+    .badge-box { 
+      text-align: right; 
+      border-left: 2px solid #006633; 
+      padding-left: 12px; 
+      min-width: 135px; 
+      flex-shrink: 0;
+    }
+    .badge-box span { font-size: 7.5px; text-transform: uppercase; color: #555; display: block; }
+    .badge-box b { display: block; font-size: 11.5px; color: #006633; margin: 1px 0; }
+
+    /* Section Headings */
+    h2 { 
+      margin: 8px 0 4px; 
+      font-size: 9.5px; 
+      text-transform: uppercase; 
+      letter-spacing: .03em; 
+      color: #006633; 
+      border-bottom: 1.5px solid #006633;
+      padding-bottom: 2px;
+      font-weight: bold;
+    }
+
+    /* Process steps table */
+    .process-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 8px; }
+    .process-table th { background: #f0f4f1; color: #006633; text-align: left; padding: 4px 6px; border: 1px solid #c0d8c0; font-size: 8px; font-weight: bold; text-transform: uppercase; }
+    .process-table td { border: 1px solid #d0e0d0; padding: 4px 6px; vertical-align: top; color: #222; }
+    .process-table tr:nth-child(even) td { background: #fafdfa; }
+
+    /* Gantt Chart */
+    .gantt-table { width: 100%; border-collapse: collapse; margin-top: 4px; margin-bottom: 10px; font-size: 8px; }
+    .gantt-table th { background: #006633; color: #fff; text-align: center; padding: 4px; border: 1px solid #004d26; font-size: 7.5px; font-weight: bold; }
+    .gantt-table td { border: 1px solid #d0d7de; padding: 4px; font-size: 8px; }
+    .gantt-bar { background: #006633; color: #fff; text-align: center; font-size: 7.5px; font-weight: bold; border-radius: 2px; }
+    .gantt-prep { background: #5c9e7a; color: #fff; text-align: center; font-size: 7.5px; font-weight: bold; border-radius: 2px; }
+
+    /* Footer */
+    footer { 
+      padding: 3mm 10mm; 
+      border-top: 1px solid #cbd5e1; 
+      color: #64748b; 
+      font-size: 7.5px; 
+      display: flex; 
+      justify-content: space-between; 
+      flex-shrink: 0;
+      background: #fff;
+    }
+    
+    @media print { 
+      body { background: #fff; } 
+      .page-container { width: 210mm; height: 296mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <div>
+      <header>
+        <div class="brand-title">
+          <h1>DOCUMENTACIÓN TÉCNICA Y PLAN DE EJECUCIÓN SUCINTO</h1>
+          <p>AENA S.M.E., S.A. · EXPEDIENTE MAH-116/2026 · AEROPUERTO DE MENORCA</p>
+        </div>
+        <div class="meta">
+          <strong>DIXIS RECURSOS Y SOLUCIONES S.L.</strong>
+          Representante: <b>Pablo Sebastián Sánchez Arnoletto</b><br>
+          Ubicación: <b>ED04 Nuevo Edificio Señaleros (Lado Aire)</b>
+        </div>
+      </header>
+      
+      <div class="content">
+        <div class="summary-box">
+          <div class="summary-text">
+            <h3>Objeto de la Actuación</h3>
+            <p>Ejecución de los trabajos de <b>"Reparación Cubierta Nuevo Edificio Señaleros" (ED04)</b> según Pliego PPT: sustitución de 50 m² de cubierta (panel sándwich 30 mm 3 grecas PUR blanco con reenganche de laterales), remates perimetrales HDX 55 µm (48 ml), cumbrera (10 ml), juntas cubre-tornillos (144 ml), escalera de gato fija en acero inoxidable AISI 316 (3 ml) e instalación de línea de vida continua LUX-TOP de 55 ml (UNE-EN 795-C).</p>
+          </div>
+          <div class="badge-box">
+            <span>Plazo de Ejecución</span>
+            <b>2 MESES</b>
+          </div>
+        </div>
+
+        <h2>1. Proceso Técnico de Ejecución</h2>
+        <table class="process-table">
+          <thead>
+            <tr>
+              <th style="width: 12%;">Fase</th>
+              <th style="width: 28%;">Etapa del Proceso</th>
+              <th style="width: 60%;">Descripción Resumida de Trabajos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="center"><b>Fase 1</b></td>
+              <td><b>Preparación y Accesos</b></td>
+              <td>Replanteo previo, gestión de pases AVSEC, acreditaciones de vehículos (PVSO) y balizamiento estanco en Lado Aire (protocolo FOD).</td>
+            </tr>
+            <tr>
+              <td class="center"><b>Fase 2</b></td>
+              <td><b>Desmontaje y Cubierta</b></td>
+              <td>Desmontaje de elementos afectados, retirado de laterales para reenganche continuo y colocación de 50 m² de panel sándwich (30 mm PUR 3g blanco).</td>
+            </tr>
+            <tr>
+              <td class="center"><b>Fase 3</b></td>
+              <td><b>Remates y Estanqueidad</b></td>
+              <td>Montaje de remates perimetrales HDX 55 µm (48 ml), cumbrera (10 ml), perfil tapajuntas sombrero (144 ml) y sellados continuos con polímero MS.</td>
+            </tr>
+            <tr>
+              <td class="center"><b>Fase 4</b></td>
+              <td><b>Equipamientos de Seguridad</b></td>
+              <td>Instalación de escalera de gato inox AISI 316 (3 ml) y sistema de línea de vida LUX-TOP 55 ml (UNE-EN 795-C) con pruebas de tiro in situ.</td>
+            </tr>
+            <tr>
+              <td class="center"><b>Fase 5</b></td>
+              <td><b>Limpieza y Entrega</b></td>
+              <td>Limpieza continua de residuos (FOD), transporte a planta autorizada y recepción de la obra con la Dirección del Contrato.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>2. Cronograma Planificado de Ejecución (Gantt)</h2>
+        <table class="gantt-table">
+          <thead>
+            <tr>
+              <th style="width: 36%; text-align:left; padding-left:6px;">Actividades / Semanas</th>
+              <th style="width: 8%;">Sem 1</th>
+              <th style="width: 8%;">Sem 2</th>
+              <th style="width: 8%;">Sem 3</th>
+              <th style="width: 8%;">Sem 4</th>
+              <th style="width: 8%;">Sem 5</th>
+              <th style="width: 8%;">Sem 6</th>
+              <th style="width: 8%;">Sem 7</th>
+              <th style="width: 8%;">Sem 8</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>1. Pases, Acreditaciones y Replanteo</b></td>
+              <td class="gantt-prep">AVSEC</td>
+              <td class="gantt-prep">CAE</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><b>2. Balizamiento y Retiro de Elementos</b></td>
+              <td></td>
+              <td class="gantt-bar">OK</td>
+              <td class="gantt-bar">EJEC</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><b>3. Panel Sándwich 50m² y Reenganche</b></td>
+              <td></td>
+              <td></td>
+              <td class="gantt-bar">EJEC</td>
+              <td class="gantt-bar">EJEC</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><b>4. Remates HDX, Cumbrera y Juntas</b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="gantt-bar">EJEC</td>
+              <td class="gantt-bar">EJEC</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><b>5. Escalera Inox AISI 316 y Línea de Vida</b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="gantt-bar">EJEC</td>
+              <td class="gantt-bar">EJEC</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><b>6. Pruebas, Limpieza FOD y Recepción</b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="gantt-prep">OK</td>
+              <td class="gantt-prep">FIN</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer>
+      <span>DIXIS RECURSOS Y SOLUCIONES S.L. · Expediente Aena MAH-116/2026</span>
+      <span>Documentación Técnica y Plan de Ejecución · Página 1 de 1</span>
+    </footer>
+  </div>
+</body>
+</html>

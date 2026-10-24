@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    @page { size: A4 portrait; margin: 0; }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body { margin: 0; padding: 0; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; font-size: 8.8px; line-height: 1.25; }
+    .page-container { width: 210mm; margin: 0; background: #fff; }
+    .sheet { width: 210mm; height: 290mm; max-height: 290mm; overflow: hidden; padding: 0; background: #fff; display: flex; flex-direction: column; justify-content: space-between; }
+    header { background: #18201d; color: #fff; padding: 7mm 10mm 5mm; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; flex-shrink: 0; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .logo { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.28); border-radius: 8px; padding: 4px; background: rgba(255,255,255,0.05); }
+    h1 { margin: 0; font-size: 16px; letter-spacing: -.03em; line-height: 1.1; font-weight: 700; color: #fff; }
+    .subtitle { margin: 2px 0 0; color: #cbd5d1; font-size: 9.5px; }
+    .meta { text-align: right; color: #dce5e0; font-size: 9px; line-height: 1.25; }
+    .meta strong { color: #fff; display: block; font-size: 11px; margin-bottom: 2px; }
+    .content { padding: 5mm 10mm 4mm; flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-start; }
+    .summary { border: 1px solid #d9dedb; border-radius: 7px; padding: 6px 10px; margin-bottom: 6px; background: #faf8f2; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
+    .summary-text h3 { margin: 0 0 2px; font-size: 10.5px; color: #18201d; text-transform: uppercase; letter-spacing: 0.05em; }
+    .summary-text p { margin: 0; color: #4a5568; font-size: 9px; line-height: 1.3; }
+    .price-box { text-align: right; border-left: 2px solid #e2e8f0; padding-left: 12px; min-width: 155px; }
+    .price-box span { font-size: 8.5px; text-transform: uppercase; color: #718096; letter-spacing: 0.05em; display: block; }
+    .price-box b { display: block; font-size: 18px; color: #8b2f16; letter-spacing: -.03em; margin: 1px 0; }
+    .price-box small { font-size: 8.5px; color: #4a5568; }
+    h2 { margin: 6px 0 3px; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: #18201d; border-bottom: 1.2px solid #18201d; padding-bottom: 2px; }
+    h3.chap-title { background: #27312f; color: #fff; padding: 3px 6px; font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.05em; margin: 4px 0 0; border-radius: 3px 3px 0 0; }
+    table { width: 100%; border-collapse: collapse; margin: 0 0 4px; font-size: 8.5px; }
+    th { background: #27312f; color: #fff; text-align: left; padding: 3px 5px; font-size: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+    th.num, td.num { text-align: right; white-space: nowrap; }
+    th.center, td.center { text-align: center; }
+    td { border-bottom: 1px solid #e2e8f0; padding: 2.8px 5px; vertical-align: top; color: #2d3748; line-height: 1.2; }
+    tr:nth-child(even) td { background: #fcfdfd; }
+    tr.subtotal-row td { background: #f1f5f9; font-weight: bold; color: #1a202c; border-top: 1px solid #cbd5e1; border-bottom: 1.2px solid #94a3b8; padding: 2.8px 5px; }
+    .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 5px 0; }
+    .img-card { border: 1px solid #e2e8f0; border-radius: 5px; overflow: hidden; background: #f8fafc; }
+    .img-card img { width: 100%; height: 105px; object-fit: cover; display: block; }
+    .img-caption { padding: 3px 6px; font-size: 8px; color: #64748b; background: #f8fafc; border-top: 1px solid #e2e8f0; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
+    .box { border: 1px solid #d9dedb; border-radius: 5px; padding: 4px 8px; background: #fff; }
+    .box h4 { margin: 0 0 2px; font-size: 8.8px; text-transform: uppercase; color: #18201d; letter-spacing: 0.04em; }
+    ul { margin: 2px 0 0 12px; padding: 0; }
+    li { margin: 1px 0; color: #4a5568; font-size: 8.2px; }
+    footer { padding: 2.5mm 10mm 3.5mm; border-top: 1px solid #cbd5e1; color: #64748b; font-size: 8px; display: flex; justify-content: space-between; gap: 10px; flex-shrink: 0; background: #fff; }
+    .signature-box { margin-top: 5px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .sig-card { border: 1px dashed #cbd5e1; border-radius: 5px; padding: 5px 8px; min-height: 50px; }
+    .sig-card span { font-size: 8px; font-weight: bold; color: #475569; display: block; }
+  </style>
+</head>
+<body>
+<div class="page-container">
+<section class="sheet">
+      <header>
+        <div class="brand">
+          <img class="logo" src="logo-ham.svg" alt="HAM">
+          <div>
+            <h1>ESTUDIO Y ANTEPROYECTO TÉCNICO</h1>
+            <p class="subtitle">Sustitución de Cubierta, Petos HDX, Canalones, Línea de Vida y Escalera Inox 12 m</p>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>HAM Estructuras Metálicas</strong>
+          Ref: <b>ANT-2026-0827-AERO</b><br>
+          Fecha: 27/08/2026<br>
+          Menorca (Baleares)
+        </div>
+      </header>
+      
+      <div class="content">
+        <section class="summary">
+          <div class="summary-text">
+            <h3>Objeto de la Actuación Técnica</h3>
+            <p>Rehabilitación integral de la cubierta y petos en la nave de <b>Aviapartner</b> (Lado Aire del Aeropuerto de Menorca - Maó), dañada por <b>vientos huracanados</b>. Incluye retirada y gestión de cubierta deteriorada, nuevo panel sándwich de 50 mm calidad marina (1.755 m²), lucernarios de policarbonato celular (195 m²), petos en chapa Granite HDX C5-M, canalones continuos, línea de vida continua LUX-TOP inox AISI 316 (EN 795-C) y <b>escalera de gato inoxidable con protección dorsal de 12 m de altura</b> para acceso seguro a mantenimiento.</p>
+          </div>
+          <div class="price-box">
+            <span>Presupuesto Total Ejecución</span>
+            <b>360.265,68 €</b>
+            <small>IVA no incluido (21%)</small><br>
+            <span style="margin-top:2px; font-size:8px; color:#18201d; font-weight:bold;">Total con IVA: 435.921,47 €</span>
+          </div>
+        </section>
+</div>
+</body>
+</html>

@@ -56,6 +56,7 @@ Las skills principales están en `skills/`:
 - `skill_portones_cancelas.md`
 - `skill_marquesinas_pergolas.md`
 - `skill_productos_compuestos.md`
+- `skill_naves_industriales.md`
 
 ## Composiciones existentes
 
@@ -75,6 +76,7 @@ Las composiciones YAML están en `productos/composiciones/`:
 - `porton_cancela.yaml`
 - `marquesina_pergola.yaml`
 - `producto_compuesto.yaml`
+- `nave_industrial.yaml`
 
 ## Fases mentales del presupuesto
 
@@ -313,6 +315,49 @@ En el equipo original existían dos HTML no incluidos en el commit porque no for
 
 No modificarlos ni asumir que forman parte del repositorio salvo que el usuario lo pida.
 
+## Catálogo Factusol 2026 (Actualización de Artículos)
+
+Se procesó y estructuró el catálogo de Factusol actual desde `C:\Users\grupo\outputs\catalogo-20260917`:
+
+- **Fuente:** `articulos factusol actual.xlsx` (16.820 artículos procesados).
+- **Dataset estructurado:** `C:\Users\grupo\outputs\catalogo-20260917\prepared.json`.
+- **Materiales físicos identificados:** 8.366 artículos.
+- **Herramienta de búsqueda en CLI:** [buscar_catalogo.py](file:///c:/Users/grupo/Documents/Presupuestador/herramientas/buscar_catalogo.py)
+  - `python herramientas/buscar_catalogo.py "tubo 40x40"`
+  - `python herramientas/buscar_catalogo.py "din 933" --familia TOR --con-precio`
+- **Documento de referencias y tarifas:** [catalogo-factusol-referencias.md](file:///c:/Users/grupo/Documents/Presupuestador/presupuestacion/costes/catalogo-factusol-referencias.md).
+
+## Presupuestador Web de Naves Industriales (Localhost)
+
+Se ha creado y desplegado en local (`http://localhost:8080`) una aplicación web interactiva completa para el diseño paramétrico, cálculo estructural según CTE DB-SE-AE, visualización 3D y presupuestación detallada de naves industriales, agrícolas y ganaderas.
+
+- **Ubicación:** `herramientas/presupuestador-naves/`
+  - `index.html`: Interfaz completa en Tailwind CSS, visor 3D, panel de control de precios y tabla de 31 partidas.
+  - `calculo_naves.js`: Motor de cálculo paramétrico de modulación, cargas de viento/nieve CTE, ratios de acero, cubicación de cimentación/solera, desglose de montaje por elemento y cubicación de transportes.
+  - `visor3d.js`: Visor paramétrico Three.js interactivo con cubierta a dos aguas de pendiente real, cerramientos, estructura de pórticos y modulación de vanos.
+  - `provincias.js`: Base de datos de las 50 provincias españolas con zonas eólicas y altitudes CTE.
+  - `server.js`: Servidor HTTP ligero en Node.js (puerto 8080).
+
+- **Estructura de Capítulos del Presupuesto (5 Capítulos):**
+  1. **Capítulo 1: Estructura Metálica y Cerramientos** (Perfiles laminados S275JR, correas Z, paneles sándwich, policarbonatos, remates plegados, puertas 5x5m y peatonales, tornillería estructural 8.8).
+  2. **Capítulo 2: Cimentación y Movimiento de Tierras** (Explanación, pozos de zapatas, hormigón de limpieza H10, jaulas B500S, placas con pernos, hormigón H25).
+  3. **Capítulo 3: Solera Industrial** (Zahorra artificial compactada, barrera de vapor PE 100µ, mallazo electrosoldado B500T, solera de hormigón H25 fratasada y pulida).
+  4. **Capítulo 4: Montaje e Instalación Desglosada en Obra** (Tarifas separadas por elemento: €/kg montaje estructura con grúa, €/m² montaje cubierta, €/m² cerramiento fachadas, €/m² lucernarios, €/m² falso techo, €/ml remates sellados, €/ud puertas, €/día alquiler de plataformas tijera).
+  5. **Capítulo 5: Portes, Fletes y Transporte a Obra** (Cálculo logístico automático de número de tráileres completos según peso del acero —hasta 24 Tn/tráiler— y volumen apilable de paneles sándwich —hasta 600 m²/tráiler— a tarifa configurable €/viaje).
+
+- **Generación de Presupuesto Formal Completo en PDF (A4):**
+  - Modal interactivo de configuración previa (`📄 Generar Presupuesto PDF`) para personalizar datos del cliente/promotor, CIF, ubicación de la obra, número de oferta formal (`P-2026-XXXX`), fecha de emisión, plazos y condiciones de pago.
+  - Maquetación CSS `@media print` optimizada para A4 vertical que oculta los controles interactivos y genera un documento corporativo de ingeniería impecable.
+  - Estructura formal completa en 8 secciones:
+    1. Membrete oficial corporativo con datos de emisor, fecha, número de oferta formal y validez (30 días).
+    2. Identificación del cliente / promotor y emplazamiento de la obra.
+    3. Ficha técnica detallada de la nave (dimensiones en planta, alturas, pendiente, superficie, volumen, modulación estructural, acero total, cerramientos y cargas normativas de viento/nieve CTE).
+    4. Tabla resumen de los 5 capítulos con importes netos, ratios €/m² y porcentajes de repercusión.
+    5. Desglose detallado de unidades de obra y mediciones (tabla oficial de partidas con Nº, Código, Descripción, Medición, Ud., Precio Unitario e Importe). Las partidas excluidas quedan expresamente señaladas como no contratadas.
+    6. Cuadro de liquidación económica (Base imponible total, IVA 21%, Total General con IVA y ratio medio €/m²).
+    7. Pliego de condiciones técnicas y comerciales (validez, plazos de entrega, hitos de pago, garantías decenal y trienal LOE/CTE, exclusiones legales estándar y notas particulares).
+    8. Diligencia formal de conformidad y aceptación con recuadros para sello/firma de la dirección técnica y aceptación del cliente.
+
 ## Próximos pasos sugeridos
 
 1. Convertir más presupuestos históricos en reglas de estimación.
@@ -322,3 +367,4 @@ No modificarlos ni asumir que forman parte del repositorio salvo que el usuario 
 5. Añadir reglas de galvanizado en caliente con tarifa real.
 6. Crear ejemplos adicionales de presupuestos rápidos usando Ferros Puig.
 7. Si se usa Notion operativamente, documentar consultas utiles sobre partidas por estado, equipo y fase.
+8. Aprovechar el buscador de catálogo Factusol para parametrizar costes unitarios automáticos en las plantillas YAML de producto.

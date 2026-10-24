@@ -1,0 +1,184 @@
+nombre: "Nave Industrial y Agrícola Prefabricada"
+version: "1.0.0"
+descripcion: "Estructura metálica prefabricada atornillada, cimentación, solera industrial y cerramientos para uso agrícola, ganadero o industrial basada en el modelo de modulación por vanos y pórticos rígidos."
+
+parametros_base:
+  ancho_luz_m:
+    defecto: 15.0
+    rango: [8.0, 45.0]
+    unidad: "m"
+    descripcion: "Luz libre entre ejes de pilares frontales"
+  longitud_m:
+    defecto: 30.0
+    rango: [12.0, 150.0]
+    unidad: "m"
+    descripcion: "Longitud total de la nave"
+  altura_pilares_m:
+    defecto: 6.0
+    rango: [3.5, 12.0]
+    unidad: "m"
+    descripcion: "Altura libre hasta arranque de faldón en alero"
+  pendiente_cubierta_pct:
+    defecto: 15.0
+    rango: [10.0, 30.0]
+    unidad: "%"
+    descripcion: "Pendiente a dos aguas de la cubierta"
+  separacion_porticos_m:
+    defecto: 6.0
+    rango: [4.5, 6.5]
+    unidad: "m"
+    descripcion: "Distancia entre pórticos intermedios"
+
+capitulos:
+  - id: "CAP_01"
+    nombre: "Estructura Metálica y Cerramientos"
+    partidas:
+      - codigo: "PAR_00"
+        nombre: "Estructura de acero laminado soldado y atornillado"
+        unidad: "kg"
+        tipo: "material_y_taller"
+        materiales:
+          - "Vigas y pilares en perfiles IPE / HEA / IPE de sección variable S275JR"
+          - "Cartabones y uniones rígidas mecanizadas con taladros rasgados"
+          - "Placas de anclaje de acero laminado S275JR e=15-25 mm con 4 u 8 taladros"
+          - "Correas de cubierta y fachada conformadas en Z y C de chapa galvanizada Z275"
+        procesos:
+          - "Oxicorte / corte láser de placas y cartabones"
+          - "Corte de perfiles a inglete"
+          - "Armado y soldadura semiautomática MAG (hilo macizo ER70S-6)"
+          - "Granallado SA 2.5 e imprimación anticorrosiva epoxi / galvanizado en caliente"
+
+      - codigo: "PAR_01"
+        nombre: "Cubierta (Chapa simple o Panel Sándwich)"
+        unidad: "m2"
+        tipo: "suministro_y_colocacion"
+        opciones:
+          - "Chapa grecada prelacada 0.6 mm con 6 grecas de 40 mm"
+          - "Panel sándwich 30, 40, 50, 60, 80 o 100 mm PUR/PIR"
+          - "Panel sándwich con falso techo PURAL para granjas"
+
+      - codigo: "PAR_02"
+        nombre: "Lucernarios de cubierta"
+        unidad: "m2"
+        tipo: "suministro_y_colocacion"
+        material: "Placas translúcidas de poliéster reforzado con fibra de vidrio o policarbonato celular 30 mm"
+
+      - codigo: "PAR_03"
+        nombre: "Falso techo aislante"
+        unidad: "m2"
+        tipo: "suministro_y_colocacion"
+        material: "Panel PURAL (aluminio gofrado + pintura plástica blanca) de 30 mm"
+
+      - codigo: "PAR_04"
+        nombre: "Cerramiento de hastiales (frontales)"
+        unidad: "m2"
+        tipo: "suministro_y_colocacion"
+        material: "Chapa pregalvanizada y prelacada o panel sándwich con perfiles omegas"
+
+      - codigo: "PAR_05"
+        nombre: "Cerramiento de faldón y aleros"
+        unidad: "m2"
+        tipo: "suministro_y_colocacion"
+        material: "Remate inferior y superior de faldón plegado"
+
+      - codigo: "PAR_06"
+        nombre: "Cerramiento de fachadas longitudinales"
+        unidad: "m2"
+        tipo: "suministro_y_colocacion"
+        material: "Chapa grecada / panel sándwich / bloque hormigón hasta 3 m"
+
+      - codigo: "PAR_07"
+        nombre: "Remate de cumbrera"
+        unidad: "ml"
+        material: "Chapa prelacada plegada 0.6 mm, desarrollo 620 mm con solapes y juntas estancas"
+
+      - codigo: "PAR_08"
+        nombre: "Remates laterales de hastial con cubierta"
+        unidad: "ml"
+        material: "Cantonera plegada en chapa prelacada con goterón y ala vierteaguas"
+
+      - codigo: "PAR_09"
+        nombre: "Remates de esquinas de fachadas"
+        unidad: "ml"
+        material: "Esquinero plegado exterior 0.6 mm fijado con remaches de estanqueidad"
+
+      - codigo: "PAR_10"
+        nombre: "Puerta principal para maquinaria y camiones"
+        unidad: "ud"
+        dimensiones_tipicas: "5.00 x 5.00 m (o 4.00 x 4.50 m)"
+        tipo_apertura: "Abatible de 2 hojas o corredera colgada con guía y rodamientos"
+
+      - codigo: "PAR_11"
+        nombre: "Puerta peatonal de acceso y emergencia"
+        unidad: "ud"
+        dimensiones: "1.00 x 2.10 m"
+        acabado: "Chapa galvanizada lacada, con cerradura, maneta y barra antipánico opcional"
+
+      - codigo: "PAR_12"
+        nombre: "Tornillería y fijaciones estructurales"
+        unidad: "ud"
+        especificacion: "Tornillos M12, M16 y M20 calidad 8.8 cincados / A2 con tuerca y arandela de presión"
+
+  - id: "CAP_02"
+    nombre: "Cimentación y Movimiento de Tierras"
+    partidas:
+      - codigo: "PAR_13"
+        nombre: "Explanación y nivelación de parcela"
+        unidad: "m3"
+        descripcion: "Desbroce vegetal, vaciado y rasanteo con retroexcavadora en terreno tipo medio"
+
+      - codigo: "PAR_14"
+        nombre: "Excavación de pozos de zapatas y riostras"
+        unidad: "m3"
+        descripcion: "Apertura de zanjas y pozos para cimentación aislada conectada"
+
+      - codigo: "PAR_15"
+        nombre: "Hormigón de limpieza H10"
+        unidad: "m3"
+        descripcion: "Capa de 10 cm de hormigón pobre en fondo de zapatas para regularización"
+
+      - codigo: "PAR_16"
+        nombre: "Acero corrugado B500S en cimentación"
+        unidad: "kg"
+        descripcion: "Parrillas de fondo de zapatas y jaulas de vigas riostras"
+
+      - codigo: "PAR_17"
+        nombre: "Montaje y encamillado de placas de anclaje"
+        unidad: "ud"
+        descripcion: "Pernos roscados calibrados fijados rígidamente con camilla de madera antes del vertido"
+
+      - codigo: "PAR_18"
+        nombre: "Hormigón armado H25 en zapatas y vigas"
+        unidad: "m3"
+        descripcion: "Hormigón HA-25/B/20/IIa vertido y vibrado en zanjas"
+
+  - id: "CAP_03"
+    nombre: "Solera Industrial"
+    partidas:
+      - codigo: "PAR_19"
+        nombre: "Encachado de zahorra compactada"
+        unidad: "m3"
+        descripcion: "Zahorra artificial de 15 cm compactada al 98% Proctor Modificado"
+
+      - codigo: "PAR_20"
+        nombre: "Lámina barrera de vapor PE 100 micras"
+        unidad: "m2"
+        descripcion: "Film de polietileno continuo solapado para evitar ascenso de humedad"
+
+      - codigo: "PAR_21"
+        nombre: "Mallazo electrosoldado B500T"
+        unidad: "m2"
+        descripcion: "Malla #150x150x6 mm con calzos separadores y solapes mínimos de 20 cm"
+
+      - codigo: "PAR_22"
+        nombre: "Losa de hormigón H25 fratasada y pulida"
+        unidad: "m3"
+        descripcion: "Solera de 15-20 cm fratasada mecánicamente con capa de rodadura de cuarzo y resina de curado"
+
+  - id: "CAP_04"
+    nombre: "Montaje y Medios Auxiliares"
+    partidas:
+      - codigo: "PAR_23"
+        nombre: "Montaje integral en obra"
+        unidad: "m2_construido"
+        descripcion: "Camión grúa de pluma, plataformas elevadoras tijera, operarios montadores certificados y plan de seguridad"
