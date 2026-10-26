@@ -1,0 +1,124 @@
+{
+  "numeroPresupuesto": "P-2026-0043",
+  "referencia": "PRE-2026-1026-CUB",
+  "fecha": "2026-10-26",
+  "validezDias": 30,
+  "cliente": {
+    "nombre": "Menorca Dist (Distribuciones Menorca)",
+    "direccion": "Avda. Sa Industria 67, Pol. Ind. La Trotxa",
+    "poblacion": "Alaior",
+    "codigoPostal": "07730",
+    "isla": "Menorca"
+  },
+  "emisor": {
+    "empresa": "HAM Estructuras Metálicas",
+    "direccion": "Av. Circunval·lació, 11, Polígono de Sant Lluís, 07710 Sant Lluís, Menorca",
+    "email": "info@hamenorca.com",
+    "telefonos": "+34 971 35 20 18 / +34 669 769 541"
+  },
+  "trabajo": {
+    "titulo": "Rehabilitación de Cubiertas de Nave Industrial mediante Sobrecubierta Metálica y Sustitución de Lucernarios",
+    "superficieTotalM2": 4429.0,
+    "superficieChapaM2": 4303.0,
+    "superficieTranslucidaM2": 126.0,
+    "colorChapa": "Rojo Teja o Blanco (a definir por cliente)",
+    "perfilChapa": "Grecada onda 40 mm, espesor 0,60 mm con marcado CE (UNE-EN 14782)",
+    "baseImponible": 149289.50,
+    "ivaPorcentaje": 21.0,
+    "ivaImporte": 31350.80,
+    "totalConIva": 180640.30
+  },
+  "sectores": [
+    {
+      "id": 1,
+      "nombre": "Cubierta a 2 aguas con zona translúcida",
+      "superficieTotalM2": 1495.0,
+      "superficieChapaM2": 1369.0,
+      "superficieTranslucidaM2": 126.0,
+      "descripcion": "Faldones a dos aguas principales con bandas de lucernarios translúcidos degradados a sustituir."
+    },
+    {
+      "id": 2,
+      "nombre": "Cubierta a 2 aguas Central",
+      "superficieTotalM2": 2430.0,
+      "superficieChapaM2": 2430.0,
+      "superficieTranslucidaM2": 0.0,
+      "descripcion": "Cuerpo central de la nave a dos aguas en chapa continua."
+    },
+    {
+      "id": 3,
+      "nombre": "Cubierta a 1 agua de oficinas",
+      "superficieTotalM2": 104.0,
+      "superficieChapaM2": 104.0,
+      "superficieTranslucidaM2": 0.0,
+      "descripcion": "Faldón a un agua sobre módulo administrativo, con cortes y adaptación estanca contra petos verticales."
+    },
+    {
+      "id": 4,
+      "nombre": "Cubierta a 1 agua zona Sur",
+      "superficieTotalM2": 400.0,
+      "superficieChapaM2": 400.0,
+      "superficieTranslucidaM2": 0.0,
+      "descripcion": "Faldón a un agua en sector sur adyacente."
+    }
+  ],
+  "partidas": [
+    {
+      "id": "01",
+      "concepto": "Sobrecubierta metálica con perfil omega y chapa grecada 40 mm (e=0,6 mm)",
+      "descripcion": "Suministro e instalación de sistema de sobrecubierta metálica sobre la cubierta existente. Incluye colocación de perfil separador tipo omega de acero galvanizado anclado mecánicamente a las correas inferiores existentes; colocación de chapa de acero prelacada grecada (perfil onda 40 mm, espesor 0,60 mm, color rojo teja o blanco a elegir); fijación en onda alta mediante tornillería autotaladrante de alta resistencia provista de arandela de estanqueidad EPDM vulcanizado (evitando cualquier perforación en la zona de evacuación de agua); y sellado continuo en solapes longitudinales y transversales con cordón de masilla elástica de butilo imputrescible.",
+      "unidad": "m2",
+      "cantidad": 4303.0,
+      "precioUnitario": 28.50,
+      "importe": 122635.50
+    },
+    {
+      "id": "02",
+      "concepto": "Desmontaje y renovación de lucernarios con policarbonato compacto grecado",
+      "descripcion": "Desmontaje y retirada con precauciones de seguridad de la capa exterior translúcida antigua degradada. Suministro e instalación de nuevas placas translúcidas de policarbonato de perfil grecado onda 40 mm compatible, con protección contra radiación UV en ambas caras, fijación en onda alta con puentes de apoyo de policarbonato/aluminio y arandelas especiales de reparto y estanqueidad EPDM.",
+      "unidad": "m2",
+      "cantidad": 126.0,
+      "precioUnitario": 54.00,
+      "importe": 6804.00
+    },
+    {
+      "id": "03",
+      "concepto": "Remates de cumbrera, coronación, saltos de cubierta y adaptación en petos",
+      "descripcion": "Suministro y montaje de rematería completa plegada a medida en chapa de acero prelacada de 0,60 mm del mismo color que la cubierta: cumbreras conformadas/troqueladas a dos aguas, remates laterales de coronación, remates en saltos entre faldones y baberos estancos. Incluye cortes mecánicos de chapa y adaptaciones en petos para la nueva cubierta a un agua de oficinas con sellado perimetral de poliuretano de alta adherencia.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precioUnitario": 5850.00,
+      "importe": 5850.00
+    },
+    {
+      "id": "04",
+      "concepto": "Transporte marítimo y terrestre, medios de elevación (grúa pluma y PEMP)",
+      "descripcion": "Logística integral a la isla de Menorca: fletes marítimos Península-Menorca para transporte de chapas grecadas de gran longitud, transporte especial a nave en Polígono La Trotxa (Alaior), camión grúa pluma para descarga y acopio distribuido en cubierta, y plataformas elevadoras móviles de personal (PEMP) para apoyo durante el montaje.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precioUnitario": 8600.00,
+      "importe": 8600.00
+    },
+    {
+      "id": "05",
+      "concepto": "Seguridad y salud en altura (redes bajo lucernarios) y gestión de sobrantes",
+      "descripcion": "Implantación de medidas de seguridad y salud específicas para trabajos en cubierta ligera: montaje de redes anticaídas provisionales bajo zonas de lucernarios, líneas de vida temporales de progresión, señalización y EPIs de los operarios según normativa de prevención de riesgos laborales. Incluye recogida continua, acopio selectivo y transporte de materiales sobrantes a gestor autorizado de residuos de Menorca.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precioUnitario": 5400.00,
+      "importe": 5400.00
+    }
+  ],
+  "condiciones": {
+    "validezDias": 30,
+    "formaDePago": "40% a la formalización del pedido y acopio en fábrica, 30% al inicio del montaje en obra y 30% a la finalización y recepción de los trabajos",
+    "hitosPago": [
+      { "concepto": "40% a la formalización del pedido y acopio", "importe": 72256.12 },
+      { "concepto": "30% al inicio del montaje en obra", "importe": 54192.09 },
+      { "concepto": "30% a la finalización y recepción conforme", "importe": 54192.09 }
+    ],
+    "plazoEjecucion": "4 a 6 semanas laborables desde la recepción de materiales en Menorca",
+    "garantia": "5 años de garantía en estanqueidad y recubrimiento de chapa prelacada; 2 años en montaje y fijaciones",
+    "exclusiones": "Quedan expresamente exentas las cubiertas de las zonas de carga según especificaciones del cliente. No se incluye refuerzo o reparación de estructura portante principal de la nave si presentara vicios ocultos."
+  }
+}

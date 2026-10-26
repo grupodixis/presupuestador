@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuesto P-2026-0043: Rehabilitación de Cubiertas - Menorca Dist</title>
+  <style>
+    @page { 
+      size: A4; 
+      margin: 8mm 8mm 8mm 8mm;
+    }
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      background: #eaedf0; 
+      color: #1e262c; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      font-size: 10.8px; 
+      line-height: 1.35; 
+    }
+    .page-container {
+      width: 210mm;
+      margin: 0 auto;
+      background: #ffffff;
+    }
+    .page { 
+      padding: 10mm 12mm 8mm;
+      min-height: 280mm;
+      max-height: 281mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    header { 
+      background: #0f172a; 
+      color: #fff; 
+      padding: 10px 16px; 
+      border-radius: 8px;
+      display: grid; 
+      grid-template-columns: 1fr auto; 
+      gap: 16px; 
+      align-items: center; 
+      border-bottom: 4px solid #b91c1c;
+      margin-bottom: 10px;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .logo { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.2); border-radius: 8px; padding: 4px; background: rgba(255,255,255,0.08); }
+    h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -.02em; color: #ffffff; }
+    .subtitle { margin: 4px 0 0; color: #94a3b8; font-size: 11.5px; font-weight: 500; }
+    .meta { text-align: right; color: #cbd5e1; font-size: 10.5px; line-height: 1.45; }
+    .meta strong { color: #ffffff; display: block; font-size: 13px; margin-bottom: 2px; }
+
+    .client-card {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 12px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+    }
+    .client-item h4 { margin: 0 0 4px; font-size: 10px; text-transform: uppercase; color: #64748b; letter-spacing: .05em; }
+    .client-item p { margin: 0; font-size: 11.5px; font-weight: 600; color: #0f172a; }
+    .client-item span { font-size: 10.5px; color: #475569; font-weight: normal; display: block; }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .kpi-card {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid #b91c1c;
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .kpi-title { font-size: 9.5px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 2px; }
+    .kpi-val { font-size: 16px; font-weight: 800; color: #0f172a; line-height: 1.2; }
+    .kpi-sub { font-size: 9.5px; color: #475569; margin-top: 2px; }
+
+    h2 { 
+      margin: 12px 0 6px; 
+      font-size: 11.5px; 
+      text-transform: uppercase; 
+      letter-spacing: .06em; 
+      color: #0f172a; 
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h2 span { font-size: 9.5px; color: #64748b; text-transform: none; font-weight: normal; }
+
+    .solution-box {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      font-size: 10.5px;
+      line-height: 1.45;
+      color: #334155;
+    }
+    .solution-box ul {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+    .solution-box li {
+      margin-bottom: 3px;
+    }
+
+    table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; }
+    th { background: #1e293b; color: #ffffff; text-align: left; padding: 7px 8px; font-size: 9.5px; text-transform: uppercase; letter-spacing: .05em; }
+    td { border-bottom: 1px solid #e2e8f0; padding: 6px 8px; vertical-align: top; font-size: 10.5px; }
+    .col-id { width: 6%; font-weight: 700; color: #b91c1c; text-align: center; }
+    .col-desc { width: 56%; }
+    .col-unit { width: 7%; text-align: center; }
+    .col-cant { width: 10%; text-align: right; }
+    .col-price { width: 10%; text-align: right; }
+    .col-total { width: 11%; text-align: right; font-weight: 700; color: #0f172a; }
+
+    .sector-table th { background: #334155; }
+    .sector-table td { font-size: 10px; padding: 5px 8px; }
+
+    .totals-area {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 6px;
+      margin-bottom: 12px;
+    }
+    .totals-table {
+      width: 48%;
+      border: none;
+      margin: 0;
+    }
+    .totals-table td { padding: 4px 8px; border: none; font-size: 11px; }
+    .totals-table .total-row {
+      font-size: 14px;
+      font-weight: 800;
+      color: #b91c1c;
+      background: #fef2f2;
+      border-top: 2px solid #b91c1c;
+    }
+    .totals-table .total-row td { padding: 6px 8px; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .gallery-item {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 75px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-cap {
+      font-size: 8.5px;
+      padding: 3px 4px;
+      color: #475569;
+      background: #f1f5f9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .conditions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .cond-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      background: #ffffff;
+      padding: 8px 10px;
+    }
+    .cond-card h3 {
+      margin: 0 0 6px;
+      font-size: 10.5px;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 3px;
+    }
+    .cond-card p, .cond-card li {
+      font-size: 10px;
+      color: #334155;
+      margin: 3px 0;
+    }
+    .cond-card ul {
+      margin: 3px 0;
+      padding-left: 16px;
+    }
+
+    .signature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 14px;
+      padding-top: 8px;
+      border-top: 1px dashed #cbd5e1;
+    }
+    .sig-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 10px;
+      min-height: 85px;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sig-title { font-size: 9.5px; font-weight: 700; color: #475569; text-transform: uppercase; }
+    .sig-date { font-size: 9px; color: #64748b; }
+
+    footer {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 6px;
+      font-size: 9px;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-container">
+
+  <!-- PÁGINA 1: PRESENTACIÓN, MEMORIA TÉCNICA Y SECTORES -->
+  <div class="page">
+    <div>
+      <header>
+        <div class="brand">
+          <img src="logo-ham.svg" alt="HAM" class="logo">
+          <div>
+            <h1>HAM ESTRUCTURAS METÁLICAS</h1>
+            <div class="subtitle">Presupuesto Técnico de Rehabilitación y Sobrecubierta Industrial</div>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>PRESUPUESTO P-2026-0043</strong>
+          Ref: PRE-2026-1026-CUB<br>
+          Fecha: 26 de octubre de 2026<br>
+          Validez: 30 días naturales
+        </div>
+      </header>
+
+      <div class="client-card">
+        <div class="client-item">
+          <h4>Cliente / Razón Social:</h4>
+          <p>Menorca Dist (Distribuciones Menorca)</p>
+          <span>Avda. Sa Industria 67, Pol. Ind. La Trotxa</span>
+          <span>07730 Alaior (Menorca, Illes Balears)</span>
+        </div>
+        <div class="client-item">
+          <h4>Empresa Instaladora / Emisor:</h4>
+          <p>HAM Estructuras Metálicas</p>
+          <span>Av. Circunval·lació 11, Pol. Ind. Sant Lluís, Menorca</span>
+          <span>info@hamenorca.com | +34 971 35 20 18 / 669 769 541</span>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-title">Superficie Total</div>
+          <div class="kpi-val">4.429 m²</div>
+          <div class="kpi-sub">4 sectores de cubierta</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Chapa Grecada</div>
+          <div class="kpi-val">4.303 m²</div>
+          <div class="kpi-sub">Onda 40 mm / e=0,6 mm</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Lucernarios Policarbonato</div>
+          <div class="kpi-val">126 m²</div>
+          <div class="kpi-sub">Protección UV 2 caras</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Fijación Estanca</div>
+          <div class="kpi-val">Onda Alta</div>
+          <div class="kpi-sub">Separador Omega + Butilo</div>
+        </div>
+      </div>
+
+      <h2>1. Memoria Técnica y Criterios Constructivos <span>Actuación Integral sin Perforación en Canal</span></h2>
+      <div class="solution-box">
+        La solución técnica proyectada consiste en la ejecución de una <strong>sobrecubierta metálica ventilada y estanca</strong> instalada directamente sobre la cubierta existente, permitiendo mantener la actividad operativa y logística en el interior de la nave sin desalojos ni riesgos de entrada de agua durante la obra:
+        <ul>
+          <li><strong>Subestructura separadora:</strong> Perfiles separadores tipo omega de acero galvanizado Z-275 anclados a la estructura portante existente (correas) situada bajo la chapa actual, garantizando la rigidez mecánica del conjunto y una cámara intermedia de descompresión.</li>
+          <li><strong>Fijación en onda alta:</strong> La nueva chapa grecada se fija exclusivamente en la <em>cresta u onda alta</em> mediante tornillería autorroscante/autotaladrante con arandela de estanqueidad vulcanizada EPDM, eliminando de raíz las perforaciones en las zonas bajas por donde discurre el flujo de escorrentía pluvial.</li>
+          <li><strong>Estanqueidad reforzada:</strong> Sellado continuo de estanqueidad mediante cordón de masilla de butilo elástico e imputrescible en todos los solapes longitudinales y transversales de la chapa.</li>
+          <li><strong>Zonas translúcidas (126 m²):</strong> Desmontaje de la capa exterior envejecida y reposición con placas translúcidas de policarbonato compacto/celular de perfil grecado onda 40 mm con tratamiento anti-UV garantizado frente al envejecimiento por insolación.</li>
+          <li><strong>Rematería y encuentros:</strong> Remates de cumbrera troquelada, coronaciones perimetrales, saltos entre faldones y cortes mecánicos adaptados a petos de oficinas con sellado elástico de poliuretano.</li>
+        </ul>
+      </div>
+
+      <h2>2. Distribución de Superficies por Sectores <span>4 Cubiertas de Actuación</span></h2>
+      <table class="sector-table">
+        <thead>
+          <tr>
+            <th style="width: 8%;">Sector</th>
+            <th style="width: 42%;">Denominación de la Cubierta</th>
+            <th style="width: 25%;">Tipología Constructiva</th>
+            <th style="width: 12%; text-align: right;">Chapa (m²)</th>
+            <th style="width: 13%; text-align: right;">Total (m²)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align: center; font-weight: bold; color: #b91c1c;">1</td>
+            <td><strong>Cubierta a 2 aguas con zona translúcida</strong></td>
+            <td>Chapa grecada (1.369 m²) + Lucernarios policarbonato (126 m²)</td>
+            <td style="text-align: right;">1.369,00</td>
+            <td style="text-align: right; font-weight: bold;">1.495,00</td>
+          </tr>
+          <tr>
+            <td style="text-align: center; font-weight: bold; color: #b91c1c;">2</td>
+            <td><strong>Cubierta a 2 aguas Central</strong></td>
+            <td>Chapa prelacada grecada sobre omega</td>
+            <td style="text-align: right;">2.430,00</td>
+            <td style="text-align: right; font-weight: bold;">2.430,00</td>
+          </tr>
+          <tr>
+            <td style="text-align: center; font-weight: bold; color: #b91c1c;">3</td>
+            <td><strong>Cubierta a 1 agua de oficinas</strong></td>
+            <td>Chapa grecada adaptada a petos existentes</td>
+            <td style="text-align: right;">104,00</td>
+            <td style="text-align: right; font-weight: bold;">104,00</td>
+          </tr>
+          <tr>
+            <td style="text-align: center; font-weight: bold; color: #b91c1c;">4</td>
+            <td><strong>Cubierta a 1 agua zona Sur</strong></td>
+            <td>Chapa prelacada grecada sobre omega</td>
+            <td style="text-align: right;">400,00</td>
+            <td style="text-align: right; font-weight: bold;">400,00</td>
+          </tr>
+          <tr style="background: #f8fafc; font-weight: bold;">
+            <td colspan="3" style="text-align: right;">TOTAL SUPERFICIE VALORADA (excluidas zonas de carga):</td>
+            <td style="text-align: right; color: #b91c1c;">4.303,00 m²</td>
+            <td style="text-align: right; color: #0f172a; font-size: 11px;">4.429,00 m²</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>3. Registro Fotográfico de Patologías en Estado Actual <span>Pol. Ind. La Trotxa, Alaior</span></h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="img/cubierta_estado_actual_1.jpeg" alt="Lucernario degradado">
+          <div class="gallery-cap">Lucernario degradado</div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/cubierta_estado_actual_2.jpeg" alt="Desgaste y corrosión">
+          <div class="gallery-cap">Oxidación y desgaste</div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/cubierta_estado_actual_3.jpeg" alt="Solapes deteriorados">
+          <div class="gallery-cap">Solapes sin estanqueidad</div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/cubierta_estado_actual_4.jpeg" alt="Saltos y petos">
+          <div class="gallery-cap">Encuentro de saltos / petos</div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/cubierta_estado_actual_5.jpeg" alt="Panorámica nave Alaior">
+          <div class="gallery-cap">Vista nave Alaior</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span>HAM Estructuras Metálicas | Presupuesto P-2026-0043</span>
+      <span>Nave Menorca Dist (Alaior) - Página 1 de 2</span>
+    </footer>
+  </div>
+
+  <!-- PÁGINA 2: VALORACIÓN ECONÓMICA, CONDICIONES Y FIRMA -->
+  <div class="page">
+    <div>
+      <header>
+        <div class="brand">
+          <img src="logo-ham.svg" alt="HAM" class="logo">
+          <div>
+            <h1>HAM ESTRUCTURAS METÁLICAS</h1>
+            <div class="subtitle">Cuadro de Valoración Económica y Condiciones de Contratación</div>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>PRESUPUESTO P-2026-0043</strong>
+          Cliente: Menorca Dist<br>
+          Alaior, Menorca
+        </div>
+      </header>
+
+      <h2>4. Desglose Valorativo de Partidas <span>Precios Desglosados con Suministro, Montaje y Medios Auxiliares</span></h2>
+      <table>
+        <thead>
+          <tr>
+            <th class="col-id">Nº</th>
+            <th class="col-desc">Concepto y Descripción Técnica</th>
+            <th class="col-unit">Ud.</th>
+            <th class="col-cant">Cant.</th>
+            <th class="col-price">Precio (€)</th>
+            <th class="col-total">Importe (€)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-id">01</td>
+            <td class="col-desc">
+              <strong>Sobrecubierta metálica con perfil omega y chapa grecada 40 mm (e=0,6 mm)</strong><br>
+              Suministro e instalación de sobrecubierta sobre cubierta existente: perfil separador tipo omega de acero galvanizado fijado a correas inferiores; chapa grecada de acero prelacada (onda 40 mm, espesor 0,60 mm, color rojo teja o blanco a elegir); fijación en onda alta con tornillos autotaladrantes con arandela de estanqueidad EPDM; y sellado estanco continuo con butilo elástico en solapes longitudinales y transversales.
+            </td>
+            <td class="col-unit">m²</td>
+            <td class="col-cant">4.303,00</td>
+            <td class="col-price">28,50 €</td>
+            <td class="col-total">122.635,50 €</td>
+          </tr>
+          <tr>
+            <td class="col-id">02</td>
+            <td class="col-desc">
+              <strong>Desmontaje y renovación de lucernarios con policarbonato compacto grecado</strong><br>
+              Retirada de la placa translúcida exterior degradada con gestión de residuo. Suministro y montaje de placas de policarbonato compacto/celular de perfil grecado onda 40 mm compatible, protección UV en ambas caras, fijación sobreelevada en cresta con arandelas especiales de reparto y sellado estanco EPDM.
+            </td>
+            <td class="col-unit">m²</td>
+            <td class="col-cant">126,00</td>
+            <td class="col-price">54,00 €</td>
+            <td class="col-total">6.804,00 €</td>
+          </tr>
+          <tr>
+            <td class="col-id">03</td>
+            <td class="col-desc">
+              <strong>Remates de cumbrera, coronaciones, saltos de cubierta y cortes en petos</strong><br>
+              Rematería completa en chapa de acero prelacada 0,60 mm a juego: cumbreras troqueladas/conformadas, remates laterales de coronación, remates en saltos entre faldones y cortes mecánicos adaptados a petos verticales de oficinas con sellador de poliuretano exterior.
+            </td>
+            <td class="col-unit">lote</td>
+            <td class="col-cant">1,00</td>
+            <td class="col-price">5.850,00 €</td>
+            <td class="col-total">5.850,00 €</td>
+          </tr>
+          <tr>
+            <td class="col-id">04</td>
+            <td class="col-desc">
+              <strong>Transporte marítimo y terrestre, medios de elevación (grúa pluma y PEMP)</strong><br>
+              Logística completa insular: flete marítimo Península-Menorca de material grecado continuo de gran longitud, transporte hasta obra en Pol. Ind. La Trotxa (Alaior), camión grúa pluma para izado y distribución en faldones y plataformas elevadoras móviles (PEMP) de montaje.
+            </td>
+            <td class="col-unit">lote</td>
+            <td class="col-cant">1,00</td>
+            <td class="col-price">8.600,00 €</td>
+            <td class="col-total">8.600,00 €</td>
+          </tr>
+          <tr>
+            <td class="col-id">05</td>
+            <td class="col-desc">
+              <strong>Seguridad y salud en altura (redes bajo lucernarios) y gestión de sobrantes</strong><br>
+              Medidas de prevención en trabajos sobre cubiertas ligeras: redes anticaídas provisionales bajo zonas translúcidas, líneas de vida de progresión, EPIs homologados y acopio continuo con transporte a gestor autorizado de residuos de Menorca.
+            </td>
+            <td class="col-unit">lote</td>
+            <td class="col-cant">1,00</td>
+            <td class="col-price">5.400,00 €</td>
+            <td class="col-total">5.400,00 €</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="totals-area">
+        <table class="totals-table">
+          <tr>
+            <td style="text-align: right;"><strong>Base Imponible:</strong></td>
+            <td style="text-align: right; width: 45%; font-weight: bold;">149.289,50 €</td>
+          </tr>
+          <tr>
+            <td style="text-align: right;"><strong>I.V.A. (21%):</strong></td>
+            <td style="text-align: right; font-weight: bold;">31.350,80 €</td>
+          </tr>
+          <tr class="total-row">
+            <td style="text-align: right;">TOTAL PRESUPUESTO:</td>
+            <td style="text-align: right;">180.640,30 €</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2>5. Condiciones Contractuales y Garantías</h2>
+      <div class="conditions-grid">
+        <div class="cond-card">
+          <h3>Forma de Pago Escalonada</h3>
+          <ul>
+            <li><strong>40% a la formalización:</strong> 72.256,12 € (IVA incl.) para reserva de producción en fábrica y fletes.</li>
+            <li><strong>30% al inicio del montaje:</strong> 54.192,09 € (IVA incl.) a la llegada de materiales a Menorca.</li>
+            <li><strong>30% a la finalización:</strong> 54.192,09 € (IVA incl.) tras revisión y recepción conforme.</li>
+          </ul>
+        </div>
+        <div class="cond-card">
+          <h3>Plazos, Garantías y Exclusiones</h3>
+          <ul>
+            <li><strong>Plazo de ejecución:</strong> 4 a 6 semanas laborables tras replanteo y acopio en obra.</li>
+            <li><strong>Garantía:</strong> 5 años en estanqueidad y chapa prelacada; 2 años en montaje.</li>
+            <li><strong>Exclusiones:</strong> Cubiertas de muelles de carga según indicación expresa. Refuerzos estructurales mayores si existieran vicios ocultos no visibles.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="signature-grid">
+        <div class="sig-box">
+          <div class="sig-title">Por la Empresa Instaladora: HAM Estructuras Metálicas</div>
+          <div style="font-size: 10px; color: #475569; margin: 10px 0;">Fdo. Dirección Técnica HAM</div>
+          <div class="sig-date">Sant Lluís, a 26 de octubre de 2026</div>
+        </div>
+        <div class="sig-box">
+          <div class="sig-title">Aceptación Conforme del Cliente: Menorca Dist</div>
+          <div style="font-size: 10px; color: #64748b; margin: 10px 0; font-style: italic;">Firma, sello y fecha de conformidad</div>
+          <div class="sig-date">En Alaior, a _____ de _________________ de 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span>HAM Estructuras Metálicas | Presupuesto P-2026-0043</span>
+      <span>Nave Menorca Dist (Alaior) - Página 2 de 2</span>
+    </footer>
+  </div>
+
+</div>
+
+</body>
+</html>
