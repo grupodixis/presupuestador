@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudio Técnico Interno y Escandallo - P-2026-0043 (HAM)</title>
+  <style>
+    @page { 
+      size: A4; 
+      margin: 8mm; 
+    }
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      background: #eaedf0; 
+      color: #1e262c; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      font-size: 10.8px; 
+      line-height: 1.35; 
+    }
+    .page-container {
+      width: 210mm;
+      margin: 0 auto;
+      background: #ffffff;
+    }
+    .page { 
+      padding: 10mm 12mm 8mm;
+      min-height: 280mm;
+      max-height: 281mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    header { 
+      background: #1e1b4b; 
+      color: #fff; 
+      padding: 10px 16px; 
+      border-radius: 8px;
+      display: grid; 
+      grid-template-columns: 1fr auto; 
+      gap: 16px; 
+      align-items: center; 
+      border-bottom: 4px solid #ef4444;
+      margin-bottom: 10px;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .logo { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.2); border-radius: 8px; padding: 4px; background: rgba(255,255,255,0.08); }
+    h1 { margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: #ffffff; }
+    .subtitle { margin: 3px 0 0; color: #cbd5e1; font-size: 11px; }
+    .tag-confidential {
+      display: inline-block;
+      background: #ef4444;
+      color: #fff;
+      font-weight: 800;
+      font-size: 9.5px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: .06em;
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+    .meta { text-align: right; color: #cbd5e1; font-size: 10.5px; line-height: 1.4; }
+    .meta strong { color: #ffffff; display: block; font-size: 13px; margin-bottom: 2px; }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .kpi-card {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 8px 10px;
+      border-left: 4px solid #3b82f6;
+    }
+    .kpi-card.accent { border-left-color: #10b981; }
+    .kpi-card.warn { border-left-color: #f59e0b; }
+    .kpi-card.danger { border-left-color: #ef4444; }
+    .kpi-title { font-size: 9px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 2px; }
+    .kpi-val { font-size: 15px; font-weight: 800; color: #0f172a; line-height: 1.2; }
+    .kpi-sub { font-size: 9px; color: #475569; margin-top: 2px; }
+
+    h2 { 
+      margin: 10px 0 6px; 
+      font-size: 11.5px; 
+      text-transform: uppercase; 
+      letter-spacing: .06em; 
+      color: #0f172a; 
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 3px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h2 span { font-size: 9.5px; color: #64748b; text-transform: none; font-weight: normal; }
+
+    .box-info {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 9px 12px;
+      margin-bottom: 10px;
+      font-size: 10.5px;
+      color: #334155;
+    }
+    .box-info ul { margin: 4px 0 0; padding-left: 18px; }
+    .box-info li { margin-bottom: 2px; }
+
+    table { width: 100%; border-collapse: collapse; margin: 6px 0 10px; }
+    th { background: #1e1b4b; color: #ffffff; text-align: left; padding: 6px 8px; font-size: 9.5px; text-transform: uppercase; letter-spacing: .05em; }
+    td { border-bottom: 1px solid #e2e8f0; padding: 5px 8px; vertical-align: middle; font-size: 10px; }
+    .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .col-id { width: 6%; font-weight: bold; color: #6366f1; text-align: center; }
+    .col-concept { width: 44%; }
+    .col-unit { width: 8%; text-align: center; }
+    .col-qty { width: 10%; text-align: right; }
+    .col-cost { width: 14%; text-align: right; }
+    .col-tot { width: 18%; text-align: right; font-weight: bold; }
+
+    .table-cost td { font-size: 10px; }
+    .table-cost tr.subtotal-row { background: #f8fafc; font-weight: bold; }
+    .table-cost tr.total-row { background: #fef2f2; font-weight: 800; font-size: 11px; color: #991b1b; border-top: 2px solid #ef4444; }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .comp-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 10px;
+      background: #ffffff;
+    }
+    .comp-card h3 { margin: 0 0 6px; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #1e1b4b; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }
+    .comp-row { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed #f1f5f9; font-size: 10px; }
+    .comp-row.bold { font-weight: bold; font-size: 11px; border-bottom: none; border-top: 1px solid #cbd5e1; margin-top: 4px; padding-top: 5px; }
+
+    footer {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 5px;
+      font-size: 9px;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-container">
+
+  <!-- PÁGINA 1: ESCANDALLO DE COMPRA DE MATERIALES Y CÁLCULO DE OMEGAS -->
+  <div class="page">
+    <div>
+      <header>
+        <div class="brand">
+          <img src="logo-ham.svg" alt="HAM" class="logo">
+          <div>
+            <h1>HAM ESTRUCTURAS METÁLICAS</h1>
+            <div class="subtitle">Estudio Técnico Interno de Costes y Escandallo de Compra</div>
+            <div class="tag-confidential">DOCUMENTO INTERNO HAM · NO ENVIAR AL CLIENTE</div>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>EXPEDIENTE P-2026-0043</strong>
+          Obra: Menorca Dist (Alaior)<br>
+          Superficie: 4.429 m²<br>
+          Fecha: 26/10/2026
+        </div>
+      </header>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-title">Coste Compra Chapa</div>
+          <div class="kpi-val">10,00 €/m²</div>
+          <div class="kpi-sub">Grecada 40 mm (4.303 m²)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Coste Compra Omega</div>
+          <div class="kpi-val">6,00 €/ml</div>
+          <div class="kpi-sub">Separador galv. (~3.350 ml)</div>
+        </div>
+        <div class="kpi-card accent">
+          <div class="kpi-title">Margen Bruto Obra</div>
+          <div class="kpi-val">36.230,00 €</div>
+          <div class="kpi-sub">24,27% s/ PVP (32,04% s/ CDT)</div>
+        </div>
+        <div class="kpi-card danger">
+          <div class="kpi-title">Coste Directo Total</div>
+          <div class="kpi-val">113.059,50 €</div>
+          <div class="kpi-sub">Materiales + MO + Auxiliares</div>
+        </div>
+      </div>
+
+      <h2>1. Justificación Geométrica y Cuantificación de Omegas <span>Intereje Correas Existentes</span></h2>
+      <div class="box-info">
+        La fijación de los perfiles separadores tipo omega se realiza de forma obligatoria directamente sobre las líneas de correas metálicas preexistentes bajo la chapa actual para garantizar la transmisión de esfuerzos de succión y sobrecarga de viento:
+        <ul>
+          <li><strong>Intereje medio de correas existente en nave Alaior:</strong> 1,35 metros de separación entre apoyos.</li>
+          <li><strong>Ratio lineal de omega por m² de faldón:</strong> \( \text{Ratio} = \frac{1}{1,35\text{ m}} = 0,741\text{ ml de omega/m²} \).</li>
+          <li><strong>Metros lineales teóricos de omega (4.303 m² de chapa):</strong> \( 4.303\text{ m²} \times 0,741\text{ ml/m²} = 3.188\text{ ml} \).</li>
+          <li><strong>Coeficiente de solape longitudinal de perfil y recortes (5%):</strong> \( 3.188\text{ ml} \times 1,05 \approx \mathbf{3.350\text{ ml de perfil omega}} \).</li>
+          <li><strong>Incidencia económica de la omega por m² de faldón:</strong> \( 0,741\text{ ml/m²} \times 1,05 \times 6,00\text{ €/ml} = \mathbf{4,67\text{ €/m²}} \).</li>
+          <li><strong>Coste directo de materiales principales (Chapa + Omega):</strong> \( 10,00\text{ €/m²} + 4,67\text{ €/m²} = \mathbf{14,67\text{ €/m²}} \).</li>
+        </ul>
+      </div>
+
+      <h2>2. Escandallo de Costes Directos de Compra (HAM)</h2>
+      <table class="table-cost">
+        <thead>
+          <tr>
+            <th class="col-id">Cap.</th>
+            <th class="col-concept">Concepto de Gasto / Material</th>
+            <th class="col-unit">Ud.</th>
+            <th class="col-qty">Medición</th>
+            <th class="col-cost">Coste Unit. HAM</th>
+            <th class="col-tot">Coste Total HAM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-id">M.01</td>
+            <td><strong>Chapa grecada onda 40 mm / e=0,6 mm prelacada</strong> (incl. 5% solapes y acopio: 4.518,15 m²)</td>
+            <td style="text-align: center;">m²</td>
+            <td class="num">4.518,15</td>
+            <td class="num">10,00 €</td>
+            <td class="num">45.181,50 €</td>
+          </tr>
+          <tr>
+            <td class="col-id">M.02</td>
+            <td><strong>Perfil separador tipo omega acero galvanizado Z-275</strong> (fijación sobre correas c/ 1,35 m)</td>
+            <td style="text-align: center;">ml</td>
+            <td class="num">3.350,00</td>
+            <td class="num">6,00 €</td>
+            <td class="num">20.100,00 €</td>
+          </tr>
+          <tr>
+            <td class="col-id">M.03</td>
+            <td><strong>Tornillería bicromatada a correas + fijación onda alta EPDM + cordón de butilo</strong></td>
+            <td style="text-align: center;">lote</td>
+            <td class="num">1,00</td>
+            <td class="num">7.500,00 €</td>
+            <td class="num">7.500,00 €</td>
+          </tr>
+          <tr>
+            <td class="col-id">M.04</td>
+            <td><strong>Placas de policarbonato compacto grecado onda 40 mm</strong> (126 m² + fijaciones sobreelevadas)</td>
+            <td style="text-align: center;">lote</td>
+            <td class="num">1,00</td>
+            <td class="num">3.978,00 €</td>
+            <td class="num">3.978,00 €</td>
+          </tr>
+          <tr>
+            <td class="col-id">M.05</td>
+            <td><strong>Rematería plegada 0,60 mm</strong> (cumbreras troqueladas, coronaciones, saltos y petos)</td>
+            <td style="text-align: center;">lote</td>
+            <td class="num">1,00</td>
+            <td class="num">2.400,00 €</td>
+            <td class="num">2.400,00 €</td>
+          </tr>
+          <tr class="subtotal-row">
+            <td colspan="5" style="text-align: right;">TOTAL COSTE DE COMPRA DE MATERIALES (HAM):</td>
+            <td class="num" style="color: #1e1b4b;">79.159,50 €</td>
+          </tr>
+          <tr>
+            <td class="col-id">MO.01</td>
+            <td><strong>Mano de obra oficial montador HAM en obra</strong> (cuadrilla de 4 operarios x 5 semanas ~ 800 h)</td>
+            <td style="text-align: center;">horas</td>
+            <td class="num">800,00</td>
+            <td class="num">28,00 €</td>
+            <td class="num">22.400,00 €</td>
+          </tr>
+          <tr>
+            <td class="col-id">LOG.01</td>
+            <td><strong>Flete marítimo especial a Menorca + Camión grúa pluma + Alquiler plataformas PEMP</strong></td>
+            <td style="text-align: center;">lote</td>
+            <td class="num">1,00</td>
+            <td class="num">8.100,00 €</td>
+            <td class="num">8.100,00 €</td>
+          </tr>
+          <tr>
+            <td class="col-id">PRL.01</td>
+            <td><strong>Redes anticaídas bajo lucernarios + Líneas de vida temporales + Canon gestión residuos</strong></td>
+            <td style="text-align: center;">lote</td>
+            <td class="num">1,00</td>
+            <td class="num">3.400,00 €</td>
+            <td class="num">3.400,00 €</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="5" style="text-align: right;">COSTE DIRECTO TOTAL DE EJECUCIÓN (CDT HAM):</td>
+            <td class="num">113.059,50 €</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      <span>HAM Estructuras Metálicas | Estudio Técnico Interno P-2026-0043</span>
+      <span>Nave Menorca Dist (Alaior) - Página 1 de 2</span>
+    </footer>
+  </div>
+
+  <!-- PÁGINA 2: ANÁLISIS DE MÁRGENES, COMPARATIVA Y RENDIMIENTOS -->
+  <div class="page">
+    <div>
+      <header>
+        <div class="brand">
+          <img src="logo-ham.svg" alt="HAM" class="logo">
+          <div>
+            <h1>HAM ESTRUCTURAS METÁLICAS</h1>
+            <div class="subtitle">Análisis de Rentabilidad, Márgenes Industriales y Comparativa</div>
+            <div class="tag-confidential">DOCUMENTO INTERNO HAM · NO ENVIAR AL CLIENTE</div>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>EXPEDIENTE P-2026-0043</strong>
+          Fecha: 26/10/2026<br>
+          Alaior (Menorca)
+        </div>
+      </header>
+
+      <h2>3. Comparativa entre Coste Interno HAM y Venta al Cliente (PVP)</h2>
+      <table class="table-cost">
+        <thead>
+          <tr>
+            <th>Capítulo de Obra</th>
+            <th class="num">Coste Interno HAM</th>
+            <th class="num">Venta Cliente (PVP)</th>
+            <th class="num">Margen Bruto (€)</th>
+            <th class="num">% s/ Venta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Partida 01: Sobrecubierta chapa + omegas (4.303 m²)</strong></td>
+            <td class="num">89.681,50 €</td>
+            <td class="num">122.635,50 €</td>
+            <td class="num" style="color: #10b981; font-weight: bold;">+32.954,00 €</td>
+            <td class="num">26,87%</td>
+          </tr>
+          <tr>
+            <td><strong>Partida 02: Lucernarios policarbonato compacto (126 m²)</strong></td>
+            <td class="num">4.778,00 €</td>
+            <td class="num">6.804,00 €</td>
+            <td class="num" style="color: #10b981; font-weight: bold;">+2.026,00 €</td>
+            <td class="num">29,78%</td>
+          </tr>
+          <tr>
+            <td><strong>Partida 03: Rematería, cumbreras, saltos y petos</strong></td>
+            <td class="num">3.700,00 €</td>
+            <td class="num">5.850,00 €</td>
+            <td class="num" style="color: #10b981; font-weight: bold;">+2.150,00 €</td>
+            <td class="num">36,75%</td>
+          </tr>
+          <tr>
+            <td><strong>Partida 04: Logística insular, grúa pluma y PEMP</strong></td>
+            <td class="num">8.100,00 €</td>
+            <td class="num">8.600,00 €</td>
+            <td class="num" style="color: #10b981; font-weight: bold;">+500,00 €</td>
+            <td class="num">5,81%</td>
+          </tr>
+          <tr>
+            <td><strong>Partida 05: Seguridad y salud en altura y residuos</strong></td>
+            <td class="num">6.800,00 €</td>
+            <td class="num">5.400,00 €</td>
+            <td class="num" style="color: #64748b;">Ajuste seguridad</td>
+            <td class="num">-</td>
+          </tr>
+          <tr class="total-row">
+            <td>TOTALES BASE IMPONIBLE:</td>
+            <td class="num">113.059,50 €</td>
+            <td class="num">149.289,50 €</td>
+            <td class="num" style="color: #b91c1c;">+36.230,00 €</td>
+            <td class="num">24,27%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>4. Resumen de Rentabilidad y Parámetros Económicos</h2>
+      <div class="comparison-grid">
+        <div class="comp-card">
+          <h3>Estructura del Coste Directo (113.059,50 €)</h3>
+          <div class="comp-row"><span>Materiales comprados (chapa, omega, fijaciones):</span><strong>79.159,50 € (70,0%)</strong></div>
+          <div class="comp-row"><span>Mano de obra interna de montaje (800 h):</span><strong>22.400,00 € (19,8%)</strong></div>
+          <div class="comp-row"><span>Medios auxiliares, grúas y flete marítimo:</span><strong>8.100,00 € (7,2%)</strong></div>
+          <div class="comp-row"><span>Seguridad colectiva y gestión de residuos:</span><strong>3.400,00 € (3,0%)</strong></div>
+          <div class="comp-row bold"><span>Coste Directo por m² de Cubierta (4.429 m²):</span><span style="color: #ef4444;">25,53 €/m²</span></div>
+        </div>
+
+        <div class="comp-card">
+          <h3>Rendimiento Comercial y Beneficio HAM</h3>
+          <div class="comp-row"><span>Precio de Venta Base Imponible (PVP):</span><strong>149.289,50 €</strong></div>
+          <div class="comp-row"><span>Coste Directo Total de Ejecución:</span><strong>113.059,50 €</strong></div>
+          <div class="comp-row"><span>Margen Bruto de Explotación:</span><strong style="color: #10b981;">36.230,00 €</strong></div>
+          <div class="comp-row"><span>Margen sobre Venta (% s/ PVP):</span><strong style="color: #10b981;">24,27 %</strong></div>
+          <div class="comp-row bold"><span>Precio de Venta Medio por m² (PVP):</span><span style="color: #1e1b4b;">33,71 €/m²</span></div>
+        </div>
+      </div>
+
+      <h2>5. Conclusiones y Recomendaciones Estratégicas</h2>
+      <div class="box-info">
+        <ul>
+          <li><strong>Viabilidad de la Oferta:</strong> Con un coste de compra de chapa común de <strong>10,00 €/m²</strong> y de omega a <strong>6,00 €/ml</strong>, la oferta a <strong>28,50 €/m² de sobrecubierta</strong> arroja un margen bruto del <strong>26,87%</strong> en la partida principal de chapa y un <strong>24,27% global</strong> para toda la obra (36.230,00 € de margen neto antes de estructura fija).</li>
+          <li><strong>Estrategia de Negociación:</strong> Si el cliente Menorca Dist solicitara un descuento o ajuste, HAM dispone de margen técnico para ajustar hasta un 5% (unos 7.400 €) manteniendo un margen saludable por encima del 20% en una operación de 180.000 € con IVA.</li>
+          <li><strong>Riesgo de Acopio:</strong> Al tratarse de más de 4.300 m² de chapa prelacada y 3.350 ml de omegas, es indispensable exigir el <strong>40% de anticipo inicial (72.256,12 € IVA incl.)</strong> para bloquear el precio de compra con fábrica y evitar fluctuaciones de la bobina de acero.</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      <span>HAM Estructuras Metálicas | Estudio Técnico Interno P-2026-0043</span>
+      <span>Nave Menorca Dist (Alaior) - Página 2 de 2</span>
+    </footer>
+  </div>
+
+</div>
+
+</body>
+</html>
