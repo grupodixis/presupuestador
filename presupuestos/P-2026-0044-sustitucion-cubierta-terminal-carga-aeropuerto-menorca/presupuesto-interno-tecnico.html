@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dossier Interno Técnico P-2026-0044 - Costes HAM y Análisis de Margen</title>
+  <title>Dossier Interno Técnico P-2026-0044 - Costes HAM y Rentabilidad</title>
   <style>
     @page { 
       size: A4; 
-      margin: 8mm 8mm 8mm 8mm;
+      margin: 7mm 7mm 7mm 7mm;
     }
     * { box-sizing: border-box; }
     body { 
@@ -15,8 +15,8 @@
       background: #f1f5f9; 
       color: #0f172a; 
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-      font-size: 10.6px; 
-      line-height: 1.35; 
+      font-size: 10.3px; 
+      line-height: 1.32; 
     }
     .page-container {
       width: 210mm;
@@ -24,9 +24,9 @@
       background: #ffffff;
     }
     .page { 
-      padding: 10mm 12mm 8mm;
-      min-height: 282mm;
-      max-height: 283mm;
+      padding: 8mm 10mm 7mm;
+      min-height: 284mm;
+      max-height: 285mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -37,65 +37,65 @@
     header { 
       background: #1e1b4b; 
       color: #fff; 
-      padding: 10px 16px; 
-      border-radius: 8px;
+      padding: 9px 15px; 
+      border-radius: 7px;
       display: grid; 
       grid-template-columns: 1fr auto; 
-      gap: 16px; 
+      gap: 14px; 
       align-items: center; 
       border-bottom: 4px solid #ef4444;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
-    .brand { display: flex; align-items: center; gap: 14px; }
-    .logo { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.2); border-radius: 8px; padding: 4px; background: rgba(255,255,255,0.08); }
-    h1 { margin: 0; font-size: 18px; font-weight: 700; color: #ffffff; }
-    .confidential-tag { background: #ef4444; color: #fff; font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px; display: inline-block; margin-top: 3px; }
-    .meta { text-align: right; color: #cbd5e1; font-size: 10px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.2); border-radius: 7px; padding: 4px; background: rgba(255,255,255,0.08); }
+    h1 { margin: 0; font-size: 17px; font-weight: 700; color: #ffffff; }
+    .confidential-tag { background: #ef4444; color: #fff; font-size: 8.5px; font-weight: 700; padding: 1.5px 6px; border-radius: 4px; display: inline-block; margin-top: 2px; }
+    .meta { text-align: right; color: #cbd5e1; font-size: 9.5px; }
 
     .kpi-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 9px;
-      margin-bottom: 12px;
+      gap: 8px;
+      margin-bottom: 9px;
     }
     .kpi-card {
       background: #f8fafc;
       border: 1px solid #cbd5e1;
       border-left: 4px solid #1e1b4b;
       border-radius: 6px;
-      padding: 7px 9px;
+      padding: 6px 8px;
     }
     .kpi-card.green { border-left-color: #10b981; }
-    .kpi-title { font-size: 9px; text-transform: uppercase; color: #64748b; font-weight: 700; }
-    .kpi-val { font-size: 15px; font-weight: 800; color: #0f172a; line-height: 1.15; }
-    .kpi-sub { font-size: 9px; color: #475569; margin-top: 2px; }
+    .kpi-title { font-size: 8.5px; text-transform: uppercase; color: #64748b; font-weight: 700; }
+    .kpi-val { font-size: 14px; font-weight: 800; color: #0f172a; line-height: 1.15; }
+    .kpi-sub { font-size: 8.5px; color: #475569; margin-top: 1px; }
 
     h2 { 
-      margin: 10px 0 5px; 
-      font-size: 11px; 
+      margin: 8px 0 4px; 
+      font-size: 10.5px; 
       text-transform: uppercase; 
-      letter-spacing: .06em; 
+      letter-spacing: .05em; 
       color: #1e1b4b; 
       border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 3px;
+      padding-bottom: 2px;
     }
 
     table.cost-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 10px;
-      font-size: 9.8px;
+      margin-bottom: 8px;
+      font-size: 9.4px;
     }
     table.cost-table th {
       background: #1e1b4b;
       color: #fff;
-      padding: 5px 7px;
+      padding: 4.5px 6.5px;
       text-align: left;
       font-weight: 600;
-      font-size: 9.3px;
+      font-size: 9px;
     }
     table.cost-table td {
-      padding: 5px 7px;
+      padding: 4px 6.5px;
       border-bottom: 1px solid #e2e8f0;
       vertical-align: top;
     }
@@ -105,25 +105,25 @@
     .margin-card {
       background: #ecfdf5;
       border: 2px solid #10b981;
-      border-radius: 8px;
-      padding: 10px 14px;
-      margin-top: 8px;
+      border-radius: 7px;
+      padding: 8px 12px;
+      margin-top: 6px;
     }
     .margin-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
       text-align: center;
     }
-    .margin-val { font-size: 18px; font-weight: 800; color: #047857; }
-    .margin-label { font-size: 9px; text-transform: uppercase; color: #065f46; font-weight: 700; }
+    .margin-val { font-size: 15px; font-weight: 800; color: #047857; }
+    .margin-label { font-size: 8.5px; text-transform: uppercase; color: #065f46; font-weight: 700; }
 
     footer { 
       border-top: 1px solid #cbd5e1; 
-      padding-top: 5px; 
+      padding-top: 4px; 
       display: flex; 
       justify-content: space-between; 
-      font-size: 8.5px; 
+      font-size: 8.2px; 
       color: #64748b; 
     }
   </style>
@@ -136,37 +136,37 @@
         <div class="brand">
           <img src="logo-ham.svg" class="logo" alt="HAM Logo">
           <div>
-            <h1>HAM ESTRUCTURAS METÁLICAS · ESTUDIO DE COSTES INTERNOS</h1>
-            <span class="confidential-tag">ESTRICTAMENTE CONFIDENCIAL · NO ENTREGAR AL CLIENTE</span>
+            <h1>HAM ESTRUCTURAS METÁLICAS · ESTUDIO DE COSTES Y RENTABILIDAD</h1>
+            <span class="confidential-tag">ESTRICTAMENTE CONFIDENCIAL · OBRA BASE + OPCIONALES ESCALERAS INOX</span>
           </div>
         </div>
         <div class="meta">
           <strong>EXPEDIENTE P-2026-0044</strong><br>
-          Ref: PRE-2026-1027-AENA-CARGA-HDX<br>
+          Ref: PRE-2026-1027-AENA-CARGA-HDX-REV1<br>
           Fecha: 27/10/2026
         </div>
       </header>
 
       <div class="kpi-grid">
         <div class="kpi-card">
-          <div class="kpi-title">PVP Venta (Base Imp.)</div>
+          <div class="kpi-title">Venta Obra Base</div>
           <div class="kpi-val">220,225.00 €</div>
-          <div class="kpi-sub">115,66 €/m² global obra</div>
+          <div class="kpi-sub">115,66 €/m² cubierta y vol.</div>
         </div>
         <div class="kpi-card">
+          <div class="kpi-title">Opcionales Inox</div>
+          <div class="kpi-val">+9,800.00 €</div>
+          <div class="kpi-sub">2 escalas gato con crinolina</div>
+        </div>
+        <div class="kpi-card green">
+          <div class="kpi-title">Margen Bruto Total</div>
+          <div class="kpi-val">99,115.00 €</div>
+          <div class="kpi-sub">43.1% sobre PVP conjunto</div>
+        </div>
+        <div class="kpi-card green">
           <div class="kpi-title">Coste Directo Total</div>
-          <div class="kpi-val">125,530.00 €</div>
-          <div class="kpi-sub">65,93 €/m² coste real HAM</div>
-        </div>
-        <div class="kpi-card green">
-          <div class="kpi-title">Margen Bruto (€)</div>
-          <div class="kpi-val">94,695.00 €</div>
-          <div class="kpi-sub">+49,73 €/m² neto explotación</div>
-        </div>
-        <div class="kpi-card green">
-          <div class="kpi-title">Margen sobre Venta</div>
-          <div class="kpi-val">43.0 %</div>
-          <div class="kpi-sub">75.4 % sobre coste directo</div>
+          <div class="kpi-val">130,910.00 €</div>
+          <div class="kpi-sub">CDT Global HAM</div>
         </div>
       </div>
 
@@ -174,18 +174,18 @@
       <table class="cost-table">
         <thead>
           <tr>
-            <th style="width: 60px;" class="td-center">Capítulo</th>
+            <th style="width: 55px;" class="td-center">Capítulo</th>
             <th>Concepto de Coste Interno</th>
-            <th style="width: 45px;" class="td-center">Ud.</th>
-            <th style="width: 65px;" class="td-right">Medición</th>
-            <th style="width: 75px;" class="td-right">Coste Unit.</th>
-            <th style="width: 85px;" class="td-right">Coste Total (€)</th>
+            <th style="width: 40px;" class="td-center">Ud.</th>
+            <th style="width: 60px;" class="td-right">Medición</th>
+            <th style="width: 70px;" class="td-right">Coste Unit.</th>
+            <th style="width: 80px;" class="td-right">Coste Total (€)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="td-center"><strong>MAT-01</strong></td>
-            <td>Panel sándwich 40 mm PIR con acabado HDX55 en 2 caras cubiertas (1.371 m² + 5% solapes/mermas)</td>
+            <td>Panel sándwich 40 mm PIR acabado HDX55 2 caras cubiertas (1.371 m² + 5% solapes/mermas)</td>
             <td class="td-center">m²</td>
             <td class="td-right">1.440,00</td>
             <td class="td-right">36,00 €</td>
@@ -201,7 +201,7 @@
           </tr>
           <tr>
             <td class="td-center"><strong>MAT-03</strong></td>
-            <td>Tornillería bimetálica inox A2 con arandela EPDM, accesorios fijación y masilla hidro-expansiva butilo</td>
+            <td>Tornillería bimetálica inox A2 con arandela EPDM, accesorios fijación y butilo hidro-expansivo</td>
             <td class="td-center">lote</td>
             <td class="td-right">1,00</td>
             <td class="td-right">6.200,00 €</td>
@@ -223,17 +223,33 @@
             <td class="td-right">1.450,00 €</td>
             <td class="td-right"><strong>1.450,00 €</strong></td>
           </tr>
+          <tr style="background: #eff6ff;">
+            <td class="td-center"><strong style="color: #1e40af;">MAT-06</strong></td>
+            <td><strong>Materiales ACERO INOXIDABLE (AISI 304/316)</strong> para 2 escalas de gato con crinolina, cancelas y chapas condena</td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1,00</td>
+            <td class="td-right">3.700,00 €</td>
+            <td class="td-right"><strong style="color: #1e40af;">3.700,00 €</strong></td>
+          </tr>
           <tr>
             <td class="td-center"><strong>MO-01</strong></td>
-            <td>Mano de obra especializada montaje HAM (cuadrilla oficial de 4 montadores ~800 horas a 28 €/h)</td>
+            <td>Mano de obra especializada montaje HAM obra base (cuadrilla de 4 oficiales ~800 horas a 28 €/h)</td>
             <td class="td-center">horas</td>
             <td class="td-right">800,00</td>
             <td class="td-right">28,00 €</td>
             <td class="td-right"><strong>22.400,00 €</strong></td>
           </tr>
+          <tr style="background: #eff6ff;">
+            <td class="td-center"><strong style="color: #1e40af;">MO-02</strong></td>
+            <td><strong>Mano de obra taller y montaje en obra 2 escaleras inox</strong> (conformado, soldadura TIG y anclajes ~60 h)</td>
+            <td class="td-center">horas</td>
+            <td class="td-right">60,00</td>
+            <td class="td-right">28,00 €</td>
+            <td class="td-right"><strong style="color: #1e40af;">1.680,00 €</strong></td>
+          </tr>
           <tr>
             <td class="td-center"><strong>LOG-01</strong></td>
-            <td>Fletes marítimos Península-Menorca para transporte de trailers especiales de paneles de gran longitud</td>
+            <td>Fletes marítimos Península-Menorca para transporte de trailers especiales paneles gran formato</td>
             <td class="td-center">lote</td>
             <td class="td-right">1,00</td>
             <td class="td-right">5.200,00 €</td>
@@ -249,7 +265,7 @@
           </tr>
           <tr>
             <td class="td-center"><strong>LOG-03</strong></td>
-            <td>Alquiler de 2 plataformas elevadoras móviles de personal (PEMP) articuladas para cubierta y voladizos</td>
+            <td>Alquiler de 2 plataformas elevadoras móviles de personal (PEMP) articuladas para montaje</td>
             <td class="td-center">lote</td>
             <td class="td-right">1,00</td>
             <td class="td-right">3.400,00 €</td>
@@ -272,8 +288,8 @@
             <td class="td-right"><strong>1.800,00 €</strong></td>
           </tr>
           <tr style="background: #f1f5f9; font-weight: 700;">
-            <td colspan="5" style="text-align: right; text-transform: uppercase;">COSTE DIRECTO TOTAL (CDT HAM):</td>
-            <td class="td-right" style="color: #1e1b4b; font-size: 11px;">125,530.00 €</td>
+            <td colspan="5" style="text-align: right; text-transform: uppercase;">COSTE DIRECTO TOTAL GLOBAL (CDT HAM):</td>
+            <td class="td-right" style="color: #1e1b4b; font-size: 10.5px;">130,910.00 €</td>
           </tr>
         </tbody>
       </table>
@@ -281,16 +297,20 @@
       <div class="margin-card">
         <div class="margin-grid">
           <div>
-            <div class="margin-label">Venta al Cliente (BI)</div>
+            <div class="margin-label">Venta Base (BI)</div>
             <div class="margin-val" style="color: #0f172a;">220,225.00 €</div>
           </div>
           <div>
-            <div class="margin-label">Coste Directo Ejecución</div>
-            <div class="margin-val" style="color: #dc2626;">125,530.00 €</div>
+            <div class="margin-label">Venta Opcionales Inox</div>
+            <div class="margin-val" style="color: #1e3a8a;">+9,800.00 €</div>
+          </div>
+          <div>
+            <div class="margin-label">Coste Directo Total</div>
+            <div class="margin-val" style="color: #dc2626;">130,910.00 €</div>
           </div>
           <div>
             <div class="margin-label">Margen Bruto HAM</div>
-            <div class="margin-val">94,695.00 € (43.0%)</div>
+            <div class="margin-val">99,115.00 € (43.1%)</div>
           </div>
         </div>
       </div>
