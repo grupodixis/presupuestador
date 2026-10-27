@@ -41,7 +41,7 @@ def create_excel():
     ws1["A2"].font = subtitle_font
 
     ws1["A4"] = "Cliente:"
-    ws1["B4"] = "Mar Dojan, SL (Nave Menorca Dist)"
+    ws1["B4"] = "Mar Dojan, SL (Nave Dispreu Alaior)"
     ws1["A5"] = "Ubicación:"
     ws1["B5"] = "Avda. Sa Industria 67, Pol. Ind. La Trotxa, 07730 Alaior (Menorca)"
     ws1["A6"] = "Fecha:"

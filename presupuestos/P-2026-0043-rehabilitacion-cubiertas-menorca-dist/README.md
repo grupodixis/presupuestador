@@ -4,7 +4,7 @@
 - **Referencia:** PRE-2026-1026-CUB-REV1
 - **Fecha de emisión:** 27 de octubre de 2026
 - **Cliente:** Mar Dojan, SL
-- **Instalaciones / Ubicación:** Nave Menorca Dist, Avda. Sa Industria 67, Polígono Industrial La Trotxa, 07730 Alaior (Menorca, Illes Balears)
+- **Instalaciones / Ubicación:** Nave Dispreu Alaior, Avda. Sa Industria 67, Polígono Industrial La Trotxa, 07730 Alaior (Menorca, Illes Balears)
 - **Emisor:** HAM Estructuras Metálicas (Av. Circunval·lació 11, Pol. Ind. Sant Lluís, Menorca)
 - **Superficie total de actuación:** 4.429,00 m² (4.303 m² chapa metálica + 126 m² placas translúcidas)
 - **Criterio de cotización:** Tarifa técnica corregida: el m² de chapa colocada sobre omegas con fijación en onda alta y sellado estanco no puede cotizarse por debajo de **55,00 €/m²** en Menorca.
