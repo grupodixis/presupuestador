@@ -1,7 +1,7 @@
 # Presupuesto P-2026-0044: Sustitución de Cubierta y Voladizos Terminal de Carga - Aeropuerto de Menorca
 
 - **Código Expediente:** P-2026-0044
-- **Referencia Interna:** PRE-2026-1027-AENA-CARGA-HDX-REV3
+- **Referencia Interna:** PRE-2026-1027-AENA-CARGA-HDX-REV4
 - **Fecha de emisión:** 27 de octubre de 2026
 - **Cliente / Proyectista:** Consultores de Ingeniería UG21 / UTE BTG-UG21
 - **Atención Técnica:** Dña. Marina Gallego Fernández (Arquitecto / Proyectos UG21) / D. Javier Zorrilla Lozano (Ingeniero Aeroespacial)
@@ -10,7 +10,10 @@
 - **Emplazamiento:** Terminal de Carga, Aeropuerto de Menorca (Carretera de Sant Climent s/n, 07712 Mahón, Menorca)
 - **Empresa Emisora:** HAM Estructuras Metálicas (Dixis Recursos y Soluciones, SL - CIF B-57825432)
 - **Superficie total de actuación:** **1.904,00 m²** (1.042,50 m² faldones a 2 aguas + 328,50 m² faldón a 1 agua + 533,00 m² voladizos en muelles)
-- **Especificación Clave:** Panel sándwich de cubierta PIR 40 mm con revestimiento especial anticorrosión marina **Granite® HDX55 (55 micras) por AMBAS CARAS**, fijación en acero inoxidable bimetálico A2 con arandelas vulcanizadas EPDM y sellado continuo hidro-expansivo de butilo.
+- **Especificación Clave:** Panel sándwich de cubierta PIR 40 mm con revestimiento especial anticorrosión marina **Granite® HDX55 (55 micras) por AMBAS CARAS**, fijación mediante **tornillería roscachapa de acero al carbono galvanizado** con arandelas vulcanizadas de EPDM y sellado continuo hidro-expansivo de butilo.
+- **Condiciones Comerciales:**
+  - **Forma de pago:** A convenir con el cliente.
+  - **Plazo de ejecución estimado:** 2 a 3 meses.
 - **Criterio de Precios Solicitado y Medios Integrados:**
   - Partida 01 (Desmontaje y gestión de residuos): **25,00 €/m²**.
   - Partidas 02 y 03 (Panel sándwich 2 aguas y 1 agua HDX55): **135,00 €/m²**.
@@ -60,9 +63,9 @@ Para control y supervisión técnica del metrado (489,15 ml de chapa plegada HDX
 | Nº | Código | Concepto y Resumen Descriptivo | Ud. | Cantidad | P. Unitario | Importe (€) |
 |:---:|:---:|---|:---:|---:|---:|---:|
 | **01** | `DESM-CUB` | **Desmontaje controlado de cubierta actual, voladizos y gestión de residuos**<br>Desmontaje manual y mecánico de cubierta y voladizos existentes fuertemente corroídos. Descenso a cota cero con grúa pluma y plataforma (medios integrados), acopio, clasificación de metales, transporte y entrega en centro autorizado de reciclaje de Menorca con canon de vertedero. | m² | 1.904,00 | 25,00 € | 47.600,00 € |
-| **02** | `SAND-2AGUAS` | **Suministro e instalación de Panel Sándwich HDX55 2 caras en cubierta a 2 aguas**<br>Panel sándwich de 3 grecas con tapajuntas integrado (PIR 40 mm, B-s1,d0) y dos chapas con revestimiento Granite® HDX55 (55 µm) en ambas caras. Fijaciones inoxidables A2 con arandela EPDM y sellado continuo butílico. Repercusión íntegra de fletes marítimos Península-Menorca, camión grúa pluma para descarga/distribución en pórticos y PEMP integradas. | m² | 1.042,50 | 135,00 € | 140.737,50 € |
-| **03** | `SAND-1AGUA` | **Suministro e instalación de Panel Sándwich HDX55 2 caras en cubierta a 1 agua**<br>Panel sándwich de 3 grecas (espesor 40 mm PIR, B-s1,d0) con acabado Granite® HDX55 (55 µm) por ambas caras en faldón a un agua. Incluye adaptaciones mecánicas de faldón, cortes en encuentros contra paramentos verticales y petos, fijaciones inoxidables A2 y sellados continuos, con medios mecánicos de elevación y transporte integrados. | m² | 328,50 | 135,00 € | 44.347,50 € |
-| **04** | `VOL-MARQ` | **Sustitución integral de voladizos en muelles de carga con acabado HDX55**<br>Rehabilitación de voladizos de fachada (muelles de carga, 267 m² por fachada, total 533 m²). Incluye cepillado mecánico y saneado desoxidante de viguetas en ménsula con imprimación epoxi rica en zinc de alto espesor (C5-M), e instalación de nueva cobertura con chapa/panel HDX55 (55 µm) en 2 caras, con fijaciones inoxidables A2, remates frontales y plataformas PEMP integradas. | m² | 533,00 | 95,00 € | 50.635,00 € |
+| **02** | `SAND-2AGUAS` | **Suministro e instalación de Panel Sándwich HDX55 2 caras en cubierta a 2 aguas**<br>Panel sándwich de 3 grecas con tapajuntas integrado (PIR 40 mm, B-s1,d0) y dos chapas con revestimiento Granite® HDX55 (55 µm) en ambas caras. Fijaciones mediante tornillería roscachapa de acero al carbono galvanizado con arandela vulcanizada EPDM y sellado continuo butílico. Repercusión íntegra de fletes marítimos Península-Menorca, camión grúa pluma para descarga/distribución en pórticos y PEMP integradas. | m² | 1.042,50 | 135,00 € | 140.737,50 € |
+| **03** | `SAND-1AGUA` | **Suministro e instalación de Panel Sándwich HDX55 2 caras en cubierta a 1 agua**<br>Panel sándwich de 3 grecas (espesor 40 mm PIR, B-s1,d0) con acabado Granite® HDX55 (55 µm) por ambas caras en faldón a un agua. Incluye adaptaciones mecánicas de faldón, cortes en encuentros contra paramentos verticales y petos, tornillería roscachapa de acero al carbono galvanizado con junta EPDM y sellados continuos, con medios mecánicos de elevación y transporte integrados. | m² | 328,50 | 135,00 € | 44.347,50 € |
+| **04** | `VOL-MARQ` | **Sustitución integral de voladizos en muelles de carga con acabado HDX55**<br>Rehabilitación de voladizos de fachada (muelles de carga, 267 m² por fachada, total 533 m²). Incluye cepillado mecánico y saneado desoxidante de viguetas en ménsula con imprimación epoxi rica en zinc de alto espesor (C5-M), e instalación de nueva cobertura con chapa/panel HDX55 (55 µm) en 2 caras, fijaciones mediante tornillería roscachapa galvanizada con junta estanca EPDM, remates frontales y plataformas PEMP integradas. | m² | 533,00 | 95,00 € | 50.635,00 € |
 | **05** | `REM-COMP` | **Rematería completa en acero con acabado HDX55, coronaciones y sellados**<br>Suministro, conformación en taller y colocación de 489,15 ml de remates troquelados y plegados en chapa de acero galvanizado con recubrimiento HDX55 (55 µm) y 10 singularidades: cumbreras a 2 aguas (50,23 m), hastiales laterales (63,34 m), baberos peto (30,22 m), goterones frontales y laterales de voladizo (174,08 m), baberos muro (160,88 m), remate de salto (10,40 m) y cajeados estancos de bajantes y chimeneas. | lote | 1,00 | 14.850,00 € | 14.850,00 € |
 | **06** | `PRL-AENA` | **Seguridad y salud, protecciones colectivas y protocolo aeroportuario AENA**<br>Redes anticaídas bajo faldones según UNE-EN 1263-1, líneas de vida provisionales homologadas UNE-EN 795, balizamiento perimetral, tramitación de Coordinación de Actividades Empresariales (CAE) en plataforma aeroportuaria, gestión de acreditaciones del personal y recursos preventivos en obra. | lote | 1,00 | 9.800,00 € | 9.800,00 € |
 | | | **SUBTOTAL BASE IMPONIBLE OBRA BASE:** | | | | **307.970,00 €** |
@@ -90,7 +93,7 @@ Para control y supervisión técnica del metrado (489,15 ml de chapa plegada HDX
 |:---:|---|:---:|---:|---:|
 | **MAT-01** | Panel sándwich 40 mm PIR acabado HDX55 2 caras cubierta (1.371 m² + 5% solapes/mermas) | 1.440,00 m² | 36,00 €/m² | 51.840,00 € |
 | **MAT-02** | Panel / chapa grecada HDX55 2 caras voladizos (533 m² + 5% mermas) | 560,00 m² | 34,00 €/m² | 19.040,00 € |
-| **MAT-03** | Tornillería bimetálica inox A2 con arandela EPDM y cordón hidro-expansivo butilo | 1 lote | 6.200,00 € | 6.200,00 € |
+| **MAT-03** | Tornillería roscachapa de acero al carbono galvanizado con arandela vulcanizada EPDM y sellado continuo butilo | 1 lote | 5.200,00 € | 5.200,00 € |
 | **MAT-04** | Rematería troquelada y plegada a medida con revestimiento HDX55 (489,15 ml + 10 ud singulares) | 1 lote | 5.800,00 € | 5.800,00 € |
 | **MAT-05** | Imprimación epoxi anticorrosiva alto contenido en sólidos viguetas ménsula voladizos | 1 lote | 1.450,00 € | 1.450,00 € |
 | **MAT-06** | Perfiles, aros, peldaños y cancelas en **ACERO INOXIDABLE** para 2 escalas con crinolina | 1 lote | 3.700,00 € | 3.700,00 € |
@@ -102,14 +105,14 @@ Para control y supervisión técnica del metrado (489,15 ml de chapa plegada HDX
 | **LOG-03** | Alquiler de 2 PEMP articuladas para trabajos en voladizos y cubierta | 1 lote | 3.400,00 € | 3.400,00 € |
 | **PRL-01** | Redes de seguridad anticaídas bajo faldones UNE-EN 1263-1 y líneas de vida EN 795 | 1 lote | 3.800,00 € | 3.800,00 € |
 | **PRL-02** | Canon de vertedero insular y tasas de centro de reciclaje de Menorca | 1 lote | 1.800,00 € | 1.800,00 € |
-| | **COSTE DIRECTO TOTAL GLOBAL (CDT HAM):** | | | **142.330,00 €** |
+| | **COSTE DIRECTO TOTAL GLOBAL (CDT HAM):** | | | **141.330,00 €** |
 
 ### Análisis de Rentabilidad Comercial Conjunta:
 - **Precio de Venta Global (Base Imponible Base + Opcionales):** **338.710,00 €**
-- **Coste Directo Total de Ejecución HAM:** **142.330,00 €**
-- **Margen Bruto de Explotación HAM:** **196.380,00 €**
-- **Margen sobre Venta Global (% s/ PVP):** **57,98 %**
-- **Margen sobre Coste Directo (% s/ CDT):** **137,97 %**
+- **Coste Directo Total de Ejecución HAM:** **141.330,00 €**
+- **Margen Bruto de Explotación HAM:** **197.380,00 €**
+- **Margen sobre Venta Global (% s/ PVP):** **58,27 %**
+- **Margen sobre Coste Directo (% s/ CDT):** **139,66 %**
 
 ---
 

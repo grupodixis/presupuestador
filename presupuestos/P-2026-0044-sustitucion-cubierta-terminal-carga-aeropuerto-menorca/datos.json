@@ -1,6 +1,6 @@
 {
   "numeroPresupuesto": "P-2026-0044",
-  "referencia": "PRE-2026-1027-AENA-CARGA-HDX-REV3",
+  "referencia": "PRE-2026-1027-AENA-CARGA-HDX-REV4",
   "fecha": "2026-10-27",
   "validezDias": 30,
   "cliente": {
@@ -28,9 +28,9 @@
   "especificacionesTecnicas": {
     "sistemaCubierta": "Panel sándwich con núcleo aislante de PIR (Poliisocianurato) de 40 mm de espesor y clasificación de reacción al fuego B-s1,d0 según UNE-EN 13501-1.",
     "acabadoChapas": "Revestimiento orgánico especial Granite® HDX55 (55 micras) de poliuretano modificado con poliamida en AMBAS CARAS (exterior e interior). Máxima resistencia contra la corrosión marina categoría C5-M y radiación solar extrema RUV4 según norma UNE-EN 10169.",
-    "fijaciones": "Tornillería autotaladrante bimetálica de acero inoxidable A2 (cuerpo inoxidable y punta templada) con arandelas de estanqueidad vulcanizada de EPDM (evitando corrosión por par galvánico en ambiente costero).",
+    "fijaciones": "Tornillería roscachapa / autorroscante de acero al carbono galvanizado de alta resistencia, provista de arandela de estanqueidad vulcanizada de EPDM (diámetro 19 mm) y cabeza hexagonal para fijación estanca a correas estructurales.",
     "estanqueidad": "Sellado continuo de juntas y solapes mediante cordón de masilla hidro-expansiva de butilo y masilla elastomérica de poliuretano/MS polímero en encuentros perimetrales.",
-    "voladizos": "Sustitución integral de la envolvente de voladizos/marquesinas de muelles de carga, incluyendo saneado y desoxidado mecánico de viguetas en ménsula con imprimación epoxi anticorrosiva de alto contenido en sólidos (mínimo 80 micras de espesor seco) e instalación de chapa/panel con acabado HDX55 en ambas caras.",
+    "voladizos": "Sustitución integral de la envolvente de voladizos/marquesinas de muelles de carga, incluyendo saneado y desoxidado mecánico de viguetas en ménsula con imprimación epoxi anticorrosiva de alto contenido en sólidos (mínimo 80 micras de espesor seco) e instalación de chapa/panel con acabado HDX55 en ambas caras y tornillería roscachapa galvanizada con arandela EPDM.",
     "mediosIntegrados": "Los precios unitarios de las partidas de cubierta (135 €/m²), voladizos (95 €/m²) y desmontaje (25 €/m²) llevan totalmente integrados y repercutidos los costes de medios auxiliares: fletes marítimos especiales Península-Menorca de trailers, camión grúa pluma telescópica autopropulsada para descarga e izado distribuido en pórticos, y alquiler de plataformas elevadoras móviles de personal (PEMP) tipo tijera y articulada.",
     "escalerasOpcionales": "Escaleras fijas de gato con jaula dorsal de protección (crinolina) fabricadas íntegramente en acero inoxidable AISI 304/316 según norma UNE-EN ISO 14122-4, con desembarco superior ensanchado, cancela batiente con cierre automático por gravedad/muelle y placa inferior abatible de bloqueo anti-intrusión con candado en acero inoxidable para seguridad operacional AENA.",
     "lineaVidaLuxTop": "Sistema permanente de línea de vida horizontal de cable de acero inoxidable AISI 316 homologado marca LuxTop®, conforme a normas UNE-EN 795:2012 Tipo C y especificación técnica CEN/TS 16415 para uso simultáneo de múltiples operarios. Incluye absorbedores dinámicos de energía, postes intermedios y de extremo específicos para panel sándwich con fijación estanca, tensor con testigo, carros pasantes transitables sin desconexión y ensayo/certificación técnica visada."
@@ -115,7 +115,7 @@
       "id": "02",
       "codigo": "SAND-2AGUAS",
       "concepto": "Suministro e instalación de Panel Sándwich HDX55 en AMBAS CARAS en cubierta a dos aguas",
-      "descripcion": "Suministro e instalación de panel sándwich de cubierta de 3 grecas con tapajuntas integrado, compuesto por núcleo aislante rígido de PIR de 40 mm de espesor (densidad 40 kg/m³, λ = 0,022 W/m·K, clasificación al fuego B-s1,d0) y dos chapas de acero estructural galvanizado con revestimiento Granite® HDX55 (55 µm de espesor) en AMBAS CARAS (exterior e interior). Fijación a estructura portante mediante tornillería bimetálica autotaladrante de acero inoxidable A2 con arandela estanca de EPDM, con cordón continuo de masilla de butilo en solapes. Incluye fletes marítimos Península-Menorca de paneles de gran longitud, camión grúa pluma para descarga e izado distribuido en pórticos y plataformas elevadoras PEMP integradas.",
+      "descripcion": "Suministro e instalación de panel sándwich de cubierta de 3 grecas con tapajuntas integrado, compuesto por núcleo aislante rígido de PIR de 40 mm de espesor (densidad 40 kg/m³, λ = 0,022 W/m·K, clasificación al fuego B-s1,d0) y dos chapas de acero estructural galvanizado con revestimiento de protección marina severa Granite® HDX55 (55 µm de espesor) en AMBAS CARAS (exterior e interior). Fijación a estructura portante mediante tornillería roscachapa / autorroscante de acero galvanizado con arandela estanca vulcanizada de EPDM y cordón continuo de masilla hidro-expansiva de butilo en solapes. Incluye fletes marítimos Península-Menorca de paneles de gran longitud, camión grúa pluma para descarga e izado distribuido en pórticos y plataformas elevadoras PEMP integradas.",
       "unidad": "m²",
       "cantidad": 1042.50,
       "precioUnitario": 135.00,
@@ -125,7 +125,7 @@
       "id": "03",
       "codigo": "SAND-1AGUA",
       "concepto": "Suministro e instalación de Panel Sándwich HDX55 en AMBAS CARAS en cubierta a un agua",
-      "descripcion": "Suministro e instalación de panel sándwich de cubierta de 3 grecas con tapajuntas integrado (espesor 40 mm PIR, B-s1,d0) con acabado de alta durabilidad Granite® HDX55 (55 µm) por ambas caras (exterior e interior) en faldón a un agua. Incluye adaptaciones mecánicas de faldón, cortes en encuentros contra paramentos verticales y petos, fijaciones inoxidables A2 con arandela de estanqueidad EPDM, sellado butílico continuo y repercusión íntegra de fletes marítimos y medios mecánicos de elevación y PEMP.",
+      "descripcion": "Suministro e instalación de panel sándwich de cubierta de 3 grecas con tapajuntas integrado (espesor 40 mm PIR, B-s1,d0) con acabado de alta durabilidad Granite® HDX55 (55 µm) por ambas caras (exterior e interior) en faldón a un agua. Incluye adaptaciones mecánicas de faldón, cortes en encuentros contra paramentos verticales y petos, fijaciones roscachapa de acero galvanizado con arandela de estanqueidad EPDM, sellado butílico continuo y repercusión íntegra de fletes marítimos y medios mecánicos de elevación y PEMP.",
       "unidad": "m²",
       "cantidad": 328.50,
       "precioUnitario": 135.00,
@@ -135,7 +135,7 @@
       "id": "04",
       "codigo": "VOL-MARQ",
       "concepto": "Sustitución integral de voladizos en muelles de carga con acabado HDX55 e imprimación anticorrosiva",
-      "descripcion": "Rehabilitación y sustitución completa de la envolvente de los voladizos de fachada (muelles de carga, 267 m² por fachada, total 533 m²). Incluye cepillado y saneado mecánico superficial con eliminación de óxido en viguetas metálicas en ménsula existentes, aplicación de capa de imprimación epoxi anticorrosiva rica en zinc de alto espesor (C5-M), e instalación de nueva cobertura con chapa/panel de alta resistencia protegida con revestimiento HDX55 (55 µm) en ambas caras, con fijaciones inoxidables A2, remates perimetrales frontales con goterón y repercusión de plataformas elevadoras PEMP.",
+      "descripcion": "Rehabilitación y sustitución completa de la envolvente de los voladizos de fachada (muelles de carga, 267 m² por fachada, total 533 m²). Incluye cepillado y saneado mecánico superficial con eliminación de óxido en viguetas metálicas en ménsula existentes, aplicación de capa de imprimación epoxi anticorrosiva rica en zinc de alto espesor (C5-M), e instalación de nueva cobertura con chapa/panel de alta resistencia protegida con revestimiento HDX55 (55 µm) en ambas caras, con tornillería roscachapa galvanizada con arandela EPDM, remates perimetrales frontales con goterón y repercusión de plataformas elevadoras PEMP.",
       "unidad": "m²",
       "cantidad": 533.00,
       "precioUnitario": 95.00,
@@ -145,7 +145,7 @@
       "id": "05",
       "codigo": "REM-COMP",
       "concepto": "Rematería completa en acero con acabado HDX55, coronaciones, encuentros, mordidos y sellados",
-      "descripcion": "Suministro, conformación en taller y montaje de 489,15 ml de rematería técnica plegada a medida (desarrollos 300-500 mm) en chapa de acero galvanizado con idéntico recubrimiento Granite® HDX55 (55 µm): 50,23 ml de cumbrera troquelada a dos aguas, 63,34 ml de remates laterales de hastial/testero con goterón, 30,22 ml de babero de coronación contra peto, 10,40 ml de remate de salto entre naves, 174,08 ml de goterones frontales y laterales de voladizo, 160,88 ml de baberos de encuentro voladizo-fachada y 10 unidades de mordidos y cajeados estancos en salidas de chimeneas y bajantes, con doble sellado perimetral continuo con masilla hidro-expansiva de butilo y polímero elástico MS exterior.",
+      "descripcion": "Suministro, conformación en taller y montaje de 489,15 ml de rematería técnica plegada a medida (desarrollos 300-500 mm) en chapa de acero galvanizado con idéntico recubrimiento Granite® HDX55 (55 µm): 50,23 ml de cumbrera troquelada a dos aguas, 63,34 ml de remates laterales de hastial/testero con goterón, 30,22 ml de babero de coronación contra peto, 10,40 ml de remate de salto entre naves, 174,08 ml de goterones frontales y laterales de voladizo, 160,88 ml de baberos de encuentro voladizo-fachada y 10 unidades de mordidos y cajeados estancos en salidas de chimeneas y bajantes, fijados con tornillería galvanizada lacada con junta EPDM y doble sellado perimetral continuo con masilla hidro-expansiva de butilo y polímero elástico MS exterior.",
       "unidad": "lote",
       "cantidad": 1.00,
       "precioUnitario": 14850.00,
@@ -209,12 +209,12 @@
     "compraMateriales": {
       "panelSandwichCubiertasHDX55": { "medicion": 1440.0, "unidad": "m²", "costeUnitario": 36.00, "costeTotal": 51840.00 },
       "panelChapaVoladizosHDX55": { "medicion": 560.0, "unidad": "m²", "costeUnitario": 34.00, "costeTotal": 19040.00 },
-      "fijacionesInoxA2ButiloEPDM": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 6200.00, "costeTotal": 6200.00 },
+      "fijacionesGalvanizadasButiloEPDM": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 5200.00, "costeTotal": 5200.00 },
       "remateriaEspecialHDX55": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 5800.00, "costeTotal": 5800.00 },
       "imprimacionEpoxiViguetas": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 1450.00, "costeTotal": 1450.00 },
       "escalerasInoxMateriales": { "medicion": 2.0, "unidad": "ud", "costeUnitario": 1850.00, "costeTotal": 3700.00 },
       "lineaVidaLuxTopMaterialesCert": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 10300.00, "costeTotal": 10300.00 },
-      "subtotalMateriales": 98330.00
+      "subtotalMateriales": 97330.00
     },
     "manoObra": {
       "horasEstimadasBase": 800.0,
@@ -234,28 +234,23 @@
       "canonVertederoResiduos": 1800.00,
       "subtotalSeguridad": 5600.00
     },
-    "costeDirectoTotalBase": 125530.00,
+    "costeDirectoTotalBase": 124530.00,
     "costeDirectoOpcionales": 16800.00,
-    "costeDirectoTotalGlobal": 142330.00,
+    "costeDirectoTotalGlobal": 141330.00,
     "precioVentaBase": 307970.00,
     "precioVentaOpcionales": 30740.00,
     "precioVentaGlobal": 338710.00,
-    "margenBrutoBase": 182440.00,
+    "margenBrutoBase": 183440.00,
     "margenBrutoOpcionales": 13940.00,
-    "margenBrutoGlobal": 196380.00,
-    "margenBrutoPorcentajeVentaGlobal": 57.98,
-    "margenBrutoPorcentajeCosteGlobal": 137.97
+    "margenBrutoGlobal": 197380.00,
+    "margenBrutoPorcentajeVentaGlobal": 58.27,
+    "margenBrutoPorcentajeCosteGlobal": 139.66
   },
   "condicionesComerciales": {
-    "formaDePago": "40% a la formalización del pedido y acopio de paneles en fábrica, 30% al inicio del montaje en obra tras descarga y 30% a la finalización y recepción de los trabajos",
-    "hitosPago": [
-      { "hito": "40% a la formalización y lanzamiento de fabricación HDX55", "importe": 149057.48 },
-      { "hito": "30% a la recepción de materiales en obra e inicio de montaje", "importe": 111793.11 },
-      { "hito": "30% a la finalización de los trabajos y certificación final", "importe": 111793.11 }
-    ],
-    "plazoEjecucion": "5 a 7 semanas laborables desde la recepción y acopio de los paneles en obra",
+    "formaDePago": "A convenir con el cliente según avance y certificaciones de obra",
+    "plazoEjecucion": "2 a 3 meses desde la recepción de materiales en obra y formalización del contrato",
     "garantia": "10 años de garantía en durabilidad de recubrimiento Granite® HDX55 contra corrosión marina y perforación; 10 años en elementos de acero inoxidable de las escalas; 10 años de garantía del fabricante del sistema LuxTop®; 5 años en estanqueidad de la cubierta; 2 años en montaje e instalaciones mecánicas.",
     "validezOferta": "30 días naturales desde la fecha de emisión.",
-    "notasTecnicas": "El acabado Granite® HDX55 en ambas caras garantiza una protección óptima contra la niebla salina de Menorca y la atmósfera aeroportuaria, evitando la rápida degradación observada en los voladizos actuales. Todos los medios auxiliares, transportes y grúas están repercutidos en los precios unitarios de las partidas principales. Las dos escaleras opcionales con crinolina en acero inoxidable cumplen la norma UNE-EN ISO 14122-4 con condena inferior para AENA. La línea de vida LuxTop® sobre faldón garantiza la seguridad total de futuros mantenimientos conforme a UNE-EN 795:2012 Tipo C."
+    "notasTecnicas": "El acabado Granite® HDX55 en ambas caras garantiza una protección óptima contra la niebla salina de Menorca y la atmósfera aeroportuaria. Fijaciones de panel mediante tornillería roscachapa de acero galvanizado con arandela de estanqueidad EPDM. Todos los medios auxiliares, transportes y grúas están repercutidos en los precios unitarios de las partidas principales. Las dos escaleras opcionales con crinolina en acero inoxidable cumplen la norma UNE-EN ISO 14122-4 con condena inferior para AENA. La línea de vida LuxTop® sobre faldón garantiza la seguridad total de futuros mantenimientos conforme a UNE-EN 795:2012 Tipo C."
   }
 }

@@ -67,7 +67,7 @@ def create_excel():
     ws1["A9"] = "SISTEMA TÉCNICO"
     ws1["A9"].font = bold_font
     ws1["A9"].fill = section_fill
-    ws1["B9"] = "Panel Sándwich Cubierta PIR 40 mm (B-s1,d0) con acabado Granite® HDX55 (55 µm) por AMBAS CARAS | Medios mecánicos y fletes integrados en partidas principales | Opcionales: 2 escalas de gato inox con crinolina (+30%) + Línea de vida permanente LuxTop® (18.000 €)"
+    ws1["B9"] = "Panel Sándwich Cubierta PIR 40 mm (B-s1,d0) con acabado Granite® HDX55 (55 µm) por AMBAS CARAS | Fijaciones roscachapa galvanizadas con arandela vulcanizada EPDM | Medios mecánicos y fletes integrados | Opcionales: 2 escalas de gato inox con crinolina (+30%) + Línea LuxTop® (18.000 €)"
     ws1["B9"].font = regular_font
     ws1["B9"].fill = section_fill
 
@@ -265,9 +265,9 @@ def create_excel():
     r_cond = r_grand_tot + 2
     ws1.cell(row=r_cond, column=1, value="CONDICIONES COMERCIALES Y DE EJECUCIÓN").font = bold_font
     ws1.cell(row=r_cond+1, column=1, value="• Forma de pago:").font = bold_font
-    ws1.cell(row=r_cond+1, column=2, value="40% a la formalización (149.057,48 € base), 30% al acopio e inicio montaje (111.793,11 €) y 30% a la recepción final (111.793,11 €). Las partidas opcionales se facturan según aprobación.").font = regular_font
+    ws1.cell(row=r_cond+1, column=2, value="A convenir con el cliente según avance y certificaciones de obra.").font = regular_font
     ws1.cell(row=r_cond+2, column=1, value="• Plazo de ejecución:").font = bold_font
-    ws1.cell(row=r_cond+2, column=2, value="5 a 7 semanas laborables desde recepción de paneles en Menorca").font = regular_font
+    ws1.cell(row=r_cond+2, column=2, value="2 a 3 meses desde la recepción de materiales en obra y formalización del contrato.").font = regular_font
     ws1.cell(row=r_cond+3, column=1, value="• Garantías:").font = bold_font
     ws1.cell(row=r_cond+3, column=2, value="10 años en recubrimiento Granite® HDX55, en acero inoxidable y en sistema LuxTop®; 5 años en estanqueidad; 2 años en montaje").font = regular_font
     ws1.cell(row=r_cond+4, column=1, value="• Validez de oferta:").font = bold_font
@@ -324,7 +324,7 @@ def create_excel():
     cost_data = [
         ["MAT-01", "Panel sándwich 40 mm PIR con acabado HDX55 en 2 caras cubiertas (1.371 m² + 5% solapes/mermas)", "m²", 1440.00, "=B5"],
         ["MAT-02", "Panel / chapa grecada acabado HDX55 en 2 caras para voladizos (533 m² + 5% mermas)", "m²", 560.00, "=B6"],
-        ["MAT-03", "Tornillería bimetálica inox A2 con arandela EPDM, accesorios fijación y masilla de butilo", "lote", 1.00, 6200.00],
+        ["MAT-03", "Tornillería roscachapa de acero galvanizado con arandela EPDM, accesorios fijación y masilla butilo", "lote", 1.00, 5200.00],
         ["MAT-04", "Rematería troquelada y plegada a medida con revestimiento HDX55 (cumbreras, petos, baberos)", "lote", 1.00, 5800.00],
         ["MAT-05", "Imprimación epoxi anticorrosiva de alto contenido en sólidos para saneado viguetas voladizos", "lote", 1.00, 1450.00],
         ["MAT-06", "Materiales perfiles, peldaños y cancelas en ACERO INOXIDABLE para 2 escalas con crinolina", "lote", 1.00, 3700.00],
@@ -377,7 +377,7 @@ def create_excel():
 
     comp_rows = [
         ["Precio de Venta al Cliente (Base Imp.):", 307970.00, 30740.00, "=B29+C29", "100.00%"],
-        ["Coste Directo Total HAM:", 125530.00, 16800.00, "=B30+C30", "=D30/D29"],
+        ["Coste Directo Total HAM:", 124530.00, 16800.00, "=B30+C30", "=D30/D29"],
         ["Margen Bruto de Explotación HAM:", "=B29-B30", "=C29-C30", "=D29-D30", "=D31/D29"]
     ]
 
@@ -769,9 +769,9 @@ def generate_html_files():
           <div class="kpi-sub">55 µm en AMBAS CARAS (C5-M marino)</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-title">Seguridad Opcional</div>
-          <div class="kpi-val">Inox + LuxTop®</div>
-          <div class="kpi-sub">2 escalas crinolina + línea de vida</div>
+          <div class="kpi-title">Fijación Estanca</div>
+          <div class="kpi-val">Galv. + EPDM</div>
+          <div class="kpi-sub">Tornillería roscachapa con junta EPDM</div>
         </div>
       </div>
 
@@ -782,7 +782,7 @@ def generate_html_files():
           <li><strong>Panel Sándwich con Recubrimiento Granite® HDX55 (55 micras) en AMBAS CARAS:</strong> Resina de poliuretano de 55 µm modificada con poliamida sobre acero galvanizado estructural Z275. Máxima categoría de resistencia a la corrosión <strong>RC5 / C5-M (Marino Severo)</strong> y radiación UV <strong>RUV4</strong> (UNE-EN 10169). Inmune al ataque de niebla salina y gases de queroseno de turbinas aéreas.</li>
           <li><strong>Integración Completa de Medios de Elevación y Logística:</strong> Todos los transportes marítimos en trailers especiales, camión grúa telescópica autopropulsada para izado distribuido en pórticos y plataformas PEMP se encuentran totalmente repercutidos e integrados en los precios unitarios de cada partida.</li>
           <li><strong>Núcleo Aislante PIR (Poliisocianurato):</strong> Espesor 40 mm, densidad nominal 40 kg/m³, conductividad reducida (λ = 0,022 W/m·K) y clasificación al fuego <strong>B-s1,d0</strong> (UNE-EN 13501-1).</li>
-          <li><strong>Tornillería Bimetálica Inox A2:</strong> Tornillos autotaladrantes con fuste inoxidable austenítico A2 y arandela de estanqueidad vulcanizada EPDM de 19 mm, anulando cualquier riesgo de par galvánico.</li>
+          <li><strong>Tornillería Roscachapa Galvanizada:</strong> Tornillos autorroscantes de acero al carbono galvanizado de alta resistencia mecánica, provistos de arandela de estanqueidad vulcanizada EPDM de 19 mm y cabeza hexagonal con sellado hidro-expansivo en solapes.</li>
           <li><strong>Escaleras de Gato con Crinolina en ACERO INOXIDABLE (Opcionales):</strong> Conforme a <strong>UNE-EN ISO 14122-4</strong> íntegramente en acero inoxidable AISI 304/316, jaula dorsal desde 2,20-2,50 m, cancela batiente con muelle y portón inferior de bloqueo anti-intrusión con candado (específico AENA).</li>
           <li><strong>Línea de Vida Permanente Homologada LUXTOP® (Opcional):</strong> Cable de acero inoxidable AISI 316 continuo (Ø 8 mm) conforme a <strong>UNE-EN 795:2012 Tipo C y CEN/TS 16415</strong> para hasta 4 operarios simultáneos, con absorbedores estancos sobre faldón y carros pasantes continuos sin desconexión.</li>
         </ul>
@@ -964,16 +964,15 @@ def generate_html_files():
       <h2>6. CONDICIONES COMERCIALES, LOGÍSTICAS Y GARANTÍAS</h2>
       <div class="conditions-grid">
         <div class="cond-item">
-          <h5>Hitos de Facturación y Pago</h5>
-          <p>• <strong>40% a la formalización:</strong> {data['condicionesComerciales']['hitosPago'][0]['importe']:,.2f} € (IVA incl.) para reserva bobina HDX55 y fletes.<br>
-          • <strong>30% al inicio del montaje:</strong> {data['condicionesComerciales']['hitosPago'][1]['importe']:,.2f} € (IVA incl.) a la descarga de materiales.<br>
-          • <strong>30% a la recepción:</strong> {data['condicionesComerciales']['hitosPago'][2]['importe']:,.2f} € (IVA incl.). Opcionales facturados s/ aceptación.</p>
+          <h5>Forma de Pago y Contratación</h5>
+          <p>• <strong>Forma de pago:</strong> A convenir con el cliente según avance y certificaciones de obra.<br>
+          • <strong>Partidas opcionales:</strong> Facturación independiente según previa aceptación y aprobación técnica de la Dirección de Obra.</p>
         </div>
         <div class="cond-item">
           <h5>Plazos, AENA y Garantías</h5>
           <p>• <strong>Plazo de ejecución:</strong> {data['condicionesComerciales']['plazoEjecucion']}.<br>
           • <strong>Garantías:</strong> 10 años en Granite® HDX55, inox y LuxTop®; 5 años estanqueidad; 2 años montaje.<br>
-          • <strong>Seguridad:</strong> Cumplimiento estricto UNE-EN ISO 14122-4, UNE-EN 795 y normativa AENA.</p>
+          • <strong>Seguridad:</strong> Cumplimiento estricto UNE-EN ISO 14122-4, UNE-EN 795 y normativa de seguridad operacional AENA.</p>
         </div>
       </div>
 
@@ -1212,11 +1211,11 @@ def generate_html_files():
           </tr>
           <tr>
             <td class="td-center"><strong>MAT-03</strong></td>
-            <td>Tornillería bimetálica inox A2 con arandela EPDM, accesorios fijación y butilo hidro-expansivo</td>
+            <td>Tornillería roscachapa de acero galvanizado con arandela vulcanizada EPDM y cordón butilo</td>
             <td class="td-center">lote</td>
             <td class="td-right">1,00</td>
-            <td class="td-right">6.200,00 €</td>
-            <td class="td-right"><strong>6.200,00 €</strong></td>
+            <td class="td-right">5.200,00 €</td>
+            <td class="td-right"><strong>5.200,00 €</strong></td>
           </tr>
           <tr>
             <td class="td-center"><strong>MAT-04</strong></td>
