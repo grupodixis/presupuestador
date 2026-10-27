@@ -1,10 +1,10 @@
-# Presupuesto P-2026-0043: Rehabilitación de Cubiertas de Nave Industrial - Menorca Dist
+# Presupuesto P-2026-0043: Rehabilitación de Cubiertas de Nave Industrial - Mar Dojan, SL
 
 - **Código:** P-2026-0043
 - **Referencia:** PRE-2026-1026-CUB-REV1
 - **Fecha de emisión:** 27 de octubre de 2026
-- **Cliente:** Menorca Dist (Distribuciones Menorca)
-- **Ubicación:** Avda. Sa Industria 67, Polígono Industrial La Trotxa, 07730 Alaior (Menorca, Illes Balears)
+- **Cliente:** Mar Dojan, SL
+- **Instalaciones / Ubicación:** Nave Menorca Dist, Avda. Sa Industria 67, Polígono Industrial La Trotxa, 07730 Alaior (Menorca, Illes Balears)
 - **Emisor:** HAM Estructuras Metálicas (Av. Circunval·lació 11, Pol. Ind. Sant Lluís, Menorca)
 - **Superficie total de actuación:** 4.429,00 m² (4.303 m² chapa metálica + 126 m² placas translúcidas)
 - **Criterio de cotización:** Tarifa técnica corregida: el m² de chapa colocada sobre omegas con fijación en onda alta y sellado estanco no puede cotizarse por debajo de **55,00 €/m²** en Menorca.
@@ -94,8 +94,8 @@ De acuerdo con las tarifas de compra directa de HAM Estructuras Metálicas y el 
 
 ## Archivos del Expediente
 
-- [presupuesto-cliente.pdf](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0043-rehabilitacion-cubiertas-menorca-dist/presupuesto-cliente.pdf) *(Propuesta comercial oficial de 2 páginas con memoria, fotos y cuadro económico corregido a 55 €/m²)*
-- [presupuesto-interno-tecnico.pdf](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0043-rehabilitacion-cubiertas-menorca-dist/presupuesto-interno-tecnico.pdf) *(Dossier confidencial de costes internos HAM de 2 páginas con escandallo y análisis de rentabilidad)*
+- [presupuesto-cliente.pdf](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0043-rehabilitacion-cubiertas-menorca-dist/presupuesto-cliente.pdf) *(Propuesta comercial oficial emitida a nombre de Mar Dojan, SL)*
+- [presupuesto-interno-tecnico.pdf](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0043-rehabilitacion-cubiertas-menorca-dist/presupuesto-interno-tecnico.pdf) *(Dossier confidencial de costes internos HAM con escandallo y análisis de rentabilidad)*
 - [presupuesto.xlsx](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0043-rehabilitacion-cubiertas-menorca-dist/presupuesto.xlsx) *(Libro Excel profesional con Hoja 1 Presupuesto Cliente y Hoja 2 Escandallo Costes HAM con fórmulas)*
 - [presupuesto-cliente.html](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0043-rehabilitacion-cubiertas-menorca-dist/presupuesto-cliente.html) *(Maquetación web responsive cliente)*
 - [presupuesto-interno-tecnico.html](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0043-rehabilitacion-cubiertas-menorca-dist/presupuesto-interno-tecnico.html) *(Maquetación web responsive escandallo técnico HAM)*

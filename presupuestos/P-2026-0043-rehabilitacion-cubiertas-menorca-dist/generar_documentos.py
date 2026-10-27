@@ -41,11 +41,11 @@ def create_excel():
     ws1["A2"].font = subtitle_font
 
     ws1["A4"] = "Cliente:"
-    ws1["B4"] = "Menorca Dist (Distribuciones Menorca)"
+    ws1["B4"] = "Mar Dojan, SL (Nave Menorca Dist)"
     ws1["A5"] = "Ubicación:"
     ws1["B5"] = "Avda. Sa Industria 67, Pol. Ind. La Trotxa, 07730 Alaior (Menorca)"
     ws1["A6"] = "Fecha:"
-    ws1["B6"] = "26/10/2026"
+    ws1["B6"] = "27/10/2026"
     ws1["A7"] = "Concepto:"
     ws1["B7"] = "Rehabilitación de Cubiertas de Nave Industrial mediante Sobrecubierta Metálica y Sustitución de Lucernarios"
 
@@ -298,7 +298,7 @@ def create_excel():
         c.font = Font(name="Segoe UI", size=9.5, bold=True, color="FFFFFF")
 
     comp_rows = [
-        ["Precio de Venta al Cliente (Base Imponible):", "='Presupuesto Cliente'!F27", 1.0, "PVP ofertado a Menorca Dist"],
+        ["Precio de Venta al Cliente (Base Imponible):", "='Presupuesto Cliente'!F27", 1.0, "PVP ofertado a Mar Dojan, SL"],
         ["Coste Directo Total de Ejecución HAM:", "=F21", "=B26/B25", "Materiales (70%) + MO (20%) + Logística (10%)"],
         ["Margen Bruto de Explotación HAM:", "=B25-B26", "=B27/B25", "Beneficio neto industrial de la operación"]
     ]

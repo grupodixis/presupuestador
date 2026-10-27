@@ -4,7 +4,8 @@
   "fecha": "2026-10-27",
   "validezDias": 30,
   "cliente": {
-    "nombre": "Menorca Dist (Distribuciones Menorca)",
+    "nombre": "Mar Dojan, SL",
+    "instalacion": "Nave Menorca Dist",
     "direccion": "Avda. Sa Industria 67, Pol. Ind. La Trotxa",
     "poblacion": "Alaior",
     "codigoPostal": "07730",
@@ -18,7 +19,7 @@
   },
   "criterioPrecios": {
     "chapaColocadaM2Minimo": 55.00,
-    "descripcion": "Tarifa técnica corregida: el m2 de chapa colocada sobre omegas con fijación en onda alta y sellado no puede cotizarse por debajo de 55,00 €/m2 en Menorca."
+    "descripcion": "Tarifa técnica: el m2 de chapa colocada sobre omegas con fijación en onda alta y sellado estanco no puede cotizarse por debajo de 55,00 €/m2 en Menorca."
   },
   "costesCompraHAM": {
     "chapaComunM2": 10.00,
@@ -46,6 +47,7 @@
   },
   "trabajo": {
     "titulo": "Rehabilitación de Cubiertas de Nave Industrial mediante Sobrecubierta Metálica y Sustitución de Lucernarios",
+    "instalacion": "Nave Menorca Dist (Alaior)",
     "superficieTotalM2": 4429.0,
     "superficieChapaM2": 4303.0,
     "superficieTranslucidaM2": 126.0,
