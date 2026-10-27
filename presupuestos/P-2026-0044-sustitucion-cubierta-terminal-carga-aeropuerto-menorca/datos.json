@@ -1,6 +1,6 @@
 {
   "numeroPresupuesto": "P-2026-0044",
-  "referencia": "PRE-2026-1027-AENA-CARGA-HDX-REV1",
+  "referencia": "PRE-2026-1027-AENA-CARGA-HDX-REV2",
   "fecha": "2026-10-27",
   "validezDias": 30,
   "cliente": {
@@ -31,7 +31,8 @@
     "fijaciones": "Tornillería autotaladrante bimetálica de acero inoxidable A2 (cuerpo inoxidable y punta templada) con arandelas de estanqueidad vulcanizada de EPDM (evitando corrosión por par galvánico en ambiente costero).",
     "estanqueidad": "Sellado continuo de juntas y solapes mediante cordón de masilla hidro-expansiva de butilo y masilla elastomérica de poliuretano/MS polímero en encuentros perimetrales.",
     "voladizos": "Sustitución integral de la envolvente de voladizos/marquesinas de muelles de carga, incluyendo saneado y desoxidado mecánico de viguetas en ménsula con imprimación epoxi anticorrosiva de alto contenido en sólidos (mínimo 80 micras de espesor seco) e instalación de chapa/panel con acabado HDX55 en ambas caras.",
-    "escalerasOpcionales": "Escaleras de gato fijas de acceso con jaula o crinolina de protección dorsal fabricadas íntegramente en acero inoxidable (AISI 304/316) según norma UNE-EN ISO 14122-4. Incluyen peldaños antideslizantes estriados, cancela batiente superior de seguridad con cierre automático por muelle, placa de condena inferior anti-intrusión con candado (específico Aena) y anclajes químicos/mecánicos inoxidables A4."
+    "escalerasOpcionales": "Escaleras fijas de gato con jaula dorsal de protección (crinolina) fabricadas íntegramente en acero inoxidable AISI 304/316 según norma UNE-EN ISO 14122-4, con desembarco superior ensanchado, cancela batiente con cierre automático por gravedad/muelle y placa inferior abatible de bloqueo anti-intrusión con candado en acero inoxidable para seguridad operacional AENA.",
+    "lineaVidaLuxTop": "Sistema permanente de línea de vida horizontal de cable de acero inoxidable AISI 316 homologado marca LuxTop®, conforme a normas UNE-EN 795:2012 Tipo C y especificación técnica CEN/TS 16415 para uso simultáneo de múltiples operarios. Incluye absorbedores dinámicos de energía, postes intermedios y de extremo específicos para panel sándwich con fijación estanca, tensor con testigo, carros pasantes transitables sin desconexión y ensayo/certificación técnica visada."
   },
   "medicionesSuperficies": {
     "cubiertaDosAguasM2": 1042.50,
@@ -117,11 +118,11 @@
       "id": "OPC-01",
       "codigo": "ESC-VOL-INOX",
       "concepto": "OPCIONAL 1: Escalera de gato con protección dorsal en acero inoxidable para acceso a voladizo (H ≈ 4,20 m)",
-      "descripcion": "Fabricación, suministro e instalación de escalera fija de gato según norma UNE-EN ISO 14122-4 realizada íntegramente en ACERO INOXIDABLE (AISI 304/316) para acceso seguro desde cota suelo a voladizo (altura aprox. 4,20 m, desarrollo total 5,30 m con desembarco). Incluye montantes verticales de pletina/tubo inox, peldaños antideslizantes estriados de seguridad, jaula de protección dorsal (crinolina) aros y tirantes longitudinales en pletina inox a partir de 2,20 m, desembarco superior ensanchado con barandillas de salida de 1.100 mm, compuerta batiente de gravedad/muelle con cierre automático, placa de condena inferior anti-intrusión con candado en acero inoxidable para control de acceso aeroportuario Aena, y anclajes químicos de alta resistencia en acero inox A4.",
+      "descripcion": "Fabricación, suministro e instalación de escalera fija de gato según norma UNE-EN ISO 14122-4 realizada íntegramente en ACERO INOXIDABLE (AISI 304/316) para acceso seguro desde cota suelo a voladizo (altura aprox. 4,20 m, desarrollo total 5,30 m con desembarco). Incluye montantes verticales de pletina/tubo inox, peldaños antideslizantes estriados de seguridad, jaula de protección dorsal (crinolina) con aros y tirantes longitudinales en pletina inox a partir de 2,20 m, desembarco superior ensanchado con barandillas de salida de 1.100 mm, compuerta batiente de gravedad/muelle con cierre automático, placa de condena inferior anti-intrusión con candado en acero inoxidable para control de acceso aeroportuario AENA, y anclajes químicos estructurales en acero inox A4.",
       "unidad": "ud",
       "cantidad": 1.00,
-      "precioUnitario": 3850.00,
-      "importe": 3850.00
+      "precioUnitario": 5005.00,
+      "importe": 5005.00
     },
     {
       "id": "OPC-02",
@@ -130,20 +131,30 @@
       "descripcion": "Fabricación, suministro e instalación de escalera fija de gato según norma UNE-EN ISO 14122-4 realizada íntegramente en ACERO INOXIDABLE (AISI 304/316) para acceso técnico y de mantenimiento a la cubierta principal del edificio (altura aprox. 6,80 m, desarrollo total 7,90 m con desembarco). Incluye montantes de acero inox, peldaños antideslizantes mecanizados, jaula dorsal continua (crinolina) en acero inox a partir de 2,50 m de altura, desembarco superior protegido con barandillas de 1.100 mm y rodapié, puerta batiente de salida con resorte de cierre automático de seguridad, portón inferior abatible de bloqueo anti-intrusión con cerradura/candado de seguridad en acero inoxidable, y fijaciones estructurales en acero inoxidable A4.",
       "unidad": "ud",
       "cantidad": 1.00,
-      "precioUnitario": 5950.00,
-      "importe": 5950.00
+      "precioUnitario": 7735.00,
+      "importe": 7735.00
+    },
+    {
+      "id": "OPC-03",
+      "codigo": "LV-LUXTOP",
+      "concepto": "OPCIONAL 3: Línea de vida permanente homologada marca LuxTop® sobre cubierta",
+      "descripcion": "Suministro, replanteo, montaje y certificación oficial de sistema permanente de línea de vida horizontal continua de cable de acero inoxidable AISI 316 (Ø 8 mm) marca LUXTOP®, conforme a las normas UNE-EN 795:2012 Tipo C y CEN/TS 16415 (homologada para trabajo y rescate de hasta 4 operarios simultáneos). Instalación sobre cubierta de panel sándwich mediante postes terminales e intermedios con absorbedor de impacto dinámico patentado LuxTop®, bases de fijación estancas sobreelevadas con juntas de EPDM (evitando cualquier riesgo de filtración o puente térmico), tensor de cable con testigo micrométrico de tensión, pieza curva/esquina si procede, carros deslizadores pasantes transfronterizos sin necesidad de desconexión manual, placa de marcado identificativa CE, ensayos de tracción en obra y dossier de legalización con certificado visado.",
+      "unidad": "ud",
+      "cantidad": 1.00,
+      "precioUnitario": 18000.00,
+      "importe": 18000.00
     }
   ],
   "totalesEconomicos": {
     "baseImponibleBase": 220225.00,
     "ivaBase": 46247.25,
     "totalBaseConIva": 266472.25,
-    "baseImponibleOpcionales": 9800.00,
-    "ivaOpcionales": 2058.00,
-    "totalOpcionalesConIva": 11858.00,
-    "baseImponibleGeneral": 230025.00,
-    "ivaGeneral": 48305.25,
-    "totalGeneralConIva": 278330.25
+    "baseImponibleOpcionales": 30740.00,
+    "ivaOpcionales": 6455.40,
+    "totalOpcionalesConIva": 37195.40,
+    "baseImponibleGeneral": 250965.00,
+    "ivaGeneral": 52702.65,
+    "totalGeneralConIva": 303667.65
   },
   "escandalloCostesInternosHAM": {
     "compraMateriales": {
@@ -153,14 +164,15 @@
       "remateriaEspecialHDX55": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 5800.00, "costeTotal": 5800.00 },
       "imprimacionEpoxiViguetas": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 1450.00, "costeTotal": 1450.00 },
       "escalerasInoxMateriales": { "medicion": 2.0, "unidad": "ud", "costeUnitario": 1850.00, "costeTotal": 3700.00 },
-      "subtotalMateriales": 88030.00
+      "lineaVidaLuxTopMaterialesCert": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 10300.00, "costeTotal": 10300.00 },
+      "subtotalMateriales": 98330.00
     },
     "manoObra": {
       "horasEstimadasBase": 800.0,
-      "horasEstimadasOpcionales": 60.0,
-      "horasTotales": 860.0,
+      "horasEstimadasOpcionales": 100.0,
+      "horasTotales": 900.0,
       "tarifaHoraInterna": 28.00,
-      "costeTotalManoObra": 24080.00
+      "costeTotalManoObra": 25200.00
     },
     "logisticaYMedios": {
       "fletesMaritimos trailers": 5200.00,
@@ -174,16 +186,16 @@
       "subtotalSeguridad": 5600.00
     },
     "costeDirectoTotalBase": 125530.00,
-    "costeDirectoOpcionales": 5380.00,
-    "costeDirectoTotalGlobal": 130910.00,
+    "costeDirectoOpcionales": 16800.00,
+    "costeDirectoTotalGlobal": 142330.00,
     "precioVentaBase": 220225.00,
-    "precioVentaOpcionales": 9800.00,
-    "precioVentaGlobal": 230025.00,
+    "precioVentaOpcionales": 30740.00,
+    "precioVentaGlobal": 250965.00,
     "margenBrutoBase": 94695.00,
-    "margenBrutoOpcionales": 4420.00,
-    "margenBrutoGlobal": 99115.00,
-    "margenBrutoPorcentajeVentaGlobal": 43.09,
-    "margenBrutoPorcentajeCosteGlobal": 75.71
+    "margenBrutoOpcionales": 13940.00,
+    "margenBrutoGlobal": 108635.00,
+    "margenBrutoPorcentajeVentaGlobal": 43.29,
+    "margenBrutoPorcentajeCosteGlobal": 76.33
   },
   "condicionesComerciales": {
     "formaDePago": "40% a la formalización del pedido y acopio de paneles en fábrica, 30% al inicio del montaje en obra tras descarga y 30% a la finalización y recepción de los trabajos",
@@ -193,8 +205,8 @@
       { "hito": "30% a la finalización de los trabajos y certificación final", "importe": 79941.67 }
     ],
     "plazoEjecucion": "5 a 7 semanas laborables desde la recepción y acopio de los paneles en obra",
-    "garantia": "10 años de garantía en durabilidad de recubrimiento Granite® HDX55 contra corrosión marina y perforación; 5 años en estanqueidad de la cubierta; 2 años en montaje e instalaciones mecánicas; 10 años en elementos de acero inoxidable.",
+    "garantia": "10 años de garantía en durabilidad de recubrimiento Granite® HDX55 contra corrosión marina y perforación; 10 años en elementos de acero inoxidable de las escalas; 10 años de garantía del fabricante del sistema LuxTop®; 5 años en estanqueidad de la cubierta; 2 años en montaje e instalaciones mecánicas.",
     "validezOferta": "30 días naturales desde la fecha de emisión.",
-    "notasTecnicas": "El acabado Granite® HDX55 en ambas caras garantiza una protección óptima contra la niebla salina de Menorca y la atmósfera aeroportuaria, evitando la rápida degradación observada en los voladizos actuales. Las dos escaleras opcionales con protección dorsal (crinolina) en acero inoxidable cumplen estrictamente la norma UNE-EN ISO 14122-4 e incluyen sistemas de cierre inferior anti-intrusión con candado, esenciales para la seguridad operacional en instalaciones de AENA."
+    "notasTecnicas": "El acabado Granite® HDX55 en ambas caras garantiza una protección óptima contra la niebla salina de Menorca y la atmósfera aeroportuaria, evitando la rápida degradación observada en los voladizos actuales. Las dos escaleras opcionales con protección dorsal (crinolina) en acero inoxidable cumplen estrictamente la norma UNE-EN ISO 14122-4 e incluyen sistemas de cierre inferior anti-intrusión con candado. La línea de vida permanente homologada LuxTop® s/ UNE-EN 795:2012 Tipo C proporciona la máxima seguridad conforme a los estándares de AENA para futuros mantenimientos sin comprometer la estanqueidad de la cubierta."
   }
 }

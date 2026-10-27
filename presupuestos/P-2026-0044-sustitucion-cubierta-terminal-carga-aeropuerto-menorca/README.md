@@ -1,7 +1,7 @@
 # Presupuesto P-2026-0044: Sustitución de Cubierta y Voladizos Terminal de Carga - Aeropuerto de Menorca
 
 - **Código Expediente:** P-2026-0044
-- **Referencia Interna:** PRE-2026-1027-AENA-CARGA-HDX-REV1
+- **Referencia Interna:** PRE-2026-1027-AENA-CARGA-HDX-REV2
 - **Fecha de emisión:** 27 de octubre de 2026
 - **Cliente / Proyectista:** Consultores de Ingeniería UG21 / UTE BTG-UG21
 - **Atención Técnica:** Dña. Marina Gallego Fernández (Arquitecto / Proyectos UG21) / D. Javier Zorrilla Lozano (Ingeniero Aeroespacial)
@@ -11,10 +11,10 @@
 - **Empresa Emisora:** HAM Estructuras Metálicas (Dixis Recursos y Soluciones, SL - CIF B-57825432)
 - **Superficie total de actuación:** **1.904,00 m²** (1.042,50 m² faldones a 2 aguas + 328,50 m² faldón a 1 agua + 533,00 m² voladizos en muelles)
 - **Especificación Clave:** Panel sándwich de cubierta PIR 40 mm con revestimiento especial anticorrosión marina **Granite® HDX55 (55 micras) por AMBAS CARAS**, fijación en acero inoxidable bimetálico A2 con arandelas vulcanizadas EPDM y sellado continuo hidro-expansivo de butilo.
-- **Partidas Opcionales Incorporadas:** **2 escaleras de gato con jaula de protección dorsal (crinolina)** de seguridad conforme a norma **UNE-EN ISO 14122-4** fabricadas íntegramente en **ACERO INOXIDABLE (AISI 304/316)**:
-  1. Escalera de acceso al voladizo ($H \approx 4,20\text{ m}$).
-  2. Escalera de acceso a la cubierta principal ($H \approx 6,80\text{ m}$).
-  *Ambas incorporan compuerta batiente de cierre automático superior y placa de condena inferior anti-intrusión con candado en acero inoxidable para control de acceso y seguridad operacional de AENA.*
+- **Partidas Opcionales Incorporadas:**
+  1. **Escalera de gato con crinolina en ACERO INOXIDABLE para voladizo ($H \approx 4,20\text{ m}$):** 5.005,00 € *(tarifa revisada +30%)*.
+  2. **Escalera de gato con crinolina en ACERO INOXIDABLE para cubierta ($H \approx 6,80\text{ m}$):** 7.735,00 € *(tarifa revisada +30%)*.
+  3. **Línea de vida permanente homologada marca LUXTOP® s/ UNE-EN 795:2012 Tipo C:** 18.000,00 €.
 
 ---
 
@@ -23,8 +23,8 @@
 | Bloque Contractual | Base Imponible | IVA (21%) | Total con IVA | Estado |
 |---|---:|---:|---:|:---:|
 | **Obra Base Principal** (Cubiertas 1.371 m² + Voladizos 533 m² + Medios + PRL AENA) | **220.225,00 €** | **46.247,25 €** | **266.472,25 €** | Principal |
-| **Partidas Opcionales** (2 Escaleras de gato con crinolina en **Acero Inoxidable**) | **9.800,00 €** | **2.058,00 €** | **11.858,00 €** | *Opcional* |
-| **TOTAL GENERAL CONTRATO CON OPCIONALES** | **230.025,00 €** | **48.305,25 €** | **278.330,25 €** | *Conjunto* |
+| **Partidas Opcionales** (2 Escaleras Inox con crinolina + Línea de Vida LuxTop®) | **30.740,00 €** | **6.455,40 €** | **37.195,40 €** | *Opcional* |
+| **TOTAL GENERAL CONTRATO CON OPCIONALES** | **250.965,00 €** | **52.702,65 €** | **303.667,65 €** | *Conjunto* |
 
 ---
 
@@ -56,15 +56,16 @@
 
 ---
 
-## 4. Partidas Opcionales Independientes (Escaleras Inox con Crinolina)
+## 4. Partidas Opcionales Independientes (Escaleras Inox y Línea LuxTop®)
 
 | Nº | Código | Concepto y Elementos de Seguridad | Ud. | Cantidad | P. Unitario | Importe (€) |
 |:---:|:---:|---|:---:|---:|---:|---:|
-| **OPC-01** | `ESC-VOL-INOX` | **Escalera de gato con protección dorsal en ACERO INOXIDABLE para acceso a voladizo ($H \approx 4,20\text{ m}$)**<br>Escalera fija s/ UNE-EN ISO 14122-4 íntegramente en acero inoxidable AISI 304/316 (desarrollo total 5,30 m con desembarco). Incluye montantes inox, peldaños antideslizantes estriados, jaula dorsal (crinolina) aros y tirantes inox desde 2,20 m, desembarco ensanchado con barandillas de 1.100 mm, compuerta batiente superior de seguridad con cierre automático por gravedad/muelle, placa de condena inferior anti-intrusión con candado inox (control acceso Aena) y anclajes químicos inox A4. | ud | 1,00 | 3.850,00 € | 3.850,00 € |
-| **OPC-02** | `ESC-CUB-INOX` | **Escalera de gato con protección dorsal en ACERO INOXIDABLE para acceso a cubierta ($H \approx 6,80\text{ m}$)**<br>Escalera fija s/ UNE-EN ISO 14122-4 íntegramente en acero inoxidable AISI 304/316 (desarrollo total 7,90 m con desembarco) para acceso técnico y mantenimiento a cubierta principal. Incluye montantes y peldaños antideslizantes inox, jaula dorsal continua desde 2,50 m, desembarco superior protegido con barandillas de 1.100 mm y rodapié, puerta batiente superior con retorno automático, placa inferior abatible de bloqueo anti-intrusión con candado inox y anclajes estructurales inox A4. | ud | 1,00 | 5.950,00 € | 5.950,00 € |
-| | | **SUBTOTAL BASE IMPONIBLE OPCIONALES:** | | | | **9.800,00 €** |
-| | | **I.V.A. (21%):** | | | | **2.058,00 €** |
-| | | **TOTAL OPCIONALES (IVA incl.):** | | | | **11.858,00 €** |
+| **OPC-01** | `ESC-VOL-INOX` | **Escalera de gato con protección dorsal en ACERO INOXIDABLE para acceso a voladizo ($H \approx 4,20\text{ m}$)** *(+30%)*<br>Escalera fija s/ UNE-EN ISO 14122-4 íntegramente en acero inoxidable AISI 304/316 (desarrollo total 5,30 m con desembarco). Incluye montantes inox, peldaños antideslizantes estriados, jaula dorsal (crinolina) aros y tirantes inox desde 2,20 m, desembarco ensanchado con barandillas de 1.100 mm, compuerta batiente superior con cierre automático por muelle, placa de condena inferior anti-intrusión con candado inox (control acceso AENA) y anclajes químicos inox A4. | ud | 1,00 | 5.005,00 € | 5.005,00 € |
+| **OPC-02** | `ESC-CUB-INOX` | **Escalera de gato con protección dorsal en ACERO INOXIDABLE para acceso a cubierta ($H \approx 6,80\text{ m}$)** *(+30%)*<br>Escalera fija s/ UNE-EN ISO 14122-4 íntegramente en acero inoxidable AISI 304/316 (desarrollo total 7,90 m con desembarco) para acceso técnico y mantenimiento a cubierta principal. Montantes y peldaños antideslizantes inox, jaula dorsal continua desde 2,50 m, desembarco superior con barandillas de 1.100 mm y rodapié, puerta batiente superior con retorno automático, placa inferior abatible de bloqueo anti-intrusión con candado inox y anclajes estructurales inox A4. | ud | 1,00 | 7.735,00 € | 7.735,00 € |
+| **OPC-03** | `LV-LUXTOP` | **Línea de vida permanente homologada marca LUXTOP® s/ UNE-EN 795:2012 Tipo C sobre cubierta**<br>Suministro, montaje y certificación oficial de línea de vida horizontal continua de cable de acero inoxidable AISI 316 (Ø 8 mm) marca LUXTOP®, conforme a UNE-EN 795:2012 Tipo C y CEN/TS 16415 para hasta 4 operarios simultáneos. Postes absorbedores estancos sobre faldón sándwich con bases sobreelevadas y juntas EPDM, tensor con testigo micrométrico, carros deslizadores pasantes transfronterizos sin desconexión, placa identificativa CE, ensayos de tracción en obra y certificado técnico visado. | ud | 1,00 | 18.000,00 € | 18.000,00 € |
+| | | **SUBTOTAL BASE IMPONIBLE OPCIONALES:** | | | | **30.740,00 €** |
+| | | **I.V.A. (21%):** | | | | **6.455,40 €** |
+| | | **TOTAL OPCIONALES (IVA incl.):** | | | | **37.195,40 €** |
 
 ---
 
@@ -78,29 +79,30 @@
 | **MAT-04** | Rematería troquelada y plegada a medida con revestimiento HDX55 | 1 lote | 5.800,00 € | 5.800,00 € |
 | **MAT-05** | Imprimación epoxi anticorrosiva alto contenido en sólidos viguetas ménsula voladizos | 1 lote | 1.450,00 € | 1.450,00 € |
 | **MAT-06** | Perfiles, aros, peldaños y cancelas en **ACERO INOXIDABLE** para 2 escalas con crinolina | 1 lote | 3.700,00 € | 3.700,00 € |
+| **MAT-07** | Materiales y accesorios homologados **LUXTOP®** (cable inox 316, postes absorbedores y carros) | 1 lote | 10.300,00 € | 10.300,00 € |
 | **MO-01** | Mano de obra especializada HAM obra base (cuadrilla de 4 oficiales ~800 h a 28 €/h) | 800 h | 28,00 €/h | 22.400,00 € |
-| **MO-02** | Mano de obra taller y montaje en obra 2 escaleras inox (soldadura TIG y anclajes ~60 h) | 60 h | 28,00 €/h | 1.680,00 € |
+| **MO-02** | Mano de obra taller y montaje 2 escalas inox + montaje/ensayo línea LuxTop (~100 h) | 100 h | 28,00 €/h | 2.800,00 € |
 | **LOG-01** | Fletes marítimos Península-Menorca para trailers especiales paneles gran formato | 1 lote | 5.200,00 € | 5.200,00 € |
 | **LOG-02** | Camión grúa pluma telescópica descarga e izado distribuido en pórticos cubierta | 1 lote | 4.600,00 € | 4.600,00 € |
 | **LOG-03** | Alquiler de 2 PEMP articuladas para trabajos en voladizos y cubierta | 1 lote | 3.400,00 € | 3.400,00 € |
 | **PRL-01** | Redes de seguridad anticaídas bajo faldones UNE-EN 1263-1 y líneas de vida EN 795 | 1 lote | 3.800,00 € | 3.800,00 € |
 | **PRL-02** | Canon de vertedero insular y tasas de centro de reciclaje de Menorca | 1 lote | 1.800,00 € | 1.800,00 € |
-| | **COSTE DIRECTO TOTAL GLOBAL (CDT HAM):** | | | **130.910,00 €** |
+| | **COSTE DIRECTO TOTAL GLOBAL (CDT HAM):** | | | **142.330,00 €** |
 
 ### Análisis de Rentabilidad Comercial Conjunta:
-- **Precio de Venta Global (Base Imponible Base + Opcionales):** **230.025,00 €**
-- **Coste Directo Total de Ejecución HAM:** **130.910,00 €**
-- **Margen Bruto de Explotación HAM:** **99.115,00 €**
-- **Margen sobre Venta Global (% s/ PVP):** **43,09 %**
-- **Margen sobre Coste Directo (% s/ CDT):** **75,71 %**
+- **Precio de Venta Global (Base Imponible Base + Opcionales):** **250.965,00 €**
+- **Coste Directo Total de Ejecución HAM:** **142.330,00 €**
+- **Margen Bruto de Explotación HAM:** **108.635,00 €**
+- **Margen sobre Venta Global (% s/ PVP):** **43,29 %**
+- **Margen sobre Coste Directo (% s/ CDT):** **76,33 %**
 
 ---
 
 ## 6. Archivos del Expediente
 
-- [presupuesto-cliente.pdf](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0044-sustitucion-cubierta-terminal-carga-aeropuerto-menorca/presupuesto-cliente.pdf) *(Propuesta técnica y comercial oficial con desglose de obra base y opcionales de escaleras inox)*
+- [presupuesto-cliente.pdf](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0044-sustitucion-cubierta-terminal-carga-aeropuerto-menorca/presupuesto-cliente.pdf) *(Propuesta técnica y comercial oficial con desglose de obra base y opcionales: escaleras inox +30% y línea LuxTop®)*
 - [presupuesto-interno-tecnico.pdf](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0044-sustitucion-cubierta-terminal-carga-aeropuerto-menorca/presupuesto-interno-tecnico.pdf) *(Dossier confidencial de costes internos HAM, mano de obra, opcionales y márgenes)*
-- [presupuesto.xlsx](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0044-sustitucion-cubierta-terminal-carga-aeropuerto-menorca/presupuesto.xlsx) *(Libro Excel profesional con 2 hojas: Presupuesto Cliente con subtotales base y opcionales, y Escandallo Costes HAM con fórmulas vivas)*
+- [presupuesto.xlsx](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0044-sustitucion-cubierta-terminal-carga-aeropuerto-menorca/presupuesto.xlsx) *(Libro Excel profesional con 2 hojas: Presupuesto Cliente con subtotales independientes y Escandallo Costes HAM con fórmulas vivas)*
 - [presupuesto-cliente.html](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0044-sustitucion-cubierta-terminal-carga-aeropuerto-menorca/presupuesto-cliente.html) *(Maquetación web responsive cliente)*
 - [presupuesto-interno-tecnico.html](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0044-sustitucion-cubierta-terminal-carga-aeropuerto-menorca/presupuesto-interno-tecnico.html) *(Maquetación web responsive técnica interna)*
 - [datos.json](file:///c:/Users/pablo/Documents/Presupuestador/presupuestos/P-2026-0044-sustitucion-cubierta-terminal-carga-aeropuerto-menorca/datos.json) *(Datos estructurados del proyecto, mediciones y partidas)*
