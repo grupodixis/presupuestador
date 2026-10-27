@@ -1,6 +1,6 @@
 {
   "numeroPresupuesto": "P-2026-0044",
-  "referencia": "PRE-2026-1027-AENA-CARGA-HDX-REV2",
+  "referencia": "PRE-2026-1027-AENA-CARGA-HDX-REV3",
   "fecha": "2026-10-27",
   "validezDias": 30,
   "cliente": {
@@ -31,6 +31,7 @@
     "fijaciones": "Tornillería autotaladrante bimetálica de acero inoxidable A2 (cuerpo inoxidable y punta templada) con arandelas de estanqueidad vulcanizada de EPDM (evitando corrosión por par galvánico en ambiente costero).",
     "estanqueidad": "Sellado continuo de juntas y solapes mediante cordón de masilla hidro-expansiva de butilo y masilla elastomérica de poliuretano/MS polímero en encuentros perimetrales.",
     "voladizos": "Sustitución integral de la envolvente de voladizos/marquesinas de muelles de carga, incluyendo saneado y desoxidado mecánico de viguetas en ménsula con imprimación epoxi anticorrosiva de alto contenido en sólidos (mínimo 80 micras de espesor seco) e instalación de chapa/panel con acabado HDX55 en ambas caras.",
+    "mediosIntegrados": "Los precios unitarios de las partidas de cubierta (135 €/m²), voladizos (95 €/m²) y desmontaje (25 €/m²) llevan totalmente integrados y repercutidos los costes de medios auxiliares: fletes marítimos especiales Península-Menorca de trailers, camión grúa pluma telescópica autopropulsada para descarga e izado distribuido en pórticos, y alquiler de plataformas elevadoras móviles de personal (PEMP) tipo tijera y articulada.",
     "escalerasOpcionales": "Escaleras fijas de gato con jaula dorsal de protección (crinolina) fabricadas íntegramente en acero inoxidable AISI 304/316 según norma UNE-EN ISO 14122-4, con desembarco superior ensanchado, cancela batiente con cierre automático por gravedad/muelle y placa inferior abatible de bloqueo anti-intrusión con candado en acero inoxidable para seguridad operacional AENA.",
     "lineaVidaLuxTop": "Sistema permanente de línea de vida horizontal de cable de acero inoxidable AISI 316 homologado marca LuxTop®, conforme a normas UNE-EN 795:2012 Tipo C y especificación técnica CEN/TS 16415 para uso simultáneo de múltiples operarios. Incluye absorbedores dinámicos de energía, postes intermedios y de extremo específicos para panel sándwich con fijación estanca, tensor con testigo, carros pasantes transitables sin desconexión y ensayo/certificación técnica visada."
   },
@@ -41,52 +42,110 @@
     "voladizosFachadasM2": 533.00,
     "superficieTotalM2": 1904.00
   },
+  "desgloseRemateriaPartida05": {
+    "descripcion": "Detalle técnico de elementos, metrado lineal y piezas especiales computadas a partir de las planimetrías del proyecto para la rematería en chapa de acero galvanizado con recubrimiento Granite® HDX55 (55 µm) plegada a medida (desarrollo 300 a 500 mm):",
+    "elementos": [
+      {
+        "concepto": "Cumbrera troquelada a dos aguas (faldón principal)",
+        "longitudML": 50.23,
+        "desarrollo": "Desarrollo 500 mm, plegado a dos aguas con troquelado a la greca del panel, junta estanca de butilo y peine antipájaros"
+      },
+      {
+        "concepto": "Remates de testero / hastial lateral (cubierta 2 aguas)",
+        "longitudML": 41.60,
+        "desarrollo": "4 faldones x 10,40 m de caída. Chapa plegada en 'L' con goterón exterior y solape estanco sobre panel"
+      },
+      {
+        "concepto": "Remates de testero / hastial lateral (cubierta 1 agua)",
+        "longitudML": 21.74,
+        "desarrollo": "2 extremos de faldón x 10,87 m de caída con remate de goterón lateral"
+      },
+      {
+        "concepto": "Remate babero superior contra peto (cubierta 1 agua)",
+        "longitudML": 30.22,
+        "desarrollo": "Babero plegado superior fijado a muro con pestaña sellada perimetralmente con masilla de poliuretano exterior"
+      },
+      {
+        "concepto": "Remate de quiebro / salto de nivel entre naves",
+        "longitudML": 10.40,
+        "desarrollo": "Transición vertical entre cubierta a dos aguas y cubierta a un agua con vierteaguas integrado"
+      },
+      {
+        "concepto": "Frontal de goterón bota-aguas voladizo fachada Este",
+        "longitudML": 80.44,
+        "desarrollo": "Chapa plegada frontal con goterón para evacuación libre de agua de lluvia y protección del borde del panel"
+      },
+      {
+        "concepto": "Frontal de goterón bota-aguas voladizo fachada Oeste",
+        "longitudML": 80.44,
+        "desarrollo": "Chapa plegada frontal con goterón continuo en muelle de carga Oeste"
+      },
+      {
+        "concepto": "Cierres laterales de testero en voladizos",
+        "longitudML": 13.20,
+        "desarrollo": "4 extremos laterales de voladizo x 3,30 m de vuelo"
+      },
+      {
+        "concepto": "Babero posterior de voladizo contra fachada",
+        "longitudML": 160.88,
+        "desarrollo": "Encuentro posterior del voladizo con el muro de fachada en ambas caras (80,44 m x 2) con sellado estanco"
+      },
+      {
+        "concepto": "Puntos singulares, cajeados y mordidos mecánicos",
+        "unidades": 10,
+        "desarrollo": "Piezas especiales conformadas para chimeneas de ventilación, bajantes de pluviales y salidas de climatización"
+      }
+    ],
+    "totalMetrosLineales": 489.15,
+    "totalPuntosSingulares": 10,
+    "importeTotalPartida05": 14850.00
+  },
   "partidas": [
     {
       "id": "01",
       "codigo": "DESM-CUB",
       "concepto": "Desmontaje controlado de cubierta actual, voladizos existentes y gestión autorizada de residuos",
-      "descripcion": "Desmontaje manual y mecánico de la cubierta y voladizos existentes de chapa/panel degradada y corroída. Descenso a cota cero mediante camión pluma y plataforma elevadora, clasificación de residuos férricos, carga, transporte y entrega en centro autorizado de gestión y reciclaje de residuos de Menorca, incluyendo tasas y canon oficial de vertedero.",
+      "descripcion": "Desmontaje manual y mecánico de la cubierta y voladizos existentes de chapa/panel degradada y corroída. Incluye descenso a cota cero con grúa pluma y plataforma elevadora (medios integrados), acopio, clasificación de residuos férricos, carga, transporte y entrega en centro autorizado de gestión y reciclaje de residuos de Menorca, con tasas y canon oficial de vertedero incluidos.",
       "unidad": "m²",
       "cantidad": 1904.00,
-      "precioUnitario": 14.50,
-      "importe": 27608.00
+      "precioUnitario": 25.00,
+      "importe": 47600.00
     },
     {
       "id": "02",
       "codigo": "SAND-2AGUAS",
       "concepto": "Suministro e instalación de Panel Sándwich HDX55 en AMBAS CARAS en cubierta a dos aguas",
-      "descripcion": "Suministro e instalación de panel sándwich de cubierta de 3 grecas con tapajuntas integrado, compuesto por núcleo aislante rígido de PIR de 40 mm de espesor (densidad 40 kg/m³, λ = 0,022 W/m·K, clasificación al fuego B-s1,d0) y dos chapas de acero estructural galvanizado con revestimiento de protección marina severa Granite® HDX55 (55 µm de espesor) en AMBAS CARAS (exterior e interior). Fijación a estructura portante mediante tornillería bimetálica autotaladrante de acero inoxidable A2 con arandela estanca de EPDM, con cordón continuo de masilla de butilo en solapes.",
+      "descripcion": "Suministro e instalación de panel sándwich de cubierta de 3 grecas con tapajuntas integrado, compuesto por núcleo aislante rígido de PIR de 40 mm de espesor (densidad 40 kg/m³, λ = 0,022 W/m·K, clasificación al fuego B-s1,d0) y dos chapas de acero estructural galvanizado con revestimiento Granite® HDX55 (55 µm de espesor) en AMBAS CARAS (exterior e interior). Fijación a estructura portante mediante tornillería bimetálica autotaladrante de acero inoxidable A2 con arandela estanca de EPDM, con cordón continuo de masilla de butilo en solapes. Incluye fletes marítimos Península-Menorca de paneles de gran longitud, camión grúa pluma para descarga e izado distribuido en pórticos y plataformas elevadoras PEMP integradas.",
       "unidad": "m²",
       "cantidad": 1042.50,
-      "precioUnitario": 78.00,
-      "importe": 81315.00
+      "precioUnitario": 135.00,
+      "importe": 140737.50
     },
     {
       "id": "03",
       "codigo": "SAND-1AGUA",
       "concepto": "Suministro e instalación de Panel Sándwich HDX55 en AMBAS CARAS en cubierta a un agua",
-      "descripcion": "Suministro e instalación de panel sándwich de cubierta de 3 grecas con tapajuntas integrado (espesor 40 mm PIR, B-s1,d0) con acabado de alta durabilidad Granite® HDX55 (55 µm) por ambas caras (exterior e interior) en faldón a un agua. Incluye adaptaciones mecánicas de faldón, cortes en encuentros contra paramentos verticales y petos, fijaciones inoxidables A2 con arandela de estanqueidad EPDM y sellado butílico continuo.",
+      "descripcion": "Suministro e instalación de panel sándwich de cubierta de 3 grecas con tapajuntas integrado (espesor 40 mm PIR, B-s1,d0) con acabado de alta durabilidad Granite® HDX55 (55 µm) por ambas caras (exterior e interior) en faldón a un agua. Incluye adaptaciones mecánicas de faldón, cortes en encuentros contra paramentos verticales y petos, fijaciones inoxidables A2 con arandela de estanqueidad EPDM, sellado butílico continuo y repercusión íntegra de fletes marítimos y medios mecánicos de elevación y PEMP.",
       "unidad": "m²",
       "cantidad": 328.50,
-      "precioUnitario": 80.00,
-      "importe": 26280.00
+      "precioUnitario": 135.00,
+      "importe": 44347.50
     },
     {
       "id": "04",
       "codigo": "VOL-MARQ",
       "concepto": "Sustitución integral de voladizos en muelles de carga con acabado HDX55 e imprimación anticorrosiva",
-      "descripcion": "Rehabilitación y sustitución completa de la envolvente de los voladizos de fachada (muelles de carga, 267 m² por fachada, total 533 m²). Incluye cepillado y saneado mecánico superficial con eliminación de óxido en viguetas metálicas en ménsula existentes, aplicación de capa de imprimación epoxi anticorrosiva rica en zinc de alto espesor (C5-M), e instalación de nueva cobertura con chapa/panel de alta resistencia protegida con revestimiento HDX55 (55 µm) en ambas caras, con fijaciones inoxidables A2 y remates perimetrales de goterón frontal.",
+      "descripcion": "Rehabilitación y sustitución completa de la envolvente de los voladizos de fachada (muelles de carga, 267 m² por fachada, total 533 m²). Incluye cepillado y saneado mecánico superficial con eliminación de óxido en viguetas metálicas en ménsula existentes, aplicación de capa de imprimación epoxi anticorrosiva rica en zinc de alto espesor (C5-M), e instalación de nueva cobertura con chapa/panel de alta resistencia protegida con revestimiento HDX55 (55 µm) en ambas caras, con fijaciones inoxidables A2, remates perimetrales frontales con goterón y repercusión de plataformas elevadoras PEMP.",
       "unidad": "m²",
       "cantidad": 533.00,
-      "precioUnitario": 84.00,
-      "importe": 44772.00
+      "precioUnitario": 95.00,
+      "importe": 50635.00
     },
     {
       "id": "05",
       "codigo": "REM-COMP",
       "concepto": "Rematería completa en acero con acabado HDX55, coronaciones, encuentros, mordidos y sellados",
-      "descripcion": "Suministro, conformación y colocación de toda la rematería técnica necesaria para la total estanqueidad del conjunto, fabricada en chapa de acero galvanizado con idéntico revestimiento HDX55 (55 µm): cumbreras conformadas y troqueladas a dos aguas, remates laterales de testero y coronación de hastiales, baberos de encuentro con paramentos verticales, mordidos mecánicos y adaptación a salidas de ventilación, bajantes, chimeneas y elementos singulares, con sellado perimetral continuo con masilla elástica de poliuretano exterior.",
+      "descripcion": "Suministro, conformación en taller y montaje de 489,15 ml de rematería técnica plegada a medida (desarrollos 300-500 mm) en chapa de acero galvanizado con idéntico recubrimiento Granite® HDX55 (55 µm): 50,23 ml de cumbrera troquelada a dos aguas, 63,34 ml de remates laterales de hastial/testero con goterón, 30,22 ml de babero de coronación contra peto, 10,40 ml de remate de salto entre naves, 174,08 ml de goterones frontales y laterales de voladizo, 160,88 ml de baberos de encuentro voladizo-fachada y 10 unidades de mordidos y cajeados estancos en salidas de chimeneas y bajantes, con doble sellado perimetral continuo con masilla hidro-expansiva de butilo y polímero elástico MS exterior.",
       "unidad": "lote",
       "cantidad": 1.00,
       "precioUnitario": 14850.00,
@@ -94,19 +153,9 @@
     },
     {
       "id": "06",
-      "codigo": "LOG-MEDIOS",
-      "concepto": "Logística insular, transporte marítimo especial a Menorca y medios pesados de elevación",
-      "descripcion": "Fletes marítimos Península-Menorca para transporte especial de paneles sándwich de gran longitud en trailers específicos, transporte a terminal de carga del Aeropuerto de Menorca, grúa móvil autopropulsada / camión pluma de gran alcance para descarga, elevación e izado directo distribuido sobre pórticos de cubierta, y alquiler de plataformas elevadoras móviles de personal (PEMP) tipo articulada y de tijera durante todas las fases de desmontaje y montaje.",
-      "unidad": "lote",
-      "cantidad": 1.00,
-      "precioUnitario": 15600.00,
-      "importe": 15600.00
-    },
-    {
-      "id": "07",
       "codigo": "PRL-AENA",
-      "concepto": "Seguridad y salud, protecciones colectivas en altura y protocolo aeroportuario Aena",
-      "descripcion": "Implantación de medidas de seguridad y salud en altura bajo estricta normativa de Aena en terminal de carga: instalación de redes de seguridad anticaídas bajo faldones según norma UNE-EN 1263-1, líneas de vida provisionales homologadas UNE-EN 795, balizamiento de zonas de acopio y descarga, tramitación de Coordinación de Actividades Empresariales (CAE) en plataforma aeroportuaria, gestión de acreditaciones del personal y recursos preventivos en obra.",
+      "concepto": "Seguridad y salud, protecciones colectivas en altura y protocolo aeroportuario AENA",
+      "descripcion": "Implantación de medidas de seguridad y salud en altura bajo estricta normativa de AENA en terminal de carga: instalación de redes de seguridad anticaídas bajo faldones según norma UNE-EN 1263-1, líneas de vida provisionales homologadas UNE-EN 795, balizamiento perimetral de zonas de acopio y descarga, tramitación de Coordinación de Actividades Empresariales (CAE) en plataforma aeroportuaria, gestión de acreditaciones del personal y recursos preventivos permanentes en obra.",
       "unidad": "lote",
       "cantidad": 1.00,
       "precioUnitario": 9800.00,
@@ -137,7 +186,7 @@
     {
       "id": "OPC-03",
       "codigo": "LV-LUXTOP",
-      "concepto": "OPCIONAL 3: Línea de vida permanente homologada marca LuxTop® sobre cubierta",
+      "concepto": "OPCIONAL 3: Línea de vida permanente homologada marca LUXTOP® s/ UNE-EN 795:2012 Tipo C sobre cubierta",
       "descripcion": "Suministro, replanteo, montaje y certificación oficial de sistema permanente de línea de vida horizontal continua de cable de acero inoxidable AISI 316 (Ø 8 mm) marca LUXTOP®, conforme a las normas UNE-EN 795:2012 Tipo C y CEN/TS 16415 (homologada para trabajo y rescate de hasta 4 operarios simultáneos). Instalación sobre cubierta de panel sándwich mediante postes terminales e intermedios con absorbedor de impacto dinámico patentado LuxTop®, bases de fijación estancas sobreelevadas con juntas de EPDM (evitando cualquier riesgo de filtración o puente térmico), tensor de cable con testigo micrométrico de tensión, pieza curva/esquina si procede, carros deslizadores pasantes transfronterizos sin necesidad de desconexión manual, placa de marcado identificativa CE, ensayos de tracción en obra y dossier de legalización con certificado visado.",
       "unidad": "ud",
       "cantidad": 1.00,
@@ -146,15 +195,15 @@
     }
   ],
   "totalesEconomicos": {
-    "baseImponibleBase": 220225.00,
-    "ivaBase": 46247.25,
-    "totalBaseConIva": 266472.25,
+    "baseImponibleBase": 307970.00,
+    "ivaBase": 64673.70,
+    "totalBaseConIva": 372643.70,
     "baseImponibleOpcionales": 30740.00,
     "ivaOpcionales": 6455.40,
     "totalOpcionalesConIva": 37195.40,
-    "baseImponibleGeneral": 250965.00,
-    "ivaGeneral": 52702.65,
-    "totalGeneralConIva": 303667.65
+    "baseImponibleGeneral": 338710.00,
+    "ivaGeneral": 71129.10,
+    "totalGeneralConIva": 409839.10
   },
   "escandalloCostesInternosHAM": {
     "compraMateriales": {
@@ -188,25 +237,25 @@
     "costeDirectoTotalBase": 125530.00,
     "costeDirectoOpcionales": 16800.00,
     "costeDirectoTotalGlobal": 142330.00,
-    "precioVentaBase": 220225.00,
+    "precioVentaBase": 307970.00,
     "precioVentaOpcionales": 30740.00,
-    "precioVentaGlobal": 250965.00,
-    "margenBrutoBase": 94695.00,
+    "precioVentaGlobal": 338710.00,
+    "margenBrutoBase": 182440.00,
     "margenBrutoOpcionales": 13940.00,
-    "margenBrutoGlobal": 108635.00,
-    "margenBrutoPorcentajeVentaGlobal": 43.29,
-    "margenBrutoPorcentajeCosteGlobal": 76.33
+    "margenBrutoGlobal": 196380.00,
+    "margenBrutoPorcentajeVentaGlobal": 57.98,
+    "margenBrutoPorcentajeCosteGlobal": 137.97
   },
   "condicionesComerciales": {
     "formaDePago": "40% a la formalización del pedido y acopio de paneles en fábrica, 30% al inicio del montaje en obra tras descarga y 30% a la finalización y recepción de los trabajos",
     "hitosPago": [
-      { "hito": "40% a la formalización y lanzamiento de fabricación HDX55", "importe": 106588.90 },
-      { "hito": "30% a la recepción de materiales en obra e inicio de montaje", "importe": 79941.68 },
-      { "hito": "30% a la finalización de los trabajos y certificación final", "importe": 79941.67 }
+      { "hito": "40% a la formalización y lanzamiento de fabricación HDX55", "importe": 149057.48 },
+      { "hito": "30% a la recepción de materiales en obra e inicio de montaje", "importe": 111793.11 },
+      { "hito": "30% a la finalización de los trabajos y certificación final", "importe": 111793.11 }
     ],
     "plazoEjecucion": "5 a 7 semanas laborables desde la recepción y acopio de los paneles en obra",
     "garantia": "10 años de garantía en durabilidad de recubrimiento Granite® HDX55 contra corrosión marina y perforación; 10 años en elementos de acero inoxidable de las escalas; 10 años de garantía del fabricante del sistema LuxTop®; 5 años en estanqueidad de la cubierta; 2 años en montaje e instalaciones mecánicas.",
     "validezOferta": "30 días naturales desde la fecha de emisión.",
-    "notasTecnicas": "El acabado Granite® HDX55 en ambas caras garantiza una protección óptima contra la niebla salina de Menorca y la atmósfera aeroportuaria, evitando la rápida degradación observada en los voladizos actuales. Las dos escaleras opcionales con protección dorsal (crinolina) en acero inoxidable cumplen estrictamente la norma UNE-EN ISO 14122-4 e incluyen sistemas de cierre inferior anti-intrusión con candado. La línea de vida permanente homologada LuxTop® s/ UNE-EN 795:2012 Tipo C proporciona la máxima seguridad conforme a los estándares de AENA para futuros mantenimientos sin comprometer la estanqueidad de la cubierta."
+    "notasTecnicas": "El acabado Granite® HDX55 en ambas caras garantiza una protección óptima contra la niebla salina de Menorca y la atmósfera aeroportuaria, evitando la rápida degradación observada en los voladizos actuales. Todos los medios auxiliares, transportes y grúas están repercutidos en los precios unitarios de las partidas principales. Las dos escaleras opcionales con crinolina en acero inoxidable cumplen la norma UNE-EN ISO 14122-4 con condena inferior para AENA. La línea de vida LuxTop® sobre faldón garantiza la seguridad total de futuros mantenimientos conforme a UNE-EN 795:2012 Tipo C."
   }
 }

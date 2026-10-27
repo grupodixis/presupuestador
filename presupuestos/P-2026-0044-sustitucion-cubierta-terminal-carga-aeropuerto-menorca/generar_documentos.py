@@ -67,7 +67,7 @@ def create_excel():
     ws1["A9"] = "SISTEMA TÉCNICO"
     ws1["A9"].font = bold_font
     ws1["A9"].fill = section_fill
-    ws1["B9"] = "Panel Sándwich Cubierta PIR 40 mm (B-s1,d0) con acabado especial anticorrosión marina Granite® HDX55 (55 µm) por AMBAS CARAS | Fijaciones bimetálicas inox A2 + EPDM | Opcionales: 2 escalas de gato inox con crinolina (+30%) + Línea de vida permanente LuxTop® (18.000 €)"
+    ws1["B9"] = "Panel Sándwich Cubierta PIR 40 mm (B-s1,d0) con acabado Granite® HDX55 (55 µm) por AMBAS CARAS | Medios mecánicos y fletes integrados en partidas principales | Opcionales: 2 escalas de gato inox con crinolina (+30%) + Línea de vida permanente LuxTop® (18.000 €)"
     ws1["B9"].font = regular_font
     ws1["B9"].fill = section_fill
 
@@ -113,7 +113,7 @@ def create_excel():
         ws1.cell(row=16, column=col_i).fill = section_fill
 
     # Tabla de Partidas Base
-    ws1["A18"] = "VALORACIÓN ECONÓMICA DE PARTIDAS BASE"
+    ws1["A18"] = "VALORACIÓN ECONÓMICA DE PARTIDAS BASE (CON MEDIOS INTEGRADOS)"
     ws1["A18"].font = bold_font
     headers = ["Partida", "Concepto y Descripción Técnica", "Unidad", "Cantidad", "Precio Unitario (€)", "Importe (€)"]
     start_row = 19
@@ -177,7 +177,7 @@ def create_excel():
     # BLOQUE DE PARTIDAS OPCIONALES (ESCALERAS INOX + LUXTOP)
     # -------------------------------------------------------------
     r_opc_title = r_tot_base + 2
-    ws1.cell(row=r_opc_title, column=1, value="PARTIDAS OPCIONALES INDEPENDIENTES (ACCESOS EN ACERO INOXIDABLE Y LÍNEA DE VIDA LUXTOP)").font = bold_font
+    ws1.cell(row=r_opc_title, column=1, value="PARTIDAS OPCIONALES INDEPENDIENTES (ACCESOS EN ACERO INOXIDABLE Y LÍNEA LUXTOP)").font = bold_font
 
     start_opc_row = r_opc_title + 1
     for col_idx, header in enumerate(headers, 1):
@@ -265,7 +265,7 @@ def create_excel():
     r_cond = r_grand_tot + 2
     ws1.cell(row=r_cond, column=1, value="CONDICIONES COMERCIALES Y DE EJECUCIÓN").font = bold_font
     ws1.cell(row=r_cond+1, column=1, value="• Forma de pago:").font = bold_font
-    ws1.cell(row=r_cond+1, column=2, value="40% a la formalización (106.588,90 € base), 30% al acopio e inicio montaje (79.941,68 €) y 30% a la recepción final (79.941,67 €). Las partidas opcionales se facturan según aprobación.").font = regular_font
+    ws1.cell(row=r_cond+1, column=2, value="40% a la formalización (149.057,48 € base), 30% al acopio e inicio montaje (111.793,11 €) y 30% a la recepción final (111.793,11 €). Las partidas opcionales se facturan según aprobación.").font = regular_font
     ws1.cell(row=r_cond+2, column=1, value="• Plazo de ejecución:").font = bold_font
     ws1.cell(row=r_cond+2, column=2, value="5 a 7 semanas laborables desde recepción de paneles en Menorca").font = regular_font
     ws1.cell(row=r_cond+3, column=1, value="• Garantías:").font = bold_font
@@ -289,7 +289,7 @@ def create_excel():
 
     ws2["A1"] = "HAM ESTRUCTURAS METÁLICAS - ESCANDALLO DE COMPRA Y COSTES DIRECTOS INTERNOS"
     ws2["A1"].font = Font(name="Segoe UI", size=14, bold=True, color="1E1B4B")
-    ws2["A2"] = "CONFIDENCIAL: USO INTERNO EXCLUSIVO · OBRA BASE + ESCALERAS INOX (+30%) + LÍNEA LUXTOP"
+    ws2["A2"] = "CONFIDENCIAL: USO INTERNO EXCLUSIVO · TARIFAS ACTUALIZADAS (01: 25€, 02/03: 135€, 04: 95€) · MEDIOS INTEGRADOS"
     ws2["A2"].font = Font(name="Segoe UI", size=9.5, bold=True, color="EF4444")
 
     ws2["A4"] = "PARÁMETROS DE COMPRA DIRECTA HAM:"
@@ -324,7 +324,7 @@ def create_excel():
     cost_data = [
         ["MAT-01", "Panel sándwich 40 mm PIR con acabado HDX55 en 2 caras cubiertas (1.371 m² + 5% solapes/mermas)", "m²", 1440.00, "=B5"],
         ["MAT-02", "Panel / chapa grecada acabado HDX55 en 2 caras para voladizos (533 m² + 5% mermas)", "m²", 560.00, "=B6"],
-        ["MAT-03", "Tornillería bimetálica inox A2 con arandelas EPDM, accesorios fijación y masilla de butilo", "lote", 1.00, 6200.00],
+        ["MAT-03", "Tornillería bimetálica inox A2 con arandela EPDM, accesorios fijación y masilla de butilo", "lote", 1.00, 6200.00],
         ["MAT-04", "Rematería troquelada y plegada a medida con revestimiento HDX55 (cumbreras, petos, baberos)", "lote", 1.00, 5800.00],
         ["MAT-05", "Imprimación epoxi anticorrosiva de alto contenido en sólidos para saneado viguetas voladizos", "lote", 1.00, 1450.00],
         ["MAT-06", "Materiales perfiles, peldaños y cancelas en ACERO INOXIDABLE para 2 escalas con crinolina", "lote", 1.00, 3700.00],
@@ -376,7 +376,7 @@ def create_excel():
         c.font = Font(name="Segoe UI", size=9.5, bold=True, color="FFFFFF")
 
     comp_rows = [
-        ["Precio de Venta al Cliente (Base Imp.):", 220225.00, 30740.00, "=B29+C29", "100.00%"],
+        ["Precio de Venta al Cliente (Base Imp.):", 307970.00, 30740.00, "=B29+C29", "100.00%"],
         ["Coste Directo Total HAM:", 125530.00, 16800.00, "=B30+C30", "=D30/D29"],
         ["Margen Bruto de Explotación HAM:", "=B29-B30", "=C29-C30", "=D29-D30", "=D31/D29"]
     ]
@@ -430,8 +430,8 @@ def generate_html_files():
       background: #eaedf0; 
       color: #1e262c; 
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-      font-size: 10px; 
-      line-height: 1.3; 
+      font-size: 9.8px; 
+      line-height: 1.28; 
     }}
     .page-container {{
       width: 210mm;
@@ -439,7 +439,7 @@ def generate_html_files():
       background: #ffffff;
     }}
     .page {{ 
-      padding: 7mm 9mm 6mm;
+      padding: 6.5mm 8.5mm 5.5mm;
       min-height: 285mm;
       max-height: 286mm;
       display: flex;
@@ -456,56 +456,56 @@ def generate_html_files():
     header {{ 
       background: #0f172a; 
       color: #fff; 
-      padding: 8px 14px; 
-      border-radius: 7px;
+      padding: 7px 13px; 
+      border-radius: 6px;
       display: grid; 
       grid-template-columns: 1fr auto; 
       gap: 12px; 
       align-items: center; 
       border-bottom: 3.5px solid #b91c1c;
-      margin-bottom: 7px;
+      margin-bottom: 6px;
     }}
-    .brand {{ display: flex; align-items: center; gap: 11px; }}
-    .logo {{ width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.2); border-radius: 6px; padding: 3px; background: rgba(255,255,255,0.08); }}
-    h1 {{ margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -.02em; color: #ffffff; }}
-    .subtitle {{ margin: 2px 0 0; color: #94a3b8; font-size: 10px; font-weight: 500; }}
-    .meta {{ text-align: right; color: #cbd5e1; font-size: 9px; line-height: 1.35; }}
-    .meta strong {{ color: #ffffff; display: block; font-size: 12px; margin-bottom: 2px; }}
+    .brand {{ display: flex; align-items: center; gap: 10px; }}
+    .logo {{ width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.2); border-radius: 6px; padding: 3px; background: rgba(255,255,255,0.08); }}
+    h1 {{ margin: 0; font-size: 16.5px; font-weight: 700; letter-spacing: -.02em; color: #ffffff; }}
+    .subtitle {{ margin: 1px 0 0; color: #94a3b8; font-size: 9.8px; font-weight: 500; }}
+    .meta {{ text-align: right; color: #cbd5e1; font-size: 8.8px; line-height: 1.35; }}
+    .meta strong {{ color: #ffffff; display: block; font-size: 11.5px; margin-bottom: 2px; }}
 
     .client-card {{
       display: grid;
       grid-template-columns: 1.25fr 1fr;
-      gap: 9px;
+      gap: 8px;
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 6px;
-      padding: 7px 11px;
-      margin-bottom: 8px;
+      padding: 6px 10px;
+      margin-bottom: 7px;
     }}
-    .client-item h4 {{ margin: 0 0 2px; font-size: 8.8px; text-transform: uppercase; color: #64748b; letter-spacing: .05em; }}
-    .client-item p {{ margin: 0; font-size: 10.5px; font-weight: 600; color: #0f172a; }}
-    .client-item span {{ font-size: 9.5px; color: #475569; font-weight: normal; display: block; }}
+    .client-item h4 {{ margin: 0 0 1px; font-size: 8.5px; text-transform: uppercase; color: #64748b; letter-spacing: .05em; }}
+    .client-item p {{ margin: 0; font-size: 10.2px; font-weight: 600; color: #0f172a; }}
+    .client-item span {{ font-size: 9.2px; color: #475569; font-weight: normal; display: block; }}
 
     .kpi-grid {{
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 8px;
+      gap: 7px;
+      margin-bottom: 7px;
     }}
     .kpi-card {{
       background: #f1f5f9;
       border: 1px solid #cbd5e1;
       border-left: 4px solid #b91c1c;
-      border-radius: 6px;
-      padding: 6px 8px;
+      border-radius: 5px;
+      padding: 5px 7px;
     }}
-    .kpi-title {{ font-size: 8.2px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 1px; }}
-    .kpi-val {{ font-size: 14px; font-weight: 800; color: #0f172a; line-height: 1.15; }}
-    .kpi-sub {{ font-size: 8.2px; color: #475569; margin-top: 1px; }}
+    .kpi-title {{ font-size: 8px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 1px; }}
+    .kpi-val {{ font-size: 13.5px; font-weight: 800; color: #0f172a; line-height: 1.15; }}
+    .kpi-sub {{ font-size: 8px; color: #475569; margin-top: 1px; }}
 
     h2 {{ 
-      margin: 7px 0 3px; 
-      font-size: 10.2px; 
+      margin: 6px 0 3px; 
+      font-size: 10px; 
       text-transform: uppercase; 
       letter-spacing: .05em; 
       color: #0f172a; 
@@ -515,45 +515,74 @@ def generate_html_files():
       justify-content: space-between;
       align-items: center;
     }}
-    h2 span {{ font-size: 8.2px; color: #64748b; text-transform: none; font-weight: normal; }}
+    h2 span {{ font-size: 8px; color: #64748b; text-transform: none; font-weight: normal; }}
 
     .solution-box {{
       background: #fff;
       border: 1px solid #e2e8f0;
       border-radius: 6px;
-      padding: 7px 9px;
-      margin-bottom: 7px;
-      font-size: 9.3px;
-      line-height: 1.35;
+      padding: 6px 8px;
+      margin-bottom: 6px;
+      font-size: 9.1px;
+      line-height: 1.33;
       color: #334155;
     }}
     .solution-box ul {{
-      margin: 3px 0 0;
-      padding-left: 14px;
+      margin: 2px 0 0;
+      padding-left: 13px;
     }}
     .solution-box li {{
       margin-bottom: 1.5px;
     }}
 
+    .remates-box {{
+      background: #fdfefe;
+      border: 1px solid #cbd5e1;
+      border-left: 3.5px solid #0284c7;
+      border-radius: 5px;
+      padding: 5px 8px;
+      margin-bottom: 6px;
+      font-size: 8.8px;
+      line-height: 1.3;
+    }}
+    .remates-title {{
+      font-weight: 700;
+      color: #0369a1;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      font-size: 8.8px;
+    }}
+    .remates-grid {{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px 10px;
+    }}
+    .remates-item {{
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #e2e8f0;
+      padding-bottom: 1px;
+    }}
+
     table.data-table {{
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 6px;
-      font-size: 9.1px;
+      margin-bottom: 5px;
+      font-size: 8.9px;
     }}
     table.data-table th {{
       background: #1e293b;
       color: #fff;
-      padding: 3.5px 5.5px;
+      padding: 3.5px 5px;
       text-align: left;
       font-weight: 600;
-      font-size: 8.8px;
+      font-size: 8.6px;
     }}
     table.data-table.optional th {{
       background: #1e3a8a;
     }}
     table.data-table td {{
-      padding: 3px 5.5px;
+      padding: 3px 5px;
       border-bottom: 1px solid #e2e8f0;
       vertical-align: top;
     }}
@@ -562,52 +591,52 @@ def generate_html_files():
     }}
     .td-right {{ text-align: right; white-space: nowrap; }}
     .td-center {{ text-align: center; }}
-    .partida-code {{ font-weight: 700; color: #b91c1c; font-size: 8.5px; }}
-    .partida-code-opc {{ font-weight: 700; color: #1e3a8a; font-size: 8.5px; }}
+    .partida-code {{ font-weight: 700; color: #b91c1c; font-size: 8.3px; }}
+    .partida-code-opc {{ font-weight: 700; color: #1e3a8a; font-size: 8.3px; }}
     .partida-title {{ font-weight: 600; color: #0f172a; margin-bottom: 1px; }}
-    .partida-desc {{ font-size: 8.3px; color: #475569; line-height: 1.25; }}
+    .partida-desc {{ font-size: 8.1px; color: #475569; line-height: 1.22; }}
 
     .summary-cards-container {{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 8px;
+      gap: 7px;
       margin-top: 3px;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }}
     .sum-box {{
       background: #f8fafc;
       border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      padding: 5px 8px;
-      font-size: 9px;
+      border-radius: 5px;
+      padding: 4px 7px;
+      font-size: 8.8px;
     }}
     .sum-box.highlight {{
       background: #f0fdf4;
       border-color: #10b981;
-      border-left: 4px solid #10b981;
+      border-left: 3.5px solid #10b981;
     }}
     .sum-box.optional-box {{
       background: #eff6ff;
       border-color: #3b82f6;
-      border-left: 4px solid #3b82f6;
+      border-left: 3.5px solid #3b82f6;
     }}
     .sum-box h6 {{
-      margin: 0 0 3px;
+      margin: 0 0 2px;
       text-transform: uppercase;
-      font-size: 8.2px;
+      font-size: 8px;
       color: #64748b;
       font-weight: 700;
     }}
     .sum-val {{
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 800;
       color: #0f172a;
       line-height: 1.1;
     }}
     .sum-sub {{
-      font-size: 8.2px;
+      font-size: 8px;
       color: #64748b;
-      margin-top: 1.5px;
+      margin-top: 1px;
     }}
 
     .conditions-grid {{
@@ -620,41 +649,41 @@ def generate_html_files():
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 5px;
-      padding: 5px 7px;
-      font-size: 8.8px;
+      padding: 4px 7px;
+      font-size: 8.6px;
     }}
     .cond-item h5 {{
-      margin: 0 0 1.5px;
+      margin: 0 0 1px;
       color: #0f172a;
-      font-size: 9px;
+      font-size: 8.8px;
       font-weight: 700;
     }}
-    .cond-item p {{ margin: 0; color: #475569; line-height: 1.25; }}
+    .cond-item p {{ margin: 0; color: #475569; line-height: 1.22; }}
 
     .signatures {{
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 6px;
-      padding-top: 6px;
+      gap: 16px;
+      margin-top: 5px;
+      padding-top: 5px;
       border-top: 1px solid #cbd5e1;
     }}
     .sign-box {{
       text-align: center;
       border: 1px dashed #cbd5e1;
       border-radius: 5px;
-      padding: 6px;
-      min-height: 42px;
-      font-size: 8.5px;
+      padding: 5px;
+      min-height: 38px;
+      font-size: 8.2px;
       color: #64748b;
     }}
 
     footer {{ 
       border-top: 1px solid #cbd5e1; 
-      padding-top: 3px; 
+      padding-top: 2.5px; 
       display: flex; 
       justify-content: space-between; 
-      font-size: 8px; 
+      font-size: 7.8px; 
       color: #64748b; 
     }}
     .badge-hdx {{
@@ -663,7 +692,7 @@ def generate_html_files():
       padding: 1px 4px;
       border-radius: 3px;
       font-weight: 700;
-      font-size: 8.2px;
+      font-size: 8px;
       display: inline-block;
     }}
     .badge-inox {{
@@ -672,7 +701,7 @@ def generate_html_files():
       padding: 1px 4px;
       border-radius: 3px;
       font-weight: 700;
-      font-size: 8.2px;
+      font-size: 8px;
       display: inline-block;
     }}
     .badge-luxtop {{
@@ -681,7 +710,7 @@ def generate_html_files():
       padding: 1px 4px;
       border-radius: 3px;
       font-weight: 700;
-      font-size: 8.2px;
+      font-size: 8px;
       display: inline-block;
     }}
   </style>
@@ -746,24 +775,43 @@ def generate_html_files():
         </div>
       </div>
 
-      <h2>1. MEMORIA TÉCNICA Y SISTEMA PROPUESTO <span>Protección Marina Severa C5-M, Gases Aeroportuarios y Seguridad</span></h2>
+      <h2>1. MEMORIA TÉCNICA Y SISTEMA PROPUESTO <span>Protección Marina Severa C5-M, Medios Integrados y Seguridad</span></h2>
       <div class="solution-box">
         Atendiendo a la solicitud formulada por <strong>UG21 Engineering</strong> para la terminal de carga del Aeropuerto de Menorca, se formula propuesta técnica de renovación integral sustituyendo el cerramiento actual fuertemente oxidado por un sistema de alta durabilidad:
         <ul>
-          <li><strong>Panel Sándwich con Recubrimiento Granite® HDX55 (55 micras) en AMBAS CARAS:</strong> Resina de poliuretano termoendurecible de 55 µm modificada con poliamida sobre acero galvanizado estructural Z275. Máxima categoría de resistencia a la corrosión <strong>RC5 / C5-M (Marino Severo)</strong> y radiación UV <strong>RUV4</strong> según UNE-EN 10169. Impide el ataque por niebla salina costera y gases de combustión de turbinas de aeronaves.</li>
-          <li><strong>Núcleo Aislante PIR (Poliisocianurato):</strong> Espesor 40 mm, densidad nominal 40 kg/m³, conductividad térmica reducida (λ = 0,022 W/m·K) y excelente clasificación frente al fuego <strong>B-s1,d0</strong> según UNE-EN 13501-1, libre de CFCs/HCFCs.</li>
-          <li><strong>Tornillería Bimetálica Inox A2:</strong> Tornillos autotaladrantes con fuste de acero inoxidable austenítico A2 y punta cementada, arandela de estanqueidad vulcanizada EPDM de 19 mm, anulando cualquier riesgo de par galvánico y corrosión bajo cabeza.</li>
-          <li><strong>Rehabilitación Integral de Voladizos (533 m²):</strong> Desmontaje de envolvente degradada, saneado mecánico con imprimación epoxi anticorrosiva C5-M de alto espesor y cobertura nueva con idéntico acabado HDX55 en dos caras y rematería con goterón frontal.</li>
-          <li><strong>Escaleras de Gato con Crinolina en ACERO INOXIDABLE (Opcionales):</strong> Fabricadas conforme a <strong>UNE-EN ISO 14122-4</strong> íntegramente en acero inoxidable AISI 304/316 para acceso a voladizo y cubierta principal. Jaula dorsal a partir de 2,20-2,50 m, cancela superior batiente con muelle y portón inferior de bloqueo anti-intrusión con candado (específico AENA).</li>
-          <li><strong>Línea de Vida Permanente Homologada LUXTOP® (Opcional):</strong> Sistema horizontal continuo de cable de acero inoxidable AISI 316 (Ø 8 mm) conforme a <strong>UNE-EN 795:2012 Tipo C y CEN/TS 16415</strong> para hasta 4 operarios simultáneos, postes absorbedores estancos sobre faldón y carros pasantes continuos sin desconexión.</li>
+          <li><strong>Panel Sándwich con Recubrimiento Granite® HDX55 (55 micras) en AMBAS CARAS:</strong> Resina de poliuretano de 55 µm modificada con poliamida sobre acero galvanizado estructural Z275. Máxima categoría de resistencia a la corrosión <strong>RC5 / C5-M (Marino Severo)</strong> y radiación UV <strong>RUV4</strong> (UNE-EN 10169). Inmune al ataque de niebla salina y gases de queroseno de turbinas aéreas.</li>
+          <li><strong>Integración Completa de Medios de Elevación y Logística:</strong> Todos los transportes marítimos en trailers especiales, camión grúa telescópica autopropulsada para izado distribuido en pórticos y plataformas PEMP se encuentran totalmente repercutidos e integrados en los precios unitarios de cada partida.</li>
+          <li><strong>Núcleo Aislante PIR (Poliisocianurato):</strong> Espesor 40 mm, densidad nominal 40 kg/m³, conductividad reducida (λ = 0,022 W/m·K) y clasificación al fuego <strong>B-s1,d0</strong> (UNE-EN 13501-1).</li>
+          <li><strong>Tornillería Bimetálica Inox A2:</strong> Tornillos autotaladrantes con fuste inoxidable austenítico A2 y arandela de estanqueidad vulcanizada EPDM de 19 mm, anulando cualquier riesgo de par galvánico.</li>
+          <li><strong>Escaleras de Gato con Crinolina en ACERO INOXIDABLE (Opcionales):</strong> Conforme a <strong>UNE-EN ISO 14122-4</strong> íntegramente en acero inoxidable AISI 304/316, jaula dorsal desde 2,20-2,50 m, cancela batiente con muelle y portón inferior de bloqueo anti-intrusión con candado (específico AENA).</li>
+          <li><strong>Línea de Vida Permanente Homologada LUXTOP® (Opcional):</strong> Cable de acero inoxidable AISI 316 continuo (Ø 8 mm) conforme a <strong>UNE-EN 795:2012 Tipo C y CEN/TS 16415</strong> para hasta 4 operarios simultáneos, con absorbedores estancos sobre faldón y carros pasantes continuos sin desconexión.</li>
         </ul>
       </div>
 
-      <h2>2. DESGLOSE DE SUPERFICIES DE ACTUACIÓN <span>Terminal de Carga Aeropuerto de Menorca</span></h2>
+      <h2>2. DESGLOSE DE REMATERÍA TÉCNICA HDX55 (PARTIDA 05) <span>Metrado verificado según Planimetrías (489,15 ml + 10 ud singulares)</span></h2>
+      <div class="remates-box">
+        <div class="remates-title">Detalle de mediciones lineales para control y supervisión técnica:</div>
+        <div class="remates-grid">
+          <div class="remates-item"><span>• Cumbrera troquelada faldón a 2 aguas:</span><strong>50,23 ml</strong></div>
+          <div class="remates-item"><span>• Testeros / hastiales laterales a 2 aguas (4 x 10,40m):</span><strong>41,60 ml</strong></div>
+          <div class="remates-item"><span>• Testeros / hastiales faldón a 1 agua (2 x 10,87m):</span><strong>21,74 ml</strong></div>
+          <div class="remates-item"><span>• Coronación babero contra peto superior (1 agua):</span><strong>30,22 ml</strong></div>
+          <div class="remates-item"><span>• Remate de quiebro/salto entre faldones:</span><strong>10,40 ml</strong></div>
+          <div class="remates-item"><span>• Goterones frontales voladizos Este y Oeste (80,44 x 2):</span><strong>160,88 ml</strong></div>
+          <div class="remates-item"><span>• Cierres laterales de testero en voladizos (4 x 3,30m):</span><strong>13,20 ml</strong></div>
+          <div class="remates-item"><span>• Babero posterior voladizo contra fachada (80,44 x 2):</span><strong>160,88 ml</strong></div>
+        </div>
+        <div style="margin-top: 3px; display: flex; justify-content: space-between; border-top: 1px solid #cbd5e1; padding-top: 2px;">
+          <span><strong>Total Desarrollo Lineal Rematería HDX55: 489,15 ml</strong></span>
+          <span><strong>Puntos singulares (cajeados chimeneas/bajantes): 10 ud</strong></span>
+        </div>
+      </div>
+
+      <h2>3. DESGLOSE DE SUPERFICIES DE ACTUACIÓN <span>Terminal de Carga Aeropuerto de Menorca</span></h2>
       <table class="data-table">
         <thead>
           <tr>
-            <th style="width: 45px;" class="td-center">Sector</th>
+            <th style="width: 40px;" class="td-center">Sector</th>
             <th>Denominación del Elemento</th>
             <th>Tipología Constructiva</th>
             <th class="td-right">Superficie</th>
@@ -798,7 +846,7 @@ def generate_html_files():
           </tr>
           <tr style="background: #f1f5f9; font-weight: 700;">
             <td colspan="3" style="text-align: right; text-transform: uppercase;">TOTAL SUPERFICIE DE ACTUACIÓN:</td>
-            <td class="td-right" style="color: #b91c1c; font-size: 10px;">1.904,00 m²</td>
+            <td class="td-right" style="color: #b91c1c; font-size: 9.8px;">1.904,00 m²</td>
             <td colspan="2" class="td-center">100% Tratamiento Anticorrosión HDX55</td>
           </tr>
         </tbody>
@@ -829,13 +877,13 @@ def generate_html_files():
         </div>
       </header>
 
-      <h2>3. CUADRO DE VALORACIÓN ECONÓMICA DE PARTIDAS BASE <span>Obra Principal Cubiertas y Voladizos</span></h2>
+      <h2>4. CUADRO DE VALORACIÓN ECONÓMICA DE PARTIDAS BASE <span>Obra Principal Cubiertas y Voladizos (Medios Integrados)</span></h2>
       <table class="data-table">
         <thead>
           <tr>
-            <th style="width: 28px;" class="td-center">Nº</th>
+            <th style="width: 25px;" class="td-center">Nº</th>
             <th>Concepto y Resumen Descriptivo</th>
-            <th style="width: 32px;" class="td-center">Ud.</th>
+            <th style="width: 30px;" class="td-center">Ud.</th>
             <th style="width: 55px;" class="td-right">Cantidad</th>
             <th style="width: 65px;" class="td-right">P. Unitario</th>
             <th style="width: 78px;" class="td-right">Importe (€)</th>
@@ -861,13 +909,13 @@ def generate_html_files():
     html_cliente += f"""        </tbody>
       </table>
 
-      <h2>4. PARTIDAS OPCIONALES: SEGURIDAD EN ALTURA (ESCALAS INOX Y LÍNEA LUXTOP®) <span>Homologadas UNE-EN ISO 14122-4 / UNE-EN 795</span></h2>
+      <h2>5. PARTIDAS OPCIONALES: SEGURIDAD EN ALTURA (ESCALAS INOX Y LÍNEA LUXTOP®) <span>Homologadas UNE-EN ISO 14122-4 / UNE-EN 795</span></h2>
       <table class="data-table optional">
         <thead>
           <tr>
             <th style="width: 48px;" class="td-center">Código</th>
             <th>Concepto y Elementos de Seguridad Integrados</th>
-            <th style="width: 32px;" class="td-center">Ud.</th>
+            <th style="width: 30px;" class="td-center">Ud.</th>
             <th style="width: 55px;" class="td-right">Cantidad</th>
             <th style="width: 65px;" class="td-right">P. Unitario</th>
             <th style="width: 78px;" class="td-right">Importe (€)</th>
@@ -897,7 +945,7 @@ def generate_html_files():
 
       <div class="summary-cards-container">
         <div class="sum-box">
-          <h6>Obra Base (Cubierta + Voladizos)</h6>
+          <h6>Obra Base (Medios Integrados)</h6>
           <div class="sum-val">{data['totalesEconomicos']['baseImponibleBase']:,.2f} €</div>
           <div class="sum-sub">+ IVA 21%: {data['totalesEconomicos']['totalBaseConIva']:,.2f} €</div>
         </div>
@@ -913,7 +961,7 @@ def generate_html_files():
         </div>
       </div>
 
-      <h2>5. CONDICIONES COMERCIALES, LOGÍSTICAS Y GARANTÍAS</h2>
+      <h2>6. CONDICIONES COMERCIALES, LOGÍSTICAS Y GARANTÍAS</h2>
       <div class="conditions-grid">
         <div class="cond-item">
           <h5>Hitos de Facturación y Pago</h5>
@@ -1011,7 +1059,7 @@ def generate_html_files():
     }}
     .brand {{ display: flex; align-items: center; gap: 11px; }}
     .logo {{ width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.2); border-radius: 6px; padding: 3px; background: rgba(255,255,255,0.08); }}
-    h1 {{ margin: 0; font-size: 16.5px; font-weight: 700; color: #ffffff; }}
+    h1 {{ margin: 0; font-size: 16px; font-weight: 700; color: #ffffff; }}
     .confidential-tag {{ background: #ef4444; color: #fff; font-size: 8.2px; font-weight: 700; padding: 1.5px 5px; border-radius: 3px; display: inline-block; margin-top: 2px; }}
     .meta {{ text-align: right; color: #cbd5e1; font-size: 9px; }}
 
@@ -1100,7 +1148,7 @@ def generate_html_files():
           <img src="logo-ham.svg" class="logo" alt="HAM Logo">
           <div>
             <h1>HAM ESTRUCTURAS METÁLICAS · ESTUDIO DE COSTES Y RENTABILIDAD</h1>
-            <span class="confidential-tag">CONFIDENCIAL · OBRA BASE + ESCALERAS INOX (+30%) + LUXTOP®</span>
+            <span class="confidential-tag">CONFIDENCIAL · TARIFAS ACTUALIZADAS (01: 25€, 02/03: 135€, 04: 95€) · MEDIOS INTEGRADOS</span>
           </div>
         </div>
         <div class="meta">
@@ -1114,7 +1162,7 @@ def generate_html_files():
         <div class="kpi-card">
           <div class="kpi-title">Venta Obra Base</div>
           <div class="kpi-val">{data['totalesEconomicos']['baseImponibleBase']:,.2f} €</div>
-          <div class="kpi-sub">115,66 €/m² cubierta y vol.</div>
+          <div class="kpi-sub">161,75 €/m² global base</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-title">Venta Opcionales</div>
