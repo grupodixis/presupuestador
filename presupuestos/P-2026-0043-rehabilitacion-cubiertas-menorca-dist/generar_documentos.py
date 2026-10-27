@@ -117,11 +117,11 @@ def create_excel():
         cell.alignment = Alignment(horizontal="center" if col_idx not in [2] else "left", vertical="center")
 
     data = [
-        ["01", "Sobrecubierta metálica con perfil omega y chapa grecada 40 mm / e=0,6 mm prelacada rojo teja o blanco, con fijación en onda alta con arandela de estanqueidad EPDM y sellado continuo de butilo en solapes", "m2", 4303.00, 28.50],
-        ["02", "Desmontaje de capa exterior translúcida antigua y sustitución por placas de policarbonato compacto grecado con protección UV doble cara, caballetes de apoyo en cresta y fijación estanca EPDM", "m2", 126.00, 54.00],
-        ["03", "Rematería completa en chapa plegada prelacada 0,60 mm: cumbreras troqueladas a dos aguas, coronaciones perimetrales, saltos entre faldones y cortes mecánicos en petos de oficinas", "lote", 1.00, 5850.00],
-        ["04", "Transporte marítimo y terrestre a obra en Pol. Ind. La Trotxa (Alaior), medios de elevación (camión grúa pluma para acopio en cubierta) y plataformas elevadoras móviles de personal (PEMP)", "lote", 1.00, 8600.00],
-        ["05", "Seguridad y salud en altura: redes anticaídas provisionales bajo lucernarios, líneas de vida de progresión, señalización, EPIs y transporte de sobrantes a gestor autorizado de Menorca", "lote", 1.00, 5400.00]
+        ["01", "Sobrecubierta metálica con perfil omega y chapa grecada 40 mm / e=0,6 mm prelacada rojo teja o blanco, con fijación en onda alta con arandela de estanqueidad EPDM y sellado continuo de butilo en solapes", "m2", 4303.00, 55.00],
+        ["02", "Desmontaje de capa exterior translúcida antigua y sustitución por placas de policarbonato compacto grecado con protección UV doble cara, caballetes de apoyo en cresta y fijación estanca EPDM", "m2", 126.00, 75.00],
+        ["03", "Rematería completa en chapa plegada prelacada 0,60 mm: cumbreras troqueladas a dos aguas, coronaciones perimetrales, saltos entre faldones y cortes mecánicos en petos de oficinas", "lote", 1.00, 6850.00],
+        ["04", "Transporte marítimo y terrestre a obra en Pol. Ind. La Trotxa (Alaior), medios de elevación (camión grúa pluma para acopio en cubierta) y plataformas elevadoras móviles de personal (PEMP)", "lote", 1.00, 9600.00],
+        ["05", "Seguridad y salud en altura: redes anticaídas provisionales bajo lucernarios, líneas de vida de progresión, señalización, EPIs y transporte de sobrantes a gestor autorizado de Menorca", "lote", 1.00, 5800.00]
     ]
 
     for i, row in enumerate(data, start=start_row + 1):
@@ -173,7 +173,7 @@ def create_excel():
     r_cond = r_tot + 2
     ws1.cell(row=r_cond, column=1, value="CONDICIONES COMERCIALES Y DE EJECUCIÓN").font = bold_font
     ws1.cell(row=r_cond+1, column=1, value="• Forma de pago:").font = bold_font
-    ws1.cell(row=r_cond+1, column=2, value="40% a la formalización (72.256,12 € IVA incl.), 30% al inicio del montaje (54.192,09 € IVA incl.) y 30% a la finalización (54.192,09 € IVA incl.)").font = regular_font
+    ws1.cell(row=r_cond+1, column=2, value="40% a la formalización (129.888,66 € IVA incl.), 30% al inicio del montaje (97.416,50 € IVA incl.) y 30% a la finalización (97.416,49 € IVA incl.)").font = regular_font
     ws1.cell(row=r_cond+2, column=1, value="• Plazo de ejecución:").font = bold_font
     ws1.cell(row=r_cond+2, column=2, value="4 a 6 semanas laborables desde recepción de materiales en Menorca").font = regular_font
     ws1.cell(row=r_cond+3, column=1, value="• Garantía:").font = bold_font
