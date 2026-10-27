@@ -1,6 +1,6 @@
 import os
 import json
-from openpyxl import Workbook
+from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from playwright.sync_api import sync_playwright
 
@@ -407,6 +407,14 @@ def create_excel():
     xlsx_path = os.path.join(os.path.dirname(__file__), "presupuesto.xlsx")
     wb.save(xlsx_path)
     print(f"Excel guardado exitosamente con 2 hojas en: {xlsx_path}")
+
+    # Generar versión exclusiva para cliente sin la hoja de escandallo interno
+    wb_cliente = load_workbook(xlsx_path)
+    if "Escandallo Costes HAM" in wb_cliente.sheetnames:
+        wb_cliente.remove(wb_cliente["Escandallo Costes HAM"])
+        xlsx_cliente_path = os.path.join(os.path.dirname(__file__), "presupuesto-cliente.xlsx")
+        wb_cliente.save(xlsx_cliente_path)
+        print(f"Excel cliente guardado exitosamente (sin costes) en: {xlsx_cliente_path}")
 
 def generate_html_files():
     data = load_data()
