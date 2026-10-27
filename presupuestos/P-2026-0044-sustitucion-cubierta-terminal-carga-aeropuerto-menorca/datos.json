@@ -1,0 +1,163 @@
+{
+  "numeroPresupuesto": "P-2026-0044",
+  "referencia": "PRE-2026-1027-AENA-CARGA-HDX",
+  "fecha": "2026-10-27",
+  "validezDias": 30,
+  "cliente": {
+    "empresa": "Consultores de Ingeniería UG21 / UTE BTG-UG21",
+    "atencion": "Marina Gallego Fernández (Arquitecto / Proyectos)",
+    "telefono": "+34 622 09 72 78",
+    "web": "www.ug21.com",
+    "promotorFinal": "AENA S.M.E., S.A. - Dirección de Infraestructuras",
+    "proyecto": "100.174 Sustitución Cubierta Terminal de Carga - Proyecto Básico",
+    "directorProyecto": "Javier Zorrilla Lozano (Ing. Aeroespacial)",
+    "emplazamiento": "Terminal de Carga, Aeropuerto de Menorca",
+    "direccion": "Carretera de Sant Climent, s/n",
+    "codigoPostal": "07712",
+    "poblacion": "Mahón",
+    "isla": "Menorca"
+  },
+  "emisor": {
+    "empresa": "HAM Estructuras Metálicas",
+    "razonSocial": "Dixis Recursos y Soluciones, SL",
+    "cif": "B-57825432",
+    "direccion": "Av. Circunval·lació, 11, Polígono Industrial Sant Lluís, 07710 Sant Lluís, Menorca",
+    "email": "info@hamenorca.com",
+    "telefonos": "+34 971 35 20 18 / +34 669 769 541"
+  },
+  "especificacionesTecnicas": {
+    "sistemaCubierta": "Panel sándwich con núcleo aislante de PIR (Poliisocianurato) de 40 mm de espesor y clasificación de reacción al fuego B-s1,d0 según UNE-EN 13501-1.",
+    "acabadoChapas": "Revestimiento orgánico especial Granite® HDX55 (55 micras) de poliuretano modificado con poliamida en AMBAS CARAS (exterior e interior). Máxima resistencia contra la corrosión marina categoría C5-M y radiación solar extrema RUV4 según norma UNE-EN 10169.",
+    "fijaciones": "Tornillería autotaladrante bimetálica de acero inoxidable A2 (cuerpo inoxidable y punta templada) con arandelas de estanqueidad vulcanizada de EPDM (evitando corrosión por par galvánico en ambiente costero).",
+    "estanqueidad": "Sellado continuo de juntas y solapes mediante cordón de masilla hidro-expansiva de butilo y masilla elastomérica de poliuretano/MS polímero en encuentros perimetrales.",
+    "voladizos": "Sustitución integral de la envolvente de voladizos/marquesinas de muelles de carga, incluyendo saneado y desoxidado mecánico de viguetas en ménsula con imprimación epoxi anticorrosiva de alto contenido en sólidos (mínimo 80 micras de espesor seco) e instalación de chapa/panel con acabado HDX55 en ambas caras."
+  },
+  "medicionesSuperficies": {
+    "cubiertaDosAguasM2": 1042.50,
+    "cubiertaUnaAguaM2": 328.50,
+    "subtotalCubiertasM2": 1371.00,
+    "voladizosFachadasM2": 533.00,
+    "superficieTotalM2": 1904.00
+  },
+  "partidas": [
+    {
+      "id": "01",
+      "codigo": "DESM-CUB",
+      "concepto": "Desmontaje controlado de cubierta actual, voladizos existentes y gestión autorizada de residuos",
+      "descripcion": "Desmontaje manual y mecánico de la cubierta y voladizos existentes de chapa/panel degradada y corroída. Descenso a cota cero mediante camión pluma y plataforma elevadora, clasificación de residuos férricos, carga, transporte y entrega en centro autorizado de gestión y reciclaje de residuos de Menorca, incluyendo tasas y canon oficial de vertedero.",
+      "unidad": "m²",
+      "cantidad": 1904.00,
+      "precioUnitario": 14.50,
+      "importe": 27608.00
+    },
+    {
+      "id": "02",
+      "codigo": "SAND-2AGUAS",
+      "concepto": "Suministro e instalación de Panel Sándwich HDX55 en AMBAS CARAS en cubierta a dos aguas",
+      "descripcion": "Suministro e instalación de panel sándwich de cubierta de 3 grecas con tapajuntas integrado, compuesto por núcleo aislante rígido de PIR de 40 mm de espesor (densidad 40 kg/m³, λ = 0,022 W/m·K, clasificación al fuego B-s1,d0) y dos chapas de acero estructural galvanizado con revestimiento de protección marina severa Granite® HDX55 (55 µm de espesor) en AMBAS CARAS (exterior e interior). Fijación a estructura portante mediante tornillería bimetálica autotaladrante de acero inoxidable A2 con arandela estanca de EPDM, con cordón continuo de masilla de butilo en solapes.",
+      "unidad": "m²",
+      "cantidad": 1042.50,
+      "precioUnitario": 78.00,
+      "importe": 81315.00
+    },
+    {
+      "id": "03",
+      "codigo": "SAND-1AGUA",
+      "concepto": "Suministro e instalación de Panel Sándwich HDX55 en AMBAS CARAS en cubierta a un agua",
+      "descripcion": "Suministro e instalación de panel sándwich de cubierta de 3 grecas con tapajuntas integrado (espesor 40 mm PIR, B-s1,d0) con acabado de alta durabilidad Granite® HDX55 (55 µm) por ambas caras (exterior e interior) en faldón a un agua. Incluye adaptaciones mecánicas de faldón, cortes en encuentros contra paramentos verticales y petos, fijaciones inoxidables A2 con arandela de estanqueidad EPDM y sellado butílico continuo.",
+      "unidad": "m²",
+      "cantidad": 328.50,
+      "precioUnitario": 80.00,
+      "importe": 26280.00
+    },
+    {
+      "id": "04",
+      "codigo": "VOL-MARQ",
+      "concepto": "Sustitución integral de voladizos en muelles de carga con acabado HDX55 e imprimación anticorrosiva",
+      "descripcion": "Rehabilitación y sustitución completa de la envolvente de los voladizos de fachada (muelles de carga, 267 m² por fachada, total 533 m²). Incluye cepillado y saneado mecánico superficial con eliminación de óxido en viguetas metálicas en ménsula existentes, aplicación de capa de imprimación epoxi anticorrosiva rica en zinc de alto espesor (C5-M), e instalación de nueva cobertura con chapa/panel de alta resistencia protegida con revestimiento HDX55 (55 µm) en ambas caras, con fijaciones inoxidables A2 y remates perimetrales de goterón frontal.",
+      "unidad": "m²",
+      "cantidad": 533.00,
+      "precioUnitario": 84.00,
+      "importe": 44772.00
+    },
+    {
+      "id": "05",
+      "codigo": "REM-COMP",
+      "concepto": "Rematería completa en acero con acabado HDX55, coronaciones, encuentros, mordidos y sellados",
+      "descripcion": "Suministro, conformación y colocación de toda la rematería técnica necesaria para la total estanqueidad del conjunto, fabricada en chapa de acero galvanizado con idéntico revestimiento HDX55 (55 µm): cumbreras conformadas y troqueladas a dos aguas, remates laterales de testero y coronación de hastiales, baberos de encuentro con paramentos verticales, mordidos mecánicos y adaptación a salidas de ventilación, bajantes, chimeneas y elementos singulares, con sellado perimetral continuo con masilla elástica de poliuretano exterior.",
+      "unidad": "lote",
+      "cantidad": 1.00,
+      "precioUnitario": 14850.00,
+      "importe": 14850.00
+    },
+    {
+      "id": "06",
+      "codigo": "LOG-MEDIOS",
+      "concepto": "Logística insular, transporte marítimo especial a Menorca y medios pesados de elevación",
+      "descripcion": "Fletes marítimos Península-Menorca para transporte especial de paneles sándwich de gran longitud en trailers específicos, transporte a terminal de carga del Aeropuerto de Menorca, grúa móvil autopropulsada / camión pluma de gran alcance para descarga, elevación e izado directo distribuido sobre pórticos de cubierta, y alquiler de plataformas elevadoras móviles de personal (PEMP) tipo articulada y de tijera durante todas las fases de desmontaje y montaje.",
+      "unidad": "lote",
+      "cantidad": 1.00,
+      "precioUnitario": 15600.00,
+      "importe": 15600.00
+    },
+    {
+      "id": "07",
+      "codigo": "PRL-AENA",
+      "concepto": "Seguridad y salud, protecciones colectivas en altura y protocolo aeroportuario Aena",
+      "descripcion": "Implantación de medidas de seguridad y salud en altura bajo estricta normativa de Aena en terminal de carga: instalación de redes de seguridad anticaídas bajo faldones según norma UNE-EN 1263-1, líneas de vida provisionales homologadas UNE-EN 795, balizamiento de zonas de acopio y descarga, tramitación de Coordinación de Actividades Empresariales (CAE) en plataforma aeroportuaria, gestión de acreditaciones del personal y recursos preventivos en obra.",
+      "unidad": "lote",
+      "cantidad": 1.00,
+      "precioUnitario": 9800.00,
+      "importe": 9800.00
+    }
+  ],
+  "totalesEconomicos": {
+    "baseImponible": 220225.00,
+    "ivaPorcentaje": 21.0,
+    "ivaImporte": 46247.25,
+    "totalPresupuestoConIva": 266472.25
+  },
+  "escandalloCostesInternosHAM": {
+    "compraMateriales": {
+      "panelSandwichCubiertasHDX55": { "medicion": 1440.0, "unidad": "m²", "costeUnitario": 36.00, "costeTotal": 51840.00 },
+      "panelChapaVoladizosHDX55": { "medicion": 560.0, "unidad": "m²", "costeUnitario": 34.00, "costeTotal": 19040.00 },
+      "fijacionesInoxA2ButiloEPDM": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 6200.00, "costeTotal": 6200.00 },
+      "remateriaEspecialHDX55": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 5800.00, "costeTotal": 5800.00 },
+      "imprimacionEpoxiViguetas": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 1450.00, "costeTotal": 1450.00 },
+      "subtotalMateriales": 84330.00
+    },
+    "manoObra": {
+      "horasEstimadas": 800.0,
+      "tarifaHoraInterna": 28.00,
+      "costeTotalManoObra": 22400.00
+    },
+    "logisticaYMedios": {
+      "fletesMaritimos trailers": 5200.00,
+      "camionGruaPlumaIzado": 4600.00,
+      "alquilerPEMP": 3400.00,
+      "subtotalLogistica": 13200.00
+    },
+    "seguridadSaludResiduos": {
+      "redesLineasVidaPRL": 3800.00,
+      "canonVertederoResiduos": 1800.00,
+      "subtotalSeguridad": 5600.00
+    },
+    "costeDirectoTotalCDT": 125530.00,
+    "precioVentaBaseImponible": 220225.00,
+    "margenBrutoEuros": 94695.00,
+    "margenBrutoPorcentajeVenta": 43.00,
+    "margenBrutoPorcentajeCoste": 75.44
+  },
+  "condicionesComerciales": {
+    "formaDePago": "40% a la formalización del pedido y acopio de paneles en fábrica, 30% al inicio del montaje en obra tras descarga y 30% a la finalización y recepción de los trabajos",
+    "hitosPago": [
+      { "hito": "40% a la formalización y lanzamiento de fabricación HDX55", "importe": 106588.90 },
+      { "hito": "30% a la recepción de materiales en obra e inicio de montaje", "importe": 79941.68 },
+      { "hito": "30% a la finalización de los trabajos y certificación final", "importe": 79941.67 }
+    ],
+    "plazoEjecucion": "5 a 7 semanas laborables desde la recepción y acopio de los paneles en obra",
+    "garantia": "10 años de garantía en durabilidad de recubrimiento Granite® HDX55 contra corrosión marina y perforación; 5 años en estanqueidad de la cubierta; 2 años en montaje e instalaciones mecánicas.",
+    "validezOferta": "30 días naturales desde la fecha de emisión.",
+    "notasTecnicas": "El acabado Granite® HDX55 en ambas caras garantiza una protección óptima contra la niebla salina de Menorca y la atmósfera aeroportuaria, evitando la rápida degradación observada en los voladizos actuales. Todos los trabajos se planificarán en estrecha coordinación con las operaciones aeroportuarias de Aena."
+  }
+}
