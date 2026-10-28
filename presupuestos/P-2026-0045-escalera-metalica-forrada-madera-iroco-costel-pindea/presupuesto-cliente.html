@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>P-2026-0045 Presupuesto Técnico: Escalera Metálica Volada Forrada en Madera de Iroco</title>
+  <style>
+    @page { 
+      size: A4 portrait; 
+      margin: 8mm; 
+    }
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      background: #f1f5f9; 
+      color: #0f172a; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      font-size: 10.5px; 
+      line-height: 1.35; 
+    }
+    .sheet { 
+      width: 210mm; 
+      margin: 10px auto; 
+      background: #ffffff; 
+      box-shadow: 0 10px 30px rgba(0,0,0,.08); 
+      padding: 8mm 12mm;
+      page-break-after: always;
+    }
+    .sheet:last-child {
+      page-break-after: auto;
+    }
+
+    /* Cabecera Corporativa */
+    header { 
+      background: #0f172a; 
+      color: #fff; 
+      padding: 10px 16px; 
+      border-radius: 8px;
+      display: grid; 
+      grid-template-columns: 1fr auto; 
+      gap: 14px; 
+      align-items: center; 
+      border-bottom: 3px solid #b9863a;
+      margin-bottom: 10px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 38px; height: 38px; border-radius: 6px; background: rgba(255,255,255,0.1); padding: 4px; }
+    h1 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: -.01em; color: #ffffff; }
+    .subtitle { margin: 2px 0 0; color: #94a3b8; font-size: 10px; }
+    .meta { text-align: right; color: #cbd5e1; font-size: 10px; line-height: 1.35; }
+    .meta strong { color: #f59e0b; display: block; font-size: 11.5px; margin-bottom: 1px; }
+
+    /* Tarjeta Resumen Destacada */
+    .summary-card { 
+      border: 1px solid #cbd5e1; 
+      border-radius: 6px; 
+      padding: 10px 14px; 
+      margin-bottom: 10px; 
+      background: #f8fafc; 
+      display: grid; 
+      grid-template-columns: 1.4fr 1fr; 
+      gap: 14px; 
+      align-items: center;
+    }
+    .summary-desc strong { color: #b45309; font-size: 12px; }
+    .summary-desc p { margin: 3px 0 0; color: #334155; font-size: 10px; line-height: 1.35; }
+    .price-box { 
+      text-align: right; 
+      border-left: 2px solid #e2e8f0; 
+      padding-left: 14px; 
+    }
+    .price-box .total-label { font-size: 9.5px; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .price-box .total-price { display: block; font-size: 22px; color: #b45309; font-weight: 800; letter-spacing: -.02em; margin: 1px 0; }
+    .price-box .iva-tag { font-size: 9.5px; color: #475569; }
+
+    /* Ficha Técnica / Especificaciones */
+    h2 { 
+      margin: 10px 0 6px; 
+      font-size: 10.5px; 
+      text-transform: uppercase; 
+      letter-spacing: .05em; 
+      color: #0f172a; 
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .specs-grid { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 6px; 
+      margin-bottom: 10px; 
+    }
+    .spec-item { 
+      background: #f8fafc; 
+      border: 1px solid #e2e8f0; 
+      border-radius: 5px; 
+      padding: 5px 8px; 
+    }
+    .spec-label { font-size: 8.5px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 1px; }
+    .spec-val { font-size: 10.5px; font-weight: 700; color: #0f172a; }
+
+    /* Detalle constructivo conceptual */
+    .constructive-box {
+      border: 1px solid #e2e8f0;
+      background: #fffbeb;
+      border-left: 4px solid #b45309;
+      border-radius: 5px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+    }
+    .constructive-box h3 {
+      margin: 0 0 4px;
+      font-size: 10.5px;
+      color: #92400e;
+    }
+    .constructive-box p {
+      margin: 0;
+      font-size: 9.3px;
+      color: #78350f;
+      line-height: 1.35;
+    }
+
+    /* Tabla de Partidas */
+    table { width: 100%; border-collapse: collapse; margin: 6px 0 8px; }
+    th { background: #1e293b; color: #ffffff; text-align: left; padding: 5px 7px; font-size: 9px; text-transform: uppercase; letter-spacing: .04em; }
+    td { border-bottom: 1px solid #e2e8f0; padding: 5px 7px; vertical-align: top; font-size: 9.8px; }
+    .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .col-code { width: 5%; font-weight: bold; color: #b45309; text-align: center; }
+    .col-concept { width: 55%; }
+    .col-unit { width: 8%; text-align: center; }
+    .col-cant { width: 8%; text-align: right; }
+    .col-price { width: 12%; text-align: right; }
+    .col-total { width: 12%; text-align: right; font-weight: bold; color: #0f172a; }
+
+    .partida-title { font-weight: 700; color: #0f172a; margin-bottom: 1px; font-size: 10px; }
+    .partida-desc { font-size: 9px; color: #475569; line-height: 1.3; }
+
+    /* Totales */
+    .totals-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+    .totals-table { width: 44%; border: none; }
+    .totals-table td { padding: 3px 6px; border: none; font-size: 10px; }
+    .totals-table tr.total-final { 
+      font-size: 12px; 
+      font-weight: 800; 
+      color: #b45309; 
+      background: #fef3c7; 
+      border-top: 2px solid #b45309; 
+      border-bottom: 2px solid #b45309; 
+    }
+    .totals-table tr.total-final td { padding: 5px 6px; }
+
+    /* Bloques de Condiciones y Garantía */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px; }
+    .box { border: 1px solid #cbd5e1; border-radius: 6px; padding: 7px 10px; background: #ffffff; }
+    .box h3 { margin: 0 0 4px; font-size: 10px; text-transform: uppercase; color: #b45309; letter-spacing: .03em; }
+    .box ul { margin: 0; padding-left: 14px; font-size: 9.2px; color: #334155; }
+    .box ul li { margin-bottom: 3px; }
+
+    /* Firmas */
+    .signatures { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 16px; 
+      margin-top: 8px; 
+      padding-top: 6px;
+      border-top: 1px dashed #cbd5e1;
+    }
+    .sig-box { 
+      border: 1px solid #e2e8f0; 
+      border-radius: 5px; 
+      padding: 6px 10px; 
+      height: 58px; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between; 
+      background: #f8fafc;
+    }
+    .sig-title { font-size: 8.5px; font-weight: 700; color: #64748b; text-transform: uppercase; }
+    .sig-line { font-size: 8px; color: #94a3b8; border-top: 1px solid #cbd5e1; padding-top: 2px; text-align: center; }
+
+    footer {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 8px;
+      color: #94a3b8;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PÁGINA 1: ESPECIFICACIONES TÉCNICAS Y DESCRIPCIÓN CONSTRUCTIVA -->
+  <div class="sheet">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo-ham.svg" alt="HAM Logo">
+        <div>
+          <h1>HAM ESTRUCTURAS METÁLICAS</h1>
+          <div class="subtitle">Cerrajería de Diseño · Estructuras Singulares · Carpintería Metálica y Madera · Menorca</div>
+        </div>
+      </div>
+      <div class="meta">
+        <strong>PRESUPUESTO P-2026-0045</strong>
+        Ref: PRE-2026-1045-ESC-IROCO<br>
+        Fecha: 28 de octubre de 2026<br>
+        Cliente: <strong>Costel Pindea (Constructora)</strong>
+      </div>
+    </header>
+
+    <div class="summary-card">
+      <div class="summary-desc">
+        <strong>Escalera Metálica Volada con Peldaños Forrados en Iroco y Barandilla Suspendida</strong>
+        <p>
+          Fabricación e instalación integral de escalera interior de diseño arquitectónico exclusivo. Estructura portante con <strong>zanca pletina diagonal amurada químicamente a pared</strong>, escalones volados soldados de <strong>tubo estructural 50x50x5 mm</strong> con <strong>tuercas remache roscadas</strong>, <strong>barandilla vertical tipo arpa</strong> con varillas de acero roscadas tensadas a un <strong>perfil angular fijado en viga de madera existente de techo</strong>, y <strong>forrado integral de cada peldaño en madera maciza noble de Iroko</strong> de 1ª calidad barnizada.
+        </p>
+      </div>
+      <div class="price-box">
+        <div class="total-label">Presupuesto Ejecución (IVA incl.)</div>
+        <div class="total-price">16.770,60 €</div>
+        <div class="iva-tag">Base Imponible: <strong>13.860,00 €</strong> · IVA 21%: <strong>2.910,60 €</strong></div>
+      </div>
+    </div>
+
+    <h2>1. Parámetros Técnicos y Criterios Dimensionales</h2>
+    <div class="specs-grid">
+      <div class="spec-item">
+        <div class="spec-label">Zanca Lateral Portante</div>
+        <div class="spec-val">Pletina 150x12 mm S275JR</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Ménsulas de Peldaño</div>
+        <div class="spec-val">Tubo estructural 50x50x5 mm</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Fijación de Varillas</div>
+        <div class="spec-val">Tuercas remache M10 alta res.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Barandilla Suspendida</div>
+        <div class="spec-val">Varillas acero Ø10 mm (32 uds)</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Fijación Superior Techo</div>
+        <div class="spec-val">Perfil angular L 60x40x5 en viga</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Madera de Forrado</div>
+        <div class="spec-val">Iroko macizo (Huella 38 mm)</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Acabado Madera</div>
+        <div class="spec-val">Poliuretano satinado tránsito</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Acabado Metálico</div>
+        <div class="spec-val">Epoxi + Poliuretano RAL 7016/9005</div>
+      </div>
+    </div>
+
+    <div class="constructive-box">
+      <h3>Detalle y Solución Constructiva Solicitada</h3>
+      <p>
+        <strong>1. Fijación Mural:</strong> Zanca continua formada por pletina de acero laminado de 150x12 mm fijada a la pared maestra portante mediante tacos químicos de inyección viniléster y varillas roscadas de alta resistencia Hilti/Fischer M14.<br>
+        <strong>2. Ménsulas y Peldaños:</strong> 16 peldaños volados fabricados en tubo hueco estructural cuadrado de 50x50x5 mm soldados a la pletina mediante cordón perimetral de penetración completa y rigidizados interiormente.<br>
+        <strong>3. Barandilla de Seguridad y Suspensión:</strong> En la cara/extremo de cada tubo se mecanizan e instalan tuercas remache roscadas M10. En ellas se atornillan varillas verticales continuas de acero de Ø10 mm (2 por peldaño para cumplir la limitación de hueco &le; 100 mm según CTE DB-SUA). Las varillas ascienden hasta el techo donde se anclan y tensan mediante tuercas decorativas en un perfil angular de acero fijado sólidamente a la viga de madera existente.<br>
+        <strong>4. Forrado Noble de Iroko:</strong> Cada peldaño metálico queda totalmente oculto por un cajeado en madera maciza de Iroko de primera selección, con huella de 38 mm de espesor y cantoneras biseladas, mecanizado con precisión para el paso limpio de las varillas.
+      </p>
+    </div>
+
+    <h2>2. Mediciones y Partidas del Presupuesto</h2>
+    <table>
+      <thead>
+        <tr>
+          <th class="col-code">Cód.</th>
+          <th class="col-concept">Concepto y Descripción de la Partida</th>
+          <th class="col-unit">Ud.</th>
+          <th class="col-cant">Cant.</th>
+          <th class="col-price">P. Unit. (€)</th>
+          <th class="col-total">Importe (€)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-code">01</td>
+          <td class="col-concept">
+            <div class="partida-title">Toma de medidas, replanteo láser in situ y desarrollo técnico</div>
+            <div class="partida-desc">Levantamiento dimensional in situ con estación láser para verificación de aplomados y cotas en pared maestra, cota exacta de la viga de madera superior y desarrollo de planos de taller milimétricos según CTE DB-SUA.</div>
+          </td>
+          <td class="col-unit">lote</td>
+          <td class="col-cant num">1,00</td>
+          <td class="col-price num">450,00</td>
+          <td class="col-total num">450,00</td>
+        </tr>
+        <tr>
+          <td class="col-code">02</td>
+          <td class="col-concept">
+            <div class="partida-title">Fabricación de zanca pletina mural y ménsulas de tubo 50x50x5 mm con tuercas remache</div>
+            <div class="partida-desc">Pletina diagonal de 150x12 mm en acero S275JR taladrada para anclaje químico. 16 ménsulas en tubo estructural 50x50x5 mm soldadas con cartelas interiores. Mecanizado e inserción de tuercas remache roscadas M10 de alta resistencia en cabezas de tubo.</div>
+          </td>
+          <td class="col-unit">lote</td>
+          <td class="col-cant num">1,00</td>
+          <td class="col-price num">3.850,00</td>
+          <td class="col-total num">3.850,00</td>
+        </tr>
+        <tr>
+          <td class="col-code">03</td>
+          <td class="col-concept">
+            <div class="partida-title">Barandilla suspendida de varillas roscadas y angular superior en viga de madera</div>
+            <div class="partida-desc">Perfil angular L 60x40x5 mm fijado a la viga de madera del techo con tirafondos estructurales. 32 varillas de acero macizo calibrado / roscado Ø10 mm atornilladas a los peldaños y tensadas en angular superior con tuercas ciegas decorativas. Separación &le; 10 cm.</div>
+          </td>
+          <td class="col-unit">lote</td>
+          <td class="col-cant num">1,00</td>
+          <td class="col-price num">1.950,00</td>
+          <td class="col-total num">1.950,00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      HAM ESTRUCTURAS METÁLICAS · Av. Circunval·lació 11, Sant Lluís, Menorca · Tel: 971 35 20 18 · Presupuesto P-2026-0045 (Página 1 de 2)
+    </footer>
+  </div>
+
+  <!-- PÁGINA 2: CONTINUACIÓN PARTIDAS, TOTALES Y CONDICIONES -->
+  <div class="sheet">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo-ham.svg" alt="HAM Logo">
+        <div>
+          <h1>HAM ESTRUCTURAS METÁLICAS</h1>
+          <div class="subtitle">Cerrajería de Diseño · Estructuras Singulares · Carpintería Metálica y Madera · Menorca</div>
+        </div>
+      </div>
+      <div class="meta">
+        <strong>PRESUPUESTO P-2026-0045</strong>
+        Ref: PRE-2026-1045-ESC-IROCO<br>
+        Fecha: 28 de octubre de 2026<br>
+        Cliente: <strong>Costel Pindea (Constructora)</strong>
+      </div>
+    </header>
+
+    <h2>2. Mediciones y Partidas del Presupuesto (Continuación)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th class="col-code">Cód.</th>
+          <th class="col-concept">Concepto y Descripción de la Partida</th>
+          <th class="col-unit">Ud.</th>
+          <th class="col-cant">Cant.</th>
+          <th class="col-price">P. Unit. (€)</th>
+          <th class="col-total">Importe (€)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-code">04</td>
+          <td class="col-concept">
+            <div class="partida-title">Tratamiento anticorrosivo y acabado lacado en taller de cerrajería</div>
+            <div class="partida-desc">Limpieza, desengrase y chorreado/lijado de elementos metálicos. Aplicación de imprimación epoxi fosfatante antioxidante y acabado con dos capas de esmalte de poliuretano secado al horno en color RAL 7016 / 9005 texturado.</div>
+          </td>
+          <td class="col-unit">lote</td>
+          <td class="col-cant num">1,00</td>
+          <td class="col-price num">880,00</td>
+          <td class="col-total num">880,00</td>
+        </tr>
+        <tr>
+          <td class="col-code">05</td>
+          <td class="col-concept">
+            <div class="partida-title">Forrado integral de peldaños en Madera Maciza noble de Iroko de 1ª calidad</div>
+            <div class="partida-desc">16 cajones de peldaño en madera maciza de Iroko de 1ª (huella maciza 38 mm, frentes y laterales 20 mm). Cajeado interior fresado para ocultar la estructura tubular de 50x50x5 mm y tuercas remache. Pasos mecanizados para varillas. 3 manos de barniz poliuretano de alta resistencia al tránsito.</div>
+          </td>
+          <td class="col-unit">lote</td>
+          <td class="col-cant num">1,00</td>
+          <td class="col-price num">4.250,00</td>
+          <td class="col-total num">4.250,00</td>
+        </tr>
+        <tr>
+          <td class="col-code">06</td>
+          <td class="col-concept">
+            <div class="partida-title">Transporte a obra, fijación química estructural, montaje e instalación completa</div>
+            <div class="partida-desc">Transporte a obra en Menorca. Anclaje químico de pletina a muro mediante resina viniléster y varillas M14. Fijación de angular superior en viga de madera. Montaje, aplomado y tensado de varillas de barandilla. Pegado estructural elastomérico de peldaños de Iroko y remate final.</div>
+          </td>
+          <td class="col-unit">lote</td>
+          <td class="col-cant num">1,00</td>
+          <td class="col-price num">2.480,00</td>
+          <td class="col-total num">2.480,00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totals-wrapper">
+      <table class="totals-table">
+        <tr>
+          <td><strong>Base Imponible:</strong></td>
+          <td class="num"><strong>13.860,00 €</strong></td>
+        </tr>
+        <tr>
+          <td>I.V.A. General (21%):</td>
+          <td class="num">2.910,60 €</td>
+        </tr>
+        <tr class="total-final">
+          <td>TOTAL PRESUPUESTO:</td>
+          <td class="num">16.770,60 €</td>
+        </tr>
+      </table>
+    </div>
+
+    <h2>3. Términos, Alcance y Condiciones Comerciales</h2>
+    <div class="grid-2">
+      <div class="box">
+        <h3>Trabajos Incluidos</h3>
+        <ul>
+          <li>Medición definitiva in situ con tecnología láser.</li>
+          <li>Fabricación completa de estructura de acero y ebanistería en taller.</li>
+          <li>Suministro de tuercas remache, varillas tensoras y angular de techo.</li>
+          <li>Forrado de 16 peldaños en madera noble de Iroko macizo barnizado.</li>
+          <li>Anclajes químicos certificados y tornillería estructural para madera.</li>
+          <li>Instalación completa, ajuste y nivelación por oficiales cerrajeros.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Condiciones y Garantías</h3>
+        <ul>
+          <li><strong>Forma de pago:</strong> 40% a la confirmación del pedido, 30% a la finalización de estructura y madera en taller, y 30% a la entrega y recepción en obra.</li>
+          <li><strong>Plazo de ejecución:</strong> 4 a 5 semanas para taller; montaje en obra de 3 a 4 jornadas laborables.</li>
+          <li><strong>Garantía:</strong> 2 años en estructura metálica, cerrajería, fijaciones y carpintería de madera según legislación vigente.</li>
+          <li><strong>Validez:</strong> 30 días naturales desde la fecha de emisión.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="signatures">
+      <div class="sig-box">
+        <div class="sig-title">Por HAM ESTRUCTURAS METÁLICAS</div>
+        <div class="sig-line">Firma autorizada y sello de empresa</div>
+      </div>
+      <div class="sig-box">
+        <div class="sig-title">Aceptación Cliente · Costel Pindea (Constructora)</div>
+        <div class="sig-line">Firma del cliente / Conforme con las condiciones</div>
+      </div>
+    </div>
+
+    <footer>
+      HAM ESTRUCTURAS METÁLICAS · Av. Circunval·lació 11, Sant Lluís, Menorca · Tel: 971 35 20 18 · Presupuesto P-2026-0045 (Página 2 de 2)
+    </footer>
+  </div>
+
+</body>
+</html>
