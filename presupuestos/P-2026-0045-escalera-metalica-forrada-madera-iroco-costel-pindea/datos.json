@@ -1,9 +1,9 @@
 {
   "id": "P-2026-0045",
-  "referencia": "PRE-2026-1045-ESC-IROCO",
+  "referencia": "PRE-2026-1045-ESC-IROCO-REV1",
   "fecha": "2026-10-28",
-  "titulo": "Presupuesto Técnico: Escalera Metálica Volada Forrada en Madera de Iroco y Barandilla Suspendida de Varillas",
-  "resumen": "Fabricación e instalación a medida de escalera interior de diseño contemporáneo compuesta por pletina diagonal de acero estructural amurada a pared maestra, peldaños volados en tubo de 50x50x5 mm con tuercas remache integradas, forrado completo de los peldaños en madera maciza noble de Iroko tratada y barnizada, y barandilla de suspensión vertical tipo arpa de varillas roscadas atornilladas a los peldaños y fijadas a perfil angular de acero sobre viga de madera de techo existente.",
+  "titulo": "Presupuesto Técnico: Escalera Metálica en L con Base Tubular de Arranque (3 Escalones), Tramo Volado sobre Pletina Mural, Forrado Integral en Madera de Iroco y Barandilla Suspendida",
+  "resumen": "Fabricación e instalación a medida de escalera interior en forma de L de diseño contemporáneo. Se compone de un arranque inferior en ángulo de 3 escalones sustentados sobre bancada/base estructural tubular en acero, tramo principal en voladizo con pletina diagonal amurada a pared maestra y peldaños de tubo 50x50x5 mm con tuercas remache integradas, forrado completo de los 19 peldaños en madera noble maciza de Iroko tratada y barnizada, y barandilla de suspensión vertical tipo arpa de varillas roscadas tensadas a un perfil angular fijado sobre la viga de madera existente de techo.",
   "cliente": {
     "nombre": "Costel Pindea (Constructora)",
     "contacto": "Costel Pindea",
@@ -18,93 +18,103 @@
     "email": "info@hamenorca.com"
   },
   "parametrosTecnicos": {
-    "tipoEstructura": "Escalera en voladizo soportada mediante pletina diagonal continua anclada a muro portante",
-    "zancaPared": "Pletina maciza estructural S275JR de 150x12 mm con taladros avellanados para fijación química",
-    "estructuraPeldanos": "Ménsulas tubulares de acero 50x50x5 mm soldadas a pletina portante con penetración continua",
-    "mecanizadoPeldaños": "Taladrado e inserción de tuercas remache roscadas M10 de acero cincado de alta resistencia",
-    "sistemaBarandilla": "Varillas de acero macizo calibrado / roscado Ø10 mm con tensado a angular superior y tuercas ciegas de remate",
-    "remateTecho": "Perfil angular de acero L 60x40x5 mm fijado estructuralmente a viga de madera mediante tirafondos de alta resistencia",
-    "forradoMadera": "Madera maciza de Iroko de 1ª calidad seleccionada (huella 38 mm, frentes y base 20 mm)",
-    "acabadoMadera": "Lijado fino, tratamiento antixilófagos, sellador tapaporos y 3 manos de barniz poliuretano satinado de alta resistencia al desgaste",
-    "acabadoMetal": "Desengrase, imprimación epoxi fosfatante antioxidante y esmalte poliuretano de dos componentes (RAL 7016 / 9005 texturado)",
-    "normativaSeguridad": "Cumplimiento CTE DB-SUA: separación libre entre varillas verticales ≤ 100 mm (antiescalabilidad)",
-    "desnivelEstimado": "2,80 m (altura de planta a planta)",
-    "numeroPeldanos": 16,
-    "anchoPeldano": "85 cm",
-    "huellaContrahuella": "Huella 28 cm / Contrahuella 17,5 cm"
+    "configuracion": "Escalera en forma de L (giro a 90° en arranque)",
+    "baseArranque": "Bancada estructural inferior autoportante en tubo de acero estructural (80x40 / 50x50 mm) con placas de nivelación y fijación química a solera para los 3 primeros escalones",
+    "tramoVolado": "Pletina maciza estructural S275JR de 150x12 mm amurada a pared portante con anclajes químicos M14",
+    "estructuraPeldanos": "Ménsulas tubulares de 50x50x5 mm soldadas a la pletina con penetración completa",
+    "mecanizadoPeldanos": "Tuercas remache M10 de alta resistencia empotradas en las cabezas de los tubos para varillas",
+    "sistemaBarandilla": "Varillas de acero macizo calibrado / roscado Ø10 mm (32 uds en tramo principal) tensadas a techo",
+    "remateTecho": "Perfil angular de acero L 60x40x5 mm fijado estructuralmente a viga de madera con tirafondos Spax",
+    "forradoMadera": "Madera maciza de Iroko de 1ª calidad seleccionada (huella 38 mm, frentes y laterales 20 mm)",
+    "acabadoMadera": "Lijado fino, tratamiento antixilófagos, sellador tapaporos y 3 manos de barniz poliuretano satinado de alto tránsito",
+    "acabadoMetal": "Desengrase, imprimación epoxi fosfatante antioxidante y esmalte poliuretano de 2 componentes secado al horno (RAL 7016 / 9005)",
+    "totalPeldanos": 19,
+    "peldanosBaseArranque": 3,
+    "peldanosTramoVolado": 16,
+    "normativaSeguridad": "Cumplimiento CTE DB-SUA: separación libre entre varillas verticales ≤ 100 mm"
   },
   "partidas": [
     {
       "codigo": "01",
       "capitulo": "Ingenieria",
-      "concepto": "Toma de medidas, replanteo láser in situ y desarrollo de planos de despiece",
-      "descripcion": "Levantamiento dimensional in situ con estación láser para verificación de plomos y cotas de la pared maestra, cota exacta de la viga de madera del techo y despiece milimétrico de peldaños, ángulos de inclinación y distancias entre varillas de barandilla según CTE DB-SUA.",
+      "concepto": "Toma de medidas, replanteo láser in situ y desarrollo de planos de despiece para configuración en L",
+      "descripcion": "Levantamiento dimensional in situ con estación láser. Replanteo del giro a 90° en arranque, verificación de plomos en pared maestra, escuadrías en solera y cota exacta de la viga de madera del techo. Planos de fabricación milimétricos conforme al CTE DB-SUA.",
       "unidad": "lote",
       "cantidad": 1,
-      "precioUnitario": 450.00,
-      "importe": 450.00
+      "precioUnitario": 520.00,
+      "importe": 520.00
     },
     {
       "codigo": "02",
-      "capitulo": "Estructura Metalica",
-      "concepto": "Fabricación en taller de zanca pletina mural y ménsulas de tubo 50x50x5 mm con tuercas remache",
-      "descripcion": "Fabricación a medida de zanca portante en pletina maciza estructural S275JR de 150x12 mm cajeada y mecanizada. Suministro, corte ingletado y soldeo continuo con penetración completa de 16 ménsulas en tubo cuadrado estructural de 50x50x5 mm con cartelas internas de refuerzo. Mecanizado milimétrico e inserción de tuercas remache roscadas M10 de alta resistencia en las cabezas de tubo para recepción de las varillas de la barandilla.",
+      "capitulo": "Estructura Base Arranque",
+      "concepto": "Fabricación de base tubular estructural para arranque en L de 3 escalones",
+      "descripcion": "Bancada estructural de arranque para soporte de los 3 primeros escalones en ángulo, conformada por chasis soldado en tubo estructural rectangular y cuadrado de acero S275JR (perfiles 80x40x3 mm y 50x50x3 mm). Incluye pletinas de reparto de carga con taladros avellanados para anclaje oculto a solera, rigidizadores y piezas de acople milimétrico con el tramo de zanca mural.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precioUnitario": 1150.00,
+      "importe": 1150.00
+    },
+    {
+      "codigo": "03",
+      "capitulo": "Estructura Tramo Volado",
+      "concepto": "Fabricación en taller de zanca pletina mural y 16 ménsulas de tubo 50x50x5 mm con tuercas remache",
+      "descripcion": "Pletina diagonal continua de 150x12 mm en acero S275JR taladrada para fijación química mural. 16 ménsulas en voladizo en tubo cuadrado estructural de 50x50x5 mm soldadas con cartelas interiores de refuerzo. Mecanizado e inserción de tuercas remache roscadas M10 de alta resistencia en cabezas de tubo para recepción de varillas de barandilla.",
       "unidad": "lote",
       "cantidad": 1,
       "precioUnitario": 3850.00,
       "importe": 3850.00
     },
     {
-      "codigo": "03",
+      "codigo": "04",
       "capitulo": "Barandilla / Suspension",
       "concepto": "Barandilla vertical suspendida de varillas roscadas y angular superior fijado a viga de madera",
-      "descripcion": "Suministro y mecanizado de perfil angular de acero L 60x40x5 mm para coronación superior en techo, con taladros calibrados para anclaje a viga de madera y paso de varillas. Suministro y corte a longitud de 32 varillas de acero macizo calibrado roscado Ø10 mm (2 varillas por peldaño para garantizar separación < 10 cm según CTE). Incluye herrajes de tensado, casquillos distanciadores, arandelas de apoyo y tuercas ciegas decorativas de remate superior.",
+      "descripcion": "Perfil angular de acero L 60x40x5 mm para coronación en techo, taladrado para anclaje a viga de madera y paso de varillas. 32 varillas de acero macizo calibrado / roscado Ø10 mm (2 varillas por peldaño para hueco < 10 cm según CTE). Accesorios de roscado, casquillos, arandelas y tuercas ciegas decorativas de remate.",
       "unidad": "lote",
       "cantidad": 1,
       "precioUnitario": 1950.00,
       "importe": 1950.00
     },
     {
-      "codigo": "04",
-      "capitulo": "Tratamiento Metal",
-      "concepto": "Tratamiento anticorrosivo y lacado de cerrajería estructural en taller",
-      "descripcion": "Limpieza, desengrase químico, lijado mecánico, aplicación de imprimación epoxi fosfatante antioxidante de 2 componentes de alto espesor y acabado con dos manos de esmalte poliuretano secado al horno en color a definir por DF (RAL 9005 negro mate texturado o RAL 7016 gris antracita). Tratamiento aplicado a pletina, tubos, varillas y angular superior.",
-      "unidad": "lote",
-      "cantidad": 1,
-      "precioUnitario": 880.00,
-      "importe": 880.00
-    },
-    {
       "codigo": "05",
-      "capitulo": "Carpinteria Madera Iroko",
-      "concepto": "Forrado integral de peldaños en madera maciza noble de Iroko de 1ª calidad",
-      "descripcion": "Confección en taller de ebanistería de 16 forros de peldaño tipo cajón en madera maciza de Iroko seleccionada libre de defectos (huella maciza de 38 mm de espesor y frente/base de 20 mm). Cajeado y fresado interior a medida para alojar e invisibilizar la estructura metálica tubular de 50x50x5 mm. Mecanizado superior para paso estético de varillas tensoras. Lijado calibrado fino, aplicación de protector antixilófagos, fondo tapaporos y acabado con 3 capas de barniz poliuretano satinado especial para suelos de madera de alta resistencia.",
+      "capitulo": "Tratamiento Metal",
+      "concepto": "Tratamiento anticorrosivo y lacado al horno de toda la cerrajería estructural",
+      "descripcion": "Limpieza, desengrase químico, lijado mecánico, imprimación epoxi fosfatante antioxidante de alto espesor y acabado con dos capas de esmalte de poliuretano secado al horno en color a elegir (RAL 9005 negro mate texturado o RAL 7016 gris antracita). Tratamiento aplicado a la base tubular de arranque, pletina, ménsulas, varillas y angular superior.",
       "unidad": "lote",
       "cantidad": 1,
-      "precioUnitario": 4250.00,
-      "importe": 4250.00
+      "precioUnitario": 980.00,
+      "importe": 980.00
     },
     {
       "codigo": "06",
-      "capitulo": "Montaje y Ajustes",
-      "concepto": "Transporte a obra en Menorca, fijación química estructural, montaje e instalación completa",
-      "descripcion": "Transporte y descarga de todos los elementos en obra. Anclaje químico estructural de la pletina zanca sobre pared maestra mediante perforación rotativa, limpieza de taladro, varillas roscadas Hilti/Fischer M14 de acero cincado clase 8.8 e inyección de resina viniléster homologada. Fijación del angular superior a la viga de madera con tirafondos estructurales de rosca madera profunda. Montaje, alineación y tensado milimétrico de las 32 varillas verticales. Colocación y pegado estructural elastomérico del forrado de madera de Iroko. Limpieza, retirada de embalajes y repaso final.",
+      "capitulo": "Carpinteria Madera Iroko",
+      "concepto": "Forrado integral de 19 peldaños en Madera Maciza noble de Iroko de 1ª calidad",
+      "descripcion": "Confección en taller de ebanistería de 19 forros de peldaño tipo cajón en madera maciza de Iroko seleccionada (3 para base de arranque en L y 16 para tramo volado). Huellas macizas de 38 mm de espesor y frentes/laterales de 20 mm. Cajeado y fresado interior para embutir y ocultar la base tubular y ménsulas 50x50x5 mm. Mecanizado para paso de varillas. Tratamiento antixilófagos y acabado con 3 capas de barniz poliuretano satinado de alta resistencia al tránsito.",
       "unidad": "lote",
       "cantidad": 1,
-      "precioUnitario": 2480.00,
-      "importe": 2480.00
+      "precioUnitario": 4980.00,
+      "importe": 4980.00
+    },
+    {
+      "codigo": "07",
+      "capitulo": "Montaje e Instalacion",
+      "concepto": "Transporte a obra, fijación química a solera y muro, montaje integral y ajustes finales",
+      "descripcion": "Transporte a pie de obra en Menorca. Nivelación y anclaje químico/mecánico de la base tubular sobre solera. Anclaje químico de pletina a muro portante mediante resina viniléster y varillas M14. Fijación de angular a viga de madera de techo. Montaje, aplomado y tensado de varillas. Pegado estructural elastomérico de los 19 forros de madera de Iroko, limpieza y entrega.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precioUnitario": 2780.00,
+      "importe": 2780.00
     }
   ],
   "totales": {
-    "baseImponible": 13860.00,
+    "baseImponible": 16210.00,
     "ivaPorcentaje": 21,
-    "ivaImporte": 2910.60,
-    "totalPresupuesto": 16770.60
+    "ivaImporte": 3404.10,
+    "totalPresupuesto": 19614.10
   },
   "condiciones": {
-    "formaPago": "40% a la formalización del pedido y replanteo, 30% a la finalización de la estructura metálica y preparación de madera en taller, y 30% a la finalización y entrega en obra.",
-    "plazoEjecucion": "4 a 5 semanas para fabricación completa en taller de cerrajería y ebanistería; montaje en obra: 3 a 4 jornadas laborables.",
-    "garantia": "Garantía de 2 años en estructura de acero, cerrajería, fijaciones y acabados según normativa vigente.",
+    "formaPago": "40% a la formalización del pedido y replanteo, 30% a la finalización de estructura y madera en taller, y 30% a la finalización y entrega en obra.",
+    "plazoEjecucion": "4 a 5 semanas para fabricación completa en taller de cerrajería y ebanistería; montaje en obra de 4 jornadas laborables.",
+    "garantia": "Garantía de 2 años en estructura de acero, cerrajería, fijaciones y carpintería de madera según normativa vigente.",
     "validez": "30 días naturales desde la fecha de emisión."
   }
 }
