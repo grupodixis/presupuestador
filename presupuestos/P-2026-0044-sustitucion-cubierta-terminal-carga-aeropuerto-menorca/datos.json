@@ -1,7 +1,7 @@
 {
   "numeroPresupuesto": "P-2026-0044",
-  "referencia": "PRE-2026-1027-AENA-CARGA-HDX-REV4",
-  "fecha": "2026-10-27",
+  "referencia": "PRE-2026-1028-AENA-CARGA-HDX-REV5",
+  "fecha": "2026-10-28",
   "validezDias": 30,
   "cliente": {
     "empresa": "Consultores de Ingeniería UG21 / UTE BTG-UG21",
@@ -30,8 +30,8 @@
     "acabadoChapas": "Revestimiento orgánico especial Granite® HDX55 (55 micras) de poliuretano modificado con poliamida en AMBAS CARAS (exterior e interior). Máxima resistencia contra la corrosión marina categoría C5-M y radiación solar extrema RUV4 según norma UNE-EN 10169.",
     "fijaciones": "Tornillería roscachapa / autorroscante de acero al carbono galvanizado de alta resistencia, provista de arandela de estanqueidad vulcanizada de EPDM (diámetro 19 mm) y cabeza hexagonal para fijación estanca a correas estructurales.",
     "estanqueidad": "Sellado continuo de juntas y solapes mediante cordón de masilla hidro-expansiva de butilo y masilla elastomérica de poliuretano/MS polímero en encuentros perimetrales.",
-    "voladizos": "Sustitución integral de la envolvente de voladizos/marquesinas de muelles de carga, incluyendo saneado y desoxidado mecánico de viguetas en ménsula con imprimación epoxi anticorrosiva de alto contenido en sólidos (mínimo 80 micras de espesor seco) e instalación de chapa/panel con acabado HDX55 en ambas caras y tornillería roscachapa galvanizada con arandela EPDM.",
-    "mediosIntegrados": "Los precios unitarios de las partidas de cubierta (135 €/m²), voladizos (95 €/m²) y desmontaje (25 €/m²) llevan totalmente integrados y repercutidos los costes de medios auxiliares: fletes marítimos especiales Península-Menorca de trailers, camión grúa pluma telescópica autopropulsada para descarga e izado distribuido en pórticos, y alquiler de plataformas elevadoras móviles de personal (PEMP) tipo tijera y articulada.",
+    "voladizos": "Sustitución integral de la envolvente de voladizos/marquesinas de muelles de carga, incluyendo cobertura superior, cielo raso inferior y tabica vertical de fachada: saneado y desoxidado mecánico de viguetas en ménsula con imprimación epoxi anticorrosiva (mínimo 80 micras de espesor seco) e instalación de nueva cobertura y forro inferior en chapa/panel HDX55 en ambas caras.",
+    "mediosIntegrados": "Los precios unitarios de las partidas de cubierta (135 €/m²), voladizos, falso techo y tabica (95 €/m²) y desmontaje (25 €/m²) llevan totalmente integrados y repercutidos los costes de medios auxiliares: fletes marítimos especiales Península-Menorca de trailers, camión grúa pluma telescópica autopropulsada para descarga e izado distribuido en pórticos, y alquiler de plataformas elevadoras móviles de personal (PEMP) tipo tijera y articulada.",
     "escalerasOpcionales": "Escaleras fijas de gato con jaula dorsal de protección (crinolina) fabricadas íntegramente en acero inoxidable AISI 304/316 según norma UNE-EN ISO 14122-4, con desembarco superior ensanchado, cancela batiente con cierre automático por gravedad/muelle y placa inferior abatible de bloqueo anti-intrusión con candado en acero inoxidable para seguridad operacional AENA.",
     "lineaVidaLuxTop": "Sistema permanente de línea de vida horizontal de cable de acero inoxidable AISI 316 homologado marca LuxTop®, conforme a normas UNE-EN 795:2012 Tipo C y especificación técnica CEN/TS 16415 para uso simultáneo de múltiples operarios. Incluye absorbedores dinámicos de energía, postes intermedios y de extremo específicos para panel sándwich con fijación estanca, tensor con testigo, carros pasantes transitables sin desconexión y ensayo/certificación técnica visada."
   },
@@ -39,10 +39,13 @@
     "cubiertaDosAguasM2": 1042.50,
     "cubiertaUnaAguaM2": 328.50,
     "subtotalCubiertasM2": 1371.00,
-    "voladizosFachadasM2": 533.00,
-    "superficieTotalM2": 1904.00
+    "voladizosSuperiorM2": 533.00,
+    "voladizosInferiorM2": 533.60,
+    "tabicaVoladizosM2": 186.50,
+    "subtotalVoladizosYTabicaM2": 1253.10,
+    "superficieTotalM2": 2624.10
   },
-  "desgloseRemateriaPartida05": {
+  "desgloseRemateriaPartida07": {
     "descripcion": "Detalle técnico de elementos, metrado lineal y piezas especiales computadas a partir de las planimetrías del proyecto para la rematería en chapa de acero galvanizado con recubrimiento Granite® HDX55 (55 µm) plegada a medida (desarrollo 300 a 500 mm):",
     "elementos": [
       {
@@ -98,18 +101,18 @@
     ],
     "totalMetrosLineales": 489.15,
     "totalPuntosSingulares": 10,
-    "importeTotalPartida05": 14850.00
+    "importeTotalPartida07": 14850.00
   },
   "partidas": [
     {
       "id": "01",
       "codigo": "DESM-CUB",
-      "concepto": "Desmontaje controlado de cubierta actual, voladizos existentes y gestión autorizada de residuos",
-      "descripcion": "Desmontaje manual y mecánico de la cubierta y voladizos existentes de chapa/panel degradada y corroída. Incluye descenso a cota cero con grúa pluma y plataforma elevadora (medios integrados), acopio, clasificación de residuos férricos, carga, transporte y entrega en centro autorizado de gestión y reciclaje de residuos de Menorca, con tasas y canon oficial de vertedero incluidos.",
+      "concepto": "Desmontaje controlado de cubierta actual, voladizos, falso techo inferior, tabicas y gestión autorizada de residuos",
+      "descripcion": "Desmontaje manual y mecánico de la totalidad de la cubierta existente, chapas de voladizos superiores, falsos techos inferiores de viguetas y tabicas verticales degradadas y corroídas (superficie total 2.624,10 m²). Incluye descenso a cota cero con grúa pluma y plataforma elevadora (medios integrados), acopio clasificado de chatarra férrica, carga, transporte y entrega en centro autorizado de reciclaje de Menorca con canon oficial de vertedero incluido.",
       "unidad": "m²",
-      "cantidad": 1904.00,
+      "cantidad": 2624.10,
       "precioUnitario": 25.00,
-      "importe": 47600.00
+      "importe": 65602.50
     },
     {
       "id": "02",
@@ -133,9 +136,9 @@
     },
     {
       "id": "04",
-      "codigo": "VOL-MARQ",
-      "concepto": "Sustitución integral de voladizos en muelles de carga con acabado HDX55 e imprimación anticorrosiva",
-      "descripcion": "Rehabilitación y sustitución completa de la envolvente de los voladizos de fachada (muelles de carga, 267 m² por fachada, total 533 m²). Incluye cepillado y saneado mecánico superficial con eliminación de óxido en viguetas metálicas en ménsula existentes, aplicación de capa de imprimación epoxi anticorrosiva rica en zinc de alto espesor (C5-M), e instalación de nueva cobertura con chapa/panel de alta resistencia protegida con revestimiento HDX55 (55 µm) en ambas caras, con tornillería roscachapa galvanizada con arandela EPDM, remates perimetrales frontales con goterón y repercusión de plataformas elevadoras PEMP.",
+      "codigo": "VOL-MARQ-SUP",
+      "concepto": "Sustitución de cobertura superior de voladizos en muelles de carga con acabado HDX55 e imprimación anticorrosiva",
+      "descripcion": "Rehabilitación y sustitución de la cubierta superior de los voladizos de fachada (muelles de carga, 267 m² por fachada, total 533 m²). Incluye cepillado y saneado mecánico superficial con eliminación de óxido en viguetas metálicas en ménsula existentes, aplicación de capa de imprimación epoxi anticorrosiva rica en zinc de alto espesor (C5-M), e instalación de nueva cobertura con chapa/panel protegida con revestimiento HDX55 (55 µm) en ambas caras, con tornillería roscachapa galvanizada con arandela EPDM, remates perimetrales frontales con goterón y repercusión de plataformas elevadoras PEMP.",
       "unidad": "m²",
       "cantidad": 533.00,
       "precioUnitario": 95.00,
@@ -143,6 +146,26 @@
     },
     {
       "id": "05",
+      "codigo": "VOL-MARQ-INF",
+      "concepto": "Suministro e instalación de chapa grecada HDX55 en AMBAS CARAS en lado inferior de voladizos (cielo raso)",
+      "descripcion": "Suministro e instalación de chapa grecada de acero estructural galvanizado con revestimiento anticorrosión marina Granite® HDX55 (55 µm) en AMBAS CARAS por la cara inferior de las viguetas en ménsula de los muelles de carga (cielo raso / forro inferior de voladizos). Incluye nivelación, fijación directa a viguetas mediante tornillería roscachapa de acero galvanizado con arandela vulcanizada de EPDM, perfilería perimetral de ajuste y remate, y repercusión completa de plataformas PEMP y fletes.",
+      "unidad": "m²",
+      "cantidad": 533.60,
+      "precioUnitario": 95.00,
+      "importe": 50692.00
+    },
+    {
+      "id": "06",
+      "codigo": "VOL-TABICA",
+      "concepto": "Suministro e instalación de chapa grecada HDX55 en AMBAS CARAS en tabica vertical de fachada sobre voladizos",
+      "descripcion": "Suministro e instalación de chapa grecada de acero galvanizado con idéntico recubrimiento Granite® HDX55 (55 µm) en ambas caras en paramento vertical de tabica de fachada sobre marquesinas/voladizos de muelles. Incluye adaptaciones mecánicas en encuentros de peto, solapes estancos con cordón de butilo, tornillería roscachapa galvanizada con junta de estanqueidad de EPDM y medios de elevación con plataformas articuladas PEMP integrados.",
+      "unidad": "m²",
+      "cantidad": 186.50,
+      "precioUnitario": 95.00,
+      "importe": 17717.50
+    },
+    {
+      "id": "07",
       "codigo": "REM-COMP",
       "concepto": "Rematería completa en acero con acabado HDX55, coronaciones, encuentros, mordidos y sellados",
       "descripcion": "Suministro, conformación en taller y montaje de 489,15 ml de rematería técnica plegada a medida (desarrollos 300-500 mm) en chapa de acero galvanizado con idéntico recubrimiento Granite® HDX55 (55 µm): 50,23 ml de cumbrera troquelada a dos aguas, 63,34 ml de remates laterales de hastial/testero con goterón, 30,22 ml de babero de coronación contra peto, 10,40 ml de remate de salto entre naves, 174,08 ml de goterones frontales y laterales de voladizo, 160,88 ml de baberos de encuentro voladizo-fachada y 10 unidades de mordidos y cajeados estancos en salidas de chimeneas y bajantes, fijados con tornillería galvanizada lacada con junta EPDM y doble sellado perimetral continuo con masilla hidro-expansiva de butilo y polímero elástico MS exterior.",
@@ -152,7 +175,7 @@
       "importe": 14850.00
     },
     {
-      "id": "06",
+      "id": "08",
       "codigo": "PRL-AENA",
       "concepto": "Seguridad y salud, protecciones colectivas en altura y protocolo aeroportuario AENA",
       "descripcion": "Implantación de medidas de seguridad y salud en altura bajo estricta normativa de AENA en terminal de carga: instalación de redes de seguridad anticaídas bajo faldones según norma UNE-EN 1263-1, líneas de vida provisionales homologadas UNE-EN 795, balizamiento perimetral de zonas de acopio y descarga, tramitación de Coordinación de Actividades Empresariales (CAE) en plataforma aeroportuaria, gestión de acreditaciones del personal y recursos preventivos permanentes en obra.",
@@ -195,62 +218,64 @@
     }
   ],
   "totalesEconomicos": {
-    "baseImponibleBase": 307970.00,
-    "ivaBase": 64673.70,
-    "totalBaseConIva": 372643.70,
+    "baseImponibleBase": 394382.00,
+    "ivaBase": 82820.22,
+    "totalBaseConIva": 477202.22,
     "baseImponibleOpcionales": 30740.00,
     "ivaOpcionales": 6455.40,
     "totalOpcionalesConIva": 37195.40,
-    "baseImponibleGeneral": 338710.00,
-    "ivaGeneral": 71129.10,
-    "totalGeneralConIva": 409839.10
+    "baseImponibleGeneral": 425122.00,
+    "ivaGeneral": 89275.62,
+    "totalGeneralConIva": 514397.62
   },
   "escandalloCostesInternosHAM": {
     "compraMateriales": {
       "panelSandwichCubiertasHDX55": { "medicion": 1440.0, "unidad": "m²", "costeUnitario": 36.00, "costeTotal": 51840.00 },
-      "panelChapaVoladizosHDX55": { "medicion": 560.0, "unidad": "m²", "costeUnitario": 34.00, "costeTotal": 19040.00 },
-      "fijacionesGalvanizadasButiloEPDM": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 5200.00, "costeTotal": 5200.00 },
+      "panelChapaVoladizosSupHDX55": { "medicion": 560.0, "unidad": "m²", "costeUnitario": 34.00, "costeTotal": 19040.00 },
+      "chapaGrecadaVoladizosInfHDX55": { "medicion": 560.0, "unidad": "m²", "costeUnitario": 20.00, "costeTotal": 11200.00 },
+      "chapaGrecadaTabicaHDX55": { "medicion": 196.0, "unidad": "m²", "costeUnitario": 20.00, "costeTotal": 3920.00 },
+      "fijacionesGalvanizadasButiloEPDM": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 6400.00, "costeTotal": 6400.00 },
       "remateriaEspecialHDX55": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 5800.00, "costeTotal": 5800.00 },
       "imprimacionEpoxiViguetas": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 1450.00, "costeTotal": 1450.00 },
       "escalerasInoxMateriales": { "medicion": 2.0, "unidad": "ud", "costeUnitario": 1850.00, "costeTotal": 3700.00 },
       "lineaVidaLuxTopMaterialesCert": { "medicion": 1.0, "unidad": "lote", "costeUnitario": 10300.00, "costeTotal": 10300.00 },
-      "subtotalMateriales": 97330.00
+      "subtotalMateriales": 113650.00
     },
     "manoObra": {
-      "horasEstimadasBase": 800.0,
+      "horasEstimadasBase": 1050.0,
       "horasEstimadasOpcionales": 100.0,
-      "horasTotales": 900.0,
+      "horasTotales": 1150.0,
       "tarifaHoraInterna": 28.00,
-      "costeTotalManoObra": 25200.00
+      "costeTotalManoObra": 32200.00
     },
     "logisticaYMedios": {
-      "fletesMaritimos trailers": 5200.00,
+      "fletesMaritimos trailers": 5600.00,
       "camionGruaPlumaIzado": 4600.00,
-      "alquilerPEMP": 3400.00,
-      "subtotalLogistica": 13200.00
+      "alquilerPEMP": 4800.00,
+      "subtotalLogistica": 15000.00
     },
     "seguridadSaludResiduos": {
       "redesLineasVidaPRL": 3800.00,
-      "canonVertederoResiduos": 1800.00,
-      "subtotalSeguridad": 5600.00
+      "canonVertederoResiduos": 2400.00,
+      "subtotalSeguridad": 6200.00
     },
-    "costeDirectoTotalBase": 124530.00,
+    "costeDirectoTotalBase": 150250.00,
     "costeDirectoOpcionales": 16800.00,
-    "costeDirectoTotalGlobal": 141330.00,
-    "precioVentaBase": 307970.00,
+    "costeDirectoTotalGlobal": 167050.00,
+    "precioVentaBase": 394382.00,
     "precioVentaOpcionales": 30740.00,
-    "precioVentaGlobal": 338710.00,
-    "margenBrutoBase": 183440.00,
+    "precioVentaGlobal": 425122.00,
+    "margenBrutoBase": 244132.00,
     "margenBrutoOpcionales": 13940.00,
-    "margenBrutoGlobal": 197380.00,
-    "margenBrutoPorcentajeVentaGlobal": 58.27,
-    "margenBrutoPorcentajeCosteGlobal": 139.66
+    "margenBrutoGlobal": 258072.00,
+    "margenBrutoPorcentajeVentaGlobal": 60.71,
+    "margenBrutoPorcentajeCosteGlobal": 154.49
   },
   "condicionesComerciales": {
     "formaDePago": "A convenir con el cliente según avance y certificaciones de obra",
     "plazoEjecucion": "2 a 3 meses desde la recepción de materiales en obra y formalización del contrato",
     "garantia": "10 años de garantía en durabilidad de recubrimiento Granite® HDX55 contra corrosión marina y perforación; 10 años en elementos de acero inoxidable de las escalas; 10 años de garantía del fabricante del sistema LuxTop®; 5 años en estanqueidad de la cubierta; 2 años en montaje e instalaciones mecánicas.",
     "validezOferta": "30 días naturales desde la fecha de emisión.",
-    "notasTecnicas": "El acabado Granite® HDX55 en ambas caras garantiza una protección óptima contra la niebla salina de Menorca y la atmósfera aeroportuaria. Fijaciones de panel mediante tornillería roscachapa de acero galvanizado con arandela de estanqueidad EPDM. Todos los medios auxiliares, transportes y grúas están repercutidos en los precios unitarios de las partidas principales. Las dos escaleras opcionales con crinolina en acero inoxidable cumplen la norma UNE-EN ISO 14122-4 con condena inferior para AENA. La línea de vida LuxTop® sobre faldón garantiza la seguridad total de futuros mantenimientos conforme a UNE-EN 795:2012 Tipo C."
+    "notasTecnicas": "El acabado Granite® HDX55 en ambas caras garantiza una protección óptima contra la niebla salina de Menorca y la atmósfera aeroportuaria en todas las superficies (cubierta, voladizos superior e inferior, y tabica). Fijaciones de panel y chapa mediante tornillería roscachapa de acero galvanizado con arandela de estanqueidad EPDM. Todos los medios auxiliares, transportes y grúas están repercutidos en los precios unitarios de las partidas principales. Las dos escaleras opcionales con crinolina en acero inoxidable cumplen la norma UNE-EN ISO 14122-4 con condena inferior para AENA. La línea de vida LuxTop® sobre faldón garantiza la seguridad total de futuros mantenimientos conforme a UNE-EN 795:2012 Tipo C."
   }
 }

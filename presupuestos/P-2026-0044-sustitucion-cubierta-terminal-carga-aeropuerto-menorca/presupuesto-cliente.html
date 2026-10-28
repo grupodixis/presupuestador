@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Presupuesto P-2026-0044: Sustitución Cubierta Terminal de Carga - Aeropuerto de Menorca</title>
+  <title>Presupuesto P-2026-0044: Sustitución Cubierta y Voladizos Terminal de Carga - Aeropuerto de Menorca</title>
   <style>
     @page { 
-      size: A4; 
+      size: A4 portrait; 
       margin: 6mm 6mm 6mm 6mm;
     }
     * { box-sizing: border-box; }
@@ -52,10 +52,10 @@
     }
     .brand { display: flex; align-items: center; gap: 10px; }
     .logo { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.2); border-radius: 6px; padding: 3px; background: rgba(255,255,255,0.08); }
-    h1 { margin: 0; font-size: 16.5px; font-weight: 700; letter-spacing: -.02em; color: #ffffff; }
-    .subtitle { margin: 1px 0 0; color: #94a3b8; font-size: 9.8px; font-weight: 500; }
+    h1 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: -.02em; color: #ffffff; }
+    .subtitle { margin: 1px 0 0; color: #94a3b8; font-size: 9.5px; font-weight: 500; }
     .meta { text-align: right; color: #cbd5e1; font-size: 8.8px; line-height: 1.35; }
-    .meta strong { color: #ffffff; display: block; font-size: 11.5px; margin-bottom: 2px; }
+    .meta strong { color: #ffffff; display: block; font-size: 11px; margin-bottom: 2px; }
 
     .client-card {
       display: grid;
@@ -85,12 +85,12 @@
       padding: 5px 7px;
     }
     .kpi-title { font-size: 8px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 1px; }
-    .kpi-val { font-size: 13.5px; font-weight: 800; color: #0f172a; line-height: 1.15; }
+    .kpi-val { font-size: 13px; font-weight: 800; color: #0f172a; line-height: 1.15; }
     .kpi-sub { font-size: 8px; color: #475569; margin-top: 1px; }
 
     h2 { 
       margin: 6px 0 3px; 
-      font-size: 10px; 
+      font-size: 9.8px; 
       text-transform: uppercase; 
       letter-spacing: .05em; 
       color: #0f172a; 
@@ -158,7 +158,7 @@
     table.data-table th {
       background: #1e293b;
       color: #fff;
-      padding: 3.5px 5px;
+      padding: 4px 6px;
       text-align: left;
       font-weight: 600;
       font-size: 8.6px;
@@ -167,7 +167,7 @@
       background: #1e3a8a;
     }
     table.data-table td {
-      padding: 3px 5px;
+      padding: 3.5px 6px;
       border-bottom: 1px solid #e2e8f0;
       vertical-align: top;
     }
@@ -176,90 +176,88 @@
     }
     .td-right { text-align: right; white-space: nowrap; }
     .td-center { text-align: center; }
-    .partida-code { font-weight: 700; color: #b91c1c; font-size: 8.3px; }
-    .partida-code-opc { font-weight: 700; color: #1e3a8a; font-size: 8.3px; }
-    .partida-title { font-weight: 600; color: #0f172a; margin-bottom: 1px; }
-    .partida-desc { font-size: 8.1px; color: #475569; line-height: 1.22; }
+
+    .partida-title { font-weight: 700; color: #0f172a; font-size: 9px; line-height: 1.25; }
+    .partida-desc { font-size: 8.2px; color: #475569; margin-top: 1.5px; line-height: 1.22; text-align: justify; }
+    .partida-code { background: #e2e8f0; color: #0f172a; padding: 1px 3px; border-radius: 3px; font-weight: 700; font-size: 8px; }
+    .partida-code-opc { background: #dbeafe; color: #1e40af; padding: 1px 3px; border-radius: 3px; font-weight: 700; font-size: 8px; }
 
     .summary-cards-container {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 7px;
-      margin-top: 3px;
-      margin-bottom: 5px;
+      grid-template-columns: 1fr 1fr 1.3fr;
+      gap: 8px;
+      margin: 8px 0;
     }
     .sum-box {
       background: #f8fafc;
       border: 1px solid #cbd5e1;
-      border-radius: 5px;
-      padding: 4px 7px;
-      font-size: 8.8px;
+      border-radius: 6px;
+      padding: 7px 9px;
+      text-align: center;
     }
     .sum-box.highlight {
-      background: #f0fdf4;
-      border-color: #10b981;
-      border-left: 3.5px solid #10b981;
+      background: #ecfdf5;
+      border: 1.5px solid #10b981;
     }
     .sum-box.optional-box {
       background: #eff6ff;
-      border-color: #3b82f6;
-      border-left: 3.5px solid #3b82f6;
+      border: 1.5px solid #3b82f6;
     }
     .sum-box h6 {
       margin: 0 0 2px;
+      font-size: 8.5px;
       text-transform: uppercase;
-      font-size: 8px;
       color: #64748b;
-      font-weight: 700;
     }
     .sum-val {
-      font-size: 12.5px;
+      font-size: 15px;
       font-weight: 800;
       color: #0f172a;
-      line-height: 1.1;
     }
     .sum-sub {
-      font-size: 8px;
-      color: #64748b;
-      margin-top: 1px;
+      font-size: 8.8px;
+      color: #475569;
+      margin-top: 2px;
     }
 
     .conditions-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      margin-top: 3px;
-    }
-    .cond-item {
+      gap: 8px;
       background: #f8fafc;
       border: 1px solid #e2e8f0;
-      border-radius: 5px;
-      padding: 4px 7px;
-      font-size: 8.6px;
+      border-radius: 6px;
+      padding: 6px 10px;
+      margin-bottom: 7px;
     }
     .cond-item h5 {
-      margin: 0 0 1px;
+      margin: 0 0 2px;
+      font-size: 8.5px;
+      text-transform: uppercase;
       color: #0f172a;
-      font-size: 8.8px;
-      font-weight: 700;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 1px;
     }
-    .cond-item p { margin: 0; color: #475569; line-height: 1.22; }
+    .cond-item p {
+      margin: 0;
+      font-size: 8.4px;
+      color: #334155;
+      line-height: 1.28;
+    }
 
     .signatures {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 5px;
-      padding-top: 5px;
-      border-top: 1px solid #cbd5e1;
+      gap: 12px;
+      margin-top: 6px;
     }
     .sign-box {
       text-align: center;
       border: 1px dashed #cbd5e1;
       border-radius: 5px;
-      padding: 5px;
-      min-height: 38px;
-      font-size: 8.2px;
+      padding: 6px;
+      min-height: 48px;
+      font-size: 8.3px;
       color: #64748b;
     }
 
@@ -303,7 +301,7 @@
 <body>
 <div class="page-container">
 
-  <!-- ==================== PÁGINA 1 ==================== -->
+  <!-- ==================== PÁGINA 1: MEMORIA, DESGLOSE SUPERFICIES Y REMATERÍA ==================== -->
   <div class="page">
     <div>
       <header>
@@ -315,9 +313,9 @@
           </div>
         </div>
         <div class="meta">
-          <strong>OFERTA TÉCNICA P-2026-0044</strong>
-          Ref: PRE-2026-1027-AENA-CARGA-HDX-REV4<br>
-          Fecha: 27 de octubre de 2026<br>
+          <strong>OFERTA TÉCNICA P-2026-0044 (REV5)</strong>
+          Ref: PRE-2026-1028-AENA-CARGA-HDX-REV5<br>
+          Fecha: 28 de octubre de 2026<br>
           Validez: 30 días naturales
         </div>
       </header>
@@ -340,8 +338,8 @@
       <div class="kpi-grid">
         <div class="kpi-card">
           <div class="kpi-title">Superficie Total</div>
-          <div class="kpi-val">1.904,00 m²</div>
-          <div class="kpi-sub">1.371 m² cubierta + 533 m² voladizos</div>
+          <div class="kpi-val">2.624,10 m²</div>
+          <div class="kpi-sub">Cubierta (1.371 m²) + Voladizos y Tabica (1.253,10 m²)</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-title">Sistema de Cubierta</div>
@@ -362,18 +360,18 @@
 
       <h2>1. MEMORIA TÉCNICA Y SISTEMA PROPUESTO <span>Protección Marina Severa C5-M, Medios Integrados y Seguridad</span></h2>
       <div class="solution-box">
-        Atendiendo a la solicitud formulada por <strong>UG21 Engineering</strong> para la terminal de carga del Aeropuerto de Menorca, se formula propuesta técnica de renovación integral sustituyendo el cerramiento actual fuertemente oxidado por un sistema de alta durabilidad:
+        Atendiendo a las especificaciones y ampliaciones requeridas por <strong>UG21 Engineering</strong> para la terminal de carga del Aeropuerto de Menorca, se formula propuesta técnica de renovación integral que comprende la sustitución de la cubierta principal, la cobertura superior e inferior de los voladizos de muelles y la tabica vertical de fachada:
         <ul>
-          <li><strong>Panel Sándwich con Recubrimiento Granite® HDX55 (55 micras) en AMBAS CARAS:</strong> Resina de poliuretano de 55 µm modificada con poliamida sobre acero galvanizado estructural Z275. Máxima categoría de resistencia a la corrosión <strong>RC5 / C5-M (Marino Severo)</strong> y radiación UV <strong>RUV4</strong> (UNE-EN 10169). Inmune al ataque de niebla salina y gases de queroseno de turbinas aéreas.</li>
-          <li><strong>Integración Completa de Medios de Elevación y Logística:</strong> Todos los transportes marítimos en trailers especiales, camión grúa telescópica autopropulsada para izado distribuido en pórticos y plataformas PEMP se encuentran totalmente repercutidos e integrados en los precios unitarios de cada partida.</li>
-          <li><strong>Núcleo Aislante PIR (Poliisocianurato):</strong> Espesor 40 mm, densidad nominal 40 kg/m³, conductividad reducida (λ = 0,022 W/m·K) y clasificación al fuego <strong>B-s1,d0</strong> (UNE-EN 13501-1).</li>
-          <li><strong>Tornillería Roscachapa Galvanizada:</strong> Tornillos autorroscantes de acero al carbono galvanizado de alta resistencia mecánica, provistos de arandela de estanqueidad vulcanizada EPDM de 19 mm y cabeza hexagonal con sellado hidro-expansivo en solapes.</li>
-          <li><strong>Escaleras de Gato con Crinolina en ACERO INOXIDABLE (Opcionales):</strong> Conforme a <strong>UNE-EN ISO 14122-4</strong> íntegramente en acero inoxidable AISI 304/316, jaula dorsal desde 2,20-2,50 m, cancela batiente con muelle y portón inferior de bloqueo anti-intrusión con candado (específico AENA).</li>
-          <li><strong>Línea de Vida Permanente Homologada LUXTOP® (Opcional):</strong> Cable de acero inoxidable AISI 316 continuo (Ø 8 mm) conforme a <strong>UNE-EN 795:2012 Tipo C y CEN/TS 16415</strong> para hasta 4 operarios simultáneos, con absorbedores estancos sobre faldón y carros pasantes continuos sin desconexión.</li>
+          <li><strong>Recubrimiento Granite® HDX55 (55 micras) en AMBAS CARAS:</strong> Sistema orgánico multicapa sobre chapa estructural galvanizada Z275. Máxima categoría de resistencia a la corrosión <strong>RC5 / C5-M (Marino Severo)</strong> y radiación UV <strong>RUV4</strong> (UNE-EN 10169). Inmune a la niebla salina marina de Menorca y gases de queroseno de turbinas aéreas. Aplicado al 100% en cubierta, caras superior e inferior de voladizos y tabica.</li>
+          <li><strong>Medios de Elevación y Fletes Íntegramente Repercutidos:</strong> Todos los transportes marítimos Península-Menorca en trailers especiales, camión grúa telescópica autopropulsada para izado distribuido en pórticos y plataformas elevadoras PEMP se encuentran totalmente repercutidos e integrados en los precios unitarios de cada partida.</li>
+          <li><strong>Panel Sándwich PIR 40 mm:</strong> Espesor 40 mm, densidad 40 kg/m³, transmitancia reducida (U = 0,51 W/m²·K) y clasificación al fuego <strong>B-s1,d0 / Broof(t1)</strong> según UNE-EN 13501-1.</li>
+          <li><strong>Tornillería Roscachapa Galvanizada con EPDM:</strong> Fijaciones mecánicas autotaladrantes de acero galvanizado con arandela vulcanizada de estanqueidad en EPDM y cordón hidro-expansivo continuo en solapes.</li>
+          <li><strong>Escaleras Inox con Crinolina (Opcionales):</strong> Conforme a <strong>UNE-EN ISO 14122-4</strong> íntegramente en acero inoxidable AISI 304/316, jaula dorsal, cancela batiente con muelle y portón inferior de bloqueo con candado (protocolo AENA).</li>
+          <li><strong>Línea de Vida Homologada LUXTOP® (Opcional):</strong> Cable de acero inoxidable AISI 316 continuo (Ø 8 mm) conforme a <strong>UNE-EN 795:2012 Tipo C y CEN/TS 16415</strong> para hasta 4 operarios simultáneos, postes sobre faldón con absorbedores dinámicos y carros pasantes continuos sin desconexión.</li>
         </ul>
       </div>
 
-      <h2>2. DESGLOSE DE REMATERÍA TÉCNICA HDX55 (PARTIDA 05) <span>Metrado verificado según Planimetrías (489,15 ml + 10 ud singulares)</span></h2>
+      <h2>2. DESGLOSE DE REMATERÍA TÉCNICA HDX55 (PARTIDA 07) <span>Metrado verificado según Planimetrías (489,15 ml + 10 ud singulares)</span></h2>
       <div class="remates-box">
         <div class="remates-title">Detalle de mediciones lineales para control y supervisión técnica:</div>
         <div class="remates-grid">
@@ -423,16 +421,32 @@
           </tr>
           <tr>
             <td class="td-center"><strong>03</strong></td>
-            <td><strong>Voladizos de Fachadas (Muelles de Carga)</strong></td>
+            <td><strong>Voladizos de Fachadas (Cobertura Superior)</strong></td>
             <td>Chapa/panel grecado sobre ménsulas metálicas saneadas</td>
             <td class="td-right"><strong>533,00 m²</strong></td>
             <td class="td-center"><span class="badge-hdx">HDX55 / HDX55</span></td>
             <td class="td-center">Marino C5-M / AENA</td>
           </tr>
+          <tr>
+            <td class="td-center"><strong>04</strong></td>
+            <td><strong>Lado Inferior de Voladizos (Cielo Raso)</strong></td>
+            <td>Chapa grecada fijada bajo viguetas en ménsula</td>
+            <td class="td-right"><strong>533,60 m²</strong></td>
+            <td class="td-center"><span class="badge-hdx">HDX55 / HDX55</span></td>
+            <td class="td-center">Marino C5-M / AENA</td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>05</strong></td>
+            <td><strong>Tabica Vertical de Fachada sobre Marquesinas</strong></td>
+            <td>Chapa grecada en paramento vertical de peto/fachada</td>
+            <td class="td-right"><strong>186,50 m²</strong></td>
+            <td class="td-center"><span class="badge-hdx">HDX55 / HDX55</span></td>
+            <td class="td-center">Marino C5-M / AENA</td>
+          </tr>
           <tr style="background: #f1f5f9; font-weight: 700;">
             <td colspan="3" style="text-align: right; text-transform: uppercase;">TOTAL SUPERFICIE DE ACTUACIÓN:</td>
-            <td class="td-right" style="color: #b91c1c; font-size: 9.8px;">1.904,00 m²</td>
-            <td colspan="2" class="td-center">100% Tratamiento Anticorrosión HDX55</td>
+            <td class="td-right" style="color: #b91c1c; font-size: 9.8px;">2.624,10 m²</td>
+            <td colspan="2" class="td-center">100% Tratamiento Anticorrosión HDX55 en 2 caras</td>
           </tr>
         </tbody>
       </table>
@@ -440,11 +454,11 @@
 
     <footer>
       <span>HAM Estructuras Metálicas · Pol. Ind. Sant Lluís, Menorca · Tel: 971 35 20 18</span>
-      <span>Página 1 de 2 · Oferta P-2026-0044</span>
+      <span>Página 1 de 3 · Oferta P-2026-0044 (REV5)</span>
     </footer>
   </div>
 
-  <!-- ==================== PÁGINA 2 ==================== -->
+  <!-- ==================== PÁGINA 2: CUADRO DE PARTIDAS BASE ==================== -->
   <div class="page">
     <div>
       <header>
@@ -452,17 +466,17 @@
           <img src="logo-ham.svg" class="logo" alt="HAM Logo">
           <div>
             <h1>HAM ESTRUCTURAS METÁLICAS</h1>
-            <div class="subtitle">VALORACIÓN ECONÓMICA DE PARTIDAS BASE Y OPCIONALES</div>
+            <div class="subtitle">VALORACIÓN ECONÓMICA DE PARTIDAS BASE (MEDIOS INTEGRADOS)</div>
           </div>
         </div>
         <div class="meta">
-          <strong>PRESUPUESTO P-2026-0044</strong>
-          Ref: PRE-2026-1027-AENA-CARGA-HDX-REV4<br>
+          <strong>PRESUPUESTO P-2026-0044 (REV5)</strong>
+          Ref: PRE-2026-1028-AENA-CARGA-HDX-REV5<br>
           Terminal Carga AENA Menorca
         </div>
       </header>
 
-      <h2>4. CUADRO DE VALORACIÓN ECONÓMICA DE PARTIDAS BASE <span>Obra Principal Cubiertas y Voladizos (Medios Integrados)</span></h2>
+      <h2>4. CUADRO DE VALORACIÓN ECONÓMICA DE PARTIDAS BASE <span>Obra Principal Cubiertas, Voladizos y Tabica (Medios Integrados)</span></h2>
       <table class="data-table">
         <thead>
           <tr>
@@ -478,13 +492,13 @@
           <tr>
             <td class="td-center"><span class="partida-code">01</span></td>
             <td>
-              <div class="partida-title">Desmontaje controlado de cubierta actual, voladizos existentes y gestión autorizada de residuos</div>
-              <div class="partida-desc">Desmontaje manual y mecánico de la cubierta y voladizos existentes de chapa/panel degradada y corroída. Incluye descenso a cota cero con grúa pluma y plataforma elevadora (medios integrados), acopio, clasificación de residuos férricos, carga, transporte y entrega en centro autorizado de gestión y reciclaje de residuos de Menorca, con tasas y canon oficial de vertedero incluidos.</div>
+              <div class="partida-title">Desmontaje controlado de cubierta actual, voladizos, falso techo inferior, tabicas y gestión autorizada de residuos</div>
+              <div class="partida-desc">Desmontaje manual y mecánico de la totalidad de la cubierta existente, chapas de voladizos superiores, falsos techos inferiores de viguetas y tabicas verticales degradadas y corroídas (superficie total 2.624,10 m²). Incluye descenso a cota cero con grúa pluma y plataforma elevadora (medios integrados), acopio clasificado de chatarra férrica, carga, transporte y entrega en centro autorizado de reciclaje de Menorca con canon oficial de vertedero incluido.</div>
             </td>
             <td class="td-center">m²</td>
-            <td class="td-right">1,904.00</td>
+            <td class="td-right">2,624.10</td>
             <td class="td-right">25.00 €</td>
-            <td class="td-right"><strong>47,600.00 €</strong></td>
+            <td class="td-right"><strong>65,602.50 €</strong></td>
           </tr>
           <tr>
             <td class="td-center"><span class="partida-code">02</span></td>
@@ -511,8 +525,8 @@
           <tr>
             <td class="td-center"><span class="partida-code">04</span></td>
             <td>
-              <div class="partida-title">Sustitución integral de voladizos en muelles de carga con acabado HDX55 e imprimación anticorrosiva</div>
-              <div class="partida-desc">Rehabilitación y sustitución completa de la envolvente de los voladizos de fachada (muelles de carga, 267 m² por fachada, total 533 m²). Incluye cepillado y saneado mecánico superficial con eliminación de óxido en viguetas metálicas en ménsula existentes, aplicación de capa de imprimación epoxi anticorrosiva rica en zinc de alto espesor (C5-M), e instalación de nueva cobertura con chapa/panel de alta resistencia protegida con revestimiento HDX55 (55 µm) en ambas caras, con tornillería roscachapa galvanizada con arandela EPDM, remates perimetrales frontales con goterón y repercusión de plataformas elevadoras PEMP.</div>
+              <div class="partida-title">Sustitución de cobertura superior de voladizos en muelles de carga con acabado HDX55 e imprimación anticorrosiva</div>
+              <div class="partida-desc">Rehabilitación y sustitución de la cubierta superior de los voladizos de fachada (muelles de carga, 267 m² por fachada, total 533 m²). Incluye cepillado y saneado mecánico superficial con eliminación de óxido en viguetas metálicas en ménsula existentes, aplicación de capa de imprimación epoxi anticorrosiva rica en zinc de alto espesor (C5-M), e instalación de nueva cobertura con chapa/panel protegida con revestimiento HDX55 (55 µm) en ambas caras, con tornillería roscachapa galvanizada con arandela EPDM, remates perimetrales frontales con goterón y repercusión de plataformas elevadoras PEMP.</div>
             </td>
             <td class="td-center">m²</td>
             <td class="td-right">533.00</td>
@@ -521,6 +535,28 @@
           </tr>
           <tr>
             <td class="td-center"><span class="partida-code">05</span></td>
+            <td>
+              <div class="partida-title">Suministro e instalación de chapa grecada HDX55 en AMBAS CARAS en lado inferior de voladizos (cielo raso)</div>
+              <div class="partida-desc">Suministro e instalación de chapa grecada de acero estructural galvanizado con revestimiento anticorrosión marina Granite® HDX55 (55 µm) en AMBAS CARAS por la cara inferior de las viguetas en ménsula de los muelles de carga (cielo raso / forro inferior de voladizos). Incluye nivelación, fijación directa a viguetas mediante tornillería roscachapa de acero galvanizado con arandela vulcanizada de EPDM, perfilería perimetral de ajuste y remate, y repercusión completa de plataformas PEMP y fletes.</div>
+            </td>
+            <td class="td-center">m²</td>
+            <td class="td-right">533.60</td>
+            <td class="td-right">95.00 €</td>
+            <td class="td-right"><strong>50,692.00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><span class="partida-code">06</span></td>
+            <td>
+              <div class="partida-title">Suministro e instalación de chapa grecada HDX55 en AMBAS CARAS en tabica vertical de fachada sobre voladizos</div>
+              <div class="partida-desc">Suministro e instalación de chapa grecada de acero galvanizado con idéntico recubrimiento Granite® HDX55 (55 µm) en ambas caras en paramento vertical de tabica de fachada sobre marquesinas/voladizos de muelles. Incluye adaptaciones mecánicas en encuentros de peto, solapes estancos con cordón de butilo, tornillería roscachapa galvanizada con junta de estanqueidad de EPDM y medios de elevación con plataformas articuladas PEMP integrados.</div>
+            </td>
+            <td class="td-center">m²</td>
+            <td class="td-right">186.50</td>
+            <td class="td-right">95.00 €</td>
+            <td class="td-right"><strong>17,717.50 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><span class="partida-code">07</span></td>
             <td>
               <div class="partida-title">Rematería completa en acero con acabado HDX55, coronaciones, encuentros, mordidos y sellados</div>
               <div class="partida-desc">Suministro, conformación en taller y montaje de 489,15 ml de rematería técnica plegada a medida (desarrollos 300-500 mm) en chapa de acero galvanizado con idéntico recubrimiento Granite® HDX55 (55 µm): 50,23 ml de cumbrera troquelada a dos aguas, 63,34 ml de remates laterales de hastial/testero con goterón, 30,22 ml de babero de coronación contra peto, 10,40 ml de remate de salto entre naves, 174,08 ml de goterones frontales y laterales de voladizo, 160,88 ml de baberos de encuentro voladizo-fachada y 10 unidades de mordidos y cajeados estancos en salidas de chimeneas y bajantes, fijados con tornillería galvanizada lacada con junta EPDM y doble sellado perimetral continuo con masilla hidro-expansiva de butilo y polímero elástico MS exterior.</div>
@@ -531,7 +567,7 @@
             <td class="td-right"><strong>14,850.00 €</strong></td>
           </tr>
           <tr>
-            <td class="td-center"><span class="partida-code">06</span></td>
+            <td class="td-center"><span class="partida-code">08</span></td>
             <td>
               <div class="partida-title">Seguridad y salud, protecciones colectivas en altura y protocolo aeroportuario AENA</div>
               <div class="partida-desc">Implantación de medidas de seguridad y salud en altura bajo estricta normativa de AENA en terminal de carga: instalación de redes de seguridad anticaídas bajo faldones según norma UNE-EN 1263-1, líneas de vida provisionales homologadas UNE-EN 795, balizamiento perimetral de zonas de acopio y descarga, tramitación de Coordinación de Actividades Empresariales (CAE) en plataforma aeroportuaria, gestión de acreditaciones del personal y recursos preventivos permanentes en obra.</div>
@@ -541,8 +577,45 @@
             <td class="td-right">9,800.00 €</td>
             <td class="td-right"><strong>9,800.00 €</strong></td>
           </tr>
+          <tr style="background: #f1f5f9; font-weight: 700;">
+            <td colspan="5" style="text-align: right; text-transform: uppercase;">SUBTOTAL BASE IMPONIBLE OBRA BASE:</td>
+            <td class="td-right" style="color: #b91c1c; font-size: 9.8px;">394,382.00 €</td>
+          </tr>
+          <tr style="background: #ffffff;">
+            <td colspan="5" style="text-align: right;">I.V.A. (21%) OBRA BASE:</td>
+            <td class="td-right">82,820.22 €</td>
+          </tr>
+          <tr style="background: #fef2f2; font-weight: 800; border-top: 1.5px solid #b91c1c;">
+            <td colspan="5" style="text-align: right; text-transform: uppercase; color: #991b1b;">TOTAL OBRA BASE (IVA INCLUIDO):</td>
+            <td class="td-right" style="color: #991b1b; font-size: 10.5px;">477,202.22 €</td>
+          </tr>
         </tbody>
       </table>
+    </div>
+
+    <footer>
+      <span>HAM Estructuras Metálicas · Menorca · info@hamenorca.com</span>
+      <span>Página 2 de 3 · Oferta P-2026-0044 (REV5)</span>
+    </footer>
+  </div>
+
+  <!-- ==================== PÁGINA 3: OPCIONALES, TOTALES Y CONDICIONES ==================== -->
+  <div class="page">
+    <div>
+      <header>
+        <div class="brand">
+          <img src="logo-ham.svg" class="logo" alt="HAM Logo">
+          <div>
+            <h1>HAM ESTRUCTURAS METÁLICAS</h1>
+            <div class="subtitle">PARTIDAS OPCIONALES, TOTALES Y CONDICIONES COMERCIALES</div>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>PRESUPUESTO P-2026-0044 (REV5)</strong>
+          Ref: PRE-2026-1028-AENA-CARGA-HDX-REV5<br>
+          Terminal Carga AENA Menorca
+        </div>
+      </header>
 
       <h2>5. PARTIDAS OPCIONALES: SEGURIDAD EN ALTURA (ESCALAS INOX Y LÍNEA LUXTOP®) <span>Homologadas UNE-EN ISO 14122-4 / UNE-EN 795</span></h2>
       <table class="data-table optional">
@@ -590,14 +663,26 @@
             <td class="td-right">18,000.00 €</td>
             <td class="td-right"><strong>18,000.00 €</strong></td>
           </tr>
+          <tr style="background: #eff6ff; font-weight: 700;">
+            <td colspan="5" style="text-align: right; text-transform: uppercase;">SUBTOTAL BASE IMPONIBLE OPCIONALES:</td>
+            <td class="td-right" style="color: #1e3a8a; font-size: 9.5px;">30,740.00 €</td>
+          </tr>
+          <tr style="background: #ffffff;">
+            <td colspan="5" style="text-align: right;">I.V.A. (21%) OPCIONALES:</td>
+            <td class="td-right">6,455.40 €</td>
+          </tr>
+          <tr style="background: #f0fdf4; font-weight: 800; border-top: 1.5px solid #10b981;">
+            <td colspan="5" style="text-align: right; text-transform: uppercase; color: #065f46;">TOTAL OPCIONALES (IVA INCLUIDO):</td>
+            <td class="td-right" style="color: #065f46; font-size: 10px;">37,195.40 €</td>
+          </tr>
         </tbody>
       </table>
 
       <div class="summary-cards-container">
         <div class="sum-box">
           <h6>Obra Base (Medios Integrados)</h6>
-          <div class="sum-val">307,970.00 €</div>
-          <div class="sum-sub">+ IVA 21%: 372,643.70 €</div>
+          <div class="sum-val">394,382.00 €</div>
+          <div class="sum-sub">+ IVA 21%: 477,202.22 €</div>
         </div>
         <div class="sum-box optional-box">
           <h6>Opcionales (2 Escalas Inox + LuxTop)</h6>
@@ -606,8 +691,8 @@
         </div>
         <div class="sum-box highlight">
           <h6>Total Conjunto (Base + Opcionales)</h6>
-          <div class="sum-val" style="color: #047857;">338,710.00 €</div>
-          <div class="sum-sub" style="color: #065f46; font-weight: 700;">TOTAL CON IVA: 409,839.10 €</div>
+          <div class="sum-val" style="color: #047857;">425,122.00 €</div>
+          <div class="sum-sub" style="color: #065f46; font-weight: 700;">TOTAL CON IVA: 514,397.62 €</div>
         </div>
       </div>
 
@@ -644,7 +729,7 @@
 
     <footer>
       <span>HAM Estructuras Metálicas · Menorca · info@hamenorca.com</span>
-      <span>Página 2 de 2 · Oferta P-2026-0044</span>
+      <span>Página 3 de 3 · Oferta P-2026-0044 (REV5)</span>
     </footer>
   </div>
 
