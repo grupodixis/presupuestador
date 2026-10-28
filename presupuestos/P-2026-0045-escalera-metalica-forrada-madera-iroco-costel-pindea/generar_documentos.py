@@ -32,7 +32,7 @@ def create_excel():
     # Cabecera Presupuesto
     ws["A1"] = "HAM ESTRUCTURAS METÁLICAS"
     ws["A1"].font = title_font
-    ws["A2"] = "PRESUPUESTO TÉCNICO Y ECONÓMICO: P-2026-0045 (REV. 1)"
+    ws["A2"] = "PRESUPUESTO TÉCNICO Y ECONÓMICO: P-2026-0045 (REV. 2)"
     ws["A2"].font = subtitle_font
 
     ws["A4"] = "Cliente:"
@@ -42,7 +42,7 @@ def create_excel():
     ws["A6"] = "Fecha:"
     ws["B6"] = "28/10/2026"
     ws["A7"] = "Concepto:"
-    ws["B7"] = "Escalera metálica en L: base tubular arranque (3 escalones), tramo volado pletina mural, forrado Iroko y barandilla varillas a viga de techo"
+    ws["B7"] = "Escalera en L: base tubular arranque (3 escalones), tramo volado pletina mural, forrado Iroko y varillas a viga de madera (fijaciones a definir)"
 
     for r in range(4, 8):
         ws[f"A{r}"].font = bold_font
@@ -52,7 +52,7 @@ def create_excel():
     ws["A9"] = "PARÁMETROS TÉCNICOS"
     ws["A9"].font = bold_font
     ws["A9"].fill = section_fill
-    ws["B9"] = "Escalera en L | Base tubular para 3 escalones de arranque | Zanca pletina 150x12 mm amurada a pared | Ménsulas tubo 50x50x5 mm con tuercas remache M10 | Varillas Ø10 mm a angular en viga de madera | Forrado integral de 19 peldaños en madera maciza de Iroko"
+    ws["B9"] = "Escalera en L | Base tubular para 3 escalones de arranque | Zanca pletina 150x12 mm amurada a pared | Tubos 50x50x5 mm | Varillas Ø10 mm a viga de madera | Forrado 19 peldaños en Iroko macizo | Detalles de tuercas y fijaciones a definir"
     ws["B9"].font = regular_font
     ws["B9"].fill = section_fill
 
@@ -67,13 +67,13 @@ def create_excel():
         cell.alignment = Alignment(horizontal="center" if col_idx not in [2] else "left", vertical="center")
 
     data = [
-        ["01", "Toma de medidas, replanteo láser in situ y desarrollo de planos de despiece para configuración en L (giro a 90° en arranque, plomos, cota de viga de madera y cumplimiento CTE DB-SUA)", "lote", 1, 520.00],
-        ["02", "Fabricación de base tubular estructural para arranque en L de 3 escalones (chasis soldado en tubo 80x40x3 y 50x50x3 mm S275JR, pletinas de anclaje a solera y encuentro con zanca mural)", "lote", 1, 1150.00],
-        ["03", "Fabricación en taller de zanca pletina mural (150x12 mm S275JR) y 16 ménsulas en tubo cuadrado estructural de 50x50x5 mm soldadas, con tuercas remache M10 de alta resistencia insertadas", "lote", 1, 3850.00],
-        ["04", "Barandilla vertical suspendida de varillas calibradas/roscadas Ø10 mm (32 uds para hueco < 10 cm) y perfil angular superior L 60x40x5 mm fijado a viga de madera con tuercas ciegas decorativas", "lote", 1, 1950.00],
+        ["01", "Toma de medidas, replanteo láser in situ y desarrollo de planos de despiece para configuración en L (giro a 90° en arranque, verificación de plomos, cota de viga y definición de detalles de tuercas y fijaciones)", "lote", 1, 520.00],
+        ["02", "Fabricación de base tubular estructural para arranque en L de 3 escalones (chasis soldado en tubo 80x40x3 y 50x50x3 mm S275JR, pletinas de anclaje a solera y encuentro con zanca mural; fijaciones a definir)", "lote", 1, 1150.00],
+        ["03", "Fabricación en taller de zanca pletina mural (150x12 mm S275JR) y 16 ménsulas en tubo cuadrado estructural de 50x50x5 mm soldadas, con tuercas remache insertadas (tipo y métrica a definir)", "lote", 1, 3850.00],
+        ["04", "Barandilla vertical suspendida de varillas calibradas/roscadas Ø10 mm (32 uds para hueco < 10 cm) y perfil angular superior L 60x40x5 mm fijado a viga de madera (detalles de tuercas y fijaciones a definir)", "lote", 1, 1950.00],
         ["05", "Tratamiento anticorrosivo y lacado de toda la cerrajería en taller: limpieza, imprimación epoxi fosfatante antioxidante y esmalte poliuretano secado al horno (RAL 7016 / 9005 texturado)", "lote", 1, 980.00],
         ["06", "Forrado integral de 19 peldaños en Madera Maciza de Iroko de 1ª calidad seleccionada (3 en base arranque + 16 en tramo volado; huella 38 mm, frentes 20 mm y 3 capas barniz poliuretano tránsito)", "lote", 1, 4980.00],
-        ["07", "Transporte a obra en Menorca, fijación química a solera y muro maestro, montaje de angular en viga de madera, tensado de varillas, pegado elastomérico de peldaños de Iroko y remates", "lote", 1, 2780.00]
+        ["07", "Transporte a obra en Menorca, fijaciones a solera, muro y viga de madera, montaje de varillas, pegado elastomérico de peldaños de Iroko y remates (sistemas de fijación y tuercas a definir)", "lote", 1, 2780.00]
     ]
 
     for i, row in enumerate(data, start=start_row + 1):
@@ -123,13 +123,15 @@ def create_excel():
     r_cond = r_tot + 2
     ws.cell(row=r_cond, column=1, value="CONDICIONES COMERCIALES Y GARANTÍAS").font = bold_font
     ws.cell(row=r_cond+1, column=1, value="• Forma de pago:").font = bold_font
-    ws.cell(row=r_cond+1, column=2, value="40% a la formalización del pedido y replanteo, 30% a la finalización de estructura y madera en taller, y 30% a la finalización y entrega en obra").font = regular_font
-    ws.cell(row=r_cond+2, column=1, value="• Garantía:").font = bold_font
-    ws.cell(row=r_cond+2, column=2, value="2 años en estructura de acero, cerrajería, fijaciones y acabados según normativa vigente").font = regular_font
-    ws.cell(row=r_cond+3, column=1, value="• Plazo de entrega:").font = bold_font
-    ws.cell(row=r_cond+3, column=2, value="4 a 5 semanas para taller de cerrajería y ebanistería; montaje en obra de 4 jornadas laborables").font = regular_font
-    ws.cell(row=r_cond+4, column=1, value="• Validez:").font = bold_font
-    ws.cell(row=r_cond+4, column=2, value="30 días naturales desde la fecha de emisión").font = regular_font
+    ws.cell(row=r_cond+1, column=2, value="100% a la aceptación del presupuesto").font = bold_font
+    ws.cell(row=r_cond+2, column=1, value="• Fijaciones / tuercas:").font = bold_font
+    ws.cell(row=r_cond+2, column=2, value="Detalles constructivos de tuercas y sistemas de fijación a muro, solera y viga a definir en replanteo").font = regular_font
+    ws.cell(row=r_cond+3, column=1, value="• Garantía:").font = bold_font
+    ws.cell(row=r_cond+3, column=2, value="2 años en estructura de acero, cerrajería, fijaciones y acabados según normativa vigente").font = regular_font
+    ws.cell(row=r_cond+4, column=1, value="• Plazo de entrega:").font = bold_font
+    ws.cell(row=r_cond+4, column=2, value="4 a 5 semanas para taller de cerrajería y ebanistería; montaje en obra de 4 jornadas laborables").font = regular_font
+    ws.cell(row=r_cond+5, column=1, value="• Validez:").font = bold_font
+    ws.cell(row=r_cond+5, column=2, value="30 días naturales desde la fecha de emisión").font = regular_font
 
     # Anchos de columna
     ws.column_dimensions['A'].width = 10
