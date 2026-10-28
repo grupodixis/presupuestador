@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dossier Interno Técnico P-2026-0044 - Costes HAM y Rentabilidad</title>
+  <style>
+    @page { 
+      size: A4 portrait; 
+      margin: 6mm 6mm 6mm 6mm;
+    }
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      background: #f1f5f9; 
+      color: #0f172a; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      font-size: 9.8px; 
+      line-height: 1.28; 
+    }
+    .page-container {
+      width: 210mm;
+      margin: 0 auto;
+      background: #ffffff;
+    }
+    .page { 
+      padding: 6.5mm 8.5mm 5.5mm;
+      min-height: 285mm;
+      max-height: 286mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    header { 
+      background: #1e1b4b; 
+      color: #fff; 
+      padding: 7px 12px; 
+      border-radius: 5px;
+      display: grid; 
+      grid-template-columns: 1fr auto; 
+      gap: 10px; 
+      align-items: center; 
+      border-bottom: 3.5px solid #4f46e5;
+      margin-bottom: 6px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .logo { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.2); border-radius: 5px; padding: 3px; background: rgba(255,255,255,0.08); }
+    h1 { margin: 0; font-size: 15.5px; font-weight: 700; color: #ffffff; }
+    .subtitle { margin: 1px 0 0; color: #a5b4fc; font-size: 9px; font-weight: 500; }
+    .meta { text-align: right; color: #c7d2fe; font-size: 8.5px; }
+    .meta strong { color: #ffffff; display: block; font-size: 10.5px; margin-bottom: 1px; }
+
+    h2 { 
+      margin: 5px 0 3px; 
+      font-size: 9.5px; 
+      text-transform: uppercase; 
+      letter-spacing: .05em; 
+      color: #1e1b4b; 
+      border-bottom: 1.5px solid #e2e8f0;
+      padding-bottom: 2px;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 5px;
+      font-size: 8.8px;
+    }
+    table.data-table th {
+      background: #1e1b4b;
+      color: #fff;
+      padding: 3.5px 5px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 8.5px;
+    }
+    table.data-table td {
+      padding: 3px 5px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+    table.data-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    .td-right { text-align: right; white-space: nowrap; }
+    .td-center { text-align: center; }
+
+    .margin-card {
+      background: #ecfdf5;
+      border: 1.5px solid #10b981;
+      border-radius: 6px;
+      padding: 6px 10px;
+      margin: 6px 0;
+    }
+    .margin-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      text-align: center;
+    }
+    .margin-label { font-size: 8px; text-transform: uppercase; color: #065f46; font-weight: 700; }
+    .margin-val { font-size: 13.5px; font-weight: 800; color: #047857; line-height: 1.2; }
+
+    footer { 
+      border-top: 1px solid #cbd5e1; 
+      padding-top: 2px; 
+      display: flex; 
+      justify-content: space-between; 
+      font-size: 7.5px; 
+      color: #64748b; 
+    }
+  </style>
+</head>
+<body>
+<div class="page-container">
+
+  <!-- ==================== PÁGINA 1: RESUMEN VENTAS Y DESGLOSE PARTIDAS BASE ==================== -->
+  <div class="page">
+    <div>
+      <header>
+        <div class="brand">
+          <img src="logo-ham.svg" class="logo" alt="HAM Logo">
+          <div>
+            <h1>HAM ESTRUCTURAS METÁLICAS · CONTROL INTERNO</h1>
+            <div class="subtitle">ESCANDALLO TÉCNICO, COSTES DIRECTOS Y RENTABILIDAD HAM (REV5)</div>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>EXPEDIENTE P-2026-0044</strong>
+          Confidencial HAM · Uso Interno<br>
+          Superficie Total: 2.624,10 m²
+        </div>
+      </header>
+
+      <h2>1. CUADRO DE PRECIOS DE VENTA (TARIFAS 01: 25€, 02/03: 135€, 04/05/06: 95€)</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 25px;" class="td-center">Nº</th>
+            <th>Concepto de Venta al Cliente</th>
+            <th style="width: 30px;" class="td-center">Ud.</th>
+            <th style="width: 55px;" class="td-right">Cantidad</th>
+            <th style="width: 65px;" class="td-right">PVP Unitario</th>
+            <th style="width: 78px;" class="td-right">Importe Venta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-center"><strong>01</strong></td>
+            <td><strong>Desmontaje controlado de cubierta actual, voladizos, falso techo inferior, tabicas y gestión autorizada de residuos</strong></td>
+            <td class="td-center">m²</td>
+            <td class="td-right">2,624.10</td>
+            <td class="td-right">25.00 €</td>
+            <td class="td-right"><strong>65,602.50 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>02</strong></td>
+            <td><strong>Suministro e instalación de Panel Sándwich HDX55 en AMBAS CARAS en cubierta a dos aguas</strong></td>
+            <td class="td-center">m²</td>
+            <td class="td-right">1,042.50</td>
+            <td class="td-right">135.00 €</td>
+            <td class="td-right"><strong>140,737.50 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>03</strong></td>
+            <td><strong>Suministro e instalación de Panel Sándwich HDX55 en AMBAS CARAS en cubierta a un agua</strong></td>
+            <td class="td-center">m²</td>
+            <td class="td-right">328.50</td>
+            <td class="td-right">135.00 €</td>
+            <td class="td-right"><strong>44,347.50 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>04</strong></td>
+            <td><strong>Sustitución de cobertura superior de voladizos en muelles de carga con acabado HDX55 e imprimación anticorrosiva</strong></td>
+            <td class="td-center">m²</td>
+            <td class="td-right">533.00</td>
+            <td class="td-right">95.00 €</td>
+            <td class="td-right"><strong>50,635.00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>05</strong></td>
+            <td><strong>Suministro e instalación de chapa grecada HDX55 en AMBAS CARAS en lado inferior de voladizos (cielo raso)</strong></td>
+            <td class="td-center">m²</td>
+            <td class="td-right">533.60</td>
+            <td class="td-right">95.00 €</td>
+            <td class="td-right"><strong>50,692.00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>06</strong></td>
+            <td><strong>Suministro e instalación de chapa grecada HDX55 en AMBAS CARAS en tabica vertical de fachada sobre voladizos</strong></td>
+            <td class="td-center">m²</td>
+            <td class="td-right">186.50</td>
+            <td class="td-right">95.00 €</td>
+            <td class="td-right"><strong>17,717.50 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>07</strong></td>
+            <td><strong>Rematería completa en acero con acabado HDX55, coronaciones, encuentros, mordidos y sellados</strong></td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1.00</td>
+            <td class="td-right">14,850.00 €</td>
+            <td class="td-right"><strong>14,850.00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>08</strong></td>
+            <td><strong>Seguridad y salud, protecciones colectivas en altura y protocolo aeroportuario AENA</strong></td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1.00</td>
+            <td class="td-right">9,800.00 €</td>
+            <td class="td-right"><strong>9,800.00 €</strong></td>
+          </tr>
+          <tr style="background: #f1f5f9; font-weight: 700;">
+            <td colspan="5" style="text-align: right; text-transform: uppercase;">VENTA TOTAL OBRA BASE (BI):</td>
+            <td class="td-right" style="color: #b91c1c;">394,382.00 €</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>2. PARTIDAS OPCIONALES DE SEGURIDAD (PRECIOS DE VENTA AL CLIENTE)</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 48px;" class="td-center">Código</th>
+            <th>Concepto Opcional</th>
+            <th style="width: 30px;" class="td-center">Ud.</th>
+            <th style="width: 55px;" class="td-right">Cantidad</th>
+            <th style="width: 65px;" class="td-right">PVP Unitario</th>
+            <th style="width: 78px;" class="td-right">Importe Venta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-center"><strong>OPC-01</strong></td>
+            <td><strong>OPCIONAL 1: Escalera de gato con protección dorsal en acero inoxidable para acceso a voladizo (H ≈ 4,20 m)</strong></td>
+            <td class="td-center">ud</td>
+            <td class="td-right">1.00</td>
+            <td class="td-right">5,005.00 €</td>
+            <td class="td-right"><strong>5,005.00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>OPC-02</strong></td>
+            <td><strong>OPCIONAL 2: Escalera de gato con protección dorsal en acero inoxidable para acceso a cubierta (H ≈ 6,80 m)</strong></td>
+            <td class="td-center">ud</td>
+            <td class="td-right">1.00</td>
+            <td class="td-right">7,735.00 €</td>
+            <td class="td-right"><strong>7,735.00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>OPC-03</strong></td>
+            <td><strong>OPCIONAL 3: Línea de vida permanente homologada marca LUXTOP® s/ UNE-EN 795:2012 Tipo C sobre cubierta</strong></td>
+            <td class="td-center">ud</td>
+            <td class="td-right">1.00</td>
+            <td class="td-right">18,000.00 €</td>
+            <td class="td-right"><strong>18,000.00 €</strong></td>
+          </tr>
+          <tr style="background: #eff6ff; font-weight: 700;">
+            <td colspan="5" style="text-align: right; text-transform: uppercase;">VENTA TOTAL OPCIONALES (BI):</td>
+            <td class="td-right" style="color: #1e3a8a;">30,740.00 €</td>
+          </tr>
+          <tr style="background: #ecfdf5; font-weight: 800;">
+            <td colspan="5" style="text-align: right; text-transform: uppercase; color: #065f46;">VENTA GLOBAL CONJUNTA (BASE + OPCIONALES):</td>
+            <td class="td-right" style="color: #065f46; font-size: 10px;">425,122.00 €</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      <span>HAM Estructuras Metálicas · Control de Gestión y Costes</span>
+      <span>Dossier Técnico Interno Confidencial · P-2026-0044 (REV5) · Página 1 de 2</span>
+    </footer>
+  </div>
+
+  <!-- ==================== PÁGINA 2: ESCANDALLO DETALLADO Y MARGEN DE EXPLOTACIÓN ==================== -->
+  <div class="page">
+    <div>
+      <header>
+        <div class="brand">
+          <img src="logo-ham.svg" class="logo" alt="HAM Logo">
+          <div>
+            <h1>HAM ESTRUCTURAS METÁLICAS · ESCANDALLO INTERNO</h1>
+            <div class="subtitle">DESGLOSE DE MATERIALES, MANO DE OBRA, LOGÍSTICA Y RENTABILIDAD</div>
+          </div>
+        </div>
+        <div class="meta">
+          <strong>EXPEDIENTE P-2026-0044</strong>
+          Confidencial HAM · Uso Interno<br>
+          Coste Directo: 167,050.00 €
+        </div>
+      </header>
+
+      <h2>3. ESCANDALLO DE COSTES DIRECTOS DE EJECUCIÓN (CDT HAM)</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 50px;" class="td-center">Capítulo</th>
+            <th>Concepto de Coste Interno</th>
+            <th style="width: 30px;" class="td-center">Ud.</th>
+            <th style="width: 50px;" class="td-right">Medición</th>
+            <th style="width: 65px;" class="td-right">Coste Unit.</th>
+            <th style="width: 78px;" class="td-right">Coste Total HAM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-center"><strong>MAT-01</strong></td>
+            <td>Panel sándwich 40 mm PIR acabado HDX55 en 2 caras cubiertas (1.371 m² + 5% solapes/mermas)</td>
+            <td class="td-center">m²</td>
+            <td class="td-right">1.440,00</td>
+            <td class="td-right">36,00 €</td>
+            <td class="td-right"><strong>51.840,00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>MAT-02</strong></td>
+            <td>Panel / chapa grecada acabado HDX55 2 caras voladizos cara superior (533 m² + 5% mermas)</td>
+            <td class="td-center">m²</td>
+            <td class="td-right">560,00</td>
+            <td class="td-right">34,00 €</td>
+            <td class="td-right"><strong>19.040,00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>MAT-03</strong></td>
+            <td>Chapa grecada acabado HDX55 2 caras para falso techo inferior voladizo (533,60 m² + 5%)</td>
+            <td class="td-center">m²</td>
+            <td class="td-right">560,00</td>
+            <td class="td-right">20,00 €</td>
+            <td class="td-right"><strong>11.200,00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>MAT-04</strong></td>
+            <td>Chapa grecada acabado HDX55 2 caras para tabica vertical de fachada (186,50 m² + 5%)</td>
+            <td class="td-center">m²</td>
+            <td class="td-right">196,00</td>
+            <td class="td-right">20,00 €</td>
+            <td class="td-right"><strong>3.920,00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>MAT-05</strong></td>
+            <td>Tornillería roscachapa de acero galvanizado con arandela vulcanizada EPDM y cordón butilo</td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1,00</td>
+            <td class="td-right">6.400,00 €</td>
+            <td class="td-right"><strong>6.400,00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>MAT-06</strong></td>
+            <td>Rematería troquelada y plegada a medida con revestimiento HDX55 (489,15 ml + 10 ud singulares)</td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1,00</td>
+            <td class="td-right">5.800,00 €</td>
+            <td class="td-right"><strong>5.800,00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>MAT-07</strong></td>
+            <td>Imprimación epoxi anticorrosiva alto contenido en sólidos para saneado de viguetas voladizos</td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1,00</td>
+            <td class="td-right">1.450,00 €</td>
+            <td class="td-right"><strong>1.450,00 €</strong></td>
+          </tr>
+          <tr style="background: #eff6ff;">
+            <td class="td-center"><strong style="color: #1e40af;">MAT-08</strong></td>
+            <td><strong>Perfiles, peldaños y cancelas en ACERO INOXIDABLE</strong> para 2 escalas con crinolina</td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1,00</td>
+            <td class="td-right">3.700,00 €</td>
+            <td class="td-right"><strong style="color: #1e40af;">3.700,00 €</strong></td>
+          </tr>
+          <tr style="background: #fefce8;">
+            <td class="td-center"><strong style="color: #854d0e;">MAT-09</strong></td>
+            <td><strong>Materiales y accesorios homologados LUXTOP®</strong> (cable inox 316, postes absorbedores y carros)</td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1,00</td>
+            <td class="td-right">10.300,00 €</td>
+            <td class="td-right"><strong style="color: #854d0e;">10.300,00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>MO-01</strong></td>
+            <td>Mano de obra especializada montaje HAM obra base (cuadrilla de 4 oficiales ~1050 horas a 28 €/h)</td>
+            <td class="td-center">horas</td>
+            <td class="td-right">1.050,00</td>
+            <td class="td-right">28,00 €</td>
+            <td class="td-right"><strong>29.400,00 €</strong></td>
+          </tr>
+          <tr style="background: #eff6ff;">
+            <td class="td-center"><strong style="color: #1e40af;">MO-02</strong></td>
+            <td><strong>Mano de obra taller y montaje 2 escalas inox + montaje/ensayo LuxTop</strong> (~100 h)</td>
+            <td class="td-center">horas</td>
+            <td class="td-right">100,00</td>
+            <td class="td-right">28,00 €</td>
+            <td class="td-right"><strong style="color: #1e40af;">2.800,00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>LOG-01</strong></td>
+            <td>Fletes marítimos Península-Menorca para transporte de trailers especiales paneles gran formato</td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1,00</td>
+            <td class="td-right">5.600,00 €</td>
+            <td class="td-right"><strong>5.600,00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>LOG-02</strong></td>
+            <td>Camión grúa pluma autopropulsada para descarga e izado distribuido sobre pórticos en aeropuerto</td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1,00</td>
+            <td class="td-right">4.600,00 €</td>
+            <td class="td-right"><strong>4.600,00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>LOG-03</strong></td>
+            <td>Alquiler de plataformas elevadoras móviles de personal (PEMP) articuladas para montaje</td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1,00</td>
+            <td class="td-right">4.800,00 €</td>
+            <td class="td-right"><strong>4.800,00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>PRL-01</strong></td>
+            <td>Protecciones colectivas: redes anticaídas bajo faldones UNE-EN 1263-1 y líneas de vida EN 795</td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1,00</td>
+            <td class="td-right">3.800,00 €</td>
+            <td class="td-right"><strong>3.800,00 €</strong></td>
+          </tr>
+          <tr>
+            <td class="td-center"><strong>PRL-02</strong></td>
+            <td>Tasas de centro de reciclaje y canon vertedero insular de Menorca</td>
+            <td class="td-center">lote</td>
+            <td class="td-right">1,00</td>
+            <td class="td-right">2.400,00 €</td>
+            <td class="td-right"><strong>2.400,00 €</strong></td>
+          </tr>
+          <tr style="background: #f1f5f9; font-weight: 700;">
+            <td colspan="5" style="text-align: right; text-transform: uppercase;">COSTE DIRECTO TOTAL GLOBAL (CDT HAM):</td>
+            <td class="td-right" style="color: #1e1b4b; font-size: 10px;">167,050.00 €</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="margin-card">
+        <div class="margin-grid">
+          <div>
+            <div class="margin-label">Venta Base (BI)</div>
+            <div class="margin-val" style="color: #0f172a;">394,382.00 €</div>
+          </div>
+          <div>
+            <div class="margin-label">Venta Opcionales</div>
+            <div class="margin-val" style="color: #1e3a8a;">+30,740.00 €</div>
+          </div>
+          <div>
+            <div class="margin-label">Coste Directo Total</div>
+            <div class="margin-val" style="color: #dc2626;">167,050.00 €</div>
+          </div>
+          <div>
+            <div class="margin-label">Margen Bruto HAM</div>
+            <div class="margin-val">258,072.00 € (60.7%)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span>HAM Estructuras Metálicas · Control de Gestión y Costes</span>
+      <span>Dossier Técnico Interno Confidencial · P-2026-0044 (REV5) · Página 2 de 2</span>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
