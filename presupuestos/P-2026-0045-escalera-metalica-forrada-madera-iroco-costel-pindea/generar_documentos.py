@@ -32,7 +32,7 @@ def create_excel():
     # Cabecera Presupuesto
     ws["A1"] = "HAM ESTRUCTURAS METÁLICAS"
     ws["A1"].font = title_font
-    ws["A2"] = "PRESUPUESTO TÉCNICO Y ECONÓMICO: P-2026-0045 (REV. 2)"
+    ws["A2"] = "PRESUPUESTO TÉCNICO Y ECONÓMICO: P-2026-0045 (REV. 3)"
     ws["A2"].font = subtitle_font
 
     ws["A4"] = "Cliente:"
@@ -67,13 +67,13 @@ def create_excel():
         cell.alignment = Alignment(horizontal="center" if col_idx not in [2] else "left", vertical="center")
 
     data = [
-        ["01", "Toma de medidas, replanteo láser in situ y desarrollo de planos de despiece para configuración en L (giro a 90° en arranque, verificación de plomos, cota de viga y definición de detalles de tuercas y fijaciones)", "lote", 1, 520.00],
-        ["02", "Fabricación de base tubular estructural para arranque en L de 3 escalones (chasis soldado en tubo 80x40x3 y 50x50x3 mm S275JR, pletinas de anclaje a solera y encuentro con zanca mural; fijaciones a definir)", "lote", 1, 1150.00],
-        ["03", "Fabricación en taller de zanca pletina mural (150x12 mm S275JR) y 16 ménsulas en tubo cuadrado estructural de 50x50x5 mm soldadas, con tuercas remache insertadas (tipo y métrica a definir)", "lote", 1, 3850.00],
-        ["04", "Barandilla vertical suspendida de varillas calibradas/roscadas Ø10 mm (32 uds para hueco < 10 cm) y perfil angular superior L 60x40x5 mm fijado a viga de madera (detalles de tuercas y fijaciones a definir)", "lote", 1, 1950.00],
-        ["05", "Tratamiento anticorrosivo y lacado de toda la cerrajería en taller: limpieza, imprimación epoxi fosfatante antioxidante y esmalte poliuretano secado al horno (RAL 7016 / 9005 texturado)", "lote", 1, 980.00],
-        ["06", "Forrado integral de 19 peldaños en Madera Maciza de Iroko de 1ª calidad seleccionada (3 en base arranque + 16 en tramo volado; huella 38 mm, frentes 20 mm y 3 capas barniz poliuretano tránsito)", "lote", 1, 4980.00],
-        ["07", "Transporte a obra en Menorca, fijaciones a solera, muro y viga de madera, montaje de varillas, pegado elastomérico de peldaños de Iroko y remates (sistemas de fijación y tuercas a definir)", "lote", 1, 2780.00]
+        ["01", "Toma de medidas, replanteo láser in situ y desarrollo de planos de despiece para configuración en L (giro a 90° en arranque, verificación de plomos, cota de viga y definición de detalles de tuercas y fijaciones)", "lote", 1, 572.00],
+        ["02", "Fabricación de base tubular estructural para arranque en L de 3 escalones (chasis soldado en tubo 80x40x3 y 50x50x3 mm S275JR, pletinas de anclaje a solera y encuentro con zanca mural; fijaciones a definir)", "lote", 1, 1265.00],
+        ["03", "Fabricación en taller de zanca pletina mural (150x12 mm S275JR) y 16 ménsulas en tubo cuadrado estructural de 50x50x5 mm soldadas, con tuercas remache insertadas (tipo y métrica a definir)", "lote", 1, 4235.00],
+        ["04", "Barandilla vertical suspendida de varillas calibradas/roscadas Ø10 mm (32 uds para hueco < 10 cm) y perfil angular superior L 60x40x5 mm fijado a viga de madera (detalles de tuercas y fijaciones a definir)", "lote", 1, 2145.00],
+        ["05", "Tratamiento anticorrosivo y lacado de toda la cerrajería en taller: limpieza, imprimación epoxi fosfatante antioxidante y esmalte poliuretano secado al horno (RAL 7016 / 9005 texturado)", "lote", 1, 1078.00],
+        ["06", "Forrado integral de 19 peldaños en Madera Maciza de Iroko de 1ª calidad seleccionada (3 en base arranque + 16 en tramo volado; huella 38 mm, frentes 20 mm y 3 capas barniz poliuretano tránsito)", "lote", 1, 5478.00],
+        ["07", "Transporte a obra en Menorca, fijaciones a solera, muro y viga de madera, montaje de varillas, pegado elastomérico de peldaños de Iroko y remates (sistemas de fijación y tuercas a definir)", "lote", 1, 3058.00]
     ]
 
     for i, row in enumerate(data, start=start_row + 1):

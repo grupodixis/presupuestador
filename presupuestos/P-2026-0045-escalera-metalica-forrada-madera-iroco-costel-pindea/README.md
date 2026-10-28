@@ -1,21 +1,28 @@
 # Presupuesto P-2026-0045: Escalera Metálica en L con Base Tubular de Arranque (3 Escalones), Tramo Volado y Forrado en Iroco
 
 - **Código:** P-2026-0045
-- **Referencia:** PRE-2026-1045-ESC-IROCO-REV2
+- **Referencia:** PRE-2026-1045-ESC-IROCO-REV3
 - **Fecha de emisión:** 28 de octubre de 2026
 - **Cliente:** Costel Pindea (Constructora)
 - **Ubicación:** Obra en Menorca
 - **Emisor:** HAM Estructuras Metálicas (Sant Lluís, Menorca)
 - **Forma de pago:** 100% a la aceptación del presupuesto
+- **Comisión Comercial:** 10% de comisión del constructor integrado y oculto homogéneamente en las partidas (1.621,00 €)
 - **Detalle técnico especial:** Detalles de tuercas (remaches roscados, tuercas de remate) y sistemas de fijación (muro, solera, viga de madera) a definir en replanteo definitivo
 
 ---
 
 ## Resumen Económico
 
-| Concepto | Medición | Base Imponible | IVA (21%) | Total Presupuesto |
+| Concepto | Medición | Base Imponible (PVP) | IVA (21%) | Total Presupuesto |
 |---|:---:|---:|---:|---:|
-| Escalera en L completa: base tubular arranque (3 escalones), tramo volado pletina mural, forrado 19 peldaños Iroko y barandilla varillas | 1 Lote | **16.210,00 €** | 3.404,10 € | **19.614,10 €** |
+| Escalera en L completa: base tubular arranque (3 escalones), tramo volado pletina mural, forrado 19 peldaños Iroko y barandilla varillas | 1 Lote | **17.831,00 €** | 3.744,51 € | **21.575,51 €** |
+
+> **Estructura Interna de Precios:**
+> - Coste Neto HAM: **16.210,00 €**
+> - Comisión Constructor (10% oculta en partidas): **1.621,00 €**
+> - Base Imponible PVP presentada: **17.831,00 €**
+> - Total con IVA (21%): **21.575,51 €**
 
 ---
 
@@ -33,15 +40,15 @@
 
 ---
 
-## Desglose Técnico de Partidas
+## Desglose Técnico de Partidas (Precios Cliente con Comisión 10% Integrada)
 
-- **Partida 01: Replanteo técnico y planos de taller en L (520,00 €):** Medición láser in situ, comprobación de plomos, escuadrías en solera, replanteo de huella/contrahuella y definición de detalles de tuercas y fijaciones según CTE DB-SUA.
-- **Partida 02: Base tubular estructural para arranque en L (1.150,00 €):** Chasis soldado en tubo 80x40x3 y 50x50x3 mm para los 3 primeros escalones en ángulo, pletinas de anclaje a solera (fijaciones a definir) y piezas de encuentro con zanca mural.
-- **Partida 03: Estructura metálica tramo volado (3.850,00 €):** Zanca en pletina 150x12 mm, corte y soldeo de 16 ménsulas en tubo 50x50x5 mm, cartelas interiores y tuercas remache en cabezas de tubo (tipo y métrica a definir).
-- **Partida 04: Barandilla vertical suspendida y angular en viga (1.950,00 €):** Perfil angular superior L 60x40x5 mm para viga de madera, 32 varillas verticales Ø10 mm, tuercas de remate y herrajes de tensado (detalles a definir).
-- **Partida 05: Tratamiento y pintura epoxi-poliuretano (980,00 €):** Limpieza, imprimación epoxi fosfatante y esmalte poliuretano secado al horno en base tubular, pletina, tubos, varillas y angular.
-- **Partida 06: Forrado integral de 19 peldaños en Madera Maciza de Iroko (4.980,00 €):** 19 cajones de peldaño en madera noble de Iroko (huella 38 mm), cajeados para ocultar tubos y 3 manos de barniz poliuretano satinado especial tránsito.
-- **Partida 07: Transporte y montaje en obra (2.780,00 €):** Transporte a pie de obra en Menorca, fijaciones a solera, muro y viga de madera, alineado y tensado de varillas, y pegado elastomérico de peldaños de Iroko (detalles de fijación y tuercas a definir).
+- **Partida 01: Replanteo técnico y planos de taller en L (572,00 €):** Medición láser in situ, comprobación de plomos, escuadrías en solera, replanteo de huella/contrahuella y definición de detalles de tuercas y fijaciones según CTE DB-SUA.
+- **Partida 02: Base tubular estructural para arranque en L (1.265,00 €):** Chasis soldado en tubo 80x40x3 y 50x50x3 mm para los 3 primeros escalones en ángulo, pletinas de anclaje a solera (fijaciones a definir) y piezas de encuentro con zanca mural.
+- **Partida 03: Estructura metálica tramo volado (4.235,00 €):** Zanca en pletina 150x12 mm, corte y soldeo de 16 ménsulas en tubo 50x50x5 mm, cartelas interiores y tuercas remache en cabezas de tubo (tipo y métrica a definir).
+- **Partida 04: Barandilla vertical suspendida y angular en viga (2.145,00 €):** Perfil angular superior L 60x40x5 mm para viga de madera, 32 varillas verticales Ø10 mm, tuercas de remate y herrajes de tensado (detalles a definir).
+- **Partida 05: Tratamiento y pintura epoxi-poliuretano (1.078,00 €):** Limpieza, imprimación epoxi fosfatante y esmalte poliuretano secado al horno en base tubular, pletina, tubos, varillas y angular.
+- **Partida 06: Forrado integral de 19 peldaños en Madera Maciza de Iroko (5.478,00 €):** 19 cajones de peldaño en madera noble de Iroko (huella 38 mm), cajeados para ocultar tubos y 3 manos de barniz poliuretano satinado especial tránsito.
+- **Partida 07: Transporte y montaje en obra (3.058,00 €):** Transporte a pie de obra en Menorca, fijaciones a solera, muro y viga de madera, alineado y tensado de varillas, y pegado elastomérico de peldaños de Iroko (detalles de fijación y tuercas a definir).
 
 ---
 
@@ -57,8 +64,8 @@
 
 ## Documentación Generada
 
-- [datos.json](datos.json): Especificaciones estructuradas del presupuesto.
-- [presupuesto-cliente.html](presupuesto-cliente.html): Documento de presentación técnica y comercial para el cliente.
+- [datos.json](datos.json): Especificaciones estructuradas del presupuesto y desglose interno de comisiones.
+- [presupuesto-cliente.html](presupuesto-cliente.html): Documento de presentación técnica y comercial para el cliente (con comisión oculta).
 - [presupuesto-cliente.pdf](presupuesto-cliente.pdf): Documento imprimible en alta resolución (A4).
 - [presupuesto.xlsx](presupuesto.xlsx): Hoja de cálculo con fórmulas financieras, partidas y formato corporativo.
 - [generar_documentos.py](generar_documentos.py): Script de generación automatizada de Excel y PDF.

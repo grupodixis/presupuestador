@@ -1,9 +1,9 @@
 {
   "id": "P-2026-0045",
-  "referencia": "PRE-2026-1045-ESC-IROCO-REV2",
+  "referencia": "PRE-2026-1045-ESC-IROCO-REV3",
   "fecha": "2026-10-28",
   "titulo": "Presupuesto Técnico: Escalera Metálica en L con Base Tubular de Arranque (3 Escalones), Tramo Volado sobre Pletina Mural, Forrado Integral en Madera de Iroco y Barandilla Suspendida",
-  "resumen": "Fabricación e instalación a medida de escalera interior en forma de L de diseño contemporáneo. Se compone de un arranque inferior en ángulo de 3 escalones sustentados sobre bancada/base estructural tubular en acero, tramo principal en voladizo con pletina diagonal amurada a pared maestra y peldaños de tubo 50x50x5 mm con tuercas remache, forrado completo de los 19 peldaños en madera noble maciza de Iroko tratada y barnizada, y barandilla de suspensión vertical tipo arpa de varillas roscadas tensadas a un perfil angular fijado sobre la viga de madera existente de techo. Detalles específicos de tuercas, herrajes y fijaciones a definir en replanteo final.",
+  "resumen": "Fabricación e instalación a medida de escalera interior en forma de L de diseño contemporáneo. Se compone de un arranque inferior en ángulo de 3 escalones sustentados sobre bancada/base estructural tubular en acero, tramo principal en voladizo con pletina diagonal amurada a pared maestra y peldaños de tubo 50x50x5 mm con tuercas remache, forrado completo de los 19 peldaños en madera noble maciza de Iroko tratada y barnizada, y barandilla de suspensión vertical tipo arpa de varillas roscadas tensadas a un perfil angular fijado sobre la viga de madera existente de techo. Detalles específicos de tuercas, herrajes y fijaciones a definir en replanteo final. Precios con 10% de comisión comercial integrado en partidas.",
   "cliente": {
     "nombre": "Costel Pindea (Constructora)",
     "contacto": "Costel Pindea",
@@ -34,6 +34,16 @@
     "peldanosTramoVolado": 16,
     "normativaSeguridad": "Cumplimiento CTE DB-SUA: separación libre entre varillas verticales ≤ 100 mm"
   },
+  "estructuraEconomica": {
+    "costeNetoHAM": 16210.00,
+    "comisionConstructorPorcentaje": 10.0,
+    "comisionConstructorImporte": 1621.00,
+    "baseImponiblePVP": 17831.00,
+    "ivaPorcentaje": 21,
+    "ivaImporte": 3744.51,
+    "totalPVP": 21575.51,
+    "notaInterna": "Comisión del 10% del constructor embebida y oculta homogéneamente en los precios unitarios de cada partida."
+  },
   "partidas": [
     {
       "codigo": "01",
@@ -42,8 +52,8 @@
       "descripcion": "Levantamiento dimensional in situ con estación láser. Replanteo del giro a 90° en arranque, verificación de plomos en pared maestra, escuadrías en solera y cota exacta de la viga de madera del techo. Planos de taller y definición técnica detallada de tuercas y fijaciones según CTE DB-SUA.",
       "unidad": "lote",
       "cantidad": 1,
-      "precioUnitario": 520.00,
-      "importe": 520.00
+      "precioUnitario": 572.00,
+      "importe": 572.00
     },
     {
       "codigo": "02",
@@ -52,8 +62,8 @@
       "descripcion": "Bancada estructural de arranque para soporte de los 3 primeros escalones en ángulo, conformada por chasis soldado en tubo estructural de acero S275JR (perfiles 80x40x3 y 50x50x3 mm). Incluye pletinas de reparto de carga con taladros avellanados para anclaje a solera y encuentro con zanca mural (sistema y tornillería de anclaje a definir).",
       "unidad": "lote",
       "cantidad": 1,
-      "precioUnitario": 1150.00,
-      "importe": 1150.00
+      "precioUnitario": 1265.00,
+      "importe": 1265.00
     },
     {
       "codigo": "03",
@@ -62,8 +72,8 @@
       "descripcion": "Pletina diagonal continua de 150x12 mm en acero S275JR taladrada para anclaje mural. 16 ménsulas en tubo estructural 50x50x5 mm soldadas con cartelas interiores. Mecanizado e inserción de tuercas remache roscadas en cabezas de tubo para recepción de varillas de barandilla (métrica y tipo de tuerca a definir).",
       "unidad": "lote",
       "cantidad": 1,
-      "precioUnitario": 3850.00,
-      "importe": 3850.00
+      "precioUnitario": 4235.00,
+      "importe": 4235.00
     },
     {
       "codigo": "04",
@@ -72,8 +82,8 @@
       "descripcion": "Perfil angular de acero L 60x40x5 mm para coronación en techo, taladrado para anclaje a viga de madera y paso de varillas. 32 varillas de acero macizo calibrado / roscado Ø10 mm (2 varillas por peldaño para hueco < 10 cm según CTE). Accesorios de roscado, casquillos, arandelas y tuercas de remate y tensado (detalles de tuercas y fijaciones a definir).",
       "unidad": "lote",
       "cantidad": 1,
-      "precioUnitario": 1950.00,
-      "importe": 1950.00
+      "precioUnitario": 2145.00,
+      "importe": 2145.00
     },
     {
       "codigo": "05",
@@ -82,8 +92,8 @@
       "descripcion": "Limpieza, desengrase químico, lijado mecánico, imprimación epoxi fosfatante antioxidante de alto espesor y acabado con dos capas de esmalte de poliuretano secado al horno en color a elegir (RAL 9005 negro mate texturado o RAL 7016 gris antracita). Tratamiento aplicado a la base tubular de arranque, pletina, ménsulas, varillas y angular superior.",
       "unidad": "lote",
       "cantidad": 1,
-      "precioUnitario": 980.00,
-      "importe": 980.00
+      "precioUnitario": 1078.00,
+      "importe": 1078.00
     },
     {
       "codigo": "06",
@@ -92,8 +102,8 @@
       "descripcion": "Confección en taller de ebanistería de 19 forros de peldaño tipo cajón en madera maciza de Iroko seleccionada (3 para base de arranque en L y 16 para tramo volado). Huellas macizas de 38 mm de espesor y frentes/laterales de 20 mm. Cajeado y fresado interior para embutir y ocultar la base tubular y ménsulas 50x50x5 mm. Mecanizado para paso de varillas. Tratamiento antixilófagos y acabado con 3 capas de barniz poliuretano satinado de alta resistencia al tránsito.",
       "unidad": "lote",
       "cantidad": 1,
-      "precioUnitario": 4980.00,
-      "importe": 4980.00
+      "precioUnitario": 5478.00,
+      "importe": 5478.00
     },
     {
       "codigo": "07",
@@ -102,15 +112,15 @@
       "descripcion": "Transporte a pie de obra en Menorca. Nivelación y fijación de base tubular sobre solera. Anclaje de pletina a muro maestro portante. Fijación de angular a viga de madera de techo. Montaje, aplomado y tensado de varillas. Pegado estructural elastomérico de los 19 forros de madera de Iroko, limpieza y entrega (sistemas de fijación y tuercas a definir según replanteo definitivo).",
       "unidad": "lote",
       "cantidad": 1,
-      "precioUnitario": 2780.00,
-      "importe": 2780.00
+      "precioUnitario": 3058.00,
+      "importe": 3058.00
     }
   ],
   "totales": {
-    "baseImponible": 16210.00,
+    "baseImponible": 17831.00,
     "ivaPorcentaje": 21,
-    "ivaImporte": 3404.10,
-    "totalPresupuesto": 19614.10
+    "ivaImporte": 3744.51,
+    "totalPresupuesto": 21575.51
   },
   "condiciones": {
     "formaPago": "100% a la aceptación del presupuesto.",
