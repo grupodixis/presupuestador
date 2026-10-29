@@ -7,17 +7,17 @@ from playwright.sync_api import sync_playwright
 def create_excel():
     wb = Workbook()
     ws = wb.active
-    ws.title = "P-2026-0046 Ullastre T50"
+    ws.title = "P-2026-0046 Cubo Inox Blanco"
 
     # Estilos y Paleta de Colores Corporativa
     header_fill = PatternFill(start_color="0F172A", end_color="0F172A", fill_type="solid")
     header_font = Font(name="Segoe UI", size=10, bold=True, color="FFFFFF")
     title_font = Font(name="Segoe UI", size=15, bold=True, color="0F172A")
-    subtitle_font = Font(name="Segoe UI", size=11, bold=True, color="B45309")
+    subtitle_font = Font(name="Segoe UI", size=11, bold=True, color="0284C7")
     regular_font = Font(name="Segoe UI", size=9.5)
     bold_font = Font(name="Segoe UI", size=9.5, bold=True)
-    accent_total_font = Font(name="Segoe UI", size=11, bold=True, color="B45309")
-    section_fill = PatternFill(start_color="FEF3C7", end_color="FEF3C7", fill_type="solid")
+    accent_total_font = Font(name="Segoe UI", size=11, bold=True, color="0284C7")
+    section_fill = PatternFill(start_color="E0F2FE", end_color="E0F2FE", fill_type="solid")
 
     thin_border = Border(
         left=Side(style='thin', color='CBD5E1'),
@@ -29,7 +29,7 @@ def create_excel():
     # Cabecera Presupuesto
     ws["A1"] = "HAM ESTRUCTURAS METÁLICAS MENORCA"
     ws["A1"].font = title_font
-    ws["A2"] = "PRESUPUESTO TÉCNICO Y VALORACIÓN ECONÓMICA: P-2026-0046 (REV. 1)"
+    ws["A2"] = "PRESUPUESTO TÉCNICO Y VALORACIÓN ECONÓMICA: P-2026-0046 (REV. 2)"
     ws["A2"].font = subtitle_font
 
     ws["A4"] = "Cliente:"
@@ -41,7 +41,7 @@ def create_excel():
     ws["A7"] = "Fecha y Validez:"
     ws["B7"] = "29/10/2026 · Validez 30 días"
     ws["A8"] = "Concepto:"
-    ws["B8"] = "Pérgola rústica de madera de Ullastre y bastidor metálico en simple T de 50 mm con cubierta de cañizo, entramado tensor inox y anclajes ocultos para pies descalzos"
+    ws["B8"] = "Estructura cúbica minimalista en tubo de Acero Inoxidable 40x40x2 mm lacado blanco, amurada al piso sin pernos vistos"
 
     for r in range(4, 9):
         ws[f"A{r}"].font = bold_font
@@ -51,7 +51,7 @@ def create_excel():
     ws["A10"] = "PARÁMETROS TÉCNICOS"
     ws["A10"].font = bold_font
     ws["A10"].fill = section_fill
-    ws["B10"] = "Medidas: 4,00 x 3,00 x 2,50 m (12 m²) | 3 troncos de Ullastre autóctono de Menorca (coste HAM 200€/ud) | Bastidor ligero en perfil simple T de 50 mm (T 50x50x5 S275JR) para alojamiento exacto de cañizo | Acabado exterior pintado (sin galvanizar): imprimación epoxi + poliuretano | Entramado tensor de cables Inox AISI 316 para trepadoras | Cañizo natural cosido | Casquillos empotrados Inox 316 (cero resaltes para transitar descalzo)"
+    ws["B10"] = "Medidas: 4,00 x 3,00 x 2,50 m (12 m²) | Geometría cúbica ortoédrica | Tubo cuadrado de Acero Inoxidable 40x40x2 mm | Soldadura TIG pulida | Termolacado al horno en Blanco exterior (RAL 9010/9016) | Fijación amurada al piso mediante espigas macizas inox y anclaje químico (cero pernos salientes para caminar descalzo) | Costillas superiores y red tensada Inox AISI 316 para trepadoras"
     ws["B10"].font = regular_font
     ws["B10"].fill = section_fill
 
@@ -66,14 +66,12 @@ def create_excel():
         cell.alignment = Alignment(horizontal="center" if col_idx not in [2] else "left", vertical="center")
 
     data = [
-        ["01", "Replanteo técnico in situ, comprobación de niveles de solera y coordinación con D.F. y albañilería en Binibeca", "lote", 1, 320.00],
-        ["02", "Sistema de anclaje empotrado invisible 'Pies Descalzos' (Fase 1 previa a solado): casquillos Inox AISI 316 embebidos en solera e=10cm, espárragos macizos inox Ø28 mm y juntas aislantes de neopreno (superficie 100% enrasada bajo porcelánico C3)", "lote", 1, 480.00],
-        ["03", "Pilares estructurales de madera maciza de Ullastre (acebuche) autóctono de Menorca (Ø140-180 mm, h=2,60 m, coste base HAM 200€/ud): descortezado manual, saneado y doble lasur protector UV marino poro abierto; mecanizado de testas para vástagos ocultos", "ud", 3, 340.00],
-        ["04", "Fabricación en taller de bastidor metálico en perfil simple T de 50 mm (T 50x50x5 mm S275JR): marco perimetral y viguetas intermedias que alojan el cañizo, cazoletas ocultas sobre ullastres y anclajes químicos murales inox A4", "lote", 1, 980.00],
-        ["05", "Tratamiento superficial de pintura anticorrosiva de exterior (sin galvanizar): desengrasado, limpieza mecánica, imprimación epoxi fosfatante de alto espesor y esmalte poliuretano alifático bicomponente para intemperie marina", "lote", 1, 340.00],
-        ["06", "Entramado tensor de cables de acero inoxidable AISI 316 para trepadoras: retícula de cables 1x19 Ø4mm cada 50 cm con tensores de botella náuticos A4 para soporte de carga vegetal y resistencia a vientos", "lote", 1, 440.00],
-        ["07", "Cubierta de sombreo inmediato de cañizo natural nacional de caña entera, encastrado sobre las alas de los perfiles T de 50 mm con pletinas metálicas y bridas de acero inoxidable AISI 316 cada 30 cm", "m2", 14, 24.00],
-        ["08", "Transporte a obra a Binibeca Vell, medios auxiliares y montaje en dos fases (Fase 1 entrega/nivelación de vainas; Fase 2 izado bastidor T50, aplomado ullastres, encastre de cañizo y red de cables inox)", "lote", 1, 950.00]
+        ["01", "Replanteo técnico in situ, nivelación y desarrollo de planos de taller: visita a Binibeca Vell para replanteo con D.F. y albañilería; cotas de solera e=10cm y cota cero porcelánico C3", "lote", 1, 320.00],
+        ["02", "Sistema de fijación oculta amurada al piso 'Pies Descalzos' (Fase 1 previa a solado): 4 espigas macizas inox Ø25 mm, vainas cilíndricas empotrables e inyección química de resina epoxi Fischer (superficie 100% enrasada bajo porcelánico C3, cero pernos salientes)", "lote", 1, 420.00],
+        ["03", "Fabricación en taller de estructura cúbica en tubo de Acero Inoxidable 40x40x2 mm: 4 pilares h=2,50 m, marco perimetral superior (2 vigas 4m + 2 vigas 3m) y 4 costillas intermedias superiores transversales cada 80 cm. Cortes ingleteados 45º, soldadura continua TIG en argón y aristas esmeriladas", "lote", 1, 2150.00],
+        ["04", "Tratamiento superficial de termolacado al horno en Blanco Exterior: desengrasado, acondicionamiento superficial para inox, imprimación de adherencia y aplicación termolacada al horno con polvo poliéster arquitectónico (Blanco RAL 9010/9016) resistente a intemperie marina y UV", "lote", 1, 680.00],
+        ["05", "Entramado tensor de cables de acero inoxidable AISI 316 para trepadoras: retícula de cables 1x19 Ø3-4mm tensados entre las costillas de tubo 40x40 con tensores de botella náuticos A4 para soporte vegetal y resistencia al viento", "lote", 1, 390.00],
+        ["06", "Transporte especializado a Binibeca Vell y montaje integral: entrega de vainas/esperas en Fase 1 y montaje completo de estructura modular en Fase 2, aplomado, inyección química al piso y limpieza final", "lote", 1, 980.00]
     ]
 
     for i, row in enumerate(data, start=start_row + 1):
@@ -113,12 +111,12 @@ def create_excel():
 
     # Variante 4x2 m
     r_var = r_tot + 2
-    ws.cell(row=r_var, column=2, value="VARIANTE ALTERNATIVA: Pérgola 4,00 x 2,00 m (8,00 m²)").font = bold_font
+    ws.cell(row=r_var, column=2, value="VARIANTE ALTERNATIVA: Estructura Cúbica 4,00 x 2,00 m (8,00 m²)").font = bold_font
     ws.cell(row=r_var, column=5, value="Base Imponible:").font = regular_font
-    ws.cell(row=r_var, column=6, value=3950.00).font = bold_font
+    ws.cell(row=r_var, column=6, value=4180.00).font = bold_font
     ws.cell(row=r_var, column=6).number_format = '#,##0.00 €'
     ws.cell(row=r_var+1, column=5, value="Total con IVA (21%):").font = regular_font
-    ws.cell(row=r_var+1, column=6, value=4779.50).font = bold_font
+    ws.cell(row=r_var+1, column=6, value=5057.80).font = bold_font
     ws.cell(row=r_var+1, column=6).number_format = '#,##0.00 €'
 
     # Ajuste de anchos de columna
