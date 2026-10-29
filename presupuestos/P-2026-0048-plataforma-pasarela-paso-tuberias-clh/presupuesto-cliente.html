@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>P-2026-0048 Presupuesto Técnico-Económico: Pasarela Salvatuberías CLH IA-OC-092</title>
+  <style>
+    @page { 
+      size: A4 portrait; 
+      margin: 10mm; 
+    }
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      background: #f1f5f9; 
+      color: #0f172a; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      font-size: 10px; 
+      line-height: 1.45; 
+    }
+    .sheet { 
+      width: 210mm; 
+      margin: 10px auto; 
+      background: #ffffff; 
+      box-shadow: 0 10px 30px rgba(0,0,0,.08); 
+      padding: 12mm 14mm;
+      page-break-after: always;
+    }
+    .sheet:last-child {
+      page-break-after: auto;
+    }
+
+    /* Cabecera Corporativa */
+    header { 
+      background: #0f172a; 
+      color: #fff; 
+      padding: 14px 18px; 
+      border-radius: 8px;
+      display: grid; 
+      grid-template-columns: 1fr auto; 
+      gap: 16px; 
+      align-items: center; 
+      border-bottom: 3px solid #b45309;
+      margin-bottom: 12px;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .logo-box { 
+      width: 44px; 
+      height: 44px; 
+      border-radius: 6px; 
+      background: rgba(255,255,255,0.1); 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 20px;
+      color: #f59e0b;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    h1 { margin: 0; font-size: 15px; font-weight: 700; letter-spacing: -.01em; color: #ffffff; }
+    .subtitle { margin: 3px 0 0; color: #94a3b8; font-size: 9.5px; }
+    .meta { text-align: right; color: #cbd5e1; font-size: 9.5px; line-height: 1.35; }
+    .meta strong { color: #f59e0b; display: block; font-size: 11px; margin-bottom: 2px; }
+
+    /* Tarjeta Resumen Comparativo */
+    .hero-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      background: #f8fafc;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .hero-info strong { color: #b45309; font-size: 11px; display: block; margin-bottom: 4px; }
+    .hero-info p { margin: 0; color: #334155; font-size: 9.5px; line-height: 1.4; }
+    
+    .dual-price-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      border-left: 2px solid #e2e8f0;
+      padding-left: 14px;
+    }
+    .price-col {
+      background: #ffffff;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      text-align: right;
+    }
+    .price-col.recommended {
+      border: 1.5px solid #047857;
+      background: #f0fdf4;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 7.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-bottom: 3px;
+    }
+    .badge-rec { background: #047857; color: #fff; }
+    .badge-std { background: #64748b; color: #fff; }
+    .price-val { font-size: 16px; font-weight: 800; color: #0f172a; line-height: 1.1; margin: 2px 0; }
+    .price-col.recommended .price-val { color: #047857; }
+    .price-sub { font-size: 8.5px; color: #64748b; }
+
+    /* Info Grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .info-panel {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 8px 12px;
+      background: #ffffff;
+    }
+    .info-panel h3 {
+      margin: 0 0 6px;
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: #64748b;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 3px;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3px;
+      font-size: 9.5px;
+    }
+    .info-label { color: #64748b; }
+    .info-val { font-weight: 600; color: #0f172a; text-align: right; }
+
+    /* Parámetros dimensionales destacados */
+    .specs-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .spec-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 6px;
+      text-align: center;
+    }
+    .spec-num { font-size: 13px; font-weight: 800; color: #b45309; }
+    .spec-lbl { font-size: 8px; color: #64748b; text-transform: uppercase; margin-top: 1px; }
+
+    /* Tablas de Partidas */
+    h2 { 
+      font-size: 11.5px; 
+      color: #0f172a; 
+      border-left: 3px solid #b45309; 
+      padding-left: 8px; 
+      margin: 12px 0 6px; 
+      text-transform: uppercase; 
+      letter-spacing: .03em;
+    }
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin-bottom: 10px; 
+      font-size: 9px;
+    }
+    th { 
+      background: #0f172a; 
+      color: #fff; 
+      padding: 6px 8px; 
+      text-align: left; 
+      font-weight: 600; 
+      font-size: 8.5px;
+    }
+    th.center, td.center { text-align: center; }
+    th.right, td.right { text-align: right; }
+    td { 
+      padding: 6px 8px; 
+      border-bottom: 1px solid #e2e8f0; 
+      vertical-align: top; 
+      line-height: 1.35;
+    }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .desc-text { color: #334155; }
+    .code-tag { font-family: monospace; font-weight: 700; color: #b45309; }
+
+    /* Bloque Totales */
+    .totals-container {
+      margin-left: auto;
+      width: 250px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      background: #f8fafc;
+      overflow: hidden;
+    }
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 10px;
+      font-size: 9.5px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .totals-row.final {
+      background: #0f172a;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 11px;
+      border-bottom: none;
+    }
+    .totals-row.final span:last-child { color: #f59e0b; }
+
+    /* Cajas Informativas */
+    .note-box {
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      font-size: 8.5px;
+      line-height: 1.4;
+    }
+    .note-box.c5-info {
+      background: #fffbeb;
+      border-left: 3px solid #b45309;
+      color: #78350f;
+    }
+    .note-box.rec-info {
+      background: #ecfdf5;
+      border-left: 3px solid #047857;
+      color: #064e3b;
+    }
+
+    /* Tabla Comparativa */
+    .comp-table {
+      margin-top: 8px;
+    }
+    .comp-table th { background: #1e293b; }
+    .comp-table td { padding: 6px 8px; }
+    .highlight-cell { font-weight: 700; color: #047857; }
+
+    /* Footer */
+    footer {
+      margin-top: 14px;
+      padding-top: 8px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PÁGINA 1: RESUMEN Y COMPARATIVA ==================== -->
+  <div class="sheet">
+    <header>
+      <div class="brand">
+        <div class="logo-box">HAM</div>
+        <div>
+          <h1>HAM ESTRUCTURAS METÁLICAS MENORCA</h1>
+          <div class="subtitle">CALDERERÍA INDUSTRIAL · CARPINTERÍA METÁLICA PESADA · TRATAMIENTOS MARINOS C5</div>
+        </div>
+      </div>
+      <div class="meta">
+        <strong>PRESUPUESTO P-2026-0048</strong>
+        Fecha: 29 de octubre de 2026<br>
+        Validez: 30 días naturales
+      </div>
+    </header>
+
+    <div class="hero-card">
+      <div class="hero-info">
+        <strong>PROYECTO: PASARELA SALVATUBERÍAS Y ACCESO A EQUIPOS</strong>
+        <p>Presupuesto comparativo para la fabricación y suministro de plataforma pasarela elevada según plano normalizado <strong>CLH IA-OC-092 Rev. 5</strong> con zancas en perfil <strong>UPN 160</strong>, barandillas con rodapié y peldaños de tramex antideslizante.</p>
+        <p style="margin-top: 4px;">Se presentan las <strong>2 soluciones de acabado</strong> solicitadas frente al ambiente marino severo / industrial <strong>C5</strong>.</p>
+      </div>
+      <div class="dual-price-box">
+        <div class="price-col recommended">
+          <span class="badge badge-rec">OPCIÓN 1 · RECOMENDADA</span>
+          <div class="price-val">7.250,00 €</div>
+          <div class="price-sub">Galvanizado + C5 (Dúplex)</div>
+          <div style="font-size: 7.5px; color: #047857; margin-top: 3px; font-weight: 700;">+ Obra Comp.: 8.900,00 €</div>
+        </div>
+        <div class="price-col">
+          <span class="badge badge-std">OPCIÓN 2 · ESTÁNDAR</span>
+          <div class="price-val">6.590,00 €</div>
+          <div class="price-sub">Hierro Chorreado + C5</div>
+          <div style="font-size: 7.5px; color: #64748b; margin-top: 3px; font-weight: 700;">+ Obra Comp.: 8.240,00 €</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-panel">
+        <h3>Datos del Cliente y Emplazamiento</h3>
+        <div class="info-row"><span class="info-label">Cliente:</span><span class="info-val">Compañía Logística / Sector Hidrocarburos</span></div>
+        <div class="info-row"><span class="info-label">Emplazamiento:</span><span class="info-val">Planta / Terminal en Menorca</span></div>
+        <div class="info-row"><span class="info-label">Ambiente Atmosférico:</span><span class="info-val">C5-M (Marino Severo / Químico)</span></div>
+        <div class="info-row"><span class="info-label">Plano de Referencia:</span><span class="info-val">CLH IA-OC-092 Rev. 5 (Hoja 1 de 1)</span></div>
+      </div>
+      <div class="info-panel">
+        <h3>Condiciones Técnico-Comerciales</h3>
+        <div class="info-row"><span class="info-label">Plazo de Ejecución:</span><span class="info-val">3 a 4 semanas (según tratamiento)</span></div>
+        <div class="info-row"><span class="info-label">Forma de Pago:</span><span class="info-val">40% encargo · 40% salida taller · 20% entrega</span></div>
+        <div class="info-row"><span class="info-label">Entrega:</span><span class="info-val">Puesto en planta / Montaje opcional</span></div>
+        <div class="info-row"><span class="info-label">Normativas:</span><span class="info-val">UNE-EN ISO 1461 · UNE-EN ISO 12944 C5</span></div>
+      </div>
+    </div>
+
+    <div class="specs-strip">
+      <div class="spec-item"><div class="spec-num">3.300 mm</div><div class="spec-lbl">Luz Pasarela (L)</div></div>
+      <div class="spec-item"><div class="spec-num">900 mm</div><div class="spec-lbl">Ancho Útil</div></div>
+      <div class="spec-item"><div class="spec-num">1.000 mm</div><div class="spec-lbl">Altura Libre (H)</div></div>
+      <div class="spec-item"><div class="spec-num">UPN 160</div><div class="spec-lbl">Zancas Portantes</div></div>
+      <div class="spec-item"><div class="spec-num">8 Uds</div><div class="spec-lbl">Peldaños Tramex</div></div>
+      <div class="spec-item"><div class="spec-num">~730 kg</div><div class="spec-lbl">Peso Acero Total</div></div>
+    </div>
+
+    <h2>CUADRO COMPARATIVO DIRECTO DE ACABADOS</h2>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th style="width: 25%;">Criterio Técnico / Económico</th>
+          <th style="width: 37%;">Opción 1: Galvanizado en Caliente + C5 (Dúplex)</th>
+          <th style="width: 38%;">Opción 2: Hierro Normal + C5 (Tricapa Sa 3)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tratamiento Base</strong></td>
+          <td class="highlight-cell">Galvanizado en caliente por inmersión (70-85 µm de zinc a 450 °C). Protege tubos y perfiles interior y exteriormente.</td>
+          <td>Chorreado abrasivo Sa 2½ / Sa 3 con granalla de acero. Solo protege la superficie exterior vista.</td>
+        </tr>
+        <tr>
+          <td><strong>Sistema de Pintura C5</strong></td>
+          <td>Sweep blasting + Imprimación adherente epoxi + Intermedia epoxi MIO + Esmalte poliuretano alifático 2C UV.</td>
+          <td>Imprimación etil silicato/epoxi zinc 70 µm + Intermedia epoxi MIO 100 µm + Poliuretano 60 µm (DFT ≥ 240 µm).</td>
+        </tr>
+        <tr>
+          <td><strong>Colores Reglamentarios</strong></td>
+          <td>Estructura y rodapié: Negro RAL 9005.<br>Barandillas y pasamanos: Amarillo RAL 1021.</td>
+          <td>Estructura y rodapié: Negro RAL 9005.<br>Barandillas y pasamanos: Amarillo RAL 1021.</td>
+        </tr>
+        <tr>
+          <td><strong>Comportamiento a Golpes</strong></td>
+          <td class="highlight-cell"><strong>Efecto Sinérgico Dúplex:</strong> Si el golpe ralla el esmalte, el zinc evita la corrosión bajo película y la descamación.</td>
+          <td><strong>Vulnerable:</strong> Si una herramienta pica la pintura hasta el hierro, la salitre genera óxido subyacente inmediato.</td>
+        </tr>
+        <tr>
+          <td><strong>Expectativa de Vida Útil</strong></td>
+          <td class="highlight-cell"><strong>> 25 años</strong> sin mantenimiento estructural en Menorca.</td>
+          <td><strong>8 a 12 años</strong> con inspecciones y retoques locales periódicos.</td>
+        </tr>
+        <tr>
+          <td><strong>Piso y Peldaños Tramex</strong></td>
+          <td>Rejilla electrosoldada 30x30/30x3 galvanizada en caliente con cantonera perforada antideslizante.</td>
+          <td>Rejilla electrosoldada 30x30/30x3 galvanizada en caliente con cantonera perforada antideslizante.</td>
+        </tr>
+        <tr>
+          <td><strong>Presupuesto Suministro</strong></td>
+          <td class="highlight-cell" style="font-size: 11px;"><strong>7.250,00 €</strong> <span style="font-size: 8px; color:#64748b;">(+660 € de diferencia)</span></td>
+          <td style="font-size: 11px;"><strong>6.590,00 €</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Montaje en Obra (Opcional)</strong></td>
+          <td>1.650,00 € (Grúa pluma + fijaciones Inox A4 M20)</td>
+          <td>1.650,00 € (Grúa pluma + fijaciones Inox A4 M20)</td>
+        </tr>
+        <tr style="background: #fef3c7;">
+          <td><strong>TOTAL OBRA (Base Imponible)</strong></td>
+          <td class="highlight-cell" style="font-size: 11.5px; color:#047857;"><strong>8.900,00 € + IVA</strong></td>
+          <td style="font-size: 11.5px; color:#0f172a;"><strong>8.240,00 € + IVA</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box rec-info">
+      <strong>DICTAMEN TÉCNICO HAM MENORCA:</strong> Por una diferencia económica de únicamente <strong>660,00 €</strong> (+8,0% sobre el conjunto de la obra), la <strong>Opción 1 (Sistema Dúplex)</strong> proporciona una protección anticorrosiva muy superior. Al estar ubicada en Menorca (ambiente salino de alta salinidad y humedad), la inmersión en zinc garantiza que el interior hueco del tubo de pasamanos y las aristas de las zancas UPN 160 nunca se corroan desde dentro hacia fuera.
+    </div>
+
+    <footer>
+      <span>HAM Estructuras Metálicas Menorca · CIF: B-07000000 · Polígono Industrial Poici</span>
+      <span>Página 1 de 2 · P-2026-0048</span>
+    </footer>
+  </div>
+
+  <!-- ==================== PÁGINA 2: DESGLOSE DETALLADO DE PARTIDAS ==================== -->
+  <div class="sheet">
+    <header>
+      <div class="brand">
+        <div class="logo-box">HAM</div>
+        <div>
+          <h1>HAM ESTRUCTURAS METÁLICAS MENORCA</h1>
+          <div class="subtitle">CALDERERÍA INDUSTRIAL · CARPINTERÍA METÁLICA PESADA · TRATAMIENTOS MARINOS C5</div>
+        </div>
+      </div>
+      <div class="meta">
+        <strong>DESGLOSE DETALLADO DE PARTIDAS</strong>
+        P-2026-0048 · 29/10/2026
+      </div>
+    </header>
+
+    <h2>OPCIÓN 1: ACERO GALVANIZADO EN CALIENTE + ACABADO PINTURA C5 (SISTEMA DÚPLEX)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 7%;" class="center">Partida</th>
+          <th style="width: 58%;">Descripción Técnica de los Trabajos</th>
+          <th style="width: 7%;" class="center">Ud</th>
+          <th style="width: 8%;" class="right">Cant.</th>
+          <th style="width: 10%;" class="right">PVP (€)</th>
+          <th style="width: 10%;" class="right">Total (€)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="center code-tag">01.01</td>
+          <td><strong>Fabricación de estructura portante en acero S275JR:</strong> 2 zancas longitudinales UPN 160 (L=3.300 mm), 4 zancas inclinadas UPN 160 para escaleras (1.359 mm cada una), travesaños en UPN 140, rodapié en pletina 150x6 mm soldado con cordones intermitentes según Nota 6 y 4 angulares de anclaje L 100x100x10 mm con taladros Ø24 mm. Soldaduras continuas cateto 0,7 y orificios de drenaje para galvanizado.</td>
+          <td class="center">ud</td>
+          <td class="right">1,00</td>
+          <td class="right">2.450,00</td>
+          <td class="right">2.450,00</td>
+        </tr>
+        <tr>
+          <td class="center code-tag">01.02</td>
+          <td><strong>Fabricación de barandillas de protección perimetral (H=1.100 mm):</strong> montantes en angular L 80x80x8 mm espaciados ≤ 1.300 mm según plano, pasamanos superior en tubo de acero Ø 1¼" Sch. 40 (Ø 42,4x3,56 mm), tubo intermedio a 590 mm y codos terminales de retorno R=100 mm.</td>
+          <td class="center">ud</td>
+          <td class="right">1,00</td>
+          <td class="right">1.380,00</td>
+          <td class="right">1.380,00</td>
+        </tr>
+        <tr>
+          <td class="center code-tag">01.03</td>
+          <td><strong>Galvanizado en Caliente por inmersión (UNE-EN ISO 1461):</strong> recubrimiento de zinc fundido a 450 °C (70-85 µm) para los ~600 kg de estructura y barandillas. Portes marítimos y terrestres de ida y vuelta a planta galvanizadora de península incluidos.</td>
+          <td class="center">lote</td>
+          <td class="right">1,00</td>
+          <td class="right">1.150,00</td>
+          <td class="right">1.150,00</td>
+        </tr>
+        <tr>
+          <td class="center code-tag">01.04</td>
+          <td><strong>Pintura C5 Dúplex sobre galvanizado:</strong> sweep blasting (barrido abrasivo suave), imprimación adherente epoxi (40-50 µm), intermedia epoxi MIO (80-100 µm) y esmalte poliuretano alifático 2C UV (50-60 µm). Colores: Estructura Negro RAL 9005 y Barandillas Amarillo Seguridad RAL 1021.</td>
+          <td class="center">lote</td>
+          <td class="right">1,00</td>
+          <td class="right">1.180,00</td>
+          <td class="right">1.180,00</td>
+        </tr>
+        <tr>
+          <td class="center code-tag">01.05</td>
+          <td><strong>Piso y peldaños en rejilla electrofundida Tramex:</strong> tramo horizontal 3,30 x 0,90 m en malla 30x30 pletina 30x3 mm antideslizante galvanizada en caliente y 8 peldaños normalizados de 900 x 230 mm con cantonera perforada de seguridad y fijaciones laterales colisas.</td>
+          <td class="center">lote</td>
+          <td class="right">1,00</td>
+          <td class="right">1.090,00</td>
+          <td class="right">1.090,00</td>
+        </tr>
+        <tr style="background: #f1f5f9; font-weight: 700;">
+          <td colspan="5" style="text-align: right; padding-right: 12px;">SUBTOTAL SUMINISTRO PUESTO EN OBRA (OPCIÓN 1):</td>
+          <td class="right" style="color: #047857; font-size: 10.5px;">7.250,00 €</td>
+        </tr>
+        <tr>
+          <td class="center code-tag">01.06</td>
+          <td><strong>Montaje e instalación en campo (Partida Opcional):</strong> camión grúa pluma para descarga y maniobra de izado milimétrico sobre las tuberías, fijación a solera mediante 4 anclajes químicos M20 con varilla Inox A4, nivelación, apriete dinamométrico y sellado de obra.</td>
+          <td class="center">lote</td>
+          <td class="right">1,00</td>
+          <td class="right">1.650,00</td>
+          <td class="right">1.650,00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totals-container">
+      <div class="totals-row"><span>Base Imponible Obra Completa:</span><span>8.900,00 €</span></div>
+      <div class="totals-row"><span>IVA General (21%):</span><span>1.869,00 €</span></div>
+      <div class="totals-row final"><span>TOTAL OPCIÓN 1:</span><span>10.769,00 €</span></div>
+    </div>
+
+    <h2>OPCIÓN 2: ACERO AL CARBONO (HIERRO NORMAL CHORREADO) + PINTURA C5</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 7%;" class="center">Partida</th>
+          <th style="width: 58%;">Descripción Técnica de los Trabajos</th>
+          <th style="width: 7%;" class="center">Ud</th>
+          <th style="width: 8%;" class="right">Cant.</th>
+          <th style="width: 10%;" class="right">PVP (€)</th>
+          <th style="width: 10%;" class="right">Total (€)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="center code-tag">02.01</td>
+          <td><strong>Fabricación estructura y barandillas en acero al carbono S275JR:</strong> idéntica geometría y perfiles UPN 160, UPN 140, pletina 150x6 mm, montantes L 80x80x8 mm y tubos Ø 1¼" Sch. 40 para recibir tratamiento de pintura directa.</td>
+          <td class="center">lote</td>
+          <td class="right">1,00</td>
+          <td class="right">3.830,00</td>
+          <td class="right">3.830,00</td>
+        </tr>
+        <tr>
+          <td class="center code-tag">02.02</td>
+          <td><strong>Tratamiento superficial Chorreado Sa 3 + Pintura C5 Tricapa (Nota 3 CLH):</strong> chorreado abrasivo al grado Sa 3, imprimación etil silicato/epoxi rica en zinc ≥ 70% (70-80 µm), intermedia epoxi poliamida MIO (100-120 µm) y esmalte poliuretano alifático 2C (50-60 µm). DFT ≥ 240 µm. Estructura Negro RAL 9005 y Barandillas Amarillo RAL 1021.</td>
+          <td class="center">lote</td>
+          <td class="right">1,00</td>
+          <td class="right">1.670,00</td>
+          <td class="right">1.670,00</td>
+        </tr>
+        <tr>
+          <td class="center code-tag">02.03</td>
+          <td><strong>Piso y peldaños Tramex galvanizado:</strong> plataforma 3,30 x 0,90 m y 8 peldaños 900x230 mm con cantonera antideslizante galvanizados de fábrica (idéntica calidad para garantizar pisado seguro sin desconchados).</td>
+          <td class="center">lote</td>
+          <td class="right">1,00</td>
+          <td class="right">1.090,00</td>
+          <td class="right">1.090,00</td>
+        </tr>
+        <tr style="background: #f1f5f9; font-weight: 700;">
+          <td colspan="5" style="text-align: right; padding-right: 12px;">SUBTOTAL SUMINISTRO PUESTO EN OBRA (OPCIÓN 2):</td>
+          <td class="right" style="color: #0f172a; font-size: 10.5px;">6.590,00 €</td>
+        </tr>
+        <tr>
+          <td class="center code-tag">02.04</td>
+          <td><strong>Montaje e instalación en campo (Partida Opcional):</strong> camión pluma, posicionamiento, 4 fijaciones químicas M20 Inox A4 y ajuste en obra.</td>
+          <td class="center">lote</td>
+          <td class="right">1,00</td>
+          <td class="right">1.650,00</td>
+          <td class="right">1.650,00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totals-container">
+      <div class="totals-row"><span>Base Imponible Obra Completa:</span><span>8.240,00 €</span></div>
+      <div class="totals-row"><span>IVA General (21%):</span><span>1.730,40 €</span></div>
+      <div class="totals-row final"><span>TOTAL OPCIÓN 2:</span><span>9.970,40 €</span></div>
+    </div>
+
+    <div class="note-box c5-info">
+      <strong>CONDICIONES GENERALES:</strong> Precios en euros sin IVA (21%). El plazo de entrega computa a partir de la firma del pedido y validación dimensional. Incluye certificación de materiales S275JR, certificados de espesores de galvanizado UNE-EN ISO 1461 y dosiers técnicos de pintura C5 según UNE-EN ISO 12944.
+    </div>
+
+    <footer>
+      <span>HAM Estructuras Metálicas Menorca · Presupuesto P-2026-0048</span>
+      <span>Página 2 de 2 · Aprobado por Dirección Técnica</span>
+    </footer>
+  </div>
+
+</body>
+</html>
