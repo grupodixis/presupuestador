@@ -1,0 +1,132 @@
+{
+  "proyecto": {
+    "codigo": "P-2026-0046",
+    "referencia_comercial": "PER-2026-1046",
+    "titulo": "Pérgola Rústica de Ullastre y Metal con Cañizo y Guía Trepadora",
+    "subtitulo": "Estructura combinada de troncos de Ullastre de Menorca, bastidor metálico termolacado C5-M, anclajes empotrados para pies descalzos y cubierta de cañizo natural",
+    "fecha": "29/10/2026",
+    "validez_dias": 30,
+    "ubicacion": "c/ Llaut 59, Urb. Binibeca Vell, 07711 Sant Lluís (Menorca)",
+    "entorno": "Ambiente marino costero (C5-M), terraza junto a piscina",
+    "dimensiones_principales": {
+      "largo": 4.00,
+      "ancho_fondo": 3.00,
+      "alto_libre": 2.50,
+      "superficie_m2": 12.00
+    },
+    "variante_alternativa": {
+      "largo": 4.00,
+      "ancho_fondo": 2.00,
+      "alto_libre": 2.50,
+      "superficie_m2": 8.00,
+      "base_imponible": 5480.00,
+      "iva_21": 1150.80,
+      "total_iva_inc": 6630.80
+    }
+  },
+  "cliente": {
+    "nombre": "Teresa Echezarreta Codina",
+    "contacto": "Propiedad / Dirección de Obra",
+    "arquitecta": "Cristina Moll Taltavull (Col. COAIB - Expte. 2024 13_MOD)",
+    "direccion": "c/ Llaut 59, Binibeca Vell, Sant Lluís, Menorca",
+    "referencia_catastral": "5790022FE0059S0001OQ"
+  },
+  "empresa": {
+    "nombre": "HAM Estructuras Metálicas Menorca",
+    "direccion": "Av. Circunvalació, 11, Polígono Industrial de Sant Lluís, 07710 Sant Lluís, Menorca",
+    "telefono": "+34 971 35 20 18",
+    "whatsapp": "+34 669 769 541",
+    "email": "info@hamenorca.com",
+    "web": "www.hamenorca.com"
+  },
+  "plazos": {
+    "fase_1_anclajes": "5 a 7 días hábiles (entrega de vainas inox empotradas y replanteo de cotas con el albañil antes de solar)",
+    "fase_2_montaje": "4 a 5 semanas desde confirmación de cotas de solado (fabricación en taller, selección ullastre, galvanizado, termolacado y montaje final)"
+  },
+  "partidas": [
+    {
+      "item": "01",
+      "concepto": "Replanteo técnico, comprobación de niveles y coordinación en obra",
+      "descripcion": "Visita técnica a la obra en Binibeca Vell, comprobación de niveles de solera respecto a la cota del pavimento porcelánico C3 y vaso de piscina, replanteo de ejes de apoyo y coordinación técnica con la dirección de obra (Cristina Moll) y el constructor para la colocación de casquillos en la solera de 10 cm.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precio_unitario": 380.00,
+      "importe": 380.00
+    },
+    {
+      "item": "02",
+      "concepto": "Sistema de anclaje empotrado invisible 'Pies Descalzos' (Inox AISI 316)",
+      "descripcion": "Fabricación y suministro de casquillos/vainas cilíndricas receptoras en acero inoxidable marino AISI 316 con patillas de anclaje electrosoldadas para embeber en la solera de hormigón armado previo al solado. Incluye tapas protectoras temporales para fase de vertido y alicatado, espárragos macizos inox de Ø28 mm embutidos con resina epoxi en el núcleo del ullastre y disco separador de fricción de neopreno/teflón negro (ruptura de capilaridad contra humedad de terraza). Superficie de suelo 100% enrasada, sin tornillos, pernos ni placas salientes (cero riesgo para personas descalzas).",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precio_unitario": 560.00,
+      "importe": 560.00
+    },
+    {
+      "item": "03",
+      "concepto": "Pilares estructurales de madera de Ullastre autóctono de Menorca",
+      "descripcion": "Suministro, selección y preparación de pilares de madera de ullastre (acebuche) autóctono menorquín de primera calidad, calibre estructural Ø140-180 mm y 2,60 m de longitud, con morfología rústica natural seleccionada. Descortezado manual, lijado artesanal, saneado y tratamiento biológico protector profundo mediante 2 manos de lasur hidrófugo, fungicida y protector UV de poro abierto en acabado natural mate. Mecanizado de testas para inserción oculta del vástago inferior y cazoleta superior.",
+      "unidad": "ud",
+      "cantidad": 3,
+      "precio_unitario": 460.00,
+      "importe": 1380.00
+    },
+    {
+      "item": "04",
+      "concepto": "Fabricación en taller de bastidor metálico estructural y viguetas",
+      "descripcion": "Fabricación de estructura portante perimetral compuesta por vigas maestras en tubo rectangular estructural de 100x50x3 mm (acero S275JR) con uniones a inglete y soldaduras continuas estancas homologadas, viguetas intermedias de rigidización en tubo rectangular de 50x30x2 mm distribuidas cada 60-70 cm para apoyo del cañizo y carga de vegetación, cazoletas de cabeza para apoyo articulado en ullastre y anclajes químicos inox A4 para fijación mural.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precio_unitario": 1840.00,
+      "importe": 1840.00
+    },
+    {
+      "item": "05",
+      "concepto": "Tratamiento anticorrosivo Sistema Dúplex C5-M (Galvanizado + Termolacado)",
+      "descripcion": "Tratamiento de máxima protección marina para Binibeca: galvanizado por inmersión en caliente según UNE-EN ISO 1461 con recubrimiento de zinc mínimo de 85 micras (protección total interna y externa), seguido de desgasificado, acondicionamiento superficial y termolacado al horno con pintura en polvo de resinas de poliéster arquitectónico texturado Qualisteelcoat (color a elegir: Forja Gris Oscuro, Antracita RAL 7016, Verde Oliva o Blanco Rústico). Garantía total contra corrosión salina.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precio_unitario": 640.00,
+      "importe": 640.00
+    },
+    {
+      "item": "06",
+      "concepto": "Emparrillado tensor para plantas trepadoras en Acero Inoxidable AISI 316",
+      "descripcion": "Suministro e instalación de entramado tensor superior para soporte de enredaderas (buganvillas, jazmines, etc.) mediante cables de acero inoxidable marino AISI 316 de Ø4 mm trenzado 1x19 o varillas inox Ø6 mm formando retícula de 50x50 cm, equipados con terminales prensados y tensores de botella náuticos A4. Diseñado para soportar el incremento progresivo de peso vegetal y los esfuerzos de empuje y succión del viento Tramuntana.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precio_unitario": 490.00,
+      "importe": 490.00
+    },
+    {
+      "item": "07",
+      "concepto": "Cubierta de sombra inmediata con cañizo natural de 1ª calidad",
+      "descripcion": "Suministro e instalación de paños de cañizo natural nacional de caña entera seleccionada cosida con alambre protegido, colocado sobre el entramado metálico y fijado con pletinas perimetrales de apriete y presillas de acero inoxidable AISI 316 cada 30 cm para evitar desplazamientos por ráfagas de viento. Aporta sombra natural tamizada de forma inmediata desde el primer día.",
+      "unidad": "m2",
+      "cantidad": 14.0,
+      "precio_unitario": 28.00,
+      "importe": 392.00
+    },
+    {
+      "item": "08",
+      "concepto": "Transporte a obra, medios auxiliares y montaje integral en dos fases",
+      "descripcion": "Transporte especializado a Binibeca Vell. Fase 1: entrega y nivelación de casquillos de empotramiento con el oficial de albañilería antes de verter solera y solar. Fase 2: transporte de pilares de ullastre, izado de estructura metálica, aplomado, fijación química, montaje de cañizo, ajuste de cables de trepadoras, retirada de embalajes y limpieza final de obra.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precio_unitario": 1150.00,
+      "importe": 1150.00
+    }
+  ],
+  "totales": {
+    "base_imponible": 6832.00,
+    "iva_tipo": "21%",
+    "iva_cuota": 1434.72,
+    "total_presupuesto": 8266.72
+  },
+  "condiciones": {
+    "forma_pago": "40% a la confirmación del pedido y entrega de vainas empotradas (Fase 1), 40% al inicio de montaje de estructura (Fase 2) y 20% a la finalización y recepción de obra.",
+    "validez": "30 días naturales.",
+    "garantia": "Garantía según normativa vigente en estructuras metálicas y cerrajería exterior.",
+    "no_incluido": "Obra civil propia de la vivienda (vertido de hormigón de solera e=10cm y colocación de pavimento porcelánico C3, los cuales corren a cargo del constructor de la reforma; HAM facilitará las vainas y el replanteo), suministro o plantación de las especies vegetales trepadoras, tomas eléctricas o iluminación LED."
+  }
+}
