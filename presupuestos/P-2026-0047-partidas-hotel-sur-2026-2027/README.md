@@ -1,21 +1,24 @@
-# P-2026-0047 · Presupuesto 6 Partidas Hotel Sur (Temporada 2026/2027)
+# P-2026-0047 · Presupuesto 6 Partidas Hotel Sur (Temporada 2026/2027) - REV. 1
 
-Presupuesto técnico y comercial para actuaciones de carpintería metálica, barandillas inox marina, cerramientos de vidrio y aluminio, bastidores amurados y protección solar para el **Hotel Sur** en Menorca.
+Presupuesto técnico y comercial para actuaciones de carpintería metálica, barandillas inox marina, cerramientos de vidrio y aluminio, bastidores amurados y protección solar para **PROMOCION Y DESARROLLO TURISTICO DE MENORCA SOCIEDAD LIMITADA** (Hotel Sur, Menorca).
 
-## Resumen de Partidas y Valoración
+- **Forma de pago:** Confirming 90 días.
+- **Validez:** 30 días naturales.
+
+## Resumen de Partidas y Valoración (Precios Unitarios Actualizados)
 
 | Partida | Concepto | Medición | PVP Unitario | Subtotal |
 |---|---|---|---|---|
-| **01** | Fijos de cristal con perfil de mampara (2 uds 2,64 x 2,64 m) | 13,94 m² | 400,00 €/m² | 5.575,68 € |
+| **01** | Fijos de cristal con perfil de mampara (2 uds 2,64 x 2,64 m) | 13,94 m² | 403,21 €/m² | 5.620,42 € |
 | **02** | Barandilla cristal con bases tubo 40x40x2 Inox AISI 316L y cristal 4+4 (incluye retirada de vieja barandilla atornillada) | 55,00 ML | 455,00 €/ML | 25.025,00 € |
 | **03** | Puerta de aluminio blanco con cristal y fijo superior h=2,40 m x a=1,00 m (incluye retirada de vieja puerta) | 1,00 ud | 2.300,00 €/ud | 2.300,00 € |
-| **04** | Separador de aluminio y panel blanco 3,00 x 1,50 m (3 uds = 13,50 m², incluye retirada de antiguo) | 13,50 m² | 330,00 €/m² | 4.455,00 € |
+| **04** | Separador de aluminio y panel blanco 3,00 x 1,50 m (3 uds = 13,50 m², incluye retirada de antiguo) | 13,50 m² | 333,14 €/m² | 4.497,39 € |
 | **05** | 2 Bastidores metálicos tubo 80x40x2 forrados de madera 2,70 x 0,50 m amurados a pared (mesa comedor + expositor tablets) | 2,00 ud | 1.250,00 €/ud | 2.500,00 € |
-| **06** | Suministro e instalación de 3 toldos laterales retráctiles 3 m aprox. (incluye retirada de antiguos) | 3,00 ud | 500,00 €/ud | 1.500,00 € |
+| **06** | Suministro e instalación de 3 toldos laterales retráctiles 3 m aprox. (incluye retirada de antiguos) | 3,00 ud | 497,12 €/ud | 1.491,36 € |
 
-- **Base Imponible Total:** 41.355,68 €
-- **IVA (21%):** 8.684,69 €
-- **TOTAL PRESUPUESTO (IVA inc.):** 50.040,37 €
+- **Base Imponible Total:** 41.434,17 €
+- **IVA (21%):** 8.701,18 €
+- **TOTAL PRESUPUESTO (IVA inc.):** 50.135,35 €
 
 ## Estructura de Archivos
 

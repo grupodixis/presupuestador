@@ -29,19 +29,19 @@ def create_excel():
     # Cabecera
     ws["A1"] = "HAM ESTRUCTURAS METÁLICAS MENORCA"
     ws["A1"].font = title_font
-    ws["A2"] = "PRESUPUESTO TÉCNICO Y ECONÓMICO: P-2026-0047"
+    ws["A2"] = "PRESUPUESTO TÉCNICO Y ECONÓMICO: P-2026-0047 (REV. 1)"
     ws["A2"].font = subtitle_font
 
     ws["A4"] = "Cliente:"
-    ws["B4"] = "Hotel Sur"
-    ws["A5"] = "Ubicación:"
-    ws["B5"] = "Instalaciones Hotel Sur, Menorca"
+    ws["B4"] = "PROMOCION Y DESARROLLO TURISTICO DE MENORCA SOCIEDAD LIMITADA"
+    ws["A5"] = "Establecimiento / Obra:"
+    ws["B5"] = "Hotel Sur, Menorca"
     ws["A6"] = "Proyecto / Concepto:"
     ws["B6"] = "6 Partidas Hotel Sur 2026/2027: Vidrio, Inox 316L, Carpintería Aluminio, Separadores, Bastidores y Toldos"
     ws["A7"] = "Fecha y Validez:"
     ws["B7"] = "29/10/2026 · Validez: 30 días naturales"
-    ws["A8"] = "Período Previsto:"
-    ws["B8"] = "Temporada baja hotelera 2026 / 2027"
+    ws["A8"] = "Forma de Pago:"
+    ws["B8"] = "Confirming 90 días"
 
     for r in range(4, 9):
         ws[f"A{r}"].font = bold_font
@@ -51,7 +51,7 @@ def create_excel():
     ws["A10"] = "ALCANCE GENERAL"
     ws["A10"].font = bold_font
     ws["A10"].fill = section_fill
-    ws["B10"] = "6 partidas completas de renovación. Incluye desmontaje y retirada de elementos antiguos en partidas 2, 3, 4 y 6. Materiales de alta resistencia al ambiente marino (Inox AISI 316L, aluminio Qualicoat y vidrio de seguridad)."
+    ws["B10"] = "6 partidas de renovación integral. Incluye desmontaje y retirada de viejos elementos en partidas 2, 3, 4 y 6. Calidad marina Inox AISI 316L, aluminio Qualicoat y vidrio laminar de seguridad. Pago mediante Confirming 90 días."
     ws["B10"].font = regular_font
     ws["B10"].fill = section_fill
 
@@ -66,12 +66,12 @@ def create_excel():
         cell.alignment = Alignment(horizontal="center" if col_idx not in [2] else "left", vertical="center")
 
     data = [
-        ["01", "2 Fijos de cristal con perfil de mampara. Dimensiones: 2,64 x 2,64 m cada uno (Superficie total: 13,94 m²). Incluye perfilería de aluminio lacado/anodizado, vidrio de seguridad con cantos pulidos y sellado perimetral estanco EPDM.", "m2", 13.9392, 400.00],
+        ["01", "2 Fijos de cristal con perfil de mampara. Dimensiones: 2,64 x 2,64 m cada uno (Superficie total: 13,94 m²). Incluye perfilería de aluminio lacado/anodizado, vidrio de seguridad con cantos pulidos y sellado perimetral estanco EPDM.", "m2", 13.9392, 403.21],
         ["02", "Barandilla de cristal con bases en tubo 40x40x2 mm Acero Inoxidable AISI 316L (55 ML) con cristal laminar de seguridad 4+4 mm. Anclajes inox A4. Incluye retirada de la vieja barandilla atornillada a pared lateral y transporte a vertedero.", "ml", 55.00, 455.00],
         ["03", "Puerta de aluminio blanco calidad Qualicoat con cristal y fijo superior. Medidas hueco: altura 2,40 m y ancho 1,00 m. Incluye herrajes de uso intensivo, cerradura de seguridad y retirada de la vieja puerta.", "ud", 1.00, 2300.00],
-        ["04", "Separadores de aluminio y panel blanco (3 uds). Medidas unitarias: 3,00 m ancho x 1,50 m alto (Superficie total: 13,50 m²). Incluye estructura perimetral, fijaciones ocultas y retirada de antiguo separador.", "m2", 13.50, 330.00],
+        ["04", "Separadores de aluminio y panel blanco (3 uds). Medidas unitarias: 3,00 m ancho x 1,50 m alto (Superficie total: 13,50 m²). Incluye estructura perimetral, fijaciones ocultas y retirada de antiguo separador.", "m2", 13.50, 333.14],
         ["05", "2 Bastidores metálicos de perfil 80x40x2 mm forrados de madera (tablero) de 2,70 x 0,50 m amurados a pared mediante anclajes químicos. 1 ud para mesa o estante en comedor y 1 ud para expositor de tablets en recepción.", "ud", 2.00, 1250.00],
-        ["06", "Suministro e instalación de 3 unidades de Toldo lateral retráctil de 3 m aprox., tejido técnico resinado (color a definir). Cofre de aluminio lacado con sistema de retroceso amortiguado. Incluye retirada de antiguos toldos.", "ud", 3.00, 500.00]
+        ["06", "Suministro e instalación de 3 unidades de Toldo lateral retráctil de 3 m aprox., tejido técnico resinado (color a definir). Cofre de aluminio lacado con sistema de retroceso amortiguado. Incluye retirada de antiguos toldos.", "ud", 3.00, 497.12]
     ]
 
     for i, row in enumerate(data, start=start_row + 1):
@@ -80,7 +80,7 @@ def create_excel():
         ws.cell(row=i, column=3, value=row[2]).alignment = Alignment(horizontal="center", vertical="top")
         ws.cell(row=i, column=4, value=row[3]).alignment = Alignment(horizontal="right", vertical="top")
         ws.cell(row=i, column=5, value=row[4]).alignment = Alignment(horizontal="right", vertical="top")
-        ws.cell(row=i, column=6, value=f"=D{i}*E{i}").alignment = Alignment(horizontal="right", vertical="top")
+        ws.cell(row=i, column=6, value=f"=ROUND(D{i}*E{i}, 2)").alignment = Alignment(horizontal="right", vertical="top")
 
         for col_idx in range(1, 7):
             c = ws.cell(row=i, column=col_idx)
@@ -101,7 +101,7 @@ def create_excel():
 
     r_iva = r_bi + 1
     ws.cell(row=r_iva, column=5, value="IVA (21%):").font = regular_font
-    ws.cell(row=r_iva, column=6, value=f"=F{r_bi}*0.21").font = regular_font
+    ws.cell(row=r_iva, column=6, value=f"=ROUND(F{r_bi}*0.21, 2)").font = regular_font
     ws.cell(row=r_iva, column=6).number_format = '#,##0.00 €'
 
     r_tot = r_iva + 1
