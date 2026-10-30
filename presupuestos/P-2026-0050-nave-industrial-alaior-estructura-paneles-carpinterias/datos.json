@@ -1,0 +1,161 @@
+{
+  "codigo": "P-2026-0050",
+  "referencia": "HAM-2026-050-ALAIOR",
+  "titulo": "Nave Industrial para Almacén y Oficinas: Estructura Metálica, Cerramientos y Carpintería Exterior",
+  "cliente": "Obres Gabi Gonyalons S.L.U.",
+  "cif_nif": "B57731234",
+  "ubicacion": "Av. Santa Marianna 11-13, 07730 Alaior, Menorca",
+  "arquitecto_consultor": "Joan Soria Armada (Arquitecto Técnico / Ing. Edificación / Consultor Estructuras)",
+  "fecha": "30/10/2026",
+  "validez_dias": 30,
+  "moneda": "EUR",
+  "iva_porcentaje": 21.0,
+  "partidas": [
+    {
+      "capitulo": "1.3",
+      "nombre_capitulo": "ESTRUCTURA METÁLICA (ACERO)",
+      "subpartidas": [
+        {
+          "codigo": "1.3.1",
+          "descripcion": "Acero conformado en frío serie C (S235JR) en correas de cubierta y cerramiento (CF-250x2.5)",
+          "unidad": "kg",
+          "cantidad": 4008.34,
+          "precio_unitario": 5.0,
+          "subtotal": 20041.7
+        },
+        {
+          "codigo": "1.3.2",
+          "descripcion": "Acero laminado en caliente serie HEA (S275JR) en pilares perimetrales e interiores (HEA 240 / HEA 320)",
+          "unidad": "kg",
+          "cantidad": 16639.85,
+          "precio_unitario": 5.0,
+          "subtotal": 83199.25
+        },
+        {
+          "codigo": "1.3.3",
+          "descripcion": "Acero laminado en caliente serie IPE (S275JR) en pórticos de cubierta, vigas de altillos y dinteles (IPE 180 a 360)",
+          "unidad": "kg",
+          "cantidad": 15401.73,
+          "precio_unitario": 5.0,
+          "subtotal": 77008.65
+        },
+        {
+          "codigo": "1.3.4",
+          "descripcion": "Acero serie Pletinas y accesorios (S275JR) en cruces de San Andrés, cartelas y rigidizadores de nudos",
+          "unidad": "kg",
+          "cantidad": 938.0,
+          "precio_unitario": 5.0,
+          "subtotal": 4690.0
+        }
+      ],
+      "subtotal_capitulo": 184939.6
+    },
+    {
+      "capitulo": "2.0",
+      "nombre_capitulo": "PANELES DE CUBIERTA Y FACHADAS",
+      "subpartidas": [
+        {
+          "codigo": "2.1",
+          "descripcion": "Fachada de paneles sándwich de acero galvanizado con núcleo de poliuretano (PUR) e=50 mm, fijación oculta, acabado prelacado",
+          "unidad": "m²",
+          "cantidad": 346.87,
+          "precio_unitario": 120.0,
+          "subtotal": 41624.4
+        },
+        {
+          "codigo": "2.2",
+          "descripcion": "Cobertura de paneles sándwich acústicos e=100 mm, núcleo de lana de roca 95 kg/m³, microperforado interior fonoabsorbente (Rw 35 dB)",
+          "unidad": "m²",
+          "cantidad": 711.75,
+          "precio_unitario": 165.0,
+          "subtotal": 117438.75
+        },
+        {
+          "codigo": "2.3",
+          "descripcion": "Lucernarios continuos / claraboyas de cubierta en policarbonato celular translúcido e=30 mm, perfilería de fijación y sellados estancos",
+          "unidad": "m²",
+          "cantidad": 15.0,
+          "precio_unitario": 165.0,
+          "subtotal": 2475.0
+        }
+      ],
+      "subtotal_capitulo": 161538.15
+    },
+    {
+      "capitulo": "1.8.1",
+      "nombre_capitulo": "CARPINTERÍA EXTERIOR DE ALUMINIO",
+      "subpartidas": [
+        {
+          "codigo": "CE-01",
+          "descripcion": "Portón corredero exterior ciego 4,00 x 3,50 m en aluminio extruido e>=2mm, lamas machihembradas ciegas, lacado verde Qualicoat Seaside, herrajes de alta carga",
+          "unidad": "ud",
+          "cantidad": 2,
+          "precio_unitario": 3900.0,
+          "subtotal": 7800.0
+        },
+        {
+          "codigo": "CE-02",
+          "descripcion": "Balconera / puerta acristalada 2,00 x 2,50 m (1 batiente + 1 fija), RPT, vidrio bajo emisivo con argón 6/16/4",
+          "unidad": "ud",
+          "cantidad": 1,
+          "precio_unitario": 820.0,
+          "subtotal": 820.0
+        },
+        {
+          "codigo": "CE-03",
+          "descripcion": "Balconera / puerta acristalada 1,50 x 2,00 m (1 batiente + 1 fija), RPT, vidrio bajo emisivo con argón 6/16/4",
+          "unidad": "ud",
+          "cantidad": 1,
+          "precio_unitario": 820.0,
+          "subtotal": 820.0
+        },
+        {
+          "codigo": "CE-04",
+          "descripcion": "Ventana oficinas 2,05 x 1,20 m (2 hojas batientes), sistema RPT, vidrio cámara bajo emisivo 6/16/4",
+          "unidad": "ud",
+          "cantidad": 1,
+          "precio_unitario": 710.0,
+          "subtotal": 710.0
+        },
+        {
+          "codigo": "CE-05",
+          "descripcion": "Ventana oficinas 1,70 x 1,20 m (2 hojas batientes), sistema RPT, vidrio cámara bajo emisivo 6/16/4",
+          "unidad": "ud",
+          "cantidad": 1,
+          "precio_unitario": 620.0,
+          "subtotal": 620.0
+        },
+        {
+          "codigo": "CE-06",
+          "descripcion": "Ventana estándar nave/oficinas 1,20 x 1,20 m (2 hojas batientes), sistema RPT, vidrio cámara bajo emisivo 6/16/4",
+          "unidad": "ud",
+          "cantidad": 16,
+          "precio_unitario": 495.0,
+          "subtotal": 7920.0
+        },
+        {
+          "codigo": "CE-07",
+          "descripcion": "Ventana aseos/distribuidor 0,70 x 1,20 m (1 hoja oscilobatiente), vidrio mateado translúcido bajo emisivo",
+          "unidad": "ud",
+          "cantidad": 1,
+          "precio_unitario": 360.0,
+          "subtotal": 360.0
+        },
+        {
+          "codigo": "CE-08",
+          "descripcion": "Ventana alta aseos 0,50 x 1,20 m (1 hoja oscilobatiente), vidrio mateado translúcido bajo emisivo",
+          "unidad": "ud",
+          "cantidad": 2,
+          "precio_unitario": 300.0,
+          "subtotal": 600.0
+        }
+      ],
+      "subtotal_capitulo": 19650.0
+    }
+  ],
+  "totales": {
+    "base_imponible": 366127.75,
+    "iva_importe": 76886.83,
+    "total_con_iva": 443014.58
+  }
+}

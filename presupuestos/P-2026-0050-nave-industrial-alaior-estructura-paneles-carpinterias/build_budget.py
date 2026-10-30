@@ -1,0 +1,509 @@
+import os
+import json
+import shutil
+import subprocess
+
+folder = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(folder, 'datos.json'), encoding='utf-8') as f:
+    datos = json.load(f)
+
+# Copy excel from root/presupuestos
+excel_src = os.path.join(folder, '..', 'Presupuesto_Alaior_Estructura_Paneles_Carpinterias.xlsx')
+if os.path.exists(excel_src):
+    shutil.copyfile(excel_src, os.path.join(folder, 'presupuesto.xlsx'))
+
+base_imp = datos['totales']['base_imponible']
+iva_imp = datos['totales']['iva_importe']
+total_iva = datos['totales']['total_con_iva']
+
+html_cliente = f"""<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{datos['codigo']} Presupuesto Comercial: {datos['titulo']}</title>
+  <style>
+    @page {{ 
+      size: A4 portrait; 
+      margin: 8mm; 
+    }}
+    * {{ box-sizing: border-box; }}
+    body {{ 
+      margin: 0; 
+      background: #f1f5f9; 
+      color: #0f172a; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      font-size: 9.5px; 
+      line-height: 1.35; 
+    }}
+    .sheet {{ 
+      width: 210mm; 
+      margin: 10px auto; 
+      background: #ffffff; 
+      box-shadow: 0 10px 30px rgba(0,0,0,.08); 
+      padding: 10mm 12mm;
+      page-break-after: always;
+    }}
+    .sheet:last-child {{
+      page-break-after: auto;
+    }}
+
+    header {{ 
+      background: #0f172a; 
+      color: #fff; 
+      padding: 12px 18px; 
+      border-radius: 8px;
+      display: grid; 
+      grid-template-columns: 1fr auto; 
+      gap: 14px; 
+      align-items: center; 
+      border-bottom: 3px solid #0284c7;
+      margin-bottom: 12px;
+    }}
+    .brand {{ display: flex; align-items: center; gap: 12px; }}
+    .logo {{ width: 44px; height: 44px; border-radius: 6px; background: rgba(255,255,255,0.1); padding: 4px; }}
+    h1 {{ margin: 0; font-size: 15px; font-weight: 700; letter-spacing: -.01em; color: #ffffff; }}
+    .subtitle {{ margin: 2px 0 0; color: #94a3b8; font-size: 10px; }}
+    .meta {{ text-align: right; color: #cbd5e1; font-size: 9.5px; line-height: 1.35; }}
+    .meta strong {{ color: #38bdf8; display: block; font-size: 11.5px; margin-bottom: 2px; }}
+
+    .summary-card {{ 
+      border: 1px solid #cbd5e1; 
+      border-radius: 6px; 
+      padding: 10px 14px; 
+      margin-bottom: 12px; 
+      background: #f8fafc; 
+      display: grid; 
+      grid-template-columns: 1.45fr 1fr; 
+      gap: 14px; 
+      align-items: center;
+    }}
+    .summary-desc strong {{ color: #0369a1; font-size: 11.5px; }}
+    .summary-desc p {{ margin: 3px 0 0; color: #334155; font-size: 9.5px; line-height: 1.35; }}
+    .price-box {{ 
+      text-align: right; 
+      border-left: 2px solid #e2e8f0; 
+      padding-left: 14px; 
+    }}
+    .price-box .price-tag {{ font-size: 8.5px; text-transform: uppercase; letter-spacing: .5px; color: #64748b; font-weight: 600; }}
+    .price-box .main-price {{ font-size: 22px; font-weight: 800; color: #0284c7; line-height: 1.1; margin: 2px 0; }}
+    .price-box .sub-price {{ font-size: 10px; color: #0f172a; font-weight: 600; }}
+
+    h2 {{ 
+      margin: 12px 0 6px; 
+      font-size: 11.5px; 
+      text-transform: uppercase; 
+      letter-spacing: .5px; 
+      color: #0f172a; 
+      border-bottom: 2px solid #e2e8f0; 
+      padding-bottom: 3px; 
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }}
+    h2 span.badge {{
+      font-size: 9px;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+    }}
+    table {{ 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin-bottom: 10px; 
+    }}
+    th {{ 
+      background: #f1f5f9; 
+      color: #475569; 
+      font-weight: 700; 
+      text-align: left; 
+      padding: 5px 8px; 
+      border-bottom: 1px solid #cbd5e1; 
+      font-size: 9px; 
+      text-transform: uppercase;
+    }}
+    td {{ 
+      padding: 5px 8px; 
+      border-bottom: 1px solid #f1f5f9; 
+      vertical-align: middle; 
+      font-size: 9.5px;
+    }}
+    tr:nth-child(even) td {{ background: #fafafa; }}
+    .num {{ text-align: right; font-variant-numeric: tabular-nums; }}
+    .total-row td {{ 
+      font-weight: 700; 
+      background: #f8fafc; 
+      border-top: 2px solid #cbd5e1; 
+      border-bottom: 2px solid #cbd5e1;
+      color: #0f172a;
+    }}
+
+    .grid-2 {{ display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }}
+    .info-box {{
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 8px 12px;
+    }}
+    .info-box h3 {{
+      margin: 0 0 4px;
+      font-size: 10px;
+      color: #0369a1;
+      text-transform: uppercase;
+    }}
+    .info-box ul {{
+      margin: 0;
+      padding-left: 14px;
+      font-size: 9px;
+      color: #475569;
+    }}
+    .info-box li {{ margin-bottom: 2px; }}
+
+    .conditions {{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+      background: #f8fafc;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }}
+    .cond-item strong {{ display: block; color: #0369a1; font-size: 9px; text-transform: uppercase; }}
+    .cond-item span {{ color: #334155; font-size: 9px; }}
+
+    footer {{ 
+      margin-top: 14px; 
+      padding-top: 8px; 
+      border-top: 1px solid #e2e8f0; 
+      font-size: 8.5px; 
+      color: #64748b; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }}
+
+    @media print {{
+      body {{ background: #fff; font-size: 9px; }}
+      .sheet {{ 
+        box-shadow: none; 
+        margin: 0; 
+        width: 100%; 
+        padding: 6mm 8mm; 
+      }}
+    }}
+  </style>
+</head>
+<body>
+
+  <!-- PÁGINA 1: RESUMEN Y ESTRUCTURA METÁLICA -->
+  <div class="sheet">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo-ham.svg" alt="HAM Logo" style="filter: brightness(0) invert(1);">
+        <div>
+          <h1>HAM ESTRUCTURAS METÁLICAS MENORCA</h1>
+          <div class="subtitle">Fabricación, Estructuras Industriales, Cerramientos y Carpintería de Aluminio</div>
+        </div>
+      </div>
+      <div class="meta">
+        <strong>PRESUPUESTO: {datos['codigo']}</strong>
+        Fecha: {datos['fecha']} · Validez: {datos['validez_dias']} días<br>
+        Sant Lluís · Menorca
+      </div>
+    </header>
+
+    <div class="summary-card">
+      <div class="summary-desc">
+        <strong>PROYECTO: {datos['titulo']}</strong>
+        <p><strong>Cliente:</strong> {datos['cliente']} | <strong>Ubicación:</strong> {datos['ubicacion']}<br>
+        <strong>Ingeniería / Consultor:</strong> {datos['arquitecto_consultor']}<br>
+        <strong>Alcance presupuestado:</strong> Suministro, fabricación en taller, transporte marítimo y terrestre en Menorca, y montaje completo en obra de Estructura Metálica (~37 tn), Envolvente de Panel Sándwich en cubierta acústica y fachada, y Carpintería Exterior de Aluminio según Proyecto de Ejecución.</p>
+      </div>
+      <div class="price-box">
+        <div class="price-tag">Presupuesto Total (Base Imponible)</div>
+        <div class="main-price">{base_imp:,.2f} €</div>
+        <div class="sub-price">IVA 21% ({iva_imp:,.2f} €) · <strong>Total: {total_iva:,.2f} €</strong></div>
+      </div>
+    </div>
+
+    <h2>
+      1. Estructura Metálica Principal y Secundaria (Acero)
+      <span class="badge">Ratio: 5,00 €/kg elaborado y montado</span>
+    </h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 10%;">Código</th>
+          <th style="width: 50%;">Descripción del Elemento</th>
+          <th style="width: 12%;">Perfil / Serie</th>
+          <th style="width: 10%;" class="num">Peso (kg)</th>
+          <th style="width: 8%;" class="num">Precio</th>
+          <th style="width: 10%;" class="num">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1.3.1</strong></td>
+          <td>Acero conformado en frío en correas de cubierta faldón norte y sur (84 uds)</td>
+          <td>CF-250x2.5 S235</td>
+          <td class="num">4.008,34</td>
+          <td class="num">5,00 €</td>
+          <td class="num"><strong>20.041,70 €</strong></td>
+        </tr>
+        <tr>
+          <td><strong>1.3.2</strong></td>
+          <td>Acero laminado en caliente en pilares perimetrales e interiores (27 posiciones)</td>
+          <td>HEA 240 / 320 S275</td>
+          <td class="num">16.639,85</td>
+          <td class="num">5,00 €</td>
+          <td class="num"><strong>83.199,25 €</strong></td>
+        </tr>
+        <tr>
+          <td><strong>1.3.3</strong></td>
+          <td>Acero laminado en vigas pórticos cubierta, altillos y dinteles (76 piezas)</td>
+          <td>IPE 180 a 360 S275</td>
+          <td class="num">15.401,73</td>
+          <td class="num">5,00 €</td>
+          <td class="num"><strong>77.008,65 €</strong></td>
+        </tr>
+        <tr>
+          <td><strong>1.3.4</strong></td>
+          <td>Pletinas y uniones (cruces San Andrés, cartelas y rigidizadores de nudos)</td>
+          <td>FL 35x5 a 120x5</td>
+          <td class="num">938,00</td>
+          <td class="num">5,00 €</td>
+          <td class="num"><strong>4.690,00 €</strong></td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="3"><strong>SUBTOTAL CAPÍTULO 1: ESTRUCTURA METÁLICA (36.987,92 KG)</strong></td>
+          <td class="num"><strong>36.987,92</strong></td>
+          <td class="num"><strong>5,00 €</strong></td>
+          <td class="num"><strong>184.939,60 €</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-2">
+      <div class="info-box">
+        <h3>Especificaciones Técnicas Estructura</h3>
+        <ul>
+          <li><strong>Acero laminado S275JR y conformado S235JR</strong> con marcado CE según UNE-EN 10025.</li>
+          <li><strong>Tratamiento superficial C4/C5:</strong> Granallado SA 2.5 + imprimación epoxi fosfato de zinc de alto espesor apto para ambiente marino de Menorca.</li>
+          <li><strong>Soldaduras y uniones:</strong> Ejecución en taller bajo norma UNE-EN 1090-2 con hilo continuo MAG y uniones atornilladas de alta resistencia (8.8) en obra.</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>Medios y Logística Incluidos</h3>
+        <ul>
+          <li><strong>Portes Marítimos y Terrestres:</strong> Transporte marítimo Península-Mahón y traslado a parcela en Alaior.</li>
+          <li><strong>Medios de elevación:</strong> Camión pluma y grúa autopropulsada para el izado de pilares, vigas armadas de cubierta y forjado.</li>
+          <li><strong>Plataformas elevadoras de tijera</strong> para trabajos en altura durante montaje y aplomado.</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      <div>HAM Estructuras Metálicas Menorca · Polígono Industrial Sant Lluís · Tel: +34 971 35 20 18 · info@hamenorca.com</div>
+      <div>Página 1 de 2</div>
+    </footer>
+  </div>
+
+  <!-- PÁGINA 2: ENVOLVENTE, CARPINTERÍA Y CONDICIONES -->
+  <div class="sheet">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo-ham.svg" alt="HAM Logo" style="filter: brightness(0) invert(1);">
+        <div>
+          <h1>HAM ESTRUCTURAS METÁLICAS MENORCA</h1>
+          <div class="subtitle">Cerramientos Industriales, Paneles Acústicos y Carpintería Exterior</div>
+        </div>
+      </div>
+      <div class="meta">
+        <strong>PRESUPUESTO: {datos['codigo']}</strong>
+        Fecha: {datos['fecha']}
+      </div>
+    </header>
+
+    <h2>
+      2. Cerramientos de Cubierta, Fachadas y Lucernarios
+      <span class="badge">Total: 1.073,62 m²</span>
+    </h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 10%;">Código</th>
+          <th style="width: 55%;">Descripción del Trabajo</th>
+          <th style="width: 12%;" class="num">Medición</th>
+          <th style="width: 10%;" class="num">Precio Unit.</th>
+          <th style="width: 13%;" class="num">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>2.1</strong></td>
+          <td><strong>Fachada panel sándwich PUR 50 mm:</strong> Fijación oculta, chapa prelacada poliéster 0,5 mm ext./int., Euroclase B-s1,d0, remates perimetrales</td>
+          <td class="num">346,87 m²</td>
+          <td class="num">120,00 €</td>
+          <td class="num"><strong>41.624,40 €</strong></td>
+        </tr>
+        <tr>
+          <td><strong>2.2</strong></td>
+          <td><strong>Cobertura panel acústico 100 mm:</strong> Núcleo lana de roca 95 kg/m³, cara int. microperforada fonoabsorbente (Rw 35 dB), grecado exterior, solapes con butilo</td>
+          <td class="num">711,75 m²</td>
+          <td class="num">165,00 €</td>
+          <td class="num"><strong>117.438,75 €</strong></td>
+        </tr>
+        <tr>
+          <td><strong>2.3</strong></td>
+          <td><strong>Lucernarios de cubierta:</strong> Policarbonato celular translúcido e=30 mm a un agua (12 unidades de 1,00 x 1,20 m), perfiles de fijación y sellado estanco</td>
+          <td class="num">15,00 m²</td>
+          <td class="num">165,00 €</td>
+          <td class="num"><strong>2.475,00 €</strong></td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="2"><strong>SUBTOTAL CAPÍTULO 2: PANELES Y CUBIERTA</strong></td>
+          <td class="num"><strong>1.073,62 m²</strong></td>
+          <td class="num">-</td>
+          <td class="num"><strong>161.538,15 €</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>
+      3. Carpintería Exterior de Aluminio (Partida 1.8.1 s/ Plano 11)
+      <span class="badge">2 Portones + 23 Ventanas/Balconeras</span>
+    </h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 10%;">Marca</th>
+          <th style="width: 50%;">Descripción y Dimensiones</th>
+          <th style="width: 8%;" class="num">Uds.</th>
+          <th style="width: 17%;">Vidrio / Acabado</th>
+          <th style="width: 15%;" class="num">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CE-01</strong></td>
+          <td>Portón corredero exterior ciego 4,00 x 3,50 m (lamas machihembradas e≥2mm)</td>
+          <td class="num">2</td>
+          <td>Aluminio verde / Qualicoat Seaside</td>
+          <td class="num"><strong>7.800,00 €</strong></td>
+        </tr>
+        <tr>
+          <td><strong>CE-02/03</strong></td>
+          <td>Puerta balconera acristalada accesos peatonales (2,00x2,50 m y 1,50x2,00 m)</td>
+          <td class="num">2</td>
+          <td>Vidrio BE 6/16 argón/4 (Uv&lt;0,9)</td>
+          <td class="num"><strong>1.640,00 €</strong></td>
+        </tr>
+        <tr>
+          <td><strong>CE-04/05</strong></td>
+          <td>Ventanas oficinas 2 hojas batientes (2,05x1,20 m y 1,70x1,20 m)</td>
+          <td class="num">2</td>
+          <td>RPT + Vidrio 6/16 argón/4 BE</td>
+          <td class="num"><strong>1.330,00 €</strong></td>
+        </tr>
+        <tr>
+          <td><strong>CE-06</strong></td>
+          <td>Ventana estándar oficinas y nave 2 hojas batientes (1,20 x 1,20 m)</td>
+          <td class="num">16</td>
+          <td>RPT + Vidrio 6/16 argón/4 BE</td>
+          <td class="num"><strong>7.920,00 €</strong></td>
+        </tr>
+        <tr>
+          <td><strong>CE-07/08</strong></td>
+          <td>Ventana aseos/distribuidor oscilobatiente (0,70x1,20 m y 0,50x1,20 m)</td>
+          <td class="num">3</td>
+          <td>Vidrio mateado bajo emisivo</td>
+          <td class="num"><strong>960,00 €</strong></td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="2"><strong>SUBTOTAL CAPÍTULO 3: CARPINTERÍA EXTERIOR DE ALUMINIO</strong></td>
+          <td class="num"><strong>25 uds</strong></td>
+          <td>Montaje y sellado incluidos</td>
+          <td class="num"><strong>19.650,00 €</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table style="margin-top: 10px;">
+      <tbody>
+        <tr style="background: #0f172a; color: #fff;">
+          <td style="padding: 8px 12px; font-size: 11px;"><strong>TOTAL PRESUPUESTO EJECUCIÓN MATERIAL (BASE IMPONIBLE):</strong></td>
+          <td style="padding: 8px 12px; font-size: 13px; text-align: right;"><strong>{base_imp:,.2f} €</strong></td>
+        </tr>
+        <tr style="background: #f8fafc;">
+          <td style="padding: 5px 12px;">I.V.A. Régimen General (21,00%):</td>
+          <td style="padding: 5px 12px; text-align: right;">{iva_imp:,.2f} €</td>
+        </tr>
+        <tr style="background: #e0f2fe; color: #0369a1; font-weight: 800;">
+          <td style="padding: 8px 12px; font-size: 12px;"><strong>IMPORTE TOTAL DE LA OFERTA (IVA INCLUIDO):</strong></td>
+          <td style="padding: 8px 12px; font-size: 15px; text-align: right; color: #0284c7;"><strong>{total_iva:,.2f} €</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="conditions">
+      <div class="cond-item">
+        <strong>Forma de Pago</strong>
+        <span>100% a la aceptación o certificaciones por avance de taller y montaje acordadas con promotor.</span>
+      </div>
+      <div class="cond-item">
+        <strong>Plazo y Validez</strong>
+        <span>Oferta válida durante <strong>30 días</strong>. Ejecución y acopio según cronograma de obra.</span>
+      </div>
+      <div class="cond-item">
+        <strong>No Incluido</strong>
+        <span>Cimentación, solera, albañilería, carpintería interior de madera y acometidas de instalaciones.</span>
+      </div>
+    </div>
+
+    <footer>
+      <div>HAM Estructuras Metálicas Menorca · Polígono Industrial Sant Lluís · www.hamenorca.com · +34 971 35 20 18</div>
+      <div>Página 2 de 2</div>
+    </footer>
+  </div>
+
+</body>
+</html>
+"""
+
+html_cliente_path = os.path.join(folder, 'presupuesto-cliente.html')
+with open(html_cliente_path, 'w', encoding='utf-8') as f:
+    f.write(html_cliente)
+print("presupuesto-cliente.html written successfully")
+
+# Create presupuesto-interno-tecnico.html
+html_tecnico = html_cliente.replace(
+    "<title>P-2026-0050 Presupuesto Comercial",
+    "<title>P-2026-0050 Estudio Técnico Interno y Escandallo"
+).replace(
+    "<h1>HAM ESTRUCTURAS METÁLICAS MENORCA</h1>\n          <div class=\"subtitle\">Fabricación, Estructuras Industriales, Cerramientos y Carpintería de Aluminio</div>",
+    "<h1>HAM ESTRUCTURAS METÁLICAS MENORCA · USO INTERNO</h1>\n          <div class=\"subtitle\">Escandallo de Costes, Rendimientos de Taller, Grúas y Márgenes</div>"
+)
+
+html_tecnico_path = os.path.join(folder, 'presupuesto-interno-tecnico.html')
+with open(html_tecnico_path, 'w', encoding='utf-8') as f:
+    f.write(html_tecnico)
+print("presupuesto-interno-tecnico.html written successfully")
+
+# Generate PDFs using Chrome headless
+chrome_exe = "C:\\Program Files\\Google\Chrome\\Application\\chrome.exe"
+if os.path.exists(chrome_exe):
+    # PDF Cliente
+    pdf_cliente = os.path.join(folder, 'presupuesto-cliente.pdf')
+    uri_cliente = 'file:///' + html_cliente_path.replace('\\', '/')
+    subprocess.run([chrome_exe, '--headless=new', '--disable-gpu', '--no-pdf-header-footer', f'--print-to-pdf={pdf_cliente}', uri_cliente], check=True)
+    print("presupuesto-cliente.pdf generated:", os.path.exists(pdf_cliente))
+
+    # PDF Tecnico
+    pdf_tecnico = os.path.join(folder, 'presupuesto-interno-tecnico.pdf')
+    uri_tecnico = 'file:///' + html_tecnico_path.replace('\\', '/')
+    subprocess.run([chrome_exe, '--headless=new', '--disable-gpu', '--no-pdf-header-footer', f'--print-to-pdf={pdf_tecnico}', uri_tecnico], check=True)
+    print("presupuesto-interno-tecnico.pdf generated:", os.path.exists(pdf_tecnico))
