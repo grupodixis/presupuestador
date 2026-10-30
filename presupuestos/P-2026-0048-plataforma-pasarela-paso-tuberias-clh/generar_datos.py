@@ -1,0 +1,70 @@
+import json
+import os
+import sys
+from openpyxl import Workbook
+from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+from playwright.sync_api import sync_playwright
+
+BASE_DIR = r"c:\Users\pablo\Documents\Presupuestador\presupuestos\P-2026-0048-plataforma-pasarela-paso-tuberias-clh"
+
+datos_presupuesto = {
+    "codigo": "P-2026-0048",
+    "referencia": "PRE-2026-1029-PAS-CLH",
+    "fecha": "29 de octubre de 2026",
+    "cliente": "Compañía Logística / Sector Industrial e Hidrocarburos",
+    "proyecto": "Fabricación y Suministro de Plataforma Pasarela Metálica de Paso sobre Tuberías y Acceso a Equipos (Norma CLH IA-OC-092 Rev. 5)",
+    "ubicacion": "Instalación Industrial / Terminal de Almacenamiento y Distribución (Menorca)",
+    "emisor": {
+        "empresa": "HAM Estructuras Metálicas Menorca",
+        "direccion": "Carrer Tramuntana, Polígono Industrial Poici, 07714 Mahón / Sant Lluís, Menorca",
+        "telefono": "+34 971 36 00 00",
+        "email": "tecnico@ham-estructuras.es",
+        "web": "www.ham-estructuras.es"
+    },
+    "dimensiones_principales": {
+        "luz_horizontal_pasarela": "3.300 mm",
+        "anchura_util_paso": "900 mm",
+        "altura_elevacion_sobre_suelo": "1.000 mm",
+        "accesos": "2 escaleras simétricas (subida y bajada)",
+        "peldanos_por_escalera": 4,
+        "total_peldanos": 8,
+        "huella": "230 mm",
+        "contrahuella": "200 mm",
+        "proyeccion_horizontal_escalera": "920 mm",
+        "longitud_zanca_inclinada": "1.359 mm",
+        "altura_barandilla": "1.100 mm",
+        "peso_total_estimado": "730 kg"
+    },
+    "opcion_1_galvanizado_c5": {
+        "titulo": "Opción 1: Acero Galvanizado en Caliente por Inmersión + Acabado Pintura C5 (Sistema Dúplex)",
+        "especificacion": "Fabricación en acero al carbono S275JR, desahogos y taladros de purga técnica. Galvanizado por inmersión en zinc a 450 °C según UNE-EN ISO 1461 (espesor 70-85 µm). Barrido abrasivo suave (sweep blasting). Sistema de recubrimiento C5 Dúplex según UNE-EN ISO 12944: imprimación epoxi adherente 40-50 µm, intermedia epoxi MIO 80-100 µm y acabado esmalte poliuretano alifático bicomponente 50-60 µm. Estructura y rodapié en Negro RAL 9005 y barandillas en Amarillo Seguridad RAL 1021. Rejilla y peldaños Tramex antideslizante galvanizados. Máxima resistencia a niebla salina y ambiente industrial.",
+        "suministro": 7250.00,
+        "montaje_obra": 1650.00,
+        "base_imponible_total": 8900.00,
+        "iva_21": 1869.00,
+        "total_iva_incluido": 10769.00,
+        "garantia_anticorrosion": "15 a 25 años (Sistema Dúplex)",
+        "recomendacion": "Altamente Recomendada para ambientes costeros (Menorca C5-M) y plantas químicas/hidrocarburos"
+    },
+    "opcion_2_hierro_c5": {
+        "titulo": "Opción 2: Hierro Normal (Acero al Carbono Chorreado Sa 2½ / Sa 3) + Acabado Pintura C5",
+        "especificacion": "Fabricación en taller en perfiles laminados de acero al carbono S275JR. Granallado/chorreado abrasivo al grado Sa 2½ / Sa 3 según ISO 8501-1 (rugosidad 50-75 µm). Sistema C5 de 3 capas según Nota 3 del plano CLH: imprimación de etil silicato o epoxi rico en zinc al 70% (70-80 µm), intermedia epoxi poliamida MIO de alta barrera (100-120 µm) y acabado poliuretano alifático 2C UV (50-60 µm). Espesor total DFT ≥ 240 µm. Colores Negro RAL 9005 en zancas/estructura y Amarillo RAL 1021 en barandillas. Rejilla y peldaños Tramex 30x30/30x3 galvanizados en caliente de fábrica.",
+        "suministro": 6590.00,
+        "montaje_obra": 1650.00,
+        "base_imponible_total": 8240.00,
+        "iva_21": 1730.40,
+        "total_iva_incluido": 9970.40,
+        "garantia_anticorrosion": "8 a 12 años con mantenimiento periódico de impactos mecánicos",
+        "recomendacion": "Opción según estándar estricto CLH IA-OC-092 Nota 3 (menor coste inicial)"
+    },
+    "diferencia": {
+        "suministro": 660.00,
+        "porcentaje": "+10.0% en suministro (+8.0% en obra completa)",
+        "analisis": "La Opción 1 (Dúplex) supone un sobrecoste de solo 660 € respecto a la Opción 2, pero elimina por completo el riesgo de oxidación prematura por picaduras o ralladuras, triplicando la vida útil del activo en el ambiente salino de Menorca."
+    }
+}
+
+with open(os.path.join(BASE_DIR, "datos.json"), "w", encoding="utf-8") as f:
+    json.dump(datos_presupuesto, f, ensure_ascii=False, indent=2)
+
+print("datos.json guardado correctamente.")

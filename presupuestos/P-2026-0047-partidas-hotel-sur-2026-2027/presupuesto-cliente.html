@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>P-2026-0047 Presupuesto Comercial: Promoción y Desarrollo Turístico de Menorca S.L. - Hotel Sur 2026/2027</title>
+  <style>
+    @page { 
+      size: A4 portrait; 
+      margin: 10mm; 
+    }
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      background: #f1f5f9; 
+      color: #0f172a; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      font-size: 10.5px; 
+      line-height: 1.4; 
+    }
+    .sheet { 
+      width: 210mm; 
+      margin: 10px auto; 
+      background: #ffffff; 
+      box-shadow: 0 10px 30px rgba(0,0,0,.08); 
+      padding: 12mm 14mm;
+      page-break-after: always;
+    }
+    .sheet:last-child {
+      page-break-after: auto;
+    }
+
+    /* Cabecera Corporativa */
+    header { 
+      background: #0f172a; 
+      color: #fff; 
+      padding: 14px 18px; 
+      border-radius: 8px;
+      display: grid; 
+      grid-template-columns: 1fr auto; 
+      gap: 16px; 
+      align-items: center; 
+      border-bottom: 3px solid #b9863a;
+      margin-bottom: 14px;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .logo { width: 44px; height: 44px; border-radius: 6px; background: rgba(255,255,255,0.08); padding: 4px; }
+    h1 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: -.01em; color: #ffffff; }
+    .subtitle { margin: 3px 0 0; color: #94a3b8; font-size: 10px; }
+    .meta { text-align: right; color: #cbd5e1; font-size: 10px; line-height: 1.4; }
+    .meta strong { color: #f59e0b; display: block; font-size: 11.5px; margin-bottom: 2px; }
+
+    /* Tarjeta Resumen Destacada */
+    .summary-card { 
+      border: 1px solid #cbd5e1; 
+      border-radius: 8px; 
+      padding: 12px 16px; 
+      margin-bottom: 14px; 
+      background: #f8fafc; 
+      display: grid; 
+      grid-template-columns: 1.4fr 1fr; 
+      gap: 16px; 
+      align-items: center;
+    }
+    .summary-desc strong { color: #b45309; font-size: 11.5px; display: block; margin-bottom: 4px; }
+    .summary-desc p { margin: 0; color: #334155; font-size: 10px; line-height: 1.4; }
+    .price-box { 
+      text-align: right; 
+      border-left: 2px solid #e2e8f0; 
+      padding-left: 16px; 
+    }
+    .price-box .price-tag { font-size: 9px; text-transform: uppercase; letter-spacing: .5px; color: #64748b; font-weight: 600; }
+    .price-box .main-price { font-size: 24px; font-weight: 800; color: #b45309; line-height: 1.1; margin: 3px 0; }
+    .price-box .sub-price { font-size: 10.5px; color: #0f172a; font-weight: 600; }
+
+    /* Datos Proyecto / Cliente */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .info-panel {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px 14px;
+      background: #ffffff;
+    }
+    .info-panel h3 {
+      margin: 0 0 6px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: #64748b;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 4px;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3px;
+      font-size: 10px;
+    }
+    .info-label { color: #64748b; }
+    .info-value { font-weight: 600; color: #0f172a; text-align: right; }
+
+    /* Secciones y Tablas */
+    h2 { 
+      margin: 14px 0 8px; 
+      font-size: 11.5px; 
+      text-transform: uppercase; 
+      letter-spacing: .06em; 
+      color: #0f172a; 
+      border-bottom: 1.5px solid #e2e8f0; 
+      padding-bottom: 4px; 
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .badge {
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 8.5px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+    th { 
+      background: #0f172a; 
+      color: #fff; 
+      padding: 7px 9px; 
+      font-size: 9.5px; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: .03em;
+      border: 1px solid #0f172a;
+    }
+    td { 
+      padding: 8px 9px; 
+      border: 1px solid #cbd5e1; 
+      vertical-align: top; 
+      font-size: 9.5px; 
+      line-height: 1.35;
+    }
+    tr:nth-child(even) td { background-color: #f8fafc; }
+    td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    td.center { text-align: center; }
+    td.item-num { font-weight: 700; color: #0f172a; text-align: center; width: 36px; }
+    .partida-title { font-weight: 700; color: #0f172a; font-size: 10px; margin-bottom: 3px; }
+    .partida-desc { color: #475569; font-size: 9px; line-height: 1.35; }
+    .tag-incluye {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 2px 6px;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      border-radius: 3px;
+      font-size: 8.5px;
+      font-weight: 600;
+    }
+
+    /* Tabla de Totales */
+    .totals-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 6px;
+      margin-bottom: 16px;
+    }
+    .totals-table {
+      width: 320px;
+      border-collapse: collapse;
+    }
+    .totals-table td {
+      padding: 5px 10px;
+      font-size: 10px;
+      border: none;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .totals-table tr.grand-total td {
+      border-top: 2px solid #0f172a;
+      border-bottom: 2px solid #0f172a;
+      background: #fffbeb;
+      font-size: 12px;
+      font-weight: 800;
+      color: #b45309;
+      padding: 8px 10px;
+    }
+
+    /* Cláusulas y Condiciones */
+    .conditions-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px 14px;
+      background: #ffffff;
+      margin-top: 10px;
+    }
+    .conditions-card h4 {
+      margin: 0 0 6px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: #0f172a;
+    }
+    .conditions-list {
+      margin: 0;
+      padding-left: 16px;
+      color: #475569;
+      font-size: 9px;
+      line-height: 1.45;
+    }
+    .conditions-list li { margin-bottom: 3px; }
+
+    /* Firmas */
+    .signatures {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 20px;
+      padding-top: 14px;
+      border-top: 1px dashed #cbd5e1;
+    }
+    .sig-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      height: 70px;
+      padding: 8px;
+      background: #fafafa;
+      position: relative;
+    }
+    .sig-label {
+      font-size: 9px;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+    }
+    .sig-hint {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      right: 8px;
+      border-top: 1px solid #cbd5e1;
+      padding-top: 4px;
+      font-size: 8.5px;
+      color: #94a3b8;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 8.5px;
+      color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sheet">
+    <header>
+      <div class="brand">
+        <img src="logo-ham.svg" alt="HAM Logo" class="logo">
+        <div>
+          <h1>HAM ESTRUCTURAS METÁLICAS MENORCA</h1>
+          <div class="subtitle">Carpintería de Aluminio · Acero Inoxidable · Cerrajería y Cerramientos Hoteleros</div>
+        </div>
+      </div>
+      <div class="meta">
+        <strong>PRESUPUESTO: P-2026-0047 (REV. 1)</strong>
+        <div>Fecha: 29/10/2026</div>
+        <div>Validez: 30 días naturales</div>
+      </div>
+    </header>
+
+    <div class="summary-card">
+      <div class="summary-desc">
+        <strong>PARTIDAS HOTEL SUR 2026 / 2027</strong>
+        <p>Adecuación integral y renovación de elementos metálicos y cerramientos de vidrio y aluminio: fijos acristalados de gran formato, barandilla de cristal en inoxidable marino AISI 316L, puerta de aluminio con montante, separadores de panel, bastidores amurados multifunción y toldos laterales retráctiles con desmontaje y retirada de antiguos elementos incluidos.</p>
+      </div>
+      <div class="price-box">
+        <div class="price-tag">Importe Total con IVA (21%)</div>
+        <div class="main-price">50.135,35 €</div>
+        <div class="sub-price">Base Imponible: 41.434,17 €</div>
+      </div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-panel">
+        <h3>Datos del Cliente y Ubicación</h3>
+        <div class="info-row"><span class="info-label">Razón Social:</span><span class="info-value">PROMOCION Y DESARROLLO TURISTICO DE MENORCA SOCIEDAD LIMITADA</span></div>
+        <div class="info-row"><span class="info-label">Establecimiento:</span><span class="info-value">Hotel Sur</span></div>
+        <div class="info-row"><span class="info-label">Atención / Dpto.:</span><span class="info-value">Dirección Técnica y Administración</span></div>
+        <div class="info-row"><span class="info-label">Ubicación Obra:</span><span class="info-value">Instalaciones Hotel Sur, Menorca</span></div>
+        <div class="info-row"><span class="info-label">Período de Ejecución:</span><span class="info-value">Temporada Baja 2026 / 2027</span></div>
+      </div>
+      <div class="info-panel">
+        <h3>Datos de la Empresa Emisora</h3>
+        <div class="info-row"><span class="info-label">Empresa:</span><span class="info-value">HAM Estructuras Metálicas Menorca</span></div>
+        <div class="info-row"><span class="info-label">Dirección:</span><span class="info-value">Polígono Industrial de Sant Lluís, Menorca</span></div>
+        <div class="info-row"><span class="info-label">Teléfono / WhatsApp:</span><span class="info-value">971 35 20 18 / 669 769 541</span></div>
+        <div class="info-row"><span class="info-label">Email:</span><span class="info-value">info@hamenorca.com</span></div>
+        <div class="info-row"><span class="info-label">Forma de Pago:</span><span class="info-value" style="color: #b45309;">Confirming 90 días</span></div>
+      </div>
+    </div>
+
+    <h2>Desglose Económico de Partidas <span class="badge">6 Partidas Valoradas</span></h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 32px;">Nº</th>
+          <th>Descripción Técnica y Alcance</th>
+          <th style="width: 48px;">Ud.</th>
+          <th style="width: 58px;">Cant.</th>
+          <th style="width: 82px;">Precio Ud.</th>
+          <th style="width: 88px;">Importe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-num">01</td>
+          <td>
+            <div class="partida-title">Fijos de cristal con perfilería de mampara (2 uds 2,64 x 2,64 m)</div>
+            <div class="partida-desc">Suministro e instalación de 2 cerramientos fijos de vidrio con perfilería perimetral de mampara en aluminio de alta durabilidad. Vidrio de seguridad con cantos pulidos industriales y sellado perimetral estanco mediante juntas EPDM y silicona neutra estructural antimoho. Dimensiones unitarias: 2,64 x 2,64 m (Superficie total: 13,94 m²).</div>
+          </td>
+          <td class="center">m²</td>
+          <td class="num">13,94</td>
+          <td class="num">403,21 €</td>
+          <td class="num"><strong>5.620,42 €</strong></td>
+        </tr>
+        <tr>
+          <td class="item-num">02</td>
+          <td>
+            <div class="partida-title">Barandilla de cristal con bases de tubo 40x40x2 Inox AISI 316L (55 ML) con cristal 4+4</div>
+            <div class="partida-desc">Fabricación, suministro e instalación de 55,00 ML de barandilla de cristal de seguridad laminar 4+4 mm con cantos pulidos y soportes/bases en tubo cuadrado de 40x40x2 mm en acero inoxidable calidad marina AISI 316L. Anclaje mecánico reforzado con tornillería inox A4 resistente al ambiente salino costero.<br>
+            <span class="tag-incluye">✓ Incluye: Retirada de la vieja barandilla atornillada a pared lateral y gestión a vertedero</span></div>
+          </td>
+          <td class="center">ml</td>
+          <td class="num">55,00</td>
+          <td class="num">455,00 €</td>
+          <td class="num"><strong>25.025,00 €</strong></td>
+        </tr>
+        <tr>
+          <td class="item-num">03</td>
+          <td>
+            <div class="partida-title">Puerta de aluminio blanco con cristal y fijo superior (2,40 x 1,00 m)</div>
+            <div class="partida-desc">Fabricación y montaje de puerta de aluminio lacado blanco calidad Qualicoat con cristal de seguridad y montante superior fijo acristalado, para hueco total de 2,40 m de altura x 1,00 m de ancho. Incluye herrajes de uso hostelero intensivo, cerradura de seguridad, manilla ergonómica y juntas perimetrales de estanqueidad.<br>
+            <span class="tag-incluye">✓ Incluye: Desmontaje y retirada de la vieja puerta preexistente</span></div>
+          </td>
+          <td class="center">ud</td>
+          <td class="num">1,00</td>
+          <td class="num">2.300,00 €</td>
+          <td class="num"><strong>2.300,00 €</strong></td>
+        </tr>
+        <tr>
+          <td class="item-num">04</td>
+          <td>
+            <div class="partida-title">Separadores de aluminio y panel blanco (3 uds 3,00 x 1,50 m)</div>
+            <div class="partida-desc">Fabricación e instalación de 3 uds de mampara separadora modular con perfilería perimetral de aluminio lacado blanco y panel composite/sándwich blanco de alta densidad a doble cara. Medidas por unidad: 3,00 m de ancho x 1,50 m de alto (4,50 m²/ud, total 13,50 m²). Incluye anclajes resistentes y remates perimetrales.<br>
+            <span class="tag-incluye">✓ Incluye: Desmontaje y retirada del antiguo separador</span></div>
+          </td>
+          <td class="center">m²</td>
+          <td class="num">13,50</td>
+          <td class="num">333,14 €</td>
+          <td class="num"><strong>4.497,39 €</strong></td>
+        </tr>
+        <tr>
+          <td class="item-num">05</td>
+          <td>
+            <div class="partida-title">Bastidores metálicos de tubo 80x40x2 forrados de madera (2 uds 2,70 x 0,50 m) amurados a pared</div>
+            <div class="partida-desc">Fabricación y colocación de 2 bastidores estructurales en tubo de acero 80x40x2 mm con tratamiento protector anticorrosión. Forrado superior y lateral en tablero de madera barnizada de alta resistencia al roce (2,70 x 0,50 m). Amurados a pared con anclajes químicos ocultos de alta capacidad de carga. Distribución: 1 unidad para mesa/estante en comedor y 1 unidad para expositor de tablets en recepción del hotel.</div>
+          </td>
+          <td class="center">ud</td>
+          <td class="num">2,00</td>
+          <td class="num">1.250,00 €</td>
+          <td class="num"><strong>2.500,00 €</strong></td>
+        </tr>
+        <tr>
+          <td class="item-num">06</td>
+          <td>
+            <div class="partida-title">Toldo lateral retráctil de 3,00 m aprox., tejido técnico (3 uds)</div>
+            <div class="partida-desc">Suministro e instalación de 3 uds de toldo lateral retráctil extensible (longitud aprox. 3,00 m) con cofre protector de aluminio lacado, mecanismo interior de muelle de recuperación amortiguado y tejido técnico de lona resinada resistente a los rayos UV e intemperie marina (color a definir por la dirección del hotel). Incluye postes y anclajes en acero inox.<br>
+            <span class="tag-incluye">✓ Incluye: Retirada de los antiguos toldos existentes</span></div>
+          </td>
+          <td class="center">ud</td>
+          <td class="num">3,00</td>
+          <td class="num">497,12 €</td>
+          <td class="num"><strong>1.491,36 €</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totals-wrapper">
+      <table class="totals-table">
+        <tr>
+          <td><strong>Base Imponible:</strong></td>
+          <td class="num"><strong>41.434,17 €</strong></td>
+        </tr>
+        <tr>
+          <td>IVA Régimen General (21%):</td>
+          <td class="num">8.701,18 €</td>
+        </tr>
+        <tr class="grand-total">
+          <td>TOTAL PRESUPUESTO:</td>
+          <td class="num">50.135,35 €</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="conditions-card">
+      <h4>Condiciones Técnicas y Comerciales</h4>
+      <ul class="conditions-list">
+        <li><strong>Forma de pago:</strong> Confirming 90 días.</li>
+        <li><strong>Plazo de ejecución:</strong> Coordinado con la dirección del hotel durante la temporada baja 2026/2027 (estimación global: 4 a 6 semanas desde replanteo).</li>
+        <li><strong>Garantía:</strong> 2 años según legislación en cerrajería, carpinterías metálicas y estructuras en materiales y montaje.</li>
+        <li><strong>Materiales:</strong> Acero inoxidable calidad marina AISI 316L en barandilla exterior; perfilería de aluminio con sello Qualicoat marino.</li>
+      </ul>
+    </div>
+
+    <div class="signatures">
+      <div class="sig-box">
+        <div class="sig-label">Por HAM Estructuras Metálicas Menorca</div>
+        <div class="sig-hint">Firma y Sello</div>
+      </div>
+      <div class="sig-box">
+        <div class="sig-label">Aceptación de la Propiedad / PROMOCION Y DESARROLLO TURISTICO DE MENORCA S.L.</div>
+        <div class="sig-hint">Firma del Cliente, Fecha y Conforme</div>
+      </div>
+    </div>
+
+    <footer>
+      HAM Estructuras Metálicas Menorca · Pol. Ind. Sant Lluís · Tel: 971 35 20 18 · Email: info@hamenorca.com · www.hamenorca.com
+    </footer>
+  </div>
+
+</body>
+</html>

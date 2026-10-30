@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>P-2026-0046 Presupuesto Comercial: Estructura Cúbica Inox 40x40x2 Lacado Blanco - Binibeca</title>
+  <style>
+    @page { 
+      size: A4 portrait; 
+      margin: 8mm; 
+    }
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      background: #f1f5f9; 
+      color: #0f172a; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      font-size: 10px; 
+      line-height: 1.35; 
+    }
+    .sheet { 
+      width: 210mm; 
+      margin: 10px auto; 
+      background: #ffffff; 
+      box-shadow: 0 10px 30px rgba(0,0,0,.08); 
+      padding: 8mm 12mm;
+      page-break-after: always;
+    }
+    .sheet:last-child {
+      page-break-after: auto;
+    }
+
+    /* Cabecera Corporativa */
+    header { 
+      background: #0f172a; 
+      color: #fff; 
+      padding: 10px 16px; 
+      border-radius: 8px;
+      display: grid; 
+      grid-template-columns: 1fr auto; 
+      gap: 14px; 
+      align-items: center; 
+      border-bottom: 3px solid #0284c7;
+      margin-bottom: 10px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 40px; height: 40px; border-radius: 6px; background: rgba(255,255,255,0.1); padding: 4px; }
+    h1 { margin: 0; font-size: 14.5px; font-weight: 700; letter-spacing: -.01em; color: #ffffff; }
+    .subtitle { margin: 2px 0 0; color: #94a3b8; font-size: 9.5px; }
+    .meta { text-align: right; color: #cbd5e1; font-size: 9.5px; line-height: 1.35; }
+    .meta strong { color: #38bdf8; display: block; font-size: 11px; margin-bottom: 1px; }
+
+    /* Tarjeta Resumen Destacada */
+    .summary-card { 
+      border: 1px solid #cbd5e1; 
+      border-radius: 6px; 
+      padding: 9px 13px; 
+      margin-bottom: 9px; 
+      background: #f8fafc; 
+      display: grid; 
+      grid-template-columns: 1.45fr 1fr; 
+      gap: 14px; 
+      align-items: center;
+    }
+    .summary-desc strong { color: #0369a1; font-size: 11px; }
+    .summary-desc p { margin: 3px 0 0; color: #334155; font-size: 9.5px; line-height: 1.32; }
+    .price-box { 
+      text-align: right; 
+      border-left: 2px solid #e2e8f0; 
+      padding-left: 14px; 
+    }
+    .price-box .price-tag { font-size: 8.5px; text-transform: uppercase; letter-spacing: .5px; color: #64748b; font-weight: 600; }
+    .price-box .main-price { font-size: 22px; font-weight: 800; color: #0284c7; line-height: 1.1; margin: 2px 0; }
+    .price-box .sub-price { font-size: 10px; color: #0f172a; font-weight: 600; }
+
+    /* Secciones y Tablas */
+    h2 { 
+      margin: 9px 0 5px; 
+      font-size: 11px; 
+      text-transform: uppercase; 
+      letter-spacing: .06em; 
+      color: #0f172a; 
+      border-bottom: 1.5px solid #e2e8f0; 
+      padding-bottom: 3px; 
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .badge {
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 8px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+    th { 
+      background: #1e293b; 
+      color: #fff; 
+      text-align: left; 
+      padding: 5px 7px; 
+      font-size: 9px; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: .04em; 
+    }
+    td { 
+      border-bottom: 1px solid #e2e8f0; 
+      padding: 5px 7px; 
+      vertical-align: top; 
+      font-size: 9.5px;
+    }
+    tr:nth-child(even) td { background-color: #fafbfd; }
+    .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .center { text-align: center; }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      margin-bottom: 9px;
+    }
+    .spec-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 6px 8px;
+    }
+    .spec-label { font-size: 8px; color: #64748b; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 2px; }
+    .spec-val { font-size: 9.5px; font-weight: 700; color: #0f172a; }
+
+    /* Callout & Cajas Informativas */
+    .callout {
+      border-left: 3px solid #0284c7;
+      background: #f0f9ff;
+      padding: 7px 10px;
+      border-radius: 0 5px 5px 0;
+      margin-bottom: 9px;
+      font-size: 9px;
+      color: #0369a1;
+      line-height: 1.35;
+    }
+    .callout strong { color: #0c4a6e; font-weight: 700; }
+
+    .two-cols { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 9px; 
+      margin-bottom: 8px; 
+    }
+    .box { 
+      border: 1px solid #e2e8f0; 
+      border-radius: 5px; 
+      padding: 7px 10px; 
+      background: #ffffff; 
+    }
+    .box h3 { margin: 0 0 5px; font-size: 9.5px; text-transform: uppercase; color: #1e293b; letter-spacing: .03em; }
+    ul { margin: 0; padding-left: 14px; }
+    li { margin-bottom: 3px; font-size: 9px; color: #334155; }
+
+    /* Variante 4x2 m Box */
+    .variant-card {
+      background: #f8fafc;
+      border: 1.5px dashed #94a3b8;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 9px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+    .variant-card h4 { margin: 0 0 2px; font-size: 10px; color: #1e293b; }
+    .variant-card p { margin: 0; font-size: 8.8px; color: #475569; }
+    .variant-price { text-align: right; }
+    .variant-price .v-amount { font-size: 14px; font-weight: 800; color: #0f172a; }
+    .variant-price .v-sub { font-size: 8.5px; color: #64748b; }
+
+    /* Firmas y Footer */
+    .sign-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 10px;
+      padding-top: 6px;
+    }
+    .sign-box {
+      border: 1px dashed #cbd5e1;
+      border-radius: 5px;
+      padding: 7px 10px;
+      min-height: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sign-title { font-size: 8.5px; font-weight: 700; color: #475569; text-transform: uppercase; }
+    .sign-dots { border-bottom: 1px dotted #94a3b8; margin-top: 22px; }
+    .sign-name { font-size: 8px; color: #94a3b8; margin-top: 3px; }
+
+    footer { 
+      margin-top: 9px; 
+      padding-top: 6px; 
+      border-top: 1px solid #e2e8f0; 
+      color: #64748b; 
+      font-size: 8px; 
+      display: flex; 
+      justify-content: space-between; 
+    }
+
+    @media print {
+      body { background: #fff; font-size: 9.5px; }
+      .sheet { margin: 0; padding: 6mm 10mm; box-shadow: none; width: 100%; }
+      header { padding: 8px 12px; margin-bottom: 7px; }
+      .summary-card { padding: 7px 10px; margin-bottom: 7px; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="sheet">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo-ham.svg" alt="HAM Logo">
+        <div>
+          <h1>HAM ESTRUCTURAS METÁLICAS MENORCA</h1>
+          <div class="subtitle">Especialistas en estructuras singulares, cerrajería arquitectónica y pérgolas a medida</div>
+        </div>
+      </div>
+      <div class="meta">
+        <strong>PRESUPUESTO TÉCNICO</strong>
+        Ref: EST-2026-1046 (P-2026-0046 REV. 3)<br>
+        Fecha: 30 de Octubre de 2026<br>
+        Validez: 30 días naturales
+      </div>
+    </header>
+
+    <!-- Datos Cliente y Ubicación -->
+    <div class="specs-grid">
+      <div class="spec-item">
+        <div class="spec-label">Cliente / Propiedad</div>
+        <div class="spec-val">Teresa Echezarreta Codina</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Ubicación de la Obra</div>
+        <div class="spec-val">c/ Llaut 59, Binibeca Vell (Sant Lluís)</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Arquitectura y Expte.</div>
+        <div class="spec-val">Cristina Moll Taltavull · 2024 13_MOD</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Emplazamiento Exterior</div>
+        <div class="spec-val">Junto a piscina / Solárium (Reforma)</div>
+      </div>
+    </div>
+
+    <!-- Resumen Destacado -->
+    <div class="summary-card">
+      <div class="summary-desc">
+        <strong>ESTRUCTURA CÚBICA MINIMALISTA EN TUBO INOX 40X40X2 MM LACADO BLANCO</strong>
+        <p>Fabricación a medida, suministro y montaje en obra de <strong>estructura en forma de cubo geométrico (4,00 x 3,00 x 2,50 m)</strong> realizada íntegramente en <strong>tubo cuadrado de Acero Inoxidable de 40x40x2 mm</strong> con acabado <strong>termolacado al horno en color blanco arquitectónico para exterior</strong>. Zapatas y obra civil ejecutadas directamente por el constructor de la vivienda; HAM realiza el replanteo previo de cotas, fabricación en taller y montaje final fijado sobre la base de obra.</p>
+      </div>
+      <div class="price-box">
+        <div class="price-tag">Presupuesto Configuración 4,00 x 3,00 m (12 m²)</div>
+        <div class="main-price">4.130,00 €</div>
+        <div class="sub-price">4.997,30 € (IVA 21% incluido)</div>
+      </div>
+    </div>
+
+    <!-- Parámetros Técnicos -->
+    <h2>Especificaciones de Materiales y Diseño Estructural <span class="badge">Línea Minimalista Cubo</span></h2>
+    <div class="specs-grid">
+      <div class="spec-item">
+        <div class="spec-label">Dimensiones Principales</div>
+        <div class="spec-val">4,00 m (largo) x 3,00 m (ancho/fondo) x 2,50 m (alto)</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Geometría y Perfil</div>
+        <div class="spec-val">Cubo ortoédrico en Tubo Inox 40x40x2 mm</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Acabado Superficial</div>
+        <div class="spec-val">Termolacado al horno Blanco (RAL 9010 / 9016) intemperie</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Uniones y Soldadura</div>
+        <div class="spec-val">Ingletes a 45º, soldadura continua TIG y aristas esmeriladas</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Plano Superior Techo</div>
+        <div class="spec-val">Marco perimetral y costillas intermedias tubo 40x40x2 mm</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Obra Civil / Zapatas</div>
+        <div class="spec-val">A cargo de la contrata de albañilería / constructor</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Fijación de Estructura</div>
+        <div class="spec-val">Amurada/fijada sobre puntos preparados por constructor</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Resistencia Marina</div>
+        <div class="spec-val">Acero Inoxidable + polvo horneado: máxima anticorrosión</div>
+      </div>
+    </div>
+
+    <!-- Desglose de Partidas -->
+    <h2>Desglose Económico de Partidas (Opción Cubo 4,00 x 3,00 m - 12 m²)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 32px;" class="center">Part.</th>
+          <th>Descripción Detallada del Trabajo</th>
+          <th style="width: 45px;" class="center">Ud.</th>
+          <th style="width: 45px;" class="num">Cant.</th>
+          <th style="width: 75px;" class="num">Precio Ud.</th>
+          <th style="width: 75px;" class="num">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="center"><strong>01</strong></td>
+          <td><strong>Replanteo técnico in situ, nivelación y desarrollo de planos de taller:</strong> Visita a la obra en Binibeca Vell para replanteo de cotas, comprobación de niveles y coordinación de los 4 apoyos con el constructor previa ejecución de sus zapatas/solera, y elaboración de planos de despiece para taller.</td>
+          <td class="center">lote</td>
+          <td class="num">1,00</td>
+          <td class="num">320,00 €</td>
+          <td class="num"><strong>320,00 €</strong></td>
+        </tr>
+        <tr>
+          <td class="center"><strong>02</strong></td>
+          <td><strong>Fabricación en taller de estructura cúbica en tubo Inox 40x40x2 mm:</strong> Fabricación a medida del cubo geométrico ortoédrico compuesto por 4 pilares verticales de 2,50 m, marco perimetral superior (2 vigas de 4,00 m y 2 vigas de 3,00 m) y costillas intermedias superiores transversales de rigidización en tubo de Acero Inoxidable de 40x40x2 mm. Cortes ingleteados a 45º, soldadura TIG en atmósfera inerte y esmerilado de nudos para acabado continuo y limpio.</td>
+          <td class="center">lote</td>
+          <td class="num">1,00</td>
+          <td class="num">2.150,00 €</td>
+          <td class="num"><strong>2.150,00 €</strong></td>
+        </tr>
+        <tr>
+          <td class="center"><strong>03</strong></td>
+          <td><strong>Tratamiento superficial de termolacado al horno en Blanco Exterior:</strong> Desengrasado, acondicionamiento de adherencia para acero inoxidable, imprimación técnica y aplicación termolacada al horno con pintura en polvo de poliéster arquitectónico de alta resistencia a la radiación UV y salinidad marina. Color Blanco a elegir (RAL 9010 Blanco Cálido o RAL 9016 Blanco Puro).</td>
+          <td class="center">lote</td>
+          <td class="num">1,00</td>
+          <td class="num">680,00 €</td>
+          <td class="num"><strong>680,00 €</strong></td>
+        </tr>
+        <tr>
+          <td class="center"><strong>04</strong></td>
+          <td><strong>Transporte a Binibeca Vell y montaje de estructura sobre puntos preparados:</strong> Transporte especializado a obra, descarga, elevación de módulos, aplomado y fijación estructural sobre los puntos/zapatas preparados por el constructor, verificación de niveles, repaso de lacado y retirada de embalajes.</td>
+          <td class="center">lote</td>
+          <td class="num">1,00</td>
+          <td class="num">980,00 €</td>
+          <td class="num"><strong>980,00 €</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Resumen de Totales -->
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 8px;">
+      <table style="width: 270px; margin: 0;">
+        <tr>
+          <td><strong>Base Imponible Total:</strong></td>
+          <td class="num" style="font-size: 11px;"><strong>4.130,00 €</strong></td>
+        </tr>
+        <tr>
+          <td>I.V.A. Régimen General (21%):</td>
+          <td class="num">867,30 €</td>
+        </tr>
+        <tr style="background: #e0f2fe;">
+          <td><strong style="color: #0369a1; font-size: 11px;">TOTAL PRESUPUESTO (IVA inc.):</strong></td>
+          <td class="num"><strong style="color: #0284c7; font-size: 13px;">4.997,30 €</strong></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Variante Alternativa 4,00 x 2,00 m -->
+    <div class="variant-card">
+      <div>
+        <h4>VARIANTE ALTERNATIVA DE MENOR FONDO: Medidas Cubo 4,00 m (largo) x 2,00 m (fondo) [8,00 m²]</h4>
+        <p>En caso de optar por un fondo de 2 metros en lugar de 3 metros, con la misma configuración cúbica en tubo de acero inoxidable 40x40x2 mm lacado en blanco y montaje sobre puntos de obra:</p>
+      </div>
+      <div class="variant-price">
+        <div class="v-amount">3.500,00 € + IVA</div>
+        <div class="v-sub">Total con IVA 21%: <strong>4.235,00 €</strong> (Ahorro de 762,30 €)</div>
+      </div>
+    </div>
+
+    <!-- Plazos de Ejecución y Planificación de Obra -->
+    <div class="callout">
+      <strong>PLANIFICACIÓN Y PLAZOS DE EJECUCIÓN (COORDINADO CON SU CONSTRUCTOR):</strong><br>
+      • <strong>Plazo de Fabricación en Taller:</strong> <strong>3 a 4 semanas</strong> desde la confirmación del encargo y verificación de replanteo con el constructor.<br>
+      • <strong>Montaje en Obra:</strong> Una vez listas las zapatas y el solado por parte del constructor, el montaje se ejecuta en <strong>1 sola jornada de trabajo</strong>.
+    </div>
+
+    <!-- Condiciones Comerciales -->
+    <div class="two-cols">
+      <div class="box">
+        <h3>El Presupuesto Incluye</h3>
+        <ul>
+          <li>Medición y replanteo de cotas in situ con el constructor.</li>
+          <li>Estructura completa de cubo en tubo Inox 40x40x2 mm.</li>
+          <li>Acabado termolacado al horno Blanco para exterior marino.</li>
+          <li>Costillas intermedias superiores en tubo inox 40x40x2 mm.</li>
+          <li>Transporte a obra en Binibeca Vell.</li>
+          <li>Montaje y fijación sobre los puntos preparados por el constructor.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Condiciones y No Incluido</h3>
+        <ul>
+          <li><strong>Forma de pago:</strong> 50% a la confirmación del encargo y replanteo; 50% a la finalización y recepción del montaje.</li>
+          <li><strong>No incluido:</strong> Obra civil y cimentación (zapatas, solera de hormigón y pavimento cerámico a cargo del constructor), cables tensores, especies vegetales, iluminación.</li>
+          <li><strong>Validez de la oferta:</strong> 30 días naturales.</li>
+          <li><strong>Garantía:</strong> Estructural y cerrajería conforme a normativa vigente.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Firmas -->
+    <div class="sign-section">
+      <div class="sign-box">
+        <div class="sign-title">Por HAM Estructuras Metálicas Menorca</div>
+        <div class="sign-dots"></div>
+        <div class="sign-name">Dpto. Técnico y Presupuestos · Pol. Ind. Sant Lluís</div>
+      </div>
+      <div class="sign-box">
+        <div class="sign-title">Aceptación de la Propiedad / D. Facultativa</div>
+        <div class="sign-dots"></div>
+        <div class="sign-name">Dña. Teresa Echezarreta Codina · Fecha y Firma</div>
+      </div>
+    </div>
+
+    <footer>
+      <span>HAM Estructuras Metálicas Menorca · Av. Circunvalació, 11, Pol. Ind. Sant Lluís, 07710 Sant Lluís, Menorca</span>
+      <span>info@hamenorca.com · Tel: +34 971 35 20 18 · WhatsApp: +34 669 769 541 · www.hamenorca.com</span>
+    </footer>
+  </section>
+
+</body>
+</html>

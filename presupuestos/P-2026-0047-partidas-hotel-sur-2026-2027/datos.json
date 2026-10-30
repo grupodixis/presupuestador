@@ -1,0 +1,96 @@
+{
+  "proyecto": {
+    "codigo": "P-2026-0047",
+    "revision": "REV. 1",
+    "referencia_comercial": "HOTEL-SUR-2026-2027",
+    "titulo": "Adecuación y Mejoras en Instalaciones Hoteleras - Temporada 2026/2027",
+    "subtitulo": "6 Partidas: Cerramientos de vidrio tipo mampara, barandilla de acero inoxidable AISI 316L con vidrio de seguridad, carpintería de aluminio blanco con fijo, separadores de panel y aluminio, bastidores amurados multifunción forrados en madera y toldos laterales retráctiles.",
+    "fecha": "29/10/2026",
+    "validez_dias": 30,
+    "ubicacion": "Hotel Sur, Menorca",
+    "entorno": "Instalaciones hoteleras y zonas comunes / comedor / recepción / terrazas",
+    "totales": {
+      "base_imponible": 41434.17,
+      "iva_porcentaje": 21,
+      "iva_importe": 8701.18,
+      "total_con_iva": 50135.35
+    }
+  },
+  "cliente": {
+    "nombre": "PROMOCION Y DESARROLLO TURISTICO DE MENORCA SOCIEDAD LIMITADA",
+    "establecimiento": "Hotel Sur",
+    "contacto": "Dirección Técnica, Mantenimiento y Administración",
+    "ubicacion": "Menorca, Illes Balears"
+  },
+  "empresa": {
+    "nombre": "HAM Estructuras Metálicas Menorca",
+    "direccion": "Av. Circunvalació, 11, Polígono Industrial de Sant Lluís, 07710 Sant Lluís, Menorca",
+    "telefono": "+34 971 35 20 18",
+    "whatsapp": "+34 669 769 541",
+    "email": "info@hamenorca.com",
+    "web": "www.hamenorca.com"
+  },
+  "condiciones": {
+    "forma_pago": "Confirming 90 días",
+    "plazo_ejecucion": "A convenir según calendario de parada técnica / temporada baja hotelera 2026-2027 (estimado 4-6 semanas)",
+    "garantia": "Garantía de 2 años en cerramientos, carpinterías metálicas y estructuras s/ normativa vigente",
+    "incluye": "Desmontaje y retirada de elementos antiguos descritos en partidas, transporte, medios de elevación y montaje por personal cualificado",
+    "no_incluye": "Reparaciones de albañilería estructural o pintura ajena a los anclajes y acometidas eléctricas salvo especificación expresa"
+  },
+  "partidas": [
+    {
+      "item": "01",
+      "concepto": "Fijos de cristal con perfilería tipo mampara (2 uds 2,64 x 2,64 m)",
+      "descripcion": "Suministro e instalación de 2 cerramientos fijos de cristal con perfilería perimetral de mampara de aluminio anodizado/lacado de alta resistencia. Vidrio de seguridad templado/laminar incoloro con cantos pulidos industriales. Sellado perimetral estanco mediante juntas de EPDM y silicona neutra estructural antimoho. Dimensiones unitarias: 2,64 x 2,64 m (6,9696 m² por unidad, total 13,94 m²).",
+      "unidad": "m2",
+      "cantidad": 13.9392,
+      "precio_unitario": 403.21,
+      "importe": 5620.42
+    },
+    {
+      "item": "02",
+      "concepto": "Barandilla de cristal con bases de tubo 40x40x2 Inox AISI 316L (55 ML) con cristal 4+4",
+      "descripcion": "Desmontaje manual y retirada de la vieja barandilla atornillada a pared lateral, con transporte a punto limpio autorizado. Fabricación, suministro y montaje de nueva barandilla de cristal de seguridad de 55,00 ML de longitud, formada por soportes/bases verticales de tubo de acero inoxidable calidad marina AISI 316L de 40x40x2 mm, cristal laminar de seguridad 4+4 mm con cantos pulidos, y sistema de anclaje mecánico reforzado mediante tornillería y anclajes A4 de alta resistencia a la corrosión marina.",
+      "unidad": "ml",
+      "cantidad": 55.00,
+      "precio_unitario": 455.00,
+      "importe": 25025.00
+    },
+    {
+      "item": "03",
+      "concepto": "Puerta de aluminio lacado blanco con cristal y fijo superior (2,40 x 1,00 m)",
+      "descripcion": "Desmontaje y retirada de la vieja puerta existente con gestión de residuos. Fabricación e instalación de puerta practicable de una hoja en perfilería de aluminio lacado blanco (RAL 9016 Qualicoat) con cristal de seguridad y montante superior fijo acristalado, para hueco total de 2,40 m de altura x 1,00 m de ancho. Incluye herrajes de uso intensivo para sector hotelero, cerradura con bombín de seguridad, manilla ergonómica de aluminio lacado y juntas perimetrales de estanqueidad.",
+      "unidad": "ud",
+      "cantidad": 1.00,
+      "precio_unitario": 2300.00,
+      "importe": 2300.00
+    },
+    {
+      "item": "04",
+      "concepto": "Separadores de aluminio y panel composite blanco (3 uds 3,00 x 1,50 m)",
+      "descripcion": "Desmontaje y retirada de los antiguos separadores existentes. Fabricación y montaje de 3 separadores divisorios formados por estructura perimetral de aluminio lacado blanco y paneles composite/sándwich de aluminio blanco de alta rigidez a doble cara. Dimensiones unitarias: 3,00 m de ancho x 1,50 m de alto (4,50 m² por unidad, total 13,50 m²). Incluye fijaciones mecánicas ocultas, rigidizadores y sellado perimetral apto para zonas exteriores e interiores del hotel.",
+      "unidad": "m2",
+      "cantidad": 13.50,
+      "precio_unitario": 333.14,
+      "importe": 4497.39
+    },
+    {
+      "item": "05",
+      "concepto": "Bastidores metálicos de perfil 80x40x2 forrados de madera de 2,70 x 0,50 m amurados a pared (2 uds)",
+      "descripcion": "Fabricación e instalación de 2 bastidores estructurales metálicos en tubo de acero rectangular de 80x40x2 mm, desengrasados, imprimados y esmaltados anticorrosión. Forrado superior y perimetral en tablero de madera tratada con barniz de alta resistencia para uso hostelero intensivo, dimensiones de 2,70 x 0,50 m. Sistema de fijación reforzado amurado químicamente a pared con cartelas ocultas para soportar sobrecargas. Diseño adaptado según especificación: 1 unidad para uso como mesa o estante suspendido en comedor y 1 unidad para mueble expositor/soporte interactivo de tablets en recepción del hotel.",
+      "unidad": "ud",
+      "cantidad": 2.00,
+      "precio_unitario": 1250.00,
+      "importe": 2500.00
+    },
+    {
+      "item": "06",
+      "concepto": "Toldo lateral retráctil de 3,00 m aprox., tejido técnico (3 uds)",
+      "descripcion": "Desmontaje y retirada de los antiguos toldos deteriorados. Suministro e instalación de 3 unidades de toldo lateral retráctil extensible de 3,00 m de proyección/longitud aprox., dotado de cofre protector en aluminio lacado con sistema de repliegue automático amortiguado por resorte de muelle. Lona en tejido técnico resinado de máxima resistencia a rayos UV e intemperie (color a definir por la dirección del hotel). Incluye postes receptores de enganche, fijaciones de suelo y pared en acero inoxidable.",
+      "unidad": "ud",
+      "cantidad": 3.00,
+      "precio_unitario": 497.12,
+      "importe": 1491.36
+    }
+  ]
+}

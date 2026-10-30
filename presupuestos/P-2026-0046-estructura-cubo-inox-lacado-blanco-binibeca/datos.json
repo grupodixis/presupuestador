@@ -1,0 +1,124 @@
+{
+  "proyecto": {
+    "codigo": "P-2026-0046",
+    "revision": "REV. 3 (Ajuste de partidas: eliminadas 02 zapatas/anclajes a cargo del constructor y 05 cables tensores)",
+    "referencia_comercial": "EST-2026-1046",
+    "titulo": "Estructura Cúbica en Tubo de Acero Inoxidable 40x40x2 mm Lacado en Blanco",
+    "subtitulo": "Diseño cúbico geométrico (4,00 x 3,00 x 2,50 m) en acero inoxidable, acabado termolacado blanco calidad exterior marina, amurada al piso preparado por el constructor",
+    "fecha": "30/10/2026",
+    "validez_dias": 30,
+    "ubicacion": "c/ Llaut 59, Urb. Binibeca Vell, 07711 Sant Lluís (Menorca)",
+    "entorno": "Ambiente costero de alta salinidad (C5-M), terraza junto a piscina",
+    "especificaciones_taller": {
+      "tipologia": "Estructura cúbica ortoédrica de líneas puras y minimalistas",
+      "perfil": "Tubo cuadrado de Acero Inoxidable 40x40x2 mm (calidad marina para exterior en Menorca)",
+      "acabado": "Lacado al horno con pintura en polvo de resinas de poliéster blanco (Blanco RAL 9010 / 9016 exterior) sobre pretratamiento especial para inoxidable",
+      "obra_civil": "A cargo de la contrata principal (cimentación, zapatas, vertido de hormigón y solado porcelánico C3)",
+      "montaje": "Montaje y fijación mecánica/química directa de la estructura sobre los puntos preparados por el constructor"
+    },
+    "dimensiones_principales": {
+      "largo": 4.00,
+      "ancho_fondo": 3.00,
+      "alto_libre": 2.50,
+      "superficie_m2": 12.00,
+      "base_imponible": 4130.00,
+      "iva_21": 867.30,
+      "total_iva_inc": 4997.30
+    },
+    "variante_alternativa": {
+      "largo": 4.00,
+      "ancho_fondo": 2.00,
+      "alto_libre": 2.50,
+      "superficie_m2": 8.00,
+      "base_imponible": 3500.00,
+      "iva_21": 735.00,
+      "total_iva_inc": 4235.00
+    }
+  },
+  "cliente": {
+    "nombre": "Teresa Echezarreta Codina",
+    "contacto": "Propiedad / Dirección de Obra",
+    "arquitecta": "Cristina Moll Taltavull (Col. COAIB - Expte. 2024 13_MOD)",
+    "direccion": "c/ Llaut 59, Binibeca Vell, Sant Lluís, Menorca",
+    "referencia_catastral": "5790022FE0059S0001OQ"
+  },
+  "empresa": {
+    "nombre": "HAM Estructuras Metálicas Menorca",
+    "direccion": "Av. Circunvalació, 11, Polígono Industrial de Sant Lluís, 07710 Sant Lluís, Menorca",
+    "telefono": "+34 971 35 20 18",
+    "whatsapp": "+34 669 769 541",
+    "email": "info@hamenorca.com",
+    "web": "www.hamenorca.com"
+  },
+  "plazos": {
+    "fabricacion_y_montaje": "3 a 4 semanas desde confirmación de cotas de obra y recepción de puntos de apoyo por el constructor. Montaje en obra en 1 jornada."
+  },
+  "partidas": [
+    {
+      "item": "01",
+      "concepto": "Replanteo técnico in situ, nivelación y desarrollo de planos de taller",
+      "descripcion": "Visita técnica a la obra en Binibeca Vell, comprobación de niveles y replanteo de ejes con el constructor para la correcta posición de los apoyos en la solera/zapatas antes del solado, y desarrollo de planos de fabricación para taller.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precio_unitario": 320.00,
+      "importe": 320.00
+    },
+    {
+      "item": "02",
+      "concepto": "Fabricación en taller de estructura cúbica en tubo Inox 40x40x2 mm",
+      "descripcion": "Fabricación a medida de estructura en forma de cubo geométrico (4,00 m largo x 3,00 m ancho x 2,50 m alto libre) realizada íntegramente en tubo cuadrado de Acero Inoxidable de 40x40x2 mm. Se compone de 4 pilares verticales de 2,50 m, marco perimetral superior (2 vigas de 4,00 m y 2 vigas de 3,00 m) y costillas intermedias superiores transversales de rigidización. Cortes a inglete a 45º, soldadura continua TIG en atmósfera inerte de argón y esmerilado de aristas para continuidad estética monolítica.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precio_unitario": 2150.00,
+      "importe": 2150.00
+    },
+    {
+      "item": "03",
+      "concepto": "Tratamiento superficial de termolacado al horno en Blanco Exterior",
+      "descripcion": "Tratamiento de alta durabilidad específico para acero inoxidable en ambiente marino: desengrasado alcalino, pasivado y acondicionamiento mecánico superficial para garantizar la máxima adherencia química, aplicación de imprimación de adherencia para acero inoxidable y termolacado al horno con pintura en polvo de resinas de poliéster arquitectónico en color Blanco (a elegir Blanco Puro RAL 9016 o Blanco Cálido RAL 9010) con protección contra rayos UV y salitre marino.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precio_unitario": 680.00,
+      "importe": 680.00
+    },
+    {
+      "item": "04",
+      "concepto": "Transporte a Binibeca Vell y montaje de estructura sobre puntos preparados",
+      "descripcion": "Transporte de la estructura a pie de obra en Binibeca Vell, descarga, elevación, aplomado, fijación estructural de los apoyos sobre las zapatas/puntos ejecutados por el constructor, verificación de niveles, repaso de lacado y retirada de embalajes.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precio_unitario": 980.00,
+      "importe": 980.00
+    }
+  ],
+  "totales": {
+    "base_imponible": 4130.00,
+    "iva_tipo": "21%",
+    "iva_cuota": 867.30,
+    "total_presupuesto": 4997.30
+  },
+  "escandallo_interno": {
+    "coste_tubo_inox_40x40x2": 720.00,
+    "coste_lacado_blanco_horno": 380.00,
+    "coste_quimicos_consumibles": 60.00,
+    "coste_total_materiales": 1160.00,
+    "horas_taller_tig": 20,
+    "coste_horas_taller": 440.00,
+    "horas_oficina_tecnica": 5,
+    "coste_oficina_tecnica": 125.00,
+    "horas_obra_montaje": 12,
+    "coste_horas_obra": 264.00,
+    "coste_transporte": 120.00,
+    "coste_total_mano_obra_transporte": 949.00,
+    "coste_neto_total": 2109.00,
+    "precio_venta_bi": 4130.00,
+    "margen_bruto_euros": 2021.00,
+    "porcentaje_margen": 48.9
+  },
+  "condiciones": {
+    "forma_pago": "50% a la confirmación del encargo y replanteo de obra; 50% a la finalización y recepción de los trabajos de montaje.",
+    "validez": "30 días naturales.",
+    "garantia": "Garantía conforme a normativa vigente en cerrajería y carpintería de acero inoxidable exterior.",
+    "no_incluido": "Obra civil y cimentación (ejecución de zapatas, dados de hormigón, solera y solado porcelánico a cargo del constructor), cables tensores adicionales, suministro o plantación de especies vegetales, iluminación."
+  }
+}
