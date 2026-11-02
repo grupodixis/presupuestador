@@ -189,52 +189,51 @@
     .text-right { text-align: right; }
     .text-center { text-align: center; }
     
-    .price-callout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin: 4px 0;
-    }
-    .box-option {
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      padding: 6px 9px;
-      background: #fff;
-    }
-    .box-option.featured {
+    .totals-box {
       border: 1.5px solid var(--alufac-blue);
       background: var(--highlight);
+      border-radius: 4px;
+      padding: 7px 12px;
+      margin: 4px 0 6px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: center;
     }
-    .box-option h5 {
-      margin: 0 0 4px;
-      font-size: 10.5px;
-      color: var(--brand);
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 2px;
+    .totals-details {
+      font-size: 9.5px;
     }
-    .box-option .price-row {
+    .totals-row {
       display: flex;
       justify-content: space-between;
       margin-bottom: 2px;
-      font-size: 9.5px;
     }
-    .box-option .price-total {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 4px;
-      padding-top: 4px;
-      border-top: 1px dashed var(--line);
-      font-weight: 800;
-      font-size: 11.5px;
-      color: var(--brand);
+    .totals-final-card {
+      border-left: 2px solid #bae6fd;
+      padding-left: 16px;
+      text-align: right;
     }
-    .box-option.featured .price-total {
+    .totals-final-card .lbl {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      font-weight: 700;
+      display: block;
+    }
+    .totals-final-card .val {
+      font-size: 18px;
+      font-weight: 900;
       color: var(--alufac-blue);
-      font-size: 12.5px;
-      border-top-color: #7dd3fc;
+      line-height: 1.1;
+      margin-top: 2px;
     }
+    .totals-final-card .subtext {
+      font-size: 8.5px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
     .scope-box {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -321,7 +320,7 @@
   <!-- Resumen de Obra y Cliente -->
   <section class="hero">
     <h3>Sustitución de Puerta de Entrada y Ventana Corredera con RPT · Cala Molí</h3>
-    <p>Presupuesto elaborado para <strong>Steve Gubb</strong> (vivienda en Cala Molí, Es Mercadal). Fabricación a medida con perfiles de alta gama <strong>CORTIZO con RPT</strong>, lacados de alta durabilidad marina (Qualicoat Seaside), desmontaje de carpintería existente, colocación, tornillería de acero inoxidable y sellado perimetral estanco.</p>
+    <p>Presupuesto elaborado para <strong>Steve Gubb</strong> (vivienda en Cala Molí, Es Mercadal) bajo modalidad de <strong>ejecución e instalación conjunta</strong>. Fabricación a medida con perfiles de alta gama <strong>CORTIZO con RPT</strong>, lacados de alta durabilidad marina (Qualicoat Seaside), desmontaje de carpintería existente, colocación, tornillería de acero inoxidable y sellado perimetral estanco.</p>
   </section>
 
   <!-- Tarjetas Resumen -->
@@ -339,13 +338,13 @@
       <span class="val">4 a 6 semanas</span>
     </div>
     <div class="card">
-      <span class="label">Instalación en Obra</span>
-      <span class="val">1 jornada de trabajo</span>
+      <span class="label">Modalidad Obra</span>
+      <span class="val">Instalación Conjunta (1 día)</span>
     </div>
   </div>
 
   <!-- Tabla de Precios Desglosada -->
-  <h4>Desglose de Partidas (Suministro e Instalación por Separado)</h4>
+  <h4>Desglose de Partidas del Proyecto (Suministro e Instalación Conjunta)</h4>
   <table>
     <thead>
       <tr>
@@ -370,9 +369,9 @@
             • <em>Instalación:</em> Desmontaje carpintería vieja, fijación mecánica oculta inox, nivelado y sellado perimetral con polímero MS marino.
           </span>
         </td>
-        <td class="text-right" style="font-weight: 600;">1.380,00 €</td>
-        <td class="text-right" style="font-weight: 600;">280,00 €</td>
-        <td class="text-right" style="font-weight: 700; color: var(--brand);">1.660,00 €</td>
+        <td class="text-right" style="font-weight: 600;">1.656,00 €</td>
+        <td class="text-right" style="font-weight: 600;">336,00 €</td>
+        <td class="text-right" style="font-weight: 700; color: var(--brand);">1.992,00 €</td>
       </tr>
 
       <!-- Elemento 2: Ventana Corredera -->
@@ -387,40 +386,25 @@
             • <em>Instalación:</em> Desmontaje de ventana antigua, anclajes mecánicos, nivelación, ajuste de carros y sellado perimetral MS.
           </span>
         </td>
-        <td class="text-right" style="font-weight: 600;">540,00 €</td>
-        <td class="text-right" style="font-weight: 600;">160,00 €</td>
-        <td class="text-right" style="font-weight: 700; color: var(--brand);">700,00 €</td>
+        <td class="text-right" style="font-weight: 600;">648,00 €</td>
+        <td class="text-right" style="font-weight: 600;">192,00 €</td>
+        <td class="text-right" style="font-weight: 700; color: var(--brand);">840,00 €</td>
       </tr>
     </tbody>
   </table>
 
-  <!-- Opciones de Contratación: Separada vs Conjunta -->
-  <h4>Modalidades de Contratación y Totales Económicos</h4>
-  <div class="price-callout">
-    <!-- Opción Individual -->
-    <div class="box-option">
-      <h5><span>OPCIÓN 1: Contratación Individual</span> <span style="font-size:8.5px; color:var(--muted);">(A pedidos separados)</span></h5>
-      <div class="price-row"><span>Puerta E-01 instalada (Neto):</span> <span>1.660,00 €</span></div>
-      <div class="price-row" style="font-size:8.5px; color:var(--muted);"><span>IVA 21% Puerta:</span> <span>348,60 € &nbsp;|&nbsp; <strong>Total: 2.008,60 €</strong></span></div>
-      <div class="price-row" style="margin-top:2px;"><span>Ventana E-02 instalada (Neto):</span> <span>700,00 €</span></div>
-      <div class="price-row" style="font-size:8.5px; color:var(--muted);"><span>IVA 21% Ventana:</span> <span>147,00 € &nbsp;|&nbsp; <strong>Total: 847,00 €</strong></span></div>
-      <div class="price-total">
-        <span>Suma de ambos (por separado):</span>
-        <span>2.855,60 €</span>
-      </div>
+  <!-- Resumen de Totales Proyecto Conjunto -->
+  <div class="totals-box">
+    <div class="totals-details">
+      <div class="totals-row"><span>Suministro conjunto de carpinterías (E-01 + E-02):</span> <strong style="color:var(--brand);">2.304,00 €</strong></div>
+      <div class="totals-row"><span>Instalación, desmontaje, nivelación y sellados:</span> <strong style="color:var(--brand);">528,00 €</strong></div>
+      <div class="totals-row" style="border-top:1px solid #bae6fd; padding-top:3px; margin-top:3px;"><span>Base Imponible Neta:</span> <strong style="color:var(--brand);">2.832,00 €</strong></div>
+      <div class="totals-row"><span>I.V.A. Régimen General (21%):</span> <span style="color:var(--muted);">594,72 €</span></div>
     </div>
-
-    <!-- Opción Conjunta -->
-    <div class="box-option featured">
-      <h5><span>OPCIÓN 2: Pedido Conjunto (Recomendada)</span> <span style="color:var(--alufac-blue); font-size:8.5px;">★ Ahorro Logístico</span></h5>
-      <div class="price-row"><span>Suministro conjunto (Puerta + Ventana):</span> <span>1.920,00 €</span></div>
-      <div class="price-row"><span>Instalación, desmontajes y sellados:</span> <span>440,00 €</span></div>
-      <div class="price-row" style="color:var(--success); font-weight:600;"><span>Bonificación por montaje conjunto:</span> <span>-120,00 €</span></div>
-      <div class="price-row" style="border-top:1px solid #bae6fd; padding-top:2px; font-weight:700;"><span>Base Imponible Neta:</span> <span>2.240,00 € &nbsp;(IVA 21%: 470,40 €)</span></div>
-      <div class="price-total">
-        <span>TOTAL OFERTA CONJUNTA (IVA INCL.):</span>
-        <span>2.710,40 €</span>
-      </div>
+    <div class="totals-final-card">
+      <span class="lbl">Total Presupuesto (IVA Incluido)</span>
+      <div class="val">3.426,72 €</div>
+      <div class="subtext">Modalidad: Instalación Conjunta Única</div>
     </div>
   </div>
 
@@ -433,7 +417,7 @@
         <li>Fabricación a medida Cortizo RPT (Qualicoat Seaside ambiente marino).</li>
         <li>Vidrio laminar de seguridad 3+3.1 en puerta conforme a CTE DB-SUA.</li>
         <li>Desmontaje y retirada de los marcos y carpinterías actuales.</li>
-        <li>Transporte a obra en Cala Molí, montaje, fijación inox y sellado polímero MS.</li>
+        <li>Transporte a obra en Cala Molí, montaje conjunto, fijación inox y sellado MS.</li>
         <li>Retirada de escombros y entrega en gestor de residuos / punto limpio Menorca.</li>
         <li>Visita técnica previa de replanteo y medición antes del corte de perfiles.</li>
       </ul>
@@ -464,7 +448,7 @@
     </div>
     <div class="sig-card">
       <strong>Conformidad y Aceptación del Cliente:</strong><br>
-      Steve Gubb &nbsp;|&nbsp; Opción elegida: [ &nbsp; ] Opción 1 (Separada) &nbsp;&nbsp; [ &nbsp; ] Opción 2 (Conjunta)<br>
+      Steve Gubb<br>
       Firma y fecha:
     </div>
   </div>

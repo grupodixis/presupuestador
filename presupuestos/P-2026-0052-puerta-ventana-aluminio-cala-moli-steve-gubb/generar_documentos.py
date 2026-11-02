@@ -26,13 +26,11 @@ def create_excel():
     SLATE_LIGHT = "F8FAFC"     # Fila alterna
     BORDER_COLOR = "CBD5E1"    # Gris bordes
     TOTAL_FILL = "EFF6FF"      # Azul muy claro total
-    GREEN_ACCENT = "16A34A"    # Verde descuento
 
     fill_header = PatternFill(start_color=NAVY_DARK, end_color=NAVY_DARK, fill_type="solid")
     fill_sub = PatternFill(start_color="E0F2FE", end_color="E0F2FE", fill_type="solid")
     fill_alt = PatternFill(start_color=SLATE_LIGHT, end_color=SLATE_LIGHT, fill_type="solid")
     fill_tot = PatternFill(start_color=TOTAL_FILL, end_color=TOTAL_FILL, fill_type="solid")
-    fill_opt_conj = PatternFill(start_color="E0F2FE", end_color="E0F2FE", fill_type="solid")
 
     font_title = Font(name="Segoe UI", size=14, bold=True, color=NAVY_DARK)
     font_sub = Font(name="Segoe UI", size=9.5, bold=True, color=BLUE_MAIN)
@@ -42,7 +40,6 @@ def create_excel():
     font_italic = Font(name="Segoe UI", size=8.5, italic=True, color="64748B")
     font_tot = Font(name="Segoe UI", size=10, bold=True, color=NAVY_DARK)
     font_tot_big = Font(name="Segoe UI", size=11, bold=True, color=BLUE_MAIN)
-    font_discount = Font(name="Segoe UI", size=9.5, bold=True, color=GREEN_ACCENT)
 
     border_thin = Border(
         left=Side(style='thin', color=BORDER_COLOR),
@@ -67,7 +64,7 @@ def create_excel():
     ws["E4"].font = font_italic
     ws["E4"].alignment = Alignment(horizontal="right")
 
-    ws["A5"] = "Cliente: " + DATA["cliente"]["nombre"] + " | Ubicación: " + DATA["cliente"]["ubicacion"]
+    ws["A5"] = "Cliente: " + DATA["cliente"]["nombre"] + " | Ubicación: " + DATA["cliente"]["ubicacion"] + " (Instalación Conjunta)"
     ws["A5"].font = font_bold
     ws["E5"] = "Ref: " + DATA["expediente"]["referencia"]
     ws["E5"].font = font_italic
@@ -82,7 +79,7 @@ def create_excel():
         cell.alignment = Alignment(horizontal="center" if col_idx == 1 else ("right" if col_idx >= 3 else "left"), vertical="center")
         cell.border = border_thin
 
-    # Elemento 1
+    # Elemento 1: Puerta
     row_idx += 1
     elem1 = DATA["elementos"][0]
     ws.cell(row=row_idx, column=1, value=elem1["codigo"]).alignment = Alignment(horizontal="center", vertical="top")
@@ -111,7 +108,7 @@ def create_excel():
         ws.cell(row=row_idx, column=c).border = border_thin
         ws.cell(row=row_idx, column=c).font = font_reg if c != 5 else font_bold
 
-    # Elemento 2
+    # Elemento 2: Ventana
     row_idx += 1
     elem2 = DATA["elementos"][1]
     ws.cell(row=row_idx, column=1, value=elem2["codigo"]).alignment = Alignment(horizontal="center", vertical="top")
@@ -140,10 +137,10 @@ def create_excel():
         ws.cell(row=row_idx, column=c).border = border_thin
         ws.cell(row=row_idx, column=c).font = font_reg if c != 5 else font_bold
 
-    # Fila de totales por separado
+    # Fila de Totales Suministro e Instalación
     row_idx += 2
     ws.merge_cells(start_row=row_idx, start_column=1, end_row=row_idx, end_column=2)
-    c_sep = ws.cell(row=row_idx, column=1, value="SUBTOTALES SUMINISTRO E INSTALACIÓN (Sin descuento conjunto):")
+    c_sep = ws.cell(row=row_idx, column=1, value="TOTALES SUMINISTRO E INSTALACIÓN CONJUNTA:")
     c_sep.font = font_bold
     c_sep.alignment = Alignment(horizontal="right")
     
@@ -166,38 +163,17 @@ def create_excel():
         ws.cell(row=row_idx, column=c).fill = fill_sub
         ws.cell(row=row_idx, column=c).border = border_thin
 
-    # Sección Oferta Conjunta (Recomendada)
+    # Resumen Final
     row_idx += 2
-    ws.merge_cells(start_row=row_idx, start_column=1, end_row=row_idx, end_column=5)
-    c_opt_title = ws.cell(row=row_idx, column=1, value="MODALIDAD RECOMENDADA: PEDIDO Y MONTAJE CONJUNTO (Puerta + Ventana)")
-    c_opt_title.font = font_sub
-    c_opt_title.alignment = Alignment(horizontal="left")
-
-    row_idx += 1
     ws.merge_cells(start_row=row_idx, start_column=1, end_row=row_idx, end_column=4)
-    ws.cell(row=row_idx, column=1, value="Suma de elementos (Suministro + Montaje):").alignment = Alignment(horizontal="right")
-    ws.cell(row=row_idx, column=1).font = font_reg
-    ws.cell(row=row_idx, column=5, value=f"=E{row_idx-3}").number_format = '#,##0.00 "€"'
-    ws.cell(row=row_idx, column=5).font = font_bold
-    ws.cell(row=row_idx, column=5).alignment = Alignment(horizontal="right")
-
-    row_idx += 1
-    ws.merge_cells(start_row=row_idx, start_column=1, end_row=row_idx, end_column=4)
-    ws.cell(row=row_idx, column=1, value="Bonificación por encargo y ejecución conjunta (ahorro portes/medios en Cala Molí):").alignment = Alignment(horizontal="right")
-    ws.cell(row=row_idx, column=1).font = font_discount
-    c_desc = ws.cell(row=row_idx, column=5, value=DATA["descuento_conjunto"]["importe_descuento_neto"])
-    c_desc.number_format = '#,##0.00 "€"'
-    c_desc.font = font_discount
-    c_desc.alignment = Alignment(horizontal="right")
-
-    row_idx += 1
-    ws.merge_cells(start_row=row_idx, start_column=1, end_row=row_idx, end_column=4)
-    ws.cell(row=row_idx, column=1, value="BASE IMPONIBLE CONJUNTA (Subtotal Neto):").alignment = Alignment(horizontal="right")
+    ws.cell(row=row_idx, column=1, value="BASE IMPONIBLE (Subtotal Neto Conjunto):").alignment = Alignment(horizontal="right")
     ws.cell(row=row_idx, column=1).font = font_tot
-    c_base = ws.cell(row=row_idx, column=5, value=f"=E{row_idx-2}+E{row_idx-1}")
+    c_base = ws.cell(row=row_idx, column=5, value=f"=E{row_idx-2}")
     c_base.number_format = '#,##0.00 "€"'
     c_base.font = font_tot
     c_base.alignment = Alignment(horizontal="right")
+    for c in range(1, 6):
+        ws.cell(row=row_idx, column=c).border = border_thin
 
     row_idx += 1
     ws.merge_cells(start_row=row_idx, start_column=1, end_row=row_idx, end_column=4)
@@ -207,6 +183,8 @@ def create_excel():
     c_iva.number_format = '#,##0.00 "€"'
     c_iva.font = font_reg
     c_iva.alignment = Alignment(horizontal="right")
+    for c in range(1, 6):
+        ws.cell(row=row_idx, column=c).border = border_thin
 
     row_idx += 1
     ws.merge_cells(start_row=row_idx, start_column=1, end_row=row_idx, end_column=4)
@@ -217,12 +195,16 @@ def create_excel():
     c_final.font = font_tot_big
     c_final.alignment = Alignment(horizontal="right")
     c_final.border = border_total
+    for c in range(1, 6):
+        ws.cell(row=row_idx, column=c).fill = fill_tot
 
     # Condiciones
     row_idx += 2
     ws.cell(row=row_idx, column=1, value="CONDICIONES Y PLAZOS:").font = font_bold
     row_idx += 1
-    ws.cell(row=row_idx, column=1, value="• Plazo de fabricación: 4 a 6 semanas (lacado verde específico) | Montaje: 1 jornada de trabajo.").font = font_reg
+    ws.cell(row=row_idx, column=1, value="• Modalidad: Instalación conjunta únicamente en Cala Molí, Es Mercadal.").font = font_reg
+    row_idx += 1
+    ws.cell(row=row_idx, column=1, value="• Plazo de fabricación: 4 a 6 semanas (lacado verde específico) | Montaje conjunto: 1 jornada de trabajo.").font = font_reg
     row_idx += 1
     ws.cell(row=row_idx, column=1, value="• Forma de pago: 100% a la aceptación del presupuesto.").font = font_reg
     row_idx += 1
@@ -247,7 +229,7 @@ def create_excel():
 
     ws2["A1"] = "ALUFAC · Escandallo Técnico de Costes y Rentabilidad (Confidencial)"
     ws2["A1"].font = font_title
-    ws2["A2"] = "Expediente: P-2026-0052 | Cliente: Steve Gubb | Obra: Cala Molí"
+    ws2["A2"] = "Expediente: P-2026-0052 | Cliente: Steve Gubb | Obra: Cala Molí (Instalación Conjunta)"
     ws2["A2"].font = font_italic
 
     h2 = ["Concepto", "Detalle / Especificación", "Cantidad", "Ud.", "Coste Ud. (€)", "Subtotal (€)"]
@@ -258,7 +240,6 @@ def create_excel():
         c.alignment = Alignment(horizontal="center" if col_idx in [3, 4] else ("right" if col_idx >= 5 else "left"))
         c.border = border_thin
 
-    # Partidas Internas
     cost_items = [
         # Puerta
         ("Perfiles Puerta Cortizo", "Marco 60 mm, hoja y zócalo verde RAL 6009", 18.5, "kg", 18.00),
@@ -296,41 +277,20 @@ def create_excel():
 
     # Totales Internos
     ws2.merge_cells(start_row=r2, start_column=1, end_row=r2, end_column=5)
-    ws2.cell(row=r2, column=1, value="Coste Directo Total (Individual sin optimizar):").alignment = Alignment(horizontal="right")
-    ws2.cell(row=r2, column=1).font = font_bold
-    c_coste_tot = ws2.cell(row=r2, column=6, value=f"=SUM(F5:F{r2-1})")
+    ws2.cell(row=r2, column=1, value="Coste Directo Total Conjunto (con sinergias logísticas):").alignment = Alignment(horizontal="right")
+    ws2.cell(row=r2, column=1).font = font_tot
+    c_coste_tot = ws2.cell(row=r2, column=6, value=1460.00)
     c_coste_tot.number_format = '#,##0.00 "€"'
-    c_coste_tot.font = font_bold
+    c_coste_tot.font = font_tot
     for c in range(1, 7):
         ws2.cell(row=r2, column=c).border = border_thin
         ws2.cell(row=r2, column=c).fill = fill_sub
 
     r2 += 1
     ws2.merge_cells(start_row=r2, start_column=1, end_row=r2, end_column=5)
-    ws2.cell(row=r2, column=1, value="Ahorro de costes logísticos en ejecución conjunta:").alignment = Alignment(horizontal="right")
-    ws2.cell(row=r2, column=1).font = font_discount
-    c_ahorro = ws2.cell(row=r2, column=6, value=-75.00)
-    c_ahorro.number_format = '#,##0.00 "€"'
-    c_ahorro.font = font_discount
-    for c in range(1, 7):
-        ws2.cell(row=r2, column=c).border = border_thin
-
-    r2 += 1
-    ws2.merge_cells(start_row=r2, start_column=1, end_row=r2, end_column=5)
-    ws2.cell(row=r2, column=1, value="Coste Directo Real en Pedido Conjunto:").alignment = Alignment(horizontal="right")
+    ws2.cell(row=r2, column=1, value="Precio Venta Neto Total:").alignment = Alignment(horizontal="right")
     ws2.cell(row=r2, column=1).font = font_tot
-    c_coste_real = ws2.cell(row=r2, column=6, value=f"=F{r2-2}+F{r2-1}")
-    c_coste_real.number_format = '#,##0.00 "€"'
-    c_coste_real.font = font_tot
-    for c in range(1, 7):
-        ws2.cell(row=r2, column=c).border = border_thin
-        ws2.cell(row=r2, column=c).fill = fill_opt_conj
-
-    r2 += 1
-    ws2.merge_cells(start_row=r2, start_column=1, end_row=r2, end_column=5)
-    ws2.cell(row=r2, column=1, value="Precio Venta Neto Conjunto:").alignment = Alignment(horizontal="right")
-    ws2.cell(row=r2, column=1).font = font_tot
-    c_venta = ws2.cell(row=r2, column=6, value=DATA["resumen_economico"]["opcion_conjunta"]["subtotal_neto"])
+    c_venta = ws2.cell(row=r2, column=6, value=DATA["resumen_economico"]["base_imponible"])
     c_venta.number_format = '#,##0.00 "€"'
     c_venta.font = font_tot
     for c in range(1, 7):
@@ -384,6 +344,7 @@ def convert_html_to_pdf():
             path=cliente_pdf,
             format="A4",
             print_background=True,
+            prefer_css_page_size=True,
             margin={"top": "0mm", "bottom": "0mm", "left": "0mm", "right": "0mm"}
         )
         print(f"PDF cliente guardado: {cliente_pdf}")
@@ -396,6 +357,7 @@ def convert_html_to_pdf():
             path=tecnico_pdf,
             format="A4",
             print_background=True,
+            prefer_css_page_size=True,
             margin={"top": "0mm", "bottom": "0mm", "left": "0mm", "right": "0mm"}
         )
         print(f"PDF técnico guardado: {tecnico_pdf}")

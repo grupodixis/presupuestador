@@ -41,11 +41,11 @@
       "diseno": "Panelado machihembrado de aluminio de 20 mm con zona acristalada central con barrotillo decorativo lacado verde formando 4 cuadrantes",
       "vidrio": "Doble acristalamiento de seguridad 3+3.1 / cámara 16 mm deshidratada con barrotillos / 4 mm (Conforme a CTE DB-SUA para riesgo de impacto en puerta de paso)",
       "herrajes": "Cerradura de seguridad de resbalón y palanca basculante E35, cilindro europerfil 30x65 leva corta con juego de llaves, juego de manillas a juego, 3 bisagras de alta resistencia regulables Hércules/Cortizo",
-      "precio_suministro": 1380.00,
-      "precio_instalacion": 280.00,
-      "subtotal_neto": 1660.00,
-      "iva_21": 348.60,
-      "total_con_iva": 2008.60,
+      "precio_suministro": 1656.00,
+      "precio_instalacion": 336.00,
+      "subtotal_neto": 1992.00,
+      "iva_21": 418.32,
+      "total_con_iva": 2410.32,
       "coste_directo_estimado": 1025.00
     },
     {
@@ -59,43 +59,21 @@
       "diseno": "Corredera perimetral de dos hojas móviles sobre carril inox, remate perimetral con solape curvo de 50 mm clipado",
       "vidrio": "Doble acristalamiento aislante 4 / cámara de 20-22 mm / 4 mm (30 mm de espesor total)",
       "herrajes": "Cierre multipunto automático E15, manilla acodada reforzada interior tipo Altair (sin accionamiento exterior), cremona E15 de 600 mm, rodamientos tándem C regulables de 200 kg/hoja con rodadura suave en poliamida/inox",
-      "precio_suministro": 540.00,
-      "precio_instalacion": 160.00,
-      "subtotal_neto": 700.00,
-      "iva_21": 147.00,
-      "total_con_iva": 847.00,
+      "precio_suministro": 648.00,
+      "precio_instalacion": 192.00,
+      "subtotal_neto": 840.00,
+      "iva_21": 176.40,
+      "total_con_iva": 1016.40,
       "coste_directo_estimado": 435.00
     }
   ],
-  "descuento_conjunto": {
-    "aplicable": true,
-    "descripcion": "Bonificación por contratación y ejecución simultánea de ambos elementos (optimización logística de transporte y jornada de montaje)",
-    "importe_descuento_neto": -120.00
-  },
+  "modalidad": "Instalación conjunta únicamente",
   "resumen_economico": {
-    "opcion_puerta_aislada": {
-      "suministro": 1380.00,
-      "instalacion": 280.00,
-      "subtotal_neto": 1660.00,
-      "iva_21": 348.60,
-      "total": 2008.60
-    },
-    "opcion_ventana_aislada": {
-      "suministro": 540.00,
-      "instalacion": 160.00,
-      "subtotal_neto": 700.00,
-      "iva_21": 147.00,
-      "total": 847.00
-    },
-    "opcion_conjunta": {
-      "suministro_total": 1920.00,
-      "instalacion_total": 440.00,
-      "subtotal_elementos": 2360.00,
-      "descuento_conjunto": -120.00,
-      "subtotal_neto": 2240.00,
-      "iva_21": 470.40,
-      "total_con_iva": 2710.40
-    }
+    "suministro_total": 2304.00,
+    "instalacion_total": 528.00,
+    "base_imponible": 2832.00,
+    "iva_21": 594.72,
+    "total_con_iva": 3426.72
   },
   "condiciones": {
     "forma_pago": "100% a la aceptación del presupuesto",
@@ -109,7 +87,7 @@
       "Remates perimetrales de aluminio y solape curvo de 50 mm clipado en ventana",
       "Desmontaje de la puerta y ventana existentes y retirada de los marcos antiguos",
       "Transporte directo hasta la vivienda en Cala Molí (Es Mercadal)",
-      "Montaje, nivelación, aplomado y fijación mecánica mediante tornillería de acero inoxidable",
+      "Montaje conjunto en obra, nivelación, aplomado y fijación mecánica mediante tornillería de acero inoxidable",
       "Sellado exterior perimetral de estanqueidad mediante polímero MS de alta elasticidad y resistencia salina",
       "Retirada de los residuos y escombros generados y entrega en gestor autorizado / punto limpio de Menorca",
       "Visita técnica de replanteo y verificación dimensional definitiva previa a la fabricación"
