@@ -6,7 +6,7 @@
   <style>
     @page {
       size: A4 portrait;
-      margin: 12mm 14mm;
+      margin: 10mm 12mm;
     }
     * { box-sizing: border-box; }
     body {
@@ -14,85 +14,99 @@
       background: #f8fafc;
       color: #0f172a;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 9.5px;
-      line-height: 1.45;
+      font-size: 9px;
+      line-height: 1.4;
     }
     .sheet {
       width: 210mm;
       margin: 0 auto;
       background: #ffffff;
-      padding: 12mm 15mm;
+      padding: 10mm 13mm;
     }
     header {
       background: #0f172a;
       color: #fff;
-      padding: 16px 20px;
+      padding: 14px 18px;
       border-radius: 8px;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 16px;
       align-items: center;
       border-bottom: 4px solid #b45309;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
     .brand { display: flex; align-items: center; gap: 14px; }
-    .brand-title { font-size: 15px; font-weight: 800; letter-spacing: 0.5px; color: #ffffff; text-transform: uppercase; }
-    .brand-sub { font-size: 8.5px; color: #94a3b8; margin-top: 2px; }
+    .brand-title { font-size: 14px; font-weight: 800; letter-spacing: 0.5px; color: #ffffff; text-transform: uppercase; }
+    .brand-sub { font-size: 8px; color: #94a3b8; margin-top: 2px; }
     .header-doc { text-align: right; }
     .doc-num { font-size: 13px; font-weight: 800; color: #fbbf24; }
-    .doc-date { font-size: 8.5px; color: #cbd5e1; }
+    .doc-date { font-size: 8px; color: #cbd5e1; }
     
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
-    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; }
-    .card-title { font-size: 9px; font-weight: 800; text-transform: uppercase; color: #b45309; margin-bottom: 6px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }
-    .card-line { display: flex; justify-content: space-between; margin-bottom: 3px; }
-    .card-label { color: #64748b; font-weight: 600; }
-    .card-val { color: #0f172a; font-weight: 700; text-align: right; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px; }
+    .card-title { font-size: 8.5px; font-weight: 800; text-transform: uppercase; color: #b45309; margin-bottom: 4px; border-bottom: 1px solid #e2e8f0; padding-bottom: 3px; }
+    .card-line { display: flex; justify-content: space-between; margin-bottom: 2px; }
+    .card-label { color: #64748b; font-weight: 600; font-size: 8px; }
+    .card-val { color: #0f172a; font-weight: 700; text-align: right; font-size: 8px; }
+
+    .alert-banner {
+      background: #fef2f2;
+      border: 1.5px solid #dc2626;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .alert-icon { font-size: 18px; color: #dc2626; font-weight: 900; line-height: 1; }
+    .alert-text { font-size: 8.5px; color: #991b1b; line-height: 1.35; }
+    .alert-text b { color: #7f1d1d; text-transform: uppercase; }
 
     .highlight-banner {
       background: #eff6ff;
       border-left: 4px solid #2563eb;
-      padding: 8px 12px;
+      padding: 6px 10px;
       border-radius: 0 6px 6px 0;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       display: flex;
       justify-content: space-around;
-      font-size: 9px;
+      font-size: 8.5px;
     }
     .hb-item { text-align: center; }
-    .hb-val { font-size: 11px; font-weight: 800; color: #1e3a8a; }
-    .hb-lbl { font-size: 8px; color: #475569; text-transform: uppercase; font-weight: 600; }
+    .hb-val { font-size: 10.5px; font-weight: 800; color: #1e3a8a; }
+    .hb-lbl { font-size: 7.5px; color: #475569; text-transform: uppercase; font-weight: 600; }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
     th {
       background: #0f172a;
       color: #ffffff;
       font-weight: 700;
-      font-size: 8.5px;
+      font-size: 8px;
       text-transform: uppercase;
-      padding: 7px 8px;
+      padding: 6px 7px;
       text-align: left;
       border: 1px solid #0f172a;
     }
     th.r, td.r { text-align: right; }
     th.c, td.c { text-align: center; }
     td {
-      padding: 7px 8px;
+      padding: 5.5px 7px;
       border: 1px solid #e2e8f0;
-      font-size: 8.5px;
+      font-size: 8px;
       vertical-align: top;
     }
     tr:nth-child(even) td { background: #f8fafc; }
-    .desc-text { font-size: 8px; color: #475569; margin-top: 3px; line-height: 1.35; }
+    .desc-text { font-size: 7.5px; color: #475569; margin-top: 2px; line-height: 1.3; }
 
     .totals-area {
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
     .totals-box {
       width: 250px;
@@ -103,14 +117,14 @@
     .t-row {
       display: flex;
       justify-content: space-between;
-      padding: 6px 10px;
-      font-size: 9px;
+      padding: 5px 10px;
+      font-size: 8.5px;
       border-bottom: 1px solid #e2e8f0;
     }
     .t-row:last-child {
       border-bottom: none;
       background: #fef3c7;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
       color: #92400e;
       border-top: 2px solid #b45309;
@@ -119,23 +133,23 @@
     .conditions {
       background: #f1f5f9;
       border-radius: 6px;
-      padding: 10px 14px;
-      font-size: 8px;
+      padding: 8px 12px;
+      font-size: 7.5px;
       color: #334155;
-      line-height: 1.4;
+      line-height: 1.35;
     }
-    .cond-title { font-weight: 800; text-transform: uppercase; color: #0f172a; margin-bottom: 4px; }
-    .cond-list { margin: 0; padding-left: 14px; }
+    .cond-title { font-weight: 800; text-transform: uppercase; color: #0f172a; margin-bottom: 3px; font-size: 8px; }
+    .cond-list { margin: 0; padding-left: 12px; }
     .cond-list li { margin-bottom: 2px; }
 
     footer {
-      margin-top: 14px;
-      padding-top: 8px;
+      margin-top: 10px;
+      padding-top: 6px;
       border-top: 1px solid #cbd5e1;
       display: flex;
       justify-content: space-between;
       color: #64748b;
-      font-size: 7.5px;
+      font-size: 7px;
     }
   </style>
 </head>
@@ -149,7 +163,7 @@
         </div>
       </div>
       <div class="header-doc">
-        <div class="doc-num">PRESUPUESTO P-2026-0050</div>
+        <div class="doc-num">PRESUPUESTO P-2026-0050 (REV. 1)</div>
         <div class="doc-date">Fecha: 02/11/2026 • Validez: 30 días</div>
       </div>
     </header>
@@ -173,21 +187,29 @@
       </div>
     </div>
 
+    <!-- BANNER DE EXCLUSIÓN EXPRESA -->
+    <div class="alert-banner">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-text">
+        <b>Exclusión Expresa de Cimentación:</b> Este presupuesto <b>NO INCLUYE la ejecución de zapatas (necesarias) ni solera</b>. Las zapatas de hormigón armado para la transmisión de las cargas de viento a 8 m de altura corren por cuenta del cliente, debiendo ser ejecutadas previamente según las dimensiones, armaduras y especificaciones de entrega que facilitará DIXIS en la Partida 01.
+      </div>
+    </div>
+
     <div class="highlight-banner">
-      <div class="hb-item"><div class="hb-val">6.471 Kg</div><div class="hb-lbl">Acero Estructural S275JR</div></div>
-      <div class="hb-item"><div class="hb-val">43,05 Kg/m²</div><div class="hb-lbl">Ratio Estructural CTE</div></div>
-      <div class="hb-item"><div class="hb-val">150,30 m²</div><div class="hb-lbl">Panel PUR 30 mm</div></div>
-      <div class="hb-item"><div class="hb-val">100% Mecano</div><div class="hb-lbl">Estructura Atornillada</div></div>
-      <div class="hb-item"><div class="hb-val">C3 / C4 Marino</div><div class="hb-lbl">Protección Anticorrosión HAM</div></div>
+      <div class="hb-item"><div class="hb-val">6.471 Kg</div><div class="hb-lbl">Acero S275JR a 5,00 €/kg</div></div>
+      <div class="hb-item"><div class="hb-val">150,30 m²</div><div class="hb-lbl">Panel PUR 30 a 115,00 €/m²</div></div>
+      <div class="hb-item"><div class="hb-val">100% Atornillable</div><div class="hb-lbl">Estructura Mecano</div></div>
+      <div class="hb-item"><div class="hb-val">C3 / C4 Marino</div><div class="hb-lbl">Pintura HAM (Sin horno)</div></div>
+      <div class="hb-item"><div class="hb-val">H = 8,00 m</div><div class="hb-lbl">Montaje con Grúa y PEMP</div></div>
     </div>
 
     <table>
       <thead>
         <tr>
-          <th class="c" style="width: 32px;">Nº</th>
+          <th class="c" style="width: 28px;">Nº</th>
           <th>Concepto y Descripción de la Partida</th>
-          <th class="c" style="width: 35px;">Ud</th>
-          <th class="r" style="width: 48px;">Cant.</th>
+          <th class="c" style="width: 32px;">Ud</th>
+          <th class="r" style="width: 45px;">Cant.</th>
           <th class="r" style="width: 65px;">Precio (€)</th>
           <th class="r" style="width: 75px;">Importe (€)</th>
         </tr>
@@ -196,24 +218,24 @@
         <tr>
           <td class="c"><b>01</b></td>
           <td>
-            <b>CÁLCULO ESTRUCTURAL, INGENIERÍA Y PLANOS DE TALLER</b>
-            <div class="desc-text">Cálculo estructural según CTE DB-SE-AE (viento Zona C en Alaior) y DB-SE-A. Modelado BIM 3D, planos de taller, despiece analítico y replanteo de anclajes.</div>
+            <b>CÁLCULO ESTRUCTURAL, INGENIERÍA Y PLANOS DE FABRICACIÓN</b>
+            <div class="desc-text">Cálculo estructural según CTE DB-SE-AE (viento Zona C en Alaior) y DB-SE-A. Modelado BIM 3D, planos de taller, despiece analítico y plano de replanteo con cálculo de cargas para las zapatas de cimentación requeridas.</div>
           </td>
           <td class="c">PA</td>
           <td class="r">1,00</td>
-          <td class="r">980,00 €</td>
-          <td class="r"><b>980,00 €</b></td>
+          <td class="r">3.000,00 €</td>
+          <td class="r"><b>3.000,00 €</b></td>
         </tr>
         <tr>
           <td class="c"><b>02</b></td>
           <td>
-            <b>FABRICACIÓN EN TALLER DE ESTRUCTURA METÁLICA ATORNILLABLE (6.471 KG ACERO S275JR)</b>
-            <div class="desc-text">Fabricación integral de estructura tipo mecano (16x8x8 m). 10 pilares tubo 180x180x6 mm con placas base 350x350x20 mm y rigidizadores; 5 dinteles IPE 240; 10 jabalcones a 45° tubo 100x100x4 mm; vigas de coronación 120x120x5 mm; 8 líneas correas 100x50x3 mm; cruces de San Andrés Ø20 mm con tensores M20 8.8; tornillería de alta resistencia M16/M20 cincada.</div>
+            <b>FABRICACIÓN EN TALLER DE ESTRUCTURA METÁLICA ATORNILLABLE (6.471 KG A 5,00 €/KG)</b>
+            <div class="desc-text">Fabricación integral de estructura tipo mecano (16x8x8 m). 10 pilares tubo 180x180x6 mm con placas base 350x350x20 mm y rigidizadores; 5 dinteles IPE 240; 10 jabalcones a 45° tubo 100x100x4 mm; vigas coronación 120x120x5 mm; 8 líneas correas 100x50x3 mm; cruces San Andrés Ø20 mm con tensores M20 8.8; tornillería de alta resistencia M16/M20 cincada. Cotizado a 5,00 €/kg.</div>
           </td>
           <td class="c">Kg</td>
           <td class="r">6.471,00</td>
-          <td class="r">2,85 €</td>
-          <td class="r"><b>18.442,35 €</b></td>
+          <td class="r">5,00 €</td>
+          <td class="r"><b>32.355,00 €</b></td>
         </tr>
         <tr>
           <td class="c"><b>03</b></td>
@@ -229,13 +251,13 @@
         <tr>
           <td class="c"><b>04</b></td>
           <td>
-            <b>SUMINISTRO Y MONTAJE DE CUBIERTA EN PANEL SÁNDWICH PUR 30 MM Y REMATERÍA</b>
-            <div class="desc-text">Suministro e instalación sobre correas de 150,30 m² de panel sándwich de cubierta de 30 mm de espesor (PUR 40 kg/m³, chapa grecada exterior 0,5 mm prelacada e interior 0,4 mm blanco pirineo). Fijaciones bimetálicas autotaladrantes con arandelas de estanqueidad de EPDM. Remate troquelado de cumbrera y testeros laterales plegados.</div>
+            <b>SUMINISTRO Y MONTAJE DE CUBIERTA EN PANEL SÁNDWICH PUR 30 MM Y REMATERÍA (115,00 €/M²)</b>
+            <div class="desc-text">Suministro e instalación sobre correas de 150,30 m² de panel sándwich de cubierta de 30 mm (PUR 40 kg/m³, chapa grecada exterior 0,5 mm prelacada e interior 0,4 mm blanco pirineo). Fijaciones bimetálicas autotaladrantes con arandelas de estanqueidad de EPDM. Remate troquelado de cumbrera y testeros laterales plegados. Cotizado a 115,00 €/m².</div>
           </td>
           <td class="c">m²</td>
           <td class="r">150,30</td>
-          <td class="r">48,00 €</td>
-          <td class="r"><b>7.214,40 €</b></td>
+          <td class="r">115,00 €</td>
+          <td class="r"><b>17.284,50 €</b></td>
         </tr>
         <tr>
           <td class="c"><b>05</b></td>
@@ -267,33 +289,33 @@
           </td>
           <td class="c">PA</td>
           <td class="r">1,00</td>
-          <td class="r">4.180,00 €</td>
-          <td class="r"><b>4.180,00 €</b></td>
+          <td class="r">12.180,00 €</td>
+          <td class="r"><b>12.180,00 €</b></td>
         </tr>
       </tbody>
     </table>
 
     <div class="totals-area">
       <div class="totals-box">
-        <div class="t-row"><span>SUBTOTAL NETO:</span><span>41.194,75 €</span></div>
-        <div class="t-row"><span>I.V.A. (21%):</span><span>8.650,90 €</span></div>
-        <div class="t-row"><span>TOTAL PRESUPUESTO:</span><span>49.845,65 €</span></div>
+        <div class="t-row"><span>SUBTOTAL NETO (B.I.):</span><span>75.197,50 €</span></div>
+        <div class="t-row"><span>I.V.A. (21%):</span><span>15.791,48 €</span></div>
+        <div class="t-row"><span>TOTAL PRESUPUESTO:</span><span>90.988,98 €</span></div>
       </div>
     </div>
 
     <div class="conditions">
-      <div class="cond-title">Condiciones de Contratación y Ejecución:</div>
+      <div class="cond-title">Condiciones de Contratación y Exclusiones:</div>
       <ul class="cond-list">
-        <li><b>Forma de pago:</b> 40% a la confirmación del pedido y acopio de acero/panel; 30% a la finalización de fabricación en taller previo a carga; 30% a la finalización del montaje y recepción.</li>
-        <li><b>Plazo de ejecución:</b> 3 a 4 semanas para fabricación y pintura en taller tras aprobación de planos; 6 a 8 días laborables para montaje in situ en Alaior.</li>
-        <li><b>Exclusiones:</b> Obra civil de solera o zapatas de cimentación (se presupuesta anclaje sobre hormigón existente según especificación técnica), acometidas eléctricas e iluminación, tasas o licencias municipales de obras.</li>
+        <li><b>EXCLUSIÓN EXPRESA DE CIMENTACIÓN:</b> No se incluye la ejecución de zapatas de cimentación (necesarias) ni solera. Dichos trabajos serán contratados directamente por el cliente conforme a las directrices de replanteo que entregará DIXIS.</li>
+        <li><b>Forma de pago:</b> 40% a la confirmación del pedido y acopio; 30% a la finalización de fabricación en taller previo a carga; 30% a la finalización del montaje y recepción.</li>
+        <li><b>Plazo de ejecución:</b> 3 a 4 semanas para fabricación y pintura en taller tras validación técnica; 6 a 8 días laborables para montaje in situ en Alaior una vez ejecutadas y fraguadas las zapatas.</li>
         <li><b>Garantía:</b> 10 años en estabilidad estructural según LOE y 3 años en estanqueidad de cubierta y fijaciones.</li>
       </ul>
     </div>
 
     <footer>
       <div>DIXIS RECURSOS Y SOLUCIONES S.L. • CIF: B57825432 • Circunval·lació 11, Sant Lluís (Menorca) • Tel: 669 769 541</div>
-      <div>Página 1 de 1 • Oferta P-2026-0050</div>
+      <div>Página 1 de 1 • Oferta P-2026-0050 Rev. 1</div>
     </footer>
   </div>
 </body>

@@ -1,7 +1,7 @@
-# P-2026-0050 Marquesina Industrial Atornillable 16 x 8 m (H = 8,00 m) • Nautic KIM
+# P-2026-0050 Marquesina Industrial Atornillable 16 x 8 m (H = 8,00 m) • Nautic KIM (Rev. 1)
 
-**Código de Proyecto:** P-2026-0050  
-**Referencia:** PRE-2026-1102-MARQ-NAUTIC  
+**Código de Proyecto:** P-2026-0050 (Rev. 1)  
+**Referencia:** PRE-2026-1102-MARQ-NAUTIC-REV1  
 **Fecha:** 2 de noviembre de 2026  
 **Ubicación:** Polígono Industrial de Alaior, Menorca  
 
@@ -26,12 +26,13 @@ Diseño, dimensionamiento estructural según Código Técnico de la Edificación
 
 La cubierta se resuelve con pendiente a un agua (~7,5 %) hacia fachada posterior mediante panel sándwich de 30 mm con núcleo de poliuretano inyectado (PUR 40 kg/m³), fijación autotaladrante estanca con arandelas de EPDM, rematería completa y canalón perimetral con bajantes pluviales.
 
+> ⚠️ **EXCLUSIÓN EXPRESA DE CIMENTACIÓN:**  
+> **NO SE INCLUYE la ejecución de zapatas (necesarias) ni solera.**  
+> Al tratarse de una estructura con pilares de 8 metros de altura sometida a fuertes vientos en Alaior (Zona C), se requiere la ejecución previa de zapatas aisladas de hormigón armado con anclajes. DIXIS facilitará el cálculo de cargas y el plano de replanteo en la Partida 01 para que la cimentación sea ejecutada por el contratista de obra civil del cliente.
+
 ---
 
 ## 4. Resultado del Cálculo Estructural y Desglose de Acero (Hierro)
-Para una altura de **8,00 metros** en el Polígono de Alaior (Zona eólica C en Menorca con presión de viento $q_p = 1,00\text{ kN/m}^2$), el factor crítico es el **pandeo por flexocompresión de pilares** y la rigidez ante deformaciones horizontales.
-
-Se disponen **5 pórticos transversales a intereje de 4,00 m**, reforzados con jabalcones tubulares a 45° en nudos pilar-dintel y arriostramientos verticales y en plano de faldón mediante cruces de San Andrés.
 
 | Elemento Estructural | Perfil Adoptado | Uds x Longitud | Peso Total (kg) |
 |---|---|---|---:|
@@ -45,51 +46,36 @@ Se disponen **5 pórticos transversales a intereje de 4,00 m**, reforzados con j
 | **Tornillería estructural 8.8** | Pernos M16 y M20 cincados pretensados | Global | 110,00 kg |
 | **TOTAL ACERO ESTRUCTURAL (Kg)** | **Acero S275JR** | **Estructura Atornillable** | **6.471,00 kg** |
 
-> **Ratio estructural:** **43,05 kg de acero / m²** de techado ($6.471\text{ kg} / 150,30\text{ m}^2$).
-
 ---
 
-## 5. Resumen de Valoración Comercial (Cliente)
+## 5. Resumen de Valoración Comercial (Cliente - Actualizado)
 
 | Nº | Concepto de la Partida | Ud | Cantidad | Precio Unitario | Importe (€) |
 |---|---|:---:|---:|---:|---:|
-| **01** | Cálculo estructural, ingeniería y planos de taller | PA | 1,00 | 980,00 € | 980,00 € |
-| **02** | Fabricación en taller estructura atornillable (6.471 kg S275JR) | Kg | 6.471,00 | 2,85 € | 18.442,35 € |
-| **03** | Tratamiento anticorrosivo imprimación + poliuretano 2C (HAM) | m² | 385,00 | 10,50 € | 4.042,50 € |
-| **04** | Cubierta panel sándwich PUR 30 mm y rematería (150,30 m²) | m² | 150,30 | 48,00 € | 7.214,40 € |
-| **05** | Recogida de pluviales (canalón prelacado 400 mm y bajantes) | ml | 16,70 | 65,00 € | 1.085,50 € |
-| **06** | Transporte, medios auxiliares (grúa pluma y PEMP 12m) y anclajes | PA | 1,00 | 5.250,00 € | 5.250,00 € |
-| **07** | Montaje mecano en obra a 8 m y apriete dinamométrico | PA | 1,00 | 4.180,00 € | 4.180,00 € |
-| | **SUBTOTAL NETO (Base Imponible):** | | | | **41.194,75 €** |
-| | **I.V.A. (21%):** | | | | **8.650,90 €** |
-| | **TOTAL PRESUPUESTO (I.V.A. Incluido):** | | | | **49.845,65 €** |
+| **01** | **Cálculo estructural, ingeniería y planos de taller:** Justificación CTE Alaior, modelado BIM y cargas a zapatas. | PA | 1,00 | 3.000,00 € | 3.000,00 € |
+| **02** | **Fabricación en taller estructura atornillable mecano:** 6.471 kg de acero S275JR cotizado a 5,00 €/kg. | Kg | 6.471,00 | 5,00 € | 32.355,00 € |
+| **03** | **Tratamiento anticorrosivo HAM exterior:** Imprimación epoxi 2C + esmalte poliuretano alifático 2C (sin horno). | m² | 385,00 | 10,50 € | 4.042,50 € |
+| **04** | **Suministro e instalación de cubierta en panel sándwich PUR 30 mm y remates:** Cotizado a 115,00 €/m². | m² | 150,30 | 115,00 € | 17.284,50 € |
+| **05** | **Recogida de pluviales:** Canalón galvanizado prelacado 400 mm (16,70 ml) y 2 bajantes pluviales hasta suelo. | ml | 16,70 | 65,00 € | 1.085,50 € |
+| **06** | **Transporte, medios auxiliares de elevación (grúa pluma + PEMP 12m) y anclajes:** 40 anclajes químicos M20 8.8. | PA | 1,00 | 5.250,00 € | 5.250,00 € |
+| **07** | **Montaje mecano en obra a 8 m y apriete dinamométrico:** Cuadrilla de montadores oficiales en Alaior. | PA | 1,00 | 12.180,00 € | 12.180,00 € |
+| | **SUBTOTAL NETO (Base Imponible):** | | | | **75.197,50 €** |
+| | **I.V.A. (21%):** | | | | **15.791,48 €** |
+| | **TOTAL PRESUPUESTO (I.V.A. Incluido):** | | | | **90.988,98 €** |
 
 ---
 
-## 6. Desglose Técnico Interno y Operativo
+## 6. Desglose Técnico Interno y Escandallo
 - **Mano de Obra (386 Horas Totales):**
-  - **Oficina Técnica e Ingeniería:** 24 horas (modelado BIM, cálculo CTE, planos de despiece).
-  - **Fabricación en Taller:** 140 horas (corte 28h, mecanizado/taladrado 36h, armado y soldadura placas base 44h, pintura en cabina 32h).
-  - **Montaje en Obra Alaior (H=8 m):** 222 horas (replanteo y anclajes 12h, izado pórticos con grúa 72h, correas y arriostramientos 60h, panelado 54h, pluviales 14h, control de calidad y repasos 10h).
+  - **Oficina Técnica e Ingeniería:** 24 h
+  - **Fabricación en Taller:** 140 h
+  - **Montaje en Obra Alaior (H=8 m):** 222 h
 - **Medios Auxiliares:**
-  - Camión grúa pluma para elevación a 8 m (16 horas = 2 jornadas).
-  - Plataforma elevadora móvil de personal (PEMP) articulada diésel 12 m (1 semana).
-  - Transporte en camión tráiler con material despiezado (1 ida taller a Alaior).
-  - 40 anclajes químicos estructurales Hilti HIT-HY 200 con varillas roscadas M20 calidad 8.8.
+  - Camión grúa pluma (16 h = 2 jornadas).
+  - Plataforma elevadora PEMP 12 m (1 semana).
+  - Transporte camión tráiler despiezado (1 ida a Alaior).
+  - 40 anclajes químicos Hilti HIT-HY M20 calidad 8.8.
 - **Escandallo de Costes Directos:**
-  - Materiales directos (acero, panel, pintura, tornillería): 18.126,20 € (56,8% del CD)
-  - Mano de obra directa (386 h): 10.480,00 € (32,8% del CD)
-  - Medios auxiliares y transporte: 3.310,00 € (10,4% del CD)
-  - **Coste Directo Total:** **31.916,20 €**
-  - Gastos Generales (10,0%): 3.191,62 €
-  - Beneficio Industrial (14,8%): 6.086,93 €
-  - **Precio de Venta Base:** **41.194,75 €**
-
----
-
-## 7. Archivos Generados
-- `Presupuesto_P2026_0050_Marquesina_Nautic_KIM.xlsx`: Hoja de cálculo con fórmulas dinámicas, resumen ejecutivo, presupuesto cliente, presupuesto técnico interno y desglose analítico de kilogramos.
-- `presupuesto-cliente.html` / `presupuesto-cliente.pdf`: Documento comercial para Nautic KIM / Mariano.
-- `presupuesto-interno-tecnico.html` / `presupuesto-interno-tecnico.pdf`: Memoria técnica operativa interna con desglose de tareas, horas y escandallo.
-- `calculo_estructural.md`: Memoria de cálculo justificativa según CTE DB-SE-AE (viento Alaior) y DB-SE-A.
-- `datos.json`: Datos estructurados del proyecto.
+  - Coste Directo Total (CD): **31.916,20 €** (42,4% s/ venta)
+  - Margen Bruto Comercial e Industrial: **43.281,30 €** (57,6% s/ venta)
+  - Precio de Venta Neto (B.I.): **75.197,50 €**

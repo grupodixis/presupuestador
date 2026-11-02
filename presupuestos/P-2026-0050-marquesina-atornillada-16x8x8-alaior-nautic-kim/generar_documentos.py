@@ -14,20 +14,21 @@ def create_excel():
     wb = Workbook()
     
     # Colores corporativos Dixis / HAM
-    NAVY = "0F172A"       # Fondo cabecera principal
-    GOLD = "B45309"       # Acento dorado / óxido
+    NAVY = "0F172A"        # Fondo cabecera principal
+    GOLD = "B45309"        # Acento dorado / óxido
     SLATE_LIGHT = "F8FAFC" # Fila alterna
-    SLATE_HEADER = "1E293B"
     SUBHEADER_FILL = "E2E8F0"
-    TOTAL_FILL = "FEF3C7"  # Amarillo cálido
+    TOTAL_FILL = "FEF3C7"   # Amarillo cálido
     SECTION_FILL = "F1F5F9"
-    HIGHLIGHT_GREEN = "047857"
+    ALERT_FILL = "FEE2E2"   # Rojo suave para exclusión zapatas
+    ALERT_BORDER = "DC2626"
     
     fill_header = PatternFill(start_color=NAVY, end_color=NAVY, fill_type="solid")
     fill_sub = PatternFill(start_color=SUBHEADER_FILL, end_color=SUBHEADER_FILL, fill_type="solid")
     fill_sec = PatternFill(start_color=SECTION_FILL, end_color=SECTION_FILL, fill_type="solid")
     fill_alt = PatternFill(start_color=SLATE_LIGHT, end_color=SLATE_LIGHT, fill_type="solid")
     fill_tot = PatternFill(start_color=TOTAL_FILL, end_color=TOTAL_FILL, fill_type="solid")
+    fill_alert = PatternFill(start_color=ALERT_FILL, end_color=ALERT_FILL, fill_type="solid")
     
     font_title = Font(name="Segoe UI", size=15, bold=True, color=NAVY)
     font_sub = Font(name="Segoe UI", size=10, bold=True, color=GOLD)
@@ -37,13 +38,20 @@ def create_excel():
     font_reg = Font(name="Segoe UI", size=9, color="1E293B")
     font_italic = Font(name="Segoe UI", size=8.5, italic=True, color="64748B")
     font_tot = Font(name="Segoe UI", size=11, bold=True, color=NAVY)
-    font_tot_gold = Font(name="Segoe UI", size=11, bold=True, color=GOLD)
+    font_tot_gold = Font(name="Segoe UI", size=11.5, bold=True, color=GOLD)
+    font_alert = Font(name="Segoe UI", size=9.5, bold=True, color="991B1B")
 
     border_thin = Border(
         left=Side(style='thin', color='CBD5E1'),
         right=Side(style='thin', color='CBD5E1'),
         top=Side(style='thin', color='CBD5E1'),
         bottom=Side(style='thin', color='CBD5E1')
+    )
+    border_alert = Border(
+        left=Side(style='medium', color=ALERT_BORDER),
+        right=Side(style='medium', color=ALERT_BORDER),
+        top=Side(style='medium', color=ALERT_BORDER),
+        bottom=Side(style='medium', color=ALERT_BORDER)
     )
     border_total = Border(
         top=Side(style='thin', color=NAVY),
@@ -68,9 +76,9 @@ def create_excel():
         ("Cliente:", DATA["cliente"]["empresa"], "Atención / Contacto:", f"{DATA['cliente']['contacto']} ({DATA['cliente']['telefono']})"),
         ("Email Contacto:", DATA["cliente"]["email"], "Ubicación Obra:", DATA["proyecto"]["ubicacion"]),
         ("Dimensiones Base:", "16,00 m x 8,00 m (Luz libre 8 m)", "Altura Libre Alero:", "8,00 m (Cumbrera 8,60 m)"),
-        ("Superficie Techada:", "150,30 m² con aleros", "Cubierta:", "Panel Sándwich 30 mm PUR + Remates"),
-        ("Sistema Constructivo:", "100% Atornillable (Mecano)", "Acabado Pintura:", "Imprimación Epoxi + Esmalte Poliuretano 2C (Sin horno)"),
-        ("Acero Estructural:", "6.471 kg Acero S275JR", "Ratio Estructural:", "43,05 kg acero / m²"),
+        ("Superficie Techada:", "150,30 m² con aleros", "Cubierta:", "Panel Sándwich 30 mm PUR a 115,00 €/m²"),
+        ("Sistema Constructivo:", "100% Atornillable (Mecano)", "Hierro / Acero:", "6.471 kg S275JR a 5,00 €/kg"),
+        ("Acabado Pintura:", "Imprimación Epoxi + Poliuretano 2C (Sin horno)", "Cálculo Estructural:", "3.000,00 € (CTE Viento Alaior)"),
     ]
     
     r = 5
@@ -84,6 +92,17 @@ def create_excel():
         r += 1
         
     r += 1
+    # Cuadro de Exclusión Importante
+    ws1.cell(row=r, column=2, value="AVISO IMPORTANTE / EXCLUSIÓN EXPRESA DE ALCANCE:").font = font_alert
+    ws1.merge_cells(start_row=r, start_column=2, end_row=r, end_column=7)
+    ws1.cell(row=r, column=2).fill = fill_alert
+    r += 1
+    ws1.cell(row=r, column=2, value="NO SE INCLUYE LA EJECUCIÓN DE ZAPATAS DE CIMENTACIÓN (NECESARIAS PARA LA TRANSMISIÓN DE MOMENTOS DE VIENTO Y AXIL A 8 METROS) NI SOLERA. La obra civil corre por cuenta del cliente según las especificaciones y cargas que facilitará DIXIS en la partida 01.").font = font_bold
+    ws1.merge_cells(start_row=r, start_column=2, end_row=r, end_column=7)
+    ws1.cell(row=r, column=2).fill = fill_alert
+    ws1.cell(row=r, column=2).alignment = Alignment(wrap_text=True)
+    r += 2
+    
     ws1.cell(row=r, column=2, value="RESUMEN ECONÓMICO DE LA OFERTA").font = font_sec
     r += 1
     
@@ -163,7 +182,7 @@ def create_excel():
     tec_tasks = [
         ("1. INGENIERÍA Y OFICINA TÉCNICA", "Modelado 3D BIM, cálculo estructural CTE DB-SE-AE (viento Alaior), planos taller y despiece", "Ingeniero", 24, 26.00),
         ("2. TALLER: CORTE Y PREPARACIÓN", "Corte con cinta, biselado de perfiles (Tubo 180, IPE 240, Tubo 120, 100x50)", "Oficial 1ª", 28, 26.00),
-        ("3. TALLER: MECANIZADO Y TALADRADO", "Taladrado de placas base e=20, rigidizadores, agujeros pasantes para tornillos M16/M20 8.8", "Oficial 1ª", 36, 26.00),
+        ("3. TALLER: MECANIZADO Y TALADRADO", "Taladrado coordinado de placas base e=20, rigidizadores, agujeros pasantes tornillos M16/M20 8.8", "Oficial 1ª", 36, 26.00),
         ("4. TALLER: ARMADO Y SOLDADURA", "Soldeo MAG de placas base a pilares, cartelas de nudos, jabalcones y ensambles previos", "Oficial Soldador", 44, 26.00),
         ("5. TALLER: TRATAMIENTO SUPERFICIAL", "Chorreado/limpieza Sa 2.5, imprimación epoxi bicomponente y esmalte poliuretano 2C (Sin horno)", "Pintor Taller", 32, 26.00),
         ("6. OBRA: REPLANTEO Y ANCLAJES", "Replanteo topográfico, taladro e inyección de 40 anclajes químicos M20 Hilti HIT-HY en solera", "Cuadrilla 2 op.", 12, 28.00),
@@ -242,25 +261,26 @@ def create_excel():
     ws2.cell(row=r, column=6).fill = fill_sec
     r += 1
     
-    ws2.cell(row=r, column=2, value="Gastos Generales (10,0%):").font = font_reg
+    ws2.cell(row=r, column=2, value="PRECIO VENTA NETO (B.I. PRESUPUESTO CLIENTE):").font = font_bold
     ws2.merge_cells(start_row=r, start_column=2, end_row=r, end_column=5)
-    ws2.cell(row=r, column=6, value=f"=F{r-1}*0.10").font = font_reg
+    ws2.cell(row=r, column=6, value=DATA["presupuesto_cliente"]["subtotal_neto"]).font = font_bold
     ws2.cell(row=r, column=6).number_format = '#,##0.00 €'
     r += 1
     
-    ws2.cell(row=r, column=2, value="Beneficio Industrial (19,1%):").font = font_reg
+    ws2.cell(row=r, column=2, value="MARGEN BRUTO COMERCIAL E INDUSTRIAL (€):").font = font_tot_gold
     ws2.merge_cells(start_row=r, start_column=2, end_row=r, end_column=5)
-    ws2.cell(row=r, column=6, value=f"=F{r-2}*0.19075").font = font_reg
-    ws2.cell(row=r, column=6).number_format = '#,##0.00 €'
+    c_marg = ws2.cell(row=r, column=6, value=f"=F{r-1}-F{r-2}")
+    c_marg.font = font_tot_gold
+    c_marg.fill = fill_tot
+    c_marg.number_format = '#,##0.00 €'
+    c_marg.border = border_total
     r += 1
     
-    ws2.cell(row=r, column=2, value="PRECIO DE VENTA NETO FINAL (PVP Base Imponible):").font = font_tot_gold
+    ws2.cell(row=r, column=2, value="PORCENTAJE DE MARGEN SOBRE VENTA:").font = font_bold
     ws2.merge_cells(start_row=r, start_column=2, end_row=r, end_column=5)
-    c_pvp = ws2.cell(row=r, column=6, value=f"=F{r-3}+F{r-2}+F{r-1}")
-    c_pvp.font = font_tot_gold
-    c_pvp.fill = fill_tot
-    c_pvp.number_format = '#,##0.00 €'
-    c_pvp.border = border_total
+    c_pct = ws2.cell(row=r, column=6, value=f"=F{r-1}/F{r-2}")
+    c_pct.font = font_bold
+    c_pct.number_format = '0.00%'
 
     # -------------------------------------------------------------------------
     # HOJA 3: ESCANDALLO DE ACERO Y CÁLCULO ESTRUCTURAL (KG)
@@ -368,7 +388,7 @@ def create_html_client():
   <style>
     @page {{
       size: A4 portrait;
-      margin: 12mm 14mm;
+      margin: 10mm 12mm;
     }}
     * {{ box-sizing: border-box; }}
     body {{
@@ -376,85 +396,99 @@ def create_html_client():
       background: #f8fafc;
       color: #0f172a;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 9.5px;
-      line-height: 1.45;
+      font-size: 9px;
+      line-height: 1.4;
     }}
     .sheet {{
       width: 210mm;
       margin: 0 auto;
       background: #ffffff;
-      padding: 12mm 15mm;
+      padding: 10mm 13mm;
     }}
     header {{
       background: #0f172a;
       color: #fff;
-      padding: 16px 20px;
+      padding: 14px 18px;
       border-radius: 8px;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 16px;
       align-items: center;
       border-bottom: 4px solid #b45309;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }}
     .brand {{ display: flex; align-items: center; gap: 14px; }}
-    .brand-title {{ font-size: 15px; font-weight: 800; letter-spacing: 0.5px; color: #ffffff; text-transform: uppercase; }}
-    .brand-sub {{ font-size: 8.5px; color: #94a3b8; margin-top: 2px; }}
+    .brand-title {{ font-size: 14px; font-weight: 800; letter-spacing: 0.5px; color: #ffffff; text-transform: uppercase; }}
+    .brand-sub {{ font-size: 8px; color: #94a3b8; margin-top: 2px; }}
     .header-doc {{ text-align: right; }}
     .doc-num {{ font-size: 13px; font-weight: 800; color: #fbbf24; }}
-    .doc-date {{ font-size: 8.5px; color: #cbd5e1; }}
+    .doc-date {{ font-size: 8px; color: #cbd5e1; }}
     
-    .grid-2 {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }}
-    .card {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; }}
-    .card-title {{ font-size: 9px; font-weight: 800; text-transform: uppercase; color: #b45309; margin-bottom: 6px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }}
-    .card-line {{ display: flex; justify-content: space-between; margin-bottom: 3px; }}
-    .card-label {{ color: #64748b; font-weight: 600; }}
-    .card-val {{ color: #0f172a; font-weight: 700; text-align: right; }}
+    .grid-2 {{ display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }}
+    .card {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px; }}
+    .card-title {{ font-size: 8.5px; font-weight: 800; text-transform: uppercase; color: #b45309; margin-bottom: 4px; border-bottom: 1px solid #e2e8f0; padding-bottom: 3px; }}
+    .card-line {{ display: flex; justify-content: space-between; margin-bottom: 2px; }}
+    .card-label {{ color: #64748b; font-weight: 600; font-size: 8px; }}
+    .card-val {{ color: #0f172a; font-weight: 700; text-align: right; font-size: 8px; }}
+
+    .alert-banner {{
+      background: #fef2f2;
+      border: 1.5px solid #dc2626;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }}
+    .alert-icon {{ font-size: 18px; color: #dc2626; font-weight: 900; line-height: 1; }}
+    .alert-text {{ font-size: 8.5px; color: #991b1b; line-height: 1.35; }}
+    .alert-text b {{ color: #7f1d1d; text-transform: uppercase; }}
 
     .highlight-banner {{
       background: #eff6ff;
       border-left: 4px solid #2563eb;
-      padding: 8px 12px;
+      padding: 6px 10px;
       border-radius: 0 6px 6px 0;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       display: flex;
       justify-content: space-around;
-      font-size: 9px;
+      font-size: 8.5px;
     }}
     .hb-item {{ text-align: center; }}
-    .hb-val {{ font-size: 11px; font-weight: 800; color: #1e3a8a; }}
-    .hb-lbl {{ font-size: 8px; color: #475569; text-transform: uppercase; font-weight: 600; }}
+    .hb-val {{ font-size: 10.5px; font-weight: 800; color: #1e3a8a; }}
+    .hb-lbl {{ font-size: 7.5px; color: #475569; text-transform: uppercase; font-weight: 600; }}
 
     table {{
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }}
     th {{
       background: #0f172a;
       color: #ffffff;
       font-weight: 700;
-      font-size: 8.5px;
+      font-size: 8px;
       text-transform: uppercase;
-      padding: 7px 8px;
+      padding: 6px 7px;
       text-align: left;
       border: 1px solid #0f172a;
     }}
     th.r, td.r {{ text-align: right; }}
     th.c, td.c {{ text-align: center; }}
     td {{
-      padding: 7px 8px;
+      padding: 5.5px 7px;
       border: 1px solid #e2e8f0;
-      font-size: 8.5px;
+      font-size: 8px;
       vertical-align: top;
     }}
     tr:nth-child(even) td {{ background: #f8fafc; }}
-    .desc-text {{ font-size: 8px; color: #475569; margin-top: 3px; line-height: 1.35; }}
+    .desc-text {{ font-size: 7.5px; color: #475569; margin-top: 2px; line-height: 1.3; }}
 
     .totals-area {{
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }}
     .totals-box {{
       width: 250px;
@@ -465,14 +499,14 @@ def create_html_client():
     .t-row {{
       display: flex;
       justify-content: space-between;
-      padding: 6px 10px;
-      font-size: 9px;
+      padding: 5px 10px;
+      font-size: 8.5px;
       border-bottom: 1px solid #e2e8f0;
     }}
     .t-row:last-child {{
       border-bottom: none;
       background: #fef3c7;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
       color: #92400e;
       border-top: 2px solid #b45309;
@@ -481,23 +515,23 @@ def create_html_client():
     .conditions {{
       background: #f1f5f9;
       border-radius: 6px;
-      padding: 10px 14px;
-      font-size: 8px;
+      padding: 8px 12px;
+      font-size: 7.5px;
       color: #334155;
-      line-height: 1.4;
+      line-height: 1.35;
     }}
-    .cond-title {{ font-weight: 800; text-transform: uppercase; color: #0f172a; margin-bottom: 4px; }}
-    .cond-list {{ margin: 0; padding-left: 14px; }}
+    .cond-title {{ font-weight: 800; text-transform: uppercase; color: #0f172a; margin-bottom: 3px; font-size: 8px; }}
+    .cond-list {{ margin: 0; padding-left: 12px; }}
     .cond-list li {{ margin-bottom: 2px; }}
 
     footer {{
-      margin-top: 14px;
-      padding-top: 8px;
+      margin-top: 10px;
+      padding-top: 6px;
       border-top: 1px solid #cbd5e1;
       display: flex;
       justify-content: space-between;
       color: #64748b;
-      font-size: 7.5px;
+      font-size: 7px;
     }}
   </style>
 </head>
@@ -511,7 +545,7 @@ def create_html_client():
         </div>
       </div>
       <div class="header-doc">
-        <div class="doc-num">PRESUPUESTO P-2026-0050</div>
+        <div class="doc-num">PRESUPUESTO P-2026-0050 (REV. 1)</div>
         <div class="doc-date">Fecha: 02/11/2026 • Validez: 30 días</div>
       </div>
     </header>
@@ -535,21 +569,29 @@ def create_html_client():
       </div>
     </div>
 
+    <!-- BANNER DE EXCLUSIÓN EXPRESA -->
+    <div class="alert-banner">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-text">
+        <b>Exclusión Expresa de Cimentación:</b> Este presupuesto <b>NO INCLUYE la ejecución de zapatas (necesarias) ni solera</b>. Las zapatas de hormigón armado para la transmisión de las cargas de viento a 8 m de altura corren por cuenta del cliente, debiendo ser ejecutadas previamente según las dimensiones, armaduras y especificaciones de entrega que facilitará DIXIS en la Partida 01.
+      </div>
+    </div>
+
     <div class="highlight-banner">
-      <div class="hb-item"><div class="hb-val">6.471 Kg</div><div class="hb-lbl">Acero Estructural S275JR</div></div>
-      <div class="hb-item"><div class="hb-val">43,05 Kg/m²</div><div class="hb-lbl">Ratio Estructural CTE</div></div>
-      <div class="hb-item"><div class="hb-val">150,30 m²</div><div class="hb-lbl">Panel PUR 30 mm</div></div>
-      <div class="hb-item"><div class="hb-val">100% Mecano</div><div class="hb-lbl">Estructura Atornillada</div></div>
-      <div class="hb-item"><div class="hb-val">C3 / C4 Marino</div><div class="hb-lbl">Protección Anticorrosión HAM</div></div>
+      <div class="hb-item"><div class="hb-val">6.471 Kg</div><div class="hb-lbl">Acero S275JR a 5,00 €/kg</div></div>
+      <div class="hb-item"><div class="hb-val">150,30 m²</div><div class="hb-lbl">Panel PUR 30 a 115,00 €/m²</div></div>
+      <div class="hb-item"><div class="hb-val">100% Atornillable</div><div class="hb-lbl">Estructura Mecano</div></div>
+      <div class="hb-item"><div class="hb-val">C3 / C4 Marino</div><div class="hb-lbl">Pintura HAM (Sin horno)</div></div>
+      <div class="hb-item"><div class="hb-val">H = 8,00 m</div><div class="hb-lbl">Montaje con Grúa y PEMP</div></div>
     </div>
 
     <table>
       <thead>
         <tr>
-          <th class="c" style="width: 32px;">Nº</th>
+          <th class="c" style="width: 28px;">Nº</th>
           <th>Concepto y Descripción de la Partida</th>
-          <th class="c" style="width: 35px;">Ud</th>
-          <th class="r" style="width: 48px;">Cant.</th>
+          <th class="c" style="width: 32px;">Ud</th>
+          <th class="r" style="width: 45px;">Cant.</th>
           <th class="r" style="width: 65px;">Precio (€)</th>
           <th class="r" style="width: 75px;">Importe (€)</th>
         </tr>
@@ -558,24 +600,24 @@ def create_html_client():
         <tr>
           <td class="c"><b>01</b></td>
           <td>
-            <b>CÁLCULO ESTRUCTURAL, INGENIERÍA Y PLANOS DE TALLER</b>
-            <div class="desc-text">Cálculo estructural según CTE DB-SE-AE (viento Zona C en Alaior) y DB-SE-A. Modelado BIM 3D, planos de taller, despiece analítico y replanteo de anclajes.</div>
+            <b>CÁLCULO ESTRUCTURAL, INGENIERÍA Y PLANOS DE FABRICACIÓN</b>
+            <div class="desc-text">Cálculo estructural según CTE DB-SE-AE (viento Zona C en Alaior) y DB-SE-A. Modelado BIM 3D, planos de taller, despiece analítico y plano de replanteo con cálculo de cargas para las zapatas de cimentación requeridas.</div>
           </td>
           <td class="c">PA</td>
           <td class="r">1,00</td>
-          <td class="r">980,00 €</td>
-          <td class="r"><b>980,00 €</b></td>
+          <td class="r">3.000,00 €</td>
+          <td class="r"><b>3.000,00 €</b></td>
         </tr>
         <tr>
           <td class="c"><b>02</b></td>
           <td>
-            <b>FABRICACIÓN EN TALLER DE ESTRUCTURA METÁLICA ATORNILLABLE (6.471 KG ACERO S275JR)</b>
-            <div class="desc-text">Fabricación integral de estructura tipo mecano (16x8x8 m). 10 pilares tubo 180x180x6 mm con placas base 350x350x20 mm y rigidizadores; 5 dinteles IPE 240; 10 jabalcones a 45° tubo 100x100x4 mm; vigas de coronación 120x120x5 mm; 8 líneas correas 100x50x3 mm; cruces de San Andrés Ø20 mm con tensores M20 8.8; tornillería de alta resistencia M16/M20 cincada.</div>
+            <b>FABRICACIÓN EN TALLER DE ESTRUCTURA METÁLICA ATORNILLABLE (6.471 KG A 5,00 €/KG)</b>
+            <div class="desc-text">Fabricación integral de estructura tipo mecano (16x8x8 m). 10 pilares tubo 180x180x6 mm con placas base 350x350x20 mm y rigidizadores; 5 dinteles IPE 240; 10 jabalcones a 45° tubo 100x100x4 mm; vigas coronación 120x120x5 mm; 8 líneas correas 100x50x3 mm; cruces San Andrés Ø20 mm con tensores M20 8.8; tornillería de alta resistencia M16/M20 cincada. Cotizado a 5,00 €/kg.</div>
           </td>
           <td class="c">Kg</td>
           <td class="r">6.471,00</td>
-          <td class="r">2,85 €</td>
-          <td class="r"><b>18.442,35 €</b></td>
+          <td class="r">5,00 €</td>
+          <td class="r"><b>32.355,00 €</b></td>
         </tr>
         <tr>
           <td class="c"><b>03</b></td>
@@ -591,13 +633,13 @@ def create_html_client():
         <tr>
           <td class="c"><b>04</b></td>
           <td>
-            <b>SUMINISTRO Y MONTAJE DE CUBIERTA EN PANEL SÁNDWICH PUR 30 MM Y REMATERÍA</b>
-            <div class="desc-text">Suministro e instalación sobre correas de 150,30 m² de panel sándwich de cubierta de 30 mm de espesor (PUR 40 kg/m³, chapa grecada exterior 0,5 mm prelacada e interior 0,4 mm blanco pirineo). Fijaciones bimetálicas autotaladrantes con arandelas de estanqueidad de EPDM. Remate troquelado de cumbrera y testeros laterales plegados.</div>
+            <b>SUMINISTRO Y MONTAJE DE CUBIERTA EN PANEL SÁNDWICH PUR 30 MM Y REMATERÍA (115,00 €/M²)</b>
+            <div class="desc-text">Suministro e instalación sobre correas de 150,30 m² de panel sándwich de cubierta de 30 mm (PUR 40 kg/m³, chapa grecada exterior 0,5 mm prelacada e interior 0,4 mm blanco pirineo). Fijaciones bimetálicas autotaladrantes con arandelas de estanqueidad de EPDM. Remate troquelado de cumbrera y testeros laterales plegados. Cotizado a 115,00 €/m².</div>
           </td>
           <td class="c">m²</td>
           <td class="r">150,30</td>
-          <td class="r">48,00 €</td>
-          <td class="r"><b>7.214,40 €</b></td>
+          <td class="r">115,00 €</td>
+          <td class="r"><b>17.284,50 €</b></td>
         </tr>
         <tr>
           <td class="c"><b>05</b></td>
@@ -629,33 +671,33 @@ def create_html_client():
           </td>
           <td class="c">PA</td>
           <td class="r">1,00</td>
-          <td class="r">4.180,00 €</td>
-          <td class="r"><b>4.180,00 €</b></td>
+          <td class="r">12.180,00 €</td>
+          <td class="r"><b>12.180,00 €</b></td>
         </tr>
       </tbody>
     </table>
 
     <div class="totals-area">
       <div class="totals-box">
-        <div class="t-row"><span>SUBTOTAL NETO:</span><span>41.194,75 €</span></div>
-        <div class="t-row"><span>I.V.A. (21%):</span><span>8.650,90 €</span></div>
-        <div class="t-row"><span>TOTAL PRESUPUESTO:</span><span>49.845,65 €</span></div>
+        <div class="t-row"><span>SUBTOTAL NETO (B.I.):</span><span>75.197,50 €</span></div>
+        <div class="t-row"><span>I.V.A. (21%):</span><span>15.791,48 €</span></div>
+        <div class="t-row"><span>TOTAL PRESUPUESTO:</span><span>90.988,98 €</span></div>
       </div>
     </div>
 
     <div class="conditions">
-      <div class="cond-title">Condiciones de Contratación y Ejecución:</div>
+      <div class="cond-title">Condiciones de Contratación y Exclusiones:</div>
       <ul class="cond-list">
-        <li><b>Forma de pago:</b> 40% a la confirmación del pedido y acopio de acero/panel; 30% a la finalización de fabricación en taller previo a carga; 30% a la finalización del montaje y recepción.</li>
-        <li><b>Plazo de ejecución:</b> 3 a 4 semanas para fabricación y pintura en taller tras aprobación de planos; 6 a 8 días laborables para montaje in situ en Alaior.</li>
-        <li><b>Exclusiones:</b> Obra civil de solera o zapatas de cimentación (se presupuesta anclaje sobre hormigón existente según especificación técnica), acometidas eléctricas e iluminación, tasas o licencias municipales de obras.</li>
+        <li><b>EXCLUSIÓN EXPRESA DE CIMENTACIÓN:</b> No se incluye la ejecución de zapatas de cimentación (necesarias) ni solera. Dichos trabajos serán contratados directamente por el cliente conforme a las directrices de replanteo que entregará DIXIS.</li>
+        <li><b>Forma de pago:</b> 40% a la confirmación del pedido y acopio; 30% a la finalización de fabricación en taller previo a carga; 30% a la finalización del montaje y recepción.</li>
+        <li><b>Plazo de ejecución:</b> 3 a 4 semanas para fabricación y pintura en taller tras validación técnica; 6 a 8 días laborables para montaje in situ en Alaior una vez ejecutadas y fraguadas las zapatas.</li>
         <li><b>Garantía:</b> 10 años en estabilidad estructural según LOE y 3 años en estanqueidad de cubierta y fijaciones.</li>
       </ul>
     </div>
 
     <footer>
       <div>DIXIS RECURSOS Y SOLUCIONES S.L. • CIF: B57825432 • Circunval·lació 11, Sant Lluís (Menorca) • Tel: 669 769 541</div>
-      <div>Página 1 de 1 • Oferta P-2026-0050</div>
+      <div>Página 1 de 1 • Oferta P-2026-0050 Rev. 1</div>
     </footer>
   </div>
 </body>
@@ -672,7 +714,7 @@ def create_html_technical():
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>P-2026-0050 Presupuesto Técnico Interno: Marquesina Atornillable 16x8x8m Alaior</title>
+  <title>P-2026-0050 Presupuesto Técnico Interno (Rev. 1): Marquesina Atornillable 16x8x8m Alaior</title>
   <style>
     @page {{
       size: A4 portrait;
@@ -727,6 +769,17 @@ def create_html_technical():
     .box-val {{ font-size: 11px; font-weight: 800; color: #0f172a; }}
     .box-sub {{ font-size: 7.5px; color: #64748b; }}
 
+    .alert-box {{
+      background: #fef2f2;
+      border: 1.5px solid #dc2626;
+      border-radius: 4px;
+      padding: 6px 10px;
+      margin-bottom: 8px;
+      font-size: 8px;
+      color: #991b1b;
+      line-height: 1.35;
+    }}
+
     table {{ width: 100%; border-collapse: collapse; margin-bottom: 8px; }}
     th {{
       background: #0f172a;
@@ -758,7 +811,6 @@ def create_html_technical():
       color: #334155;
     }}
     .badge-ok {{ background: #dcfce7; color: #166534; }}
-    .badge-alert {{ background: #fef3c7; color: #92400e; }}
 
     .escandallo-grid {{
       display: grid;
@@ -783,11 +835,15 @@ def create_html_technical():
   <div class="sheet">
     <header>
       <div>
-        <div class="header-title">PRESUPUESTO TÉCNICO INTERNO • P-2026-0050</div>
+        <div class="header-title">PRESUPUESTO TÉCNICO INTERNO • P-2026-0050 (REV. 1)</div>
         <div class="header-sub">Proyecto: Marquesina Industrial Atornillable 16x8x8 m • Nautic KIM (Alaior)</div>
       </div>
       <div class="header-tag">DOCUMENTO DE USO TÉCNICO INTERNO</div>
     </header>
+
+    <div class="alert-box">
+      <b>NOTA TÉCNICA DE CIMENTACIÓN:</b> <b>No se incluye zapatas ni solera</b>. Al tratarse de pilares de 8 metros de altura con viento en Alaior (Zona C), el momento de vuelco en base requiere zapatas aisladas de hormigón armado de dimensiones estimadas de 1,60 x 1,60 x 0,90 m con parrilla B500S. La definición geométrica de las zapatas y pernos será entregada al calculista / constructor del cliente en la Partida 01.
+    </div>
 
     <div class="grid-3">
       <div class="box">
@@ -925,7 +981,7 @@ def create_html_technical():
         <tr style="background: #fef3c7; font-weight: 800;">
           <td colspan="6"><b>TOTAL ACERO ESTRUCTURAL S275JR CALCULADO (Kg)</b></td>
           <td class="r" style="color: #92400e; font-size: 9.5px;"><b>6.471,00 kg</b></td>
-          <td><b>Ratio: 43,05 kg / m² cubierta</b></td>
+          <td><b>Cotizado a 5,00 €/kg = 32.355,00 €</b></td>
         </tr>
       </tbody>
     </table>
@@ -942,7 +998,7 @@ def create_html_technical():
     </div>
 
     <footer>
-      <div>DIXIS RECURSOS Y SOLUCIONES S.L. • HAM Menorca • P-2026-0050</div>
+      <div>DIXIS RECURSOS Y SOLUCIONES S.L. • HAM Menorca • P-2026-0050 Rev. 1</div>
       <div>Página 1 de 2 • Desglose Estructural</div>
     </footer>
   </div>
@@ -951,7 +1007,7 @@ def create_html_technical():
   <div class="sheet">
     <header>
       <div>
-        <div class="header-title">PRESUPUESTO TÉCNICO INTERNO • P-2026-0050 (CONTINUACIÓN)</div>
+        <div class="header-title">PRESUPUESTO TÉCNICO INTERNO • P-2026-0050 (REV. 1)</div>
         <div class="header-sub">Desglose Operativo de Mano de Obra, Medios Auxiliares y Escandallo de Costes</div>
       </div>
       <div class="header-tag">DOCUMENTO DE USO TÉCNICO INTERNO</div>
@@ -1114,23 +1170,26 @@ def create_html_technical():
             <tr><th>Concepto Económico</th><th class="r">Importe (€)</th><th class="r">% s/ Venta</th></tr>
           </thead>
           <tbody>
-            <tr><td>Coste Acero S275JR (6.471 kg)</td><td class="r">11.647,80 €</td><td class="r">28,3%</td></tr>
-            <tr><td>Coste Panel Sándwich PUR 30 mm y Remates</td><td class="r">4.208,40 €</td><td class="r">10,2%</td></tr>
-            <tr><td>Coste Pintura Epoxi + Poliuretano 2C HAM</td><td class="r">1.450,00 €</td><td class="r">3,5%</td></tr>
-            <tr><td>Coste Tornillería 8.8 y Anclajes Hilti M20</td><td class="r">820,00 €</td><td class="r">2,0%</td></tr>
-            <tr><td>Coste Mano de Obra Taller e Ingeniería (164 h)</td><td class="r">4.264,00 €</td><td class="r">10,4%</td></tr>
-            <tr><td>Coste Mano de Obra Montaje Alaior (222 h)</td><td class="r">6.216,00 €</td><td class="r">15,1%</td></tr>
-            <tr><td>Coste Medios Auxiliares y Transporte</td><td class="r">3.310,00 €</td><td class="r">8,0%</td></tr>
+            <tr><td>Coste Acero S275JR (6.471 kg)</td><td class="r">11.647,80 €</td><td class="r">15,5%</td></tr>
+            <tr><td>Coste Panel Sándwich PUR 30 mm y Remates</td><td class="r">4.208,40 €</td><td class="r">5,6%</td></tr>
+            <tr><td>Coste Pintura Epoxi + Poliuretano 2C HAM</td><td class="r">1.450,00 €</td><td class="r">1,9%</td></tr>
+            <tr><td>Coste Tornillería 8.8 y Anclajes Hilti M20</td><td class="r">820,00 €</td><td class="r">1,1%</td></tr>
+            <tr><td>Coste Mano de Obra Taller e Ingeniería (164 h)</td><td class="r">4.264,00 €</td><td class="r">5,7%</td></tr>
+            <tr><td>Coste Mano de Obra Montaje Alaior (222 h)</td><td class="r">6.216,00 €</td><td class="r">8,3%</td></tr>
+            <tr><td>Coste Medios Auxiliares y Transporte</td><td class="r">3.310,00 €</td><td class="r">4,4%</td></tr>
             <tr style="background: #e2e8f0; font-weight: 800;">
               <td><b>COSTE DIRECTO TOTAL (CD)</b></td>
               <td class="r"><b>31.916,20 €</b></td>
-              <td class="r"><b>77,5%</b></td>
+              <td class="r"><b>42,4%</b></td>
             </tr>
-            <tr><td>Gastos Generales (GG 10,0%)</td><td class="r">3.191,62 €</td><td class="r">7,7%</td></tr>
-            <tr><td>Beneficio Industrial (BI 14,8%)</td><td class="r">6.086,93 €</td><td class="r">14,8%</td></tr>
+            <tr style="background: #dcfce7; font-weight: 800; color: #166534;">
+              <td><b>MARGEN BRUTO COMERCIAL E INDUSTRIAL</b></td>
+              <td class="r"><b>43.281,30 €</b></td>
+              <td class="r"><b>57,6%</b></td>
+            </tr>
             <tr style="background: #fef3c7; font-weight: 800; color: #92400e;">
               <td><b>PRECIO DE VENTA NETO (B.I.)</b></td>
-              <td class="r"><b>41.194,75 €</b></td>
+              <td class="r"><b>75.197,50 €</b></td>
               <td class="r"><b>100,0%</b></td>
             </tr>
           </tbody>
@@ -1139,7 +1198,7 @@ def create_html_technical():
     </div>
 
     <footer>
-      <div>DIXIS RECURSOS Y SOLUCIONES S.L. • HAM Menorca • P-2026-0050</div>
+      <div>DIXIS RECURSOS Y SOLUCIONES S.L. • HAM Menorca • P-2026-0050 Rev. 1</div>
       <div>Página 2 de 2 • Desglose Técnico y Económico</div>
     </footer>
   </div>
@@ -1176,4 +1235,4 @@ if __name__ == "__main__":
     tech_pdf = os.path.join(BASE_DIR, "presupuesto-interno-tecnico.pdf")
     convert_to_pdf(tech_html, tech_pdf)
     
-    print("\nTodos los documentos han sido creados correctamente.")
+    print("\nTodos los documentos actualizados correctamente.")
