@@ -30,6 +30,11 @@ Esta propuesta se ha formulado a partir de un **pre-cálculo estructural estimat
 - **I.V.A. (21%):** **15.791,48 €**  
 - **TOTAL PRESUPUESTO:** **90.988,98 €**  
 
+### Condiciones Comerciales:
+- **Forma de pago:** 100% a la aceptación del presupuesto.
+- **Plazo de ejecución:** 3 meses a partir de la aceptación del presupuesto y confirmación técnica.
+- **Validez de la oferta:** 30 días naturales.  
+
 ---
 
 ### ⚠️ Exclusión Expresa de Cimentación:

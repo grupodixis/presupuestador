@@ -1,6 +1,6 @@
 {
   "codigo": "P-2026-0050",
-  "referencia": "PRE-2026-1102-MARQ-NAUTIC-REV2",
+  "referencia": "PRE-2026-1102-MARQ-NAUTIC-REV3",
   "fecha": "2 de noviembre de 2026",
   "cliente": {
     "empresa": "Nautic KIM",
@@ -162,6 +162,11 @@
     "subtotal_neto": 75197.50,
     "iva_21": 15791.48,
     "total_iva_incluido": 90988.98
+  },
+  "condiciones_comerciales": {
+    "forma_de_pago": "100% a la aceptación del presupuesto",
+    "plazo_de_ejecucion": "3 meses a partir de la aceptación del presupuesto y confirmación técnica",
+    "validez_oferta": "30 días naturales"
   },
   "exclusiones_expresas": [
     "NO SE INCLUYE la ejecución de zapatas de cimentación de hormigón armado (estrictamente necesarias para absorber las cargas axiles y momentos de vuelco por viento en Menorca) ni solera.",

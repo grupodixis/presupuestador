@@ -318,8 +318,8 @@ def create_html_client():
       <ul class="cond-list">
         <li><b>EXCLUSIÓN EXPRESA DE CIMENTACIÓN:</b> No se incluye la ejecución de zapatas de cimentación (necesarias) ni solera. Dichos trabajos serán contratados directamente por el cliente conforme a las directrices de replanteo que entregará DIXIS.</li>
         <li><b>Naturaleza de la oferta:</b> Presupuesto aproximado formulado sobre pre-cálculo estructural preliminar.</li>
-        <li><b>Forma de pago:</b> 40% a la confirmación del pedido y acopio; 30% a la finalización de fabricación en taller previo a carga; 30% a la finalización del montaje y recepción.</li>
-        <li><b>Plazo de ejecución:</b> 3 a 4 semanas para fabricación y pintura en taller tras validación técnica; 6 a 8 días laborables para montaje in situ en Alaior una vez ejecutadas y fraguadas las zapatas.</li>
+        <li><b>Forma de pago:</b> 100% a la aceptación del presupuesto.</li>
+        <li><b>Plazo de ejecución:</b> 3 meses a partir de la aceptación del presupuesto y confirmación técnica.</li>
         <li><b>Garantía:</b> 10 años en estabilidad estructural según LOE y 3 años en estanqueidad de cubierta y fijaciones.</li>
       </ul>
     </div>

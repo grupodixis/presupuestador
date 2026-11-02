@@ -79,3 +79,20 @@ La cubierta se resuelve con pendiente a un agua (~7,5 %) hacia fachada posterior
   - Coste Directo Total (CD): **31.916,20 €** (42,4% s/ venta)
   - Margen Bruto Comercial e Industrial: **43.281,30 €** (57,6% s/ venta)
   - Precio de Venta Neto (B.I.): **75.197,50 €**
+
+---
+
+## 7. Condiciones Comerciales
+- **Forma de pago:** 100% a la aceptación del presupuesto.
+- **Plazo de ejecución:** 3 meses a partir de la aceptación del presupuesto y confirmación técnica.
+- **Validez de la oferta:** 30 días naturales.
+- **Garantía:** 10 años en estabilidad estructural según LOE y 3 años en estanqueidad de cubierta y fijaciones.
+
+---
+
+## 8. Archivos y Entregables
+- `presupuesto-cliente.pdf`: Oferta comercial en PDF para Nautic KIM / Mariano (único documento entregable oficial).
+- `presupuesto-interno-tecnico.pdf`: Memoria técnica operativa interna con desglose de tareas, horas y escandallo.
+- `calculo_estructural.md`: Memoria de pre-cálculo preliminar según CTE DB-SE-AE (viento Alaior).
+- `email_envio_oferta.md`: Borrador de correo para Mariano.
+- `datos.json`: Datos estructurados del proyecto.
