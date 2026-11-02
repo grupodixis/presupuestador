@@ -42,10 +42,10 @@ If both items are ordered and installed together, we apply a combined discount r
 ### 3. Key Scope Details & Coastal Suitability
 
 * **Included in Installation:** Careful dismantling and removal of existing door and window frames, transportation to Cala Molí, mechanical fitting and levelling, weather-resistant sealing using high-elasticity MS polymer suitable for marine exposure, complete perimeter aluminium finishing trims, and disposal of all old frames and debris at an authorised waste transfer facility in Menorca.
-* **Excluded:** Any major building/masonry repairs (rendering, plaster rebuilding) or decorative painting of walls.
+* **Excluded:** Any civil works, masonry, rendering, plaster rebuilding, or tile repairs in the event of wall breakage or damage caused during the extraction/removal of the old existing openings/frames, as well as decorative painting of walls.
 * **Coastal Setting:** All profiles include marine-grade Qualicoat Seaside surface pretreatment for maximum corrosion protection against north-coast salt air, paired with stainless steel fixings and high-durability hardware.
 * **Lead Time:** Approximately **4 to 6 weeks** from final on-site measurement check and colour confirmation (the matt green RAL 6009 requires a dedicated architectural coating cycle). Installation will take **1 working day**.
-* **Payment Terms:** 50% deposit upon formal order confirmation and site survey; remaining 50% upon satisfactory completion and handover.
+* **Payment Terms:** 100% upon acceptance of the quotation.
 * **Quotation Validity:** 30 calendar days.
 * **Site Survey & Measurements:** As noted, these prices are based on the dimensions provided. Prior to manufacturing, our technical team will carry out an on-site visit to verify the exact structural opening dimensions and confirm the handing/opening direction. Whenever you are on the island or can grant access, we will arrange this survey.
 

@@ -224,7 +224,9 @@ def create_excel():
     row_idx += 1
     ws.cell(row=row_idx, column=1, value="• Plazo de fabricación: 4 a 6 semanas (lacado verde específico) | Montaje: 1 jornada de trabajo.").font = font_reg
     row_idx += 1
-    ws.cell(row=row_idx, column=1, value="• Forma de pago: 50% a la confirmación del pedido y replanteo de medidas; 50% al finalizar la instalación.").font = font_reg
+    ws.cell(row=row_idx, column=1, value="• Forma de pago: 100% a la aceptación del presupuesto.").font = font_reg
+    row_idx += 1
+    ws.cell(row=row_idx, column=1, value="• Exclusiones: No se incluye obra civil ni albañilería en caso de roturas por la extracción de aberturas antiguas, ni pintura.").font = font_reg
     row_idx += 1
     ws.cell(row=row_idx, column=1, value="• Validez de la oferta: 30 días. Incluye desmontaje de existentes, transporte a Cala Molí, montaje, sellado MS y gestión de residuos.").font = font_reg
     row_idx += 1

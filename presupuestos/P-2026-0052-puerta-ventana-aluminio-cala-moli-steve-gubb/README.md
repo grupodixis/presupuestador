@@ -82,10 +82,11 @@ El cliente ha solicitado explícitamente el precio por separado de cada elemento
 ## 5. Condiciones Comerciales y Técnicas
 
 1. **Plazo de entrega:** Fabricación estimada en **4 a 6 semanas** desde el replanteo de medidas in situ y validación de acabados (debido al lacado especial verde RAL 6009 mate). Montaje en 1 jornada de trabajo.
-2. **Forma de pago:** 50% a la confirmación del pedido y replanteo de medidas; 50% a la finalización y entrega satisfactoria de los trabajos.
-3. **Validez:** 30 días naturales desde la fecha de emisión.
-4. **Garantía:** 3 años en perfiles, herrajes y estanqueidad según normativa vigente.
-5. **Criterio de medición:** Precios iniciales sujetos a comprobación dimensional definitiva en obra por los técnicos de ALUFAC antes de ordenar el corte de perfiles.
+2. **Forma de pago:** 100% a la aceptación del presupuesto.
+3. **Exclusiones expresas:** Queda expresamente excluida cualquier obra civil o reparación de albañilería en caso de roturas, desconchados o desperfectos ocasionados durante la extracción de las aberturas antiguas existentes (reconstrucción de mochetas, azulejos, repellos o recebados), así como pintura de paredes.
+4. **Validez:** 30 días naturales desde la fecha de emisión.
+5. **Garantía:** 3 años en perfiles, herrajes y estanqueidad según normativa vigente.
+6. **Criterio de medición:** Precios iniciales sujetos a comprobación dimensional definitiva en obra por los técnicos de ALUFAC antes de ordenar el corte de perfiles.
 
 ---
 

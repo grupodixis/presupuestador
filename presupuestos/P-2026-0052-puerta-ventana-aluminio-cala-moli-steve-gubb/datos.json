@@ -98,7 +98,7 @@
     }
   },
   "condiciones": {
-    "forma_pago": "50% a la confirmación del pedido y replanteo de medidas; 50% a la finalización y entrega de los trabajos",
+    "forma_pago": "100% a la aceptación del presupuesto",
     "validez": "30 días",
     "garantia": "3 años en estanqueidad, herrajes y perfiles según legislación vigente",
     "incluido": [
@@ -107,7 +107,7 @@
       "Vidrios dobles según especificación con vidrio laminar de seguridad en la puerta conforme a CTE DB-SUA",
       "Herrajes completos de alta durabilidad, manillas, bisagras y cerradura con cilindro de seguridad",
       "Remates perimetrales de aluminio y solape curvo de 50 mm clipado en ventana",
-      "Desmontaje cuidadoso de la puerta y ventana existentes y retirada de los marcos antiguos",
+      "Desmontaje de la puerta y ventana existentes y retirada de los marcos antiguos",
       "Transporte directo hasta la vivienda en Cala Molí (Es Mercadal)",
       "Montaje, nivelación, aplomado y fijación mecánica mediante tornillería de acero inoxidable",
       "Sellado exterior perimetral de estanqueidad mediante polímero MS de alta elasticidad y resistencia salina",
@@ -115,8 +115,8 @@
       "Visita técnica de replanteo y verificación dimensional definitiva previa a la fabricación"
     ],
     "excluido": [
-      "Trabajos de albañilería mayor (reconstrucción de mochetas, recrecidos o repellos de mortero)",
-      "Pintura o retoques de revestimientos en paramentos de fachada o interiores",
+      "Cualquier trabajo de obra civil o albañilería en caso de roturas o desperfectos derivados de la extracción de las aberturas antiguas existentes (reconstrucción de mochetas, azulejos, repellos o recebados)",
+      "Pintura o retoques decorativos de revestimientos en paramentos de fachada o interiores",
       "Medios auxiliares especiales o grúas de elevación no requeridos para este acceso",
       "Permisos, licencias o tasas municipales de obras si fuesen requeridas"
     ]
