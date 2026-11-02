@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memoria Técnica Operativa P-2026-0051 • Dintel de Obra Compuesto por 2 Perfiles UPE 200 con Unión Soldada In Situ y Sistema C5 Marino Acabado Blanco</title>
+  <style>
+    :root {
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --soft: #f8fafc;
+      --brand: #0f172a;
+      --accent: #b45309;
+      --card-bg: #f1f5f9;
+      --tech-blue: #0369a1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #cbd5e1;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+      padding: 16mm 18mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 6px solid var(--tech-blue);
+      padding-top: 12px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--line);
+    }
+    .title-group h1 {
+      margin: 0;
+      color: var(--brand);
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .title-group p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 11.5px;
+    }
+    .badge-tech {
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 11.5px;
+      font-family: monospace;
+    }
+    h3 {
+      margin: 14px 0 6px;
+      color: var(--tech-blue);
+      font-size: 13.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      border-bottom: 1.5px solid var(--line);
+      padding-bottom: 3px;
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 8px 0 12px;
+    }
+    .tech-box {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 8px 10px;
+    }
+    .tech-box .lbl {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .tech-box .val {
+      font-weight: 700;
+      color: var(--brand);
+      font-size: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 14px;
+    }
+    th {
+      background: var(--tech-blue);
+      color: #fff;
+      font-size: 11px;
+      text-align: left;
+      padding: 6px 8px;
+      text-transform: uppercase;
+    }
+    td {
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--line);
+      font-size: 11.5px;
+    }
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    .c { text-align: center; }
+    .r { text-align: right; }
+    .bold { font-weight: 700; }
+    .alert-box {
+      background: #eff6ff;
+      border-left: 4px solid var(--tech-blue);
+      padding: 8px 12px;
+      margin: 10px 0;
+      font-size: 11.5px;
+      color: #1e3a8a;
+      border-radius: 0 4px 4px 0;
+    }
+    .procedure {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 12px;
+      margin: 8px 0;
+    }
+    .procedure ol {
+      margin: 4px 0 4px 18px;
+      padding: 0;
+      font-size: 11px;
+      color: var(--ink);
+    }
+    .procedure li {
+      margin: 4px 0;
+    }
+    footer {
+      margin-top: 14px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 10px;
+    }
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+      body { background: #fff; }
+      .page {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        box-shadow: none;
+        padding: 12mm 15mm;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div>
+      <header>
+        <div class="title-group">
+          <h1>MEMORIA TÉCNICA Y OPERATIVA DE TALLER Y OBRA</h1>
+          <p>Proyecto P-2026-0051 • Gerard Vallmajó • Coordinación técnica con Joan</p>
+        </div>
+        <div class="badge-tech">USO INTERNO / OFICINA TÉCNICA</div>
+      </header>
+
+      <h3>1. Justificación Estructural y Dimensionamiento (Cálculo de Joan)</h3>
+      <div class="tech-grid">
+        <div class="tech-box">
+          <span class="lbl">Perfil Estructural</span>
+          <span class="val">2 x UPE 200 (S275 EN 10025-2)</span>
+        </div>
+        <div class="tech-box">
+          <span class="lbl">Configuración Seccional</span>
+          <span class="val">Doble en I unión soldada</span>
+        </div>
+        <div class="tech-box">
+          <span class="lbl">Luz Cálculo / Longitud Perfil</span>
+          <span class="val">L = 2,66 m / Perfiles: 3,20 m</span>
+        </div>
+        <div class="tech-box">
+          <span class="lbl">Peso Acero Total</span>
+          <span class="val">145,92 kg (45,6 kg/m compuesto)</span>
+        </div>
+        <div class="tech-box">
+          <span class="lbl">Momento Flector Cálculo</span>
+          <span class="val">MEd+ = 2,084 t·m (η = 35,5%)</span>
+        </div>
+        <div class="tech-box">
+          <span class="lbl">Cortante Máximo Cálculo</span>
+          <span class="val">VEd = 3,133 t (η = 15,1%)</span>
+        </div>
+      </div>
+
+      <div class="alert-box">
+        <strong>Conclusión del Estudio Estructural:</strong> La sección compuesta por 2 UPE 200 en acero S275 cumple holgadamente con el Código Estructural a temperatura ambiente y en situación de incendio R 30 (η = 49,6% con 6 mm de lana de roca). Los apoyos disponen de ~27 cm de entrega a cada extremo.
+      </div>
+
+      <h3>2. Procedimiento Operativo de Fabricación, Montaje y Soldadura</h3>
+      <div class="procedure">
+        <ol>
+          <li><strong>Corte y mecanizado en taller:</strong> Corte a sierra de cinta de los 2 perfiles UPE 200 a 3.200 mm. Trazado y taladrado de perforaciones pasantes Ø22 mm en el alma de uno de los perfiles con espaciado regular (8-10 uds) para permitir el botón de soldadura (plug weld). Chaflanado inferior de 45° para el cordón discontinuo.</li>
+          <li><strong>Pintura C5 Marino Blanco en taller (Regla estricta HAM: SIN HORNO):</strong> Granallado/limpieza Sa 2½, imprimación epoxi fosfato de zinc 75-80 µm, capa intermedia epoxi barrera 100-120 µm y acabado esmalte poliuretano alifático 2C color blanco 50-60 µm (DFT ≥ 240 µm).</li>
+          <li><strong>Logística y acarreo:</strong> Transporte de los perfiles protegidos. Subida manual e individual (~73 kg/ud) al interior del apartamento para evitar daños y facilitar manipulación en espacios reducidos.</li>
+          <li><strong>Montaje in situ en apartamento:</strong> Despliegue de mantas ignífugas de fibra de vidrio para protección total de solados y cerramientos contiguos. Presentación de perfiles sobre apoyos y prensado con mordazas mecánicas para unión íntima de almas.</li>
+          <li><strong>Soldadura in situ:</strong> Ejecución de botones de soldadura por penetración completa a través de las perforaciones del alma y ejecución de cordones discontinuos (50 mm cada 250 mm) en la arista inferior.</li>
+          <li><strong>Pasivación y retoque C5 Marino:</strong> Desescoriado, esmerilado, aplicación de imprimación rica en zinc y esmalte poliuretano alifático bicomponente blanco para sellar y restituir la protección anticorrosiva marina en todas las zonas soldadas.</li>
+        </ol>
+      </div>
+
+      <h3>3. Escandallo de Costes Directos y Margen Bruto</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto de Coste</th>
+            <th>Tipo Recurso</th>
+            <th class="r">Medición</th>
+            <th class="r">Coste Directo</th>
+            <th class="r">PVP Venta</th>
+            <th class="r">Margen Bruto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Perfiles UPE 200 (6,40 m / 146 kg)</td>
+            <td>Acero laminado S275</td>
+            <td class="r">146,00 kg</td>
+            <td class="r">211,70 €</td>
+            <td class="r bold">320,00 €</td>
+            <td class="r">108,30 €</td>
+          </tr>
+          <tr>
+            <td>Mecanizado de almas y biselado</td>
+            <td>Mano obra taller (3,5 h)</td>
+            <td class="r">3,50 h</td>
+            <td class="r">98,00 €</td>
+            <td class="r bold">180,00 €</td>
+            <td class="r">82,00 €</td>
+          </tr>
+          <tr>
+            <td>Sistema C5 Marino Blanco (sin horno)</td>
+            <td>Tratamiento epoxi + PU 2C</td>
+            <td class="r">5,00 m²</td>
+            <td class="r">160,00 €</td>
+            <td class="r bold">320,00 €</td>
+            <td class="r">160,00 €</td>
+          </tr>
+          <tr>
+            <td>Transporte, embalaje y acarreo piso</td>
+            <td>Logística Menorca</td>
+            <td class="r">1,00 pa</td>
+            <td class="r">95,00 €</td>
+            <td class="r bold">210,00 €</td>
+            <td class="r">115,00 €</td>
+          </tr>
+          <tr>
+            <td>Montaje, soldadura y protecciones</td>
+            <td>Mano obra obra (8,0 h)</td>
+            <td class="r">8,00 h</td>
+            <td class="r">256,00 €</td>
+            <td class="r bold">540,00 €</td>
+            <td class="r">284,00 €</td>
+          </tr>
+          <tr>
+            <td>Sellado y retoque C5 Marino in situ</td>
+            <td>Mano obra y pintura (2,0 h)</td>
+            <td class="r">2,00 h</td>
+            <td class="r">64,00 €</td>
+            <td class="r bold">150,00 €</td>
+            <td class="r">86,00 €</td>
+          </tr>
+          <tr style="background: #f1f5f9; font-weight: 800; border-top: 2px solid var(--tech-blue);">
+            <td colspan="3">TOTALES ESCANDALLO DIRECTO:</td>
+            <td class="r">884,70 €</td>
+            <td class="r" style="color: var(--tech-blue); font-size: 13px;">1.720,00 €</td>
+            <td class="r" style="color: #059669; font-size: 13px;">835,30 € (48,6%)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      <div>DIXIS RECURSOS Y SOLUCIONES S.L. • HAM Menorca • Oficina Técnica</div>
+      <div>P-2026-0051 • Memoria Técnica Operativa • Hoja 1 de 1</div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
   "codigo": "P-2026-0050",
-  "referencia": "PRE-2026-1102-MARQ-NAUTIC",
+  "referencia": "PRE-2026-1102-MARQ-NAUTIC-REV1",
   "fecha": "2 de noviembre de 2026",
   "cliente": {
     "empresa": "Nautic KIM",
@@ -31,118 +31,91 @@
       "superficie_cubierta_real": "150,30 m² (16,70 m longitud total de chapa x 9,00 m desarrollo de faldón con aleros)",
       "separacion_porticos": "4,00 m entre ejes (5 pórticos transversales)"
     },
-    "normativa_aplicable": "Código Técnico de la Edificación (CTE DB-SE, DB-SE-A Acero, DB-SE-AE Acciones). Eurocódigo 3. Cargas de viento Alaior Zona C (qb=0,52 kN/m², Grado Aspereza III, qp=1,00 kN/m²)."
+    "normativa_aplicable": "Código Técnico de la Edificación (CTE DB-SE, DB-SE-A Acero, DB-SE-AE Acciones). Cargas de viento Alaior Zona C (qb=0,52 kN/m², Grado Aspereza III, qp=1,00 kN/m²)."
   },
   "calculo_estructural": {
     "resumen_kg_acero": {
       "pilares": {
         "perfil": "Tubo estructural hueco cuadrado 180x180x6 mm (S275JR)",
         "unidades": 10,
-        "longitud_unitaria_m": 8.00,
-        "longitud_total_m": 80.00,
-        "peso_lineal_kg_m": 31.70,
-        "peso_total_kg": 2536.00
+        "longitud_unitaria_m": 8.0,
+        "longitud_total_m": 80.0,
+        "peso_lineal_kg_m": 31.7,
+        "peso_total_kg": 2536.0
       },
       "dinteles_principales": {
         "perfil": "Viga laminada en caliente IPE 240 (S275JR)",
         "unidades": 5,
-        "longitud_unitaria_m": 8.00,
-        "longitud_total_m": 40.00,
-        "peso_lineal_kg_m": 30.70,
-        "peso_total_kg": 1228.00
+        "longitud_unitaria_m": 8.0,
+        "longitud_total_m": 40.0,
+        "peso_lineal_kg_m": 30.7,
+        "peso_total_kg": 1228.0
       },
       "jabalcones_cartelas_nudos": {
         "perfil": "Tubo estructural 100x100x4 mm a 45° en unión pilar-dintel",
         "unidades": 10,
-        "longitud_unitaria_m": 1.40,
-        "longitud_total_m": 14.00,
-        "peso_lineal_kg_m": 11.70,
-        "peso_total_kg": 163.80
+        "longitud_unitaria_m": 1.4,
+        "longitud_total_m": 14.0,
+        "peso_lineal_kg_m": 11.7,
+        "peso_total_kg": 163.8
       },
       "vigas_atado_cabeza": {
         "perfil": "Tubo estructural 120x120x5 mm (líneas longitudinales de coronación)",
         "unidades": 2,
-        "longitud_unitaria_m": 16.00,
-        "longitud_total_m": 32.00,
-        "peso_lineal_kg_m": 17.50,
-        "peso_total_kg": 560.00
+        "longitud_unitaria_m": 16.0,
+        "longitud_total_m": 32.0,
+        "peso_lineal_kg_m": 17.5,
+        "peso_total_kg": 560.0
       },
       "correas_cubierta": {
         "perfil": "Tubo rectangular 100x50x3 mm (separación ~1,25 m)",
         "unidades": 8,
-        "longitud_unitaria_m": 16.70,
-        "longitud_total_m": 133.60,
+        "longitud_unitaria_m": 16.7,
+        "longitud_total_m": 133.6,
         "peso_lineal_kg_m": 6.62,
         "peso_total_kg": 884.43
       },
       "arriostramientos_cruces_san_andres": {
         "perfil": "Redondo macizo calibrado Ø20 mm con tensores M20 8.8 (cubierta y fachadas)",
-        "longitud_total_m": 108.00,
+        "longitud_total_m": 108.0,
         "peso_lineal_kg_m": 2.47,
         "peso_total_kg": 386.76
       },
       "placas_anclaje_cartelas_tornilleria": {
         "descripcion": "10 placas base 350x350x20 mm, cartelas rigidizadoras, pletinas de cabeza, casquillos de unión y tornillería estructural M16/M20 8.8 cincada",
-        "peso_total_kg": 712.00
+        "peso_total_kg": 712.0
       },
       "peso_total_estructura_kg": 6470.99
-    },
-    "comprobaciones_cte": {
-      "flecha_dintel_ipe240": "11,2 mm (< L/400 = 20,0 mm -> CUMPLE)",
-      "pandeo_pilares_180x180x6": "Esbeltez reducida λ=0,94. Axil resistente Nb,Rd = 581 kN >> N,Ed = 32 kN (CUMPLE)",
-      "estabilidad_viento_vuelco": "Favorable mediante arriostramientos verticales y anclajes químicos estructurales Hilti M20 en 10 apoyos (CUMPLE)"
     }
   },
   "acabado_pintura": {
-    "sistema": "Tratamiento HAM conforme a normativa anticorrosiva C3/C4 ambiente industrial Menorca (NUNCA al horno)",
-    "fases": [
-      "Preparación de superficie y desengrasado con chorreado / limpieza mecánica grado Sa 2.5 / St 3",
-      "Imprimación anticorrosiva epoxídica bicomponente de alto espesor (60-80 µm secas)",
-      "Esmalte de acabado poliuretano alifático bicomponente 2C especial intemperie y resistencia a rayos UV (50-60 µm secas). Color RAL a elegir por el cliente"
-    ]
-  },
-  "panel_cubierta": {
-    "tipo": "Panel sándwich de cubierta PUR de 30 mm",
-    "especificacion": "Espesor 30 mm, núcleo de espuma rígida de poliuretano 40 kg/m³, chapa exterior grecada de 0,5 mm prelacada, chapa interior grecada de 0,4 mm blanco pirineo",
-    "superficie_m2": 150.30,
-    "remates": "Cumbrera троquelada prelacada, remates laterales testero plegados 0,6 mm, canalón galvanizado prelacado desarrollo 400 mm (16,7 ml) y 2 bajantes pluviales hasta suelo"
-  },
-  "mano_obra_tecnica": {
-    "oficina_tecnica_horas": 24,
-    "taller_fabricacion_horas": 140,
-    "montaje_obra_horas": 222,
-    "total_horas": 386
-  },
-  "medios_auxiliares": {
-    "camion_grua_horas": 16,
-    "plataforma_elevadora_dias": 7,
-    "transporte_despiezado_viajes": 1,
-    "anclajes_quimicos_juegos": 10
+    "sistema": "Tratamiento HAM anticorrosivo C3/C4 ambiente industrial Menorca (NUNCA al horno)",
+    "especificacion": "Chorreado/limpieza mecánica Sa 2.5/St 3, imprimación epoxídica bicomponente (60-80 µm) y esmalte poliuretano alifático 2C intemperie UV (50-60 µm). Secado al aire en cabina."
   },
   "presupuesto_cliente": {
     "partidas": [
       {
         "num": "01",
         "concepto": "CÁLCULO ESTRUCTURAL, INGENIERÍA Y PLANOS DE FABRICACIÓN",
-        "descripcion": "Dimensionamiento y comprobación estructural según CTE DB-SE-AE (viento Zona C en Alaior) y DB-SE-A para estructura atornillable mecano de 16x8x8 m. Elaboración de modelo 3D BIM, planos de taller, despiece analítico y plano de replanteo/montaje con verificación de cargas a cimentación.",
+        "descripcion": "Dimensionamiento y comprobación estructural según CTE DB-SE-AE (viento Zona C en Alaior) y DB-SE-A para estructura atornillable mecano de 16x8x8 m. Elaboración de modelo 3D BIM, planos de taller, despiece analítico y plano de replanteo/montaje con definición y comprobación de esfuerzos a transmitir a las zapatas de cimentación.",
         "unidad": "PA",
         "cantidad": 1,
-        "precio_unitario": 980.00,
-        "importe": 980.00
+        "precio_unitario": 3000.00,
+        "importe": 3000.00
       },
       {
         "num": "02",
-        "concepto": "FABRICACIÓN EN TALLER DE ESTRUCTURA METÁLICA ATORNILLABLE (6.471 KG ACERO S275JR)",
-        "descripcion": "Fabricación y mecanizado integral de estructura rectangular atornillable (16,00 x 8,00 m, H=8,00 m). Incluye 10 pilares en tubo estructural 180x180x6 mm con placas base 350x350x20 mm soldadas y rigidizadores; 5 dinteles en viga IPE 240; 10 jabalcones a 45° en tubo 100x100x4 mm; 2 líneas de viga de atado longitudinal en tubo 120x120x5 mm; 8 líneas de correas de cubierta en tubo 100x50x3 mm; arriostramientos completos en cruz de San Andrés con redondo macizo Ø20 mm y tensores M20 8.8; taladros para uniones de alta resistencia y suministro de tornillería estructural calidad 8.8 cincada.",
+        "concepto": "FABRICACIÓN EN TALLER DE ESTRUCTURA METÁLICA ATORNILLABLE (6.471 KG ACERO S275JR A 5,00 €/KG)",
+        "descripcion": "Fabricación y mecanizado integral de estructura rectangular atornillable (16,00 x 8,00 m, H=8,00 m). Incluye 10 pilares en tubo estructural 180x180x6 mm con placas base 350x350x20 mm soldadas y rigidizadores; 5 dinteles en viga IPE 240; 10 jabalcones a 45° en tubo 100x100x4 mm; 2 líneas de viga de atado longitudinal en tubo 120x120x5 mm; 8 líneas de correas de cubierta en tubo 100x50x3 mm; arriostramientos completos en cruz de San Andrés con redondo macizo Ø20 mm y tensores M20 8.8; taladros coordinados para uniones mecano y suministro de tornillería estructural calidad 8.8 cincada. Valoración a 5,00 €/kg.",
         "unidad": "Kg",
         "cantidad": 6471.00,
-        "precio_unitario": 2.85,
-        "importe": 18442.35
+        "precio_unitario": 5.00,
+        "importe": 32355.00
       },
       {
         "num": "03",
         "concepto": "TRATAMIENTO ANTICORROSIVO E IMPRIMACIÓN + ESMALTE POLIURETANO 2C (SISTEMA HAM EXTERIOR)",
-        "descripcion": "Preparación de superficie, desengrasado y limpieza mecánica grado Sa 2.5 / St 3. Aplicación en taller de imprimación epoxídica bicomponente anticorrosiva de alto espesor (60-80 µm) y esmalte de poliuretano alifático bicomponente de acabado satinado especial intemperie y resistencia salina/UV en Menorca (50-60 µm). Sistema sin curado al horno conforme a las especificaciones HAM. Color RAL a elección.",
+        "descripcion": "Preparación de superficie, desengrasado y limpieza mecánica grado Sa 2.5 / St 3. Aplicación en taller de imprimación epoxídica bicomponente anticorrosiva de alto espesor (60-80 µm) y esmalte de poliuretano alifático bicomponente de acabado satinado especial intemperie y resistencia salina/UV en Menorca (50-60 µm). Sistema con secado al aire en cabina (NUNCA secado al horno conforme a la normativa HAM). Color RAL a elección.",
         "unidad": "m²",
         "cantidad": 385.00,
         "precio_unitario": 10.50,
@@ -150,12 +123,12 @@
       },
       {
         "num": "04",
-        "concepto": "SUMINISTRO Y MONTAJE DE CUBIERTA EN PANEL SÁNDWICH PUR 30 MM Y REMATERÍA",
-        "descripcion": "Suministro e instalación sobre correas de 150,30 m² de panel sándwich de cubierta de 30 mm de espesor, con núcleo aislante de espuma de poliuretano PUR (40 kg/m³), chapa grecada exterior prelacada de 0,5 mm e interior de 0,4 mm blanco pirineo. Fijación mediante tornillos bimetálicos autotaladrantes con arandela de estanqueidad de EPDM. Incluye remate troquelado de coronación/cumbrera, remates laterales testero plegados y sellado estanco.",
+        "concepto": "SUMINISTRO Y MONTAJE DE CUBIERTA EN PANEL SÁNDWICH PUR 30 MM Y REMATERÍA (115,00 €/M²)",
+        "descripcion": "Suministro e instalación sobre correas de 150,30 m² de panel sándwich de cubierta de 30 mm de espesor, con núcleo aislante de espuma rígida de poliuretano PUR (40 kg/m³), chapa grecada exterior prelacada de 0,5 mm e interior de 0,4 mm blanco pirineo. Fijación mediante tornillos bimetálicos autotaladrantes con arandela de estanqueidad de EPDM. Incluye remate troquelado de cumbrera/coronación, remates laterales testero plegados en chapa 0,6 mm y sellado estanco. Valoración a 115,00 €/m².",
         "unidad": "m²",
         "cantidad": 150.30,
-        "precio_unitario": 48.00,
-        "importe": 7214.40
+        "precio_unitario": 115.00,
+        "importe": 17284.50
       },
       {
         "num": "05",
@@ -168,8 +141,8 @@
       },
       {
         "num": "06",
-        "concepto": "TRANSPORTE, MEDIOS AUXILIARES DE ELEVACIÓN Y MONTAJE EN OBRA (H=8 M)",
-        "descripcion": "Transporte de ida en camión tráiler con la estructura despiezada desde taller a parcela en Polígono de Alaior. Servicio de camión grúa autopropulsado para descarga y elevación de pilares y dinteles. Alquiler de plataforma elevadora móvil de personal (PEMP) articulada diésel de 12 m para trabajos de atornillado y panelado a 8 m de altura con equipo de seguridad y líneas de vida provisionales. Anclaje químico estructural mediante taco químico Hilti HIT y varillas roscadas M20 calidad 8.8 sobre cimentación/solera.",
+        "concepto": "TRANSPORTE, MEDIOS AUXILIARES DE ELEVACIÓN Y ANCLAJES ESTRUCTURALES",
+        "descripcion": "Transporte de ida en camión tráiler con la estructura despiezada desde taller a parcela en Polígono de Alaior. Servicio de camión grúa autopropulsado para descarga y elevación de pilares de 8 m y pórticos. Alquiler de plataforma elevadora móvil de personal (PEMP) articulada diésel de 12 m para trabajos de atornillado y panelado a 8 m de altura con equipo de seguridad y líneas de vida provisionales. Suministro e inyección de 40 anclajes químicos estructurales Hilti HIT-HY con varillas roscadas M20 calidad 8.8 cincadas sobre zapatas existentes.",
         "unidad": "PA",
         "cantidad": 1,
         "precio_unitario": 5250.00,
@@ -177,18 +150,23 @@
       },
       {
         "num": "07",
-        "concepto": "MONTAJE MECANO EN OBRA Y AJUSTES FINALES",
-        "descripcion": "Mano de obra especializada de cuadrilla de montadores oficiales en obra para el ensamblado completo atornillado de la marquesina a 8 m de altura, aplomado, nivelación, apriete controlado con llave dinamométrica de uniones estructurales, fijación de arriostramientos, repaso de pintura de cabezas de tornillos y control de calidad final.",
+        "concepto": "MONTAJE MECANO INTEGRAL EN OBRA Y AJUSTES DINAMOMÉTRICOS",
+        "descripcion": "Mano de obra especializada de cuadrilla de montadores oficiales en obra para el ensamblado completo atornillado de la marquesina a 8 m de altura, aplomado, nivelación, apriete controlado con llave dinamométrica de uniones estructurales según norma, fijación de arriostramientos, repaso de pintura en cabezas de tornillos y control de calidad final.",
         "unidad": "PA",
         "cantidad": 1,
-        "precio_unitario": 4180.00,
-        "importe": 4180.00
+        "precio_unitario": 12180.00,
+        "importe": 12180.00
       }
     ],
-    "subtotal_neto": 41194.75,
-    "iva_21": 8650.90,
-    "total_iva_incluido": 49845.65
+    "subtotal_neto": 75197.50,
+    "iva_21": 15791.48,
+    "total_iva_incluido": 90988.98
   },
+  "exclusiones_expresas": [
+    "NO SE INCLUYE la ejecución de zapatas de cimentación de hormigón armado (estrictamente necesarias para absorber las cargas axiles y momentos de vuelco por viento en Menorca) ni solera.",
+    "Las zapatas de cimentación y obra civil previa deben ser ejecutadas por el cliente según las dimensiones, armados y especificaciones de entrega de cargas que facilitará DIXIS en la partida 01 de cálculo estructural.",
+    "No se incluyen acometidas eléctricas, tomas de tierra perimetrales generales de parcela, ni tasas o licencias municipales de obras."
+  ],
   "escandallo_interno": {
     "coste_materiales_acero": 11647.80,
     "coste_materiales_panel_remates": 4208.40,
@@ -199,9 +177,9 @@
     "coste_oficina_tecnica": 624.00,
     "coste_medios_auxiliares_grua_pemp": 3030.00,
     "coste_transporte": 280.00,
-    "coste_directo_total": 31915.20,
-    "gastos_generales_10": 3191.52,
-    "beneficio_industrial_19": 6088.03,
-    "precio_venta_neto": 41194.75
+    "coste_directo_total": 31916.20,
+    "margen_bruto_total": 43281.30,
+    "porcentaje_margen": 57.56,
+    "precio_venta_neto": 75197.50
   }
 }
