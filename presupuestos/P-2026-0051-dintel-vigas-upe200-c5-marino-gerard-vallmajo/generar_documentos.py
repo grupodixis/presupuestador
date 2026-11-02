@@ -84,9 +84,9 @@ def create_excel():
     ws1["B11"] = (
         "• Dintel compuesto por 2 UPE 200 (S275JR) de 3,20 m cada uno (Total: 6,40 ML / 145,92 kg de acero).\n"
         "• Geometría: Sección doble en I unida espalda con espalda según cálculo de Joan (Luz entre apoyos 2,66 m, entrega ~27 cm por apoyo).\n"
-        "• Mano de obra de taller a tarifa estándar 35,00 €/h (2,5 h) para mecanizado de perforaciones pasantes Ø22 mm en alma y biselado inferior.\n"
-        "• Tratamiento anticorrosivo C5 Marino acabado Blanco (sin horno): Tarifa acordada de 50,00 €/m² (espesor seco total DFT ≥ 240 µm).\n"
-        "• Sin logística: Porte y acarreo interior no incluidos en el alcance (a cargo del cliente / retirada en taller).\n"
+        "• Mecanizado de perforaciones pasantes Ø22 mm en alma de uno de los perfiles para botones de soldadura (plug welds) in situ y biselado inferior.\n"
+        "• Tratamiento anticorrosivo C5 Marino acabado Blanco (sin horno): Imprimación epoxi + intermedia + esmalte poliuretano alifático 2C (DFT ≥ 240 µm).\n"
+        "• Sin logística: Porte a obra y acarreo interior no incluidos en el alcance (a cargo del cliente / retirada en taller).\n"
         "• Montaje in situ en apartamento: protección ignífuga, soldadura de botones y cordón discontinuo, y sellado C5 Marino en obra."
     )
     ws1["B11"].font = font_reg
@@ -631,7 +631,7 @@ def create_html_client():
         </div>
         <div class="card">
           <span class="label">Acabado Anticorrosivo</span>
-          <span class="value">C5 Marino Blanco (50 €/m²)</span>
+          <span class="value">C5 Marino Blanco</span>
         </div>
       </section>
 
@@ -682,10 +682,10 @@ def create_html_client():
 
       <div class="two-col">
         <div class="col">
-          <h5>Condiciones de Ejecución y Tarifas</h5>
+          <h5>Condiciones de Ejecución y Garantía</h5>
           <ul class="compact">
-            <li><strong>Mano de obra taller:</strong> Tarifa oficial de 35,00 €/h para mecanizados y perforaciones.</li>
-            <li><strong>Protección C5 Marino:</strong> Aplicación según norma ISO 12944 a 50,00 €/m² (sin horno).</li>
+            <li><strong>Fabricación:</strong> Procesos de corte, mecanizado y preparación de taller según normativa.</li>
+            <li><strong>Protección C5 Marino:</strong> Aplicación según norma ISO 12944 acabado Blanco (sin horno).</li>
             <li><strong>Plazo:</strong> {DATA['condiciones']['plazo_entrega']}</li>
             <li><strong>Forma de pago:</strong> {DATA['condiciones']['forma_pago']}</li>
           </ul>
@@ -942,7 +942,7 @@ def create_html_technical():
       </div>
 
       <div class="alert-box">
-        <strong>Ajustes Aplicados en Rev. 1:</strong> Tarificación de mano de obra de taller a <strong>35,00 €/h</strong> (2,5 h reales = 87,50 €), tratamiento anticorrosivo C5 Marino a <strong>50,00 €/m²</strong> (5 m² = 250,00 €) y <strong>exclusión total de la logística y transporte</strong> a obra (porte y acarreo a cargo del cliente).
+        <strong>Ajustes Aplicados en Rev. 1:</strong> Tarificación de mano de obra de taller a <strong>35,00 €/h</strong> (2,5 h reales = 87,50 €), tratamiento anticorrosivo C5 Marino a <strong>50,00 €/m²</strong> (5 m² = 250,00 €) y <strong>exclusión total de la logística y transporte</strong> a obra (porte y acarreo a cargo del cliente). Redacción de partidas cliente limpia de fórmulas internas de mano de obra.
       </div>
 
       <h3>2. Procedimiento Operativo de Fabricación, Montaje y Soldadura</h3>
