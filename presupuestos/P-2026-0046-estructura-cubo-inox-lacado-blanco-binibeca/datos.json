@@ -1,17 +1,21 @@
 {
   "proyecto": {
     "codigo": "P-2026-0046",
-    "revision": "REV. 4 (Pintura imprimación+acabado sin horno, cubo atornillado y transporte ida en camión)",
+    "revision": "REV. 5 (Tarifa oficial tubo inox 316 40x40x2: coste 10€/ml, venta 20€/ml)",
     "referencia_comercial": "EST-2026-1046",
-    "titulo": "Estructura Cúbica Atornillable en Tubo Inox 40x40x2 mm Pintada en Blanco",
-    "subtitulo": "Diseño cúbico geométrico (4,00 x 3,00 x 2,50 m) en acero inoxidable atornillado para montaje en obra, imprimación y pintura de acabado en taller (sin horno), amurada a puntos preparados por el constructor y transporte de ida en camión",
+    "titulo": "Estructura Cúbica Atornillable en Tubo Inox 316 40x40x2 mm Pintada en Blanco",
+    "subtitulo": "Diseño cúbico geométrico (4,00 x 3,00 x 2,50 m) en acero inoxidable AISI 316 atornillado para montaje en obra, imprimación y pintura de acabado en taller (sin horno), amurada a puntos preparados por el constructor y transporte de ida en camión",
     "fecha": "02/11/2026",
     "validez_dias": 30,
     "ubicacion": "c/ Llaut 59, Urb. Binibeca Vell, 07711 Sant Lluís (Menorca)",
     "entorno": "Ambiente costero de alta salinidad (C5-M), terraza junto a piscina",
     "especificaciones_taller": {
       "tipologia": "Estructura cúbica ortoédrica atornillable de líneas puras y minimalistas",
-      "perfil": "Tubo cuadrado de Acero Inoxidable 40x40x2 mm (calidad marina para exterior en Menorca)",
+      "perfil": "Tubo cuadrado de Acero Inoxidable AISI 316 de 40x40x2 mm (calidad marina para exterior en Menorca)",
+      "tarifa_tubo_inox_316": {
+        "coste_ham_ml": 10.00,
+        "venta_cliente_ml": 20.00
+      },
       "acabado": "Imprimación epoxi fosfatante de adherencia para inoxidable + pintura de acabado esmalte poliuretano alifático bicomponente blanco para intemperie marina (sin horno)",
       "obra_civil": "A cargo de la contrata principal (cimentación, zapatas, vertido de hormigón y solado porcelánico C3)",
       "transporte_y_montaje": "Transporte en 1 viaje de ida de camión con material despiezado; ensamblado atornillado y fijación in situ en obra sobre apoyos de obra"
@@ -21,18 +25,18 @@
       "ancho_fondo": 3.00,
       "alto_libre": 2.50,
       "superficie_m2": 12.00,
-      "base_imponible": 4130.00,
-      "iva_21": 867.30,
-      "total_iva_inc": 4997.30
+      "base_imponible": 3430.00,
+      "iva_21": 720.30,
+      "total_iva_inc": 4150.30
     },
     "variante_alternativa": {
       "largo": 4.00,
       "ancho_fondo": 2.00,
       "alto_libre": 2.50,
       "superficie_m2": 8.00,
-      "base_imponible": 3500.00,
-      "iva_21": 735.00,
-      "total_iva_inc": 4235.00
+      "base_imponible": 2960.00,
+      "iva_21": 621.60,
+      "total_iva_inc": 3581.60
     }
   },
   "cliente": {
@@ -57,7 +61,7 @@
     {
       "item": "01",
       "concepto": "Replanteo técnico in situ, nivelación y desarrollo de planos de taller",
-      "descripcion": "Visita técnica a la obra en Binibeca Vell, comprobación de niveles y replanteo de ejes con el constructor para la correcta posición de los apoyos en la solera/zapatas antes del solado, y desarrollo de planos de despiece y despiece atornillado para taller.",
+      "descripcion": "Visita técnica a la obra en Binibeca Vell, comprobación de niveles y replanteo de ejes con el constructor para la correcta posición de los apoyos en la solera/zapatas antes del solado, y desarrollo de planos de despiece atornillado para taller.",
       "unidad": "lote",
       "cantidad": 1,
       "precio_unitario": 320.00,
@@ -65,57 +69,66 @@
     },
     {
       "item": "02",
-      "concepto": "Fabricación en taller de estructura cúbica atornillable en tubo Inox 40x40x2 mm",
-      "descripcion": "Fabricación a medida despiezada de estructura en forma de cubo geométrico (4,00 m largo x 3,00 m ancho x 2,50 m alto libre) realizada íntegramente en tubo cuadrado de Acero Inoxidable de 40x40x2 mm: 4 pilares verticales de 2,50 m, marco perimetral superior (2 vigas de 4,00 m y 2 vigas de 3,00 m) y costillas intermedias superiores transversales de rigidización. Cortes a inglete a 45º, mecanizado de uniones interiores atornilladas con casquillos y tornillería oculta de acero inoxidable A4 para su ensamble y montaje en obra.",
-      "unidad": "lote",
-      "cantidad": 1,
-      "precio_unitario": 2150.00,
-      "importe": 2150.00
+      "concepto": "Tubo cuadrado de Acero Inoxidable AISI 316 40x40x2 mm",
+      "descripcion": "Suministro de tubo cuadrado en Acero Inoxidable calidad marina AISI 316 de 40x40x2 mm para los 4 pilares verticales de 2,50 m, marco perimetral superior (vigas de 4,00 y 3,00 m) y costillas superiores intermedias transversales de rigidización (incluye mermas y despuntes de corte de barras estándar de 6 m). Tarifa oficial: 20,00 €/ML.",
+      "unidad": "ml",
+      "cantidad": 40.00,
+      "precio_unitario": 20.00,
+      "importe": 800.00
     },
     {
       "item": "03",
-      "concepto": "Tratamiento de pintura en taller: Imprimación y Pintura de Acabado Blanco (sin horno)",
-      "descripcion": "Tratamiento anticorrosivo y estético de taller según procedimiento estándar HAM (sin horno): desengrasado, limpieza mecánica y acondicionamiento químico del acero inoxidable, aplicación de imprimación epoxi fosfatante de alta adherencia y dos capas de esmalte poliuretano alifático bicomponente de alta resistencia a la intemperie marina y radiación solar UV. Color Blanco exterior (a elegir RAL 9010 Blanco Cálido o RAL 9016 Blanco Puro).",
+      "concepto": "Fabricación y mecanizado en taller para estructura cúbica atornillable",
+      "descripcion": "Mano de obra de taller para corte a escuadra e inglete a 45º de perfiles de tubo inox 316, mecanizado de uniones interiores atornilladas, casquillos de refuerzo, taladros colisos de ajuste, tornillería oculta de acero inoxidable A4 y premontaje de verificación en taller.",
       "unidad": "lote",
       "cantidad": 1,
-      "precio_unitario": 680.00,
-      "importe": 680.00
+      "precio_unitario": 850.00,
+      "importe": 850.00
     },
     {
       "item": "04",
-      "concepto": "Transporte en camión (ida) y montaje de estructura atornillada en obra",
-      "descripcion": "Transporte especializado del material despiezado en 1 porte de camión (ida) a pie de obra en Binibeca Vell. Montaje, aplomado y ensamblado atornillado in situ de los elementos del cubo sobre los puntos/zapatas ejecutados por el constructor, fijación estructural, verificación de niveles, repaso de pintura en puntos de unión y retirada de embalajes.",
+      "concepto": "Tratamiento de pintura en taller: Imprimación y Pintura de Acabado Blanco (sin horno)",
+      "descripcion": "Tratamiento anticorrosivo y estético de taller según procedimiento estándar HAM (sin horno): desengrasado, limpieza mecánica y acondicionamiento químico del acero inoxidable AISI 316, aplicación de imprimación epoxi fosfatante de alta adherencia y dos capas de esmalte poliuretano alifático bicomponente blanco para exterior (a elegir RAL 9010 Blanco Cálido o RAL 9016 Blanco Puro) de máxima resistencia marina y UV.",
       "unidad": "lote",
       "cantidad": 1,
-      "precio_unitario": 980.00,
-      "importe": 980.00
+      "precio_unitario": 580.00,
+      "importe": 580.00
+    },
+    {
+      "item": "05",
+      "concepto": "Transporte en camión (ida) y montaje de estructura atornillada en obra",
+      "descripcion": "Transporte especializado del material despiezado en 1 porte de camión (ida) hasta Binibeca Vell. Montaje, aplomado y ensamblado atornillado in situ de los elementos del cubo sobre las zapatas/puntos preparados por el constructor, apriete dinamométrico, verificación de niveles, repaso de pintura en puntos de unión y retirada de embalajes.",
+      "unidad": "lote",
+      "cantidad": 1,
+      "precio_unitario": 880.00,
+      "importe": 880.00
     }
   ],
   "totales": {
-    "base_imponible": 4130.00,
+    "base_imponible": 3430.00,
     "iva_tipo": "21%",
-    "iva_cuota": 867.30,
-    "total_presupuesto": 4997.30
+    "iva_cuota": 720.30,
+    "total_presupuesto": 4150.30
   },
   "escandallo_interno": {
-    "coste_tubo_inox_40x40x2": 720.00,
-    "coste_pintura_imprimacion_poliuretano": 160.00,
+    "coste_tubo_inox_316_40x40x2": 400.00,
+    "coste_pintura_imprimacion_poliuretano": 140.00,
     "coste_tornilleria_inox_consumibles": 120.00,
-    "coste_total_materiales": 1000.00,
-    "horas_taller_mecanizado": 18,
-    "coste_horas_taller": 396.00,
-    "horas_taller_pintura": 6,
-    "coste_horas_pintura": 132.00,
+    "coste_total_materiales": 660.00,
+    "horas_taller_mecanizado": 16,
+    "coste_horas_taller": 352.00,
+    "horas_taller_pintura": 5,
+    "coste_horas_pintura": 110.00,
     "horas_oficina_tecnica": 5,
     "coste_oficina_tecnica": 125.00,
-    "horas_obra_montaje": 12,
-    "coste_horas_obra": 264.00,
+    "horas_obra_montaje": 10,
+    "coste_horas_obra": 220.00,
     "coste_transporte_camion_ida": 100.00,
-    "coste_total_mano_obra_transporte": 1017.00,
-    "coste_neto_total": 2017.00,
-    "precio_venta_bi": 4130.00,
-    "margen_bruto_euros": 2113.00,
-    "porcentaje_margen": 51.2
+    "coste_total_mano_obra_transporte": 907.00,
+    "coste_neto_total": 1567.00,
+    "precio_venta_bi": 3430.00,
+    "margen_bruto_euros": 1863.00,
+    "porcentaje_margen": 54.3
   },
   "condiciones": {
     "forma_pago": "50% a la confirmación del encargo y replanteo de obra; 50% a la finalización y recepción de los trabajos de montaje.",
