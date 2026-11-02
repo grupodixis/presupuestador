@@ -1,6 +1,6 @@
 {
   "codigo": "P-2026-0050",
-  "referencia": "PRE-2026-1102-MARQ-NAUTIC-REV1",
+  "referencia": "PRE-2026-1102-MARQ-NAUTIC-REV2",
   "fecha": "2 de noviembre de 2026",
   "cliente": {
     "empresa": "Nautic KIM",
@@ -22,6 +22,7 @@
   "proyecto": {
     "titulo": "Marquesina Industrial Atornillable 16 x 8 m (H=8 m) con Techado Panel Sándwich PUR 30 mm",
     "ubicacion": "Polígono Industrial de Alaior, Menorca",
+    "tipo_estudio": "Pre-cálculo estructural preliminar para dimensionamiento y presupuesto aproximado",
     "dimensiones": {
       "longitud_ejes": "16,00 m",
       "ancho_luz_libre": "8,00 m",
@@ -31,7 +32,7 @@
       "superficie_cubierta_real": "150,30 m² (16,70 m longitud total de chapa x 9,00 m desarrollo de faldón con aleros)",
       "separacion_porticos": "4,00 m entre ejes (5 pórticos transversales)"
     },
-    "normativa_aplicable": "Código Técnico de la Edificación (CTE DB-SE, DB-SE-A Acero, DB-SE-AE Acciones). Cargas de viento Alaior Zona C (qb=0,52 kN/m², Grado Aspereza III, qp=1,00 kN/m²)."
+    "normativa_referencia": "Criterios básicos CTE DB-SE, DB-SE-A y DB-SE-AE (viento Alaior Zona C, qp=1,00 kN/m²)."
   },
   "calculo_estructural": {
     "resumen_kg_acero": {
@@ -96,8 +97,8 @@
     "partidas": [
       {
         "num": "01",
-        "concepto": "CÁLCULO ESTRUCTURAL, INGENIERÍA Y PLANOS DE FABRICACIÓN",
-        "descripcion": "Dimensionamiento y comprobación estructural según CTE DB-SE-AE (viento Zona C en Alaior) y DB-SE-A para estructura atornillable mecano de 16x8x8 m. Elaboración de modelo 3D BIM, planos de taller, despiece analítico y plano de replanteo/montaje con definición y comprobación de esfuerzos a transmitir a las zapatas de cimentación.",
+        "concepto": "PRE-CÁLCULO ESTRUCTURAL, INGENIERÍA PRELIMINAR Y ESTIMACIÓN DE DIMENSIONES",
+        "descripcion": "Pre-cálculo estructural analítico y modelado preliminar para dimensionamiento de perfiles, estimación de kg de acero y elaboración de presupuesto técnico aproximado según acciones de viento del CTE (Zona C en Alaior) para estructura atornillable mecano de 16x8x8 m. Incluye estimación inicial de cargas a transmitir a cimentación.",
         "unidad": "PA",
         "cantidad": 1,
         "precio_unitario": 3000.00,
@@ -164,7 +165,7 @@
   },
   "exclusiones_expresas": [
     "NO SE INCLUYE la ejecución de zapatas de cimentación de hormigón armado (estrictamente necesarias para absorber las cargas axiles y momentos de vuelco por viento en Menorca) ni solera.",
-    "Las zapatas de cimentación y obra civil previa deben ser ejecutadas por el cliente según las dimensiones, armados y especificaciones de entrega de cargas que facilitará DIXIS en la partida 01 de cálculo estructural.",
+    "Las zapatas de cimentación y obra civil previa deben ser ejecutadas por el cliente según las dimensiones, armados y especificaciones de entrega de cargas estimadas.",
     "No se incluyen acometidas eléctricas, tomas de tierra perimetrales generales de parcela, ni tasas o licencias municipales de obras."
   ],
   "escandallo_interno": {
