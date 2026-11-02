@@ -1,7 +1,7 @@
-# P-2026-0051 Dintel Compuesto por 2 UPE 200 Soldado In Situ • Gerard Vallmajó
+# P-2026-0051 Dintel Compuesto por 2 UPE 200 Soldado In Situ • Gerard Vallmajó (Rev. 1)
 
 **Código de Proyecto:** P-2026-0051  
-**Referencia:** PRE-2026-1102-DINT-VALLMAJO  
+**Referencia:** PRE-2026-1102-DINT-VALLMAJO-REV1  
 **Fecha:** 2 de noviembre de 2026  
 **Cliente:** Gerard Vallmajó  
 **Contacto Técnico:** Joan (Autor del cálculo estructural de la barra N1/N2)  
@@ -27,7 +27,7 @@
 
 ## 2. Descripción Técnica del Proyecto
 
-Suministro, mecanizado en taller, tratamiento superficial anticorrosivo de alta durabilidad **C5 Marino acabado Blanco (sin horno)**, transporte protegido, manipulación en interior de vivienda y montaje/soldadura in situ de un **dintel de obra compuesto por 2 perfiles UPE 200 de 3,20 m de longitud cada uno**, unidos espalda con espalda mediante botones de soldadura (*plug welds*) a través de perforaciones pasantes en el alma y cordón discontinuo en la arista inferior entre alas.
+Suministro, mecanizado en taller, tratamiento superficial anticorrosivo de alta durabilidad **C5 Marino acabado Blanco a 50,00 €/m² (sin horno)** y montaje/soldadura in situ de un **dintel de obra compuesto por 2 perfiles UPE 200 de 3,20 m de longitud cada uno**, unidos espalda con espalda mediante botones de soldadura (*plug welds*) a través de perforaciones pasantes en el alma y cordón discontinuo en la arista inferior entre alas. **Sin partida de logística** (porte y acarreo excluidos del presupuesto).
 
 ### Justificación Estructural (Cálculo de Joan)
 - **Perfil:** UPE 200 (sección simple: $h = 200\text{ mm}$, $b = 80\text{ mm}$, $t_w = 6,0\text{ mm}$, $t_f = 11,0\text{ mm}$, $r = 13\text{ mm}$).
@@ -51,35 +51,36 @@ Para garantizar la máxima protección en ambiente marino severo (categoría C5-
 3. **Capa Intermedia:** Capa de barrera epoxi poliamida de alto espesor (100-120 µm DFT).
 4. **Capa de Acabado:** Esmalte de poliuretano alifático bicomponente 2C color blanco (RAL 9010/9016), con alta resistencia al amarilleamiento por radiación UV y a la salinidad (50-60 µm DFT).
 5. **Espesor total seco nominal:** $\ge 240\ \mu\text{m}$.
-6. **Sellado y Retoque In Situ:** Tras la ejecución de las soldaduras en el apartamento, se procede al desescoriado y esmerilado de las zonas afectadas, aplicación de imprimación de reparación rica en zinc en frío y doble capa de acabado poliuretano 2C blanco para sellar y mantener la continuidad anticorrosiva del sistema C5 Marino.
+6. **Tarifa acordada:** **50,00 €/m²** (Total 5,00 m² = 250,00 €).
+7. **Sellado y Retoque In Situ:** Tras la ejecución de las soldaduras en el apartamento, se procede al desescoriado y esmerilado de las zonas afectadas, aplicación de imprimación de reparación rica en zinc en frío y doble capa de acabado poliuretano 2C blanco para sellar y mantener la continuidad anticorrosiva del sistema C5 Marino.
 
 ---
 
-## 4. Presupuesto Económico para el Cliente
+## 4. Presupuesto Económico para el Cliente (Revisión 1)
 
 | Nº | Concepto y Descripción de la Partida | Ud | Cantidad | Precio Unitario | Importe (€) |
 |---|---|:---:|---:|---:|---:|
 | **01** | Suministro y corte a medida de 2 perfiles laminados UPE 200 S275 (L=3,20 m, 146 kg) | ml | 6,40 | 50,00 € | 320,00 € |
-| **02** | Mecanizado de perforaciones en alma para botones de soldadura y preparación de uniones en taller | ud | 1,00 | 180,00 € | 180,00 € |
-| **03** | Tratamiento anticorrosivo C5 Marino acabado Blanco en taller (Sin horno, DFT ≥ 240 µm) | m² | 5,00 | 64,00 € | 320,00 € |
-| **04** | Embalaje técnico, transporte a obra en Menorca y subida/acarreo interior al apartamento | pa | 1,00 | 210,00 € | 210,00 € |
-| **05** | Montaje in situ, protección ignífuga del apartamento, apuntalado y soldadura (botones + cordón) | pa | 1,00 | 540,00 € | 540,00 € |
-| **06** | Desescoriado, sellado anticorrosivo y retoque in situ C5 Marino en blanco de uniones soldadas | pa | 1,00 | 150,00 € | 150,00 € |
-| | **SUBTOTAL NETO (Base Imponible):** | | | | **1.720,00 €** |
-| | **I.V.A. (21%):** | | | | **361,20 €** |
-| | **TOTAL PRESUPUESTO (I.V.A. Incluido):** | | | | **2.081,20 €** |
+| **02** | Mecanizado de perforaciones en alma para botones de soldadura (2,5 h de taller a 35,00 €/h) | h | 2,50 | 35,00 € | 87,50 € |
+| **03** | Tratamiento anticorrosivo C5 Marino acabado Blanco en taller a 50,00 €/m² (Sin horno) | m² | 5,00 | 50,00 € | 250,00 € |
+| **04** | Montaje in situ en apartamento, protección ignífuga, botones de soldadura y cordón discontinuo | pa | 1,00 | 320,00 € | 320,00 € |
+| **05** | Desescoriado, sellado anticorrosivo y retoque in situ C5 Marino en blanco de uniones soldadas | pa | 1,00 | 100,00 € | 100,00 € |
+| | **SUBTOTAL NETO (Base Imponible):** | | | | **1.077,50 €** |
+| | **I.V.A. (21%):** | | | | **226,28 €** |
+| | **TOTAL PRESUPUESTO (I.V.A. Incluido):** | | | | **1.303,78 €** |
+
+> *Nota: Logística y transporte a obra no incluidos en el alcance (a cargo del cliente / recogida en taller).*
 
 ---
 
-## 5. Escandallo Interno y Rentabilidad
+## 5. Escandallo Interno y Rentabilidad (Revisión 1)
 
 - **Costes Directos Totales:**
-  - Materiales directos (acero UPE 200 y pintura C5): 371,70 €
-  - Mano de obra directa taller y obra (13,5 h): 418,00 €
-  - Logística y transporte: 95,00 €
-  - **Coste Directo Total:** **884,70 €**
-- **Precio de Venta Base:** **1.720,00 €**
-- **Margen de Contribución Bruto:** **835,30 € (48,6 % sobre venta)**
+  - Materiales directos (acero UPE 200 y pintura C5 Marino): 336,70 €
+  - Mano de obra directa taller y obra (12,5 h): 390,00 €
+  - **Coste Directo Total:** **726,70 €**
+- **Precio de Venta Base:** **1.077,50 €**
+- **Margen de Contribución Bruto:** **350,80 € (32,6 % sobre venta neta)**
 
 ---
 

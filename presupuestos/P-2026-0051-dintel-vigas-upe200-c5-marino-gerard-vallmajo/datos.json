@@ -1,6 +1,6 @@
 {
   "codigo": "P-2026-0051",
-  "referencia": "PRE-2026-1102-DINT-VALLMAJO",
+  "referencia": "PRE-2026-1102-DINT-VALLMAJO-REV1",
   "fecha": "2 de noviembre de 2026",
   "validez_dias": 30,
   "cliente": {
@@ -20,9 +20,9 @@
     "web": "https://www.hamenorca.com"
   },
   "proyecto": {
-    "titulo": "Dintel de Obra Compuesto por 2 Perfiles UPE 200 con Unión Soldada In Situ y Sistema C5 Marino Acabado Blanco",
+    "titulo": "Dintel de Obra Compuesto por 2 Perfiles UPE 200 con Unión Soldada In Situ y Sistema C5 Marino Acabado Blanco (Sin Logística)",
     "ubicacion": "Apartamento / Obra de reforma en Menorca",
-    "descripcion": "Fabricación en taller, mecanizado de perforaciones, tratamiento superficial C5 Marino acabado blanco (sin horno), transporte, subida manual a vivienda, ensamblado in situ mediante botones de soldadura en almas y cordón discontinuo inferior, y sellado anticorrosivo final de uniones.",
+    "descripcion": "Fabricación en taller, mecanizado de perforaciones pasantes en alma, tratamiento superficial C5 Marino acabado blanco a 50 €/m² (sin horno), ensamblado in situ mediante botones de soldadura y cordón discontinuo inferior, y sellado anticorrosivo final de uniones. Sin partida de logística.",
     "normativa_referencia": "Código Estructural (UNE-EN 10025-2, UNE-EN 1993-1-1 / Eurocódigo 3). Norma UNE-EN ISO 12944 (Pintura Anticorrosiva Categoría C5 Marino)."
   },
   "parametros_tecnicos": {
@@ -36,10 +36,11 @@
     "luz_calculo_entre_apoyos_m": 2.66,
     "entrega_apoyos_estimada_m": 0.27,
     "tipo_seccion": "Doble en I unión soldada espalda con espalda",
-    "mecanizado_taller": "Perforaciones pasantes de gran diámetro en alma de una de las vigas para ejecución de soldadura por tapón/botón (plug welds), y chaflán para cordón continuo/discontinuo inferior",
+    "mecanizado_taller": "2,5 horas de oficial a 35 €/h: perforaciones pasantes Ø22 mm en alma para botones de soldadura (plug welds) y chaflán para cordón discontinuo inferior",
     "tipo_soldadura_in_situ": "Botones de soldadura a través de perforaciones pasantes en alma + cordón discontinuo en la arista inferior entre alas",
-    "sistema_proteccion": "C5 Marino (C5-M según ISO 12944) Acabado Blanco (sin curado al horno). Sistema multicapa: chorreado/limpieza Sa 2½ / St 3 + imprimación epoxi bicomponente de alta adherencia + capa intermedia barrera epoxi + esmalte poliuretano alifático 2C color blanco exterior resistente a radiación UV y salinidad ambiental marina",
-    "repaso_soldaduras_obra": "Desescoriado y esmerilado de uniones soldadas in situ, imprimación rica en zinc de secado al aire y esmalte de acabado poliuretano 2C blanco para restitución continua del C5-M"
+    "sistema_proteccion": "C5 Marino (C5-M según ISO 12944) Acabado Blanco a 50,00 €/m² (sin curado al horno). Sistema multicapa: chorreado/limpieza Sa 2½ / St 3 + imprimación epoxi bicomponente de alta adherencia + capa intermedia barrera epoxi + esmalte poliuretano alifático 2C color blanco exterior (DFT ≥ 240 µm)",
+    "repaso_soldaduras_obra": "Desescoriado y esmerilado de uniones soldadas in situ, imprimación rica en zinc de secado al aire y esmalte de acabado poliuretano 2C blanco para restitución continua del C5-M",
+    "logistica": "Excluida del presupuesto según indicación expresa del cliente (porte y acarreo no incluidos)"
   },
   "partidas": [
     {
@@ -53,60 +54,51 @@
     },
     {
       "id": "02",
-      "concepto": "Mecanizado de perforaciones para botones de soldadura y preparación de uniones",
-      "descripcion": "Trazado y taladrado de perforaciones pasantes de gran diámetro en el alma de uno de los perfiles UPE 200 distribuidas longitudinalmente según requerimientos de unión, biselado de arista longitudinal inferior para cordón discontinuo, mecanizado de testas y preparación de superficies de contacto.",
-      "unidad": "ud",
-      "cantidad": 1.00,
-      "precio_unitario": 180.00,
-      "importe": 180.00
+      "concepto": "Mecanizado de perforaciones para botones de soldadura y preparación de uniones en taller",
+      "descripcion": "Mano de obra de oficial de taller (2,50 h a tarifa estándar de 35,00 €/h): trazado y taladrado de perforaciones pasantes de gran diámetro (Ø22 mm) en el alma de uno de los perfiles UPE 200 distribuidas longitudinalmente para la soldadura de tapón/botón (plug welds), biselado de arista longitudinal inferior para cordón discontinuo y preparación de caras de contacto.",
+      "unidad": "h",
+      "cantidad": 2.50,
+      "precio_unitario": 35.00,
+      "importe": 87.50
     },
     {
       "id": "03",
-      "concepto": "Tratamiento anticorrosivo C5 Marino acabado Blanco en taller (Sin horno)",
-      "descripcion": "Preparación superficial mecánica Grado Sa 2½ / St 3 desengrasada. Aplicación de sistema C5 Marino (sin horno): imprimación epoxi fosfatante bicomponente de alta adherencia (75-80 µm), capa intermedia epoxi de alta barrera impermeable (100-120 µm) y esmalte poliuretano alifático bicomponente 2C color Blanco brillante/satinado resistente a radiación solar UV y salinidad marina severa (50-60 µm). Espesor total seco DFT ≥ 240 µm.",
+      "concepto": "Tratamiento anticorrosivo C5 Marino acabado Blanco en taller (Sin horno, 50,00 €/m²)",
+      "descripcion": "Preparación superficial mecánica Grado Sa 2½ / St 3 desengrasada. Aplicación de sistema C5 Marino (sin horno): imprimación epoxi fosfatante bicomponente de alta adherencia (75-80 µm), capa intermedia epoxi de alta barrera impermeable (100-120 µm) y esmalte poliuretano alifático bicomponente 2C color Blanco brillante/satinado resistente a radiación solar UV y salinidad marina severa (50-60 µm). Espesor total seco DFT ≥ 240 µm. Tarifa acordada: 50,00 €/m².",
       "unidad": "m²",
       "cantidad": 5.00,
-      "precio_unitario": 64.00,
-      "importe": 320.00
+      "precio_unitario": 50.00,
+      "importe": 250.00
     },
     {
       "id": "04",
-      "concepto": "Logística, transporte protegido y acarreo manual al interior de apartamento",
-      "descripcion": "Embalaje técnico con film y protecciones perimetrales para evitar daños en lacado. Transporte en furgoneta/vehículo de taller a la obra en Menorca. Acarreo manual y manipulación cuidadosa al interior de la vivienda de ambos perfiles por separado (~73 kg/ud), protegiendo marcos, puertas y solería existente.",
+      "concepto": "Montaje in situ, protección ignífuga del entorno y ejecución de soldaduras",
+      "descripcion": "Instalación de mantas ignífugas de fibra de vidrio y protecciones térmicas en estancia interior frente a chispas y proyecciones. Presentación, calzado milimétrico, aplomado y apriete con mordazas mecánicas de ambos perfiles UPE 200 en su posición de dintel. Ejecución in situ de botones de soldadura por tapón en perforaciones del alma y cordón discontinuo inferior de garganta a=4 mm según cálculo de Joan (8 h de mano de obra de montaje a 35 €/h + medios/consumibles de soldeo).",
       "unidad": "pa",
       "cantidad": 1.00,
-      "precio_unitario": 210.00,
-      "importe": 210.00
+      "precio_unitario": 320.00,
+      "importe": 320.00
     },
     {
       "id": "05",
-      "concepto": "Montaje in situ, protección ignífuga del entorno y ejecución de soldaduras",
-      "descripcion": "Instalación de mantas ignífugas de fibra de vidrio y protecciones térmicas en estancia interior frente a chispas y proyecciones. Presentación, calzado milimétrico, aplomado y apriete con mordazas de ambos perfiles UPE 200 en su posición de dintel. Ejecución in situ de botones de soldadura por tapón en perforaciones del alma y cordón discontinuo inferior de garganta a=4 mm según prescripción de cálculo estructural. Equipo soldadura inverter y medidas de extinción a pie de tajo.",
-      "unidad": "pa",
-      "cantidad": 1.00,
-      "precio_unitario": 540.00,
-      "importe": 540.00
-    },
-    {
-      "id": "06",
       "concepto": "Desescoriado, sellado anticorrosivo y retoque in situ C5 Marino en blanco",
-      "descripcion": "Desescoriado, cepillado y esmerilado fino de los botones y cordones de soldadura ejecutados en obra. Aplicación in situ de imprimación de reparación rica en zinc en frío y doble capa de esmalte de acabado poliuretano alifático 2C color blanco idéntico al de taller, sellando herméticamente las uniones frente a corrosión marina y dejando el dintel homogéneo y protegido.",
+      "descripcion": "Desescoriado, cepillado y esmerilado fino de los botones y cordones de soldadura ejecutados en obra (2 h a 35 €/h). Aplicación in situ de imprimación de reparación rica en zinc en frío y doble capa de esmalte de acabado poliuretano alifático 2C color blanco idéntico al de taller, sellando herméticamente las uniones frente a corrosión marina.",
       "unidad": "pa",
       "cantidad": 1.00,
-      "precio_unitario": 150.00,
-      "importe": 150.00
+      "precio_unitario": 100.00,
+      "importe": 100.00
     }
   ],
   "totales": {
-    "base_imponible": 1720.00,
+    "base_imponible": 1077.50,
     "iva_porcentaje": 21.0,
-    "iva_importe": 361.20,
-    "total_presupuesto": 2081.20
+    "iva_importe": 226.28,
+    "total_presupuesto": 1303.78
   },
   "condiciones": {
-    "plazo_entrega": "Aproximadamente 10 a 15 días laborables desde la confirmación del pedido y replanteo de medidas exactas en obra.",
-    "forma_pago": "50% a la confirmación del presupuesto / acopio de perfiles y pintura C5, y 50% a la finalización y entrega de los trabajos in situ.",
-    "garantia": "Garantía según normativa vigente en edificación y Código Estructural para aceros y tratamientos superficiales certificados.",
-    "exclusiones": "No se incluyen trabajos de albañilería (demolición de tabique, apertura y cierre de rozas, cargaderos de fábrica o recebado de apoyos), licencias o tasas municipales, ni apuntalamiento provisional de muros/forjado que correrán a cargo de la contrata de albañilería."
+    "plazo_entrega": "Aproximadamente 10 a 12 días laborables desde la confirmación del pedido.",
+    "forma_pago": "50% a la confirmación del presupuesto / acopio de perfiles y pintura C5, y 50% a la finalización de los trabajos.",
+    "garantia": "Garantía según Código Estructural para aceros y tratamientos superficiales certificados.",
+    "exclusiones": "No se incluye logística ni transporte a obra ni acarreo interior (a cargo del cliente / retirada en taller). No se incluyen trabajos de albañilería (demolición de tabique, apertura y cierre de rozas, cargaderos de fábrica o recebado de apoyos), licencias o tasas municipales, ni apuntalamiento provisional."
   }
 }

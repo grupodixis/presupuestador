@@ -21,7 +21,6 @@ def create_excel():
     SUBHEADER_FILL = "E2E8F0"
     TOTAL_FILL = "FEF3C7"   # Amarillo cálido
     SECTION_FILL = "F1F5F9"
-    HIGHLIGHT_BLUE = "0284C7"
     
     fill_header = PatternFill(start_color=NAVY, end_color=NAVY, fill_type="solid")
     fill_sub = PatternFill(start_color=SUBHEADER_FILL, end_color=SUBHEADER_FILL, fill_type="solid")
@@ -77,22 +76,23 @@ def create_excel():
         ws1[f"C{r}"].font = font_reg
 
     # Resumen técnico
-    ws1["B10"] = "CARACTERÍSTICAS TÉCNICAS Y CRITERIO ESTRUCTURAL"
+    ws1["B10"] = "CARACTERÍSTICAS TÉCNICAS Y CONDICIONES (REVISIÓN 1)"
     ws1["B10"].font = font_sec
     ws1["B10"].fill = fill_sub
     ws1.merge_cells("B10:G10")
 
     ws1["B11"] = (
-        "• Dintel compuesto por 2 UPE 200 (S275JR) de 3,20 m cada uno (Total: 6,40 ML / 145,92 kg).\n"
+        "• Dintel compuesto por 2 UPE 200 (S275JR) de 3,20 m cada uno (Total: 6,40 ML / 145,92 kg de acero).\n"
         "• Geometría: Sección doble en I unida espalda con espalda según cálculo de Joan (Luz entre apoyos 2,66 m, entrega ~27 cm por apoyo).\n"
-        "• Perforaciones mecanizadas en taller en alma de una de las vigas para botones de soldadura (plug welds) in situ.\n"
-        "• Sistema de protección C5 Marino acabado Blanco (sin horno): Imprimación epoxi + intermedia + esmalte poliuretano alifático 2C (DFT ≥ 240 µm).\n"
-        "• Montaje in situ en apartamento: protección ignífuga, soldadura de botones y cordón inferior discontinuo, y sellado C5 Marino en obra."
+        "• Mano de obra de taller a tarifa estándar 35,00 €/h (2,5 h) para mecanizado de perforaciones pasantes Ø22 mm en alma y biselado inferior.\n"
+        "• Tratamiento anticorrosivo C5 Marino acabado Blanco (sin horno): Tarifa acordada de 50,00 €/m² (espesor seco total DFT ≥ 240 µm).\n"
+        "• Sin logística: Porte y acarreo interior no incluidos en el alcance (a cargo del cliente / retirada en taller).\n"
+        "• Montaje in situ en apartamento: protección ignífuga, soldadura de botones y cordón discontinuo, y sellado C5 Marino en obra."
     )
     ws1["B11"].font = font_reg
     ws1["B11"].alignment = Alignment(wrap_text=True, vertical="top")
     ws1.merge_cells("B11:G11")
-    ws1.row_dimensions[11].height = 70
+    ws1.row_dimensions[11].height = 78
 
     # Tabla de Partidas
     headers = ["Nº", "Concepto y Descripción de la Partida", "Ud", "Cantidad", "Precio Unitario", "Importe"]
@@ -170,6 +170,7 @@ def create_excel():
         f"• Plazo de ejecución: {DATA['condiciones']['plazo_entrega']}\n"
         f"• Forma de pago: {DATA['condiciones']['forma_pago']}\n"
         f"• Garantía: {DATA['condiciones']['garantia']}\n"
+        f"• Logística y Transporte: Sin logística incluida (transporte a obra y acarreo interior a cargo del cliente / retirada en taller).\n"
         f"• Exclusiones: {DATA['condiciones']['exclusiones']}"
     )
     row_curr += 1
@@ -194,7 +195,7 @@ def create_excel():
     
     ws2["B2"] = "DIXIS RECURSOS Y SOLUCIONES S.L. | OFICINA TÉCNICA HAM"
     ws2["B2"].font = font_sub
-    ws2["B3"] = f"ESCANDALLO Y CONTROL DE COSTES DIRECTOS • {DATA['codigo']}"
+    ws2["B3"] = f"ESCANDALLO Y CONTROL DE COSTES DIRECTOS • {DATA['codigo']} (REV. 1)"
     ws2["B3"].font = font_title
 
     headers_tech = ["Elemento / Concepto de Coste", "Tipo de Recurso", "Medición / Horas", "Coste Unitario", "Coste Directo Total", "PVP Venta", "Margen Bruto"]
@@ -208,11 +209,10 @@ def create_excel():
 
     escandallo = [
         ["Perfiles UPE 200 (6,40 m / 146 kg)", "Material Acero S275", 146.00, 1.45, "=D6*E6", 320.00],
-        ["Taladros mecanizado alma y preparación", "Mano de obra taller (3,5 h)", 3.50, 28.00, "=D7*E7", 180.00],
-        ["Sistema C5 Marino Blanco (sin horno)", "Tratamiento anticorrosivo", 5.00, 32.00, "=D8*E8", 320.00],
-        ["Logística, embalaje y acarreo interior", "Transporte y medios", 1.00, 95.00, "=D9*E9", 210.00],
-        ["Montaje y soldadura in situ apartamento", "Mano de obra obra (8,0 h)", 8.00, 32.00, "=D10*E10", 540.00],
-        ["Retoque in situ y sellado C5 Marino", "Mano de obra y pintura", 2.00, 32.00, "=D11*E11", 150.00]
+        ["Mecanizado almas y biselado (35 €/h)", "Mano de obra taller (2,5 h)", 2.50, 28.00, "=D7*E7", 87.50],
+        ["Sistema C5 Marino Blanco (a 50 €/m²)", "Tratamiento epoxi + PU 2C", 5.00, 25.00, "=D8*E8", 250.00],
+        ["Montaje y soldadura in situ apartamento", "Mano de obra obra (8,0 h)", 8.00, 28.00, "=D9*E9", 320.00],
+        ["Retoque in situ y sellado C5 Marino", "Mano de obra y pintura", 2.00, 28.00, "=D10*E10", 100.00]
     ]
 
     for idx, row in enumerate(escandallo, start=6):
@@ -235,37 +235,37 @@ def create_excel():
                 ws2.cell(row=idx, column=c_idx).fill = fill_alt
 
     # Totales escandallo
-    ws2.cell(row=13, column=5, value="TOTALES:").font = font_bold
-    ws2.cell(row=13, column=5).alignment = Alignment(horizontal="right")
-    ws2.cell(row=13, column=6, value="=SUM(F6:F11)").font = font_tot
-    ws2.cell(row=13, column=6).number_format = '#,##0.00 €'
-    ws2.cell(row=13, column=6).border = border_total
+    ws2.cell(row=11, column=5, value="TOTALES:").font = font_bold
+    ws2.cell(row=11, column=5).alignment = Alignment(horizontal="right")
+    ws2.cell(row=11, column=6, value="=SUM(F6:F10)").font = font_tot
+    ws2.cell(row=11, column=6).number_format = '#,##0.00 €'
+    ws2.cell(row=11, column=6).border = border_total
     
-    ws2.cell(row=13, column=7, value="=SUM(G6:G11)").font = font_tot
-    ws2.cell(row=13, column=7).number_format = '#,##0.00 €'
-    ws2.cell(row=13, column=7).border = border_total
+    ws2.cell(row=11, column=7, value="=SUM(G6:G10)").font = font_tot
+    ws2.cell(row=11, column=7).number_format = '#,##0.00 €'
+    ws2.cell(row=11, column=7).border = border_total
 
-    ws2.cell(row=13, column=8, value="=G13-F13").font = font_tot_gold
-    ws2.cell(row=13, column=8).number_format = '#,##0.00 €'
-    ws2.cell(row=13, column=8).border = border_total
+    ws2.cell(row=11, column=8, value="=G11-F11").font = font_tot_gold
+    ws2.cell(row=11, column=8).number_format = '#,##0.00 €'
+    ws2.cell(row=11, column=8).border = border_total
 
     # Resumen margen
-    ws2["B15"] = "RESUMEN DE RENTABILIDAD:"
-    ws2["B15"].font = font_sec
-    ws2["B16"] = "Coste Directo Total:"
-    ws2["C16"] = "=F13"
+    ws2["B13"] = "RESUMEN DE RENTABILIDAD:"
+    ws2["B13"].font = font_sec
+    ws2["B14"] = "Coste Directo Total:"
+    ws2["C14"] = "=F11"
+    ws2["C14"].number_format = '#,##0.00 €'
+    ws2["B15"] = "Precio de Venta Neto:"
+    ws2["C15"] = "=G11"
+    ws2["C15"].number_format = '#,##0.00 €'
+    ws2["B16"] = "Margen de Contribución Bruto:"
+    ws2["C16"] = "=H11"
     ws2["C16"].number_format = '#,##0.00 €'
-    ws2["B17"] = "Precio de Venta Neto:"
-    ws2["C17"] = "=G13"
-    ws2["C17"].number_format = '#,##0.00 €'
-    ws2["B18"] = "Margen de Contribución Bruto:"
-    ws2["C18"] = "=H13"
-    ws2["C18"].number_format = '#,##0.00 €'
-    ws2["B19"] = "Margen sobre Venta (%):"
-    ws2["C19"] = "=H13/G13"
-    ws2["C19"].number_format = '0.0%'
+    ws2["B17"] = "Margen sobre Venta (%):"
+    ws2["C17"] = "=H11/G11"
+    ws2["C17"].number_format = '0.0%'
 
-    for r in range(16, 20):
+    for r in range(14, 18):
         ws2[f"B{r}"].font = font_bold
         ws2[f"C{r}"].font = font_bold
 
@@ -631,7 +631,7 @@ def create_html_client():
         </div>
         <div class="card">
           <span class="label">Acabado Anticorrosivo</span>
-          <span class="value">C5 Marino Blanco</span>
+          <span class="value">C5 Marino Blanco (50 €/m²)</span>
         </div>
       </section>
 
@@ -682,20 +682,20 @@ def create_html_client():
 
       <div class="two-col">
         <div class="col">
-          <h5>Condiciones de Ejecución y Garantía</h5>
+          <h5>Condiciones de Ejecución y Tarifas</h5>
           <ul class="compact">
+            <li><strong>Mano de obra taller:</strong> Tarifa oficial de 35,00 €/h para mecanizados y perforaciones.</li>
+            <li><strong>Protección C5 Marino:</strong> Aplicación según norma ISO 12944 a 50,00 €/m² (sin horno).</li>
             <li><strong>Plazo:</strong> {DATA['condiciones']['plazo_entrega']}</li>
             <li><strong>Forma de pago:</strong> {DATA['condiciones']['forma_pago']}</li>
-            <li><strong>Garantía:</strong> {DATA['condiciones']['garantia']}</li>
-            <li><strong>Criterio HAM:</strong> Pintura bicomponente de alta resistencia marina C5 (sin curado al horno).</li>
           </ul>
         </div>
         <div class="col">
           <h5>Condiciones de Obra y Exclusiones</h5>
           <ul class="compact">
+            <li><strong>Logística:</strong> Sin logística incluida (transporte a obra y subida a piso a cargo del cliente).</li>
             <li><strong>Exclusiones:</strong> {DATA['condiciones']['exclusiones']}</li>
-            <li><strong>Acceso:</strong> Subida y acopio en planta por huecos accesibles en piezas sueltas de 73 kg.</li>
-            <li><strong>Seguridad:</strong> Se dispondrá manta ignífuga y extintor homologado en interior de vivienda.</li>
+            <li><strong>Seguridad interior:</strong> Se emplean mantas ignífugas de fibra de vidrio y extintor a pie de tajo.</li>
           </ul>
         </div>
       </div>
@@ -714,7 +714,7 @@ def create_html_client():
 
     <footer>
       <div>DIXIS RECURSOS Y SOLUCIONES S.L. • C.I.F. B57825432 • Sant Lluís, Menorca</div>
-      <div>P-2026-0051 • Dintel UPE 200 Soldado In Situ • Hoja 1 de 1</div>
+      <div>P-2026-0051 (Rev. 1) • Dintel UPE 200 Soldado In Situ • Hoja 1 de 1</div>
     </footer>
   </div>
 </body>
@@ -732,7 +732,7 @@ def create_html_technical():
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Memoria Técnica Operativa {DATA['codigo']} • {DATA['proyecto']['titulo']}</title>
+  <title>Memoria Técnica Operativa {DATA['codigo']} (Rev 1) • {DATA['proyecto']['titulo']}</title>
   <style>
     :root {{
       --ink: #0f172a;
@@ -907,7 +907,7 @@ def create_html_technical():
     <div>
       <header>
         <div class="title-group">
-          <h1>MEMORIA TÉCNICA Y OPERATIVA DE TALLER Y OBRA</h1>
+          <h1>MEMORIA TÉCNICA Y OPERATIVA DE TALLER Y OBRA (REV. 1)</h1>
           <p>Proyecto {DATA['codigo']} • {DATA['cliente']['nombre']} • Coordinación técnica con Joan</p>
         </div>
         <div class="badge-tech">USO INTERNO / OFICINA TÉCNICA</div>
@@ -942,22 +942,22 @@ def create_html_technical():
       </div>
 
       <div class="alert-box">
-        <strong>Conclusión del Estudio Estructural:</strong> La sección compuesta por 2 UPE 200 en acero S275 cumple holgadamente con el Código Estructural a temperatura ambiente y en situación de incendio R 30 (η = 49,6% con 6 mm de lana de roca). Los apoyos disponen de ~27 cm de entrega a cada extremo.
+        <strong>Ajustes Aplicados en Rev. 1:</strong> Tarificación de mano de obra de taller a <strong>35,00 €/h</strong> (2,5 h reales = 87,50 €), tratamiento anticorrosivo C5 Marino a <strong>50,00 €/m²</strong> (5 m² = 250,00 €) y <strong>exclusión total de la logística y transporte</strong> a obra (porte y acarreo a cargo del cliente).
       </div>
 
       <h3>2. Procedimiento Operativo de Fabricación, Montaje y Soldadura</h3>
       <div class="procedure">
         <ol>
-          <li><strong>Corte y mecanizado en taller:</strong> Corte a sierra de cinta de los 2 perfiles UPE 200 a 3.200 mm. Trazado y taladrado de perforaciones pasantes Ø22 mm en el alma de uno de los perfiles con espaciado regular (8-10 uds) para permitir el botón de soldadura (plug weld). Chaflanado inferior de 45° para el cordón discontinuo.</li>
-          <li><strong>Pintura C5 Marino Blanco en taller (Regla estricta HAM: SIN HORNO):</strong> Granallado/limpieza Sa 2½, imprimación epoxi fosfato de zinc 75-80 µm, capa intermedia epoxi barrera 100-120 µm y acabado esmalte poliuretano alifático 2C color blanco 50-60 µm (DFT ≥ 240 µm).</li>
-          <li><strong>Logística y acarreo:</strong> Transporte de los perfiles protegidos. Subida manual e individual (~73 kg/ud) al interior del apartamento para evitar daños y facilitar manipulación en espacios reducidos.</li>
+          <li><strong>Corte y mecanizado en taller (2,5 h a 35 €/h):</strong> Corte a sierra de cinta de los 2 perfiles UPE 200 a 3.200 mm. Trazado y taladrado de perforaciones pasantes Ø22 mm en el alma de uno de los perfiles con espaciado regular (8-10 uds) para permitir el botón de soldadura (plug weld). Chaflanado inferior de 45° para el cordón discontinuo.</li>
+          <li><strong>Pintura C5 Marino Blanco en taller a 50 €/m² (Regla estricta HAM: SIN HORNO):</strong> Granallado/limpieza Sa 2½, imprimación epoxi fosfato de zinc 75-80 µm, capa intermedia epoxi barrera 100-120 µm y acabado esmalte poliuretano alifático 2C color blanco 50-60 µm (DFT ≥ 240 µm).</li>
+          <li><strong>Sin logística:</strong> Entrega de los perfiles en taller o acarreo directo a obra gestionado por el cliente.</li>
           <li><strong>Montaje in situ en apartamento:</strong> Despliegue de mantas ignífugas de fibra de vidrio para protección total de solados y cerramientos contiguos. Presentación de perfiles sobre apoyos y prensado con mordazas mecánicas para unión íntima de almas.</li>
-          <li><strong>Soldadura in situ:</strong> Ejecución de botones de soldadura por penetración completa a través de las perforaciones del alma y ejecución de cordones discontinuos (50 mm cada 250 mm) en la arista inferior.</li>
+          <li><strong>Soldadura in situ:</strong> Ejecución de botones de soldadura por penetración completa a través de las perforaciones del alma y ejecución de cordones discontinuos en la arista inferior.</li>
           <li><strong>Pasivación y retoque C5 Marino:</strong> Desescoriado, esmerilado, aplicación de imprimación rica en zinc y esmalte poliuretano alifático bicomponente blanco para sellar y restituir la protección anticorrosiva marina en todas las zonas soldadas.</li>
         </ol>
       </div>
 
-      <h3>3. Escandallo de Costes Directos y Margen Bruto</h3>
+      <h3>3. Escandallo de Costes Directos y Margen Bruto (Revisión 1)</h3>
       <table>
         <thead>
           <tr>
@@ -979,50 +979,42 @@ def create_html_technical():
             <td class="r">108,30 €</td>
           </tr>
           <tr>
-            <td>Mecanizado de almas y biselado</td>
-            <td>Mano obra taller (3,5 h)</td>
-            <td class="r">3,50 h</td>
-            <td class="r">98,00 €</td>
-            <td class="r bold">180,00 €</td>
-            <td class="r">82,00 €</td>
+            <td>Mecanizado de almas y biselado (35 €/h)</td>
+            <td>Mano obra taller (2,5 h a 28 €/h coste)</td>
+            <td class="r">2,50 h</td>
+            <td class="r">70,00 €</td>
+            <td class="r bold">87,50 €</td>
+            <td class="r">17,50 €</td>
           </tr>
           <tr>
-            <td>Sistema C5 Marino Blanco (sin horno)</td>
+            <td>Sistema C5 Marino Blanco (a 50 €/m²)</td>
             <td>Tratamiento epoxi + PU 2C</td>
             <td class="r">5,00 m²</td>
-            <td class="r">160,00 €</td>
-            <td class="r bold">320,00 €</td>
-            <td class="r">160,00 €</td>
+            <td class="r">125,00 €</td>
+            <td class="r bold">250,00 €</td>
+            <td class="r">125,00 €</td>
           </tr>
           <tr>
-            <td>Transporte, embalaje y acarreo piso</td>
-            <td>Logística Menorca</td>
-            <td class="r">1,00 pa</td>
-            <td class="r">95,00 €</td>
-            <td class="r bold">210,00 €</td>
-            <td class="r">115,00 €</td>
-          </tr>
-          <tr>
-            <td>Montaje, soldadura y protecciones</td>
-            <td>Mano obra obra (8,0 h)</td>
+            <td>Montaje, soldadura y protecciones in situ</td>
+            <td>Mano obra obra (8,0 h a 28 €/h) + medios</td>
             <td class="r">8,00 h</td>
-            <td class="r">256,00 €</td>
-            <td class="r bold">540,00 €</td>
-            <td class="r">284,00 €</td>
+            <td class="r">249,00 €</td>
+            <td class="r bold">320,00 €</td>
+            <td class="r">71,00 €</td>
           </tr>
           <tr>
             <td>Sellado y retoque C5 Marino in situ</td>
-            <td>Mano obra y pintura (2,0 h)</td>
+            <td>Mano obra y pintura (2,0 h a 28 €/h)</td>
             <td class="r">2,00 h</td>
-            <td class="r">64,00 €</td>
-            <td class="r bold">150,00 €</td>
-            <td class="r">86,00 €</td>
+            <td class="r">71,00 €</td>
+            <td class="r bold">100,00 €</td>
+            <td class="r">29,00 €</td>
           </tr>
           <tr style="background: #f1f5f9; font-weight: 800; border-top: 2px solid var(--tech-blue);">
             <td colspan="3">TOTALES ESCANDALLO DIRECTO:</td>
-            <td class="r">884,70 €</td>
-            <td class="r" style="color: var(--tech-blue); font-size: 13px;">1.720,00 €</td>
-            <td class="r" style="color: #059669; font-size: 13px;">835,30 € (48,6%)</td>
+            <td class="r">726,70 €</td>
+            <td class="r" style="color: var(--tech-blue); font-size: 13px;">1.077,50 €</td>
+            <td class="r" style="color: #059669; font-size: 13px;">350,80 € (32,6%)</td>
           </tr>
         </tbody>
       </table>
@@ -1030,7 +1022,7 @@ def create_html_technical():
 
     <footer>
       <div>DIXIS RECURSOS Y SOLUCIONES S.L. • HAM Menorca • Oficina Técnica</div>
-      <div>P-2026-0051 • Memoria Técnica Operativa • Hoja 1 de 1</div>
+      <div>P-2026-0051 (Rev. 1) • Memoria Técnica Operativa • Hoja 1 de 1</div>
     </footer>
   </div>
 </body>
@@ -1066,4 +1058,4 @@ if __name__ == "__main__":
     tech_pdf = os.path.join(BASE_DIR, "presupuesto-interno-tecnico.pdf")
     convert_to_pdf(tech_html, tech_pdf)
     
-    print("\nTodos los documentos de P-2026-0051 han sido generados exitosamente.")
+    print("\nTodos los documentos de P-2026-0051 han sido actualizados exitosamente.")
