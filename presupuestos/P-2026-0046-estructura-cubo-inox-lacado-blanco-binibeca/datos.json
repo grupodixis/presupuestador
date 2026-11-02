@@ -1,20 +1,20 @@
 {
   "proyecto": {
     "codigo": "P-2026-0046",
-    "revision": "REV. 3 (Ajuste de partidas: eliminadas 02 zapatas/anclajes a cargo del constructor y 05 cables tensores)",
+    "revision": "REV. 4 (Pintura imprimación+acabado sin horno, cubo atornillado y transporte ida en camión)",
     "referencia_comercial": "EST-2026-1046",
-    "titulo": "Estructura Cúbica en Tubo de Acero Inoxidable 40x40x2 mm Lacado en Blanco",
-    "subtitulo": "Diseño cúbico geométrico (4,00 x 3,00 x 2,50 m) en acero inoxidable, acabado termolacado blanco calidad exterior marina, amurada al piso preparado por el constructor",
-    "fecha": "30/10/2026",
+    "titulo": "Estructura Cúbica Atornillable en Tubo Inox 40x40x2 mm Pintada en Blanco",
+    "subtitulo": "Diseño cúbico geométrico (4,00 x 3,00 x 2,50 m) en acero inoxidable atornillado para montaje en obra, imprimación y pintura de acabado en taller (sin horno), amurada a puntos preparados por el constructor y transporte de ida en camión",
+    "fecha": "02/11/2026",
     "validez_dias": 30,
     "ubicacion": "c/ Llaut 59, Urb. Binibeca Vell, 07711 Sant Lluís (Menorca)",
     "entorno": "Ambiente costero de alta salinidad (C5-M), terraza junto a piscina",
     "especificaciones_taller": {
-      "tipologia": "Estructura cúbica ortoédrica de líneas puras y minimalistas",
+      "tipologia": "Estructura cúbica ortoédrica atornillable de líneas puras y minimalistas",
       "perfil": "Tubo cuadrado de Acero Inoxidable 40x40x2 mm (calidad marina para exterior en Menorca)",
-      "acabado": "Lacado al horno con pintura en polvo de resinas de poliéster blanco (Blanco RAL 9010 / 9016 exterior) sobre pretratamiento especial para inoxidable",
+      "acabado": "Imprimación epoxi fosfatante de adherencia para inoxidable + pintura de acabado esmalte poliuretano alifático bicomponente blanco para intemperie marina (sin horno)",
       "obra_civil": "A cargo de la contrata principal (cimentación, zapatas, vertido de hormigón y solado porcelánico C3)",
-      "montaje": "Montaje y fijación mecánica/química directa de la estructura sobre los puntos preparados por el constructor"
+      "transporte_y_montaje": "Transporte en 1 viaje de ida de camión con material despiezado; ensamblado atornillado y fijación in situ en obra sobre apoyos de obra"
     },
     "dimensiones_principales": {
       "largo": 4.00,
@@ -51,13 +51,13 @@
     "web": "www.hamenorca.com"
   },
   "plazos": {
-    "fabricacion_y_montaje": "3 a 4 semanas desde confirmación de cotas de obra y recepción de puntos de apoyo por el constructor. Montaje en obra en 1 jornada."
+    "fabricacion_y_montaje": "2 a 3 semanas desde confirmación de cotas de obra y recepción de puntos de apoyo por el constructor. Montaje en obra en 1 jornada."
   },
   "partidas": [
     {
       "item": "01",
       "concepto": "Replanteo técnico in situ, nivelación y desarrollo de planos de taller",
-      "descripcion": "Visita técnica a la obra en Binibeca Vell, comprobación de niveles y replanteo de ejes con el constructor para la correcta posición de los apoyos en la solera/zapatas antes del solado, y desarrollo de planos de fabricación para taller.",
+      "descripcion": "Visita técnica a la obra en Binibeca Vell, comprobación de niveles y replanteo de ejes con el constructor para la correcta posición de los apoyos en la solera/zapatas antes del solado, y desarrollo de planos de despiece y despiece atornillado para taller.",
       "unidad": "lote",
       "cantidad": 1,
       "precio_unitario": 320.00,
@@ -65,8 +65,8 @@
     },
     {
       "item": "02",
-      "concepto": "Fabricación en taller de estructura cúbica en tubo Inox 40x40x2 mm",
-      "descripcion": "Fabricación a medida de estructura en forma de cubo geométrico (4,00 m largo x 3,00 m ancho x 2,50 m alto libre) realizada íntegramente en tubo cuadrado de Acero Inoxidable de 40x40x2 mm. Se compone de 4 pilares verticales de 2,50 m, marco perimetral superior (2 vigas de 4,00 m y 2 vigas de 3,00 m) y costillas intermedias superiores transversales de rigidización. Cortes a inglete a 45º, soldadura continua TIG en atmósfera inerte de argón y esmerilado de aristas para continuidad estética monolítica.",
+      "concepto": "Fabricación en taller de estructura cúbica atornillable en tubo Inox 40x40x2 mm",
+      "descripcion": "Fabricación a medida despiezada de estructura en forma de cubo geométrico (4,00 m largo x 3,00 m ancho x 2,50 m alto libre) realizada íntegramente en tubo cuadrado de Acero Inoxidable de 40x40x2 mm: 4 pilares verticales de 2,50 m, marco perimetral superior (2 vigas de 4,00 m y 2 vigas de 3,00 m) y costillas intermedias superiores transversales de rigidización. Cortes a inglete a 45º, mecanizado de uniones interiores atornilladas con casquillos y tornillería oculta de acero inoxidable A4 para su ensamble y montaje en obra.",
       "unidad": "lote",
       "cantidad": 1,
       "precio_unitario": 2150.00,
@@ -74,8 +74,8 @@
     },
     {
       "item": "03",
-      "concepto": "Tratamiento superficial de termolacado al horno en Blanco Exterior",
-      "descripcion": "Tratamiento de alta durabilidad específico para acero inoxidable en ambiente marino: desengrasado alcalino, pasivado y acondicionamiento mecánico superficial para garantizar la máxima adherencia química, aplicación de imprimación de adherencia para acero inoxidable y termolacado al horno con pintura en polvo de resinas de poliéster arquitectónico en color Blanco (a elegir Blanco Puro RAL 9016 o Blanco Cálido RAL 9010) con protección contra rayos UV y salitre marino.",
+      "concepto": "Tratamiento de pintura en taller: Imprimación y Pintura de Acabado Blanco (sin horno)",
+      "descripcion": "Tratamiento anticorrosivo y estético de taller según procedimiento estándar HAM (sin horno): desengrasado, limpieza mecánica y acondicionamiento químico del acero inoxidable, aplicación de imprimación epoxi fosfatante de alta adherencia y dos capas de esmalte poliuretano alifático bicomponente de alta resistencia a la intemperie marina y radiación solar UV. Color Blanco exterior (a elegir RAL 9010 Blanco Cálido o RAL 9016 Blanco Puro).",
       "unidad": "lote",
       "cantidad": 1,
       "precio_unitario": 680.00,
@@ -83,8 +83,8 @@
     },
     {
       "item": "04",
-      "concepto": "Transporte a Binibeca Vell y montaje de estructura sobre puntos preparados",
-      "descripcion": "Transporte de la estructura a pie de obra en Binibeca Vell, descarga, elevación, aplomado, fijación estructural de los apoyos sobre las zapatas/puntos ejecutados por el constructor, verificación de niveles, repaso de lacado y retirada de embalajes.",
+      "concepto": "Transporte en camión (ida) y montaje de estructura atornillada en obra",
+      "descripcion": "Transporte especializado del material despiezado en 1 porte de camión (ida) a pie de obra en Binibeca Vell. Montaje, aplomado y ensamblado atornillado in situ de los elementos del cubo sobre los puntos/zapatas ejecutados por el constructor, fijación estructural, verificación de niveles, repaso de pintura en puntos de unión y retirada de embalajes.",
       "unidad": "lote",
       "cantidad": 1,
       "precio_unitario": 980.00,
@@ -99,21 +99,23 @@
   },
   "escandallo_interno": {
     "coste_tubo_inox_40x40x2": 720.00,
-    "coste_lacado_blanco_horno": 380.00,
-    "coste_quimicos_consumibles": 60.00,
-    "coste_total_materiales": 1160.00,
-    "horas_taller_tig": 20,
-    "coste_horas_taller": 440.00,
+    "coste_pintura_imprimacion_poliuretano": 160.00,
+    "coste_tornilleria_inox_consumibles": 120.00,
+    "coste_total_materiales": 1000.00,
+    "horas_taller_mecanizado": 18,
+    "coste_horas_taller": 396.00,
+    "horas_taller_pintura": 6,
+    "coste_horas_pintura": 132.00,
     "horas_oficina_tecnica": 5,
     "coste_oficina_tecnica": 125.00,
     "horas_obra_montaje": 12,
     "coste_horas_obra": 264.00,
-    "coste_transporte": 120.00,
-    "coste_total_mano_obra_transporte": 949.00,
-    "coste_neto_total": 2109.00,
+    "coste_transporte_camion_ida": 100.00,
+    "coste_total_mano_obra_transporte": 1017.00,
+    "coste_neto_total": 2017.00,
     "precio_venta_bi": 4130.00,
-    "margen_bruto_euros": 2021.00,
-    "porcentaje_margen": 48.9
+    "margen_bruto_euros": 2113.00,
+    "porcentaje_margen": 51.2
   },
   "condiciones": {
     "forma_pago": "50% a la confirmación del encargo y replanteo de obra; 50% a la finalización y recepción de los trabajos de montaje.",

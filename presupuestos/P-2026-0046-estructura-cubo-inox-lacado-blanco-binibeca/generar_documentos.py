@@ -29,7 +29,7 @@ def create_excel():
     # Cabecera Presupuesto
     ws["A1"] = "HAM ESTRUCTURAS METÁLICAS MENORCA"
     ws["A1"].font = title_font
-    ws["A2"] = "PRESUPUESTO TÉCNICO Y VALORACIÓN ECONÓMICA: P-2026-0046 (REV. 3)"
+    ws["A2"] = "PRESUPUESTO TÉCNICO Y VALORACIÓN ECONÓMICA: P-2026-0046 (REV. 4)"
     ws["A2"].font = subtitle_font
 
     ws["A4"] = "Cliente:"
@@ -39,9 +39,9 @@ def create_excel():
     ws["A6"] = "Proyecto / Arq.:"
     ws["B6"] = "Cristina Moll Taltavull · Expte: 2024 13_MOD (Reforma Unifamiliar con Piscina)"
     ws["A7"] = "Fecha y Validez:"
-    ws["B7"] = "30/10/2026 · Validez 30 días"
+    ws["B7"] = "02/11/2026 · Validez 30 días"
     ws["A8"] = "Concepto:"
-    ws["B8"] = "Estructura cúbica minimalista en tubo de Acero Inoxidable 40x40x2 mm lacado blanco, fijada sobre zapatas ejecutadas por constructor"
+    ws["B8"] = "Estructura cúbica minimalista atornillable en tubo Inox 40x40x2 mm, imprimación + acabado blanco (sin horno), transporte ida camión"
 
     for r in range(4, 9):
         ws[f"A{r}"].font = bold_font
@@ -51,7 +51,7 @@ def create_excel():
     ws["A10"] = "PARÁMETROS TÉCNICOS"
     ws["A10"].font = bold_font
     ws["A10"].fill = section_fill
-    ws["B10"] = "Medidas: 4,00 x 3,00 x 2,50 m (12 m²) | Geometría cúbica ortoédrica | Tubo cuadrado de Acero Inoxidable 40x40x2 mm | Soldadura TIG pulida | Termolacado al horno en Blanco exterior (RAL 9010/9016) | Obra civil y zapatas a cargo del constructor | Transporte y montaje de estructura fijada sobre puntos de obra"
+    ws["B10"] = "Medidas: 4,00 x 3,00 x 2,50 m (12 m²) | Geometría cúbica ortoédrica atornillable | Tubo cuadrado de Acero Inoxidable 40x40x2 mm | Imprimación epoxi fosfatante + pintura de acabado esmalte poliuretano blanco para exterior marino (sin horno) | Obra civil y zapatas a cargo del constructor | Transporte de ida en camión con material despiezado y montaje atornillado in situ"
     ws["B10"].font = regular_font
     ws["B10"].fill = section_fill
 
@@ -66,10 +66,10 @@ def create_excel():
         cell.alignment = Alignment(horizontal="center" if col_idx not in [2] else "left", vertical="center")
 
     data = [
-        ["01", "Replanteo técnico in situ, nivelación y desarrollo de planos de taller: visita a la obra en Binibeca Vell para comprobación de cotas y coordinación de apoyos con el constructor previa ejecución de zapatas/solera, y elaboración de planos de taller", "lote", 1, 320.00],
-        ["02", "Fabricación en taller de estructura cúbica en tubo de Acero Inoxidable 40x40x2 mm: 4 pilares verticales de 2,50 m, marco perimetral superior (2 vigas de 4 m + 2 vigas de 3 m) y costillas intermedias superiores transversales de rigidización. Cortes ingleteados a 45º, soldadura continua TIG en atmósfera inerte de argón y aristas esmeriladas para acabado monolítico", "lote", 1, 2150.00],
-        ["03", "Tratamiento superficial de termolacado al horno en Blanco Exterior: desengrasado, acondicionamiento superficial para acero inoxidable, imprimación de adherencia técnica y termolacado al horno con pintura en polvo de resinas de poliéster arquitectónico (Blanco RAL 9010/9016) resistente a radiación UV y salinidad marina", "lote", 1, 680.00],
-        ["04", "Transporte a Binibeca Vell y montaje de estructura sobre puntos preparados: transporte especializado a obra, descarga, elevación de módulos, aplomado y fijación estructural sobre los puntos/zapatas ejecutados por el constructor, verificación de niveles, repaso de lacado y retirada de embalajes", "lote", 1, 980.00]
+        ["01", "Replanteo técnico in situ, nivelación y desarrollo de planos de taller: visita a la obra en Binibeca Vell para comprobación de cotas y coordinación de apoyos con el constructor previa ejecución de zapatas/solera, y elaboración de planos de despiece atornillado para taller", "lote", 1, 320.00],
+        ["02", "Fabricación en taller de estructura cúbica atornillable en tubo Inox 40x40x2 mm: fabricación a medida despiezada (4,00 x 3,00 x 2,50 m) en tubo de Acero Inoxidable 40x40x2 mm con 4 pilares verticales de 2,50 m, marco perimetral superior y costillas superiores transversales. Ingletes a 45º, casquillos interiores y preparación de uniones atornilladas con tornillería Inox A4", "lote", 1, 2150.00],
+        ["03", "Tratamiento de pintura en taller: Imprimación y Pintura de Acabado Blanco (sin horno): desengrasado, acondicionamiento superficial para acero inoxidable, imprimación epoxi fosfatante de adherencia y dos capas de esmalte poliuretano alifático bicomponente blanco resistente a radiación UV y salinidad marina", "lote", 1, 680.00],
+        ["04", "Transporte en camión (ida) y montaje de estructura atornillada en obra: transporte especializado del material despiezado en 1 porte de camión (ida) hasta Binibeca Vell. Montaje, aplomado y ensamblado atornillado in situ sobre las zapatas ejecutadas por el constructor, apriete dinamométrico, verificación de niveles y repaso de pintura", "lote", 1, 980.00]
     ]
 
     for i, row in enumerate(data, start=start_row + 1):
