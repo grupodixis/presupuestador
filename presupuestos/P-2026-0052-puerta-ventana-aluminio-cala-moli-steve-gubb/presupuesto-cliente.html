@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuesto P-2026-0052 - Puerta de Entrada y Ventana Corredera de Aluminio - Steve Gubb</title>
+  <style>
+    :root {
+      --ink: #1e293b;
+      --muted: #64748b;
+      --line: #cbd5e1;
+      --soft: #f8fafc;
+      --brand: #0f172a;
+      --alufac-blue: #0284c7;
+      --accent: #0284c7;
+      --card-bg: #f1f5f9;
+      --success: #15803d;
+      --highlight: #eff6ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #e2e8f0;
+      color: var(--ink);
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 16mm 18mm;
+      position: relative;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--alufac-blue);
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+    }
+    .brand-block {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .brand-logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .brand-logo span {
+      color: var(--alufac-blue);
+    }
+    .company-details h1 {
+      margin: 0 0 4px;
+      font-size: 18px;
+      color: var(--brand);
+      font-weight: 700;
+    }
+    .company-details p {
+      margin: 2px 0;
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+    .meta-block {
+      text-align: right;
+    }
+    .meta-block .badge {
+      display: inline-block;
+      background: var(--alufac-blue);
+      color: #fff;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .meta-block h2 {
+      margin: 0 0 4px;
+      font-size: 20px;
+      color: var(--brand);
+    }
+    .meta-block p {
+      margin: 2px 0;
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+    .hero {
+      background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+      border: 1px solid #bae6fd;
+      border-left: 5px solid var(--alufac-blue);
+      padding: 14px 18px;
+      border-radius: 4px;
+      margin-bottom: 18px;
+    }
+    .hero h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      color: var(--brand);
+    }
+    .hero p {
+      margin: 0;
+      font-size: 12.5px;
+      color: #334155;
+    }
+    .grid-summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 12px;
+    }
+    .card .label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .card .val {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--brand);
+    }
+    h4 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--brand);
+      margin: 20px 0 8px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid var(--line);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 12.5px;
+    }
+    th {
+      background: #1e293b;
+      color: #fff;
+      text-align: left;
+      padding: 8px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+    }
+    tr.sub-header td {
+      background: #f8fafc;
+      font-weight: 700;
+      color: var(--brand);
+      font-size: 12px;
+      border-top: 1px solid var(--line);
+    }
+    .text-right {
+      text-align: right;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .price-callout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .box-option {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 14px;
+      background: #fff;
+    }
+    .box-option.featured {
+      border: 2px solid var(--alufac-blue);
+      background: var(--highlight);
+    }
+    .box-option h5 {
+      margin: 0 0 8px;
+      font-size: 13.5px;
+      color: var(--brand);
+      display: flex;
+      justify-content: space-between;
+    }
+    .box-option .price-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+    .box-option .price-total {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1.5px dashed var(--line);
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--brand);
+    }
+    .box-option.featured .price-total {
+      color: var(--alufac-blue);
+      font-size: 16px;
+      border-top-color: #7dd3fc;
+    }
+    .scope-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+      font-size: 12px;
+    }
+    .scope-box ul {
+      margin: 4px 0 0;
+      padding-left: 18px;
+    }
+    .scope-box li {
+      margin-bottom: 4px;
+      color: #334155;
+    }
+    .legal-notice {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 10px 14px;
+      border-radius: 4px;
+      font-size: 11.5px;
+      color: #92400e;
+      margin-bottom: 18px;
+    }
+    .signatures {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .sig-card {
+      border: 1px dashed var(--line);
+      border-radius: 4px;
+      padding: 12px;
+      min-height: 70px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    footer {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: var(--muted);
+    }
+    @media print {
+      body { background: #fff; font-size: 11px; }
+      .page { width: 100%; margin: 0; padding: 10mm 12mm; box-shadow: none; }
+      th { font-size: 9.5px; padding: 6px 8px; }
+      td { padding: 6px 8px; font-size: 10.5px; }
+      .box-option { padding: 10px; }
+      .signatures { margin-top: 15px; }
+      .sig-card { min-height: 55px; }
+      h4 { margin: 12px 0 6px; font-size: 12px; }
+      .grid-summary { margin-bottom: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<main class="page">
+  <!-- Cabecera -->
+  <header>
+    <div class="brand-block">
+      <div class="company-details">
+        <div class="brand-logo">ALU<span>FAC</span></div>
+        <h1>ALUFAC · Carpintería de Aluminio</h1>
+        <p><strong>Dixis Recursos y Soluciones S.L.</strong> · CIF: B57825432</p>
+        <p>Circunval·lació, 11 · 07710 Sant Lluís, Menorca</p>
+        <p>Tel / WhatsApp: +34 669 769 541 · Email: info@alufac.es · Web: www.alufac.es</p>
+      </div>
+    </div>
+    <div class="meta-block">
+      <span class="badge">PRESUPUESTO TÉCNICO-COMERCIAL</span>
+      <h2>P-2026-0052</h2>
+      <p><strong>Ref:</strong> PRE-2026-1102-ALU-CALAMOLI-GUBB</p>
+      <p><strong>Fecha:</strong> 2 de noviembre de 2026</p>
+      <p><strong>Validez:</strong> 30 días</p>
+    </div>
+  </header>
+
+  <!-- Resumen de Obra y Cliente -->
+  <section class="hero">
+    <h3>Sustitución de Puerta de Entrada y Ventana Corredera con RPT</h3>
+    <p>Presupuesto elaborado para <strong>Steve Gubb</strong> para su vivienda situada en <strong>Cala Molí (Es Mercadal, Menorca)</strong>. Fabricación a medida con perfiles de alta prestación CORTIZO con rotura de puente térmico (RPT), acabados de alta resistencia para ambiente marino (Qualicoat Seaside), desmontaje de carpintería existente, colocación y sellado perimetral estanco.</p>
+  </section>
+
+  <!-- Tarjetas Resumen -->
+  <div class="grid-summary">
+    <div class="card">
+      <span class="label">Ubicación</span>
+      <span class="val">Cala Molí (Es Mercadal)</span>
+    </div>
+    <div class="card">
+      <span class="label">Sistemas</span>
+      <span class="val">Cortizo COR 60 / COR 4200</span>
+    </div>
+    <div class="card">
+      <span class="label">Plazo Fabricación</span>
+      <span class="val">4 a 6 semanas</span>
+    </div>
+    <div class="card">
+      <span class="label">Montaje en Obra</span>
+      <span class="val">1 jornada de trabajo</span>
+    </div>
+  </div>
+
+  <!-- Tabla de Precios Desglosada -->
+  <h4>Desglose de Partidas (Suministro e Instalación por Separado)</h4>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">Ref.</th>
+        <th style="width: 52%;">Descripción Técnica del Elemento</th>
+        <th style="width: 13%;" class="text-right">Suministro</th>
+        <th style="width: 13%;" class="text-right">Instalación</th>
+        <th style="width: 14%;" class="text-right">Subtotal Neto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Elemento 1: Puerta -->
+      <tr>
+        <td class="text-center"><strong>E-01</strong></td>
+        <td>
+          <strong>Puerta de Entrada Practicable 1 Hoja con RPT (815 x 2.090 mm)</strong><br>
+          <span style="color: var(--muted); font-size: 11.5px;">
+            • <em>Sistema:</em> Cortizo COR 60 RPT / Millenium Plus (equivalente técnico Strugal S64RP Gala).<br>
+            • <em>Color:</em> Lacado Verde RAL 6009 mate por ambas caras (calidad marina Qualicoat Seaside).<br>
+            • <em>Diseño:</em> Machihembrado de aluminio de 20 mm con zona acristalada central con barrotillo decorativo exterior e interior simulando 4 cristales.<br>
+            • <em>Vidrio de Seguridad:</em> Doble acristalamiento 3+3.1 (laminar de seguridad) / cámara 16 mm con gas deshidratado / 4 mm (Conforme a CTE DB-SUA).<br>
+            • <em>Herrajes:</em> Cerradura de seguridad de resbalón y palanca basculante E35, cilindro europerfil de seguridad 30x65 leva corta con juego de llaves, manillas a juego, 3 bisagras regulables Hércules de alta carga.<br>
+            • <em>Instalación:</em> Desmontaje de puerta y marco existente, transporte a Cala Molí, fijación oculta inox, nivelación y sellado perimetral con polímero MS marino.
+          </span>
+        </td>
+        <td class="text-right" style="vertical-align: top; font-weight: 600;">1.380,00 €</td>
+        <td class="text-right" style="vertical-align: top; font-weight: 600;">280,00 €</td>
+        <td class="text-right" style="vertical-align: top; font-weight: 700; color: var(--brand);">1.660,00 €</td>
+      </tr>
+
+      <!-- Elemento 2: Ventana Corredera -->
+      <tr>
+        <td class="text-center"><strong>E-02</strong></td>
+        <td>
+          <strong>Ventana Corredera de 2 Hojas en Línea con RPT (920 x 1.120 mm)</strong><br>
+          <span style="color: var(--muted); font-size: 11.5px;">
+            • <em>Sistema:</em> Cortizo COR 4200 Corredera con RPT (equivalente técnico Strugal S88RP Artis).<br>
+            • <em>Color:</em> Blanco estándar RAL 9016 por ambas caras.<br>
+            • <em>Vidrio:</em> Doble acristalamiento aislante 4 / cámara de 20-22 mm / 4 mm (espesor de paquete 30 mm).<br>
+            • <em>Herrajes:</em> Cierre multipunto perimetral automático E15, manilla acodada reforzada interior tipo Altair (sin accionamiento exterior), cremona E15 de 600 mm, rodamientos tándem C regulables de 200 kg/hoja con estructura en poliamida/inox.<br>
+            • <em>Remates:</em> Solape curvo perimetral de 50 mm clipado con grapas plásticas sobre marco.<br>
+            • <em>Instalación:</em> Desmontaje de ventana antigua, transporte, anclajes mecánicos, calzado, regulación y sellado perimetral MS.
+          </span>
+        </td>
+        <td class="text-right" style="vertical-align: top; font-weight: 600;">540,00 €</td>
+        <td class="text-right" style="vertical-align: top; font-weight: 600;">160,00 €</td>
+        <td class="text-right" style="vertical-align: top; font-weight: 700; color: var(--brand);">700,00 €</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Opciones de Contratación: Separada vs Conjunta -->
+  <h4>Modalidades de Contratación y Totales Económicos</h4>
+  <div class="price-callout">
+    <!-- Opción Individual -->
+    <div class="box-option">
+      <h5><span>OPCIÓN 1: Contratación Individual</span> <small style="font-size:10px; color:var(--muted);">(A pedidos separados)</small></h5>
+      <div class="price-row"><span>Puerta E-01 instalada (Neto):</span> <span>1.660,00 €</span></div>
+      <div class="price-row" style="font-size:11px; color:var(--muted);"><span>IVA 21% Puerta:</span> <span>348,60 €</span></div>
+      <div class="price-row" style="font-weight:600; border-bottom:1px solid #e2e8f0; padding-bottom:4px;"><span>Total Puerta E-01 (con IVA):</span> <span>2.008,60 €</span></div>
+      <div class="price-row" style="margin-top:6px;"><span>Ventana E-02 instalada (Neto):</span> <span>700,00 €</span></div>
+      <div class="price-row" style="font-size:11px; color:var(--muted);"><span>IVA 21% Ventana:</span> <span>147,00 €</span></div>
+      <div class="price-row" style="font-weight:600;"><span>Total Ventana E-02 (con IVA):</span> <span>847,00 €</span></div>
+      <div class="price-total">
+        <span>Suma de ambos (por separado):</span>
+        <span>2.855,60 €</span>
+      </div>
+    </div>
+
+    <!-- Opción Conjunta -->
+    <div class="box-option featured">
+      <h5><span>OPCIÓN 2: Pedido Conjunto (Recomendada)</span> <span style="color:var(--alufac-blue); font-size:11px;">★ Ahorro Logístico</span></h5>
+      <div class="price-row"><span>Suministro total (Puerta + Ventana):</span> <span>1.920,00 €</span></div>
+      <div class="price-row"><span>Instalación, desmontaje y sellados:</span> <span>440,00 €</span></div>
+      <div class="price-row" style="color:var(--success); font-weight:600;"><span>Descuento por montaje conjunto:</span> <span>-120,00 €</span></div>
+      <div class="price-row" style="border-top:1px solid #bae6fd; padding-top:4px; font-weight:700;"><span>Base Imponible Neta:</span> <span>2.240,00 €</span></div>
+      <div class="price-row" style="font-size:11px; color:var(--muted);"><span>I.V.A. Régimen General (21%):</span> <span>470,40 €</span></div>
+      <div class="price-total">
+        <span>TOTAL OFERTA CONJUNTA:</span>
+        <span>2.710,40 €</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alcance del Trabajo -->
+  <h4>Alcance del Servicio y Condiciones</h4>
+  <div class="scope-box">
+    <div>
+      <strong style="color:var(--brand);">El Presupuesto Incluye:</strong>
+      <ul>
+        <li>Fabricación a medida en sistemas Cortizo RPT de alta prestación.</li>
+        <li>Acabado Qualicoat Seaside para resistencia a salinidad marina.</li>
+        <li>Vidrio de seguridad laminar 3+3.1 en puerta conforme a CTE DB-SUA.</li>
+        <li>Desmontaje y retirada de los marcos y carpinterías actuales.</li>
+        <li>Transporte directo a pie de obra en Cala Molí (Es Mercadal).</li>
+        <li>Montaje, aplomado, fijaciones inox y sellado elástico con polímero MS.</li>
+        <li>Retirada de escombros a punto limpio / vertedero autorizado de Menorca.</li>
+        <li>Visita técnica previa de replanteo y medición antes del corte de perfiles.</li>
+      </ul>
+    </div>
+    <div>
+      <strong style="color:var(--brand);">No Incluido (Exclusiones Expresas):</strong>
+      <ul>
+        <li>Trabajos mayores de albañilería (reconstrucción de mochetas o recebados).</li>
+        <li>Pintura o retoques decorativos de revestimientos de pared.</li>
+        <li>Medios auxiliares especiales o grúas de elevación no requeridos.</li>
+        <li>Tasas o permisos de licencia municipal de obras menores.</li>
+      </ul>
+      <div style="margin-top: 10px;">
+        <strong style="color:var(--brand);">Condiciones Comerciales:</strong>
+        <p style="margin:2px 0;">• <strong>Forma de pago:</strong> 50% al aceptar y replantear medidas; 50% al terminar el montaje.</p>
+        <p style="margin:2px 0;">• <strong>Plazo de entrega:</strong> 4 a 6 semanas (lacado verde específico) + 1 día instalación.</p>
+        <p style="margin:2px 0;">• <strong>Garantía:</strong> 3 años según legislación vigente.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-notice">
+    <strong>Nota sobre Mediciones y Seguridad:</strong> Presupuesto calculado en base a las medidas de referencia aportadas (815x2090 mm y 920x1120 mm). Los técnicos de ALUFAC verificarán las dimensiones definitivas de paso/hueco y el sentido de apertura in situ antes de iniciar la fabricación. El vidrio de la puerta incorpora lámina de seguridad conforme al CTE DB-SUA.
+  </div>
+
+  <!-- Firmas -->
+  <div class="signatures">
+    <div class="sig-card">
+      <strong>Por la empresa instaladora (ALUFAC):</strong><br>
+      Pablo Sebastián Sánchez Arnoletto<br>
+      Dixis Recursos y Soluciones S.L.<br>
+      Firma y sello:
+    </div>
+    <div class="sig-card">
+      <strong>Conformidad y Aceptación del Cliente:</strong><br>
+      Steve Gubb<br>
+      Opción elegida: [ ] Opción 1 (Separada) &nbsp;&nbsp; [ ] Opción 2 (Conjunta)<br>
+      Firma y fecha:
+    </div>
+  </div>
+
+  <footer>
+    <span>ALUFAC · Carpintería de Aluminio y PVC · www.alufac.es</span>
+    <span>P-2026-0052 · Ref: PRE-2026-1102-ALU-CALAMOLI-GUBB · Página 1 de 1</span>
+  </footer>
+</main>
+
+</body>
+</html>

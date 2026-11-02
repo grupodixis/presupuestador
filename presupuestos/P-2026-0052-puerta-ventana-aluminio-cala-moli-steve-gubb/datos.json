@@ -1,0 +1,124 @@
+{
+  "expediente": {
+    "codigo": "P-2026-0052",
+    "referencia": "PRE-2026-1102-ALU-CALAMOLI-GUBB",
+    "fecha": "2026-11-02",
+    "fecha_formateada": "2 de noviembre de 2026",
+    "validez_dias": 30,
+    "plazo_fabricacion": "4 a 6 semanas desde replanteo y confirmación técnica",
+    "plazo_instalacion": "1 jornada de trabajo",
+    "lugar": "Cala Molí, Es Mercadal, Menorca"
+  },
+  "emisor": {
+    "marca": "ALUFAC",
+    "slogan": "Carpintería de aluminio, PVC y cerramientos a medida en Menorca",
+    "razon_social": "Dixis Recursos y Soluciones S.L.",
+    "cif": "B57825432",
+    "direccion": "Circunval·lació, 11",
+    "cp": "07710",
+    "poblacion": "Sant Lluís",
+    "provincia": "Illes Balears",
+    "telefono": "+34 669 769 541",
+    "email": "info@alufac.es",
+    "web": "https://www.alufac.es",
+    "logo_url": "https://www.alufac.es/assets/alufac-logo.svg"
+  },
+  "cliente": {
+    "nombre": "Steve Gubb",
+    "ubicacion": "Cala Molí, Es Mercadal, Menorca",
+    "contacto": "Steve Gubb",
+    "idioma": "en"
+  },
+  "elementos": [
+    {
+      "id": 1,
+      "codigo": "ELEM-01",
+      "denominacion": "Puerta de entrada practicable de 1 hoja con RPT",
+      "dimensiones": "815 x 2.090 mm",
+      "sistema_solicitado": "Strugal S64RP GALA o equivalente",
+      "sistema_ofertado": "Cortizo COR 60 RPT / Millennium Plus (Equivalente Técnico)",
+      "color": "Verde RAL 6009 mate por ambas caras (Qualicoat Seaside / calidad marina)",
+      "diseno": "Panelado machihembrado de aluminio de 20 mm con zona acristalada central con barrotillo decorativo lacado verde formando 4 cuadrantes",
+      "vidrio": "Doble acristalamiento de seguridad 3+3.1 / cámara 16 mm deshidratada con barrotillos / 4 mm (Conforme a CTE DB-SUA para riesgo de impacto en puerta de paso)",
+      "herrajes": "Cerradura de seguridad de resbalón y palanca basculante E35, cilindro europerfil 30x65 leva corta con juego de llaves, juego de manillas a juego, 3 bisagras de alta resistencia regulables Hércules/Cortizo",
+      "precio_suministro": 1380.00,
+      "precio_instalacion": 280.00,
+      "subtotal_neto": 1660.00,
+      "iva_21": 348.60,
+      "total_con_iva": 2008.60,
+      "coste_directo_estimado": 1025.00
+    },
+    {
+      "id": 2,
+      "codigo": "ELEM-02",
+      "denominacion": "Ventana corredera de 2 hojas en línea con RPT",
+      "dimensiones": "920 x 1.120 mm",
+      "sistema_solicitado": "Strugal S88RP ARTIS o equivalente",
+      "sistema_ofertado": "Cortizo COR 4200 Corredera con RPT (Equivalente Técnico)",
+      "color": "Blanco estándar RAL 9016 por ambas caras",
+      "diseno": "Corredera perimetral de dos hojas móviles sobre carril inox, remate perimetral con solape curvo de 50 mm clipado",
+      "vidrio": "Doble acristalamiento aislante 4 / cámara de 20-22 mm / 4 mm (30 mm de espesor total)",
+      "herrajes": "Cierre multipunto automático E15, manilla acodada reforzada interior tipo Altair (sin accionamiento exterior), cremona E15 de 600 mm, rodamientos tándem C regulables de 200 kg/hoja con rodadura suave en poliamida/inox",
+      "precio_suministro": 540.00,
+      "precio_instalacion": 160.00,
+      "subtotal_neto": 700.00,
+      "iva_21": 147.00,
+      "total_con_iva": 847.00,
+      "coste_directo_estimado": 435.00
+    }
+  ],
+  "descuento_conjunto": {
+    "aplicable": true,
+    "descripcion": "Bonificación por contratación y ejecución simultánea de ambos elementos (optimización logística de transporte y jornada de montaje)",
+    "importe_descuento_neto": -120.00
+  },
+  "resumen_economico": {
+    "opcion_puerta_aislada": {
+      "suministro": 1380.00,
+      "instalacion": 280.00,
+      "subtotal_neto": 1660.00,
+      "iva_21": 348.60,
+      "total": 2008.60
+    },
+    "opcion_ventana_aislada": {
+      "suministro": 540.00,
+      "instalacion": 160.00,
+      "subtotal_neto": 700.00,
+      "iva_21": 147.00,
+      "total": 847.00
+    },
+    "opcion_conjunta": {
+      "suministro_total": 1920.00,
+      "instalacion_total": 440.00,
+      "subtotal_elementos": 2360.00,
+      "descuento_conjunto": -120.00,
+      "subtotal_neto": 2240.00,
+      "iva_21": 470.40,
+      "total_con_iva": 2710.40
+    }
+  },
+  "condiciones": {
+    "forma_pago": "50% a la confirmación del pedido y replanteo de medidas; 50% a la finalización y entrega de los trabajos",
+    "validez": "30 días",
+    "garantia": "3 años en estanqueidad, herrajes y perfiles según legislación vigente",
+    "incluido": [
+      "Fabricación a medida con perfiles de aluminio Cortizo de alta gama con Rotura de Puente Térmico (RPT)",
+      "Tratamiento superficial Qualicoat Seaside apto para máxima durabilidad en ambiente costero de Menorca",
+      "Vidrios dobles según especificación con vidrio laminar de seguridad en la puerta conforme a CTE DB-SUA",
+      "Herrajes completos de alta durabilidad, manillas, bisagras y cerradura con cilindro de seguridad",
+      "Remates perimetrales de aluminio y solape curvo de 50 mm clipado en ventana",
+      "Desmontaje cuidadoso de la puerta y ventana existentes y retirada de los marcos antiguos",
+      "Transporte directo hasta la vivienda en Cala Molí (Es Mercadal)",
+      "Montaje, nivelación, aplomado y fijación mecánica mediante tornillería de acero inoxidable",
+      "Sellado exterior perimetral de estanqueidad mediante polímero MS de alta elasticidad y resistencia salina",
+      "Retirada de los residuos y escombros generados y entrega en gestor autorizado / punto limpio de Menorca",
+      "Visita técnica de replanteo y verificación dimensional definitiva previa a la fabricación"
+    ],
+    "excluido": [
+      "Trabajos de albañilería mayor (reconstrucción de mochetas, recrecidos o repellos de mortero)",
+      "Pintura o retoques de revestimientos en paramentos de fachada o interiores",
+      "Medios auxiliares especiales o grúas de elevación no requeridos para este acceso",
+      "Permisos, licencias o tasas municipales de obras si fuesen requeridas"
+    ]
+  }
+}
