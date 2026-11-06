@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Presupuesto P-2026-0055 • Suministro e Instalación de Línea de Vida Horizontal Permanente Clase C (20 ml) en Nave Industrial - Sant Lluís</title>
+  <title>Presupuesto P-2026-0055 • Línea de Vida Sant Lluís</title>
   <style>
     @page {
       size: A4 portrait;
@@ -19,6 +19,7 @@
       --accent-light: #fef3c7;
       --card-bg: #f1f5f9;
       --highlight: #0284c7;
+      --blue-bg: #eff6ff;
     }
     * { box-sizing: border-box; }
     body {
@@ -27,8 +28,8 @@
       background: #e2e8f0;
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 10px;
-      line-height: 1.30;
+      font-size: 9.5px;
+      line-height: 1.28;
     }
     .page {
       width: 210mm;
@@ -36,7 +37,7 @@
       max-height: 297mm;
       margin: 0 auto;
       background: #fff;
-      padding: 7mm 12mm 5mm;
+      padding: 6mm 11mm 5mm;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -48,21 +49,21 @@
     header {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
       border-top: 4px solid var(--brand);
-      padding-top: 6px;
-      padding-bottom: 6px;
+      padding-top: 5px;
+      padding-bottom: 5px;
       border-bottom: 1px solid var(--line);
     }
     .company {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
     }
     .logo {
-      width: 105px;
-      flex: 0 0 105px;
+      width: 100px;
+      flex: 0 0 100px;
     }
     .logo img {
       width: 100%;
@@ -72,14 +73,14 @@
     .company-info h1 {
       margin: 0;
       color: var(--brand);
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 800;
       letter-spacing: -0.2px;
     }
     .company-info p {
       margin: 1px 0;
       color: var(--muted);
-      font-size: 9.5px;
+      font-size: 9px;
     }
     .meta {
       text-align: right;
@@ -87,73 +88,117 @@
     .meta h2 {
       margin: 0;
       color: var(--accent);
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 800;
-      letter-spacing: 0.5px;
     }
     .meta .ref-badge {
       display: inline-block;
       background: var(--brand);
       color: #fff;
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 700;
-      padding: 2px 7px;
+      padding: 2px 6px;
       border-radius: 3px;
       margin: 2px 0;
     }
     .meta p {
       margin: 1px 0;
       color: var(--muted);
-      font-size: 9px;
+      font-size: 8.5px;
     }
     .hero {
-      margin-top: 6px;
+      margin-top: 5px;
       background: var(--soft);
       border-left: 3px solid var(--accent);
-      padding: 5px 9px;
+      padding: 4px 8px;
       border-radius: 0 4px 4px 0;
     }
     .hero h3 {
-      margin: 0 0 2px;
+      margin: 0 0 1px;
       color: var(--brand);
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 700;
     }
     .hero p {
       margin: 0;
       color: var(--muted);
-      font-size: 9.5px;
+      font-size: 9px;
     }
-    .grid-meta {
+    .compare-container {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 8px;
       margin-top: 6px;
     }
-    .card {
-      background: var(--card-bg);
+    .opt-box {
       border: 1px solid var(--line);
       border-radius: 4px;
-      padding: 4px 7px;
+      padding: 6px 8px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .card .label {
-      display: block;
-      font-size: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      color: var(--muted);
-      font-weight: 700;
-      margin-bottom: 1px;
+    .opt-box.featured {
+      border: 1.5px solid var(--highlight);
+      background: var(--blue-bg);
     }
-    .card .value {
-      font-size: 9.5px;
-      font-weight: 700;
+    .opt-title {
+      font-size: 10px;
+      font-weight: 800;
       color: var(--brand);
+      margin-bottom: 3px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 3px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tag-rec {
+      background: var(--highlight);
+      color: #fff;
+      font-size: 7.5px;
+      padding: 1px 5px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .opt-features {
+      margin: 0 0 6px;
+      padding-left: 12px;
+      font-size: 8px;
+      color: var(--muted);
+      line-height: 1.25;
+    }
+    .opt-features li {
+      margin-bottom: 2px;
+    }
+    .opt-price {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      padding: 5px 8px;
+      text-align: center;
+    }
+    .opt-box.featured .opt-price {
+      background: var(--brand);
+      color: #fff;
+    }
+    .opt-price .base {
+      font-size: 13.5px;
+      font-weight: 800;
+    }
+    .opt-box.featured .opt-price .base {
+      color: #fef08a;
+    }
+    .opt-price .sub-info {
+      font-size: 8px;
+      opacity: 0.85;
     }
     h4 {
-      margin: 7px 0 4px;
+      margin: 6px 0 3px;
       color: var(--brand);
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 700;
       border-bottom: 1px solid var(--line);
       padding-bottom: 2px;
@@ -161,21 +206,21 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 9px;
-      margin-bottom: 6px;
+      font-size: 8.5px;
+      margin-bottom: 5px;
     }
     th {
       background: var(--brand);
       color: #fff;
-      padding: 4px 6px;
-      font-size: 8.5px;
+      padding: 3px 5px;
+      font-size: 8px;
       text-transform: uppercase;
       letter-spacing: 0.3px;
       font-weight: 700;
       border: 1px solid var(--brand);
     }
     td {
-      padding: 4px 6px;
+      padding: 3px 5px;
       border: 1px solid var(--line);
       vertical-align: top;
     }
@@ -185,74 +230,21 @@
     .c { text-align: center; }
     .r { text-align: right; }
     .bold { font-weight: 700; }
-    .partida-title {
-      font-weight: 700;
-      color: var(--brand);
-      margin-bottom: 1px;
-    }
-    .partida-desc {
-      color: var(--muted);
-      font-size: 8px;
-      line-height: 1.25;
-    }
-    .price-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      background: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      padding: 6px 10px;
-      margin-bottom: 6px;
-      align-items: center;
-    }
-    .price-base {
-      text-align: left;
-    }
-    .price-base .label {
-      font-size: 8.5px;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 700;
-    }
-    .price-base .price-amount {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--brand);
-    }
-    .price-final {
-      text-align: right;
-      background: var(--brand);
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 4px;
-    }
-    .price-final .label {
-      font-size: 8.5px;
-      text-transform: uppercase;
-      font-weight: 700;
-      opacity: 0.9;
-    }
-    .price-final .price-amount {
-      font-size: 17px;
-      font-weight: 800;
-      color: #fef08a;
-    }
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
     .col {
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 4px;
-      padding: 5px 8px;
+      padding: 5px 7px;
     }
     .col h5 {
-      margin: 0 0 3px;
-      font-size: 9px;
+      margin: 0 0 2px;
+      font-size: 8.5px;
       color: var(--brand);
       font-weight: 700;
       text-transform: uppercase;
@@ -261,7 +253,7 @@
     }
     ul.compact {
       margin: 0;
-      padding-left: 13px;
+      padding-left: 12px;
       font-size: 8px;
       color: var(--muted);
       line-height: 1.25;
@@ -272,28 +264,28 @@
     .sign-section {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 4px;
-      padding-top: 4px;
+      gap: 10px;
+      margin-top: 3px;
+      padding-top: 3px;
       border-top: 1px solid var(--line);
     }
     .sign-box {
-      height: 38px;
+      height: 36px;
       border: 1px dashed var(--line);
       border-radius: 4px;
-      padding: 4px 6px;
+      padding: 3px 5px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      font-size: 8px;
+      font-size: 7.5px;
       color: var(--muted);
     }
     footer {
       border-top: 1px solid var(--line);
-      padding-top: 4px;
+      padding-top: 3px;
       display: flex;
       justify-content: space-between;
-      font-size: 8px;
+      font-size: 7.5px;
       color: var(--muted);
     }
   </style>
@@ -322,92 +314,107 @@
       </header>
 
       <section class="hero">
-        <h3>Suministro e Instalación de Línea de Vida Horizontal Permanente Clase C (20 ml) en Nave Industrial - Sant Lluís</h3>
-        <p>Suministro integral, fijaciones estructurales certificadas, medios de elevación y montaje completo en altura conforme a UNE-EN 795:2012 Tipo C y UNE-CEN/TS 16415 para nave en Sant Lluís.</p>
+        <h3>Línea de Vida Horizontal Permanente Clase C (20 ml) en Nave Industrial • Sant Lluís</h3>
+        <p>Suministro homologado, fijaciones estancas, medios de elevación (PEMP) y montaje integral en altura conforme a UNE-EN 795:2012 Tipo C y UNE-CEN/TS 16415:2013 con ensayo dinamométrico in situ.</p>
       </section>
 
-      <section class="grid-meta">
-        <div class="card">
-          <span class="label">Cliente / Ubicación</span>
-          <span class="value">Nave Sant Lluís</span>
+      <div class="compare-container">
+        <!-- OPCION A -->
+        <div class="opt-box">
+          <div>
+            <div class="opt-title">OPCIÓN A: ESTÁNDAR SOLICITADA</div>
+            <ul class="opt-features">
+              <li><strong>Cable:</strong> Acero galvanizado Ø10 mm (7x19, rotura > 62 kN).</li>
+              <li><strong>Soportes:</strong> 2 terminales + 1 intermedio en aluminio L-2653 T6 epoxi.</li>
+              <li><strong>Amortiguación:</strong> Sin absorbedor integrado en línea (confiado a EPI).</li>
+              <li><strong>Montaje e instalación:</strong> 2 operarios oficiales en altura + PEMP + ensayo tiro.</li>
+            </ul>
+          </div>
+          <div class="opt-price">
+            <span style="font-size:8px; text-transform:uppercase; font-weight:700; color:var(--muted);">Base Imponible</span>
+            <div class="base">1352.00 €</div>
+            <div class="sub-info">67.60 €/ml • 1635.92 € con IVA (21%)</div>
+          </div>
         </div>
-        <div class="card">
-          <span class="label">Longitud / Vanos</span>
-          <span class="value">20,00 ml (2 x 10 m)</span>
-        </div>
-        <div class="card">
-          <span class="label">Normativa / Clase</span>
-          <span class="value">EN 795 Tipo C (2 Pers.)</span>
-        </div>
-        <div class="card">
-          <span class="label">Instalación y Pruebas</span>
-          <span class="value">Incluida + Ensayo Tiro</span>
-        </div>
-      </section>
 
-      <h4>Desglose Económico y Valoración de Partidas</h4>
+        <!-- OPCION B -->
+        <div class="opt-box featured">
+          <div>
+            <div class="opt-title">
+              <span>OPCIÓN B: SISTEMA OFICIAL LUX-TOP®</span>
+              <span class="tag-rec">Recomendada Menorca</span>
+            </div>
+            <ul class="opt-features">
+              <li><strong>Cable Marino:</strong> Acero inoxidable <strong>AISI 316 Ø8 mm</strong> (máx. resistencia salina).</li>
+              <li><strong>Fijación Panel:</strong> 3 postes <strong>LUX-top® RVT 12</strong> con 36 remaches de 7,7 mm y 12 juntas EPDM impermeabilizantes (sin perforar vigas).</li>
+              <li><strong>Seguridad Plus:</strong> Absorbedor/Indicador de tensión <strong>SKE II</strong> en acero inox.</li>
+              <li><strong>Homologación DEKRA:</strong> Marcado CE oficial para hasta 6 operarios.</li>
+            </ul>
+          </div>
+          <div class="opt-price">
+            <span style="font-size:8px; text-transform:uppercase; font-weight:700; color:#cbd5e1;">Base Imponible Llave en Mano</span>
+            <div class="base">1950.50 €</div>
+            <div class="sub-info">97.53 €/ml • 2360.11 € con IVA (21%)</div>
+          </div>
+        </div>
+      </div>
+
+      <h4>Desglose de Partidas • Sistema Oficial LUX-top® FSE 2003 (Opción B)</h4>
       <table>
         <thead>
           <tr>
-            <th class="c" style="width: 24px;">Nº</th>
-            <th>Concepto y Especificación Técnica Homologada</th>
+            <th class="c" style="width: 22px;">Nº</th>
+            <th>Concepto y Componente Homologado LUX-TOP</th>
             <th class="c" style="width: 28px;">Ud</th>
-            <th class="r" style="width: 36px;">Cant.</th>
-            <th class="r" style="width: 65px;">Precio Ud</th>
-            <th class="r" style="width: 75px;">Importe</th>
+            <th class="r" style="width: 32px;">Cant.</th>
+            <th class="r" style="width: 60px;">Precio Ud</th>
+            <th class="r" style="width: 70px;">Importe</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="c bold">01</td>
-            <td>
-              <div class="partida-title">Kit homologado de Línea de Vida Horizontal Permanente Clase C (20 ml) con accesorios</div>
-              <div class="partida-desc">Suministro de sistema completo certificado para línea de anclaje horizontal permanente de 20 m de longitud, clase C (UNE-EN 795:2012 Tipo C / UNE-CEN/TS 16415 para hasta 2 operarios simultáneos), compuesto por: 2 anclajes terminales de extremo en aleación de aluminio para moldeo L-2653 (AlSi7Mg0.6) con tratamiento térmico de endurecimiento T6 y lacado epoxi-poliéster horneado; 1 anclaje intermedio pasador en aleación de aluminio L-2653 T6 acabado epoxi-poliéster; cable flexible de acero galvanizado de 10 mm de diámetro compuesto por 7 cordones de 19 hilos (7x19, rotura > 62 kN); tensor de caja abierta forjado cincado con ojo en un extremo y horquilla en el extremo opuesto; conjunto de terminal manual y sujetacables de seguridad homologados; protector para cabo (guardacabos); placa reglamentaria de señalización y marcado indeleble; y juego de dos precintos de seguridad y testigo de sobretensión.</div>
-            </td>
+            <td class="c bold">B.01</td>
+            <td><strong>Cable de acero inox Ø8 mm AISI 316 LUX-top® FSE 2003 (22 metros)</strong></td>
+            <td class="c">m</td>
+            <td class="r">22.00</td>
+            <td class="r">151.80 €</td>
+            <td class="r bold">3339.60 €</td>
+          </tr>
+          <tr>
+            <td class="c bold">B.02</td>
+            <td><strong>Postes de anclaje LUX-top® RVT 12 para panel sándwich con fijaciones estancas EPDM y remaches</strong></td>
             <td class="c">ud</td>
-            <td class="r">1.00</td>
-            <td class="r">520.00 €</td>
-            <td class="r bold">520.00 €</td>
+            <td class="r">3.00</td>
+            <td class="r">588.90 €</td>
+            <td class="r bold">1766.70 €</td>
           </tr>
           <tr>
-            <td class="c bold">02</td>
-            <td>
-              <div class="partida-title">Fijaciones estructurales homologadas y sellado de estanqueidad al soporte de nave</div>
-              <div class="partida-desc">Suministro de conjunto de fijaciones de alta resistencia certificadas para anclaje de las 2 placas terminales y la placa intermedia a los elementos estructurales de la nave en Sant Lluís (mediante tornillería estructural calidad 8.8 cincada con contraplacas y bridas de apriete a vigas metálicas IPE/HEA, o anclajes químicos con varilla roscada A4 y arandelas de estanqueidad EPDM según el tipo de soporte existente).</div>
-            </td>
-            <td class="c">paquete</td>
+            <td class="c bold">B.03</td>
+            <td><strong>Kit de cierre cáncamo FSE 2003 (Absorbedor SKE II + Tensor autoprensado + Terminal horquilla + Placa VA)</strong></td>
+            <td class="c">kit</td>
             <td class="r">1.00</td>
-            <td class="r">110.00 €</td>
-            <td class="r bold">110.00 €</td>
+            <td class="r">487.80 €</td>
+            <td class="r bold">487.80 €</td>
           </tr>
           <tr>
-            <td class="c bold">03</td>
-            <td>
-              <div class="partida-title">Mano de obra especializada de instalación, tensado y montaje en altura (2 operarios)</div>
-              <div class="partida-desc">Mano de obra en obra ejecutada por equipo especialista de HAM Menorca (2 operarios certificados en trabajos en altura y líneas de vida según RD 2177/2004): replanteo de alineación de 20 ml, perforación / anclaje estructural de soportes de extremidad e intermedio con par de apriete controlado, tendido del cable galvanizado de 10 mm, tensado nominal mediante tensor de caja abierta y dinamómetro, rematado de terminales con guardacabos y precintado. Ventaja operativa por proximidad directa desde nuestra base en el Polígono de Sant Lluís.</div>
-            </td>
+            <td class="c bold">B.04</td>
+            <td><strong>Instalación en altura por 2 operarios certificados en altura (9 horas totales)</strong></td>
             <td class="c">h</td>
             <td class="r">9.00</td>
-            <td class="r">38.00 €</td>
-            <td class="r bold">342.00 €</td>
+            <td class="r">342.00 €</td>
+            <td class="r bold">3078.00 €</td>
           </tr>
           <tr>
-            <td class="c bold">04</td>
-            <td>
-              <div class="partida-title">Medios auxiliares de elevación para trabajo seguro en altura (Plataforma PEMP)</div>
-              <div class="partida-desc">Suministro, transporte a nave en Sant Lluís y uso durante 1 jornada de montaje de Plataforma Elevadora Móvil de Personal (PEMP tipo tijera o articulada) con marcado CE y revisión en vigor, para posicionamiento seguro de los operarios durante las maniobras de anclaje y tensado de la línea. (Partida deducible íntegramente en caso de que la nave disponga de medios de elevación propios utilizables).</div>
-            </td>
-            <td class="c">jornada</td>
+            <td class="c bold">B.05</td>
+            <td><strong>Medios auxiliares de elevación (Plataforma elevadora PEMP tijera/articulada 1 jornada en Sant Lluís)</strong></td>
+            <td class="c">jorn</td>
             <td class="r">1.00</td>
             <td class="r">220.00 €</td>
             <td class="r bold">220.00 €</td>
           </tr>
           <tr>
-            <td class="c bold">05</td>
-            <td>
-              <div class="partida-title">Ensayos de carga estática con dinamómetro, legalización y certificación UNE-EN 795</div>
-              <div class="partida-desc">Ejecución de ensayos de tracción estática in situ mediante dinamómetro digital calibrado según UNE-EN 795, colocación y remachado de la placa indeleble de señalización de la línea de vida, precintado de seguridad y emisión del Certificado de Instalación y Legalización de Línea de Vida visado por técnico competente, acompañado del Dossier Técnico de Marcado CE y Libro de Revisiones Periódicas.</div>
-            </td>
+            <td class="c bold">B.06</td>
+            <td><strong>Prueba de carga con dinamómetro, visado técnico, placa y Certificado Oficial de Instalación UNE-EN 795</strong></td>
             <td class="c">ud</td>
             <td class="r">1.00</td>
             <td class="r">160.00 €</td>
@@ -416,36 +423,21 @@
         </tbody>
       </table>
 
-      <section class="price-box">
-        <div class="price-base">
-          <span class="label">Base Imponible Neta (20.0 ml a 67.60 €/ml)</span>
-          <div class="price-amount">1352.00 €</div>
-          <span style="font-size: 8.5px; color: var(--muted);">I.V.A. 21%: 283.92 €</span>
-        </div>
-        <div class="price-final">
-          <span class="label" style="color: #cbd5e1;">Importe Total Llave en Mano</span>
-          <div class="price-amount">1635.92 €</div>
-          <span style="font-size: 8.5px; color: #cbd5e1;">Impuestos incluidos (I.V.A. 21%)</span>
-        </div>
-      </section>
-
       <div class="two-col">
         <div class="col">
           <h5>Inclusiones y Ventajas en Sant Lluís</h5>
           <ul class="compact">
-            <li><strong>Suministro integral:</strong> 2 anclajes terminales y 1 intermedio en aluminio L-2653 T6 epoxi, cable flexible galvanizado Ø10 mm (7x19, rotura > 62 kN), tensor forjado ojo-horquilla, terminales, guardacabos y precintos.</li>
-            <li><strong>Fijaciones homologadas:</strong> Tornillería 8.8 cincada con contraplacas para fijación a vigas o anclajes certificados con sellado EPDM.</li>
-            <li><strong>Mano de obra y elevación:</strong> Equipo de 2 operarios certificados en altura y plataforma elevadora PEMP (1 jornada).</li>
-            <li><strong>Proximidad operativa:</strong> Taller HAM en Sant Lluís (sin recargos por desplazamientos).</li>
+            <li><strong>Montaje completo en obra:</strong> Equipo de 2 operarios especialistas con titulación oficial en trabajos en altura (RD 2177/2004).</li>
+            <li><strong>Medios de elevación:</strong> Incluye plataforma elevadora PEMP (1 jornada). *(Deducible si la nave aporta plataforma).*</li>
+            <li><strong>Proximidad taller HAM:</strong> Respuesta e intervención directa desde nuestro taller en el Polígono de Sant Lluís (sin recargos logísticos).</li>
           </ul>
         </div>
         <div class="col">
-          <h5>Legalización, Garantía y Condiciones</h5>
+          <h5>Certificación Oficial, Garantía y Condiciones</h5>
           <ul class="compact">
-            <li><strong>Legalización oficial:</strong> Ensayo in situ con dinamómetro calibrado, marcado de placa indeleble, Certificado de Instalación visado y Libro de Revisiones.</li>
-            <li><strong>Garantía:</strong> 2 años de garantía en materiales y montaje.</li>
+            <li><strong>Legalización oficial:</strong> Ensayo in situ con dinamómetro calibrado, remachado de placa indeleble, Certificado de Instalación visado y Libro de Mantenimiento.</li>
+            <li><strong>Garantía:</strong> 2 años en materiales y montaje.</li>
             <li><strong>Forma de pago:</strong> 100% a la aceptación del presupuesto (directiva estándar HAM).</li>
-            <li><strong>Exclusiones:</strong> Equipos EPI individuales (arneses/eslingas), refuerzos estructurales de cubierta ajenos a fijación y licencias municipales.</li>
           </ul>
         </div>
       </div>
@@ -456,15 +448,15 @@
           <span>Pablo Sebastián Sánchez Arnoletto</span>
         </div>
         <div class="sign-box">
-          <span><strong>Aceptación de la Propiedad (Nave Sant Lluís)</strong></span>
-          <span>Firma y Sello de Aceptación:</span>
+          <span><strong>Aceptación del Cliente (Nave Sant Lluís)</strong></span>
+          <span>Indicar opción elegida (A / B) y firma:</span>
         </div>
       </section>
     </div>
 
     <footer>
       <div>DIXIS RECURSOS Y SOLUCIONES S.L. • C.I.F. B57825432 • Sant Lluís, Menorca</div>
-      <div>P-2026-0055 • Línea de Vida Horizontal Permanente Clase C (20 ml) • Hoja 1 de 1</div>
+      <div>P-2026-0055 • Comparativa Línea de Vida Horizontal Permanente Clase C (20 ml) • Hoja 1 de 1</div>
     </footer>
   </div>
 </body>

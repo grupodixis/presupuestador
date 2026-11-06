@@ -18,6 +18,7 @@ Cuando el usuario introduzca una palabra clave en solitario o solicitando presup
 | **Reja** / **Rejas** | `skill_rejas.md` | Requisitos de reja (medidas luz, tipo de barrote, fijación, pintura, cerradura, fija/abrible). |
 | **Pérgola** / **Marquesina** / **Toldo** | `skill_marquesinas_pergolas.md` | Requisitos de pérgola (dimensiones, pilares, correas, tipo de cubierta/toldo, anclaje suelo/pared, acabado). |
 | **Herrería** / **Forja** | `skill_herreria.md` | Requisitos de herrería (estilo, material, grado de adorno, acabado, transporte). |
+| **Línea de Vida** / **Anticaídas** | `skill_lineas_de_vida.md` | Requisitos de línea de vida (ml, soporte, panel/viga, proveedor LUX-TOP, altura, PEMP, certificación). |
 
 ## Datos mínimos necesarios
 

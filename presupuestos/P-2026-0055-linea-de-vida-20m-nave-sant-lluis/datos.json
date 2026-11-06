@@ -3,6 +3,15 @@
   "referencia": "PRE-2026-1106-LV-SANTLLUIS",
   "fecha": "6 de noviembre de 2026",
   "validez_dias": 30,
+  "proveedor_homologado": {
+    "nombre": "LUX-TOP Sistemas Anticaídas (Agencia Comercial Herenciana, S.L.)",
+    "cif": "B-13578919",
+    "descuento_dixis": 0.18,
+    "forma_pago_dixis": "Giro a 60 días",
+    "presupuesto_referencia": "2671/26 (Obra Nave Iberia - Aeropuerto de Menorca)",
+    "sistema_referencia": "LUX-top® FSE 2003 (UNE EN 795:2012 Tipo C / CEN/TS 16415:2013)",
+    "soporte_panel": "Postes LUX-top® RVT 12 con 12 remaches 7,7 mm y 4 juntas EPDM 130 mm"
+  },
   "cliente": {
     "nombre": "Propiedad / Nave Industrial Sant Lluís",
     "contacto_tecnico": "Responsable de Mantenimiento y Prevención",
@@ -22,119 +31,156 @@
   "proyecto": {
     "titulo": "Suministro e Instalación de Línea de Vida Horizontal Permanente Clase C (20 ml) en Nave Industrial - Sant Lluís",
     "ubicacion": "Sant Lluís, Menorca",
-    "descripcion": "Suministro e instalación de línea de anclaje horizontal permanente, de cable de acero flexible, sin amortiguador de caídas, de 20 m de longitud, clase C (UNE-EN 795:2012 Tipo C / UNE-CEN/TS 16415), con 2 anclajes terminales L-2653 T6 epoxi, 1 anclaje intermedio L-2653 T6 epoxi, cable flexible galvanizado Ø10 mm (7x19), tensor de caja abierta ojo-horquilla, conjunto sujetacables y terminal manual, protector para cabo, placa de señalización, precintos de seguridad, fijaciones estructurales certificadas al soporte, medios de elevación en altura y certificación técnica con prueba de carga.",
-    "normativa_referencia": "UNE-EN 795:2012 (Dispositivos de anclaje Tipo C), UNE-CEN/TS 16415:2013 (Múltiples usuarios simultáneos), Real Decreto 486/1997 (Seguridad y Salud en Lugares de Trabajo), Real Decreto 2177/2004 (Trabajos temporales en altura)."
+    "descripcion": "Estudio comparativo técnico-económico para suministro e instalación de línea de anclaje horizontal permanente de 20 ml (UNE-EN 795:2012 Tipo C y UNE-CEN/TS 16415). Opción A: Prescripción estándar solicitada con cable galvanizado Ø10 mm y anclajes L-2653 T6. Opción B: Sistema oficial homologado LUX-top® FSE 2003 con cable de acero inoxidable AISI 316 Ø8 mm, postes sobre cubierta de panel sándwich RVT 12 y absorbedor/indicador de tensión SKE II.",
+    "normativa_referencia": "UNE-EN 795:2012 (Tipo C), UNE-CEN/TS 16415:2013 (Múltiples usuarios), RD 486/1997, RD 2177/2004."
   },
-  "parametros_tecnicos": {
-    "longitud_total_ml": 20.0,
-    "tipo_sistema": "Línea de anclaje horizontal permanente flexible (UNE-EN 795 Tipo C / Clase C)",
-    "amortiguador": "Sin amortiguador de caídas incorporado en línea (absorción confiada al EPI con absorbedor según EN 355)",
-    "anclajes_terminales": "2 uds. Aleación de aluminio para moldeo L-2653 (AlSi7Mg0.6) con tratamiento térmico T6 y acabado epoxi-poliéster termolacado",
-    "anclaje_intermedio": "1 ud. Aleación de aluminio L-2653 con tratamiento térmico T6 y acabado epoxi-poliéster",
-    "distancia_entre_soportes_m": 10.0,
-    "cable": "Cable flexible de acero galvanizado Ø10 mm, formación 7x19 (7 cordones x 19 hilos, carga de rotura > 62 kN)",
-    "tensor": "Tensor de caja abierta forjado cincado/galvanizado con terminación ojo en un extremo y horquilla en opuesto (rosca M12/M16)",
-    "terminal_y_sujecion": "Terminal manual prensable/mecánico + conjunto de sujetacables de apriete homologados",
-    "protector_cabo": "Guardacabos reforzado de acero cincado/galvanizado para ojal",
-    "senalizacion": "Placa reglamentaria indeleble homologada UNE-EN 795 con grabado de parámetros de uso y revisiones",
-    "seguridad_adicional": "Juego de 2 precintos de seguridad y testigo de sobretensión",
-    "fijaciones_soporte": "Fijaciones mecánicas o químicas certificadas ETA / tornillería estructural 8.8 cincada con contraplacas a estructura nave",
-    "numero_usuarios_admitidos": "Hasta 2 usuarios simultáneos conectados con EPI con absorbedor de impacto (EN 355 / EN 361)",
-    "altura_libre_caida_minima_m": 4.50,
-    "medios_elevacion": "PEMP (Plataforma Elevadora Móvil de Personal tipo tijera/articulada) 1 jornada incluida (deducible si aporta nave)",
-    "taller_base": "Circunval·lació 11, Polígono de Sant Lluís (proximidad inmediata a la nave objeto de la intervención)"
-  },
-  "partidas": [
-    {
-      "id": "01",
-      "concepto": "Kit homologado de Línea de Vida Horizontal Permanente Clase C (20 ml) con accesorios",
-      "descripcion": "Suministro de sistema completo certificado para línea de anclaje horizontal permanente de 20 m de longitud, clase C (UNE-EN 795:2012 Tipo C / UNE-CEN/TS 16415 para hasta 2 operarios simultáneos), compuesto por: 2 anclajes terminales de extremo en aleación de aluminio para moldeo L-2653 (AlSi7Mg0.6) con tratamiento térmico de endurecimiento T6 y lacado epoxi-poliéster horneado; 1 anclaje intermedio pasador en aleación de aluminio L-2653 T6 acabado epoxi-poliéster; cable flexible de acero galvanizado de 10 mm de diámetro compuesto por 7 cordones de 19 hilos (7x19, rotura > 62 kN); tensor de caja abierta forjado cincado con ojo en un extremo y horquilla en el extremo opuesto; conjunto de terminal manual y sujetacables de seguridad homologados; protector para cabo (guardacabos); placa reglamentaria de señalización y marcado indeleble; y juego de dos precintos de seguridad y testigo de sobretensión.",
-      "unidad": "ud",
-      "cantidad": 1.0,
-      "precio_unitario": 520.0,
-      "coste_unitario_interno": 380.0,
-      "subtotal": 520.0,
-      "subtotal_coste": 380.0
-    },
-    {
-      "id": "02",
-      "concepto": "Fijaciones estructurales homologadas y sellado de estanqueidad al soporte de nave",
-      "descripcion": "Suministro de conjunto de fijaciones de alta resistencia certificadas para anclaje de las 2 placas terminales y la placa intermedia a los elementos estructurales de la nave en Sant Lluís (mediante tornillería estructural calidad 8.8 cincada con contraplacas y bridas de apriete a vigas metálicas IPE/HEA, o anclajes químicos con varilla roscada A4 y arandelas de estanqueidad EPDM según el tipo de soporte existente).",
-      "unidad": "paquete",
-      "cantidad": 1.0,
-      "precio_unitario": 110.0,
-      "coste_unitario_interno": 65.0,
-      "subtotal": 110.0,
-      "subtotal_coste": 65.0
-    },
-    {
-      "id": "03",
-      "concepto": "Mano de obra especializada de instalación, tensado y montaje en altura (2 operarios)",
-      "descripcion": "Mano de obra en obra ejecutada por equipo especialista de HAM Menorca (2 operarios certificados en trabajos en altura y líneas de vida según RD 2177/2004): replanteo de alineación de 20 ml, perforación / anclaje estructural de soportes de extremidad e intermedio con par de apriete controlado, tendido del cable galvanizado de 10 mm, tensado nominal mediante tensor de caja abierta y dinamómetro, rematado de terminales con guardacabos y precintado. Ventaja operativa por proximidad directa desde nuestra base en el Polígono de Sant Lluís.",
-      "unidad": "h",
-      "cantidad": 9.0,
-      "precio_unitario": 38.0,
-      "coste_unitario_interno": 22.0,
-      "subtotal": 342.0,
-      "subtotal_coste": 198.0
-    },
-    {
-      "id": "04",
-      "concepto": "Medios auxiliares de elevación para trabajo seguro en altura (Plataforma PEMP)",
-      "descripcion": "Suministro, transporte a nave en Sant Lluís y uso durante 1 jornada de montaje de Plataforma Elevadora Móvil de Personal (PEMP tipo tijera o articulada) con marcado CE y revisión en vigor, para posicionamiento seguro de los operarios durante las maniobras de anclaje y tensado de la línea. (Partida deducible íntegramente en caso de que la nave disponga de medios de elevación propios utilizables).",
-      "unidad": "jornada",
-      "cantidad": 1.0,
-      "precio_unitario": 220.0,
-      "coste_unitario_interno": 140.0,
-      "subtotal": 220.0,
-      "subtotal_coste": 140.0
-    },
-    {
-      "id": "05",
-      "concepto": "Ensayos de carga estática con dinamómetro, legalización y certificación UNE-EN 795",
-      "descripcion": "Ejecución de ensayos de tracción estática in situ mediante dinamómetro digital calibrado según UNE-EN 795, colocación y remachado de la placa indeleble de señalización de la línea de vida, precintado de seguridad y emisión del Certificado de Instalación y Legalización de Línea de Vida visado por técnico competente, acompañado del Dossier Técnico de Marcado CE y Libro de Revisiones Periódicas.",
-      "unidad": "ud",
-      "cantidad": 1.0,
-      "precio_unitario": 160.0,
-      "coste_unitario_interno": 70.0,
-      "subtotal": 160.0,
-      "subtotal_coste": 70.0
+  "opcion_a_estandar": {
+    "nombre": "Opción A: Prescripción Estándar Solicitada (Cable Galvanizado Ø10 mm + Anclajes L-2653 T6)",
+    "cable": "Cable flexible galvanizado Ø10 mm (7x19, rotura > 62 kN)",
+    "anclajes": "2 terminales y 1 intermedio en aleación de aluminio L-2653 T6 lacado epoxi-poliéster",
+    "amortiguador": "Sin amortiguador de caídas incorporado en línea (absorción confiada al EPI del usuario EN 355)",
+    "partidas": [
+      {
+        "id": "A.01",
+        "concepto": "Kit de línea de vida horizontal 20m (aluminio L-2653 T6 epoxi, cable 10mm 7x19, tensor, placa)",
+        "unidad": "ud",
+        "cantidad": 1.0,
+        "coste_dixis": 380.0,
+        "precio_cliente": 520.0
+      },
+      {
+        "id": "A.02",
+        "concepto": "Fijaciones estructurales homologadas y juntas de estanqueidad a estructura nave",
+        "unidad": "paq",
+        "cantidad": 1.0,
+        "coste_dixis": 65.0,
+        "precio_cliente": 110.0
+      },
+      {
+        "id": "A.03",
+        "concepto": "Instalación en altura por 2 operarios oficiales certificados en altura (9 horas totales)",
+        "unidad": "h",
+        "cantidad": 9.0,
+        "coste_dixis": 198.0,
+        "precio_cliente": 342.0
+      },
+      {
+        "id": "A.04",
+        "concepto": "Medios auxiliares de elevación (Plataforma elevadora PEMP tijera/articulada 1 jornada)",
+        "unidad": "jorn",
+        "cantidad": 1.0,
+        "coste_dixis": 140.0,
+        "precio_cliente": 220.0
+      },
+      {
+        "id": "A.05",
+        "concepto": "Pruebas de tiro con dinamómetro calibrado, legalización y certificado UNE-EN 795",
+        "unidad": "ud",
+        "cantidad": 1.0,
+        "coste_dixis": 70.0,
+        "precio_cliente": 160.0
+      }
+    ],
+    "totales": {
+      "coste_directo_dixis": 853.0,
+      "base_imponible": 1352.0,
+      "margen_euros": 499.0,
+      "margen_porcentaje": 36.91,
+      "iva_21": 283.92,
+      "total_con_iva": 1635.92,
+      "precio_ml_sin_iva": 67.60
     }
-  ],
-  "totales": {
-    "coste_directo_total": 853.0,
-    "base_imponible": 1352.0,
-    "margen_bruto_euros": 499.0,
-    "margen_bruto_porcentaje": 36.91,
-    "iva_porcentaje": 21.0,
-    "iva_importe": 283.92,
-    "total_con_iva": 1635.92,
-    "precio_por_metro_lineal_sin_iva": 67.60
+  },
+  "opcion_b_luxtop": {
+    "nombre": "Opción B: Sistema Oficial Homologado LUX-top® FSE 2003 (Acero Inoxidable AISI 316 + Postes Panel RVT 12)",
+    "cable": "Cable de acero inoxidable Ø8 mm AISI 316 (alta durabilidad marina en Menorca)",
+    "anclajes": "3 postes LUX-top® RVT 12 para fijación sobre panel sándwich (2 terminales + 1 intermedio)",
+    "fijacion_panel": "3 sets de fijación con 36 remaches especiales de 7,7 mm y 12 juntas EPDM 130 mm estancas",
+    "cierre_y_absorbedor": "Kit de cierre FSE 2003 con absorbedor/indicador de tensión SKE II, tensor autoprensado y placa VA inox",
+    "partidas": [
+      {
+        "id": "B.01",
+        "codigo_luxtop": "000011710",
+        "concepto": "Cable de acero inox Ø8 mm AISI 316 LUX-top® FSE 2003 (22 metros)",
+        "unidad": "m",
+        "cantidad": 22.0,
+        "tarifa_oficial": 6.90,
+        "descuento": 0.18,
+        "coste_dixis": 124.48,
+        "precio_cliente": 151.80
+      },
+      {
+        "id": "B.02",
+        "codigo_luxtop": "000026386 + 000026092",
+        "concepto": "Postes de anclaje LUX-top® RVT 12 para panel sándwich con fijaciones estancas EPDM y remaches",
+        "unidad": "ud",
+        "cantidad": 3.0,
+        "tarifa_oficial": 196.30,
+        "descuento": 0.18,
+        "coste_dixis": 482.90,
+        "precio_cliente": 588.90
+      },
+      {
+        "id": "B.03",
+        "codigo_luxtop": "030 - Cierre 1",
+        "concepto": "Kit de cierre cáncamo FSE 2003 (Absorbedor SKE II + Tensor autoprensado + Terminal horquilla + Placa VA)",
+        "unidad": "kit",
+        "cantidad": 1.0,
+        "tarifa_oficial": 487.80,
+        "descuento": 0.18,
+        "coste_dixis": 400.00,
+        "precio_cliente": 487.80
+      },
+      {
+        "id": "B.04",
+        "codigo_luxtop": "MONTAJE-MO",
+        "concepto": "Instalación en altura por 2 operarios certificados en altura (9 horas totales)",
+        "unidad": "h",
+        "cantidad": 9.0,
+        "tarifa_oficial": 38.00,
+        "descuento": 0.0,
+        "coste_dixis": 198.00,
+        "precio_cliente": 342.00
+      },
+      {
+        "id": "B.05",
+        "codigo_luxtop": "MEDIOS-PEMP",
+        "concepto": "Medios auxiliares de elevación (Plataforma elevadora PEMP tijera/articulada 1 jornada en Sant Lluís)",
+        "unidad": "jorn",
+        "cantidad": 1.0,
+        "tarifa_oficial": 220.00,
+        "descuento": 0.0,
+        "coste_dixis": 140.00,
+        "precio_cliente": 220.00
+      },
+      {
+        "id": "B.06",
+        "codigo_luxtop": "CERT-795",
+        "concepto": "Prueba de carga con dinamómetro, visado técnico, placa y Certificado Oficial de Instalación UNE-EN 795",
+        "unidad": "ud",
+        "cantidad": 1.0,
+        "tarifa_oficial": 160.00,
+        "descuento": 0.0,
+        "coste_dixis": 70.00,
+        "precio_cliente": 160.00
+      }
+    ],
+    "totales": {
+      "coste_material_luxtop_dixis": 1007.38,
+      "coste_directo_total_dixis": 1415.38,
+      "base_imponible": 1950.50,
+      "margen_euros": 535.12,
+      "margen_porcentaje": 27.44,
+      "iva_21": 409.61,
+      "total_con_iva": 2360.11,
+      "precio_ml_sin_iva": 97.53
+    }
   },
   "condiciones_comerciales": {
     "validez_oferta": "30 días a partir de la fecha de emisión",
-    "forma_pago": "100% a la aceptación del presupuesto (según directrices HAM)",
+    "forma_pago": "100% a la aceptación del presupuesto (directiva estándar HAM)",
     "plazo_ejecucion": "Aprox. 1 a 2 semanas tras confirmación (instalación en obra: 1 jornada de trabajo)",
     "garantia": "2 años de garantía en componentes y montaje contra cualquier defecto de fabricación o instalación",
     "revisiones": "Obligatoria revisión técnica periódica cada 12 meses según norma UNE-EN 795 / UNE-EN 365"
-  },
-  "exclusiones_inclusiones": {
-    "incluye": [
-      "Suministro íntegro de todos los componentes certificados de la línea de vida (20 m).",
-      "2 anclajes de extremo y 1 intermedio en aluminio L-2653 T6 termolacado epoxi.",
-      "Cable flexible de acero galvanizado Ø10 mm (7x19) y tensor de caja abierta ojo-horquilla.",
-      "Conjunto de terminal manual, sujetacables, guardacabos, precintos y placa identificativa.",
-      "Tornillería y fijaciones estructurales certificadas para sujeción a estructura portante.",
-      "Instalación completa por operarios especialistas certificados en trabajos en altura.",
-      "Medios auxiliares de elevación (PEMP para 1 jornada) con entrega en Sant Lluís.",
-      "Prueba de tracción estática in situ con dinamómetro calibrado según UNE-EN 795.",
-      "Emisión y entrega del Certificado Oficial de Instalación, marcado CE y Libro de Revisiones."
-    ],
-    "no_incluye": [
-      "Refuerzos estructurales mayores en la estructura soporte de la nave en caso de patologías previas ajenas.",
-      "Equipos de Protección Individual (EPI) anticaídas de los usuarios (arneses EN 361, eslingas con absorbedor EN 355), cotizables bajo petición.",
-      "Trabajos de albañilería, impermeabilizaciones pesadas de cubierta o acometidas eléctricas ajenas a la instalación de la línea.",
-      "Tasas municipales de licencias de obra menor si fueren exigibles por el Ayuntamiento."
-    ]
   }
 }
