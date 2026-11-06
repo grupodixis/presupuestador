@@ -10,6 +10,7 @@
 **Política Dixis:** Dixis instala EXCLUSIVAMENTE sistemas anticaídas y líneas de vida oficiales de la marca LUX-TOP®.  
 **Condición Comercial Proveedor:** 18% Dto. sobre tarifa oficial • Pago por Giro comercial a 60 días (Asegurado por CESCE)  
 **Presupuesto de Referencia de Compra:** Nº 2671/26 (Obra: Nave IBERIA - Aeropuerto de Menorca)  
+**Precio Unitario de Venta Objetivo:** **145,60 €/ml** (Carga de margen aplicada sobre los materiales de producto)  
 
 ---
 
@@ -21,19 +22,19 @@
 | **Normativa de Homologación** | UNE-EN 795:2012 Tipo C y UNE-CEN/TS 16415:2013 (Certificado DEKRA EXAM GmbH) |
 | **Longitud Total del Tramo** | 20,00 metros lineales (ml) en cubierta de nave |
 | **Configuración de Vano** | 2 vanos de 10,00 m mediante 1 soporte intermedio |
-| **Cable de Seguridad** | **Acero Inoxidable calidad marina AISI 316 Ø8 mm** (Tarifa: 6,90 €/m; Neto Dixis: 5,658 €/m) |
+| **Cable de Seguridad** | **Acero Inoxidable calidad marina AISI 316 Ø8 mm** (Tarifa: 6,90 €/m; Coste Dixis: 5,658 €/m; PVP: 11,50 €/m) |
 | **Postes Estructurales sobre Panel** | 3 Postes **LUX-top® RVT 12** fijados con 36 remaches de bulbo 7,7 mm y 12 juntas EPDM 130 mm estancas |
 | **Disipador y Tensor** | Kit de cierre FSE 2003 cáncamo con **Absorbedor e Indicador de tensión SKE II**, tensor y terminal de horquilla |
-| **Mano de Obra en Altura** | Equipo especialista HAM: 2 oficiales certificados en altura (9 h de montaje dinamométrico) |
+| **Mano de Obra en Altura** | Equipo especialista HAM: 2 oficiales certificados en altura (13 h de montaje dinamométrico y fijación) |
 | **Medios Auxiliares de Elevación** | Plataforma Elevadora Móvil PEMP (1 jornada en Sant Lluís). *(Deducible si aporta nave).* |
 | **Ensayos y Certificación** | Prueba de tracción con dinamómetro in situ, remachado de placa inox y Certificado Oficial LUX-TOP |
 | **Coste Material LUX-TOP Dixis** | **1.007,38 €** (Tarifa oficial: 1.228,50 € menos 18% descuento directo) |
-| **Coste Directo Total Dixis** | **1.415,38 €** |
-| **Base Imponible Modalidad 1 (Paso Manual)** | **1.950,50 €** (Ratio: **97,53 €/ml**) |
-| **Margen Bruto de Proyecto** | **535,12 €** (27,44% sobre venta comercial) |
-| **I.V.A. Aplicable (21%)** | **409,61 €** |
-| **Total Presupuesto con IVA (Modalidad 1)**| **2.360,11 €** |
-| **Opción Modalidad 2 (Paso Continuo)** | Suplemento carro runner pasante y pieza intermedia: Base **2.160,50 € + IVA** (**2.614,21 €** Total) |
+| **Coste Directo Total Dixis** | **1.503,38 €** |
+| **Base Imponible Modalidad 1 (Paso Manual)** | **2.912,00 €** (**145,60 €/ml** exactos) |
+| **Margen Bruto de Proyecto** | **1.408,62 €** (48,37% sobre venta / 93,70% sobre coste) |
+| **I.V.A. Aplicable (21%)** | **611,52 €** |
+| **Total Presupuesto con IVA (Modalidad 1)**| **3.523,52 €** |
+| **Opción Modalidad 2 (Paso Continuo)** | Suplemento carro runner pasante y pieza intermedia: Base **3.122,00 € + IVA** (**3.777,62 €** Total) |
 
 ---
 
@@ -54,17 +55,17 @@ Conforme a la directiva de Dixis, únicamente se emplean sistemas del catálogo 
 
 ---
 
-## 3. Desglose del Escandallo de Costes Dixis (Proveedor LUX-TOP)
+## 3. Desglose del Escandallo de Costes Dixis (Carga sobre Material de Producto)
 
 | Código | Concepto / Recurso | Cant. | Tarifa Oficial | Dto. Dixis | Coste Neto Dixis | PVP Venta Cliente | Margen Bruto |
 |---|---|:---:|:---:|:---:|:---:|:---:|:---:|
-| **000011710** | Cable inox Ø8 mm AISI 316 LUX-top® (22 m) | 22,0 m | 6,90 € | 18% | 124,48 € | 151,80 € | 27,32 € |
-| **000026386** | 3 Postes LUX-top® RVT 12 para panel sándwich | 3,0 ud | 196,30 € | 18% | 482,90 € | 588,90 € | 106,00 € |
-| **030-Cierre 1**| Kit cierre cáncamo FSE 2003 (SKE II + Tensor + Terminal + Placa) | 1,0 kit | 487,80 € | 18% | 400,00 € | 487,80 € | 87,80 € |
-| **MONTAJE-MO** | Instalación especializada en obra (2 operarios x 4,5 h = 9,0 h) | 9,0 h | 38,00 € | - | 198,00 € | 342,00 € | 144,00 € |
+| **000011710** | Cable inox Ø8 mm AISI 316 LUX-top® (22 m) | 22,0 m | 6,90 € | 18% | 124,48 € | 253,00 € | 128,52 € |
+| **000026386** | 3 Postes LUX-top® RVT 12 para panel sándwich | 3,0 ud | 196,30 € | 18% | 482,90 € | 975,00 € | 492,10 € |
+| **030-Cierre 1**| Kit cierre cáncamo FSE 2003 (SKE II + Tensor + Terminal + Placa) | 1,0 kit | 487,80 € | 18% | 400,00 € | 810,00 € | 410,00 € |
+| **MONTAJE-MO** | Instalación especializada en obra (2 operarios x 6,5 h = 13,0 h) | 13,0 h | 38,00 € | - | 286,00 € | 494,00 € | 208,00 € |
 | **MEDIOS-PEMP**| Plataforma elevadora PEMP tijera/articulada (1 jornada) | 1,0 jorn| 220,00 € | - | 140,00 € | 220,00 € | 80,00 € |
-| **CERT-795**   | Ensayo dinamómetro, visado técnico y certificado oficial | 1,0 ud | 160,00 € | - | 70,00 € | 160,00 € | 90,00 € |
-| **TOTALES**    | | | | | **1.415,38 €** | **1.950,50 €** | **535,12 €** |
+| **CERT-795**   | Ensayo dinamómetro in situ, visado y certificado oficial LUX-TOP | 1,0 ud | 160,00 € | - | 70,00 € | 160,00 € | 90,00 € |
+| **TOTALES**    | **20,00 ml de Línea de Vida a 145,60 €/ml** | | | | **1.503,38 €** | **2.912,00 €** | **1.408,62 €** |
 
 ---
 

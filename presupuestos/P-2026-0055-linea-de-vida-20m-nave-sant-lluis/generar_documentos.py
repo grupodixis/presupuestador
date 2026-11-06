@@ -51,7 +51,7 @@ def create_excel():
     )
 
     # -------------------------------------------------------------------------
-    # HOJA 1: PRESUPUESTO COMERCIAL 100% LUX-TOP (INSTALACIÓN INTEGRAL)
+    # HOJA 1: PRESUPUESTO COMERCIAL 100% LUX-TOP (145,60 €/ML)
     # -------------------------------------------------------------------------
     ws1 = wb.active
     ws1.title = "Presupuesto LUX-TOP"
@@ -59,7 +59,7 @@ def create_excel():
     
     ws1["B2"] = "DIXIS RECURSOS Y SOLUCIONES S.L. | HAM ESTRUCTURAS METÁLICAS MENORCA"
     ws1["B2"].font = font_sub
-    ws1["B3"] = f"PRESUPUESTO: {DATA['codigo']} • SISTEMA ANTICAÍDAS LUX-TOP® FSE 2003 (20 ML)"
+    ws1["B3"] = f"PRESUPUESTO: {DATA['codigo']} • LÍNEA DE VIDA LUX-TOP® FSE 2003 (145,60 €/ML)"
     ws1["B3"].font = font_title
     
     ws1["B5"] = "REFERENCIA:"
@@ -78,7 +78,7 @@ def create_excel():
         ws1[f"C{r}"].font = font_reg
 
     # MODALIDAD 1
-    ws1["B11"] = "MODALIDAD 1: LUX-TOP® FSE 2003 PASO MANUAL (CABLE INOX AISI 316 + POSTES PANEL RVT 12)"
+    ws1["B11"] = f"MODALIDAD 1: LUX-TOP® FSE 2003 PASO MANUAL ({DATA['tarifa_objetivo_ml']:.2f} €/ML LLAVE EN MANO)"
     ws1["B11"].font = font_sec
     
     headers_client = ["Nº", "Partida y Descripción Técnica LUX-TOP", "Ud.", "Cantidad", "Precio Unitario", "Subtotal"]
@@ -125,7 +125,7 @@ def create_excel():
         row_cur += 1
 
     # Totales Modalidad 1
-    ws1.cell(row=row_cur, column=6, value="BASE IMPONIBLE (MODALIDAD 1):").font = font_bold
+    ws1.cell(row=row_cur, column=6, value="BASE IMPONIBLE (20 ML):").font = font_bold
     ws1.cell(row=row_cur, column=6).alignment = Alignment(horizontal="right")
     ws1.cell(row=row_cur, column=7, value=f"=SUM(G13:G{row_cur-1})").font = font_tot
     ws1.cell(row=row_cur, column=7).number_format = '#,##0.00 €'
@@ -177,7 +177,7 @@ def create_excel():
     
     ws2["B2"] = "DIXIS RECURSOS Y SOLUCIONES S.L. • USO INTERNO CONFIDENCIAL"
     ws2["B2"].font = font_sub
-    ws2["B3"] = f"ESCANDALLO TÉCNICO DE INSTALACIÓN Y MATERIAL LUX-TOP: {DATA['codigo']}"
+    ws2["B3"] = f"ESCANDALLO TÉCNICO PROVEEDOR LUX-TOP: {DATA['codigo']} • TARIFA 145,60 €/ML"
     ws2["B3"].font = font_title
 
     headers_tech = ["Elemento / Concepto de Coste", "Tipo de Recurso", "Medición / Horas", "Coste Unitario", "Coste Directo Total", "PVP Venta", "Margen Bruto"]
@@ -190,9 +190,9 @@ def create_excel():
     ws2.row_dimensions[5].height = 24
 
     escandallo = [
-        ["Cable inox Ø8 mm AISI 316 (LUX-top 000011710)", "Material LUX-TOP (-18% dto)", 22.0, 5.658, "=D6*E6", 151.80],
-        ["3 Postes panel sándwich RVT 12 + fijaciones EPDM", "Material LUX-TOP (-18% dto)", 3.0, 160.967, "=D7*E7", 588.90],
-        ["Kit cierre cáncamo FSE 2003 (SKE II + Tensor)", "Material LUX-TOP (-18% dto)", 1.0, 400.00, "=D8*E8", 487.80],
+        ["Cable inox Ø8 mm AISI 316 (LUX-top 000011710)", "Material LUX-TOP (-18% dto)", 22.0, 5.658, "=D6*E6", 253.00],
+        ["3 Postes panel sándwich RVT 12 + fijaciones EPDM", "Material LUX-TOP (-18% dto)", 3.0, 160.967, "=D7*E7", 975.00],
+        ["Kit cierre cáncamo FSE 2003 (SKE II + Tensor)", "Material LUX-TOP (-18% dto)", 1.0, 400.00, "=D8*E8", 810.00],
         ["Instalación en cubierta (2 oficiales x 6,5 h)", "Mano de obra en altura (13,0 h)", 13.0, 22.00, "=D9*E9", 494.00],
         ["Plataforma Elevadora Móvil PEMP (1 jornada Sant Lluís)", "Maquinaria / elevación", 1.0, 140.00, "=D10*E10", 220.00],
         ["Pruebas de tiro dinamómetro, placa y visado técnico", "Ensayos y certificación", 1.0, 70.00, "=D11*E11", 160.00]
@@ -233,30 +233,34 @@ def create_excel():
     ws2.cell(row=12, column=8).border = border_total
 
     # Resumen rentabilidad
-    ws2["B14"] = "INDICADORES CLAVE DE RENTABILIDAD:"
+    ws2["B14"] = "INDICADORES CLAVE DE RENTABILIDAD (145,60 €/ML):"
     ws2["B14"].font = font_sec
     ws2["B15"] = "Coste Material LUX-TOP (Neto Dixis con 18% Dto):"
     ws2["C15"] = "=SUM(F6:F8)"
     ws2["C15"].number_format = '#,##0.00 €'
-    ws2["B16"] = "Coste Mano de Obra Instalación (13 h x 22 €):"
-    ws2["C16"] = "=F9"
+    ws2["B16"] = "Venta Total Materiales LUX-TOP:"
+    ws2["C16"] = "=SUM(G6:G8)"
     ws2["C16"].number_format = '#,##0.00 €'
-    ws2["B17"] = "Coste Directo Total Dixis:"
-    ws2["C17"] = "=F12"
+    ws2["B17"] = "Margen Bruto en Materiales (€):"
+    ws2["C17"] = "=C16-C15"
     ws2["C17"].number_format = '#,##0.00 €'
-    ws2["B18"] = "Precio de Venta Base Imponible:"
-    ws2["C18"] = "=G12"
+    ws2["B18"] = "Coste Directo Total Dixis (Material + MO + PEMP + Cert):"
+    ws2["C18"] = "=F12"
     ws2["C18"].number_format = '#,##0.00 €'
-    ws2["B19"] = "Margen Bruto de Contribución:"
-    ws2["C19"] = "=H12"
+    ws2["B19"] = "Precio de Venta Base Imponible Total (20 ml):"
+    ws2["C19"] = "=G12"
     ws2["C19"].number_format = '#,##0.00 €'
-    ws2["B20"] = "Margen sobre Venta (%):"
-    ws2["C20"] = "=H12/G12"
-    ws2["C20"].number_format = '0.0%'
-    ws2["B21"] = "Forma de Pago con Proveedor LUX-TOP:"
-    ws2["C21"] = DATA["proveedor_homologado"]["forma_pago_dixis"]
+    ws2["B20"] = "Margen Bruto Total Dixis:"
+    ws2["C20"] = "=H12"
+    ws2["C20"].number_format = '#,##0.00 €'
+    ws2["B21"] = "Margen sobre Venta (%):"
+    ws2["C21"] = "=H12/G12"
+    ws2["C21"].number_format = '0.0%'
+    ws2["B22"] = "Margen sobre Coste (%):"
+    ws2["C22"] = "=H12/F12"
+    ws2["C22"].number_format = '0.0%'
 
-    for r in range(15, 22):
+    for r in range(15, 23):
         ws2[f"B{r}"].font = font_bold
         ws2[f"C{r}"].font = font_bold
 
@@ -329,7 +333,7 @@ def create_html_client():
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Presupuesto Oficial LUX-top® {DATA['codigo']} • Sant Lluís</title>
+  <title>Presupuesto Oficial LUX-top® {DATA['codigo']} • Sant Lluís ({DATA['tarifa_objetivo_ml']:.2f} €/ml)</title>
   <style>
     @page {{
       size: A4 portrait;
@@ -662,7 +666,7 @@ def create_html_client():
 
       <section class="hero">
         <h3>Suministro, Instalación y Certificación de Línea de Vida Oficial LUX-top® FSE 2003 (20 ml) • Sant Lluís</h3>
-        <p>Instalación completa 'llave en mano' sobre cubierta de panel sándwich mediante postes RVT 12 certificados DEKRA, remachado estanco de 36 puntos con juntas EPDM, equipo de 2 operarios en altura (13 h), plataforma PEMP y ensayo de tiro in situ con dinamómetro.</p>
+        <p>Tarifa de venta unificada a 145,60 €/ml. Instalación completa 'llave en mano' sobre cubierta de panel sándwich mediante postes RVT 12 certificados DEKRA, remachado estanco de 36 puntos con juntas EPDM, equipo de 2 operarios en altura (13 h), plataforma PEMP y ensayo de tiro in situ con dinamómetro.</p>
       </section>
 
       <section class="grid-meta">
@@ -671,8 +675,8 @@ def create_html_client():
           <span class="value">LUX-top® FSE 2003</span>
         </div>
         <div class="card">
-          <span class="label">Cable de Seguridad</span>
-          <span class="value">Inox AISI 316 Ø8 mm</span>
+          <span class="label">Tarifa Venta Unificada</span>
+          <span class="value">{mod1['totales']['precio_ml_sin_iva']:.2f} €/ml</span>
         </div>
         <div class="card">
           <span class="label">Soporte Cubierta</span>
@@ -787,7 +791,7 @@ def create_html_technical():
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Estudio Técnico Interno {DATA['codigo']} • LUX-TOP</title>
+  <title>Estudio Técnico Interno {DATA['codigo']} • LUX-TOP (145,60 €/ml)</title>
   <style>
     @page {{
       size: A4 portrait;
@@ -1021,7 +1025,7 @@ def create_html_technical():
           </div>
           <div class="company-info">
             <h1>HAM ESTRUCTURAS METÁLICAS • OFICINA TÉCNICA</h1>
-            <p>ESCANDALLO INTERNO EXCLUSIVO PROVEEDOR LUX-TOP ({prov['presupuesto_referencia']})</p>
+            <p>ESCANDALLO TÉCNICO INTERNO • TARIFA DE VENTA 145,60 €/ML</p>
           </div>
         </div>
         <div class="meta">
@@ -1033,8 +1037,8 @@ def create_html_technical():
       </header>
 
       <section class="hero">
-        <h3>Escandallo de Costes Reales de Compra Dixis con LUX-TOP y Mano de Obra de Instalación</h3>
-        <p>Directiva de empresa: Dixis sólo instala LUX-TOP. Descuento oficial del 18% y pago mediante Giro comercial a 60 días. Instalación completa en cubierta: 2 oficiales x 6,5 h (13 h totales), PEMP 1 jornada y ensayo dinamométrico.</p>
+        <h3>Escandallo con Tarifa Oficial de Venta 145,60 €/ml (Carga de Margen en Materiales)</h3>
+        <p>Directiva de empresa: Dixis sólo instala LUX-TOP. El recargo comercial de precio se concentra en los materiales certificados FSE 2003 (cable inox, postes RVT 12 y kit cierre SKE II), manteniendo las tarifas oficiales de mano de obra y medios.</p>
       </section>
 
       <section class="kpi-row">
@@ -1047,7 +1051,7 @@ def create_html_technical():
           <span class="kpi-val red">{mod1['totales']['coste_directo_total_dixis']:.2f} €</span>
         </div>
         <div class="kpi-card">
-          <span class="kpi-label">Venta Base Imponible</span>
+          <span class="kpi-label">Venta Base (145,60 €/ml)</span>
           <span class="kpi-val">{mod1['totales']['base_imponible']:.2f} €</span>
         </div>
         <div class="kpi-card">
@@ -1064,7 +1068,7 @@ def create_html_technical():
             <th>Concepto de Coste / Recurso LUX-TOP</th>
             <th class="c" style="width: 25px;">Ud</th>
             <th class="r" style="width: 28px;">Cant.</th>
-            <th class="r" style="width: 48px;">Tarifa Oficial</th>
+            <th class="r" style="width: 48px;">Tarifa Fábrica</th>
             <th class="c" style="width: 32px;">Dto</th>
             <th class="r" style="width: 52px;">Coste Neto</th>
             <th class="r" style="width: 52px;">Venta PVP</th>
@@ -1101,21 +1105,21 @@ def create_html_technical():
 
       <div class="two-col">
         <div class="col">
-          <h5>Condiciones Oficiales LUX-TOP</h5>
+          <h5>Análisis de Carga de Margen en Material</h5>
           <ul class="compact">
-            <li><strong>Descuento comercial:</strong> 18% directo concedido a Dixis sobre tarifa oficial.</li>
-            <li><strong>Forma de pago:</strong> Giro a 60 días (asegurado por CESCE), excelente apalancamiento financiero.</li>
-            <li><strong>Suministro de fábrica:</strong> Fabricación en Herencia (Ciudad Real) y envío protegido.</li>
-            <li><strong>Soporte técnico:</strong> Asesoramiento de replanteo y emisión de certificados DEKRA.</li>
+            <li><strong>Coste compra materiales:</strong> 1.007,38 € neto (-18% descuento fábrica LUX-TOP).</li>
+            <li><strong>Venta cliente materiales:</strong> 2.038,00 € (recargo comercial neto: 1.030,62 €).</li>
+            <li><strong>Margen bruto en material:</strong> <strong>50,57% sobre venta de material</strong> (102,3% sobre coste de compra).</li>
+            <li><strong>Servicios de instalación:</strong> Mano de obra (494 €), PEMP (220 €) y certificación (160 €) = 874,00 €.</li>
           </ul>
         </div>
         <div class="col">
-          <h5>Rendimiento y Mano de Obra en Sant Lluís</h5>
+          <h5>Rendimiento Financiero y Tesorería</h5>
           <ul class="compact">
-            <li><strong>Equipo técnico:</strong> 2 operarios certificados en altura x 6,5 h de trabajo en cubierta = 13 h totales.</li>
-            <li><strong>Coste hora interna:</strong> 22,00 €/h (286,00 €) • Venta oficial: 38,00 €/h (494,00 €).</li>
-            <li><strong>Logística taller Sant Lluís:</strong> Distancia mínima (<3 km) desde Circunval·lació 11.</li>
-            <li><strong>Margen neto asegurado:</strong> Margen bruto de <strong>599,12 € (28,5%)</strong> cubriendo toda la operativa in situ.</li>
+            <li><strong>Ratio unitario venta:</strong> <strong>145,60 €/ml</strong> para los 20 ml (Base imponible: 2.912,00 €).</li>
+            <li><strong>Margen bruto limpio Dixis:</strong> <strong>1.408,62 €</strong> (48,37% sobre venta / 93,70% sobre coste).</li>
+            <li><strong>Forma de pago cliente:</strong> 100% a la aceptación del presupuesto.</li>
+            <li><strong>Pago proveedor LUX-TOP:</strong> Giro a 60 días (asegurado por CESCE).</li>
           </ul>
         </div>
       </div>
@@ -1123,7 +1127,7 @@ def create_html_technical():
 
     <footer>
       <div>DIXIS RECURSOS Y SOLUCIONES S.L. • HAM Menorca • Oficina Técnica</div>
-      <div>{DATA['codigo']} • Escandallo Interno Exclusivo LUX-TOP • Hoja 1 de 1</div>
+      <div>{DATA['codigo']} • Escandallo 145,60 €/ml LUX-TOP • Hoja 1 de 1</div>
     </footer>
   </div>
 </body>
@@ -1160,4 +1164,4 @@ if __name__ == "__main__":
     tech_pdf = os.path.join(BASE_DIR, "presupuesto-interno-tecnico.pdf")
     convert_to_pdf(tech_html, tech_pdf)
     
-    print("\nTodos los documentos de P-2026-0055 han sido generados exitosamente (100% LUX-TOP).")
+    print(f"\nTodos los documentos de P-2026-0055 generados a {DATA['tarifa_objetivo_ml']} €/ml.")

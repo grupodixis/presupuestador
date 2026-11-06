@@ -4,6 +4,7 @@
   "fecha": "6 de noviembre de 2026",
   "validez_dias": 30,
   "politica_instalacion": "Dixis Recursos y Soluciones S.L. / HAM Menorca instala EXCLUSIVAMENTE sistemas anticaídas oficiales y certificados de la marca LUX-TOP®.",
+  "tarifa_objetivo_ml": 145.60,
   "proveedor_homologado": {
     "nombre": "LUX-TOP Sistemas Anticaídas (Agencia Comercial Herenciana, S.L.)",
     "cif": "B-13578919",
@@ -34,7 +35,7 @@
   "proyecto": {
     "titulo": "Suministro, Instalación y Certificación de Línea de Vida Oficial LUX-top® FSE 2003 (20 ml) en Nave Industrial - Sant Lluís",
     "ubicacion": "Sant Lluís, Menorca",
-    "descripcion": "Instalación completa 'llave en mano' de sistema anticaídas permanente LUX-top® FSE 2003 (UNE-EN 795:2012 Tipo C / CEN/TS 16415:2013) de 20 m de longitud sobre cubierta de panel sándwich en nave industrial de Sant Lluís. Incluye suministro de materiales en acero inoxidable AISI 316, 3 postes RVT 12 con fijación estanca mediante remaches de bulbo 7,7 mm y juntas EPDM de 130 mm, absorbedor/indicador SKE II, equipo de montaje de 2 oficiales en altura (13 h), medios de elevación PEMP tijera/articulada, prueba de tiro estático con dinamómetro in situ y Certificado Oficial de Instalación LUX-TOP.",
+    "descripcion": "Instalación completa 'llave en mano' de sistema anticaídas permanente LUX-top® FSE 2003 (UNE-EN 795:2012 Tipo C / CEN/TS 16415:2013) de 20 m de longitud sobre cubierta de panel sándwich en nave industrial de Sant Lluís. Precio ajustado a 145,60 €/ml de venta. Incluye materiales en acero inoxidable AISI 316, 3 postes RVT 12 con fijación estanca mediante remaches de bulbo 7,7 mm y juntas EPDM de 130 mm, absorbedor/indicador SKE II, equipo de montaje de 2 oficiales en altura (13 h), medios de elevación PEMP tijera/articulada, prueba de tiro estático con dinamómetro in situ y Certificado Oficial de Instalación LUX-TOP.",
     "normativa_referencia": "UNE-EN 795:2012 (Tipo C), UNE-CEN/TS 16415:2013 (Múltiples usuarios simultáneos, hasta 3 personas), RD 486/1997, RD 2177/2004."
   },
   "modalidad_1_paso_manual": {
@@ -51,8 +52,8 @@
         "tarifa_oficial": 6.90,
         "descuento": 0.18,
         "coste_dixis": 124.48,
-        "precio_cliente": 151.80,
-        "subtotal": 151.80
+        "precio_cliente": 11.50,
+        "subtotal": 253.00
       },
       {
         "id": "1.02",
@@ -64,8 +65,8 @@
         "tarifa_oficial": 196.30,
         "descuento": 0.18,
         "coste_dixis": 482.90,
-        "precio_cliente": 588.90,
-        "subtotal": 588.90
+        "precio_cliente": 325.00,
+        "subtotal": 975.00
       },
       {
         "id": "1.03",
@@ -77,8 +78,8 @@
         "tarifa_oficial": 487.80,
         "descuento": 0.18,
         "coste_dixis": 400.00,
-        "precio_cliente": 487.80,
-        "subtotal": 487.80
+        "precio_cliente": 810.00,
+        "subtotal": 810.00
       },
       {
         "id": "1.04",
@@ -90,7 +91,7 @@
         "tarifa_oficial": 38.00,
         "descuento": 0.0,
         "coste_dixis": 286.00,
-        "precio_cliente": 494.00,
+        "precio_cliente": 38.00,
         "subtotal": 494.00
       },
       {
@@ -122,13 +123,17 @@
     ],
     "totales": {
       "coste_material_luxtop_dixis": 1007.38,
+      "venta_material_luxtop": 2038.00,
+      "coste_servicios_instalacion": 496.00,
+      "venta_servicios_instalacion": 874.00,
       "coste_directo_total_dixis": 1503.38,
-      "base_imponible": 2102.50,
-      "margen_euros": 599.12,
-      "margen_porcentaje": 28.50,
-      "iva_21": 441.53,
-      "total_con_iva": 2544.03,
-      "precio_ml_sin_iva": 105.13
+      "base_imponible": 2912.00,
+      "margen_euros": 1408.62,
+      "margen_porcentaje": 48.37,
+      "margen_sobre_coste_porcentaje": 93.70,
+      "iva_21": 611.52,
+      "total_con_iva": 3523.52,
+      "precio_ml_sin_iva": 145.60
     }
   },
   "modalidad_2_paso_continuo": {
@@ -138,12 +143,12 @@
     "coste_suplemento_dixis": 139.62,
     "totales": {
       "coste_directo_total_dixis": 1643.00,
-      "base_imponible": 2312.50,
-      "margen_euros": 669.50,
-      "margen_porcentaje": 28.95,
-      "iva_21": 485.63,
-      "total_con_iva": 2798.13,
-      "precio_ml_sin_iva": 115.63
+      "base_imponible": 3122.00,
+      "margen_euros": 1479.00,
+      "margen_porcentaje": 47.37,
+      "iva_21": 655.62,
+      "total_con_iva": 3777.62,
+      "precio_ml_sin_iva": 156.10
     }
   },
   "condiciones_comerciales": {
