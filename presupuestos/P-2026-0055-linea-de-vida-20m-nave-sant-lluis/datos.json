@@ -3,14 +3,17 @@
   "referencia": "PRE-2026-1106-LV-SANTLLUIS",
   "fecha": "6 de noviembre de 2026",
   "validez_dias": 30,
+  "politica_instalacion": "Dixis Recursos y Soluciones S.L. / HAM Menorca instala EXCLUSIVAMENTE sistemas anticaídas oficiales y certificados de la marca LUX-TOP®.",
   "proveedor_homologado": {
     "nombre": "LUX-TOP Sistemas Anticaídas (Agencia Comercial Herenciana, S.L.)",
     "cif": "B-13578919",
+    "web": "https://www.lineadevidaluxtop.es",
     "descuento_dixis": 0.18,
     "forma_pago_dixis": "Giro a 60 días",
-    "presupuesto_referencia": "2671/26 (Obra Nave Iberia - Aeropuerto de Menorca)",
-    "sistema_referencia": "LUX-top® FSE 2003 (UNE EN 795:2012 Tipo C / CEN/TS 16415:2013)",
-    "soporte_panel": "Postes LUX-top® RVT 12 con 12 remaches 7,7 mm y 4 juntas EPDM 130 mm"
+    "presupuesto_referencia": "Presupuesto LUX-TOP 2671/26 (Nave Iberia - Aeropuerto de Menorca)",
+    "sistema": "LUX-top® FSE 2003 (UNE EN 795:2012 Tipo C / CEN/TS 16415:2013)",
+    "cable": "Acero Inoxidable AISI 316 Ø8 mm",
+    "postes_panel": "LUX-top® RVT 12 con remaches 7,7 mm y almohadillas EPDM 130 mm estancas"
   },
   "cliente": {
     "nombre": "Propiedad / Nave Industrial Sant Lluís",
@@ -29,140 +32,92 @@
     "web": "https://www.hamenorca.com"
   },
   "proyecto": {
-    "titulo": "Suministro e Instalación de Línea de Vida Horizontal Permanente Clase C (20 ml) en Nave Industrial - Sant Lluís",
+    "titulo": "Suministro, Instalación y Certificación de Línea de Vida Horizontal Permanente LUX-top® FSE 2003 (20 ml) en Nave Industrial - Sant Lluís",
     "ubicacion": "Sant Lluís, Menorca",
-    "descripcion": "Estudio comparativo técnico-económico para suministro e instalación de línea de anclaje horizontal permanente de 20 ml (UNE-EN 795:2012 Tipo C y UNE-CEN/TS 16415). Opción A: Prescripción estándar solicitada con cable galvanizado Ø10 mm y anclajes L-2653 T6. Opción B: Sistema oficial homologado LUX-top® FSE 2003 con cable de acero inoxidable AISI 316 Ø8 mm, postes sobre cubierta de panel sándwich RVT 12 y absorbedor/indicador de tensión SKE II.",
-    "normativa_referencia": "UNE-EN 795:2012 (Tipo C), UNE-CEN/TS 16415:2013 (Múltiples usuarios), RD 486/1997, RD 2177/2004."
+    "descripcion": "Instalación oficial y homologada de sistema anticaídas permanente LUX-top® FSE 2003 (UNE-EN 795:2012 Tipo C / CEN/TS 16415:2013) de 20 m de longitud para cubierta de nave industrial en Sant Lluís. Sistema íntegramente en acero inoxidable AISI 316, postes para panel sándwich RVT 12 con fijación estanca mediante remaches de bulbo y juntas de EPDM, absorbedor/indicador de tensión SKE II, medios de elevación PEMP y certificación técnica oficial in situ.",
+    "normativa_referencia": "UNE-EN 795:2012 (Tipo C), UNE-CEN/TS 16415:2013 (Múltiples usuarios simultáneos, hasta 3 personas), RD 486/1997, RD 2177/2004."
   },
-  "opcion_a_estandar": {
-    "nombre": "Opción A: Prescripción Estándar Solicitada (Cable Galvanizado Ø10 mm + Anclajes L-2653 T6)",
-    "cable": "Cable flexible galvanizado Ø10 mm (7x19, rotura > 62 kN)",
-    "anclajes": "2 terminales y 1 intermedio en aleación de aluminio L-2653 T6 lacado epoxi-poliéster",
-    "amortiguador": "Sin amortiguador de caídas incorporado en línea (absorción confiada al EPI del usuario EN 355)",
+  "modalidad_1_paso_manual": {
+    "nombre": "Modalidad 1: LUX-top® FSE 2003 Paso Manual (Configuración Estándar Profesional)",
+    "descripcion": "El operario transita guiando su conector sobre el cable inox AISI 316. En el poste intermedio se realiza la transición mediante cabo de amarre con absorbedor bifurcado en Y (EN 355 / EN 361) sin soltarse en ningún momento.",
     "partidas": [
       {
-        "id": "A.01",
-        "concepto": "Kit de línea de vida horizontal 20m (aluminio L-2653 T6 epoxi, cable 10mm 7x19, tensor, placa)",
-        "unidad": "ud",
-        "cantidad": 1.0,
-        "coste_dixis": 380.0,
-        "precio_cliente": 520.0
-      },
-      {
-        "id": "A.02",
-        "concepto": "Fijaciones estructurales homologadas y juntas de estanqueidad a estructura nave",
-        "unidad": "paq",
-        "cantidad": 1.0,
-        "coste_dixis": 65.0,
-        "precio_cliente": 110.0
-      },
-      {
-        "id": "A.03",
-        "concepto": "Instalación en altura por 2 operarios oficiales certificados en altura (9 horas totales)",
-        "unidad": "h",
-        "cantidad": 9.0,
-        "coste_dixis": 198.0,
-        "precio_cliente": 342.0
-      },
-      {
-        "id": "A.04",
-        "concepto": "Medios auxiliares de elevación (Plataforma elevadora PEMP tijera/articulada 1 jornada)",
-        "unidad": "jorn",
-        "cantidad": 1.0,
-        "coste_dixis": 140.0,
-        "precio_cliente": 220.0
-      },
-      {
-        "id": "A.05",
-        "concepto": "Pruebas de tiro con dinamómetro calibrado, legalización y certificado UNE-EN 795",
-        "unidad": "ud",
-        "cantidad": 1.0,
-        "coste_dixis": 70.0,
-        "precio_cliente": 160.0
-      }
-    ],
-    "totales": {
-      "coste_directo_dixis": 853.0,
-      "base_imponible": 1352.0,
-      "margen_euros": 499.0,
-      "margen_porcentaje": 36.91,
-      "iva_21": 283.92,
-      "total_con_iva": 1635.92,
-      "precio_ml_sin_iva": 67.60
-    }
-  },
-  "opcion_b_luxtop": {
-    "nombre": "Opción B: Sistema Oficial Homologado LUX-top® FSE 2003 (Acero Inoxidable AISI 316 + Postes Panel RVT 12)",
-    "cable": "Cable de acero inoxidable Ø8 mm AISI 316 (alta durabilidad marina en Menorca)",
-    "anclajes": "3 postes LUX-top® RVT 12 para fijación sobre panel sándwich (2 terminales + 1 intermedio)",
-    "fijacion_panel": "3 sets de fijación con 36 remaches especiales de 7,7 mm y 12 juntas EPDM 130 mm estancas",
-    "cierre_y_absorbedor": "Kit de cierre FSE 2003 con absorbedor/indicador de tensión SKE II, tensor autoprensado y placa VA inox",
-    "partidas": [
-      {
-        "id": "B.01",
+        "id": "1.01",
         "codigo_luxtop": "000011710",
-        "concepto": "Cable de acero inox Ø8 mm AISI 316 LUX-top® FSE 2003 (22 metros)",
+        "concepto": "Cable de acero inoxidable Ø8 mm AISI 316 LUX-top® FSE 2003 (22 ml)",
+        "descripcion": "Suministro de 22 m de cable flexible de acero inoxidable calidad marina AISI 316 Ø8 mm de alta resistencia, apto para la atmósfera salina de Menorca.",
         "unidad": "m",
         "cantidad": 22.0,
         "tarifa_oficial": 6.90,
         "descuento": 0.18,
         "coste_dixis": 124.48,
-        "precio_cliente": 151.80
+        "precio_cliente": 151.80,
+        "subtotal": 151.80
       },
       {
-        "id": "B.02",
+        "id": "1.02",
         "codigo_luxtop": "000026386 + 000026092",
         "concepto": "Postes de anclaje LUX-top® RVT 12 para panel sándwich con fijaciones estancas EPDM y remaches",
+        "descripcion": "3 postes estructurales LUX-top® RVT 12 (2 extremos y 1 intermedio a 10 m) con placa base de 292x350x4 mm y altura 170 mm. Fijación con 36 remaches de 7,7 mm y 12 juntas EPDM de 130 mm.",
         "unidad": "ud",
         "cantidad": 3.0,
         "tarifa_oficial": 196.30,
         "descuento": 0.18,
         "coste_dixis": 482.90,
-        "precio_cliente": 588.90
+        "precio_cliente": 588.90,
+        "subtotal": 588.90
       },
       {
-        "id": "B.03",
+        "id": "1.03",
         "codigo_luxtop": "030 - Cierre 1",
-        "concepto": "Kit de cierre cáncamo FSE 2003 (Absorbedor SKE II + Tensor autoprensado + Terminal horquilla + Placa VA)",
+        "concepto": "Kit de cierre cáncamo FSE 2003 (Absorbedor SKE II + Tensor autoprensado + Terminal + Placa VA)",
+        "descripcion": "Conjunto de cierre en acero inox: Absorbedor dinámico e indicador visual de tensión SKE II, tensor autoprensado mecánico, terminal de horquilla y placa de señalización reglamentaria VA.",
         "unidad": "kit",
         "cantidad": 1.0,
         "tarifa_oficial": 487.80,
         "descuento": 0.18,
         "coste_dixis": 400.00,
-        "precio_cliente": 487.80
+        "precio_cliente": 487.80,
+        "subtotal": 487.80
       },
       {
-        "id": "B.04",
+        "id": "1.04",
         "codigo_luxtop": "MONTAJE-MO",
-        "concepto": "Instalación en altura por 2 operarios certificados en altura (9 horas totales)",
+        "concepto": "Instalación en obra por 2 operarios oficiales especialistas homologados en altura",
+        "descripcion": "Mano de obra especializada HAM Menorca (2 oficiales certificados en trabajos en altura y montaje de líneas de vida): replanteo, taladrado y remachado estanco de postes RVT 12, tendido, tensado dinamométrico y precintado. Ventaja logística inmediata desde nuestro taller en Sant Lluís.",
         "unidad": "h",
         "cantidad": 9.0,
         "tarifa_oficial": 38.00,
         "descuento": 0.0,
         "coste_dixis": 198.00,
-        "precio_cliente": 342.00
+        "precio_cliente": 342.00,
+        "subtotal": 342.00
       },
       {
-        "id": "B.05",
+        "id": "1.05",
         "codigo_luxtop": "MEDIOS-PEMP",
         "concepto": "Medios auxiliares de elevación (Plataforma elevadora PEMP tijera/articulada 1 jornada en Sant Lluís)",
+        "descripcion": "Transporte a nave en Sant Lluís y uso durante 1 jornada de montaje de plataforma elevadora móvil PEMP con marcado CE y revisión vigente. (Deducible si la nave aporta medios de elevación propios).",
         "unidad": "jorn",
         "cantidad": 1.0,
         "tarifa_oficial": 220.00,
         "descuento": 0.0,
         "coste_dixis": 140.00,
-        "precio_cliente": 220.00
+        "precio_cliente": 220.00,
+        "subtotal": 220.00
       },
       {
-        "id": "B.06",
+        "id": "1.06",
         "codigo_luxtop": "CERT-795",
-        "concepto": "Prueba de carga con dinamómetro, visado técnico, placa y Certificado Oficial de Instalación UNE-EN 795",
+        "concepto": "Prueba de carga con dinamómetro, visado técnico, placa y Certificado Oficial UNE-EN 795",
+        "descripcion": "Ensayo de tracción estática in situ con dinamómetro calibrado, remachado de placa indeleble LUX-TOP y emisión del Certificado Oficial de Instalación de la plataforma LUX-TOP para aseguradora y prevención laboral.",
         "unidad": "ud",
         "cantidad": 1.0,
         "tarifa_oficial": 160.00,
         "descuento": 0.0,
         "coste_dixis": 70.00,
-        "precio_cliente": 160.00
+        "precio_cliente": 160.00,
+        "subtotal": 160.00
       }
     ],
     "totales": {
@@ -176,11 +131,26 @@
       "precio_ml_sin_iva": 97.53
     }
   },
+  "modalidad_2_paso_continuo": {
+    "nombre": "Modalidad 2: LUX-top® FSE 2003 Paso Continuo / Automático (con Carro Runner)",
+    "descripcion": "Incorpora pieza intermedia pasante y carro deslizante LUX-top® que franquea automáticamente el poste intermedio sin necesidad de soltarse ni manipular mosquetones.",
+    "suplemento_carro_y_paso_continuo": 210.0,
+    "coste_suplemento_dixis": 139.62,
+    "totales": {
+      "coste_directo_total_dixis": 1555.00,
+      "base_imponible": 2160.50,
+      "margen_euros": 605.50,
+      "margen_porcentaje": 28.03,
+      "iva_21": 453.71,
+      "total_con_iva": 2614.21,
+      "precio_ml_sin_iva": 108.03
+    }
+  },
   "condiciones_comerciales": {
-    "validez_oferta": "30 días a partir de la fecha de emisión",
+    "validez_oferta": "30 días naturales",
     "forma_pago": "100% a la aceptación del presupuesto (directiva estándar HAM)",
-    "plazo_ejecucion": "Aprox. 1 a 2 semanas tras confirmación (instalación en obra: 1 jornada de trabajo)",
-    "garantia": "2 años de garantía en componentes y montaje contra cualquier defecto de fabricación o instalación",
-    "revisiones": "Obligatoria revisión técnica periódica cada 12 meses según norma UNE-EN 795 / UNE-EN 365"
+    "plazo_ejecucion": "Acopio de material LUX-TOP en 7 a 10 días; montaje y certificación en obra en 1 jornada",
+    "garantia": "Garantía oficial LUX-TOP y 2 años de garantía de instalación HAM Menorca",
+    "revisiones": "Obligatoria revisión técnica anual según UNE-EN 795 y UNE-EN 365"
   }
 }

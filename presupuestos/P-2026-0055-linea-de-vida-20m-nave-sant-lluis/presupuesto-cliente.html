@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Presupuesto P-2026-0055 • Línea de Vida Sant Lluís</title>
+  <title>Presupuesto Oficial LUX-top® P-2026-0055 • Sant Lluís</title>
   <style>
     @page {
       size: A4 portrait;
@@ -124,81 +124,47 @@
       color: var(--muted);
       font-size: 9px;
     }
-    .compare-container {
-      display: grid;
-      grid-template-columns: 1fr 1.05fr;
-      gap: 8px;
-      margin-top: 6px;
-    }
-    .opt-box {
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      padding: 6px 8px;
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .opt-box.featured {
-      border: 1.5px solid var(--highlight);
-      background: var(--blue-bg);
-    }
-    .opt-title {
-      font-size: 10px;
-      font-weight: 800;
-      color: var(--brand);
-      margin-bottom: 3px;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 3px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .tag-rec {
-      background: var(--highlight);
+    .badge-luxtop {
+      display: inline-block;
+      background: #0284c7;
       color: #fff;
-      font-size: 7.5px;
+      font-size: 8px;
+      font-weight: 700;
       padding: 1px 5px;
       border-radius: 3px;
       text-transform: uppercase;
-      font-weight: 700;
+      margin-left: 4px;
     }
-    .opt-features {
-      margin: 0 0 6px;
-      padding-left: 12px;
-      font-size: 8px;
-      color: var(--muted);
-      line-height: 1.25;
+    .grid-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-top: 5px;
     }
-    .opt-features li {
-      margin-bottom: 2px;
-    }
-    .opt-price {
-      background: var(--soft);
+    .card {
+      background: var(--card-bg);
       border: 1px solid var(--line);
-      border-radius: 3px;
-      padding: 5px 8px;
-      text-align: center;
+      border-radius: 4px;
+      padding: 4px 6px;
     }
-    .opt-box.featured .opt-price {
-      background: var(--brand);
-      color: #fff;
+    .card .label {
+      display: block;
+      font-size: 7.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 1px;
     }
-    .opt-price .base {
-      font-size: 13.5px;
-      font-weight: 800;
-    }
-    .opt-box.featured .opt-price .base {
-      color: #fef08a;
-    }
-    .opt-price .sub-info {
-      font-size: 8px;
-      opacity: 0.85;
+    .card .value {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--brand);
     }
     h4 {
       margin: 6px 0 3px;
       color: var(--brand);
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 700;
       border-bottom: 1px solid var(--line);
       padding-bottom: 2px;
@@ -230,6 +196,61 @@
     .c { text-align: center; }
     .r { text-align: right; }
     .bold { font-weight: 700; }
+    .price-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      background: var(--blue-bg);
+      border: 1.5px solid var(--highlight);
+      border-radius: 4px;
+      padding: 6px 10px;
+      margin-bottom: 5px;
+      align-items: center;
+    }
+    .price-base {
+      text-align: left;
+    }
+    .price-base .label {
+      font-size: 8px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .price-base .price-amount {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--brand);
+    }
+    .price-final {
+      text-align: right;
+      background: var(--brand);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+    .price-final .label {
+      font-size: 8px;
+      text-transform: uppercase;
+      font-weight: 700;
+      opacity: 0.9;
+    }
+    .price-final .price-amount {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: #fef08a;
+    }
+    .opt-switch {
+      background: #fff;
+      border: 1px dashed var(--highlight);
+      border-radius: 4px;
+      padding: 4px 8px;
+      margin-bottom: 5px;
+      font-size: 8px;
+      color: var(--brand);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -299,7 +320,7 @@
             <img src="logo-ham.svg" alt="HAM Estructuras Metálicas">
           </div>
           <div class="company-info">
-            <h1>HAM ESTRUCTURAS METÁLICAS</h1>
+            <h1>HAM ESTRUCTURAS METÁLICAS <span class="badge-luxtop">INSTALADOR OFICIAL LUX-TOP®</span></h1>
             <p><strong>Dixis Recursos y Soluciones S.L.</strong> • CIF: B57825432</p>
             <p>Circunval·lació, 11 • Polígono Industrial de Sant Lluís, Menorca</p>
             <p>+34 669 769 541 • pablo@dixis.es • www.hamenorca.com</p>
@@ -314,57 +335,35 @@
       </header>
 
       <section class="hero">
-        <h3>Línea de Vida Horizontal Permanente Clase C (20 ml) en Nave Industrial • Sant Lluís</h3>
-        <p>Suministro homologado, fijaciones estancas, medios de elevación (PEMP) y montaje integral en altura conforme a UNE-EN 795:2012 Tipo C y UNE-CEN/TS 16415:2013 con ensayo dinamométrico in situ.</p>
+        <h3>Sistema Anticaídas Oficial LUX-top® FSE 2003 (20 ml) en Nave Industrial • Sant Lluís</h3>
+        <p>Suministro homologado de fabricante LUX-TOP®, fijación sobre cubierta panel sándwich mediante postes RVT 12 certificados DEKRA, medios de elevación y montaje integral en altura conforme a UNE-EN 795:2012 Tipo C y CEN/TS 16415:2013.</p>
       </section>
 
-      <div class="compare-container">
-        <!-- OPCION A -->
-        <div class="opt-box">
-          <div>
-            <div class="opt-title">OPCIÓN A: ESTÁNDAR SOLICITADA</div>
-            <ul class="opt-features">
-              <li><strong>Cable:</strong> Acero galvanizado Ø10 mm (7x19, rotura > 62 kN).</li>
-              <li><strong>Soportes:</strong> 2 terminales + 1 intermedio en aluminio L-2653 T6 epoxi.</li>
-              <li><strong>Amortiguación:</strong> Sin absorbedor integrado en línea (confiado a EPI).</li>
-              <li><strong>Montaje e instalación:</strong> 2 operarios oficiales en altura + PEMP + ensayo tiro.</li>
-            </ul>
-          </div>
-          <div class="opt-price">
-            <span style="font-size:8px; text-transform:uppercase; font-weight:700; color:var(--muted);">Base Imponible</span>
-            <div class="base">1352.00 €</div>
-            <div class="sub-info">67.60 €/ml • 1635.92 € con IVA (21%)</div>
-          </div>
+      <section class="grid-meta">
+        <div class="card">
+          <span class="label">Sistema Certificado</span>
+          <span class="value">LUX-top® FSE 2003</span>
         </div>
-
-        <!-- OPCION B -->
-        <div class="opt-box featured">
-          <div>
-            <div class="opt-title">
-              <span>OPCIÓN B: SISTEMA OFICIAL LUX-TOP®</span>
-              <span class="tag-rec">Recomendada Menorca</span>
-            </div>
-            <ul class="opt-features">
-              <li><strong>Cable Marino:</strong> Acero inoxidable <strong>AISI 316 Ø8 mm</strong> (máx. resistencia salina).</li>
-              <li><strong>Fijación Panel:</strong> 3 postes <strong>LUX-top® RVT 12</strong> con 36 remaches de 7,7 mm y 12 juntas EPDM impermeabilizantes (sin perforar vigas).</li>
-              <li><strong>Seguridad Plus:</strong> Absorbedor/Indicador de tensión <strong>SKE II</strong> en acero inox.</li>
-              <li><strong>Homologación DEKRA:</strong> Marcado CE oficial para hasta 6 operarios.</li>
-            </ul>
-          </div>
-          <div class="opt-price">
-            <span style="font-size:8px; text-transform:uppercase; font-weight:700; color:#cbd5e1;">Base Imponible Llave en Mano</span>
-            <div class="base">1950.50 €</div>
-            <div class="sub-info">97.53 €/ml • 2360.11 € con IVA (21%)</div>
-          </div>
+        <div class="card">
+          <span class="label">Cable de Seguridad</span>
+          <span class="value">Inox AISI 316 Ø8 mm</span>
         </div>
-      </div>
+        <div class="card">
+          <span class="label">Soporte Cubierta</span>
+          <span class="value">Postes Panel RVT 12</span>
+        </div>
+        <div class="card">
+          <span class="label">Instalación y Pruebas</span>
+          <span class="value">Incluida + Ensayo Tiro</span>
+        </div>
+      </section>
 
-      <h4>Desglose de Partidas • Sistema Oficial LUX-top® FSE 2003 (Opción B)</h4>
+      <h4>Desglose Oficial de Partidas • LUX-top® FSE 2003 (Paso Manual)</h4>
       <table>
         <thead>
           <tr>
             <th class="c" style="width: 22px;">Nº</th>
-            <th>Concepto y Componente Homologado LUX-TOP</th>
+            <th>Concepto y Componente Homologado LUX-TOP®</th>
             <th class="c" style="width: 28px;">Ud</th>
             <th class="r" style="width: 32px;">Cant.</th>
             <th class="r" style="width: 60px;">Precio Ud</th>
@@ -373,48 +372,48 @@
         </thead>
         <tbody>
           <tr>
-            <td class="c bold">B.01</td>
-            <td><strong>Cable de acero inox Ø8 mm AISI 316 LUX-top® FSE 2003 (22 metros)</strong></td>
+            <td class="c bold">1.01</td>
+            <td><strong>Cable de acero inoxidable Ø8 mm AISI 316 LUX-top® FSE 2003 (22 ml)</strong><br><span style="color:var(--muted); font-size:7.5px;">Suministro de 22 m de cable flexible de acero inoxidable calidad marina AISI 316 Ø8 mm de alta resistencia, apto para la atmósfera salina de Menorca.</span></td>
             <td class="c">m</td>
             <td class="r">22.00</td>
             <td class="r">151.80 €</td>
-            <td class="r bold">3339.60 €</td>
+            <td class="r bold">151.80 €</td>
           </tr>
           <tr>
-            <td class="c bold">B.02</td>
-            <td><strong>Postes de anclaje LUX-top® RVT 12 para panel sándwich con fijaciones estancas EPDM y remaches</strong></td>
+            <td class="c bold">1.02</td>
+            <td><strong>Postes de anclaje LUX-top® RVT 12 para panel sándwich con fijaciones estancas EPDM y remaches</strong><br><span style="color:var(--muted); font-size:7.5px;">3 postes estructurales LUX-top® RVT 12 (2 extremos y 1 intermedio a 10 m) con placa base de 292x350x4 mm y altura 170 mm. Fijación con 36 remaches de 7,7 mm y 12 juntas EPDM de 130 mm.</span></td>
             <td class="c">ud</td>
             <td class="r">3.00</td>
             <td class="r">588.90 €</td>
-            <td class="r bold">1766.70 €</td>
+            <td class="r bold">588.90 €</td>
           </tr>
           <tr>
-            <td class="c bold">B.03</td>
-            <td><strong>Kit de cierre cáncamo FSE 2003 (Absorbedor SKE II + Tensor autoprensado + Terminal horquilla + Placa VA)</strong></td>
+            <td class="c bold">1.03</td>
+            <td><strong>Kit de cierre cáncamo FSE 2003 (Absorbedor SKE II + Tensor autoprensado + Terminal + Placa VA)</strong><br><span style="color:var(--muted); font-size:7.5px;">Conjunto de cierre en acero inox: Absorbedor dinámico e indicador visual de tensión SKE II, tensor autoprensado mecánico, terminal de horquilla y placa de señalización reglamentaria VA.</span></td>
             <td class="c">kit</td>
             <td class="r">1.00</td>
             <td class="r">487.80 €</td>
             <td class="r bold">487.80 €</td>
           </tr>
           <tr>
-            <td class="c bold">B.04</td>
-            <td><strong>Instalación en altura por 2 operarios certificados en altura (9 horas totales)</strong></td>
+            <td class="c bold">1.04</td>
+            <td><strong>Instalación en obra por 2 operarios oficiales especialistas homologados en altura</strong><br><span style="color:var(--muted); font-size:7.5px;">Mano de obra especializada HAM Menorca (2 oficiales certificados en trabajos en altura y montaje de líneas de vida): replanteo, taladrado y remachado estanco de postes RVT 12, tendido, tensado dinamométrico y precintado. Ventaja logística inmediata desde nuestro taller en Sant Lluís.</span></td>
             <td class="c">h</td>
             <td class="r">9.00</td>
             <td class="r">342.00 €</td>
-            <td class="r bold">3078.00 €</td>
+            <td class="r bold">342.00 €</td>
           </tr>
           <tr>
-            <td class="c bold">B.05</td>
-            <td><strong>Medios auxiliares de elevación (Plataforma elevadora PEMP tijera/articulada 1 jornada en Sant Lluís)</strong></td>
+            <td class="c bold">1.05</td>
+            <td><strong>Medios auxiliares de elevación (Plataforma elevadora PEMP tijera/articulada 1 jornada en Sant Lluís)</strong><br><span style="color:var(--muted); font-size:7.5px;">Transporte a nave en Sant Lluís y uso durante 1 jornada de montaje de plataforma elevadora móvil PEMP con marcado CE y revisión vigente. (Deducible si la nave aporta medios de elevación propios).</span></td>
             <td class="c">jorn</td>
             <td class="r">1.00</td>
             <td class="r">220.00 €</td>
             <td class="r bold">220.00 €</td>
           </tr>
           <tr>
-            <td class="c bold">B.06</td>
-            <td><strong>Prueba de carga con dinamómetro, visado técnico, placa y Certificado Oficial de Instalación UNE-EN 795</strong></td>
+            <td class="c bold">1.06</td>
+            <td><strong>Prueba de carga con dinamómetro, visado técnico, placa y Certificado Oficial UNE-EN 795</strong><br><span style="color:var(--muted); font-size:7.5px;">Ensayo de tracción estática in situ con dinamómetro calibrado, remachado de placa indeleble LUX-TOP y emisión del Certificado Oficial de Instalación de la plataforma LUX-TOP para aseguradora y prevención laboral.</span></td>
             <td class="c">ud</td>
             <td class="r">1.00</td>
             <td class="r">160.00 €</td>
@@ -423,21 +422,41 @@
         </tbody>
       </table>
 
+      <section class="price-box">
+        <div class="price-base">
+          <span class="label">Base Imponible Modalidad 1 (20 ml a 97.53 €/ml)</span>
+          <div class="price-amount">1950.50 €</div>
+          <span style="font-size: 8px; color: var(--muted);">I.V.A. 21%: 409.61 € • Deducible -220,00 € si aporta PEMP</span>
+        </div>
+        <div class="price-final">
+          <span class="label" style="color: #cbd5e1;">Importe Total Llave en Mano</span>
+          <div class="price-amount">2360.11 €</div>
+          <span style="font-size: 8px; color: #cbd5e1;">Impuestos incluidos (I.V.A. 21%)</span>
+        </div>
+      </section>
+
+      <div class="opt-switch">
+        <span><strong>MODALIDAD 2 OPCIONAL (PASO CONTINUO / AUTOMÁTICO CON CARRO RUNNER):</strong> Con pieza intermedia pasante y carro deslizante de acero inox para transitar los 20 m sin desenganchar el conector.</span>
+        <span style="font-weight:800; font-size:9.5px; white-space:nowrap; margin-left:8px;">Base: 2160.50 € + IVA (2614.21 € Total)</span>
+      </div>
+
       <div class="two-col">
         <div class="col">
-          <h5>Inclusiones y Ventajas en Sant Lluís</h5>
+          <h5>Ventajas del Sistema Oficial LUX-TOP®</h5>
           <ul class="compact">
-            <li><strong>Montaje completo en obra:</strong> Equipo de 2 operarios especialistas con titulación oficial en trabajos en altura (RD 2177/2004).</li>
-            <li><strong>Medios de elevación:</strong> Incluye plataforma elevadora PEMP (1 jornada). *(Deducible si la nave aporta plataforma).*</li>
-            <li><strong>Proximidad taller HAM:</strong> Respuesta e intervención directa desde nuestro taller en el Polígono de Sant Lluís (sin recargos logísticos).</li>
+            <li><strong>Acero Inoxidable AISI 316:</strong> Cable y herrajes en calidad marina A4, garantizando durabilidad absoluta frente a la corrosión salina de Menorca.</li>
+            <li><strong>Fijación Estanca RVT 12:</strong> Anclaje mediante 12 remaches de bulbo de 7,7 mm y 4 juntas de EPDM de 130 mm por poste; no perfora vigas ni crea puentes térmicos.</li>
+            <li><strong>Absorbedor Dinámico SKE II:</strong> Disipa el impacto en caso de caída y cuenta con testigo visual de sobretensión.</li>
+            <li><strong>Proximidad Taller Sant Lluís:</strong> Base operativa a 2 minutos de la nave (sin gastos de desplazamiento).</li>
           </ul>
         </div>
         <div class="col">
           <h5>Certificación Oficial, Garantía y Condiciones</h5>
           <ul class="compact">
-            <li><strong>Legalización oficial:</strong> Ensayo in situ con dinamómetro calibrado, remachado de placa indeleble, Certificado de Instalación visado y Libro de Mantenimiento.</li>
-            <li><strong>Garantía:</strong> 2 años en materiales y montaje.</li>
+            <li><strong>Legalización oficial:</strong> Ensayo in situ con dinamómetro calibrado, remachado de placa indeleble LUX-TOP, Certificado Oficial de Instalación visado y Libro de Mantenimiento.</li>
+            <li><strong>Garantía:</strong> Garantía oficial LUX-TOP y 2 años de garantía de montaje HAM Menorca.</li>
             <li><strong>Forma de pago:</strong> 100% a la aceptación del presupuesto (directiva estándar HAM).</li>
+            <li><strong>Exclusiones:</strong> Equipos EPI individuales (arneses/eslingas) y licencias municipales de obra menor si aplican.</li>
           </ul>
         </div>
       </div>
@@ -449,14 +468,14 @@
         </div>
         <div class="sign-box">
           <span><strong>Aceptación del Cliente (Nave Sant Lluís)</strong></span>
-          <span>Indicar opción elegida (A / B) y firma:</span>
+          <span>Indicar modalidad (1 / 2) y firma de conformidad:</span>
         </div>
       </section>
     </div>
 
     <footer>
       <div>DIXIS RECURSOS Y SOLUCIONES S.L. • C.I.F. B57825432 • Sant Lluís, Menorca</div>
-      <div>P-2026-0055 • Comparativa Línea de Vida Horizontal Permanente Clase C (20 ml) • Hoja 1 de 1</div>
+      <div>P-2026-0055 • Sistema Oficial Anticaídas LUX-top® FSE 2003 (20 ml) • Hoja 1 de 1</div>
     </footer>
   </div>
 </body>
