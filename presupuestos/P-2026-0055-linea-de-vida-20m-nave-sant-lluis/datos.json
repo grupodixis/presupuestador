@@ -1,0 +1,140 @@
+{
+  "codigo": "P-2026-0055",
+  "referencia": "PRE-2026-1106-LV-SANTLLUIS",
+  "fecha": "6 de noviembre de 2026",
+  "validez_dias": 30,
+  "cliente": {
+    "nombre": "Propiedad / Nave Industrial Sant Lluís",
+    "contacto_tecnico": "Responsable de Mantenimiento y Prevención",
+    "ubicacion": "Nave Industrial, Sant Lluís, Menorca",
+    "telefono": null,
+    "email": null
+  },
+  "emisor": {
+    "razon_social": "Dixis Recursos y Soluciones S.L.",
+    "cif": "B57825432",
+    "nombre_comercial": "HAM Estructuras Metálicas Menorca",
+    "domicilio": "Circunval·lació, 11, 07710 Sant Lluís, Menorca",
+    "telefono": "+34 669 769 541",
+    "email": "pablo@dixis.es",
+    "web": "https://www.hamenorca.com"
+  },
+  "proyecto": {
+    "titulo": "Suministro e Instalación de Línea de Vida Horizontal Permanente Clase C (20 ml) en Nave Industrial - Sant Lluís",
+    "ubicacion": "Sant Lluís, Menorca",
+    "descripcion": "Suministro e instalación de línea de anclaje horizontal permanente, de cable de acero flexible, sin amortiguador de caídas, de 20 m de longitud, clase C (UNE-EN 795:2012 Tipo C / UNE-CEN/TS 16415), con 2 anclajes terminales L-2653 T6 epoxi, 1 anclaje intermedio L-2653 T6 epoxi, cable flexible galvanizado Ø10 mm (7x19), tensor de caja abierta ojo-horquilla, conjunto sujetacables y terminal manual, protector para cabo, placa de señalización, precintos de seguridad, fijaciones estructurales certificadas al soporte, medios de elevación en altura y certificación técnica con prueba de carga.",
+    "normativa_referencia": "UNE-EN 795:2012 (Dispositivos de anclaje Tipo C), UNE-CEN/TS 16415:2013 (Múltiples usuarios simultáneos), Real Decreto 486/1997 (Seguridad y Salud en Lugares de Trabajo), Real Decreto 2177/2004 (Trabajos temporales en altura)."
+  },
+  "parametros_tecnicos": {
+    "longitud_total_ml": 20.0,
+    "tipo_sistema": "Línea de anclaje horizontal permanente flexible (UNE-EN 795 Tipo C / Clase C)",
+    "amortiguador": "Sin amortiguador de caídas incorporado en línea (absorción confiada al EPI con absorbedor según EN 355)",
+    "anclajes_terminales": "2 uds. Aleación de aluminio para moldeo L-2653 (AlSi7Mg0.6) con tratamiento térmico T6 y acabado epoxi-poliéster termolacado",
+    "anclaje_intermedio": "1 ud. Aleación de aluminio L-2653 con tratamiento térmico T6 y acabado epoxi-poliéster",
+    "distancia_entre_soportes_m": 10.0,
+    "cable": "Cable flexible de acero galvanizado Ø10 mm, formación 7x19 (7 cordones x 19 hilos, carga de rotura > 62 kN)",
+    "tensor": "Tensor de caja abierta forjado cincado/galvanizado con terminación ojo en un extremo y horquilla en opuesto (rosca M12/M16)",
+    "terminal_y_sujecion": "Terminal manual prensable/mecánico + conjunto de sujetacables de apriete homologados",
+    "protector_cabo": "Guardacabos reforzado de acero cincado/galvanizado para ojal",
+    "senalizacion": "Placa reglamentaria indeleble homologada UNE-EN 795 con grabado de parámetros de uso y revisiones",
+    "seguridad_adicional": "Juego de 2 precintos de seguridad y testigo de sobretensión",
+    "fijaciones_soporte": "Fijaciones mecánicas o químicas certificadas ETA / tornillería estructural 8.8 cincada con contraplacas a estructura nave",
+    "numero_usuarios_admitidos": "Hasta 2 usuarios simultáneos conectados con EPI con absorbedor de impacto (EN 355 / EN 361)",
+    "altura_libre_caida_minima_m": 4.50,
+    "medios_elevacion": "PEMP (Plataforma Elevadora Móvil de Personal tipo tijera/articulada) 1 jornada incluida (deducible si aporta nave)",
+    "taller_base": "Circunval·lació 11, Polígono de Sant Lluís (proximidad inmediata a la nave objeto de la intervención)"
+  },
+  "partidas": [
+    {
+      "id": "01",
+      "concepto": "Kit homologado de Línea de Vida Horizontal Permanente Clase C (20 ml) con accesorios",
+      "descripcion": "Suministro de sistema completo certificado para línea de anclaje horizontal permanente de 20 m de longitud, clase C (UNE-EN 795:2012 Tipo C / UNE-CEN/TS 16415 para hasta 2 operarios simultáneos), compuesto por: 2 anclajes terminales de extremo en aleación de aluminio para moldeo L-2653 (AlSi7Mg0.6) con tratamiento térmico de endurecimiento T6 y lacado epoxi-poliéster horneado; 1 anclaje intermedio pasador en aleación de aluminio L-2653 T6 acabado epoxi-poliéster; cable flexible de acero galvanizado de 10 mm de diámetro compuesto por 7 cordones de 19 hilos (7x19, rotura > 62 kN); tensor de caja abierta forjado cincado con ojo en un extremo y horquilla en el extremo opuesto; conjunto de terminal manual y sujetacables de seguridad homologados; protector para cabo (guardacabos); placa reglamentaria de señalización y marcado indeleble; y juego de dos precintos de seguridad y testigo de sobretensión.",
+      "unidad": "ud",
+      "cantidad": 1.0,
+      "precio_unitario": 520.0,
+      "coste_unitario_interno": 380.0,
+      "subtotal": 520.0,
+      "subtotal_coste": 380.0
+    },
+    {
+      "id": "02",
+      "concepto": "Fijaciones estructurales homologadas y sellado de estanqueidad al soporte de nave",
+      "descripcion": "Suministro de conjunto de fijaciones de alta resistencia certificadas para anclaje de las 2 placas terminales y la placa intermedia a los elementos estructurales de la nave en Sant Lluís (mediante tornillería estructural calidad 8.8 cincada con contraplacas y bridas de apriete a vigas metálicas IPE/HEA, o anclajes químicos con varilla roscada A4 y arandelas de estanqueidad EPDM según el tipo de soporte existente).",
+      "unidad": "paquete",
+      "cantidad": 1.0,
+      "precio_unitario": 110.0,
+      "coste_unitario_interno": 65.0,
+      "subtotal": 110.0,
+      "subtotal_coste": 65.0
+    },
+    {
+      "id": "03",
+      "concepto": "Mano de obra especializada de instalación, tensado y montaje en altura (2 operarios)",
+      "descripcion": "Mano de obra en obra ejecutada por equipo especialista de HAM Menorca (2 operarios certificados en trabajos en altura y líneas de vida según RD 2177/2004): replanteo de alineación de 20 ml, perforación / anclaje estructural de soportes de extremidad e intermedio con par de apriete controlado, tendido del cable galvanizado de 10 mm, tensado nominal mediante tensor de caja abierta y dinamómetro, rematado de terminales con guardacabos y precintado. Ventaja operativa por proximidad directa desde nuestra base en el Polígono de Sant Lluís.",
+      "unidad": "h",
+      "cantidad": 9.0,
+      "precio_unitario": 38.0,
+      "coste_unitario_interno": 22.0,
+      "subtotal": 342.0,
+      "subtotal_coste": 198.0
+    },
+    {
+      "id": "04",
+      "concepto": "Medios auxiliares de elevación para trabajo seguro en altura (Plataforma PEMP)",
+      "descripcion": "Suministro, transporte a nave en Sant Lluís y uso durante 1 jornada de montaje de Plataforma Elevadora Móvil de Personal (PEMP tipo tijera o articulada) con marcado CE y revisión en vigor, para posicionamiento seguro de los operarios durante las maniobras de anclaje y tensado de la línea. (Partida deducible íntegramente en caso de que la nave disponga de medios de elevación propios utilizables).",
+      "unidad": "jornada",
+      "cantidad": 1.0,
+      "precio_unitario": 220.0,
+      "coste_unitario_interno": 140.0,
+      "subtotal": 220.0,
+      "subtotal_coste": 140.0
+    },
+    {
+      "id": "05",
+      "concepto": "Ensayos de carga estática con dinamómetro, legalización y certificación UNE-EN 795",
+      "descripcion": "Ejecución de ensayos de tracción estática in situ mediante dinamómetro digital calibrado según UNE-EN 795, colocación y remachado de la placa indeleble de señalización de la línea de vida, precintado de seguridad y emisión del Certificado de Instalación y Legalización de Línea de Vida visado por técnico competente, acompañado del Dossier Técnico de Marcado CE y Libro de Revisiones Periódicas.",
+      "unidad": "ud",
+      "cantidad": 1.0,
+      "precio_unitario": 160.0,
+      "coste_unitario_interno": 70.0,
+      "subtotal": 160.0,
+      "subtotal_coste": 70.0
+    }
+  ],
+  "totales": {
+    "coste_directo_total": 853.0,
+    "base_imponible": 1352.0,
+    "margen_bruto_euros": 499.0,
+    "margen_bruto_porcentaje": 36.91,
+    "iva_porcentaje": 21.0,
+    "iva_importe": 283.92,
+    "total_con_iva": 1635.92,
+    "precio_por_metro_lineal_sin_iva": 67.60
+  },
+  "condiciones_comerciales": {
+    "validez_oferta": "30 días a partir de la fecha de emisión",
+    "forma_pago": "100% a la aceptación del presupuesto (según directrices HAM)",
+    "plazo_ejecucion": "Aprox. 1 a 2 semanas tras confirmación (instalación en obra: 1 jornada de trabajo)",
+    "garantia": "2 años de garantía en componentes y montaje contra cualquier defecto de fabricación o instalación",
+    "revisiones": "Obligatoria revisión técnica periódica cada 12 meses según norma UNE-EN 795 / UNE-EN 365"
+  },
+  "exclusiones_inclusiones": {
+    "incluye": [
+      "Suministro íntegro de todos los componentes certificados de la línea de vida (20 m).",
+      "2 anclajes de extremo y 1 intermedio en aluminio L-2653 T6 termolacado epoxi.",
+      "Cable flexible de acero galvanizado Ø10 mm (7x19) y tensor de caja abierta ojo-horquilla.",
+      "Conjunto de terminal manual, sujetacables, guardacabos, precintos y placa identificativa.",
+      "Tornillería y fijaciones estructurales certificadas para sujeción a estructura portante.",
+      "Instalación completa por operarios especialistas certificados en trabajos en altura.",
+      "Medios auxiliares de elevación (PEMP para 1 jornada) con entrega en Sant Lluís.",
+      "Prueba de tracción estática in situ con dinamómetro calibrado según UNE-EN 795.",
+      "Emisión y entrega del Certificado Oficial de Instalación, marcado CE y Libro de Revisiones."
+    ],
+    "no_incluye": [
+      "Refuerzos estructurales mayores en la estructura soporte de la nave en caso de patologías previas ajenas.",
+      "Equipos de Protección Individual (EPI) anticaídas de los usuarios (arneses EN 361, eslingas con absorbedor EN 355), cotizables bajo petición.",
+      "Trabajos de albañilería, impermeabilizaciones pesadas de cubierta o acometidas eléctricas ajenas a la instalación de la línea.",
+      "Tasas municipales de licencias de obra menor si fueren exigibles por el Ayuntamiento."
+    ]
+  }
+}

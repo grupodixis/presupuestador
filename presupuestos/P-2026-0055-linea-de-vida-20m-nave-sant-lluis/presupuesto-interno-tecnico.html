@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudio Técnico Interno P-2026-0055 • Suministro e Instalación de Línea de Vida Horizontal Permanente Clase C (20 ml) en Nave Industrial - Sant Lluís</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+    :root {
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --soft: #f8fafc;
+      --brand: #0f172a;
+      --tech-red: #b91c1c;
+      --tech-green: #15803d;
+      --accent: #b45309;
+      --card-bg: #f1f5f9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e2e8f0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 10px;
+      line-height: 1.30;
+    }
+    .page {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      background: #fff;
+      padding: 7mm 12mm 5mm;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      page-break-inside: avoid;
+      page-break-after: avoid;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      border-top: 4px solid var(--tech-red);
+      padding-top: 6px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+    }
+    .company {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .logo {
+      width: 105px;
+      flex: 0 0 105px;
+    }
+    .logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .company-info h1 {
+      margin: 0;
+      color: var(--brand);
+      font-size: 13.5px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+    .company-info p {
+      margin: 1px 0;
+      color: var(--tech-red);
+      font-weight: 700;
+      font-size: 9.5px;
+    }
+    .meta {
+      text-align: right;
+    }
+    .meta h2 {
+      margin: 0;
+      color: var(--tech-red);
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .meta .ref-badge {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin: 2px 0;
+    }
+    .meta p {
+      margin: 1px 0;
+      color: var(--muted);
+      font-size: 9px;
+    }
+    .hero {
+      margin-top: 6px;
+      background: #fef2f2;
+      border-left: 3px solid var(--tech-red);
+      padding: 5px 9px;
+      border-radius: 0 4px 4px 0;
+    }
+    .hero h3 {
+      margin: 0 0 2px;
+      color: var(--brand);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 9px;
+    }
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 5px 7px;
+      text-align: center;
+    }
+    .kpi-label {
+      font-size: 8px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .kpi-val {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--brand);
+    }
+    .kpi-val.green { color: var(--tech-green); }
+    .kpi-val.red { color: var(--tech-red); }
+    h4 {
+      margin: 7px 0 4px;
+      color: var(--brand);
+      font-size: 10px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 2px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.5px;
+      margin-bottom: 6px;
+    }
+    th {
+      background: var(--brand);
+      color: #fff;
+      padding: 4px 5px;
+      font-size: 8px;
+      text-transform: uppercase;
+      font-weight: 700;
+      border: 1px solid var(--brand);
+    }
+    td {
+      padding: 4px 5px;
+      border: 1px solid var(--line);
+      vertical-align: top;
+    }
+    tr:nth-child(even) td {
+      background: var(--soft);
+    }
+    .c { text-align: center; }
+    .r { text-align: right; }
+    .bold { font-weight: 700; }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .col {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 5px 8px;
+    }
+    .col h5 {
+      margin: 0 0 3px;
+      font-size: 8.5px;
+      color: var(--brand);
+      font-weight: 700;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 2px;
+    }
+    ul.compact {
+      margin: 0;
+      padding-left: 13px;
+      font-size: 8px;
+      color: var(--muted);
+      line-height: 1.25;
+    }
+    ul.compact li {
+      margin-bottom: 2px;
+    }
+    footer {
+      border-top: 1px solid var(--line);
+      padding-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div>
+      <header>
+        <div class="company">
+          <div class="logo">
+            <img src="logo-ham.svg" alt="HAM Menorca">
+          </div>
+          <div class="company-info">
+            <h1>HAM ESTRUCTURAS METÁLICAS • OFICINA TÉCNICA</h1>
+            <p>DOCUMENTO DE CONTROL INTERNO Y ESCANDALLO DE COSTES</p>
+          </div>
+        </div>
+        <div class="meta">
+          <h2>ESTUDIO TÉCNICO</h2>
+          <div class="ref-badge">P-2026-0055 • ESCANDALLO</div>
+          <p><strong>Fecha:</strong> 6 de noviembre de 2026</p>
+          <p><strong>Ubicación:</strong> Nave en Sant Lluís</p>
+        </div>
+      </header>
+
+      <section class="hero">
+        <h3>Línea de Vida Horizontal Permanente Clase C (20 ml) • Análisis de Margen y Operativa</h3>
+        <p>Montaje de sistema de anclaje de cable flexible sin amortiguador de caídas (UNE-EN 795:2012 Tipo C). Distancia entre apoyos: 10,00 m (1 intermedio). Cable galvanizado Ø10 mm (7x19). Apoyo logístico directo desde taller Sant Lluís.</p>
+      </section>
+
+      <section class="kpi-row">
+        <div class="kpi-card">
+          <span class="kpi-label">Coste Directo</span>
+          <span class="kpi-val red">853.00 €</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Venta Base Imp.</span>
+          <span class="kpi-val">1352.00 €</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Margen Bruto (€)</span>
+          <span class="kpi-val green">499.00 €</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Margen sobre Venta</span>
+          <span class="kpi-val green">36.9%</span>
+        </div>
+      </section>
+
+      <h4>Escandallo de Recursos, Costes Internos y Precios de Venta</h4>
+      <table>
+        <thead>
+          <tr>
+            <th class="c" style="width: 24px;">ID</th>
+            <th>Concepto de Coste / Recurso</th>
+            <th class="c" style="width: 28px;">Ud</th>
+            <th class="r" style="width: 32px;">Cant.</th>
+            <th class="r" style="width: 58px;">Coste Ud</th>
+            <th class="r" style="width: 65px;">Coste Total</th>
+            <th class="r" style="width: 65px;">Venta PVP</th>
+            <th class="r" style="width: 65px;">Margen (€)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="c bold">01</td>
+            <td><strong>Kit homologado de Línea de Vida Horizontal Permanente Clase C (20 ml) con accesorios</strong><br><span style="color:var(--muted); font-size:7.5px;">Suministro de sistema completo certificado para línea de anclaje horizontal permanente de 20 m de longitud, clase C (UNE-EN 795:20...</span></td>
+            <td class="c">ud</td>
+            <td class="r">1.00</td>
+            <td class="r">380.00 €</td>
+            <td class="r bold">380.00 €</td>
+            <td class="r bold">520.00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">140.00 €</td>
+          </tr>
+          <tr>
+            <td class="c bold">02</td>
+            <td><strong>Fijaciones estructurales homologadas y sellado de estanqueidad al soporte de nave</strong><br><span style="color:var(--muted); font-size:7.5px;">Suministro de conjunto de fijaciones de alta resistencia certificadas para anclaje de las 2 placas terminales y la placa intermedi...</span></td>
+            <td class="c">paquete</td>
+            <td class="r">1.00</td>
+            <td class="r">65.00 €</td>
+            <td class="r bold">65.00 €</td>
+            <td class="r bold">110.00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">45.00 €</td>
+          </tr>
+          <tr>
+            <td class="c bold">03</td>
+            <td><strong>Mano de obra especializada de instalación, tensado y montaje en altura (2 operarios)</strong><br><span style="color:var(--muted); font-size:7.5px;">Mano de obra en obra ejecutada por equipo especialista de HAM Menorca (2 operarios certificados en trabajos en altura y líneas de ...</span></td>
+            <td class="c">h</td>
+            <td class="r">9.00</td>
+            <td class="r">22.00 €</td>
+            <td class="r bold">198.00 €</td>
+            <td class="r bold">342.00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">144.00 €</td>
+          </tr>
+          <tr>
+            <td class="c bold">04</td>
+            <td><strong>Medios auxiliares de elevación para trabajo seguro en altura (Plataforma PEMP)</strong><br><span style="color:var(--muted); font-size:7.5px;">Suministro, transporte a nave en Sant Lluís y uso durante 1 jornada de montaje de Plataforma Elevadora Móvil de Personal (PEMP tip...</span></td>
+            <td class="c">jornada</td>
+            <td class="r">1.00</td>
+            <td class="r">140.00 €</td>
+            <td class="r bold">140.00 €</td>
+            <td class="r bold">220.00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">80.00 €</td>
+          </tr>
+          <tr>
+            <td class="c bold">05</td>
+            <td><strong>Ensayos de carga estática con dinamómetro, legalización y certificación UNE-EN 795</strong><br><span style="color:var(--muted); font-size:7.5px;">Ejecución de ensayos de tracción estática in situ mediante dinamómetro digital calibrado según UNE-EN 795, colocación y remachado ...</span></td>
+            <td class="c">ud</td>
+            <td class="r">1.00</td>
+            <td class="r">70.00 €</td>
+            <td class="r bold">70.00 €</td>
+            <td class="r bold">160.00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">90.00 €</td>
+          </tr>
+          <tr style="background:#fef3c7; font-weight:700;">
+            <td colspan="5" class="r" style="padding:5px;">TOTALES GENERALES ESCANDALLO:</td>
+            <td class="r" style="color:var(--tech-red); padding:5px;">853.00 €</td>
+            <td class="r" style="color:var(--brand); padding:5px;">1352.00 €</td>
+            <td class="r" style="color:var(--tech-green); padding:5px;">499.00 €</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="two-col">
+        <div class="col">
+          <h5>Planificación Operativa de Montaje</h5>
+          <ul class="compact">
+            <li><strong>Equipo de trabajo:</strong> 2 oficiales de primera con homologación técnica para montaje de sistemas anticaídas y trabajos verticales (RD 2177/2004).</li>
+            <li><strong>Duración estimada:</strong> 1 jornada laboral de 4,5 horas efectivas (9 horas totales de operario).</li>
+            <li><strong>Fases de trabajo:</strong> 1) Replanteo y marcado de fijaciones a cota; 2) Taladro y colocación de placas terminales e intermedia con apriete dinamométrico; 3) Tendido y enhebrado de cable 10 mm; 4) Tensado y colocación de terminales manuales y precintos; 5) Prueba de tiro estático con dinamómetro.</li>
+            <li><strong>Logística:</strong> Al estar la nave en Sant Lluís, el tiempo de traslado es prácticamente nulo desde nuestra base central de Circunval·lació 11.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h5>Parámetros Críticos de Seguridad y Pruebas</h5>
+          <ul class="compact">
+            <li><strong>Tracción en anclajes extremos:</strong> El soporte de hormigón o pórtico metálico debe verificar una capacidad resistente ≥ 15 kN axial según UNE-EN 795:2012.</li>
+            <li><strong>Tensión nominal de servicio:</strong> Ajuste a $T_0 pprox 0,8 - 1,2 kN$ para garantizar una flecha mínima sin sobrecargar anclajes por dilatación.</li>
+            <li><strong>Flecha de caída estimada:</strong> Flecha dinámica máxima calculada en vano de 10 m: $f_f_max ≈ 1,35 m. Altura libre de seguridad requerida: ≥ 4,50 m.</li>
+            <li><strong>Prueba in situ:</strong> Ensayo de precarga con dinamómetro a 5 kN en anclajes antes de certificar y entrega de ficha de inspección periódica obligatoria.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div>DIXIS RECURSOS Y SOLUCIONES S.L. • HAM Menorca • Oficina Técnica</div>
+      <div>P-2026-0055 • Memoria Técnica Operativa y Escandallo • Hoja 1 de 1</div>
+    </footer>
+  </div>
+</body>
+</html>
