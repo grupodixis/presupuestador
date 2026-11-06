@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Presupuesto Carpintería Son Xoriguer · ALUFAC</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 12mm 14mm 14mm 14mm;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-size: 8.5pt;
+            line-height: 1.35;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid #0284c7;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+        .brand h1 {
+            font-size: 18pt;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+        .brand h1 span {
+            color: #0284c7;
+        }
+        .brand p {
+            margin: 2px 0 0 0;
+            font-size: 8pt;
+            color: #64748b;
+        }
+        .doc-meta {
+            text-align: right;
+            font-size: 8pt;
+            color: #475569;
+        }
+        .doc-meta .badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 4px;
+            font-size: 8.5pt;
+        }
+        .client-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #0284c7;
+            border-radius: 4px;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            font-size: 8pt;
+        }
+        .client-box div strong {
+            color: #0f172a;
+        }
+        h2 {
+            font-size: 10pt;
+            color: #0f172a;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 3px;
+            margin: 12px 0 6px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        p.intro {
+            margin: 4px 0 8px 0;
+            text-align: justify;
+            color: #334155;
+            font-size: 8pt;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            font-size: 7.8pt;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 4px 6px;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #0f172a;
+            color: #ffffff;
+            font-weight: 600;
+            text-align: left;
+            font-size: 7.5pt;
+        }
+        .num-col { text-align: center; white-space: nowrap; }
+        .code-col { text-align: center; font-weight: 700; color: #0284c7; }
+        .currency { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .total-cell { font-weight: 700; color: #0f172a; background: #f8fafc; }
+        .table-totals tr td {
+            font-weight: 700;
+            background: #f1f5f9;
+        }
+        .table-totals tr.grand-total td {
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 9pt;
+            border-top: 2px solid #0284c7;
+            border-bottom: 2px solid #0284c7;
+        }
+        .feature-box {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 6px 10px;
+            margin: 8px 0;
+            border-radius: 4px;
+            font-size: 7.8pt;
+        }
+        .feature-box strong {
+            color: #b45309;
+        }
+        .conditions {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 8px 10px;
+            font-size: 7.5pt;
+            color: #475569;
+            margin-top: 8px;
+        }
+        .conditions ul {
+            margin: 4px 0 0 16px;
+            padding: 0;
+        }
+        .conditions li {
+            margin-bottom: 2px;
+        }
+        .page-break {
+            page-break-before: always;
+        }
+        .signatures {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            padding-top: 10px;
+            font-size: 8pt;
+        }
+        .sig-block {
+            width: 45%;
+            border-top: 1px solid #94a3b8;
+            padding-top: 5px;
+            text-align: center;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <div class="header">
+        <div class="brand">
+            <h1>ALUFAC<span>.</span></h1>
+            <p><strong>Dixis Recursos y Soluciones S.L.</strong> · CIF: B57825432</p>
+            <p>Circunval·lació, 11, Pol. Ind. de Sant Lluís · 07710 Sant Lluís, Menorca</p>
+            <p>Tel / WhatsApp: +34 669 769 541 · Email: info@alufac.es · Web: www.alufac.es</p>
+        </div>
+        <div class="doc-meta">
+            <div class="badge">OFERTA TÉCNICO-COMERCIAL</div><br>
+            <strong>Expediente:</strong> P-2026-0053<br>
+            <strong>Referencia:</strong> PRE-2026-1103-SONXORIGUER-MORATALLA<br>
+            <strong>Fecha de emisión:</strong> 3 de noviembre de 2026<br>
+            <strong>Validez:</strong> 30 días naturales
+        </div>
+    </div>
+
+    <!-- DATOS DEL CLIENTE Y PROYECTO -->
+    <div class="client-box">
+        <div>
+            <strong>Cliente:</strong> Eduardo Moratalla / Karin Eckhard<br>
+            <strong>Emplazamiento:</strong> Son Xoriguer 4, Puerta 7, 07769 Ciutadella, Menorca<br>
+            <strong>Proyecto:</strong> Reforma Integral CASA 7
+        </div>
+        <div>
+            <strong>Arquitecto:</strong> Alfonso Cort (ACA Arquitectos · Tel. 627 96 97 05)<br>
+            <strong>Planos de Referencia:</strong> C03 (Planta Baja) y C04 (Planta Primera), Sept 2026<br>
+            <strong>Alcance:</strong> 13 Huecos Exteriores (PVC vs Aluminio RPT) + Mosquiteras
+        </div>
+    </div>
+
+    <p class="intro">
+        Estimado Eduardo: Atendiendo a su solicitud de oferta, desde <strong>ALUFAC</strong> nos complace presentarle nuestra propuesta técnico-económica integral para las ventanas y balconeras exteriores de la reforma en Son Xoriguer (Ciutadella). Hemos preparado el <strong>desglose exacto por hueco</strong>, detallando de forma individual el coste de suministro de carpintería con vidrio de seguridad térmica, retirada de carpinterías actuales, transporte, instalación y remates con el IVA identificado. Asimismo, contrastamos por separado la solución en <strong>PVC Multicámara ≥ 76 mm</strong> y la alternativa en <strong>Aluminio con Rotura de Puente Térmico (CORTIZO)</strong>, junto con la partida independiente de mosquiteras.
+    </p>
+
+    <!-- CUADRO RESUMEN COMPARATIVO -->
+    <h2>1. Resumen Ejecutivo Comparativo de Opciones (13 Huecos Exteriores)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Concepto del Presupuesto</th>
+                <th style="text-align: right; width: 130px;">Opción A: PVC ≥ 76 mm</th>
+                <th style="text-align: right; width: 130px;">Opción B: Aluminio RPT</th>
+                <th style="text-align: center; width: 90px;">Diferencia</th>
+                <th>Especificaciones Clave</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Suministro de 13 carpinterías exteriores</strong> (Vidrio 6T/16Ar/44.2 BE y Solar V8 + Barrotillos)</td>
+                <td class="currency">15.000,00 €</td>
+                <td class="currency">15.540,00 €</td>
+                <td class="num-col">+540,00 €</td>
+                <td>Bicolor: Roble Dorado exterior veteado / Blanco interior. Herrajes costeros balear Grado 5.</td>
+            </tr>
+            <tr>
+                <td><strong>Desmontaje y retirada de carpinterías actuales</strong></td>
+                <td class="currency">620,00 €</td>
+                <td class="currency">620,00 €</td>
+                <td class="num-col">0,00 €</td>
+                <td>Desmontaje cuidadoso de 13 huecos existentes sin afección a mampostería.</td>
+            </tr>
+            <tr>
+                <td><strong>Instalación técnica en obra y remates perimetrales clipados</strong></td>
+                <td class="currency">1.835,00 €</td>
+                <td class="currency">1.835,00 €</td>
+                <td class="num-col">0,00 €</td>
+                <td>Fijaciones mecánicas inox A2, calzos térmicos, sellado con polímero MS marino y solapes clipados.</td>
+            </tr>
+            <tr>
+                <td><strong>Transporte taller (Sant Lluís) - Son Xoriguer y canon de residuos</strong></td>
+                <td class="currency">480,00 €</td>
+                <td class="currency">480,00 €</td>
+                <td class="num-col">0,00 €</td>
+                <td>Desplazamientos protegidos por carretera y tasa ecológica de gestor de residuos autorizado.</td>
+            </tr>
+            <tr>
+                <td><strong>Medición definitiva en obra y plantilla rígida arco V6</strong></td>
+                <td class="currency" style="color: #0369a1; font-weight: 700;">INCLUIDO (0,00 €)</td>
+                <td class="currency" style="color: #0369a1; font-weight: 700;">INCLUIDO (0,00 €)</td>
+                <td class="num-col">—</td>
+                <td>Toma de medidas in situ y plantilla física para el dintel arqueado de la V6 sin coste adicional.</td>
+            </tr>
+        </tbody>
+        <tbody class="table-totals">
+            <tr>
+                <td>BASE IMPONIBLE (Subtotal Neto):</td>
+                <td class="currency">17.935,00 €</td>
+                <td class="currency">18.475,00 €</td>
+                <td class="num-col">+540,00 €</td>
+                <td>Ambas opciones incluyen los mismos vidrios de alta prestación y acabados bicolores.</td>
+            </tr>
+            <tr>
+                <td>I.V.A. Régimen General (21%):</td>
+                <td class="currency">3.766,35 €</td>
+                <td class="currency">3.879,75 €</td>
+                <td class="num-col">+113,40 €</td>
+                <td>Impuesto sobre el Valor Añadido identificado según normativa fiscal.</td>
+            </tr>
+            <tr class="grand-total">
+                <td>TOTAL PRESUPUESTO PROYECTO (IVA INCLUIDO):</td>
+                <td class="currency">21.701,35 €</td>
+                <td class="currency">22.354,75 €</td>
+                <td class="num-col">+653,40 €</td>
+                <td>Garantía de fabricación e instalación directa por ALUFAC en Menorca.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- PARTIDA MOSQUITERAS -->
+    <h2>2. Partida Independiente de Mosquiteras (Dormitorios y Baños)</h2>
+    <p class="intro">
+        Cumpliendo su indicación expresa, se presupuesta por separado la instalación de mosquiteras en los 5 huecos de descanso y aseo. La perfilería de aluminio se suministra lacada a juego del color exterior de la carpintería:
+    </p>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 45px; text-align: center;">Hueco</th>
+                <th>Sistema de Mosquitera</th>
+                <th style="text-align: center; width: 110px;">Medidas</th>
+                <th style="text-align: center; width: 35px;">Ud</th>
+                <th>Características Técnicas y Materiales</th>
+                <th style="text-align: right; width: 85px;">Precio Ud</th>
+                <th style="text-align: right; width: 85px;">Total Neto</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr>
+            <td class="code-col">B1</td>
+            <td><strong>Mosquitera plisada lateral</strong></td>
+            <td class="num-col">750 × 2.190 mm (paso hoja)</td>
+            <td class="num-col">1</td>
+            <td>Estructura de aluminio lacado a juego, tejido plisado de fibra de vidrio antracita de alta resistencia y guía inferior extraplana de 3 mm libre de tropiezos.</td>
+            <td class="currency">245.00 €</td>
+            <td class="currency total-cell">245.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">B2</td>
+            <td><strong>Mosquitera plisada lateral</strong></td>
+            <td class="num-col">650 × 2.190 mm (paso hoja)</td>
+            <td class="num-col">1</td>
+            <td>Estructura de aluminio lacado a juego, tejido plisado de fibra de vidrio antracita de alta resistencia y guía inferior extraplana de 3 mm.</td>
+            <td class="currency">245.00 €</td>
+            <td class="currency total-cell">245.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V1</td>
+            <td><strong>Mosquitera enrollable vertical</strong></td>
+            <td class="num-col">1.185 × 980 mm</td>
+            <td class="num-col">1</td>
+            <td>Cajón superior compacto de 40 mm, guías con felpilla antiviento y freno desacelerador soft-close.</td>
+            <td class="currency">110.00 €</td>
+            <td class="currency total-cell">110.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V2</td>
+            <td><strong>Mosquitera enrollable vertical</strong></td>
+            <td class="num-col">780 × 1.085 mm</td>
+            <td class="num-col">1</td>
+            <td>Cajón superior compacto de 40 mm, guías con felpilla antiviento y freno desacelerador soft-close.</td>
+            <td class="currency">110.00 €</td>
+            <td class="currency total-cell">110.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V3</td>
+            <td><strong>Mosquitera enrollable vertical</strong></td>
+            <td class="num-col">585 × 1.085 mm</td>
+            <td class="num-col">1</td>
+            <td>Cajón superior compacto de 40 mm, guías con felpilla antiviento y freno desacelerador soft-close.</td>
+            <td class="currency">110.00 €</td>
+            <td class="currency total-cell">110.00 €</td>
+        </tr>
+        
+        </tbody>
+        <tbody class="table-totals">
+            <tr>
+                <td colspan="5">SUBTOTAL NETO MOSQUITERAS:</td>
+                <td colspan="2" class="currency">820,00 €</td>
+            </tr>
+            <tr>
+                <td colspan="5">I.V.A. Régimen General (21%):</td>
+                <td colspan="2" class="currency">172,20 €</td>
+            </tr>
+            <tr class="grand-total">
+                <td colspan="5">TOTAL PARTIDA MOSQUITERAS (IVA INCLUIDO):</td>
+                <td colspan="2" class="currency">992,20 €</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="feature-box">
+        <strong>Detalle Técnico Singular · Balconera V6 (Telescópica con Fijo Superior en Arco):</strong><br>
+        • <strong>Paso libre conseguido:</strong> Sobre el hueco de obra de 1.980 mm, el módulo fijo ocupa ~660 mm. Las 2 hojas correderas móviles se deslizan sobre guías paralelas independientes y se apilan tras el fijo. Con los solapes técnicos y montantes verticales de encuentro (~120–140 mm), el sistema proporciona un <strong>paso libre efectivo de 1.180 a 1.200 mm</strong>, cumpliendo con total fidelidad el intervalo requerido por el arquitecto (1.150–1.250 mm).<br>
+        • <strong>Umbral enrasado y drenaje:</strong> Se instala carril inferior de suelo continuo empotrado a cota cero con rotura de puente térmico y ranuras de evacuación canalizadas a la arqueta/canal exterior.<br>
+        • <strong>Recomendación técnica ALUFAC:</strong> Aunque es viable en PVC reforzado, la solución en <strong>Aluminio RPT (Cortizo COR 4200 / COR 4700 de 3 carriles)</strong> resulta arquitectónicamente óptima para este elemento: permite una sección de nudos centrales mucho más esbelta, un curvado de precisión milimétrica mediante plantilla en taller sin riesgo de despegue de lámina foliada, y un deslizamiento de rodamientos de acero inoxidable extremadamente suave.
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- CABECERA PÁGINA 2 -->
+    <div class="header">
+        <div class="brand">
+            <h1>ALUFAC<span>.</span></h1>
+            <p><strong>Dixis Recursos y Soluciones S.L.</strong> · Circunval·lació, 11, Sant Lluís, Menorca</p>
+        </div>
+        <div class="doc-meta">
+            <strong>Expediente:</strong> P-2026-0053 · Ref: PRE-2026-1103-SONXORIGUER-MORATALLA<br>
+            <strong>Desglose Detallado por Hueco:</strong> Opción A (PVC ≥ 76 mm) y Opción B (Aluminio RPT)
+        </div>
+    </div>
+
+    <!-- DESGLOSE DETALLADO OPCIÓN A: PVC -->
+    <h2>3. Desglose Detallado por Hueco · Opción A: PVC Multicámara ≥ 76 mm</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 32px; text-align: center;">Ref</th>
+                <th style="width: 65px;">Planta</th>
+                <th style="width: 80px; text-align: center;">Medidas</th>
+                <th style="width: 25px; text-align: center;">Ud</th>
+                <th>Descripción Técnica, Vidrio y Apertura</th>
+                <th style="text-align: right; width: 68px;">Suministro</th>
+                <th style="text-align: right; width: 55px;">Retirada</th>
+                <th style="text-align: right; width: 65px;">Instalación</th>
+                <th style="text-align: right; width: 75px;">Total Hueco</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr>
+            <td class="code-col">B1</td>
+            <td>Planta Baja</td>
+            <td class="num-col">1180 × 2190 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Balconera exterior con fijo lateral y hoja oscilobatiente</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 2 paños: 1 fijo de 430 mm + 1 hoja oscilobatiente de 750 mm<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Helima 18×8 mm bicolor (roble dorado ext / blanco int)
+                </small>
+            </td>
+            <td class="currency">1,480.00 €</td>
+            <td class="currency">65.00 €</td>
+            <td class="currency">175.00 €</td>
+            <td class="currency total-cell">1,720.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">B2</td>
+            <td>Planta Baja</td>
+            <td class="num-col">1180 × 2190 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Balconera exterior con fijo lateral y hoja oscilobatiente</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 2 paños: 1 fijo de 530 mm + 1 hoja oscilobatiente de 650 mm<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Helima 18×8 mm bicolor (roble dorado ext / blanco int)
+                </small>
+            </td>
+            <td class="currency">1,480.00 €</td>
+            <td class="currency">65.00 €</td>
+            <td class="currency">175.00 €</td>
+            <td class="currency total-cell">1,720.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V1</td>
+            <td>Planta Baja</td>
+            <td class="num-col">1185 × 980 mm</td>
+            <td class="num-col">2</td>
+            <td>
+                <strong>Ventana exterior practicable / oscilobatiente de 2 hojas</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 2 hojas oscilobatientes (hoja activa + pasiva con palanca de reborde)<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Helima 18×8 mm bicolor (roble dorado ext / blanco int)
+                </small>
+            </td>
+            <td class="currency">920.00 €</td>
+            <td class="currency">45.00 €</td>
+            <td class="currency">125.00 €</td>
+            <td class="currency total-cell">2,180.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V2</td>
+            <td>Planta Baja</td>
+            <td class="num-col">780 × 1085 mm</td>
+            <td class="num-col">2</td>
+            <td>
+                <strong>Ventana exterior oscilobatiente de 1 hoja</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 1 hoja oscilobatiente<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Helima 18×8 mm bicolor (roble dorado ext / blanco int)
+                </small>
+            </td>
+            <td class="currency">580.00 €</td>
+            <td class="currency">35.00 €</td>
+            <td class="currency">95.00 €</td>
+            <td class="currency total-cell">1,420.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V3</td>
+            <td>Planta Baja</td>
+            <td class="num-col">585 × 1085 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Ventana exterior oscilobatiente de 1 hoja</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 1 hoja oscilobatiente<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Helima 18×8 mm bicolor (roble dorado ext / blanco int)
+                </small>
+            </td>
+            <td class="currency">510.00 €</td>
+            <td class="currency">25.00 €</td>
+            <td class="currency">75.00 €</td>
+            <td class="currency total-cell">610.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V4</td>
+            <td>Planta Primera</td>
+            <td class="num-col">400 × 1830 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Ventana fija exterior vertical</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 1 paño fijo continuo<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Sin barrotillo
+                </small>
+            </td>
+            <td class="currency">490.00 €</td>
+            <td class="currency">25.00 €</td>
+            <td class="currency">75.00 €</td>
+            <td class="currency total-cell">590.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V5</td>
+            <td>Planta Primera</td>
+            <td class="num-col">785 × 985 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Ventana exterior oscilobatiente de 1 hoja</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 1 hoja oscilobatiente<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Sin barrotillo
+                </small>
+            </td>
+            <td class="currency">520.00 €</td>
+            <td class="currency">35.00 €</td>
+            <td class="currency">95.00 €</td>
+            <td class="currency total-cell">650.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V6</td>
+            <td>Planta Primera</td>
+            <td class="num-col">1980 × 2150 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Conjunto balconera telescópica de 3 paños con fijo superior arqueado</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: Fijo superior curvado en arco + corredera telescópica inferior (1 fijo + 2 hojas correderas en guías paralelas apilables tras fijo), solera enrasada<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Sin barrotillo
+                </small>
+            </td>
+            <td class="currency">3,850.00 €</td>
+            <td class="currency">95.00 €</td>
+            <td class="currency">380.00 €</td>
+            <td class="currency total-cell">4,325.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V8</td>
+            <td>Planta Primera</td>
+            <td class="num-col">1985 × 985 mm</td>
+            <td class="num-col">2</td>
+            <td>
+                <strong>Ventana exterior con paño fijo y hoja oscilobatiente</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 2 paños: 1 fijo de 1.200 mm + 1 hoja oscilobatiente de 785 mm<br>
+                    • Vidrio: 6 templado Control Solar selectivo / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Helima 18×8 mm bicolor (roble dorado ext / blanco int)
+                </small>
+            </td>
+            <td class="currency">1,280.00 €</td>
+            <td class="currency">45.00 €</td>
+            <td class="currency">125.00 €</td>
+            <td class="currency total-cell">2,900.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V9</td>
+            <td>Planta Primera</td>
+            <td class="num-col">825 × 1500 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Puerta balconera exterior abatible de apertura exterior</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 1 hoja abatible con apertura hacia el exterior, manilla y cerradura<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Sin barrotillo
+                </small>
+            </td>
+            <td class="currency">720.00 €</td>
+            <td class="currency">35.00 €</td>
+            <td class="currency">95.00 €</td>
+            <td class="currency total-cell">850.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V10</td>
+            <td>Planta Primera</td>
+            <td class="num-col">595 × 595 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Ventana exterior oscilobatiente de 1 hoja cuadrada</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 1 hoja oscilobatiente<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Sin barrotillo
+                </small>
+            </td>
+            <td class="currency">390.00 €</td>
+            <td class="currency">25.00 €</td>
+            <td class="currency">75.00 €</td>
+            <td class="currency total-cell">490.00 €</td>
+        </tr>
+        
+            <tr>
+                <td colspan="5" style="text-align: right; font-weight: bold; background: #f8fafc;">Transporte especializado taller (Sant Lluís) - Son Xoriguer y canon oficial de gestión de residuos:</td>
+                <td colspan="3" class="currency" style="background: #f8fafc;">Logística y Medio Ambiente</td>
+                <td class="currency total-cell">480,00 €</td>
+            </tr>
+        </tbody>
+        <tbody class="table-totals">
+            <tr>
+                <td colspan="8">BASE IMPONIBLE OPCIÓN A (PVC 76 MM):</td>
+                <td class="currency">17.935,00 €</td>
+            </tr>
+            <tr>
+                <td colspan="8">I.V.A. RÉGIMEN GENERAL (21%):</td>
+                <td class="currency">3.766,35 €</td>
+            </tr>
+            <tr class="grand-total">
+                <td colspan="8">TOTAL OPCIÓN A - PVC (I.V.A. INCLUIDO):</td>
+                <td class="currency">21.701,35 €</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- DESGLOSE DETALLADO OPCIÓN B: ALUMINIO RPT -->
+    <h2>4. Desglose Detallado por Hueco · Opción B: Aluminio con RPT (Sistemas CORTIZO)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 32px; text-align: center;">Ref</th>
+                <th style="width: 65px;">Planta</th>
+                <th style="width: 80px; text-align: center;">Medidas</th>
+                <th style="width: 25px; text-align: center;">Ud</th>
+                <th>Descripción Técnica, Vidrio y Apertura</th>
+                <th style="text-align: right; width: 68px;">Suministro</th>
+                <th style="text-align: right; width: 55px;">Retirada</th>
+                <th style="text-align: right; width: 65px;">Instalación</th>
+                <th style="text-align: right; width: 75px;">Total Hueco</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr>
+            <td class="code-col">B1</td>
+            <td>Planta Baja</td>
+            <td class="num-col">1180 × 2190 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Balconera exterior con fijo lateral y hoja oscilobatiente</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 2 paños: 1 fijo de 430 mm + 1 hoja oscilobatiente de 750 mm<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Helima 18×8 mm bicolor (roble dorado ext / blanco int)
+                </small>
+            </td>
+            <td class="currency">1,590.00 €</td>
+            <td class="currency">65.00 €</td>
+            <td class="currency">175.00 €</td>
+            <td class="currency total-cell">1,830.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">B2</td>
+            <td>Planta Baja</td>
+            <td class="num-col">1180 × 2190 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Balconera exterior con fijo lateral y hoja oscilobatiente</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 2 paños: 1 fijo de 530 mm + 1 hoja oscilobatiente de 650 mm<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Helima 18×8 mm bicolor (roble dorado ext / blanco int)
+                </small>
+            </td>
+            <td class="currency">1,590.00 €</td>
+            <td class="currency">65.00 €</td>
+            <td class="currency">175.00 €</td>
+            <td class="currency total-cell">1,830.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V1</td>
+            <td>Planta Baja</td>
+            <td class="num-col">1185 × 980 mm</td>
+            <td class="num-col">2</td>
+            <td>
+                <strong>Ventana exterior practicable / oscilobatiente de 2 hojas</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 2 hojas oscilobatientes (hoja activa + pasiva con palanca de reborde)<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Helima 18×8 mm bicolor (roble dorado ext / blanco int)
+                </small>
+            </td>
+            <td class="currency">980.00 €</td>
+            <td class="currency">45.00 €</td>
+            <td class="currency">125.00 €</td>
+            <td class="currency total-cell">2,300.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V2</td>
+            <td>Planta Baja</td>
+            <td class="num-col">780 × 1085 mm</td>
+            <td class="num-col">2</td>
+            <td>
+                <strong>Ventana exterior oscilobatiente de 1 hoja</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 1 hoja oscilobatiente<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Helima 18×8 mm bicolor (roble dorado ext / blanco int)
+                </small>
+            </td>
+            <td class="currency">620.00 €</td>
+            <td class="currency">35.00 €</td>
+            <td class="currency">95.00 €</td>
+            <td class="currency total-cell">1,500.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V3</td>
+            <td>Planta Baja</td>
+            <td class="num-col">585 × 1085 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Ventana exterior oscilobatiente de 1 hoja</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 1 hoja oscilobatiente<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Helima 18×8 mm bicolor (roble dorado ext / blanco int)
+                </small>
+            </td>
+            <td class="currency">540.00 €</td>
+            <td class="currency">25.00 €</td>
+            <td class="currency">75.00 €</td>
+            <td class="currency total-cell">640.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V4</td>
+            <td>Planta Primera</td>
+            <td class="num-col">400 × 1830 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Ventana fija exterior vertical</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 1 paño fijo continuo<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Sin barrotillo
+                </small>
+            </td>
+            <td class="currency">520.00 €</td>
+            <td class="currency">25.00 €</td>
+            <td class="currency">75.00 €</td>
+            <td class="currency total-cell">620.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V5</td>
+            <td>Planta Primera</td>
+            <td class="num-col">785 × 985 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Ventana exterior oscilobatiente de 1 hoja</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 1 hoja oscilobatiente<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Sin barrotillo
+                </small>
+            </td>
+            <td class="currency">550.00 €</td>
+            <td class="currency">35.00 €</td>
+            <td class="currency">95.00 €</td>
+            <td class="currency total-cell">680.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V6</td>
+            <td>Planta Primera</td>
+            <td class="num-col">1980 × 2150 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Conjunto balconera telescópica de 3 paños con fijo superior arqueado</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: Fijo superior curvado en arco + corredera telescópica inferior (1 fijo + 2 hojas correderas en guías paralelas apilables tras fijo), solera enrasada<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Sin barrotillo
+                </small>
+            </td>
+            <td class="currency">3,650.00 €</td>
+            <td class="currency">95.00 €</td>
+            <td class="currency">380.00 €</td>
+            <td class="currency total-cell">4,125.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V8</td>
+            <td>Planta Primera</td>
+            <td class="num-col">1985 × 985 mm</td>
+            <td class="num-col">2</td>
+            <td>
+                <strong>Ventana exterior con paño fijo y hoja oscilobatiente</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 2 paños: 1 fijo de 1.200 mm + 1 hoja oscilobatiente de 785 mm<br>
+                    • Vidrio: 6 templado Control Solar selectivo / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Helima 18×8 mm bicolor (roble dorado ext / blanco int)
+                </small>
+            </td>
+            <td class="currency">1,360.00 €</td>
+            <td class="currency">45.00 €</td>
+            <td class="currency">125.00 €</td>
+            <td class="currency total-cell">3,060.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V9</td>
+            <td>Planta Primera</td>
+            <td class="num-col">825 × 1500 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Puerta balconera exterior abatible de apertura exterior</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 1 hoja abatible con apertura hacia el exterior, manilla y cerradura<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Sin barrotillo
+                </small>
+            </td>
+            <td class="currency">760.00 €</td>
+            <td class="currency">35.00 €</td>
+            <td class="currency">95.00 €</td>
+            <td class="currency total-cell">890.00 €</td>
+        </tr>
+        
+        <tr>
+            <td class="code-col">V10</td>
+            <td>Planta Primera</td>
+            <td class="num-col">595 × 595 mm</td>
+            <td class="num-col">1</td>
+            <td>
+                <strong>Ventana exterior oscilobatiente de 1 hoja cuadrada</strong><br>
+                <small style="color: #475569;">
+                    • Apertura: 1 hoja oscilobatiente<br>
+                    • Vidrio: 6 templado / 16 Argón / 44.2 Bajo Emisivo<br>
+                    • Barrotillos: Sin barrotillo
+                </small>
+            </td>
+            <td class="currency">420.00 €</td>
+            <td class="currency">25.00 €</td>
+            <td class="currency">75.00 €</td>
+            <td class="currency total-cell">520.00 €</td>
+        </tr>
+        
+            <tr>
+                <td colspan="5" style="text-align: right; font-weight: bold; background: #f8fafc;">Transporte especializado taller (Sant Lluís) - Son Xoriguer y canon oficial de gestión de residuos:</td>
+                <td colspan="3" class="currency" style="background: #f8fafc;">Logística y Medio Ambiente</td>
+                <td class="currency total-cell">480,00 €</td>
+            </tr>
+        </tbody>
+        <tbody class="table-totals">
+            <tr>
+                <td colspan="8">BASE IMPONIBLE OPCIÓN B (ALUMINIO RPT):</td>
+                <td class="currency">18.475,00 €</td>
+            </tr>
+            <tr>
+                <td colspan="8">I.V.A. RÉGIMEN GENERAL (21%):</td>
+                <td class="currency">3.879,75 €</td>
+            </tr>
+            <tr class="grand-total">
+                <td colspan="8">TOTAL OPCIÓN B - ALUMINIO RPT (I.V.A. INCLUIDO):</td>
+                <td class="currency">22.354,75 €</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- CONDICIONES Y PLAZOS PARA TERMINAR EN ABRIL 2027 -->
+    <div class="conditions">
+        <strong>Condiciones Técnicas, Plazos y Planificación (Finalización en Abril de 2027):</strong>
+        <ul>
+            <li><strong>Medición definitiva en Son Xoriguer:</strong> Nuestro responsable técnico se desplazará a la vivienda en Ciutadella en cuanto la albañilería tenga definidos los huecos para ratificar cotas al milímetro y elaborar la plantilla física de la V6 sin coste.</li>
+            <li><strong>Plazos de fabricación:</strong> Estimados en <strong>6 a 8 semanas</strong> debido a los tratamientos bicolores y vidrios laminados con gas argón y control solar.</li>
+            <li><strong>Cronograma propuesto:</strong> Toma de medidas definitiva entre <strong>enero y febrero de 2027</strong>; fabricación en taller durante <strong>febrero y marzo</strong>; instalación y remates en obra en <strong>marzo / primera quincena de abril de 2027</strong> (3-4 días de montaje). Se asegura holgadamente el plazo de finalización de abril de 2027.</li>
+            <li><strong>Forma de pago:</strong> 40% al encargo y replanteo de medidas, 40% a la recepción del material en taller y 20% a la terminación y ajuste en obra.</li>
+            <li><strong>Exclusiones expresas:</strong> No se incluye obra civil, picado/reconstrucción de albañilería en mochetas ni pintura de paramentos.</li>
+        </ul>
+    </div>
+
+    <!-- FIRMAS -->
+    <div class="signatures">
+        <div class="sig-block">
+            <strong>Por ALUFAC (Dixis Recursos y Soluciones S.L.)</strong><br>
+            Pablo Sebastián Sánchez Arnoletto<br>
+            Responsable de Fabricación e Instalación
+        </div>
+        <div class="sig-block">
+            <strong>Conforme la Propiedad</strong><br>
+            Eduardo Moratalla / Karin Eckhard<br>
+            Fecha: _____ / _____ / 2026
+        </div>
+    </div>
+
+</body>
+</html>

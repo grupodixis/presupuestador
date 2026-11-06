@@ -36,6 +36,8 @@ Cuando el producto a presupuestar es una marquesina de entrada, marquesina comer
 - En zona de viento, la estructura debe calcularse para rachas máximas.
 - En Menorca, considerar simultaneamente viento y corrosion salina: acero galvanizado en caliente + pintura apta, aluminio lacado exterior o inoxidable segun diseño y exposicion.
 - La tornilleria y anclajes exteriores deben ser inoxidables o equivalentes aptos para ambiente marino.
+- Tarifa de referencia tubo acero inoxidable AISI 316 40x40x2 mm: coste HAM 10 €/ML, venta 20 €/ML.
+
 
 ## Composición habitual del producto
 

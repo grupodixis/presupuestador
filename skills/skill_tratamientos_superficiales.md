@@ -32,6 +32,7 @@ Siempre que el producto requiera un tratamiento superficial de protección o aca
 - El espesor de pintura debe verificarse con medidor de capa seca.
 - La pintura debe aplicarse en condiciones controladas (temperatura, humedad).
 - Cada capa debe curarse antes de aplicar la siguiente.
+- **Regla de taller HAM:** En HAM la pintura **NUNCA es al horno**. Siempre se realiza mediante **imprimación y pintura de acabado** (imprimación epoxi de adherencia + acabado poliuretano de alta resistencia a la intemperie). Nunca presupuestar termolacado o pintura al horno.
 
 ## Tratamientos habituales
 

@@ -481,8 +481,8 @@ print("presupuesto-cliente.html written successfully")
 
 # Create presupuesto-interno-tecnico.html
 html_tecnico = html_cliente.replace(
-    "<title>P-2026-0050 Presupuesto Comercial",
-    "<title>P-2026-0050 Estudio Técnico Interno y Escandallo"
+    "<title>P-2026-0054 Presupuesto Comercial",
+    "<title>P-2026-0054 Estudio Técnico Interno y Escandallo"
 ).replace(
     "<h1>HAM ESTRUCTURAS METÁLICAS MENORCA</h1>\n          <div class=\"subtitle\">Fabricación, Estructuras Industriales, Cerramientos y Carpintería de Aluminio</div>",
     "<h1>HAM ESTRUCTURAS METÁLICAS MENORCA · USO INTERNO</h1>\n          <div class=\"subtitle\">Escandallo de Costes, Rendimientos de Taller, Grúas y Márgenes</div>"

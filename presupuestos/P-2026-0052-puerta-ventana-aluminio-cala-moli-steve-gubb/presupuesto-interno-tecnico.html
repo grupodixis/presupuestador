@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Escandallo Interno y Análisis de Costes P-2026-0052 - ALUFAC</title>
+  <style>
+    :root {
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --brand: #1e293b;
+      --accent: #0284c7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f1f5f9;
+      color: var(--ink);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 13px;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 15px auto;
+      background: #fff;
+      padding: 16mm 18mm;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    h1 { margin: 0; font-size: 18px; color: #0f172a; }
+    .meta { text-align: right; font-size: 11px; color: var(--muted); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px;
+      font-size: 12px;
+    }
+    th {
+      background: #334155;
+      color: #fff;
+      padding: 6px 8px;
+      text-align: left;
+    }
+    td {
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    .text-right { text-align: right; }
+    .text-center { text-align: center; }
+    .total-row td {
+      background: #f8fafc;
+      font-weight: 700;
+      border-top: 1.5px solid var(--brand);
+    }
+    .kpi-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .kpi {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      padding: 10px;
+      border-radius: 4px;
+    }
+    .kpi .lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; font-weight: 600; display: block; }
+    .kpi .val { font-size: 15px; font-weight: 800; color: #0f172a; margin-top: 2px; }
+    .kpi .val.green { color: #16a34a; }
+    h2 { font-size: 13.5px; margin: 18px 0 6px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+    @media print {
+      body { background: #fff; }
+      .page { width: 100%; margin: 0; padding: 10mm; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <div>
+      <h1>ALUFAC · Escandallo Interno de Costes y Rentabilidad</h1>
+      <p style="margin:2px 0; font-size:12px; color:var(--muted);">Expediente: P-2026-0052 · Steve Gubb · Cala Molí (Instalación Conjunta)</p>
+    </div>
+    <div class="meta">
+      <strong>Confidencial Interno</strong><br>
+      Fecha: 02/11/2026<br>
+      Tarifa MO: 35,00 €/h
+    </div>
+  </header>
+
+  <div class="kpi-container">
+    <div class="kpi">
+      <span class="lbl">Coste Directo Total</span>
+      <span class="val">1.460,00 €</span>
+    </div>
+    <div class="kpi">
+      <span class="lbl">Precio Venta Neto</span>
+      <span class="val">2.832,00 €</span>
+    </div>
+    <div class="kpi">
+      <span class="lbl">Margen Bruto (€)</span>
+      <span class="val green">1.372,00 €</span>
+    </div>
+    <div class="kpi">
+      <span class="lbl">Margen Bruto (%)</span>
+      <span class="val green">48,4%</span>
+    </div>
+  </div>
+
+  <h2>1. Desglose de Coste Técnico: Puerta Practicable (Cortizo COR 60 RPT)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th>Detalle / Especificación</th>
+        <th class="text-center">Cant.</th>
+        <th class="text-center">Ud.</th>
+        <th class="text-right">Coste Ud.</th>
+        <th class="text-right">Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Perfiles Aluminio Cortizo</td>
+        <td>Marco 60 mm, hoja y zócalo verde RAL 6009 mate (Qualicoat Seaside)</td>
+        <td class="text-center">18,5</td>
+        <td class="text-center">kg</td>
+        <td class="text-right">18,00 €</td>
+        <td class="text-right">333,00 €</td>
+      </tr>
+      <tr>
+        <td>Panel Machihembrado 20</td>
+        <td>Machihembrado aluminio extrusionado verde RAL 6009</td>
+        <td class="text-center">1,20</td>
+        <td class="text-center">m²</td>
+        <td class="text-right">95,00 €</td>
+        <td class="text-right">114,00 €</td>
+      </tr>
+      <tr>
+        <td>Acristalamiento Seguridad</td>
+        <td>Doble vidrio seguridad 3+3.1 / c16 / 4 con barrotillo verde interior</td>
+        <td class="text-center">0,40</td>
+        <td class="text-center">m²</td>
+        <td class="text-right">240,00 €</td>
+        <td class="text-right">96,00 €</td>
+      </tr>
+      <tr>
+        <td>Herrajes y Cerrajería</td>
+        <td>Cerradura E35, cilindro 30x65, manillas, 3 bisagras Hércules, escuadras, juntas</td>
+        <td class="text-center">1</td>
+        <td class="text-center">cjto</td>
+        <td class="text-right">165,00 €</td>
+        <td class="text-right">165,00 €</td>
+      </tr>
+      <tr>
+        <td>Mano de Obra Taller</td>
+        <td>Corte, mecanizado, copiado cerrajería, ensamblaje, engomado, acristalado (5 h)</td>
+        <td class="text-center">5,0</td>
+        <td class="text-center">h</td>
+        <td class="text-right">35,00 €</td>
+        <td class="text-right">175,00 €</td>
+      </tr>
+      <tr>
+        <td>Mano de Obra Montaje</td>
+        <td>Desmontaje puerta vieja, replanteo, colocación, tornillería inox, sellado MS (4 h)</td>
+        <td class="text-center">4,0</td>
+        <td class="text-center">h</td>
+        <td class="text-right">35,00 €</td>
+        <td class="text-right">140,00 €</td>
+      </tr>
+      <tr>
+        <td>Logística y Gestión Residuos</td>
+        <td>Portes Menorca a Cala Molí y tasa de entrega punto limpio autorizado</td>
+        <td class="text-center">1</td>
+        <td class="text-center">pa</td>
+        <td class="text-right">42,00 €</td>
+        <td class="text-right">42,00 €</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="5">Coste Directo Total Puerta</td>
+        <td class="text-right">1.065,00 €</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2. Desglose de Coste Técnico: Ventana Corredera (Cortizo COR 4200 RPT)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th>Detalle / Especificación</th>
+        <th class="text-center">Cant.</th>
+        <th class="text-center">Ud.</th>
+        <th class="text-right">Coste Ud.</th>
+        <th class="text-right">Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Perfiles Aluminio Cortizo</td>
+        <td>Marco corredera RPT, hojas y solape curvo 50 mm blanco RAL 9016</td>
+        <td class="text-center">9,8</td>
+        <td class="text-center">kg</td>
+        <td class="text-right">15,00 €</td>
+        <td class="text-right">147,00 €</td>
+      </tr>
+      <tr>
+        <td>Acristalamiento Térmico</td>
+        <td>Doble acristalamiento aislante 4 / c20-22 / 4 mm</td>
+        <td class="text-center">0,75</td>
+        <td class="text-center">m²</td>
+        <td class="text-right">65,00 €</td>
+        <td class="text-right">48,75 €</td>
+      </tr>
+      <tr>
+        <td>Herrajes y Rodamientos</td>
+        <td>Multipunto E15, manilla Altair interior, cremona 600 mm, rodamientos tándem C 200 kg</td>
+        <td class="text-center">1</td>
+        <td class="text-center">cjto</td>
+        <td class="text-right">82,00 €</td>
+        <td class="text-right">82,00 €</td>
+      </tr>
+      <tr>
+        <td>Mano de Obra Taller</td>
+        <td>Corte ingletes, escuadras, colocación carril inox, felpas, vidrios (2,5 h)</td>
+        <td class="text-center">2,5</td>
+        <td class="text-center">h</td>
+        <td class="text-right">35,00 €</td>
+        <td class="text-right">87,50 €</td>
+      </tr>
+      <tr>
+        <td>Mano de Obra Montaje</td>
+        <td>Desmontaje ventana previa, solape clipado y sellado (2 h)</td>
+        <td class="text-center">2,0</td>
+        <td class="text-center">h</td>
+        <td class="text-right">35,00 €</td>
+        <td class="text-right">70,00 €</td>
+      </tr>
+      <tr>
+        <td>Logística y Selladores MS</td>
+        <td>Cartuchos polímero MS intemperie y transporte a Cala Molí</td>
+        <td class="text-center">1</td>
+        <td class="text-center">pa</td>
+        <td class="text-right">34,75 €</td>
+        <td class="text-right">34,75 €</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="5">Coste Directo Total Ventana</td>
+        <td class="text-right">470,00 €</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Resumen Económico del Proyecto Conjunto</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th class="text-right">Coste Directo</th>
+        <th class="text-right">Precio Venta Neto</th>
+        <th class="text-right">Margen Bruto (€)</th>
+        <th class="text-right">Margen (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Partida 1: Puerta de Entrada</strong></td>
+        <td class="text-right">1.065,00 €</td>
+        <td class="text-right">1.992,00 €</td>
+        <td class="text-right">927,00 €</td>
+        <td class="text-right">46,5%</td>
+      </tr>
+      <tr>
+        <td><strong>Partida 2: Ventana Corredera</strong></td>
+        <td class="text-right">470,00 €</td>
+        <td class="text-right">840,00 €</td>
+        <td class="text-right">370,00 €</td>
+        <td class="text-right">44,0%</td>
+      </tr>
+      <tr style="background:#eff6ff; font-weight:700;">
+        <td><strong>TOTAL PROYECTO (Instalación Conjunta)</strong></td>
+        <td class="text-right">1.460,00 €</td>
+        <td class="text-right">2.832,00 €</td>
+        <td class="text-right" style="color:#16a34a;">1.372,00 €</td>
+        <td class="text-right" style="color:#16a34a;">48,4%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="font-size:11px; color:var(--muted); margin-top:20px; border-top:1px solid var(--line); padding-top:6px;">
+    ALUFAC · Análisis técnico interno generado el 02/11/2026 para expediente P-2026-0052.
+  </div>
+</main>
+</body>
+</html>

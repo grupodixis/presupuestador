@@ -1,0 +1,275 @@
+{
+  "expediente": {
+    "codigo": "P-2026-0053",
+    "referencia": "PRE-2026-1103-SONXORIGUER-MORATALLA",
+    "fecha": "2026-11-03",
+    "fecha_formateada": "3 de noviembre de 2026",
+    "validez": "30 días naturales",
+    "plazo_fabricacion": "6 a 8 semanas",
+    "plazo_montaje": "3 a 4 jornadas de trabajo (previsto marzo-abril 2027)",
+    "forma_pago": "40% al encargo y replanteo de medidas, 40% a la llegada de material a taller, 20% a la finalización y ajuste en obra",
+    "empresa": {
+      "marca": "ALUFAC",
+      "razon_social": "Dixis Recursos y Soluciones S.L.",
+      "cif": "B57825432",
+      "direccion": "Circunval·lació, 11, Polígono Industrial de Sant Lluís, 07710 Sant Lluís, Menorca",
+      "telefono": "+34 669 769 541",
+      "email": "info@alufac.es",
+      "web": "https://www.alufac.es",
+      "responsable": "Pablo Sebastián Sánchez Arnoletto"
+    }
+  },
+  "cliente": {
+    "nombre": "Eduardo Moratalla / Karin Eckhard",
+    "proyecto": "Reforma Integral CASA 7",
+    "ubicacion": "Son Xoriguer 4, Puerta 7, 07769 Ciutadella, Menorca",
+    "arquitecto": "Alfonso Cort (ACA Arquitectos)",
+    "planos_referencia": "C03 (Planta Baja) y C04 (Planta Primera), Sept 2026"
+  },
+  "especificaciones_generales": {
+    "acabado_bicolor": "Exterior Roble Dorado veteado / Interior Blanco",
+    "vidrio_general": "6 mm templado / cámara 16 mm con gas Argón (≥90%) con warm-edge / 44.2 laminado de seguridad Bajo Emisivo",
+    "vidrio_v8": "6 mm templado con Control Solar selectivo / cámara 16 mm con gas Argón (≥90%) / 44.2 laminado Bajo Emisivo",
+    "barrotillos": "Barrotillo decorativo interior en cámara tipo Helima 18×8 mm (bicolor: exterior roble dorado / interior blanco), según alzados en fachada sur (B1, B2, V1, V2, V3, V8)",
+    "v6_singular": {
+      "descripcion": "Fijo superior acristalado en arco según plantilla de obra + corredera telescópica inferior de 3 paños (1 fijo lateral + 2 hojas móviles paralelas apilables tras fijo) con umbral inferior enrasado y drenaje exterior.",
+      "paso_libre_estimado": "1.180 mm a 1.200 mm sobre hueco nominal de 1.980 mm (rango proyectado 1.150–1.250 mm)"
+    }
+  },
+  "elementos": [
+    {
+      "codigo": "B1",
+      "planta": "Planta Baja",
+      "estancia": "Balconera Exterior PB",
+      "denominacion": "Balconera exterior con fijo lateral y hoja oscilobatiente",
+      "ancho_mm": 1180,
+      "alto_mm": 2190,
+      "unidades": 1,
+      "configuracion": "2 paños: 1 fijo de 430 mm + 1 hoja oscilobatiente de 750 mm",
+      "barrotillos": "Helima 18×8 mm bicolor (roble dorado ext / blanco int)",
+      "vidrio": "6 templado / 16 Argón / 44.2 Bajo Emisivo",
+      "pvc_suministro_unit": 1480.00,
+      "alu_suministro_unit": 1590.00,
+      "retirada_unit": 65.00,
+      "instalacion_unit": 175.00
+    },
+    {
+      "codigo": "B2",
+      "planta": "Planta Baja",
+      "estancia": "Balconera Exterior PB",
+      "denominacion": "Balconera exterior con fijo lateral y hoja oscilobatiente",
+      "ancho_mm": 1180,
+      "alto_mm": 2190,
+      "unidades": 1,
+      "configuracion": "2 paños: 1 fijo de 530 mm + 1 hoja oscilobatiente de 650 mm",
+      "barrotillos": "Helima 18×8 mm bicolor (roble dorado ext / blanco int)",
+      "vidrio": "6 templado / 16 Argón / 44.2 Bajo Emisivo",
+      "pvc_suministro_unit": 1480.00,
+      "alu_suministro_unit": 1590.00,
+      "retirada_unit": 65.00,
+      "instalacion_unit": 175.00
+    },
+    {
+      "codigo": "V1",
+      "planta": "Planta Baja",
+      "estancia": "Ventana Exterior PB",
+      "denominacion": "Ventana exterior practicable / oscilobatiente de 2 hojas",
+      "ancho_mm": 1185,
+      "alto_mm": 980,
+      "unidades": 2,
+      "configuracion": "2 hojas oscilobatientes (hoja activa + pasiva con palanca de reborde)",
+      "barrotillos": "Helima 18×8 mm bicolor (roble dorado ext / blanco int)",
+      "vidrio": "6 templado / 16 Argón / 44.2 Bajo Emisivo",
+      "pvc_suministro_unit": 920.00,
+      "alu_suministro_unit": 980.00,
+      "retirada_unit": 45.00,
+      "instalacion_unit": 125.00
+    },
+    {
+      "codigo": "V2",
+      "planta": "Planta Baja",
+      "estancia": "Ventana Exterior PB",
+      "denominacion": "Ventana exterior oscilobatiente de 1 hoja",
+      "ancho_mm": 780,
+      "alto_mm": 1085,
+      "unidades": 2,
+      "configuracion": "1 hoja oscilobatiente",
+      "barrotillos": "Helima 18×8 mm bicolor (roble dorado ext / blanco int)",
+      "vidrio": "6 templado / 16 Argón / 44.2 Bajo Emisivo",
+      "pvc_suministro_unit": 580.00,
+      "alu_suministro_unit": 620.00,
+      "retirada_unit": 35.00,
+      "instalacion_unit": 95.00
+    },
+    {
+      "codigo": "V3",
+      "planta": "Planta Baja",
+      "estancia": "Ventana Baño PB",
+      "denominacion": "Ventana exterior oscilobatiente de 1 hoja",
+      "ancho_mm": 585,
+      "alto_mm": 1085,
+      "unidades": 1,
+      "configuracion": "1 hoja oscilobatiente",
+      "barrotillos": "Helima 18×8 mm bicolor (roble dorado ext / blanco int)",
+      "vidrio": "6 templado / 16 Argón / 44.2 Bajo Emisivo",
+      "pvc_suministro_unit": 510.00,
+      "alu_suministro_unit": 540.00,
+      "retirada_unit": 25.00,
+      "instalacion_unit": 75.00
+    },
+    {
+      "codigo": "V4",
+      "planta": "Planta Primera",
+      "estancia": "Fijo Exterior P1",
+      "denominacion": "Ventana fija exterior vertical",
+      "ancho_mm": 400,
+      "alto_mm": 1830,
+      "unidades": 1,
+      "configuracion": "1 paño fijo continuo",
+      "barrotillos": "Sin barrotillo",
+      "vidrio": "6 templado / 16 Argón / 44.2 Bajo Emisivo",
+      "pvc_suministro_unit": 490.00,
+      "alu_suministro_unit": 520.00,
+      "retirada_unit": 25.00,
+      "instalacion_unit": 75.00
+    },
+    {
+      "codigo": "V5",
+      "planta": "Planta Primera",
+      "estancia": "Ventana Exterior P1",
+      "denominacion": "Ventana exterior oscilobatiente de 1 hoja",
+      "ancho_mm": 785,
+      "alto_mm": 985,
+      "unidades": 1,
+      "configuracion": "1 hoja oscilobatiente",
+      "barrotillos": "Sin barrotillo",
+      "vidrio": "6 templado / 16 Argón / 44.2 Bajo Emisivo",
+      "pvc_suministro_unit": 520.00,
+      "alu_suministro_unit": 550.00,
+      "retirada_unit": 35.00,
+      "instalacion_unit": 95.00
+    },
+    {
+      "codigo": "V6",
+      "planta": "Planta Primera",
+      "estancia": "Balconera Singular Telescópica P1",
+      "denominacion": "Conjunto balconera telescópica de 3 paños con fijo superior arqueado",
+      "ancho_mm": 1980,
+      "alto_mm": 2150,
+      "unidades": 1,
+      "configuracion": "Fijo superior curvado en arco + corredera telescópica inferior (1 fijo + 2 hojas correderas en guías paralelas apilables tras fijo), solera enrasada",
+      "barrotillos": "Sin barrotillo",
+      "vidrio": "6 templado / 16 Argón / 44.2 Bajo Emisivo",
+      "pvc_suministro_unit": 3850.00,
+      "alu_suministro_unit": 3650.00,
+      "retirada_unit": 95.00,
+      "instalacion_unit": 380.00
+    },
+    {
+      "codigo": "V8",
+      "planta": "Planta Primera",
+      "estancia": "Ventana Exterior Fachada Sur P1",
+      "denominacion": "Ventana exterior con paño fijo y hoja oscilobatiente",
+      "ancho_mm": 1985,
+      "alto_mm": 985,
+      "unidades": 2,
+      "configuracion": "2 paños: 1 fijo de 1.200 mm + 1 hoja oscilobatiente de 785 mm",
+      "barrotillos": "Helima 18×8 mm bicolor (roble dorado ext / blanco int)",
+      "vidrio": "6 templado Control Solar selectivo / 16 Argón / 44.2 Bajo Emisivo",
+      "pvc_suministro_unit": 1280.00,
+      "alu_suministro_unit": 1360.00,
+      "retirada_unit": 45.00,
+      "instalacion_unit": 125.00
+    },
+    {
+      "codigo": "V9",
+      "planta": "Planta Primera",
+      "estancia": "Puerta Balconera Exterior P1",
+      "denominacion": "Puerta balconera exterior abatible de apertura exterior",
+      "ancho_mm": 825,
+      "alto_mm": 1500,
+      "unidades": 1,
+      "configuracion": "1 hoja abatible con apertura hacia el exterior, manilla y cerradura",
+      "barrotillos": "Sin barrotillo",
+      "vidrio": "6 templado / 16 Argón / 44.2 Bajo Emisivo",
+      "pvc_suministro_unit": 720.00,
+      "alu_suministro_unit": 760.00,
+      "retirada_unit": 35.00,
+      "instalacion_unit": 95.00
+    },
+    {
+      "codigo": "V10",
+      "planta": "Planta Primera",
+      "estancia": "Ventana Baño P1",
+      "denominacion": "Ventana exterior oscilobatiente de 1 hoja cuadrada",
+      "ancho_mm": 595,
+      "alto_mm": 595,
+      "unidades": 1,
+      "configuracion": "1 hoja oscilobatiente",
+      "barrotillos": "Sin barrotillo",
+      "vidrio": "6 templado / 16 Argón / 44.2 Bajo Emisivo",
+      "pvc_suministro_unit": 390.00,
+      "alu_suministro_unit": 420.00,
+      "retirada_unit": 25.00,
+      "instalacion_unit": 75.00
+    }
+  ],
+  "servicios_generales": {
+    "transporte_y_residuos": {
+      "denominacion": "Transporte especializado taller (Sant Lluís) - obra (Son Xoriguer, Ciutadella), carga, descarga protegida y canon de gestión de residuos de carpinterías desmontadas a punto limpio autorizado",
+      "importe": 480.00
+    },
+    "medicion_definitiva": {
+      "denominacion": "Desplazamiento a Son Xoriguer para comprobación de huecos in situ, replanteo de cotas con dirección de obra y confección de plantilla rígida para arco V6",
+      "importe": 0.00,
+      "nota": "Incluido sin coste al confirmar la adjudicación del pedido"
+    }
+  },
+  "mosquiteras": [
+    {
+      "hueco": "B1",
+      "tipo": "Mosquitera plisada lateral",
+      "dimension": "750 × 2.190 mm (paso hoja)",
+      "unidades": 1,
+      "precio_unit": 245.00,
+      "subtotal": 245.00,
+      "descripcion": "Estructura de aluminio lacado a juego, tejido plisado de fibra de vidrio antracita de alta resistencia y guía inferior extraplana de 3 mm libre de tropiezos."
+    },
+    {
+      "hueco": "B2",
+      "tipo": "Mosquitera plisada lateral",
+      "dimension": "650 × 2.190 mm (paso hoja)",
+      "unidades": 1,
+      "precio_unit": 245.00,
+      "subtotal": 245.00,
+      "descripcion": "Estructura de aluminio lacado a juego, tejido plisado de fibra de vidrio antracita de alta resistencia y guía inferior extraplana de 3 mm."
+    },
+    {
+      "hueco": "V1",
+      "tipo": "Mosquitera enrollable vertical",
+      "dimension": "1.185 × 980 mm",
+      "unidades": 1,
+      "precio_unit": 110.00,
+      "subtotal": 110.00,
+      "descripcion": "Cajón superior compacto de 40 mm, guías con felpilla antiviento y freno desacelerador soft-close."
+    },
+    {
+      "hueco": "V2",
+      "tipo": "Mosquitera enrollable vertical",
+      "dimension": "780 × 1.085 mm",
+      "unidades": 1,
+      "precio_unit": 110.00,
+      "subtotal": 110.00,
+      "descripcion": "Cajón superior compacto de 40 mm, guías con felpilla antiviento y freno desacelerador soft-close."
+    },
+    {
+      "hueco": "V3",
+      "tipo": "Mosquitera enrollable vertical",
+      "dimension": "585 × 1.085 mm",
+      "unidades": 1,
+      "precio_unit": 110.00,
+      "subtotal": 110.00,
+      "descripcion": "Cajón superior compacto de 40 mm, guías con felpilla antiviento y freno desacelerador soft-close."
+    }
+  ]
+}

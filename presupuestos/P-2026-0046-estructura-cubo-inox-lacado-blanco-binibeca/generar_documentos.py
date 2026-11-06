@@ -29,7 +29,7 @@ def create_excel():
     # Cabecera Presupuesto
     ws["A1"] = "HAM ESTRUCTURAS METÁLICAS MENORCA"
     ws["A1"].font = title_font
-    ws["A2"] = "PRESUPUESTO TÉCNICO Y VALORACIÓN ECONÓMICA: P-2026-0046 (REV. 3)"
+    ws["A2"] = "PRESUPUESTO TÉCNICO Y VALORACIÓN ECONÓMICA: P-2026-0046 (REV. 5)"
     ws["A2"].font = subtitle_font
 
     ws["A4"] = "Cliente:"
@@ -39,9 +39,9 @@ def create_excel():
     ws["A6"] = "Proyecto / Arq.:"
     ws["B6"] = "Cristina Moll Taltavull · Expte: 2024 13_MOD (Reforma Unifamiliar con Piscina)"
     ws["A7"] = "Fecha y Validez:"
-    ws["B7"] = "30/10/2026 · Validez 30 días"
+    ws["B7"] = "02/11/2026 · Validez 30 días"
     ws["A8"] = "Concepto:"
-    ws["B8"] = "Estructura cúbica minimalista en tubo de Acero Inoxidable 40x40x2 mm lacado blanco, fijada sobre zapatas ejecutadas por constructor"
+    ws["B8"] = "Estructura cúbica minimalista atornillable en tubo Inox 316 40x40x2 mm (tarifa 20€/ML), imprimación + acabado blanco (sin horno)"
 
     for r in range(4, 9):
         ws[f"A{r}"].font = bold_font
@@ -51,7 +51,7 @@ def create_excel():
     ws["A10"] = "PARÁMETROS TÉCNICOS"
     ws["A10"].font = bold_font
     ws["A10"].fill = section_fill
-    ws["B10"] = "Medidas: 4,00 x 3,00 x 2,50 m (12 m²) | Geometría cúbica ortoédrica | Tubo cuadrado de Acero Inoxidable 40x40x2 mm | Soldadura TIG pulida | Termolacado al horno en Blanco exterior (RAL 9010/9016) | Obra civil y zapatas a cargo del constructor | Transporte y montaje de estructura fijada sobre puntos de obra"
+    ws["B10"] = "Medidas: 4,00 x 3,00 x 2,50 m (12 m²) | Geometría cúbica ortoédrica atornillable | Tubo cuadrado de Acero Inoxidable AISI 316 40x40x2 mm (40 ML x 20 €/ML) | Imprimación epoxi fosfatante + acabado poliuretano blanco exterior (sin horno) | Obra civil y zapatas a cargo del constructor | Transporte de ida en camión y montaje atornillado in situ"
     ws["B10"].font = regular_font
     ws["B10"].fill = section_fill
 
@@ -66,10 +66,11 @@ def create_excel():
         cell.alignment = Alignment(horizontal="center" if col_idx not in [2] else "left", vertical="center")
 
     data = [
-        ["01", "Replanteo técnico in situ, nivelación y desarrollo de planos de taller: visita a la obra en Binibeca Vell para comprobación de cotas y coordinación de apoyos con el constructor previa ejecución de zapatas/solera, y elaboración de planos de taller", "lote", 1, 320.00],
-        ["02", "Fabricación en taller de estructura cúbica en tubo de Acero Inoxidable 40x40x2 mm: 4 pilares verticales de 2,50 m, marco perimetral superior (2 vigas de 4 m + 2 vigas de 3 m) y costillas intermedias superiores transversales de rigidización. Cortes ingleteados a 45º, soldadura continua TIG en atmósfera inerte de argón y aristas esmeriladas para acabado monolítico", "lote", 1, 2150.00],
-        ["03", "Tratamiento superficial de termolacado al horno en Blanco Exterior: desengrasado, acondicionamiento superficial para acero inoxidable, imprimación de adherencia técnica y termolacado al horno con pintura en polvo de resinas de poliéster arquitectónico (Blanco RAL 9010/9016) resistente a radiación UV y salinidad marina", "lote", 1, 680.00],
-        ["04", "Transporte a Binibeca Vell y montaje de estructura sobre puntos preparados: transporte especializado a obra, descarga, elevación de módulos, aplomado y fijación estructural sobre los puntos/zapatas ejecutados por el constructor, verificación de niveles, repaso de lacado y retirada de embalajes", "lote", 1, 980.00]
+        ["01", "Replanteo técnico in situ, nivelación y desarrollo de planos de taller: visita a la obra en Binibeca Vell para comprobación de cotas y replanteo de apoyos con el constructor previa ejecución de zapatas/solera, y elaboración de planos de despiece atornillado para taller", "lote", 1, 320.00],
+        ["02", "Tubo cuadrado de Acero Inoxidable AISI 316 de 40x40x2 mm: suministro de tubo calidad marina para 4 pilares verticales de 2,50 m, marco perimetral superior (vigas de 4m y 3m) y costillas superiores transversales (incluye mermas y despuntes de corte de barras de 6m). Tarifa: 20,00 €/ML", "ml", 40.00, 20.00],
+        ["03", "Fabricación y mecanizado en taller para estructura cúbica atornillable: corte a escuadra e inglete a 45º, mecanizado de uniones interiores atornilladas, casquillos de refuerzo, taladros colisos de ajuste, tornillería oculta de acero inoxidable A4 y premontaje de verificación en taller", "lote", 1, 850.00],
+        ["04", "Tratamiento de pintura en taller: Imprimación y Pintura de Acabado Blanco (sin horno): desengrasado, acondicionamiento de acero inoxidable AISI 316, imprimación epoxi fosfatante de adherencia y dos capas de esmalte poliuretano alifático bicomponente blanco para exterior resistente a radiación UV y salinidad marina", "lote", 1, 580.00],
+        ["05", "Transporte en camión (ida) y montaje de estructura atornillada en obra: transporte especializado del material despiezado en 1 porte de camión (ida) hasta Binibeca Vell. Montaje, aplomado y ensamblado atornillado in situ sobre las zapatas del constructor, apriete dinamométrico, verificación de niveles y repaso de pintura", "lote", 1, 880.00]
     ]
 
     for i, row in enumerate(data, start=start_row + 1):
@@ -111,10 +112,10 @@ def create_excel():
     r_var = r_tot + 2
     ws.cell(row=r_var, column=2, value="VARIANTE ALTERNATIVA: Estructura Cúbica 4,00 x 2,00 m (8,00 m²)").font = bold_font
     ws.cell(row=r_var, column=5, value="Base Imponible:").font = regular_font
-    ws.cell(row=r_var, column=6, value=3500.00).font = bold_font
+    ws.cell(row=r_var, column=6, value=2960.00).font = bold_font
     ws.cell(row=r_var, column=6).number_format = '#,##0.00 €'
     ws.cell(row=r_var+1, column=5, value="Total con IVA (21%):").font = regular_font
-    ws.cell(row=r_var+1, column=6, value=4235.00).font = bold_font
+    ws.cell(row=r_var+1, column=6, value=3581.60).font = bold_font
     ws.cell(row=r_var+1, column=6).number_format = '#,##0.00 €'
 
     # Ajuste de anchos de columna
