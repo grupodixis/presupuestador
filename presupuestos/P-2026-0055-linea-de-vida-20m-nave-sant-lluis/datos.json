@@ -32,9 +32,9 @@
     "web": "https://www.hamenorca.com"
   },
   "proyecto": {
-    "titulo": "Suministro, Instalación y Certificación de Línea de Vida Horizontal Permanente LUX-top® FSE 2003 (20 ml) en Nave Industrial - Sant Lluís",
+    "titulo": "Suministro, Instalación y Certificación de Línea de Vida Oficial LUX-top® FSE 2003 (20 ml) en Nave Industrial - Sant Lluís",
     "ubicacion": "Sant Lluís, Menorca",
-    "descripcion": "Instalación oficial y homologada de sistema anticaídas permanente LUX-top® FSE 2003 (UNE-EN 795:2012 Tipo C / CEN/TS 16415:2013) de 20 m de longitud para cubierta de nave industrial en Sant Lluís. Sistema íntegramente en acero inoxidable AISI 316, postes para panel sándwich RVT 12 con fijación estanca mediante remaches de bulbo y juntas de EPDM, absorbedor/indicador de tensión SKE II, medios de elevación PEMP y certificación técnica oficial in situ.",
+    "descripcion": "Instalación completa 'llave en mano' de sistema anticaídas permanente LUX-top® FSE 2003 (UNE-EN 795:2012 Tipo C / CEN/TS 16415:2013) de 20 m de longitud sobre cubierta de panel sándwich en nave industrial de Sant Lluís. Incluye suministro de materiales en acero inoxidable AISI 316, 3 postes RVT 12 con fijación estanca mediante remaches de bulbo 7,7 mm y juntas EPDM de 130 mm, absorbedor/indicador SKE II, equipo de montaje de 2 oficiales en altura (13 h), medios de elevación PEMP tijera/articulada, prueba de tiro estático con dinamómetro in situ y Certificado Oficial de Instalación LUX-TOP.",
     "normativa_referencia": "UNE-EN 795:2012 (Tipo C), UNE-CEN/TS 16415:2013 (Múltiples usuarios simultáneos, hasta 3 personas), RD 486/1997, RD 2177/2004."
   },
   "modalidad_1_paso_manual": {
@@ -83,21 +83,21 @@
       {
         "id": "1.04",
         "codigo_luxtop": "MONTAJE-MO",
-        "concepto": "Instalación en obra por 2 operarios oficiales especialistas homologados en altura",
-        "descripcion": "Mano de obra especializada HAM Menorca (2 oficiales certificados en trabajos en altura y montaje de líneas de vida): replanteo, taladrado y remachado estanco de postes RVT 12, tendido, tensado dinamométrico y precintado. Ventaja logística inmediata desde nuestro taller en Sant Lluís.",
+        "concepto": "Instalación completa en cubierta por equipo especialista (2 oficiales x 6,5 h = 13 h totales)",
+        "descripcion": "Mano de obra especializada HAM Menorca (2 operarios oficiales con homologación oficial en trabajos en altura RD 2177/2004): replanteo milimétrico en cubierta, perforación de 36 orificios en grecas, sellado estanco con juntas EPDM, remachado estructural de alta tracción de los 3 postes RVT 12, tendido de cable inox Ø8 mm, tensado dinamométrico según testigo SKE II y precintado de seguridad. Cercanía operativa inmediata desde nuestro taller central en Sant Lluís.",
         "unidad": "h",
-        "cantidad": 9.0,
+        "cantidad": 13.0,
         "tarifa_oficial": 38.00,
         "descuento": 0.0,
-        "coste_dixis": 198.00,
-        "precio_cliente": 342.00,
-        "subtotal": 342.00
+        "coste_dixis": 286.00,
+        "precio_cliente": 494.00,
+        "subtotal": 494.00
       },
       {
         "id": "1.05",
         "codigo_luxtop": "MEDIOS-PEMP",
-        "concepto": "Medios auxiliares de elevación (Plataforma elevadora PEMP tijera/articulada 1 jornada en Sant Lluís)",
-        "descripcion": "Transporte a nave en Sant Lluís y uso durante 1 jornada de montaje de plataforma elevadora móvil PEMP con marcado CE y revisión vigente. (Deducible si la nave aporta medios de elevación propios).",
+        "concepto": "Medios auxiliares de elevación y acceso seguro a cubierta (Plataforma PEMP tijera/articulada 1 día)",
+        "descripcion": "Transporte a nave en Sant Lluís y uso durante 1 jornada de montaje de plataforma elevadora móvil de personal PEMP con marcado CE y revisión técnica vigente para acceso seguro y subida de herramientas y material a cota de cubierta. (Deducible si la nave aporta medios de elevación propios).",
         "unidad": "jorn",
         "cantidad": 1.0,
         "tarifa_oficial": 220.00,
@@ -109,8 +109,8 @@
       {
         "id": "1.06",
         "codigo_luxtop": "CERT-795",
-        "concepto": "Prueba de carga con dinamómetro, visado técnico, placa y Certificado Oficial UNE-EN 795",
-        "descripcion": "Ensayo de tracción estática in situ con dinamómetro calibrado, remachado de placa indeleble LUX-TOP y emisión del Certificado Oficial de Instalación de la plataforma LUX-TOP para aseguradora y prevención laboral.",
+        "concepto": "Ensayo de tiro estático con dinamómetro in situ, remachado de placa y Certificado Oficial LUX-TOP",
+        "descripcion": "Prueba de carga estática con dinamómetro calibrado según UNE-EN 795 sobre anclajes extremos (verificación de resistencia a 5 kN sin deformación), fijación de placa de características indeleble y emisión del Certificado Oficial de Instalación visado en la plataforma LUX-TOP para prevención laboral y aseguradora.",
         "unidad": "ud",
         "cantidad": 1.0,
         "tarifa_oficial": 160.00,
@@ -122,35 +122,35 @@
     ],
     "totales": {
       "coste_material_luxtop_dixis": 1007.38,
-      "coste_directo_total_dixis": 1415.38,
-      "base_imponible": 1950.50,
-      "margen_euros": 535.12,
-      "margen_porcentaje": 27.44,
-      "iva_21": 409.61,
-      "total_con_iva": 2360.11,
-      "precio_ml_sin_iva": 97.53
+      "coste_directo_total_dixis": 1503.38,
+      "base_imponible": 2102.50,
+      "margen_euros": 599.12,
+      "margen_porcentaje": 28.50,
+      "iva_21": 441.53,
+      "total_con_iva": 2544.03,
+      "precio_ml_sin_iva": 105.13
     }
   },
   "modalidad_2_paso_continuo": {
     "nombre": "Modalidad 2: LUX-top® FSE 2003 Paso Continuo / Automático (con Carro Runner)",
-    "descripcion": "Incorpora pieza intermedia pasante y carro deslizante LUX-top® que franquea automáticamente el poste intermedio sin necesidad de soltarse ni manipular mosquetones.",
+    "descripcion": "Incorpora pieza intermedia pasante y carro deslizante runner LUX-top® de acero inox que franquea automáticamente el poste intermedio sin necesidad de soltar mosquetones.",
     "suplemento_carro_y_paso_continuo": 210.0,
     "coste_suplemento_dixis": 139.62,
     "totales": {
-      "coste_directo_total_dixis": 1555.00,
-      "base_imponible": 2160.50,
-      "margen_euros": 605.50,
-      "margen_porcentaje": 28.03,
-      "iva_21": 453.71,
-      "total_con_iva": 2614.21,
-      "precio_ml_sin_iva": 108.03
+      "coste_directo_total_dixis": 1643.00,
+      "base_imponible": 2312.50,
+      "margen_euros": 669.50,
+      "margen_porcentaje": 28.95,
+      "iva_21": 485.63,
+      "total_con_iva": 2798.13,
+      "precio_ml_sin_iva": 115.63
     }
   },
   "condiciones_comerciales": {
     "validez_oferta": "30 días naturales",
     "forma_pago": "100% a la aceptación del presupuesto (directiva estándar HAM)",
     "plazo_ejecucion": "Acopio de material LUX-TOP en 7 a 10 días; montaje y certificación en obra en 1 jornada",
-    "garantia": "Garantía oficial LUX-TOP y 2 años de garantía de instalación HAM Menorca",
+    "garantia": "Garantía oficial LUX-TOP y 2 años de garantía de montaje HAM Menorca",
     "revisiones": "Obligatoria revisión técnica anual según UNE-EN 795 y UNE-EN 365"
   }
 }

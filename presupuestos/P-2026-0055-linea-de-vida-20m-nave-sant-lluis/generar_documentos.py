@@ -51,7 +51,7 @@ def create_excel():
     )
 
     # -------------------------------------------------------------------------
-    # HOJA 1: PRESUPUESTO COMERCIAL 100% LUX-TOP
+    # HOJA 1: PRESUPUESTO COMERCIAL 100% LUX-TOP (INSTALACIÓN INTEGRAL)
     # -------------------------------------------------------------------------
     ws1 = wb.active
     ws1.title = "Presupuesto LUX-TOP"
@@ -170,14 +170,14 @@ def create_excel():
     ws1.column_dimensions["G"].width = 18
 
     # -------------------------------------------------------------------------
-    # HOJA 2: ESTUDIO TÉCNICO INTERNO DIXIS (PROVEEDOR LUX-TOP)
+    # HOJA 2: ESTUDIO TÉCNICO INTERNO DIXIS (PROVEEDOR LUX-TOP + INSTALACIÓN)
     # -------------------------------------------------------------------------
     ws2 = wb.create_sheet(title="Estudio Técnico Interno")
     ws2.views.sheetView[0].showGridLines = True
     
     ws2["B2"] = "DIXIS RECURSOS Y SOLUCIONES S.L. • USO INTERNO CONFIDENCIAL"
     ws2["B2"].font = font_sub
-    ws2["B3"] = f"ESCANDALLO TÉCNICO PROVEEDOR LUX-TOP: {DATA['codigo']} • LÍNEA SANT LLUÍS"
+    ws2["B3"] = f"ESCANDALLO TÉCNICO DE INSTALACIÓN Y MATERIAL LUX-TOP: {DATA['codigo']}"
     ws2["B3"].font = font_title
 
     headers_tech = ["Elemento / Concepto de Coste", "Tipo de Recurso", "Medición / Horas", "Coste Unitario", "Coste Directo Total", "PVP Venta", "Margen Bruto"]
@@ -193,7 +193,7 @@ def create_excel():
         ["Cable inox Ø8 mm AISI 316 (LUX-top 000011710)", "Material LUX-TOP (-18% dto)", 22.0, 5.658, "=D6*E6", 151.80],
         ["3 Postes panel sándwich RVT 12 + fijaciones EPDM", "Material LUX-TOP (-18% dto)", 3.0, 160.967, "=D7*E7", 588.90],
         ["Kit cierre cáncamo FSE 2003 (SKE II + Tensor)", "Material LUX-TOP (-18% dto)", 1.0, 400.00, "=D8*E8", 487.80],
-        ["Mano de obra montaje e instalación (2 operarios x 4,5 h)", "Mano de obra en altura (9,0 h)", 9.0, 22.00, "=D9*E9", 342.00],
+        ["Instalación en cubierta (2 oficiales x 6,5 h)", "Mano de obra en altura (13,0 h)", 13.0, 22.00, "=D9*E9", 494.00],
         ["Plataforma Elevadora Móvil PEMP (1 jornada Sant Lluís)", "Maquinaria / elevación", 1.0, 140.00, "=D10*E10", 220.00],
         ["Pruebas de tiro dinamómetro, placa y visado técnico", "Ensayos y certificación", 1.0, 70.00, "=D11*E11", 160.00]
     ]
@@ -238,22 +238,25 @@ def create_excel():
     ws2["B15"] = "Coste Material LUX-TOP (Neto Dixis con 18% Dto):"
     ws2["C15"] = "=SUM(F6:F8)"
     ws2["C15"].number_format = '#,##0.00 €'
-    ws2["B16"] = "Coste Directo Total Dixis:"
-    ws2["C16"] = "=F12"
+    ws2["B16"] = "Coste Mano de Obra Instalación (13 h x 22 €):"
+    ws2["C16"] = "=F9"
     ws2["C16"].number_format = '#,##0.00 €'
-    ws2["B17"] = "Precio de Venta Base Imponible:"
-    ws2["C17"] = "=G12"
+    ws2["B17"] = "Coste Directo Total Dixis:"
+    ws2["C17"] = "=F12"
     ws2["C17"].number_format = '#,##0.00 €'
-    ws2["B18"] = "Margen Bruto de Contribución:"
-    ws2["C18"] = "=H12"
+    ws2["B18"] = "Precio de Venta Base Imponible:"
+    ws2["C18"] = "=G12"
     ws2["C18"].number_format = '#,##0.00 €'
-    ws2["B19"] = "Margen sobre Venta (%):"
-    ws2["C19"] = "=H12/G12"
-    ws2["C19"].number_format = '0.0%'
-    ws2["B20"] = "Forma de Pago con Proveedor LUX-TOP:"
-    ws2["C20"] = DATA["proveedor_homologado"]["forma_pago_dixis"]
+    ws2["B19"] = "Margen Bruto de Contribución:"
+    ws2["C19"] = "=H12"
+    ws2["C19"].number_format = '#,##0.00 €'
+    ws2["B20"] = "Margen sobre Venta (%):"
+    ws2["C20"] = "=H12/G12"
+    ws2["C20"].number_format = '0.0%'
+    ws2["B21"] = "Forma de Pago con Proveedor LUX-TOP:"
+    ws2["C21"] = DATA["proveedor_homologado"]["forma_pago_dixis"]
 
-    for r in range(15, 21):
+    for r in range(15, 22):
         ws2[f"B{r}"].font = font_bold
         ws2[f"C{r}"].font = font_bold
 
@@ -658,8 +661,8 @@ def create_html_client():
       </header>
 
       <section class="hero">
-        <h3>Sistema Anticaídas Oficial LUX-top® FSE 2003 (20 ml) en Nave Industrial • Sant Lluís</h3>
-        <p>Suministro homologado de fabricante LUX-TOP®, fijación sobre cubierta panel sándwich mediante postes RVT 12 certificados DEKRA, medios de elevación y montaje integral en altura conforme a UNE-EN 795:2012 Tipo C y CEN/TS 16415:2013.</p>
+        <h3>Suministro, Instalación y Certificación de Línea de Vida Oficial LUX-top® FSE 2003 (20 ml) • Sant Lluís</h3>
+        <p>Instalación completa 'llave en mano' sobre cubierta de panel sándwich mediante postes RVT 12 certificados DEKRA, remachado estanco de 36 puntos con juntas EPDM, equipo de 2 operarios en altura (13 h), plataforma PEMP y ensayo de tiro in situ con dinamómetro.</p>
       </section>
 
       <section class="grid-meta">
@@ -673,7 +676,7 @@ def create_html_client():
         </div>
         <div class="card">
           <span class="label">Soporte Cubierta</span>
-          <span class="value">Postes Panel RVT 12</span>
+          <span class="value">3 Postes RVT 12 Panel</span>
         </div>
         <div class="card">
           <span class="label">Instalación y Pruebas</span>
@@ -681,7 +684,7 @@ def create_html_client():
         </div>
       </section>
 
-      <h4>Desglose Oficial de Partidas • LUX-top® FSE 2003 (Paso Manual)</h4>
+      <h4>Desglose Oficial de Partidas • Suministro e Instalación LUX-top® FSE 2003</h4>
       <table>
         <thead>
           <tr>
@@ -730,21 +733,21 @@ def create_html_client():
 
       <div class="two-col">
         <div class="col">
-          <h5>Ventajas del Sistema Oficial LUX-TOP®</h5>
+          <h5>Protocolo Técnico de Instalación Incluido</h5>
           <ul class="compact">
-            <li><strong>Acero Inoxidable AISI 316:</strong> Cable y herrajes en calidad marina A4, garantizando durabilidad absoluta frente a la corrosión salina de Menorca.</li>
-            <li><strong>Fijación Estanca RVT 12:</strong> Anclaje mediante 12 remaches de bulbo de 7,7 mm y 4 juntas de EPDM de 130 mm por poste; no perfora vigas ni crea puentes térmicos.</li>
-            <li><strong>Absorbedor Dinámico SKE II:</strong> Disipa el impacto en caso de caída y cuenta con testigo visual de sobretensión.</li>
-            <li><strong>Proximidad Taller Sant Lluís:</strong> Base operativa a 2 minutos de la nave (sin gastos de desplazamiento).</li>
+            <li><strong>Montaje en altura homologado:</strong> 2 operarios especialistas con titulación oficial en trabajos en altura (RD 2177/2004) durante 1 jornada (13 h totales).</li>
+            <li><strong>Fijación estanca RVT 12:</strong> 36 remaches de bulbo de 7,7 mm de alto par y 12 juntas EPDM impermeables de 130 mm (sin goteras ni perforar correas).</li>
+            <li><strong>Tensado dinamométrico:</strong> Calibración exacta con indicador SKE II y precintos de seguridad.</li>
+            <li><strong>Medios de elevación:</strong> Plataforma PEMP tijera/articulada para acceso seguro a cota de cubierta.</li>
           </ul>
         </div>
         <div class="col">
           <h5>Certificación Oficial, Garantía y Condiciones</h5>
           <ul class="compact">
-            <li><strong>Legalización oficial:</strong> Ensayo in situ con dinamómetro calibrado, remachado de placa indeleble LUX-TOP, Certificado Oficial de Instalación visado y Libro de Mantenimiento.</li>
-            <li><strong>Garantía:</strong> Garantía oficial LUX-TOP y 2 años de garantía de montaje HAM Menorca.</li>
+            <li><strong>Prueba de tiro in situ:</strong> Ensayo de tracción estática con dinamómetro calibrado a 5 kN según UNE-EN 795.</li>
+            <li><strong>Legalización oficial:</strong> Remachado de placa indeleble LUX-TOP y Certificado Oficial de Instalación visado en plataforma LUX-TOP para seguro y PRL.</li>
+            <li><strong>Garantía:</strong> Garantía oficial de componentes LUX-TOP y 2 años de montaje HAM.</li>
             <li><strong>Forma de pago:</strong> 100% a la aceptación del presupuesto (directiva estándar HAM).</li>
-            <li><strong>Exclusiones:</strong> Equipos EPI individuales (arneses/eslingas) y licencias municipales de obra menor si aplican.</li>
           </ul>
         </div>
       </div>
@@ -763,7 +766,7 @@ def create_html_client():
 
     <footer>
       <div>DIXIS RECURSOS Y SOLUCIONES S.L. • C.I.F. B57825432 • Sant Lluís, Menorca</div>
-      <div>{DATA['codigo']} • Sistema Oficial Anticaídas LUX-top® FSE 2003 (20 ml) • Hoja 1 de 1</div>
+      <div>{DATA['codigo']} • Suministro, Instalación y Certificación LUX-top® FSE 2003 • Hoja 1 de 1</div>
     </footer>
   </div>
 </body>
@@ -1030,8 +1033,8 @@ def create_html_technical():
       </header>
 
       <section class="hero">
-        <h3>Escandallo de Costes Reales de Compra Dixis con LUX-TOP Sistemas Anticaídas</h3>
-        <p>Directiva de empresa: Dixis sólo instala LUX-TOP. Descuento oficial del 18% y pago mediante Giro comercial a 60 días. Material 100% en Inox AISI 316 y fijación sobre cubierta panel sándwich mediante postes RVT 12.</p>
+        <h3>Escandallo de Costes Reales de Compra Dixis con LUX-TOP y Mano de Obra de Instalación</h3>
+        <p>Directiva de empresa: Dixis sólo instala LUX-TOP. Descuento oficial del 18% y pago mediante Giro comercial a 60 días. Instalación completa en cubierta: 2 oficiales x 6,5 h (13 h totales), PEMP 1 jornada y ensayo dinamométrico.</p>
       </section>
 
       <section class="kpi-row">
@@ -1109,10 +1112,10 @@ def create_html_technical():
         <div class="col">
           <h5>Rendimiento y Mano de Obra en Sant Lluís</h5>
           <ul class="compact">
-            <li><strong>Equipo técnico:</strong> 2 operarios certificados en altura x 4,5 h de trabajo = 9 h totales.</li>
-            <li><strong>Coste hora interna:</strong> 22,00 €/h (198,00 €) • Venta oficial: 38,00 €/h (342,00 €).</li>
+            <li><strong>Equipo técnico:</strong> 2 operarios certificados en altura x 6,5 h de trabajo en cubierta = 13 h totales.</li>
+            <li><strong>Coste hora interna:</strong> 22,00 €/h (286,00 €) • Venta oficial: 38,00 €/h (494,00 €).</li>
             <li><strong>Logística taller Sant Lluís:</strong> Distancia mínima (<3 km) desde Circunval·lació 11.</li>
-            <li><strong>Margen neto asegurado:</strong> Margen bruto de <strong>535,12 € (27,4%)</strong> con material de primera línea internacional.</li>
+            <li><strong>Margen neto asegurado:</strong> Margen bruto de <strong>599,12 € (28,5%)</strong> cubriendo toda la operativa in situ.</li>
           </ul>
         </div>
       </div>
