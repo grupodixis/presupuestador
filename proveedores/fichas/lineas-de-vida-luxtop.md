@@ -47,8 +47,9 @@
 | Transporte | Portes pagados en pedidos superiores a 1.000 € en península |
 | Alcance | Suministro exclusivo de materiales certificados. Dixis aporta mano de obra, PEMP y certificación in situ. |
 
-## Precios Netos de Compra Dixis (Presupuesto Referencia 2671/26 Nave Iberia)
+## Precios Netos de Compra Dixis (Presupuestos de Referencia)
 
+### Referencia 1: Presupuesto 2671/26 (Nave IBERIA - Aeropuerto de Menorca / Cubierta Panel)
 | Código | Concepto | Tarifa (€) | Dto. | Coste Neto Dixis (€) | Unidad |
 |---|---|---:|:---:|---:|:---:|
 | **000011710** | Cable de acero inox Ø8 mm AISI 316 (FSE 2003) | 6,90 € | 18% | **5,658 €** | m |
@@ -56,3 +57,13 @@
 | **000026092** | Set de fijación RVT 12 (12 remaches 7,7 mm + 4 EPDM 130 mm) | 0,00 € | 0% | **0,00 € (incluido)** | set |
 | **030 - Cierre 1** | Kit de cierre FSE 2003 cáncamo (SKE II + Tensor + Terminal horquilla + Placa VA) | 487,80 € | 18% | **400,00 €** | kit |
 | **000060901** | Protector para curva 90º VA abierto FSE 2003 | 34,70 € | 18% | **28,45 €** | ud |
+
+### Referencia 2: Presupuesto 3074/26 (Obra EDAR Acciona Illes Balears - Ferreries / Muro de Hormigón)
+| Código | Concepto | Tarifa (€) | Dto. | Coste Neto Dixis (€) | Unidad |
+|---|---|---:|:---:|---:|:---:|
+| **000011710** | Cable de acero inox Ø8 mm AISI 316 (FSE 2003) | 6,90 € | 18% | **5,658 €** | m |
+| **000012186-40** | Soporte especial `LUX-top® ASP - SOKO EV2s / 40` (Acero-Hormigón 90º, 20+20 cm, Ø 26 mm, 2-Loch) | 155,50 € | 18% | **127,51 €** | ud |
+| **000040131** | Set fijación ASP EV2s-Hormigón (2 pernos MKT BZ3 M-12x115/20 A4) | 0,00 € | 18% | **0,00 € (incluido)** | set |
+| **030 - Cierre 3** | Kit de cierre directa FSE 2003 (SKE II + Tensor PV + Terminal SV + Placa SB) | 487,80 € | 18% | **400,00 €** | kit |
+
+> **Nota técnica especial SOKO:** Los soportes de construcción especial SOKO requieren un plazo mínimo de fabricación de **20 a 25 días**. No admiten devolución. Indicar siempre en pedido: longitud H+V (ej. 20+20 cm) y posición de la placa base H.

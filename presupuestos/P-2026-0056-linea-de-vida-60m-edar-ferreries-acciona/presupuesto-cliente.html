@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Presupuesto P-2026-0056 • ACCIONA AGUA S.A. / ACCIONA - ILLES BALEARS</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 8mm 10mm 8mm 10mm;
+    }
+    :root {
+      --brand: #0f172a;
+      --accent: #1d4ed8;
+      --accent-light: #eff6ff;
+      --line: #cbd5e1;
+      --soft: #f8fafc;
+      --muted: #475569;
+      --ink: #0f172a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e2e8f0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 9.2px;
+      line-height: 1.25;
+    }
+    .sheet {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      background: #fff;
+      padding: 7mm 11mm 6mm;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      page-break-inside: avoid;
+      page-break-after: always;
+    }
+    .sheet:last-child {
+      page-break-after: avoid;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      border-top: 4px solid var(--accent);
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--line);
+    }
+    .company {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .logo {
+      width: 95px;
+      flex: 0 0 95px;
+    }
+    .logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .company-info h1 {
+      margin: 0;
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+    .company-info p {
+      margin: 1px 0;
+      color: var(--muted);
+      font-size: 8.5px;
+    }
+    .meta {
+      text-align: right;
+    }
+    .meta h2 {
+      margin: 0;
+      color: var(--accent);
+      font-size: 13.5px;
+      font-weight: 800;
+    }
+    .meta .ref-badge {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff;
+      font-size: 8px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin: 2px 0;
+    }
+    .meta p {
+      margin: 1px 0;
+      color: var(--muted);
+      font-size: 8px;
+    }
+    .hero {
+      margin-top: 4px;
+      background: var(--soft);
+      border-left: 3px solid var(--accent);
+      padding: 4px 8px;
+      border-radius: 0 4px 4px 0;
+    }
+    .hero h3 {
+      margin: 0 0 1px;
+      color: var(--brand);
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 8.5px;
+    }
+    .client-block {
+      margin-top: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      background: var(--accent-light);
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 4px 8px;
+    }
+    .client-block div strong {
+      color: var(--brand);
+      display: block;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 1px;
+    }
+    .client-block div p {
+      margin: 0;
+      font-size: 8.5px;
+      color: var(--ink);
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 5px;
+      font-size: 8.5px;
+    }
+    table.data-table th {
+      background: var(--brand);
+      color: #fff;
+      padding: 4px 6px;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      border: 1px solid var(--brand);
+    }
+    table.data-table td {
+      padding: 3.5px 5px;
+      border: 1px solid var(--line);
+      vertical-align: top;
+    }
+    table.data-table tbody tr:nth-child(even) {
+      background: var(--soft);
+    }
+    .desc-text {
+      color: var(--muted);
+      font-size: 7.8px;
+      line-height: 1.2;
+      margin-top: 1px;
+    }
+    .c { text-align: center; }
+    .r { text-align: right; }
+    .bold { font-weight: 700; }
+    .totals-box {
+      margin-top: 5px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .totals-table {
+      width: 320px;
+      border-collapse: collapse;
+      font-size: 8.5px;
+    }
+    .totals-table td {
+      padding: 3px 6px;
+      border: 1px solid var(--line);
+    }
+    .totals-table tr.total-row {
+      background: var(--accent-light);
+      font-weight: 800;
+      color: var(--accent);
+      font-size: 10px;
+    }
+    .totals-table tr.total-row td {
+      border: 1px solid var(--accent);
+    }
+    .ratio-pill {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 8px;
+      margin-left: 4px;
+    }
+    .grid-photos {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 8px;
+      margin-top: 5px;
+    }
+    .photo-card {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 4px;
+      background: #fff;
+      text-align: center;
+    }
+    .photo-card img {
+      max-width: 100%;
+      height: 125px;
+      object-fit: contain;
+      border-radius: 2px;
+    }
+    .photo-card span {
+      display: block;
+      font-size: 7.5px;
+      color: var(--muted);
+      margin-top: 2px;
+      font-weight: 600;
+    }
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 5px;
+    }
+    .spec-card {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 5px 7px;
+    }
+    .spec-card h4 {
+      margin: 0 0 3px;
+      color: var(--brand);
+      font-size: 8.5px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 2px;
+    }
+    .spec-card ul {
+      margin: 0;
+      padding-left: 12px;
+      font-size: 8px;
+      color: var(--muted);
+    }
+    .spec-card li {
+      margin-bottom: 1.5px;
+    }
+    footer {
+      margin-top: 5px;
+      padding-top: 4px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 7.5px;
+    }
+    .firmas {
+      margin-top: 6px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .firma-box {
+      border: 1px dashed var(--line);
+      border-radius: 4px;
+      padding: 5px;
+      height: 48px;
+      background: var(--soft);
+    }
+    .firma-box strong {
+      display: block;
+      color: var(--brand);
+      font-size: 7.5px;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PÁGINA 1: OFERTA ECONÓMICA Y DESGLOSE -->
+  <div class="sheet">
+    <div>
+      <header>
+        <div class="company">
+          <div class="logo">
+            <img src="logo-ham.svg" alt="HAM Menorca / Dixis">
+          </div>
+          <div class="company-info">
+            <h1>Dixis Recursos y Soluciones S.L.</h1>
+            <p><strong>HAM Estructuras Metálicas Menorca</strong> • CIF: B57825432</p>
+            <p>Circunval·lació, 11, 07710 Sant Lluís, Menorca • Tel: +34 669 769 541 • pablo@dixis.es</p>
+          </div>
+        </div>
+        <div class="meta">
+          <h2>PRESUPUESTO TÉCNICO</h2>
+          <div class="ref-badge">P-2026-0056 • PRE-2026-1110-LV-EDAR-FERRERIES</div>
+          <p>Fecha: 10 de noviembre de 2026 • Validez: 30 días</p>
+          <p>Instalador Homologado Oficial: <strong>LUX-TOP® SISTEMAS ANTICAÍDAS</strong></p>
+        </div>
+      </header>
+
+      <div class="hero">
+        <h3>Suministro, Instalación y Certificación de Línea de Vida Oficial LUX-top® FSE 2003 (60 ml) en Piscina EDAR Ferreries</h3>
+        <p>Trazado circular cerrado perimetral sobre coronación de muro de hormigón (diámetro exterior ~18,08 m, perímetro ~60 ml).</p>
+      </div>
+
+      <div class="client-block">
+        <div>
+          <strong>Cliente / Razón Social:</strong>
+          <p><strong>ACCIONA AGUA S.A. / ACCIONA - ILLES BALEARS</strong></p>
+          <p>Atención: Dirección Facultativa / Responsable de Mantenimiento EDAR Ferreries</p>
+        </div>
+        <div>
+          <strong>Emplazamiento de Obra:</strong>
+          <p>EDAR Ferreries, Menorca (Illes Balears)</p>
+          <p>Proyecto: Línea de Vida Perimetral Decantador / Piscina EDAR Ferreries</p>
+        </div>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 32px;">Nº</th>
+            <th>Concepto y Especificación Técnica Oficial LUX-TOP®</th>
+            <th style="width: 32px;">Ud.</th>
+            <th style="width: 45px;">Cant.</th>
+            <th style="width: 65px;">Precio Ud.</th>
+            <th style="width: 75px;">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        <tr>
+          <td class="c bold">1.01</td>
+          <td>
+            <strong>Cable de acero inoxidable Ø8 mm AISI 316 LUX-top® FSE 2003 (64 ml)</strong>
+            <div class="desc-text">Suministro de 64 m de cable flexible de acero inoxidable calidad marina AISI 316 Ø8 mm de alta resistencia, idóneo para atmósferas químicas, salinas y con alto grado de humedad presentes en estaciones depuradoras.</div>
+          </td>
+          <td class="c">m</td>
+          <td class="r">64.00</td>
+          <td class="r">11.50 €</td>
+          <td class="r bold">736.00 €</td>
+        </tr>
+        
+        <tr>
+          <td class="c bold">1.02</td>
+          <td>
+            <strong>24 Soportes especiales LUX-top® ASP - SOKO EV2s/40 (Acero - Hormigón 90º) para muro</strong>
+            <div class="desc-text">24 unidades de soportes especiales de construcción reforzada a 90º (longitud H+V 20+20 cm, placa 80x150x6 mm con 2 taladros, eje Ø 26 mm) diseñados específicamente para fijación perimetral en muro de hormigón armado en decantador circular de EDAR. Plazo mínimo de fabricación 20-25 días.</div>
+          </td>
+          <td class="c">ud</td>
+          <td class="r">24.00</td>
+          <td class="r">175.00 €</td>
+          <td class="r bold">4200.00 €</td>
+        </tr>
+        
+        <tr>
+          <td class="c bold">1.03</td>
+          <td>
+            <strong>Set de fijación para hormigón: 48 pernos de anclaje MKT BZ3 M-12x115/20 en Acero Inoxidable A4</strong>
+            <div class="desc-text">Juego completo de anclajes de seguridad de expansión homologados ETA Opción 1 en acero inoxidable de calidad marina A4, resistentes a la corrosión en medio acuoso y clorado. 2 pernos por soporte (48 unidades).</div>
+          </td>
+          <td class="c">set</td>
+          <td class="r">24.00</td>
+          <td class="r">Incluido</td>
+          <td class="r bold">Incluido</td>
+        </tr>
+        
+        <tr>
+          <td class="c bold">1.04</td>
+          <td>
+            <strong>Kit oficial de cierre directo LUX-top® FSE 2003 (SKE II + Tensor + Horquilla + Placa)</strong>
+            <div class="desc-text">Conjunto terminal de cierre oficial formado por: Absorbedor dinámico e indicador de tensión LUX-top® SKE II en acero inoxidable, tensor mecánico de cable de prensado directo en fábrica, terminal de horquilla autoprensado SV y placa de señalización reglamentaria SB de acero inoxidable para marcado CE y fecha de revisión.</div>
+          </td>
+          <td class="c">kit</td>
+          <td class="r">1.00</td>
+          <td class="r">750.00 €</td>
+          <td class="r bold">750.00 €</td>
+        </tr>
+        
+        <tr>
+          <td class="c bold">2.01</td>
+          <td>
+            <strong>Mano de obra especializada de montaje y fijación en muro de hormigón EDAR (24 h)</strong>
+            <div class="desc-text">Equipo especialista homologado (2 oficiales cualificados x 12 h = 24 horas totales): replanteo circular perimetral, perforación con rotoperfilado en hormigón armado, aspiración y limpieza de taladros, fijación dinamométrica con llave dinamométrica calibrada a par prescrito por fabricante, tendido y pretensado del cable AISI 316, y calibración del indicador SKE II.</div>
+          </td>
+          <td class="c">h</td>
+          <td class="r">24.00</td>
+          <td class="r">38.00 €</td>
+          <td class="r bold">912.00 €</td>
+        </tr>
+        
+        <tr>
+          <td class="c bold">2.02</td>
+          <td>
+            <strong>Medios auxiliares de seguridad y acceso perimetral para coronación de muro de decantador</strong>
+            <div class="desc-text">Suministro, montaje y desmontaje de medios auxiliares de acceso seguro, línea provisional de amarre para montaje inicial y protecciones colectivas temporales conforme a plan de seguridad en depuradora.</div>
+          </td>
+          <td class="c">paquete</td>
+          <td class="r">1.00</td>
+          <td class="r">450.00 €</td>
+          <td class="r bold">450.00 €</td>
+        </tr>
+        
+        <tr>
+          <td class="c bold">2.03</td>
+          <td>
+            <strong>Ensayos de tracción estática con dinamómetro in situ y Certificado Oficial LUX-TOP®</strong>
+            <div class="desc-text">Verificación y ensayo in situ de anclajes estructurales mediante extractor con dinamómetro tarado, remachado de placa identificativa indeleble y emisión de Certificado Oficial de Instalación homologada LUX-TOP junto al dossier técnico con manual de uso y libro de revisiones periódicas anuales.</div>
+          </td>
+          <td class="c">ud</td>
+          <td class="r">1.00</td>
+          <td class="r">180.00 €</td>
+          <td class="r bold">180.00 €</td>
+        </tr>
+        
+        </tbody>
+      </table>
+
+      <div class="totals-box">
+        <table class="totals-table">
+          <tr>
+            <td class="r bold">BASE IMPONIBLE (60,00 ML LLAVE EN MANO):</td>
+            <td class="r bold" style="width: 85px;">7228.00 € <span class="ratio-pill">120.47 €/ml</span></td>
+          </tr>
+          <tr>
+            <td class="r">I.V.A. APLICABLE (21%):</td>
+            <td class="r">1517.88 €</td>
+          </tr>
+          <tr class="total-row">
+            <td class="r">TOTAL PRESUPUESTO (CON IVA):</td>
+            <td class="r">8745.88 €</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div>
+      <div class="firmas">
+        <div class="firma-box">
+          <strong>Por DIXIS RECURSOS Y SOLUCIONES S.L. (Instalador Oficial LUX-TOP):</strong>
+          <span style="font-size:7px; color:var(--muted);">Fdo: Pablo Sebastián Sánchez • Dpto. Técnico HAM Menorca</span>
+        </div>
+        <div class="firma-box">
+          <strong>Aceptación Conforme por ACCIONA AGUA S.A. / Cliente:</strong>
+          <span style="font-size:7px; color:var(--muted);">Firma, Sello de la Empresa y Fecha de Aceptación:</span>
+        </div>
+      </div>
+
+      <footer>
+        <div>DIXIS RECURSOS Y SOLUCIONES S.L. • www.hamenorca.com • Instalador Autorizado LUX-TOP® Sistemas Anticaídas</div>
+        <div>P-2026-0056 • Hoja 1 de 2</div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- PÁGINA 2: MEMORIA TÉCNICA, PLANO DE REPLANTEO Y CONDICIONES -->
+  <div class="sheet">
+    <div>
+      <header>
+        <div class="company">
+          <div class="logo">
+            <img src="logo-ham.svg" alt="HAM Menorca / Dixis">
+          </div>
+          <div class="company-info">
+            <h1>Dixis Recursos y Soluciones S.L.</h1>
+            <p><strong>HAM Estructuras Metálicas Menorca</strong> • CIF: B57825432</p>
+          </div>
+        </div>
+        <div class="meta">
+          <h2>MEMORIA TÉCNICA Y REPLANTEO</h2>
+          <div class="ref-badge">P-2026-0056 • EDAR FERRERIES</div>
+          <p>Sistema: <strong>LUX-top® FSE 2003 (Muro de Hormigón Armado)</strong></p>
+        </div>
+      </header>
+
+      <div class="grid-photos">
+        <div class="photo-card">
+          <img src="img/pagina_3.png" alt="Plano de Replanteo Oficial LUX-TOP">
+          <span>Replanteo perimetral circular oficial LUX-top® FSE 2003 (Vanos de ~2,50 m entre soportes)</span>
+        </div>
+        <div class="photo-card">
+          <img src="img/ortofoto-edar-ferreries.jpg" alt="Ortofoto Decantador EDAR Ferreries">
+          <span>Ortofoto satelital EDAR Ferreries: D exterior = 18,08 m (Perímetro ~60 ml)</span>
+        </div>
+      </div>
+
+      <div class="specs-grid">
+        <div class="spec-card">
+          <h4>1. Memoria Descriptiva del Sistema</h4>
+          <ul>
+            <li><strong>Línea de Vida Flexible Tipo C:</strong> Homologada según <strong>UNE-EN 795:2012 Tipo C</strong> y <strong>UNE-CEN/TS 16415:2013</strong> para hasta 3 usuarios simultáneos (Certificado DEKRA).</li>
+            <li><strong>Cable de Calidad Marina:</strong> Acero inoxidable <strong>AISI 316 Ø8 mm</strong> con carga de rotura superior a 42 kN, resistente a la salinidad y al ambiente clorado de la EDAR.</li>
+            <li><strong>Absorbedor e Indicador de Tensión SKE II:</strong> En acero inoxidable AISI 304/316, disipa el impacto dinámico limitando las cargas en extremos a valores seguros (&lt; 10 kN) y visualiza la tensión correcta.</li>
+            <li><strong>Tensor y Terminales Autoprensados:</strong> Tensado micrométrico mediante tensor prensado en fábrica y horquilla autoprensada SV sin soldadura.</li>
+          </ul>
+        </div>
+        <div class="spec-card">
+          <h4>2. Soportes Especiales SOKO y Fijaciones</h4>
+          <ul>
+            <li><strong>Soportes a Medida 90º:</strong> 24 unidades `LUX-top® ASP - SOKO EV2s/40` diseñados en taller para librar la coronación del muro de hormigón (20+20 cm, placa 80x150x6 mm).</li>
+            <li><strong>Anclajes de Seguridad MKT A4:</strong> 48 pernos de acero inoxidable calidad A4 (`M-12x115/20`) con Evaluación Técnica Europea (ETA Opción 1 para hormigón fisurado).</li>
+            <li><strong>Apretado Dinamométrico:</strong> Control estricto de par de apriete mediante llave dinamométrica calibrada para garantizar adherencia mecánica y durabilidad.</li>
+            <li><strong>Plazo de Fabricación SOKO:</strong> Mínimo 20-25 días al tratarse de piezas de forja y mecanizado a medida.</li>
+          </ul>
+        </div>
+        <div class="spec-card">
+          <h4>3. Protocolo de Ensayos y Certificación</h4>
+          <ul>
+            <li><strong>Prueba de Tiro Estático in situ:</strong> Ensayo con dinamómetro tarado sobre los anclajes estructurales de hormigón según normativa europea.</li>
+            <li><strong>Placa Indeleble CE:</strong> Placa de señalización reglamentaria SB grabada con fecha, número de usuarios, instalador y próxima inspección periódica.</li>
+            <li><strong>Dossier Técnico Completo:</strong> Emisión de Certificado Oficial de Instalación emitido por Dixis en la plataforma oficial de LUX-TOP con manual de uso y libro de mantenimiento anual.</li>
+          </ul>
+        </div>
+        <div class="spec-card">
+          <h4>4. Condiciones Comerciales y Ejecución</h4>
+          <ul>
+            <li><strong>Forma de Pago Estándar:</strong> 100% a la aceptación del presupuesto (directiva estándar HAM Menorca).</li>
+            <li><strong>Plazo de Montaje:</strong> 2 jornadas laborables tras recepción de los soportes especiales SOKO.</li>
+            <li><strong>Garantía:</strong> Cobertura oficial de fabricante LUX-TOP y garantía de montaje Dixis según legislación vigente. Revisiones obligatorias anuales.</li>
+            <li><strong>Medios de Acceso:</strong> Incluye medios auxiliares específicos de montaje y línea provisional para trabajos en corona.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div>DIXIS RECURSOS Y SOLUCIONES S.L. • www.hamenorca.com • Instalador Autorizado LUX-TOP® Sistemas Anticaídas</div>
+      <div>P-2026-0056 • Hoja 2 de 2</div>
+    </footer>
+  </div>
+
+</body>
+</html>

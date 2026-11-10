@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Estudio Técnico Interno • P-2026-0056 • Dixis</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 8mm 10mm 8mm 10mm;
+    }
+    :root {
+      --brand: #0f172a;
+      --accent: #1d4ed8;
+      --tech-green: #047857;
+      --line: #cbd5e1;
+      --soft: #f8fafc;
+      --muted: #475569;
+      --ink: #0f172a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e2e8f0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 9px;
+      line-height: 1.25;
+    }
+    .sheet {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      background: #fff;
+      padding: 7mm 11mm 6mm;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      page-break-inside: avoid;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      border-top: 4px solid var(--brand);
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--line);
+    }
+    .title h1 {
+      margin: 0;
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .title p {
+      margin: 1px 0;
+      color: var(--muted);
+      font-size: 8.5px;
+    }
+    .badge {
+      background: #dc2626;
+      color: #fff;
+      font-size: 8px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .kpi-card {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 6px 8px;
+      text-align: center;
+    }
+    .kpi-card strong {
+      display: block;
+      color: var(--muted);
+      font-size: 7.5px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .kpi-card .val {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--brand);
+    }
+    .kpi-card .val.green { color: var(--tech-green); }
+    .kpi-card .val.blue { color: var(--accent); }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+      font-size: 8.5px;
+    }
+    table.data-table th {
+      background: var(--brand);
+      color: #fff;
+      padding: 4px 6px;
+      font-size: 8px;
+      text-transform: uppercase;
+      border: 1px solid var(--brand);
+    }
+    table.data-table td {
+      padding: 4px 6px;
+      border: 1px solid var(--line);
+    }
+    table.data-table tbody tr:nth-child(even) {
+      background: var(--soft);
+    }
+    .c { text-align: center; }
+    .r { text-align: right; }
+    .bold { font-weight: 700; }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .box {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 6px 8px;
+    }
+    .box h4 {
+      margin: 0 0 4px;
+      color: var(--brand);
+      font-size: 9px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 2px;
+    }
+    .box ul {
+      margin: 0;
+      padding-left: 14px;
+      font-size: 8px;
+      color: var(--muted);
+    }
+    .box li {
+      margin-bottom: 2px;
+    }
+    footer {
+      margin-top: 5px;
+      padding-top: 4px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 7.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sheet">
+    <div>
+      <header>
+        <div class="title">
+          <h1>DIXIS RECURSOS Y SOLUCIONES S.L. • ESTUDIO TÉCNICO INTERNO</h1>
+          <p>Proyecto P-2026-0056 • Suministro, Instalación y Certificación de Línea de Vida Oficial LUX-top® FSE 2003 (60 ml) en Piscina EDAR Ferreries (60 ml)</p>
+        </div>
+        <div>
+          <span class="badge">ESTRICTAMENTE CONFIDENCIAL • USO INTERNO</span>
+        </div>
+      </header>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <strong>Coste Directo Total</strong>
+          <div class="val">4700.35 €</div>
+          <span style="font-size:7px; color:var(--muted);">78.34 €/ml</span>
+        </div>
+        <div class="kpi-card">
+          <strong>Venta Neta Cliente</strong>
+          <div class="val blue">7228.00 €</div>
+          <span style="font-size:7px; color:var(--muted);">120.47 €/ml</span>
+        </div>
+        <div class="kpi-card">
+          <strong>Margen Bruto (€)</strong>
+          <div class="val green">2527.65 €</div>
+          <span style="font-size:7px; color:var(--muted);">Beneficio neto de proyecto</span>
+        </div>
+        <div class="kpi-card">
+          <strong>Rentabilidad Margen</strong>
+          <div class="val green">35.0%</div>
+          <span style="font-size:7px; color:var(--muted);">53.8% s/coste</span>
+        </div>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Concepto de Coste / Elemento</th>
+            <th>Tipo de Recurso</th>
+            <th class="c">Medición</th>
+            <th class="r">Coste Unit.</th>
+            <th class="r">Coste Directo</th>
+            <th class="r">PVP Venta</th>
+            <th class="r">Margen (€)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cable inox AISI 316 Ø8 mm (000011710)</strong></td>
+            <td>Material LUX-TOP (-18% dto)</td>
+            <td class="c">64,00 m</td>
+            <td class="r">5,658 €</td>
+            <td class="r bold">362.11 €</td>
+            <td class="r bold">736,00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">373.89 €</td>
+          </tr>
+          <tr>
+            <td><strong>24 Soportes muro 90º ASP SOKO + pernos A4</strong></td>
+            <td>Material LUX-TOP (-18% dto)</td>
+            <td class="c">24,00 ud</td>
+            <td class="r">127,51 €</td>
+            <td class="r bold">3060.24 €</td>
+            <td class="r bold">4.200,00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">1139.76 €</td>
+          </tr>
+          <tr>
+            <td><strong>Kit cierre directo FSE 2003 (SKE II + Horquilla)</strong></td>
+            <td>Material LUX-TOP (-18% dto)</td>
+            <td class="c">1,00 kit</td>
+            <td class="r">400,00 €</td>
+            <td class="r bold">400,00 €</td>
+            <td class="r bold">750,00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">350.00 €</td>
+          </tr>
+          <tr>
+            <td><strong>Mano de obra especializada (2 operarios x 12 h)</strong></td>
+            <td>Mano de obra propia (24 h)</td>
+            <td class="c">24,00 h</td>
+            <td class="r">22,00 €</td>
+            <td class="r bold">528.00 €</td>
+            <td class="r bold">912,00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">384.00 €</td>
+          </tr>
+          <tr>
+            <td><strong>Medios auxiliares y seguridad perimetral EDAR</strong></td>
+            <td>Medios auxiliares</td>
+            <td class="c">1,00 paq.</td>
+            <td class="r">280,00 €</td>
+            <td class="r bold">280,00 €</td>
+            <td class="r bold">450,00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">170.00 €</td>
+          </tr>
+          <tr>
+            <td><strong>Pruebas estáticas dinamómetro y Certificado LUX-TOP</strong></td>
+            <td>Ensayos / certificación</td>
+            <td class="c">1,00 ud</td>
+            <td class="r">70,00 €</td>
+            <td class="r bold">70,00 €</td>
+            <td class="r bold">180,00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">110.00 €</td>
+          </tr>
+          <tr style="background:var(--accent-light); font-weight:800;">
+            <td colspan="4" class="r">TOTALES DE PROYECTO (60,00 ML):</td>
+            <td class="r" style="color:var(--brand);">4700.35 €</td>
+            <td class="r" style="color:var(--accent);">7228.00 €</td>
+            <td class="r" style="color:var(--tech-green);">2527.65 €</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="two-col">
+        <div class="box">
+          <h4>Estructura de Costes y Rentabilidad de Material</h4>
+          <ul>
+            <li><strong>Coste compra LUX-TOP (Neto):</strong> 3.822,35 € (Tarifa oficial: 4.661,40 € menos 18% descuento directo Dixis).</li>
+            <li><strong>Venta cliente materiales:</strong> 5.686,00 € (Recargo comercial: 1.863,65 €).</li>
+            <li><strong>Margen en material:</strong> <strong>32,77% sobre venta de producto</strong> (48,76% sobre coste de compra).</li>
+            <li><strong>Servicios e instalación:</strong> Facturación MO + Medios + Cert: 1.542,00 € (Coste: 878,00 € -> Margen: 664,00 €).</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h4>Condiciones Operativas y Tesorería</h4>
+          <ul>
+            <li><strong>Ratio de Venta:</strong> <strong>120,47 €/ml llave en mano</strong> (muy competitivo frente al estándar de 145,60 €/ml en cubierta gracias al volumen de 60 ml).</li>
+            <li><strong>Tesorería Dixis:</strong> Cobro 100% aceptación cliente vs Pago LUX-TOP mediante <strong>Giro comercial a 60 días</strong> (Asegurado por CESCE).</li>
+            <li><strong>Plazo Crítico:</strong> 20 a 25 días para la forja de los 24 soportes especiales SOKO. Coordinar pedido inmediatamente tras aprobación de Acciona.</li>
+            <li><strong>Logística Menorca:</strong> Desplazamiento desde taller en Sant Lluís a Ferreries (aprox. 30 minutos).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div>DIXIS RECURSOS Y SOLUCIONES S.L. • HAM Menorca • Oficina Técnica</div>
+      <div>P-2026-0056 • Escandallo 120,47 €/ml LUX-TOP • Hoja 1 de 1</div>
+    </footer>
+  </div>
+
+</body>
+</html>

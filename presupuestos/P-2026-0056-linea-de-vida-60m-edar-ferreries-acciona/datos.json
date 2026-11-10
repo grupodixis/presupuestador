@@ -1,0 +1,158 @@
+{
+  "codigo": "P-2026-0056",
+  "referencia": "PRE-2026-1110-LV-EDAR-FERRERIES",
+  "fecha": "10 de noviembre de 2026",
+  "validez_dias": 30,
+  "politica_instalacion": "Dixis Recursos y Soluciones S.L. / HAM Menorca instala EXCLUSIVAMENTE sistemas anticaídas oficiales y certificados de la marca LUX-TOP®.",
+  "perimetro_ml": 60.0,
+  "tarifa_objetivo_ml": 120.47,
+  "proveedor_homologado": {
+    "nombre": "LUX-TOP Sistemas Anticaídas (Agencia Comercial Herenciana, S.L.)",
+    "cif": "B-13578919",
+    "web": "https://www.lineadevidaluxtop.es",
+    "descuento_dixis": 0.18,
+    "forma_pago_dixis": "Giro a 60 días (Asegurado por CESCE)",
+    "presupuesto_referencia": "Presupuesto LUX-TOP 3074/26 (Obra: EDAR - ACCIONA - ILLES BALEARS)",
+    "sistema": "LUX-top® FSE 2003 (UNE EN 795:2012 Tipo C / CEN/TS 16415:2013)",
+    "cable": "Acero Inoxidable AISI 316 Ø8 mm",
+    "soportes_hormigon": "LUX-top® ASP - SOKO EV2s/40 (Acero - Hormigón 90º, 20+20 cm, Ø 26 mm, 2-Loch)",
+    "fijaciones": "Pernos de hormigón de acero inoxidable A4 MKT BZ3 M-12x115/20"
+  },
+  "cliente": {
+    "nombre": "ACCIONA AGUA S.A. / ACCIONA - ILLES BALEARS",
+    "contacto_tecnico": "Dirección Facultativa / Responsable de Mantenimiento EDAR Ferreries",
+    "ubicacion": "EDAR Ferreries, Menorca (Illes Balears)",
+    "obra": "Línea de Vida Perimetral Decantador / Piscina EDAR Ferreries"
+  },
+  "emisor": {
+    "razon_social": "Dixis Recursos y Soluciones S.L.",
+    "cif": "B57825432",
+    "nombre_comercial": "HAM Estructuras Metálicas Menorca",
+    "domicilio": "Circunval·lació, 11, 07710 Sant Lluís, Menorca",
+    "telefono": "+34 669 769 541",
+    "email": "pablo@dixis.es",
+    "web": "https://www.hamenorca.com"
+  },
+  "proyecto": {
+    "titulo": "Suministro, Instalación y Certificación de Línea de Vida Oficial LUX-top® FSE 2003 (60 ml) en Piscina EDAR Ferreries",
+    "ubicacion": "EDAR Ferreries, Menorca",
+    "geometria": "Trazado circular cerrado perimetral sobre coronación de muro de hormigón (diámetro exterior ~18,08 m, perímetro ~60 ml).",
+    "descripcion": "Instalación completa 'llave en mano' de sistema anticaídas permanente horizontal LUX-top® FSE 2003 (UNE-EN 795:2012 Tipo C / CEN/TS 16415:2013) de 60 metros lineales de perímetro sobre muro de hormigón armado en piscina/decantador de la EDAR en Ferreries (Menorca). Incluye cable de acero inoxidable calidad marina AISI 316 Ø8 mm (64 m), 24 soportes especiales SOKO EV2s/40 a 90º de fabricación a medida, 48 anclajes inoxidables A4 MKT BZ3 M-12x115/20, kit de cierre oficial directa con indicador y absorbedor de tensión SKE II, equipo de montaje homologado de 2 oficiales certificados en altura (24 h totales), medios de acceso y seguridad perimetral, ensayo de tracción estática con dinamómetro in situ y Certificado Oficial de Homologación LUX-TOP.",
+    "normativa_referencia": "UNE-EN 795:2012 (Tipo C), UNE-CEN/TS 16415:2013 (Múltiples usuarios simultáneos, hasta 3 personas), RD 486/1997, RD 2177/2004."
+  },
+  "modalidad_1_paso_manual": {
+    "nombre": "Modalidad 1: LUX-top® FSE 2003 Paso Manual (Configuración Estándar Oficial)",
+    "descripcion": "El usuario se desplaza conectado permanentemente al cable de acero inoxidable AISI 316. En cada uno de los 24 soportes intermedios realiza la transición mediante cabo de amarre bifurcado en Y con absorbedor EN 355 / mosquetones EN 362 sin soltarse en ningún momento.",
+    "partidas": [
+      {
+        "id": "1.01",
+        "codigo_luxtop": "000011710",
+        "concepto": "Cable de acero inoxidable Ø8 mm AISI 316 LUX-top® FSE 2003 (64 ml)",
+        "descripcion": "Suministro de 64 m de cable flexible de acero inoxidable calidad marina AISI 316 Ø8 mm de alta resistencia, idóneo para atmósferas químicas, salinas y con alto grado de humedad presentes en estaciones depuradoras.",
+        "unidad": "m",
+        "cantidad": 64.0,
+        "tarifa_oficial": 6.90,
+        "descuento": 0.18,
+        "coste_dixis": 362.11,
+        "precio_cliente": 11.50,
+        "subtotal": 736.00
+      },
+      {
+        "id": "1.02",
+        "codigo_luxtop": "000012186-40",
+        "concepto": "24 Soportes especiales LUX-top® ASP - SOKO EV2s/40 (Acero - Hormigón 90º) para muro",
+        "descripcion": "24 unidades de soportes especiales de construcción reforzada a 90º (longitud H+V 20+20 cm, placa 80x150x6 mm con 2 taladros, eje Ø 26 mm) diseñados específicamente para fijación perimetral en muro de hormigón armado en decantador circular de EDAR. Plazo mínimo de fabricación 20-25 días.",
+        "unidad": "ud",
+        "cantidad": 24.0,
+        "tarifa_oficial": 155.50,
+        "descuento": 0.18,
+        "coste_dixis": 3060.24,
+        "precio_cliente": 175.00,
+        "subtotal": 4200.00
+      },
+      {
+        "id": "1.03",
+        "codigo_luxtop": "000040131",
+        "concepto": "Set de fijación para hormigón: 48 pernos de anclaje MKT BZ3 M-12x115/20 en Acero Inoxidable A4",
+        "descripcion": "Juego completo de anclajes de seguridad de expansión homologados ETA Opción 1 en acero inoxidable de calidad marina A4, resistentes a la corrosión en medio acuoso y clorado. 2 pernos por soporte (48 unidades).",
+        "unidad": "set",
+        "cantidad": 24.0,
+        "tarifa_oficial": 0.00,
+        "descuento": 0.18,
+        "coste_dixis": 0.00,
+        "precio_cliente": 0.00,
+        "subtotal": 0.00
+      },
+      {
+        "id": "1.04",
+        "codigo_luxtop": "030 - Cierre 3",
+        "concepto": "Kit oficial de cierre directo LUX-top® FSE 2003 (SKE II + Tensor + Horquilla + Placa)",
+        "descripcion": "Conjunto terminal de cierre oficial formado por: Absorbedor dinámico e indicador de tensión LUX-top® SKE II en acero inoxidable, tensor mecánico de cable de prensado directo en fábrica, terminal de horquilla autoprensado SV y placa de señalización reglamentaria SB de acero inoxidable para marcado CE y fecha de revisión.",
+        "unidad": "kit",
+        "cantidad": 1.0,
+        "tarifa_oficial": 487.80,
+        "descuento": 0.18,
+        "coste_dixis": 400.00,
+        "precio_cliente": 750.00,
+        "subtotal": 750.00
+      },
+      {
+        "id": "2.01",
+        "codigo_luxtop": "MONTAJE-MO",
+        "concepto": "Mano de obra especializada de montaje y fijación en muro de hormigón EDAR (24 h)",
+        "descripcion": "Equipo especialista homologado (2 oficiales cualificados x 12 h = 24 horas totales): replanteo circular perimetral, perforación con rotoperfilado en hormigón armado, aspiración y limpieza de taladros, fijación dinamométrica con llave dinamométrica calibrada a par prescrito por fabricante, tendido y pretensado del cable AISI 316, y calibración del indicador SKE II.",
+        "unidad": "h",
+        "cantidad": 24.0,
+        "tarifa_oficial": 38.00,
+        "descuento": 0.0,
+        "coste_dixis": 528.00,
+        "precio_cliente": 38.00,
+        "subtotal": 912.00
+      },
+      {
+        "id": "2.02",
+        "codigo_luxtop": "MEDIOS-ACCESO",
+        "concepto": "Medios auxiliares de seguridad y acceso perimetral para coronación de muro de decantador",
+        "descripcion": "Suministro, montaje y desmontaje de medios auxiliares de acceso seguro, línea provisional de amarre para montaje inicial y protecciones colectivas temporales conforme a plan de seguridad en depuradora.",
+        "unidad": "paquete",
+        "cantidad": 1.0,
+        "tarifa_oficial": 450.00,
+        "descuento": 0.0,
+        "coste_dixis": 280.00,
+        "precio_cliente": 450.00,
+        "subtotal": 450.00
+      },
+      {
+        "id": "2.03",
+        "codigo_luxtop": "CERT-795",
+        "concepto": "Ensayos de tracción estática con dinamómetro in situ y Certificado Oficial LUX-TOP®",
+        "descripcion": "Verificación y ensayo in situ de anclajes estructurales mediante extractor con dinamómetro tarado, remachado de placa identificativa indeleble y emisión de Certificado Oficial de Instalación homologada LUX-TOP junto al dossier técnico con manual de uso y libro de revisiones periódicas anuales.",
+        "unidad": "ud",
+        "cantidad": 1.0,
+        "tarifa_oficial": 180.00,
+        "descuento": 0.0,
+        "coste_dixis": 70.00,
+        "precio_cliente": 180.00,
+        "subtotal": 180.00
+      }
+    ],
+    "totales": {
+      "coste_materiales": 3822.35,
+      "coste_mano_obra": 528.00,
+      "coste_medios": 280.00,
+      "coste_certificacion": 70.00,
+      "coste_directo_total": 4700.35,
+      "venta_materiales": 5686.00,
+      "venta_mano_obra": 912.00,
+      "venta_medios": 450.00,
+      "venta_certificacion": 180.00,
+      "base_imponible": 7228.00,
+      "margen_euros": 2527.65,
+      "margen_porcentaje_venta": 34.97,
+      "margen_porcentaje_coste": 53.78,
+      "iva_21": 1517.88,
+      "total_con_iva": 8745.88,
+      "precio_unitario_ml": 120.47
+    }
+  }
+}
