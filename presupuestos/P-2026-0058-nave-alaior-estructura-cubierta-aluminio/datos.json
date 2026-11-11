@@ -1,0 +1,328 @@
+{
+  "codigo": "P-2026-0058",
+  "referencia": "PRE-2026-1111-ALAIOR-EST-CUB-ALU",
+  "fecha": "11 de noviembre de 2026",
+  "fecha_iso": "2026-11-11",
+  "validez_dias": 30,
+  "moneda": "EUR",
+  "iva_porcentaje": 21.0,
+  "emisor": {
+    "nombre_comercial": "HAM Estructuras Metálicas Menorca",
+    "razon_social": "Dixis Recursos y Soluciones S.L.",
+    "cif": "B57825432",
+    "direccion": "Av. Circunval·lació, 11, Polígono Industrial de Sant Lluís, 07710 Sant Lluís, Menorca (Illes Balears)",
+    "telefono": "+34 971 35 20 18",
+    "movil": "+34 669 769 541",
+    "email": "info@hamenorca.com",
+    "web": "https://www.hamenorca.com"
+  },
+  "cliente": {
+    "nombre": "OBRES GABI GONYALONS S.L.U.",
+    "proyecto": "Reparcelación y Nave para Almacén y Oficinas (Proyecto Básico y de Ejecución)",
+    "ubicacion": "Av. Santa Marianna 11-13 (C/ Santa Marianna esq. C/ des Borrassos), 07730 Alaior, Menorca",
+    "tecnico": "Joan Soria Armada (Arquitecto Técnico / Ing. de la Edificación / Consultor de Estructuras)",
+    "mediciones_ref": "260706_Alaior CYPECAD V2 projecte (junio 2026) · Planos Arquitectura (01-11) y Estructura (E01-E11)"
+  },
+  "capitulos": [
+    {
+      "id": "1",
+      "codigo": "1.3",
+      "titulo": "ESTRUCTURA METÁLICA (ACERO ESTRUCTURAL)",
+      "subtitulo": "Suministro, fabricación en taller, tratamiento anticorrosivo C4/C5, portes a Menorca y montaje en obra",
+      "partidas": [
+        {
+          "codigo": "1.3.1",
+          "concepto": "Acero conformado en frío serie C (S235JR) en correas de cubierta",
+          "descripcion": "Perfiles conformados en frío serie CF-250x2.5 (UNE-EN 10025 S235JR) en correas de cubierta sobre faldones norte y sur (84 piezas según medición CYPECAD y plano E04), con uniones atornilladas sobre casquillos/angular L 60x60x4 en dinteles (tipos 5 a 9).",
+          "perfil": "CF-250x2.5 S235JR",
+          "unidad": "kg",
+          "cantidad": 4008.34,
+          "precio_unitario": 5.00,
+          "subtotal": 20041.70
+        },
+        {
+          "codigo": "1.3.2",
+          "concepto": "Acero laminado en caliente serie HEA (S275JR) en pilares",
+          "descripcion": "Perfiles laminados en caliente serie HEA 240 A y HEA 320 A (UNE-EN 10025 S275JR) en 27 pilares perimetrales e interiores (P1 a P27 según planos E01, E03-E08), incluyendo placas de testa, cartelas y preparación para uniones.",
+          "perfil": "HEA 240/320 A S275JR",
+          "unidad": "kg",
+          "cantidad": 16639.85,
+          "precio_unitario": 5.00,
+          "subtotal": 83199.25
+        },
+        {
+          "codigo": "1.3.3",
+          "concepto": "Acero laminado en caliente serie IPE (S275JR) en pórticos, vigas de altillo y dinteles",
+          "descripcion": "Perfiles laminados en caliente serie IPE 160 a IPE 360 (UNE-EN 10025 S275JR) en pórticos de cubierta IPE 360 con cartelas, vigas de atado IPE 160/180/220 y vigas de forjados de altillos IPE 200 a 360 (76 piezas según planos E03-E08).",
+          "perfil": "IPE 160-360 S275JR",
+          "unidad": "kg",
+          "cantidad": 15401.73,
+          "precio_unitario": 5.00,
+          "subtotal": 77008.65
+        },
+        {
+          "codigo": "1.3.4",
+          "concepto": "Pletinas laminadas (S275JR) en arriostramientos y uniones",
+          "descripcion": "Pletinas laminadas serie FL (FL 35x5, 45x5, 60x5, 100x5 y 120x5, UNE-EN 10025 S275JR) en cruces de San Andrés de cubierta y pórticos testeros/laterales y tirantes (56 piezas según planos E01, E03-E07).",
+          "perfil": "FL 35x5 a 120x5",
+          "unidad": "kg",
+          "cantidad": 938.00,
+          "precio_unitario": 5.00,
+          "subtotal": 4690.00
+        }
+      ],
+      "subtotal": 184939.60,
+      "peso_total_kg": 36987.92
+    },
+    {
+      "id": "2A",
+      "codigo": "2.2-2.3",
+      "titulo": "CUBIERTA DE PANEL SÁNDWICH ACÚSTICO Y LUCERNARIOS",
+      "subtitulo": "Cobertura inclinada a dos aguas (pendiente 8%) con núcleo fonoabsorbente y 12 claraboyas",
+      "partidas": [
+        {
+          "codigo": "2.2",
+          "concepto": "Cobertura de paneles sándwich acústicos e=100 mm (lana de roca 95 kg/m³)",
+          "descripcion": "Suministro y montaje de panel sándwich acústico de acero galvanizado de 100 mm de espesor: cara exterior de chapa grecada (5 grecas) prelacada RC3/RUV2 de 0,5 mm, núcleo aislante de lana de roca 95 kg/m³ (Euroclase A2-s1,d0, Rw=35 dB, α=0,85) y cara interior nervada prelacada 0,5 mm microperforada (Ø3 mm). Incluye solape de 200 mm, cinta de butilo biadhesiva, pintura antioxidante en solapes, fijación mecánica sobre correas CF-250x2.5 y rematería estándar de cumbrera y laterales.",
+          "perfil": "Lana de roca 100 mm",
+          "unidad": "m²",
+          "cantidad": 711.75,
+          "precio_unitario": 165.00,
+          "subtotal": 117438.75
+        },
+        {
+          "codigo": "2.3",
+          "concepto": "Lucernarios de cubierta / Claraboyas fijas CE-09 (12 uds)",
+          "descripcion": "Suministro e instalación de lucernarios en cubierta inclinada mediante 12 claraboyas fijas CE-09 (1,00 x 1,00 m según plano 11; medición proyecto 15,00 m²) con placas translúcidas planas de policarbonato celular de 30 mm / policarbonato termoformado sobre marco de aluminio anodizado, babeta perimetral de chapa galvanizada, tornillería de fijación y sellado elástico estanco.",
+          "perfil": "Policarbonato 30 mm / CE-09",
+          "unidad": "m²",
+          "cantidad": 15.00,
+          "precio_unitario": 165.00,
+          "subtotal": 2475.00
+        }
+      ],
+      "subtotal": 119913.75,
+      "superficie_total_m2": 726.75
+    },
+    {
+      "id": "2B",
+      "codigo": "2.1",
+      "titulo": "FACHADA DE PANELES SÁNDWICH PUR 50 MM (PARCIAL Nº 2 DEL PROYECTO)",
+      "subtitulo": "Cerramiento ligero superior en alzados Este y Oeste (franjas sobre muro de bloque)",
+      "partidas": [
+        {
+          "codigo": "2.1",
+          "concepto": "Fachada de paneles sándwich PUR e=50 mm con fijación oculta",
+          "descripcion": "Suministro y colocación vertical de panel sándwich de acero galvanizado de 50 mm de espesor y 1.150 mm de anchura: cara exterior chapa semilisa poliéster 0,5 mm, alma de poliuretano 40 kg/m³ (Euroclase B-s1,d0) y cara interior nervada 0,5 mm. Incluye fijación oculta a estructura, cinta de butilo en solapes, remates perimetrales y sellado (Alzado Este 171,57 m² + Alzado Oeste 175,30 m²).",
+          "perfil": "PUR 50 mm fijación oculta",
+          "unidad": "m²",
+          "cantidad": 346.87,
+          "precio_unitario": 120.00,
+          "subtotal": 41624.40
+        }
+      ],
+      "subtotal": 41624.40,
+      "superficie_total_m2": 346.87
+    },
+    {
+      "id": "3",
+      "codigo": "1.8.1",
+      "titulo": "ABERTURAS Y CARPINTERÍA EXTERIOR DE ALUMINIO (PLANO 11)",
+      "subtitulo": "Aluminio lacado verde Qualicoat Seaside (calidad marina), RPT (Umarco < 1,0 W/m²K) y vidrio 6/16 Argón/4 BE (Uvidrio < 0,9 W/m²K)",
+      "partidas": [
+        {
+          "codigo": "CE-01",
+          "concepto": "Portón corredero exterior ciego 4.000 x 3.500 mm (Alzado Norte y Oeste)",
+          "descripcion": "Portón industrial de 1 hoja corredera en aluminio extruido espesor mín. 2 mm, paño ciego mediante lamas machihembradas, acabado lacado verde Qualicoat Seaside. Incluye marco estructural, guía superior de alta carga, rodamientos reforzados, cerradura, herrajes de alta resistencia, fijación y sellado perimetral.",
+          "dimensiones": "4.000 x 3.500 mm",
+          "apertura": "1 hoja corredera ciega",
+          "unidad": "ud",
+          "cantidad": 2,
+          "precio_unitario": 3900.00,
+          "subtotal": 7800.00
+        },
+        {
+          "codigo": "CE-02",
+          "concepto": "Puerta balconera acristalada 2.000 x 2.500 mm (Acceso Vestíbulo 2 Sur)",
+          "descripcion": "Carpintería de aluminio RPT color verde Qualicoat Seaside, 1 hoja batiente (1.000 mm) + 1 hoja fija (1.000 mm), herraje de seguridad, cerradura y manilla. Vidrio 6 + 16 Argón + 4 Bajo Emisivo con intercalario PVC Chromatech Ultra.",
+          "dimensiones": "2.000 x 2.500 mm",
+          "apertura": "1 hoja batiente + 1 fija",
+          "unidad": "ud",
+          "cantidad": 1,
+          "precio_unitario": 2150.00,
+          "subtotal": 2150.00
+        },
+        {
+          "codigo": "CE-03",
+          "concepto": "Puerta balconera acristalada 1.000 x 2.000 mm (Acceso Vestíbulo 1)",
+          "descripcion": "Carpintería de aluminio RPT color verde Qualicoat Seaside, 1 hoja batiente + 1 fijo superior de 500 mm, herraje de seguridad, cerradura y manilla. Vidrio 6 + 16 Argón + 4 Bajo Emisivo con intercalario PVC Chromatech Ultra.",
+          "dimensiones": "1.000 x 2.000 mm",
+          "apertura": "1 hoja batiente + fijo sup.",
+          "unidad": "ud",
+          "cantidad": 1,
+          "precio_unitario": 1380.00,
+          "subtotal": 1380.00
+        },
+        {
+          "codigo": "CE-04",
+          "concepto": "Ventana de oficinas 2.050 x 1.200 mm (Alzado Sur P1)",
+          "descripcion": "Ventana de aluminio RPT color verde Qualicoat Seaside, 2 hojas batientes (1.020 + 1.020 mm), cremones y herrajes perimetrales. Vidrio 6 + 16 Argón + 4 Bajo Emisivo con intercalario PVC Chromatech Ultra.",
+          "dimensiones": "2.050 x 1.200 mm",
+          "apertura": "2 hojas batientes",
+          "unidad": "ud",
+          "cantidad": 1,
+          "precio_unitario": 1350.00,
+          "subtotal": 1350.00
+        },
+        {
+          "codigo": "CE-05",
+          "concepto": "Ventana de oficinas 1.700 x 1.200 mm (Alzado Sur P1)",
+          "descripcion": "Ventana de aluminio RPT color verde Qualicoat Seaside, 2 hojas batientes (850 + 850 mm), cremones y herrajes perimetrales. Vidrio 6 + 16 Argón + 4 Bajo Emisivo con intercalario PVC Chromatech Ultra.",
+          "dimensiones": "1.700 x 1.200 mm",
+          "apertura": "2 hojas batientes",
+          "unidad": "ud",
+          "cantidad": 1,
+          "precio_unitario": 1180.00,
+          "subtotal": 1180.00
+        },
+        {
+          "codigo": "CE-06",
+          "concepto": "Ventana estándar nave y oficinas 1.200 x 1.200 mm",
+          "descripcion": "Ventana de aluminio RPT color verde Qualicoat Seaside, 2 hojas correderas (600 + 600 mm según representación gráfica en plano 11; opción batiente al mismo coste previa confirmación en replanteo). Vidrio 6 + 16 Argón + 4 Bajo Emisivo con intercalario PVC Chromatech Ultra.",
+          "dimensiones": "1.200 x 1.200 mm",
+          "apertura": "2 hojas correderas",
+          "unidad": "ud",
+          "cantidad": 16,
+          "precio_unitario": 920.00,
+          "subtotal": 14720.00
+        },
+        {
+          "codigo": "CE-07",
+          "concepto": "Ventana aseos / distribuidor 700 x 1.200 mm",
+          "descripcion": "Ventana de aluminio RPT color verde Qualicoat Seaside, 1 hoja oscilobatiente. Vidrio 6 + 16 Argón + 4 Bajo Emisivo (opción mateado/translúcido en aseos) con intercalario PVC Chromatech Ultra.",
+          "dimensiones": "700 x 1.200 mm",
+          "apertura": "1 hoja oscilobatiente",
+          "unidad": "ud",
+          "cantidad": 1,
+          "precio_unitario": 650.00,
+          "subtotal": 650.00
+        },
+        {
+          "codigo": "CE-08",
+          "concepto": "Ventana aseos 500 x 500 mm (Alzado Este)",
+          "descripcion": "Ventana de aluminio RPT color verde Qualicoat Seaside, 1 hoja oscilobatiente. Vidrio 6 + 16 Argón + 4 Bajo Emisivo (opción mateado/translúcido) con intercalario PVC Chromatech Ultra.",
+          "dimensiones": "500 x 500 mm",
+          "apertura": "1 hoja oscilobatiente",
+          "unidad": "ud",
+          "cantidad": 2,
+          "precio_unitario": 490.00,
+          "subtotal": 980.00
+        }
+      ],
+      "subtotal": 30210.00,
+      "unidades_totales": 25
+    }
+  ],
+  "complementarios_opcionales": [
+    {
+      "codigo": "OPC-1.3.5",
+      "concepto": "Placas de anclaje a cimentación y pernos DIN 976 para los 27 pilares (Planos E09-E10)",
+      "descripcion": "Según criterio de medición del CSV CYPECAD, los capítulos 1.3.1-1.3.4 NO incluyen las placas de anclaje a cimentación. El suministro completo incluye 6 conjuntos Tipo 4 (placa 650x650x25 mm + 2 cartelas 650x200x10 mm + 12 pernos M20x672 mm 8.8) y 21 conjuntos Tipo 10/11 (placa 450x450x25 mm + 2 cartelas 450x100x10 mm + 4 pernos M18x470 mm 8.8), con plantillas de replanteo (~1.812 kg totales).",
+      "unidad": "kg",
+      "cantidad": 1812.00,
+      "precio_unitario": 5.00,
+      "subtotal": 9060.00
+    }
+  ],
+  "totales": {
+    "cap1_estructura": 184939.60,
+    "cap2a_cubierta": 119913.75,
+    "cap2b_fachada_sandwich": 41624.40,
+    "cap2_total_paneles": 161538.15,
+    "cap3_aluminio": 30210.00,
+    "base_solo_estructura_cubierta_aluminio": 335063.35,
+    "iva_solo_estructura_cubierta_aluminio": 70363.30,
+    "total_solo_estructura_cubierta_aluminio": 405426.65,
+    "base_completo_con_fachada_sandwich": 376687.75,
+    "iva_completo": 79104.43,
+    "total_completo": 455792.18,
+    "opcional_placas_anclaje": 9060.00
+  },
+  "escandallo_interno": {
+    "estructura": {
+      "acero_medido_kg": 36987.92,
+      "placas_nudos_cartelas_est_kg": 1750.0,
+      "merma_acero_porcentaje": 5.0,
+      "acero_compra_total_kg": 40675.0,
+      "precio_compra_acero_menorca_kg": 1.55,
+      "coste_acero_material": 63046.25,
+      "coste_tornilleria_nudos": 2850.00,
+      "coste_ingenieria_despiece_taller": 3500.00,
+      "horas_taller": 814.0,
+      "tarifa_taller_h": 30.00,
+      "coste_mo_taller": 24420.00,
+      "superficie_pintura_m2": 820.0,
+      "coste_pintura_c4_c5_m2": 18.00,
+      "coste_tratamiento_superficial": 14760.00,
+      "horas_montaje_obra": 520.0,
+      "tarifa_montaje_h": 35.00,
+      "coste_mo_montaje": 18200.00,
+      "coste_grua_y_pemp": 8500.00,
+      "coste_transporte_local_alaior": 1800.00,
+      "coste_directo_total": 137076.25,
+      "venta_total": 184939.60,
+      "margen_euros": 47863.35,
+      "margen_porcentaje": 25.88
+    },
+    "cubierta_y_fachada": {
+      "coste_panel_acustico_100mm_puesto_menorca": 44128.50,
+      "coste_panel_fachada_50mm_puesto_menorca": 11793.58,
+      "coste_lucernarios_ce09_12uds": 1440.00,
+      "coste_remateria_fijaciones_butilo": 4950.00,
+      "horas_montaje_cubierta_fachada": 440.0,
+      "tarifa_montaje_h": 35.00,
+      "coste_mo_montaje": 15400.00,
+      "coste_medios_elevacion_pemp_grua": 6800.00,
+      "coste_directo_total": 84512.08,
+      "venta_total": 161538.15,
+      "margen_euros": 77026.07,
+      "margen_porcentaje": 47.68
+    },
+    "aberturas_aluminio": {
+      "coste_ce01_2uds": 4200.00,
+      "coste_ce02_1ud": 1320.00,
+      "coste_ce03_1ud": 840.00,
+      "coste_ce04_1ud": 820.00,
+      "coste_ce05_1ud": 720.00,
+      "coste_ce06_16uds": 9600.00,
+      "coste_ce07_1ud": 410.00,
+      "coste_ce08_2uds": 620.00,
+      "coste_transporte_sellados_aux": 1050.00,
+      "coste_directo_total": 19580.00,
+      "venta_total": 30210.00,
+      "margen_euros": 10630.00,
+      "margen_porcentaje": 35.19
+    },
+    "resumen_global": {
+      "coste_directo_total": 241168.33,
+      "venta_total": 376687.75,
+      "margen_bruto_total": 135519.42,
+      "margen_bruto_porcentaje": 35.98
+    }
+  },
+  "condiciones": {
+    "validez": "30 días naturales desde la fecha de emisión",
+    "forma_pago": "100% a la aceptación del presupuesto (o hitos acordados por certificación de suministro/montaje bajo contrato)",
+    "plazo_ejecucion": "A confirmar según programación de obra civil (estimado 8-10 semanas de fabricación y 4-5 semanas de montaje en obra)",
+    "acabado_ham": "Tratamiento superficial de estructura metálica realizado en taller mediante preparación mecánica/granallado Sa 2,5, imprimación epoxídica rica en fosfato de zinc y esmalte de poliuretano alifático bicomponente para exterior ambiente marino C4/C5 (secado al aire en cabina, nunca al horno)."
+  },
+  "exclusiones": [
+    "Obra civil completa: excavaciones (1.1), cimentaciones de hormigón armado (zapatas y vigas centradoras 1.2), red de saneamiento enterrada (1.4), forjados unidireccionales y escaleras de hormigón armado (1.5), fábricas de bloque y vallado (1.6), revestimientos y solera fratasada (1.7).",
+    "Placas de anclaje a cimentación y pernos DIN 976 (no incluidos en las mediciones CYPECAD 1.3.1-1.3.4; valorados aparte como partida opcional OPC-1.3.5).",
+    "Carpintería interior de madera roble (CI-01: 9 uds y CI-02: 3 uds) y mamparas interiores de vidrio/inox en aseos (MV-01: 2 uds).",
+    "Canalones pluviales, gárgolas y bajantes de recogida de aguas de cubierta (según planos 13-15) ni remates especiales contra petos no definidos.",
+    "Protección pasiva contra incendios mediante pintura intumescente o franjas cortafuegos (sujeta a justificación CTE DB-SI / RSCIEI en nave).",
+    "Instalaciones eléctricas, iluminación, fontanería, saneamiento, ventilación híbrida y gestión de residuos de obra civil (Cap. 3 del proyecto).",
+    "Tasas municipales, visados, licencias de obra, proyecto de dirección facultativa y acometidas de obra."
+  ]
+}

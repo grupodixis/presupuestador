@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presupuesto Oficial LUX-top® P-2026-0057 • EDAR ACCIONA</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+    :root {
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --soft: #f8fafc;
+      --brand: #0f172a;
+      --accent: #b45309;
+      --card-bg: #f1f5f9;
+      --highlight: #0284c7;
+      --blue-bg: #eff6ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e2e8f0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 9px;
+      line-height: 1.25;
+    }
+    .page {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      background: #fff;
+      padding: 6mm 10.5mm 5mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      page-break-inside: avoid;
+      page-break-after: avoid;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border-top: 4px solid var(--brand);
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--line);
+    }
+    .company { display: flex; gap: 10px; align-items: center; }
+    .logo { width: 92px; flex: 0 0 92px; }
+    .logo img { width: 100%; height: auto; display: block; }
+    .company-info h1 {
+      margin: 0;
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+    .company-info p { margin: 1px 0; color: var(--muted); font-size: 8.5px; }
+    .badge-luxtop {
+      display: inline-block;
+      background: #0284c7;
+      color: #fff;
+      font-size: 7.5px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .meta { text-align: right; }
+    .meta h2 { margin: 0; color: var(--accent); font-size: 13.5px; font-weight: 800; }
+    .meta .ref-badge {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff;
+      font-size: 8px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin: 2px 0;
+    }
+    .meta p { margin: 1px 0; color: var(--muted); font-size: 8px; }
+    .hero {
+      margin-top: 5px;
+      background: var(--soft);
+      border-left: 3px solid var(--accent);
+      padding: 4px 8px;
+      border-radius: 0 4px 4px 0;
+    }
+    .hero h3 { margin: 0 0 2px; color: var(--brand); font-size: 10.5px; font-weight: 700; }
+    .hero p { margin: 0; color: var(--muted); font-size: 8.3px; }
+    .grid-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-top: 5px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 4px 6px;
+    }
+    .card .label {
+      display: block;
+      font-size: 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 1px;
+    }
+    .card .value { font-size: 8.5px; font-weight: 700; color: var(--brand); }
+    h4 {
+      margin: 6px 0 3px;
+      color: var(--brand);
+      font-size: 9px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 2px;
+      text-transform: uppercase;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 8.2px; margin-bottom: 5px; }
+    th {
+      background: var(--brand);
+      color: #fff;
+      padding: 3px 5px;
+      font-size: 7.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+      border: 1px solid var(--brand);
+    }
+    td { padding: 3px 5px; border: 1px solid var(--line); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--soft); }
+    .subdesc { color: var(--muted); font-size: 7.2px; display: block; margin-top: 1px; line-height: 1.2; }
+    .c { text-align: center; }
+    .r { text-align: right; white-space: nowrap; }
+    .bold { font-weight: 700; }
+    .price-box {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 8px;
+      background: var(--blue-bg);
+      border: 1.5px solid var(--highlight);
+      border-radius: 4px;
+      padding: 5px 9px;
+      margin-bottom: 5px;
+      align-items: center;
+    }
+    .price-base .label { font-size: 7.5px; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+    .price-base .price-amount { font-size: 14px; font-weight: 800; color: var(--brand); }
+    .price-final {
+      text-align: right;
+      background: var(--brand);
+      color: #fff;
+      padding: 5px 9px;
+      border-radius: 4px;
+    }
+    .price-final .label { font-size: 7.5px; text-transform: uppercase; font-weight: 700; color: #cbd5e1; }
+    .price-final .price-amount { font-size: 15.5px; font-weight: 800; color: #fef08a; }
+    .notice-soko {
+      background: #fffbeb;
+      border: 1px solid #f59e0b;
+      border-radius: 4px;
+      padding: 4px 7px;
+      margin-bottom: 5px;
+      font-size: 7.8px;
+      color: #78350f;
+    }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 4px; }
+    .col { background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: 4px 6px; }
+    .col h5 {
+      margin: 0 0 2px;
+      font-size: 8px;
+      color: var(--brand);
+      font-weight: 700;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1px;
+    }
+    ul.compact { margin: 0; padding-left: 12px; font-size: 7.5px; color: var(--muted); line-height: 1.22; }
+    ul.compact li { margin-bottom: 1.5px; }
+    .sign-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 2px;
+      padding-top: 3px;
+      border-top: 1px solid var(--line);
+    }
+    .sign-box {
+      height: 32px;
+      border: 1px dashed var(--line);
+      border-radius: 4px;
+      padding: 3px 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 7.2px;
+      color: var(--muted);
+    }
+    footer {
+      border-top: 1px solid var(--line);
+      padding-top: 3px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.2px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div>
+      <header>
+        <div class="company">
+          <div class="logo"><img src="logo-ham.svg" alt="HAM Estructuras Metálicas"></div>
+          <div class="company-info">
+            <h1>HAM ESTRUCTURAS METÁLICAS <span class="badge-luxtop">INSTALADOR HOMOLOGADO LUX-TOP®</span></h1>
+            <p><strong>Dixis Recursos y Soluciones S.L.</strong> • CIF: B57825432</p>
+            <p>Av. Circunval·lació, 11 • Polígono Industrial de Sant Lluís, 07710 Menorca</p>
+            <p>+34 971 35 20 18 • +34 669 769 541 • pablo@dixis.es • www.hamenorca.com</p>
+          </div>
+        </div>
+        <div class="meta">
+          <h2>PRESUPUESTO P-2026-0057</h2>
+          <div class="ref-badge">PRE-2026-1111-LV-EDAR-ACCIONA</div>
+          <p><strong>Cliente:</strong> ACCIONA AGUA, S.A.</p>
+          <p><strong>Fecha:</strong> 11 de noviembre de 2026 • <strong>Validez:</strong> 30 días</p>
+        </div>
+      </header>
+
+      <section class="hero">
+        <h3>Suministro, Instalación Homologada y Certificación de Línea de Vida LUX-top® FSE 2003 (50 ml) · EDAR ACCIONA</h3>
+        <p>Instalación completa llave en mano de sistema anticaídas permanente homologado <strong>LUX-top® FSE 2003 Paso Manual</strong> sobre coronación de muro circular de hormigón (desarrollo 49,43 ml según plano LV1). Ejecutado por equipo instalador homologado LUX-TOP® con cable inoxidable AISI 316, 20 soportes especiales ASP-SOKO, pernos inox A4, ensayo con dinamómetro in situ y Certificación Oficial.</p>
+      </section>
+
+      <section class="grid-meta">
+        <div class="card">
+          <span class="label">Cliente / Obra</span>
+          <span class="value">ACCIONA AGUA · EDAR</span>
+        </div>
+        <div class="card">
+          <span class="label">Sistema Certificado</span>
+          <span class="value">LUX-top® FSE 2003 (EN 795-C)</span>
+        </div>
+        <div class="card">
+          <span class="label">Anclaje Hormigón</span>
+          <span class="value">20 uds ASP-SOKO 90º + M12 A4</span>
+        </div>
+        <div class="card">
+          <span class="label">Ratio Llave en Mano</span>
+          <span class="value">150,00 €/ml (50 ml)</span>
+        </div>
+      </section>
+
+      <h4>Desglose Oficial de Partidas • Suministro, Montaje Homologado y Certificación</h4>
+      <table>
+        <thead>
+          <tr>
+            <th class="c" style="width: 24px;">Nº</th>
+            <th>Concepto y Especificación Homologada LUX-TOP®</th>
+            <th class="c" style="width: 28px;">Ud</th>
+            <th class="r" style="width: 34px;">Cant.</th>
+            <th class="r" style="width: 56px;">Precio Ud</th>
+            <th class="r" style="width: 64px;">Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td class="c bold">1.01</td>
+            <td><strong>Cable de acero inoxidable Ø8 mm AISI 316 LUX-top® FSE 2003 (53 ml)</strong><br><span class="subdesc">Suministro de 53,00 ml de cable flexible de acero inoxidable calidad marina/EDAR AISI 316 Ø8 mm para trazado circular perimetral de 49,43 ml según plano LV1.</span></td>
+            <td class="c">m</td>
+            <td class="r">53.00</td>
+            <td class="r">9.50 €</td>
+            <td class="r bold">503.50 €</td>
+          </tr>
+          <tr>
+            <td class="c bold">1.02</td>
+            <td><strong>Soportes especiales LUX-top® ASP - SOKO EV2s / 40 (90º) sobre muro de hormigón + Fijaciones inox A4</strong><br><span class="subdesc">20 soportes de fabricación especial a medida LUX-top® ASP - SOKO EV2s / 40 (Acero-Hormigón, Ø26 mm, 90º, placa 80x150x6 mm de 2 taladros, longitud H+V 20+20 cm) dispuestos cada ~2,47 m en perímetro circular, incluyendo 20 sets de fijación (40 pernos certificados MKT BZ3 M-12x115/20 en acero inoxidable A4).</span></td>
+            <td class="c">ud</td>
+            <td class="r">20.00</td>
+            <td class="r">205.00 €</td>
+            <td class="r bold">4100.00 €</td>
+          </tr>
+          <tr>
+            <td class="c bold">1.03</td>
+            <td><strong>Kit de cierre directo LUX-top® FSE 2003 (Absorbedor SKE II + Tensor PV + Terminal SV + Placa SB)</strong><br><span class="subdesc">Conjunto completo de cierre directo en acero inoxidable AISI 316: absorbedor dinámico e indicador visual de tensión SKE II, tensor mecánico autoprensado en fábrica (PV), terminal de horquilla autoprensado (SV) y placa de señalización reglamentaria SB de fijación directa.</span></td>
+            <td class="c">kit</td>
+            <td class="r">1.00</td>
+            <td class="r">646.50 €</td>
+            <td class="r bold">646.50 €</td>
+          </tr>
+          <tr>
+            <td class="c bold">1.04</td>
+            <td><strong>Replanteo previo in situ y montaje completo por equipo instalador homologado LUX-TOP® (32 h)</strong><br><span class="subdesc">Visita de verificación dimensional previa a orden de fabricación SOKO (comprobación H+V 20+20 cm y posición placa H) y montaje mecánico en obra por 2 oficiales certificados en trabajos en altura (RD 2177/2004) e instaladores homologados LUX-TOP®: trazado perimetral, 40 taladros Ø12 mm en hormigón armado, limpieza técnica, anclaje dinamométrico de 40 pernos M12 A4, montaje de los 20 soportes ASP-SOKO, tendido del cable Ø8 mm, prensado y tensado calibrado según testigo SKE II. Incluye brocas SDS hormigón armado y consumibles.</span></td>
+            <td class="c">h</td>
+            <td class="r">32.00</td>
+            <td class="r">45.00 €</td>
+            <td class="r bold">1440.00 €</td>
+          </tr>
+          <tr>
+            <td class="c bold">1.05</td>
+            <td><strong>Medios auxiliares de acceso seguro y protección colectiva en depósito EDAR (2 jornadas)</strong><br><span class="subdesc">Disponibilidad y utilización durante 2 jornadas de montaje de medios auxiliares certificados de acceso en altura (plataforma elevadora móvil PEMP o torre móvil de trabajo/línea provisional) con marcado CE. (Partida deducible si la propiedad facilita acceso seguro o medios propios en obra).</span></td>
+            <td class="c">jorn</td>
+            <td class="r">2.00</td>
+            <td class="r">190.00 €</td>
+            <td class="r bold">380.00 €</td>
+          </tr>
+          <tr>
+            <td class="c bold">1.06</td>
+            <td><strong>Logística y transporte especial desde fábrica Península a Illes Balears / obra EDAR</strong><br><span class="subdesc">Porte marítimo/terrestre asegurado de material especial SOKO desde fábrica LUX-TOP (Herencia, Ciudad Real) hasta Illes Balears y desplazamientos de equipo instalador a planta.</span></td>
+            <td class="c">ud</td>
+            <td class="r">1.00</td>
+            <td class="r">180.00 €</td>
+            <td class="r bold">180.00 €</td>
+          </tr>
+          <tr>
+            <td class="c bold">1.07</td>
+            <td><strong>Ensayo de tiro estático con dinamómetro in situ, Certificado Oficial LUX-TOP® y Libro de Revisiones</strong><br><span class="subdesc">Pruebas de extracción/tracción estática in situ con dinamómetro calibrado sobre anclajes según UNE-EN 795, fijación de placa identificativa de acero inox con nº de serie, emisión del Certificado Oficial de Instalación Homologada registrado en plataforma LUX-TOP®, entrega de Manual de Uso y Mantenimiento, apertura del Libro de Revisiones Anuales y dossier documental PRL/CAE.</span></td>
+            <td class="c">ud</td>
+            <td class="r">1.00</td>
+            <td class="r">250.00 €</td>
+            <td class="r bold">250.00 €</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <section class="price-box">
+        <div class="price-base">
+          <span class="label">Base Imponible (Suministro + Instalación Homologada + Certificación)</span>
+          <div class="price-amount">7,500.00 €</div>
+          <span style="font-size: 7.6px; color: var(--muted);">I.V.A. 21%: 1,575.00 € • Partida 1.05 deducible (-380,00 €) si aporta medios propios</span>
+        </div>
+        <div class="price-final">
+          <span class="label">Importe Total Llave en Mano</span>
+          <div class="price-amount">9,075.00 €</div>
+          <span style="font-size: 7.5px; color: #cbd5e1;">Impuestos incluidos (I.V.A. 21%)</span>
+        </div>
+      </section>
+
+      <div class="notice-soko">
+        <strong>Plazo fabricación especial SOKO y replanteo previo:</strong> Los 20 soportes <em>LUX-top® ASP-SOKO EV2s/40</em> son de fabricación especial bajo pedido (plazo mínimo fabricante: <strong>20-25 días laborables</strong> desde confirmación de medidas reales H+V 20+20 cm y posición de placa H en obra). Montaje y certificación en <strong>2 jornadas</strong>.
+      </div>
+
+      <div class="two-col">
+        <div class="col">
+          <h5>Alcance Incluido por Instalador Homologado</h5>
+          <ul class="compact">
+            <li><strong>Visita previa de replanteo:</strong> Comprobación in situ de medidas H+V y geometría del muro antes de orden de fabricación SOKO.</li>
+            <li><strong>Calidad EDAR / Marina:</strong> Cable Ø8 mm AISI 316 y 40 pernos MKT BZ3 M-12x115/20 en acero inoxidable A4 con par certificado.</li>
+            <li><strong>Pruebas y Legalización:</strong> Ensayo de tiro estático con dinamómetro calibrado in situ, placa SB indeleble y Certificado Oficial LUX-TOP®.</li>
+            <li><strong>Documentación PRL/CAE:</strong> Manual de Uso y Mantenimiento, Libro de Revisiones Anuales y acreditación instalador homologado.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h5>Exclusiones y Condiciones Comerciales</h5>
+          <ul class="compact">
+            <li><strong>Exclusiones:</strong> Reparación/saneo estructural si el hormigón existente presentara disgregación incompatible con perno M12; vaciado o parada de servicio del depósito; EPIs individuales de uso posterior; tasas externas.</li>
+            <li><strong>Mantenimiento legal:</strong> Inspección técnica periódica anual obligatoria según UNE-EN 795 y UNE-EN 365.</li>
+            <li><strong>Garantía:</strong> Garantía oficial LUX-TOP® en materiales y 2 años de garantía de montaje HAM / DIXIS.</li>
+            <li><strong>Forma de pago:</strong> 100% a la aceptación del presupuesto (salvo condiciones contractuales acordadas con Acciona Agua, S.A.).</li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="sign-section">
+        <div class="sign-box">
+          <span><strong>Por HAM Estructuras Metálicas (DIXIS) • Instalador Homologado LUX-TOP®</strong></span>
+          <span>Pablo Sebastián Sánchez Arnoletto</span>
+        </div>
+        <div class="sign-box">
+          <span><strong>Aceptación del Cliente (ACCIONA AGUA, S.A.)</strong></span>
+          <span>Fecha, sello y firma de conformidad:</span>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div>DIXIS RECURSOS Y SOLUCIONES S.L. • C.I.F. B57825432 • Sant Lluís, Menorca (Illes Balears)</div>
+      <div>P-2026-0057 • LUX-top® FSE 2003 (50 ml) EDAR ACCIONA • Hoja 1 de 1</div>
+    </footer>
+  </div>
+</body>
+</html>
