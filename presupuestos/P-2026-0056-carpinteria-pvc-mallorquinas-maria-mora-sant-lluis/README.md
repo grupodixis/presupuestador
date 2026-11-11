@@ -13,12 +13,15 @@
 4. **Ventana Mallorquina (1500 × 1200 mm):** Actualizada a lacado **RAL 6021** (+25%): **1.105,04 €**.
 5. **Nueva Mallorquina (1200 × 1200 mm):** Añadida en 2 hojas, lacado **RAL 6021** (+25%): **1.036,98 €**.
 6. **Premarcos de obra:** Incluidos según anotación manuscrita (`Premarcos ?? (SI)`) para los 3 huecos (2000×2000, 1500×1200 y 1200×1200): **390,00 €** *(suplemento de +285,00 € si los dos huecos dobles requieren premarcos independientes separados para PVC y Mallorquina)*.
+7. **Montaje en obra (apartado independiente al final):** Desglosado aparte de los precios de suministro para las 5 carpinterías (`M1` Puerta A 70: `225 €`, `M2` Ventana A 70: `130 €`, `M3` Mallorquina 4h: `260 €`, `M4` Ventana Mallorquina: `125 €`, `M5` Mallorquina 1200×1200: `120 €` = **860,00 €**).
 
 ## Totales V2
 
-- **Base imponible:** `7.321,54 €`
-- **IVA (21%):** `1.537,52 €`
-- **Total presupuesto:** `8.859,06 €`
+- **Subtotal carpinterías y premarcos (solo suministro):** `7.321,54 €` (+ IVA = `8.859,06 €`)
+- **Apartado montaje en obra:** `860,00 €` (+ IVA = `1.040,60 €`)
+- **Base imponible total (Suministro + Montaje):** `8.181,54 €`
+- **IVA (21%):** `1.718,12 €`
+- **Total presupuesto (Suministro + Montaje):** `9.899,66 €`
 
 ## Archivos
 

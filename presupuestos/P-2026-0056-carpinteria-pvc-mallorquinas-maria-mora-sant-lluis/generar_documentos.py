@@ -162,11 +162,73 @@ def create_excel():
             c_tot.fill = fill_alt
 
     end_data = r
+    r += 1
+    c_sub_lbl = ws1.cell(row=r, column=5, value="Subtotal carpintería y premarcos")
+    c_sub_val = ws1.cell(row=r, column=6, value=f"=SUM(F{start_data}:F{end_data})")
+    c_sub_lbl.font = f_bold
+    c_sub_val.font = f_bold
+    c_sub_lbl.border = border
+    c_sub_val.border = border
+    c_sub_val.number_format = '#,##0.00 "€"'
+    c_sub_lbl.alignment = Alignment(horizontal="right")
+    c_sub_val.alignment = Alignment(horizontal="right")
+    row_sub_sum = r
+
+    # Apartado separado: Montaje en obra
     r += 2
+    ws1.cell(row=r, column=1, value="APARTADO INDEPENDIENTE: MONTAJE EN OBRA (APARTE DE LOS PRECIOS ANTERIORES)").font = f_sub
+    r += 1
+    for col, h in enumerate(["Cód.", "Concepto de montaje", "Alcance de instalación", "Ud.", "Precio Ud.", "Total"], 1):
+        c = ws1.cell(row=r, column=col, value=h)
+        c.font = f_hdr
+        c.fill = fill_hdr
+        c.border = border
+        c.alignment = Alignment(horizontal="center" if col in [1, 4, 5, 6] else "left", vertical="center")
+
+    start_mont = r + 1
+    for idx, m in enumerate(DATA["montaje"]["partidas"]):
+        r += 1
+        vals = [m["orden"], "Montaje en obra", m["concepto"], m["unidades"], m["precio_unitario"]]
+        for col, v in enumerate(vals, 1):
+            c = ws1.cell(row=r, column=col, value=v)
+            c.font = f_reg
+            c.border = border
+            if idx % 2 == 1:
+                c.fill = fill_alt
+            if col in [1, 4]:
+                c.alignment = Alignment(horizontal="center", vertical="center")
+            elif col == 5:
+                c.number_format = '#,##0.00 "€"'
+                c.alignment = Alignment(horizontal="right", vertical="center")
+            else:
+                c.alignment = Alignment(horizontal="left", vertical="center", wrap_text=True)
+        c_tot = ws1.cell(row=r, column=6, value=f"=D{r}*E{r}")
+        c_tot.font = f_bold
+        c_tot.border = border
+        c_tot.number_format = '#,##0.00 "€"'
+        c_tot.alignment = Alignment(horizontal="right", vertical="center")
+        if idx % 2 == 1:
+            c_tot.fill = fill_alt
+
+    end_mont = r
+    r += 1
+    c_msub_lbl = ws1.cell(row=r, column=5, value="Subtotal montaje en obra")
+    c_msub_val = ws1.cell(row=r, column=6, value=f"=SUM(F{start_mont}:F{end_mont})")
+    c_msub_lbl.font = f_bold
+    c_msub_val.font = f_bold
+    c_msub_lbl.border = border
+    c_msub_val.border = border
+    c_msub_val.number_format = '#,##0.00 "€"'
+    c_msub_lbl.alignment = Alignment(horizontal="right")
+    c_msub_val.alignment = Alignment(horizontal="right")
+    row_sub_mont = r
+
+    r += 2
+    row_base = r
     for label, formula in [
-        ("Base imponible", f"=SUM(F{start_data}:F{end_data})"),
-        ("IVA (21%)", f"=ROUND(F{r}*0.21, 2)"),
-        ("Total presupuesto", f"=F{r}+F{r+1}"),
+        ("Base imponible total (Suministro + Montaje)", f"=F{row_sub_sum}+F{row_sub_mont}"),
+        ("IVA (21%)", f"=ROUND(F{row_base}*0.21, 2)"),
+        ("Total presupuesto (Suministro + Montaje)", f"=F{row_base}+F{row_base+1}"),
     ]:
         c_lbl = ws1.cell(row=r, column=5, value=label)
         c_val = ws1.cell(row=r, column=6, value=formula)
@@ -226,9 +288,35 @@ def create_excel():
                 c.alignment = Alignment(wrap_text=True, vertical="center")
     s2_end = r
     r += 1
-    ws2.cell(row=r, column=2, value="TOTAL BASE IMPONIBLE").font = f_tot
+    ws2.cell(row=r, column=2, value="SUBTOTAL SUMINISTRO").font = f_bold
     for col, let in [(3, "C"), (4, "D"), (5, "E")]:
         c = ws2.cell(row=r, column=col, value=f"=SUM({let}{s2_start}:{let}{s2_end})")
+        c.font = f_bold
+        c.border = border
+        c.number_format = '#,##0.00 "€"'
+    row_s2_sum = r
+
+    r += 1
+    ws2.cell(row=r, column=1, value="M1-M5").border = border
+    ws2.cell(row=r, column=2, value="Montaje en obra (apartado independiente)").border = border
+    c3m = ws2.cell(row=r, column=3, value=0.0)
+    c4m = ws2.cell(row=r, column=4, value=DATA["montaje"]["subtotal_montaje"])
+    c5m = ws2.cell(row=r, column=5, value=f"=D{r}-C{r}")
+    c6m = ws2.cell(row=r, column=6, value="Apartado final independiente (14,5 h-hombre a 35 €/h + selladores MS): M1 225 € + M2 130 € + M3 260 € + M4 125 € + M5 120 € = 860,00 €.")
+    for col, c in enumerate([c3m, c4m, c5m, c6m], 3):
+        c.font = f_reg
+        c.border = border
+        if col in [3, 4, 5]:
+            c.number_format = '#,##0.00 "€"'
+            c.alignment = Alignment(horizontal="right", vertical="center")
+        else:
+            c.alignment = Alignment(wrap_text=True, vertical="center")
+    row_s2_mont = r
+
+    r += 1
+    ws2.cell(row=r, column=2, value="TOTAL BASE IMPONIBLE (SUMINISTRO + MONTAJE)").font = f_tot
+    for col, let in [(3, "C"), (4, "D"), (5, "E")]:
+        c = ws2.cell(row=r, column=col, value=f"={let}{row_s2_sum}+{let}{row_s2_mont}")
         c.font = f_tot
         c.fill = fill_grn
         c.border = border
@@ -264,6 +352,18 @@ def generate_html_files():
           <td class="col-ud">{p["unidades"]}</td>
           <td class="col-pu">{fmt_eur(p["precio_unitario"])}</td>
           <td class="col-tot"><strong>{fmt_eur(p["total"])}</strong></td>
+        </tr>"""
+
+    mont = DATA["montaje"]
+    mont_rows_html = ""
+    for m in mont["partidas"]:
+        mont_rows_html += f"""
+        <tr>
+          <td class="m-code">{m['orden']}</td>
+          <td>{m['concepto']}</td>
+          <td class="col-ud">{m['unidades']}</td>
+          <td class="col-pu">{fmt_eur(m['precio_unitario'])}</td>
+          <td class="col-tot"><strong>{fmt_eur(m['total'])}</strong></td>
         </tr>"""
 
     html_cliente = f"""<!DOCTYPE html>
@@ -418,7 +518,7 @@ def generate_html_files():
       margin-bottom: 12px;
     }}
     .totals-box {{
-      width: 265px;
+      width: 315px;
       border: 1px solid #cbd5e1;
       border-radius: 6px;
       padding: 9px 12px;
@@ -427,7 +527,7 @@ def generate_html_files():
     .tot-row {{
       display: flex;
       justify-content: space-between;
-      font-size: 8.5pt;
+      font-size: 8.4pt;
       padding: 2.5px 0;
       color: #334155;
     }}
@@ -435,8 +535,68 @@ def generate_html_files():
       border-top: 1.5px solid #0f172a;
       margin-top: 5px;
       padding-top: 6px;
-      font-size: 11pt;
+      font-size: 10.6pt;
       font-weight: 800;
+      color: #0f172a;
+    }}
+    .tot-note {{
+      margin-top: 4px;
+      font-size: 7.4pt;
+      color: #64748b;
+      text-align: right;
+    }}
+    .montaje-section {{
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 9px 12px;
+      margin-bottom: 10px;
+      background: #ffffff;
+      break-inside: avoid;
+    }}
+    .montaje-section h4 {{
+      margin: 0 0 4px 0;
+      font-size: 8.2pt;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #0369a1;
+    }}
+    .montaje-desc {{
+      margin: 0 0 7px 0;
+      font-size: 7.8pt;
+      color: #475569;
+    }}
+    table.montaje-tbl {{
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.1pt;
+    }}
+    table.montaje-tbl th {{
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 7.5pt;
+      text-align: left;
+      padding: 4px 7px;
+      border-top: 1px solid #cbd5e1;
+      border-bottom: 1px solid #cbd5e1;
+    }}
+    table.montaje-tbl th.center {{ text-align: center; }}
+    table.montaje-tbl th.right {{ text-align: right; }}
+    table.montaje-tbl td {{
+      padding: 4.5px 7px;
+      border-bottom: 1px solid #e2e8f0;
+      color: #1e293b;
+    }}
+    table.montaje-tbl td.m-code {{
+      width: 38px;
+      text-align: center;
+      font-weight: 700;
+      color: #0369a1;
+    }}
+    table.montaje-tbl tr.m-sub td {{
+      background: #f8fafc;
+      font-weight: 700;
+      border-bottom: none;
+      padding-top: 6px;
       color: #0f172a;
     }}
     .conditions {{
@@ -524,11 +684,37 @@ def generate_html_files():
   </table>
 
   <div class="bottom-block">
+    <div class="montaje-section">
+      <h4>Apartado independiente · Montaje en obra</h4>
+      <p class="montaje-desc">{mont['descripcion_general']}</p>
+      <table class="montaje-tbl">
+        <thead>
+          <tr>
+            <th class="center">Cód.</th>
+            <th>Concepto de montaje en obra</th>
+            <th class="center">Ud.</th>
+            <th class="right">Precio ud.</th>
+            <th class="right">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {mont_rows_html}
+          <tr class="m-sub">
+            <td colspan="4" style="text-align:right;">Subtotal montaje en obra (sin IVA):</td>
+            <td class="col-tot">{fmt_eur(mont['subtotal_montaje'])}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <div class="totals-wrap">
       <div class="totals-box">
-        <div class="tot-row"><span>Base imponible:</span><span><strong>{fmt_eur(tot['base_imponible'])}</strong></span></div>
+        <div class="tot-row"><span>Subtotal carpinterías y premarcos:</span><span><strong>{fmt_eur(tot['base_imponible_suministro'])}</strong></span></div>
+        <div class="tot-row"><span>Apartado montaje en obra:</span><span><strong>{fmt_eur(tot['base_imponible_montaje'])}</strong></span></div>
+        <div class="tot-row"><span>Base imponible total:</span><span><strong>{fmt_eur(tot['base_imponible'])}</strong></span></div>
         <div class="tot-row"><span>IVA (21%):</span><span><strong>{fmt_eur(tot['iva_21'])}</strong></span></div>
         <div class="tot-row final"><span>Total presupuesto:</span><span>{fmt_eur(tot['total_presupuesto'])}</span></div>
+        <div class="tot-note">Solo suministro sin montaje: {fmt_eur(tot['base_imponible_suministro'])} + IVA = {fmt_eur(tot['total_suministro'])}</div>
       </div>
     </div>
 
@@ -539,9 +725,9 @@ def generate_html_files():
         <li>Forma de pago: {exp['forma_pago']}.</li>
         <li>Plazo de entrega estimado: {exp['plazo_entrega']}.</li>
         <li>Garantía: 2 años en perfiles de aluminio/PVC, mecanismos de herrajes y estanqueidad conforme a normativa CTE/UNE.</li>
-        <li>El presupuesto comprende la fabricación, suministro de premarcos indicados, transporte y colocación en obra accesible en la isla de Menorca.</li>
+        <li>Los precios de las partidas 1 a 6 comprenden la fabricación, suministro de premarcos indicados y transporte a obra accesible en la isla de Menorca. El montaje en obra se detalla aparte en su apartado independiente.</li>
         <li>El reparto de hojas activas/pasivas, manos de apertura y tipología exacta de premarcos (compartidos o independientes) se confirmará definitivamente en replanteo de obra antes de fabricación.</li>
-        <li>No se incluyen trabajos de albañilería, pintura, remates de yeso, medios auxiliares especiales (grúa exterior o andamios) ni desescombro salvo indicación expresa.</li>
+        <li>No se incluyen trabajos de albañilería (ni colocación de albañilería de los premarcos), pintura, remates de yeso, medios auxiliares especiales (grúa exterior o andamios) ni desescombro salvo indicación expresa.</li>
       </ol>
     </div>
 
@@ -586,21 +772,21 @@ def generate_html_files():
   <meta charset="UTF-8">
   <title>Informe Interno Técnico · {exp['codigo']} ({exp['referencia_alufac']})</title>
   <style>
-    @page {{ size: A4 portrait; margin: 12mm 13mm; }}
-    body {{ font-family: "Segoe UI", Arial, sans-serif; font-size: 8.5pt; color: #1e293b; line-height: 1.4; margin: 0; }}
-    .hdr {{ border-bottom: 2px solid #0f172a; padding-bottom: 8px; margin-bottom: 12px; display: flex; justify-content: space-between; }}
-    .hdr h1 {{ margin: 0; font-size: 13pt; color: #0f172a; }}
-    .badge {{ background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 8pt; }}
-    .box {{ background: #f8fafc; border: 1px solid #cbd5e1; border-left: 4px solid #0284c7; padding: 9px 12px; margin-bottom: 12px; border-radius: 4px; }}
+    @page {{ size: A4 portrait; margin: 9mm 11mm; }}
+    body {{ font-family: "Segoe UI", Arial, sans-serif; font-size: 8.1pt; color: #1e293b; line-height: 1.32; margin: 0; }}
+    .hdr {{ border-bottom: 2px solid #0f172a; padding-bottom: 6px; margin-bottom: 8px; display: flex; justify-content: space-between; }}
+    .hdr h1 {{ margin: 0; font-size: 12pt; color: #0f172a; }}
+    .badge {{ background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 7.5pt; }}
+    .box {{ background: #f8fafc; border: 1px solid #cbd5e1; border-left: 4px solid #0284c7; padding: 7px 10px; margin-bottom: 8px; border-radius: 4px; font-size: 7.9pt; }}
     .box.ok {{ border-left-color: #16a34a; background: #f0fdf4; }}
-    h2 {{ font-size: 10pt; color: #0f172a; border-bottom: 1px solid #cbd5e1; padding-bottom: 3px; margin: 12px 0 6px 0; text-transform: uppercase; }}
-    table {{ width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 8pt; }}
-    th, td {{ border: 1px solid #cbd5e1; padding: 5px 7px; vertical-align: top; }}
+    h2 {{ font-size: 9.2pt; color: #0f172a; border-bottom: 1px solid #cbd5e1; padding-bottom: 2px; margin: 8px 0 5px 0; text-transform: uppercase; }}
+    table {{ width: 100%; border-collapse: collapse; margin-bottom: 8px; font-size: 7.6pt; }}
+    th, td {{ border: 1px solid #cbd5e1; padding: 4px 6px; vertical-align: top; }}
     th {{ background: #0f172a; color: #fff; text-align: left; }}
     .right {{ text-align: right; white-space: nowrap; }}
     .center {{ text-align: center; }}
     .tot {{ background: #eff6ff; font-weight: 700; }}
-    ul {{ margin: 4px 0; padding-left: 18px; }}
+    ul {{ margin: 3px 0; padding-left: 16px; font-size: 7.8pt; }}
   </style>
 </head>
 <body>
@@ -635,26 +821,34 @@ def generate_html_files():
     </thead>
     <tbody>
       {comp_rows}
+      <tr>
+        <td class="center">M1-M5</td>
+        <td><strong>Montaje en obra (apartado independiente)</strong></td>
+        <td class="right">0,00 €</td>
+        <td class="right"><strong>{fmt_eur(tot['base_imponible_montaje'])}</strong></td>
+        <td class="right">+{fmt_eur(tot['base_imponible_montaje'])}</td>
+        <td>Apartado final aparte de los precios de carpintería: M1 Puerta A70 (225 €) + M2 Ventana A70 (130 €) + M3 Mallorquina 4h (260 €) + M4 Ventana Mallorquina (125 €) + M5 Mallorquina 1200×1200 (120 €). Estimación interna: 14,5 h-hombre a 35 €/h + selladores MS ≈ 572,50 € coste directo (margen ~33,4%).</td>
+      </tr>
       <tr class="tot">
-        <td colspan="2">BASE IMPONIBLE</td>
+        <td colspan="2">BASE IMPONIBLE TOTAL (Suministro + Montaje)</td>
         <td class="right">{fmt_eur(tot['base_imponible_original'])}</td>
         <td class="right">{fmt_eur(tot['base_imponible'])}</td>
         <td class="right">+{fmt_eur(tot['base_imponible'] - tot['base_imponible_original'])}</td>
-        <td>Incremento neto base imponible (+48,5%)</td>
+        <td>Solo suministro: {fmt_eur(tot['base_imponible_suministro'])} · Montaje aparte: {fmt_eur(tot['base_imponible_montaje'])}</td>
       </tr>
       <tr>
         <td colspan="2">IVA (21%)</td>
         <td class="right">{fmt_eur(tot['iva_original'])}</td>
         <td class="right">{fmt_eur(tot['iva_21'])}</td>
         <td class="right">+{fmt_eur(tot['iva_21'] - tot['iva_original'])}</td>
-        <td></td>
+        <td>IVA solo suministro: {fmt_eur(tot['iva_21_suministro'])} · IVA montaje: {fmt_eur(tot['iva_21_montaje'])}</td>
       </tr>
       <tr class="tot">
         <td colspan="2">TOTAL PRESUPUESTO (IVA INCLUIDO)</td>
         <td class="right">{fmt_eur(tot['total_original'])}</td>
         <td class="right">{fmt_eur(tot['total_presupuesto'])}</td>
         <td class="right">+{fmt_eur(tot['total_presupuesto'] - tot['total_original'])}</td>
-        <td></td>
+        <td>Solo suministro IVA incl.: {fmt_eur(tot['total_suministro'])} · Montaje IVA incl.: {fmt_eur(tot['total_montaje'])}</td>
       </tr>
     </tbody>
   </table>

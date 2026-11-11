@@ -150,7 +150,7 @@
       margin-bottom: 12px;
     }
     .totals-box {
-      width: 265px;
+      width: 315px;
       border: 1px solid #cbd5e1;
       border-radius: 6px;
       padding: 9px 12px;
@@ -159,7 +159,7 @@
     .tot-row {
       display: flex;
       justify-content: space-between;
-      font-size: 8.5pt;
+      font-size: 8.4pt;
       padding: 2.5px 0;
       color: #334155;
     }
@@ -167,8 +167,68 @@
       border-top: 1.5px solid #0f172a;
       margin-top: 5px;
       padding-top: 6px;
-      font-size: 11pt;
+      font-size: 10.6pt;
       font-weight: 800;
+      color: #0f172a;
+    }
+    .tot-note {
+      margin-top: 4px;
+      font-size: 7.4pt;
+      color: #64748b;
+      text-align: right;
+    }
+    .montaje-section {
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 9px 12px;
+      margin-bottom: 10px;
+      background: #ffffff;
+      break-inside: avoid;
+    }
+    .montaje-section h4 {
+      margin: 0 0 4px 0;
+      font-size: 8.2pt;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #0369a1;
+    }
+    .montaje-desc {
+      margin: 0 0 7px 0;
+      font-size: 7.8pt;
+      color: #475569;
+    }
+    table.montaje-tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.1pt;
+    }
+    table.montaje-tbl th {
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 7.5pt;
+      text-align: left;
+      padding: 4px 7px;
+      border-top: 1px solid #cbd5e1;
+      border-bottom: 1px solid #cbd5e1;
+    }
+    table.montaje-tbl th.center { text-align: center; }
+    table.montaje-tbl th.right { text-align: right; }
+    table.montaje-tbl td {
+      padding: 4.5px 7px;
+      border-bottom: 1px solid #e2e8f0;
+      color: #1e293b;
+    }
+    table.montaje-tbl td.m-code {
+      width: 38px;
+      text-align: center;
+      font-weight: 700;
+      color: #0369a1;
+    }
+    table.montaje-tbl tr.m-sub td {
+      background: #f8fafc;
+      font-weight: 700;
+      border-bottom: none;
+      padding-top: 6px;
       color: #0f172a;
     }
     .conditions {
@@ -379,11 +439,72 @@
   </table>
 
   <div class="bottom-block">
+    <div class="montaje-section">
+      <h4>Apartado independiente · Montaje en obra</h4>
+      <p class="montaje-desc">Colocación y montaje completo de las 5 carpinterías en obra accesible en Menorca: fijación mecánica con tornillería inoxidable, nivelación y aplomado, colocación y acuñado de vidrios, regulación de herrajes/cerradura y sellado perimetral exterior con polímero MS marino. No incluye colocación de albañilería de los premarcos.</p>
+      <table class="montaje-tbl">
+        <thead>
+          <tr>
+            <th class="center">Cód.</th>
+            <th>Concepto de montaje en obra</th>
+            <th class="center">Ud.</th>
+            <th class="right">Precio ud.</th>
+            <th class="right">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        <tr>
+          <td class="m-code">M1</td>
+          <td>Montaje Puerta PVC Cortizo A 70 (2000 × 2000 mm, hojas 800 + 1200 mm)</td>
+          <td class="col-ud">1</td>
+          <td class="col-pu">225,00 €</td>
+          <td class="col-tot"><strong>225,00 €</strong></td>
+        </tr>
+        <tr>
+          <td class="m-code">M2</td>
+          <td>Montaje Ventana PVC Cortizo A 70 (1500 × 1200 mm, 2 hojas)</td>
+          <td class="col-ud">1</td>
+          <td class="col-pu">130,00 €</td>
+          <td class="col-tot"><strong>130,00 €</strong></td>
+        </tr>
+        <tr>
+          <td class="m-code">M3</td>
+          <td>Montaje Mallorquina principal 4 hojas con cerradura (2000 × 2000 mm)</td>
+          <td class="col-ud">1</td>
+          <td class="col-pu">260,00 €</td>
+          <td class="col-tot"><strong>260,00 €</strong></td>
+        </tr>
+        <tr>
+          <td class="m-code">M4</td>
+          <td>Montaje Ventana Mallorquina 2 hojas (1500 × 1200 mm)</td>
+          <td class="col-ud">1</td>
+          <td class="col-pu">125,00 €</td>
+          <td class="col-tot"><strong>125,00 €</strong></td>
+        </tr>
+        <tr>
+          <td class="m-code">M5</td>
+          <td>Montaje Mallorquina nueva 2 hojas (1200 × 1200 mm)</td>
+          <td class="col-ud">1</td>
+          <td class="col-pu">120,00 €</td>
+          <td class="col-tot"><strong>120,00 €</strong></td>
+        </tr>
+          <tr class="m-sub">
+            <td colspan="4" style="text-align:right;">Subtotal montaje en obra (sin IVA):</td>
+            <td class="col-tot">860,00 €</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <div class="totals-wrap">
       <div class="totals-box">
-        <div class="tot-row"><span>Base imponible:</span><span><strong>7.321,54 €</strong></span></div>
-        <div class="tot-row"><span>IVA (21%):</span><span><strong>1.537,52 €</strong></span></div>
-        <div class="tot-row final"><span>Total presupuesto:</span><span>8.859,06 €</span></div>
+        <div class="tot-row"><span>Subtotal carpinterías y premarcos:</span><span><strong>7.321,54 €</strong></span></div>
+        <div class="tot-row"><span>Apartado montaje en obra:</span><span><strong>860,00 €</strong></span></div>
+        <div class="tot-row"><span>Base imponible total:</span><span><strong>8.181,54 €</strong></span></div>
+        <div class="tot-row"><span>IVA (21%):</span><span><strong>1.718,12 €</strong></span></div>
+        <div class="tot-row final"><span>Total presupuesto:</span><span>9.899,66 €</span></div>
+        <div class="tot-note">Solo suministro sin montaje: 7.321,54 € + IVA = 8.859,06 €</div>
       </div>
     </div>
 
@@ -394,9 +515,9 @@
         <li>Forma de pago: 100% a la confirmación y aceptación del pedido.</li>
         <li>Plazo de entrega estimado: 2 a 3 semanas a partir de la confirmación definitiva de medidas en obra y colores.</li>
         <li>Garantía: 2 años en perfiles de aluminio/PVC, mecanismos de herrajes y estanqueidad conforme a normativa CTE/UNE.</li>
-        <li>El presupuesto comprende la fabricación, suministro de premarcos indicados, transporte y colocación en obra accesible en la isla de Menorca.</li>
+        <li>Los precios de las partidas 1 a 6 comprenden la fabricación, suministro de premarcos indicados y transporte a obra accesible en la isla de Menorca. El montaje en obra se detalla aparte en su apartado independiente.</li>
         <li>El reparto de hojas activas/pasivas, manos de apertura y tipología exacta de premarcos (compartidos o independientes) se confirmará definitivamente en replanteo de obra antes de fabricación.</li>
-        <li>No se incluyen trabajos de albañilería, pintura, remates de yeso, medios auxiliares especiales (grúa exterior o andamios) ni desescombro salvo indicación expresa.</li>
+        <li>No se incluyen trabajos de albañilería (ni colocación de albañilería de los premarcos), pintura, remates de yeso, medios auxiliares especiales (grúa exterior o andamios) ni desescombro salvo indicación expresa.</li>
       </ol>
     </div>
 

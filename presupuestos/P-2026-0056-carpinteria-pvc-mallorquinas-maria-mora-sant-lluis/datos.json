@@ -151,12 +151,72 @@
       "nota_interna": "Incluido por anotación manuscrita 'Premarcos ?? (SI)' en copia impresa. Valorado para 3 huecos (165 + 120 + 105 = 390 €). Confirmar en obra si los huecos dobles PVC+Mallorquina comparten premarco ancho o precisan 2 premarcos adicionales (+285 €)."
     }
   ],
+  "montaje": {
+    "titulo": "Montaje en obra (apartado independiente)",
+    "descripcion_general": "Colocación y montaje completo de las 5 carpinterías en obra accesible en Menorca: fijación mecánica con tornillería inoxidable, nivelación y aplomado, colocación y acuñado de vidrios, regulación de herrajes/cerradura y sellado perimetral exterior con polímero MS marino. No incluye colocación de albañilería de los premarcos.",
+    "partidas": [
+      {
+        "orden": "M1",
+        "concepto": "Montaje Puerta PVC Cortizo A 70 (2000 × 2000 mm, hojas 800 + 1200 mm)",
+        "unidades": 1,
+        "precio_unitario": 225.00,
+        "total": 225.00,
+        "horas_est": 4.0,
+        "coste_est": 155.00
+      },
+      {
+        "orden": "M2",
+        "concepto": "Montaje Ventana PVC Cortizo A 70 (1500 × 1200 mm, 2 hojas)",
+        "unidades": 1,
+        "precio_unitario": 130.00,
+        "total": 130.00,
+        "horas_est": 2.0,
+        "coste_est": 80.00
+      },
+      {
+        "orden": "M3",
+        "concepto": "Montaje Mallorquina principal 4 hojas con cerradura (2000 × 2000 mm)",
+        "unidades": 1,
+        "precio_unitario": 260.00,
+        "total": 260.00,
+        "horas_est": 4.5,
+        "coste_est": 177.50
+      },
+      {
+        "orden": "M4",
+        "concepto": "Montaje Ventana Mallorquina 2 hojas (1500 × 1200 mm)",
+        "unidades": 1,
+        "precio_unitario": 125.00,
+        "total": 125.00,
+        "horas_est": 2.0,
+        "coste_est": 80.00
+      },
+      {
+        "orden": "M5",
+        "concepto": "Montaje Mallorquina nueva 2 hojas (1200 × 1200 mm)",
+        "unidades": 1,
+        "precio_unitario": 120.00,
+        "total": 120.00,
+        "horas_est": 2.0,
+        "coste_est": 80.00
+      }
+    ],
+    "subtotal_montaje": 860.00,
+    "iva_montaje": 180.60,
+    "total_montaje": 1040.60
+  },
   "totales": {
     "base_imponible_original": 4929.35,
     "iva_original": 1035.16,
     "total_original": 5964.51,
-    "base_imponible": 7321.54,
-    "iva_21": 1537.52,
-    "total_presupuesto": 8859.06
+    "base_imponible_suministro": 7321.54,
+    "iva_21_suministro": 1537.52,
+    "total_suministro": 8859.06,
+    "base_imponible_montaje": 860.00,
+    "iva_21_montaje": 180.60,
+    "total_montaje": 1040.60,
+    "base_imponible": 8181.54,
+    "iva_21": 1718.12,
+    "total_presupuesto": 9899.66
   }
 }
