@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudio Técnico Interno P-2026-0057 • EDAR ACCIONA</title>
+  <style>
+    @page { size: A4 portrait; margin: 0; }
+    :root {
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --soft: #f8fafc;
+      --brand: #0f172a;
+      --tech-red: #b91c1c;
+      --tech-green: #15803d;
+      --accent: #b45309;
+      --card-bg: #f1f5f9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e2e8f0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 9px;
+      line-height: 1.25;
+    }
+    .page {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      background: #fff;
+      padding: 6mm 10.5mm 5mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      page-break-inside: avoid;
+      page-break-after: avoid;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border-top: 4px solid var(--tech-red);
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--line);
+    }
+    .company { display: flex; gap: 10px; align-items: center; }
+    .logo { width: 92px; flex: 0 0 92px; }
+    .logo img { width: 100%; height: auto; display: block; }
+    .company-info h1 { margin: 0; color: var(--brand); font-size: 13px; font-weight: 800; }
+    .company-info p { margin: 1px 0; color: var(--tech-red); font-weight: 700; font-size: 8.5px; }
+    .meta { text-align: right; }
+    .meta h2 { margin: 0; color: var(--tech-red); font-size: 13px; font-weight: 800; }
+    .meta .ref-badge {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff;
+      font-size: 8px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin: 2px 0;
+    }
+    .meta p { margin: 1px 0; color: var(--muted); font-size: 8px; }
+    .hero {
+      margin-top: 5px;
+      background: #fef2f2;
+      border-left: 3px solid var(--tech-red);
+      padding: 4px 8px;
+      border-radius: 0 4px 4px 0;
+    }
+    .hero h3 { margin: 0 0 2px; color: var(--brand); font-size: 10.5px; font-weight: 700; }
+    .hero p { margin: 0; color: var(--muted); font-size: 8.2px; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 5px; }
+    .kpi {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 4px 6px;
+    }
+    .kpi .label { font-size: 7px; text-transform: uppercase; color: var(--muted); font-weight: 700; display: block; }
+    .kpi .val { font-size: 11px; font-weight: 800; color: var(--brand); }
+    .kpi.green .val { color: var(--tech-green); }
+    .kpi.red .val { color: var(--tech-red); }
+    h4 {
+      margin: 6px 0 3px;
+      color: var(--brand);
+      font-size: 9px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 2px;
+      text-transform: uppercase;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 7.9px; margin-bottom: 5px; }
+    th {
+      background: var(--brand);
+      color: #fff;
+      padding: 3px 4px;
+      font-size: 7.2px;
+      text-transform: uppercase;
+      border: 1px solid var(--brand);
+    }
+    td { padding: 3px 4px; border: 1px solid var(--line); vertical-align: top; }
+    tr:nth-child(even) td { background: var(--soft); }
+    .c { text-align: center; }
+    .r { text-align: right; white-space: nowrap; }
+    .bold { font-weight: 700; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 5px; }
+    .col { background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: 5px 7px; }
+    .col h5 {
+      margin: 0 0 3px;
+      font-size: 8.2px;
+      color: var(--brand);
+      font-weight: 700;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 2px;
+    }
+    ul.compact { margin: 0; padding-left: 12px; font-size: 7.7px; color: var(--muted); line-height: 1.25; }
+    ul.compact li { margin-bottom: 2px; }
+    .alert-box {
+      background: #fffbeb;
+      border: 1px solid #f59e0b;
+      border-radius: 4px;
+      padding: 5px 7px;
+      font-size: 7.8px;
+      color: #78350f;
+    }
+    footer {
+      border-top: 1px solid var(--line);
+      padding-top: 3px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.2px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div>
+      <header>
+        <div class="company">
+          <div class="logo"><img src="logo-ham.svg" alt="HAM"></div>
+          <div class="company-info">
+            <h1>ESTUDIO TÉCNICO INTERNO • DIXIS / HAM MENORCA</h1>
+            <p>DOCUMENTO CONFIDENCIAL DE ESCANDALLO Y RENTABILIDAD (NO ENVIAR AL CLIENTE)</p>
+            <p style="color:var(--muted); font-weight:400;">Obra: EDAR - ACCIONA - ILLES BALEARS • Presupuesto Proveedor LUX-TOP Nº 3074/26 (10/11/2026)</p>
+          </div>
+        </div>
+        <div class="meta">
+          <h2>P-2026-0057 INTERNO</h2>
+          <div class="ref-badge">PRE-2026-1111-LV-EDAR-ACCIONA</div>
+          <p><strong>Fecha:</strong> 11 de noviembre de 2026</p>
+          <p><strong>Ratio Venta:</strong> 150.00 €/ml (50 ml)</p>
+        </div>
+      </header>
+
+      <section class="hero">
+        <h3>Análisis Interno: Línea de Vida LUX-top® FSE 2003 (49,43 m plano / 50 ml) · 20 Soportes Especiales SOKO en Hormigón</h3>
+        <p>Presupuesto elaborado a partir del coste neto oficial LUX-TOP nº 3074/26 (3.250,07 € base con 18% dto.) más replanteo in situ, montaje homologado de 20 postes ASP-SOKO (40 pernos M12 A4 en hormigón armado), medios auxiliares PEMP (2 jornadas), portes a Illes Balears y certificación con dinamómetro.</p>
+      </section>
+
+      <section class="kpi-grid">
+        <div class="kpi red">
+          <span class="label">Coste Material LUX-TOP</span>
+          <span class="val">3,250.07 €</span>
+        </div>
+        <div class="kpi red">
+          <span class="label">Coste Directo Total Dixis</span>
+          <span class="val">4,600.07 €</span>
+        </div>
+        <div class="kpi">
+          <span class="label">Base Imponible Cliente</span>
+          <span class="val">7,500.00 €</span>
+        </div>
+        <div class="kpi green">
+          <span class="label">Margen Bruto Operativo</span>
+          <span class="val">2,899.93 € (38.67%)</span>
+        </div>
+      </section>
+
+      <h4>Escandallo Completo por Partidas (Costes Reales vs Precio de Venta Cliente)</h4>
+      <table>
+        <thead>
+          <tr>
+            <th class="c" style="width: 22px;">Nº</th>
+            <th>Partida y Referencia</th>
+            <th class="c" style="width: 24px;">Ud</th>
+            <th class="r" style="width: 30px;">Cant.</th>
+            <th class="r" style="width: 48px;">Tarifa</th>
+            <th class="c" style="width: 26px;">Dto</th>
+            <th class="r" style="width: 54px;">Coste Dixis</th>
+            <th class="r" style="width: 54px;">Venta Cli.</th>
+            <th class="r" style="width: 74px;">Margen (€ / %)</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td class="c bold">1.01</td>
+            <td><strong>Cable de acero inoxidable Ø8 mm AISI 316 LUX-top® FSE 2003 (53 ml)</strong><br><span style="color:var(--muted); font-size:7.2px;">Ref: 000011710</span></td>
+            <td class="c">m</td>
+            <td class="r">53.00</td>
+            <td class="r">6.90 €</td>
+            <td class="c">18%</td>
+            <td class="r bold" style="color:var(--tech-red);">299.87 €</td>
+            <td class="r bold">503.50 €</td>
+            <td class="r bold" style="color:var(--tech-green);">203.63 € (40.4%)</td>
+          </tr>
+          <tr>
+            <td class="c bold">1.02</td>
+            <td><strong>Soportes especiales LUX-top® ASP - SOKO EV2s / 40 (90º) sobre muro de hormigón + Fijaciones inox A4</strong><br><span style="color:var(--muted); font-size:7.2px;">Ref: 000012186-40 + 000040131</span></td>
+            <td class="c">ud</td>
+            <td class="r">20.00</td>
+            <td class="r">155.50 €</td>
+            <td class="c">18%</td>
+            <td class="r bold" style="color:var(--tech-red);">2550.20 €</td>
+            <td class="r bold">4100.00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">1549.80 € (37.8%)</td>
+          </tr>
+          <tr>
+            <td class="c bold">1.03</td>
+            <td><strong>Kit de cierre directo LUX-top® FSE 2003 (Absorbedor SKE II + Tensor PV + Terminal SV + Placa SB)</strong><br><span style="color:var(--muted); font-size:7.2px;">Ref: 030 - Cierre 3</span></td>
+            <td class="c">kit</td>
+            <td class="r">1.00</td>
+            <td class="r">487.80 €</td>
+            <td class="c">18%</td>
+            <td class="r bold" style="color:var(--tech-red);">400.00 €</td>
+            <td class="r bold">646.50 €</td>
+            <td class="r bold" style="color:var(--tech-green);">246.50 € (38.1%)</td>
+          </tr>
+          <tr>
+            <td class="c bold">1.04</td>
+            <td><strong>Replanteo previo in situ y montaje completo por equipo instalador homologado LUX-TOP® (32 h)</strong><br><span style="color:var(--muted); font-size:7.2px;">Ref: MONTAJE-MO-HORMIGON</span></td>
+            <td class="c">h</td>
+            <td class="r">32.00</td>
+            <td class="r">45.00 €</td>
+            <td class="c">-</td>
+            <td class="r bold" style="color:var(--tech-red);">860.00 €</td>
+            <td class="r bold">1440.00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">580.00 € (40.3%)</td>
+          </tr>
+          <tr>
+            <td class="c bold">1.05</td>
+            <td><strong>Medios auxiliares de acceso seguro y protección colectiva en depósito EDAR (2 jornadas)</strong><br><span style="color:var(--muted); font-size:7.2px;">Ref: MEDIOS-AUX-PEMP</span></td>
+            <td class="c">jorn</td>
+            <td class="r">2.00</td>
+            <td class="r">190.00 €</td>
+            <td class="c">-</td>
+            <td class="r bold" style="color:var(--tech-red);">260.00 €</td>
+            <td class="r bold">380.00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">120.00 € (31.6%)</td>
+          </tr>
+          <tr>
+            <td class="c bold">1.06</td>
+            <td><strong>Logística y transporte especial desde fábrica Península a Illes Balears / obra EDAR</strong><br><span style="color:var(--muted); font-size:7.2px;">Ref: LOGISTICA-BALEARES</span></td>
+            <td class="c">ud</td>
+            <td class="r">1.00</td>
+            <td class="r">180.00 €</td>
+            <td class="c">-</td>
+            <td class="r bold" style="color:var(--tech-red);">120.00 €</td>
+            <td class="r bold">180.00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">60.00 € (33.3%)</td>
+          </tr>
+          <tr>
+            <td class="c bold">1.07</td>
+            <td><strong>Ensayo de tiro estático con dinamómetro in situ, Certificado Oficial LUX-TOP® y Libro de Revisiones</strong><br><span style="color:var(--muted); font-size:7.2px;">Ref: CERT-795-HOMOLOG</span></td>
+            <td class="c">ud</td>
+            <td class="r">1.00</td>
+            <td class="r">250.00 €</td>
+            <td class="c">-</td>
+            <td class="r bold" style="color:var(--tech-red);">110.00 €</td>
+            <td class="r bold">250.00 €</td>
+            <td class="r bold" style="color:var(--tech-green);">140.00 € (56.0%)</td>
+          </tr>
+          <tr style="background:#fef3c7; font-weight:700;">
+            <td colspan="6" class="r" style="padding:4px;">TOTALES ESCANDALLO OPERATIVO:</td>
+            <td class="r" style="color:var(--tech-red); padding:4px;">4,600.07 €</td>
+            <td class="r" style="color:var(--brand); padding:4px;">7,500.00 €</td>
+            <td class="r" style="color:var(--tech-green); padding:4px;">2,899.93 € (38.7%)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="two-col">
+        <div class="col">
+          <h5>Desglose de Costes Internos y Sensibilidad MO</h5>
+          <ul class="compact">
+            <li><strong>Material LUX-TOP (3074/26):</strong> Tarifa oficial 3.963,50 € - 18% dto = <strong>3.250,07 €</strong> neto (+682,51 € IVA = 3.932,58 €). Venta material: 5.250,00 € (margen 1.999,93 € / 38,09%).</li>
+            <li><strong>Mano de obra operativa (1.04):</strong> 2 oficiales x 16 h (2 jornadas) + replanteo = 32 h x 25 €/h (800 €) + 60 € brocas SDS Ø12 y consumibles = <strong>860,00 €</strong>.</li>
+            <li><strong>Sensibilidad tarifa plena (costes-mo.json, 45 €/h):</strong> Si se imputa coste pleno de 45 €/h (1.440 € MO + 60 € cons. = 1.500 €), el coste total sube a <strong>5.240,07 €</strong> y el margen neto queda en <strong>2.259,93 € (30,13%)</strong>.</li>
+            <li><strong>Otros costes directos:</strong> PEMP/medios 2 días (260 €), Porte Península-Baleares (120 €), Dinamómetro/Certificación/CAE (110 €).</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h5>Tesorería, Logística y Condiciones Proveedor</h5>
+          <ul class="compact">
+            <li><strong>Pago a LUX-TOP:</strong> Giro comercial a <strong>60 días</strong> (Operación asegurada CESCE).</li>
+            <li><strong>Pago cliente propuesto:</strong> 100% a la aceptación (o condiciones marco vigentes con Acciona Agua, S.A.).</li>
+            <li><strong>Portes a Baleares:</strong> Las condiciones LUX-TOP 3074/26 limitan portes pagados a Península; el envío especial SOKO a Illes Balears se cubre en partida 1.06 (coste est. 120 € / PVP 180 €).</li>
+            <li><strong>Precio unitario comparativo:</strong> 150,00 €/ml (50 ml) / 151,73 €/ml (49,43 ml plano), muy alineado con P-2026-0055 (145,60 €/ml) pese a llevar 20 soportes especiales SOKO en hormigón.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="alert-box">
+        <strong>RIESGOS TÉCNICOS Y RECORDATORIO ANTES DE PEDIDO A FÁBRICA LUX-TOP:</strong><br>
+        1) <strong>Confirmar medidas SOKO antes de pedir:</strong> El presupuesto 3074/26 pide indicar <em>"long: H+V / 20+20 cm y posición placa H"</em> y no admite devolución de soportes especiales SOKO ni cable cortado. Realizar visita de replanteo al aceptar el cliente.<br>
+        2) <strong>Plazo SOKO (20-25 días):</strong> Informado expresamente al cliente para evitar penalizaciones de plazo.<br>
+        3) <strong>Estado del hormigón y ferralla:</strong> Muros antiguos de EDAR pueden tener armadura superficial o carbonatación; verificar espesor y calidad del hormigón en replanteo por si algún punto requiriera anclaje químico en lugar de perno mecánico MKT BZ3 M12.
+      </div>
+    </div>
+
+    <footer>
+      <div>DIXIS RECURSOS Y SOLUCIONES S.L. • HAM Menorca • Oficina Técnica</div>
+      <div>P-2026-0057 • Estudio Interno LUX-top® 3074/26 · EDAR ACCIONA • Hoja 1 de 1</div>
+    </footer>
+  </div>
+</body>
+</html>
