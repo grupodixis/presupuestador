@@ -7,21 +7,21 @@
 
 ## Cambios aplicados respecto a V1 (`PRE-56EADEB1`)
 
-1. **Puerta PVC Cortizo A 70 (2000 × 2000 mm):** Actualizada a doble hoja desigual (`800 + 1200 mm`) con vidrio `4/16/4+4.1 Silence 4S`, inversor central y bisagras reforzadas. Verificado apto técnicamente en serie Cortizo A 70 (ancho hoja máx. 1.300 mm, alto máx. 2.400/2.500 mm, peso hoja 1.200×2.000 ≈ 88 kg < 130/160 kg). Descontado montaje (`-225,00 €`): solo suministro **1.689,42 €**.
+1. **Puerta PVC Cortizo A 70 (2000 × 2100 mm):** Actualizada a doble hoja desigual (`800 + 1200 mm`) y altura `2100 mm` con vidrio `4/16/4+4.1 Silence 4S`, inversor central y bisagras reforzadas. Verificado apto técnicamente en serie Cortizo A 70 (ancho hoja máx. 1.300 mm, alto máx. 2.400/2.500 mm, peso hoja 1.200×2.100 ≈ 93 kg < 130/160 kg). Descontado montaje (`-225,00 €`) y ajustado incremento de altura (`+75,00 €`): solo suministro **1.764,42 €**.
 2. **Ventana PVC Cortizo A 70 (1500 × 1200 mm):** Descontado montaje (`-130,00 €`): solo suministro **784,10 €**.
-3. **Mallorquina principal (2000 × 2000 mm):** Actualizada a **4 hojas**, **cerradura GESA** y lacado **RAL 6021** (+25% sobre base aluminio 4 hojas), descontado montaje (`-260,00 €`): solo suministro **1.701,00 €**.
+3. **Mallorquina principal (2000 × 2100 mm):** Actualizada a `2000 × 2100 mm`, **4 hojas**, **cerradura GESA** y lacado **RAL 6021** (+25%), descontado montaje (`-260,00 €`): solo suministro **1.738,81 €**.
 4. **Ventana Mallorquina (1500 × 1200 mm):** Actualizada a lacado **RAL 6021** (+25%), descontado montaje (`-125,00 €`): solo suministro **980,04 €**.
 5. **Nueva Mallorquina (1200 × 1200 mm):** Añadida en 2 hojas, lacado **RAL 6021** (+25%), descontado montaje (`-120,00 €`): solo suministro **916,98 €**.
-6. **Premarcos de obra:** Incluidos según anotación manuscrita (`Premarcos ?? (SI)`) para los 3 huecos (2000×2000, 1500×1200 y 1200×1200): solo suministro **390,00 €** *(suplemento de +285,00 € si los dos huecos dobles requieren premarcos independientes separados para PVC y Mallorquina)*.
+6. **Premarcos de obra:** Incluidos según anotación manuscrita (`Premarcos ?? (SI)`) para los 3 huecos (`2000×2100`, `1500×1200` y `1200×1200`): solo suministro **390,00 €** *(suplemento de +285,00 € si los dos huecos dobles requieren premarcos independientes separados para PVC y Mallorquina)*.
 7. **Montaje en obra (apartado independiente al final):** Descontado de las 5 partidas de carpintería para no duplicarlo y agrupado al final (`M1` Puerta A 70: `225 €`, `M2` Ventana A 70: `130 €`, `M3` Mallorquina 4h: `260 €`, `M4` Ventana Mallorquina: `125 €`, `M5` Mallorquina 1200×1200: `120 €` = **860,00 €**).
 
 ## Totales V2
 
-- **Subtotal suministro carpinterías y premarcos (sin montaje):** `6.461,54 €` (+ IVA = `7.818,46 €`)
+- **Subtotal suministro carpinterías y premarcos (sin montaje):** `6.574,35 €` (+ IVA = `7.954,96 €`)
 - **Apartado montaje en obra:** `860,00 €` (+ IVA = `1.040,60 €`)
-- **Base imponible total (Suministro + Montaje):** `7.321,54 €`
-- **IVA (21%):** `1.537,52 €`
-- **Total presupuesto (Suministro + Montaje):** `8.859,06 €`
+- **Base imponible total (Suministro + Montaje):** `7.434,35 €`
+- **IVA (21%):** `1.561,21 €`
+- **Total presupuesto (Suministro + Montaje):** `8.995,56 €`
 
 ## Archivos
 

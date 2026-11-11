@@ -253,9 +253,9 @@ def create_excel():
     ws2["A1"] = "ANÁLISIS INTERNO Y COMPARATIVA V1 (PRE-56EADEB1) vs V2 (P-2026-0056)"
     ws2["A1"].font = f_title
 
-    ws2["A3"] = "1. Verificación Técnica Cortizo A 70 (Puerta 2000×2000 mm, hojas desiguales 800 + 1200 mm)"
+    ws2["A3"] = "1. Verificación Técnica Cortizo A 70 (Puerta 2000×2100 mm, hojas desiguales 800 + 1200 mm)"
     ws2["A3"].font = f_sub
-    ws2["A4"] = DATA["verificacion_tecnica_a70"]["calculo_hoja_mayor_1200x2000"]["conclusion"]
+    ws2["A4"] = DATA["verificacion_tecnica_a70"]["calculo_hoja_mayor_1200x2100"]["conclusion"]
     ws2["A4"].font = f_reg
     ws2["A4"].alignment = Alignment(wrap_text=True)
 
@@ -802,12 +802,12 @@ def generate_html_files():
     <div><span class="badge">USO INTERNO ALUFAC</span></div>
   </div>
 
-  <h2>1. Verificación Técnica Serie Cortizo A 70 (Puerta 2000 × 2000 mm, hojas 800 + 1200 mm)</h2>
+  <h2>1. Verificación Técnica Serie Cortizo A 70 (Puerta 2000 × 2100 mm, hojas 800 + 1200 mm)</h2>
   <div class="box ok">
     <strong>Resultado: APTO TÉCNICAMENTE EN CORTIZO A 70 (PVC 5 cámaras, marco 70 mm)</strong><br>
     • <strong>Límites oficiales por hoja en Cortizo A 70:</strong> Puerta 700–1.300 mm ancho × 600–2.500 mm alto (máx. 160 kg/hoja) | Balconera 360–1.300 mm × 600–2.400 mm (máx. 130 kg/hoja).<br>
-    • <strong>Comprobación dimensional:</strong> Hoja pasiva 800 mm y hoja activa 1.200 mm quedan ambas dentro del límite 700–1.300 mm; altura 2.000 mm &le; 2.400/2.500 mm.<br>
-    • <strong>Comprobación de peso con vidrio {v_a70['calculo_hoja_mayor_1200x2000']['composicion_vidrio']}:</strong> vidrio neto ≈ 58,2 kg + perfil PVC/refuerzo acero ≈ 30 kg = <strong>~88 kg en la hoja de 1200 mm</strong> (por debajo de 130 kg balconera y 160 kg puerta).<br>
+    • <strong>Comprobación dimensional:</strong> Hoja pasiva 800 mm y hoja activa 1.200 mm quedan ambas dentro del límite 700–1.300 mm; altura 2.100 mm &le; 2.400/2.500 mm.<br>
+    • <strong>Comprobación de peso con vidrio {v_a70['calculo_hoja_mayor_1200x2100']['composicion_vidrio']}:</strong> vidrio neto ≈ 61,5 kg + perfil PVC/refuerzo acero ≈ 31,5 kg = <strong>~93 kg en la hoja de 1200 mm</strong> (por debajo de 130 kg balconera y 160 kg puerta).<br>
     • <strong>Requisitos de montaje/taller:</strong> Perfil inversor central con falleba en hoja pasiva (800 mm), bisagras regulables de alta carga (130–160 kg) en la hoja de 1.200 mm y validación final del sentido de apertura y zona eólica.
   </div>
 
@@ -859,9 +859,9 @@ def generate_html_files():
 
   <h2>3. Puntos a Confirmar en Obra (Replanteo)</h2>
   <ul>
-    <li><strong>Premarcos:</strong> Se han incluido 3 premarcos (uno por cada hueco: 2000×2000 a 165 €, 1500×1200 a 120 €, 1200×1200 a 105 € = 390 €). Si los dos huecos dobles (PVC interior + Mallorquina exterior) precisan premarcos independientes separados, añadir +285,00 € (+2 uds).</li>
+    <li><strong>Premarcos:</strong> Se han incluido 3 premarcos (uno por cada hueco: 2000×2100 a 165 €, 1500×1200 a 120 €, 1200×1200 a 105 € = 390 €). Si los dos huecos dobles (PVC interior + Mallorquina exterior) precisan premarcos independientes separados, añadir +285,00 € (+2 uds).</li>
     <li><strong>Puerta A 70 800+1200:</strong> Confirmar si la hoja activa/paso habitual es la de 1.200 mm o la de 800 mm, y sentido de apertura interior/exterior e izquierda/derecha.</li>
-    <li><strong>Mallorquina 4 hojas 2000×2000:</strong> Confirmar si el reparto es simétrico (4×500 mm, 2 hojas plegadas por lado) con cerradura GESA central y Qualicoat Seaside RAL 6021 (ambiente marino Menorca, tornillería inox AISI 316).</li>
+    <li><strong>Mallorquina 4 hojas 2000×2100:</strong> Confirmar si el reparto es simétrico (4×500 mm, 2 hojas plegadas por lado) con cerradura GESA central y Qualicoat Seaside RAL 6021 (ambiente marino Menorca, tornillería inox AISI 316).</li>
   </ul>
 </body>
 </html>
