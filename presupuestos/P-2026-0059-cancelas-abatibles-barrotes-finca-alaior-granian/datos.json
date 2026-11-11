@@ -1,0 +1,156 @@
+{
+  "codigo": "P-2026-0059",
+  "referencia": "PRE-2026-1111-ALAIOR-GRANIAN-CANCELAS",
+  "fecha": "11 de noviembre de 2026",
+  "fecha_iso": "2026-11-11",
+  "validez_dias": 30,
+  "moneda": "EUR",
+  "iva_porcentaje": 21.0,
+  "emisor": {
+    "nombre_comercial": "HAM Estructuras Metálicas Menorca",
+    "razon_social": "Dixis Recursos y Soluciones S.L.",
+    "cif": "B57825432",
+    "direccion": "Av. Circunval·lació, 11, Polígono Industrial de Sant Lluís, 07710 Sant Lluís, Menorca (Illes Balears)",
+    "telefono": "+34 971 35 20 18",
+    "movil": "+34 669 769 541",
+    "email": "info@hamenorca.com",
+    "web": "https://www.hamenorca.com"
+  },
+  "cliente": {
+    "nombre": "Inversiones Granian S.L.",
+    "contacto": "Belén González",
+    "proyecto": "4 Juegos de Cancelas / Barreras Metálicas Abatibles con Barrotes",
+    "ubicacion": "Finca en Alaior, Menorca (Illes Balears)",
+    "referencia_solicitud": "Solicitud recibida el 11/11/2026 con fotografía de referencia (cancela rural abatible de 2 hojas con barrotes entre pilares de obra)"
+  },
+  "especificaciones_tecnicas": {
+    "ambiente": "Exterior rural en Menorca (C4 según UNE-EN ISO 12944)",
+    "diseno": "Cancelas abatibles de 2 hojas simétricas con remate superior ligeramente inclinado a dos aguas hacia el encuentro central, doble travesaño superior y barrotes verticales (según fotografía de referencia).",
+    "bastidor": "Tubo estructural de acero al carbono S235JR de 40 x 40 x 2 mm (2,35 kg/ml), con soldadura continua sellada.",
+    "barrotes": "Barrotes verticales en tubo cuadrado de acero 20 x 20 x 2 mm (1,14 kg/ml) dispuestos cada ~15 cm entre ejes.",
+    "herrajes": "Bisagras/pernios regulables reforzados (4 uds/juego) con placas de fijación, pasador central portacandado, falleba/cerrojo vertical al suelo en hoja pasiva y tope central atornillable.",
+    "fijacion": "Anclaje a pilares existentes de obra mediante varilla roscada en acero inoxidable A4 y taco químico epoxi/viniléster.",
+    "tratamiento_base": "Preparación superficial mecánica/desengrasada (Sa 2½ / St 3), imprimación epoxídica bicomponente rica en fosfato de zinc y doble capa de esmalte poliuretano alifático bicomponente (2C) para exterior C4 en color RAL a definir (secado al aire en cabina, nunca al horno).",
+    "peso_neto_total_kg": 262.5,
+    "peso_compra_con_merma_kg": 276.0,
+    "ancho_total_ml": 13.50,
+    "superficie_frontal_m2": 16.56
+  },
+  "partidas": [
+    {
+      "codigo": "01",
+      "concepto": "Cancela metálica abatible 2 hojas con barrotes · 130 × 360 cm (Modelo C1)",
+      "descripcion": "Fabricación en taller de 1 juego de cancela abatible de 2 hojas simétricas (1.800 mm por hoja × 1.300 mm de altura en centro), diseño según fotografía de referencia con remate superior inclinado a dos aguas y doble travesaño superior. Bastidor en tubo de acero S235JR 40×40×2 mm y barrotes verticales en tubo 20×20×2 mm cada ~15 cm. Incluye 4 bisagras regulables reforzadas, pasador central portacandado, falleba vertical al suelo, tope de suelo y tratamiento anticorrosivo C4 Menorca (imprimación epoxi rica en fosfato de zinc + acabado poliuretano 2C color RAL a elegir, secado al aire).",
+      "dimensiones": "130 × 360 cm",
+      "hojas": "2 hojas (180 + 180 cm)",
+      "unidad": "ud",
+      "cantidad": 1.00,
+      "precio_unitario": 1380.00,
+      "subtotal": 1380.00
+    },
+    {
+      "codigo": "02",
+      "concepto": "Cancelas metálicas abatibles 2 hojas con barrotes · 120 × 330 cm (Modelo C2)",
+      "descripcion": "Fabricación en taller de 3 juegos de cancelas abatibles de 2 hojas simétricas (1.650 mm por hoja × 1.200 mm de altura en centro), de idénticas características constructivas que la partida 01 según fotografía de referencia. Bastidor en tubo S235JR 40×40×2 mm, barrotes verticales en tubo 20×20×2 mm cada ~15 cm, 4 bisagras regulables reforzadas por cancela, pasador central portacandado, falleba al suelo, tope de suelo y tratamiento anticorrosivo C4 Menorca (epoxi fosfato de zinc + poliuretano 2C RAL a elegir).",
+      "dimensiones": "120 × 330 cm",
+      "hojas": "2 hojas (165 + 165 cm)",
+      "unidad": "ud",
+      "cantidad": 3.00,
+      "precio_unitario": 1240.00,
+      "subtotal": 3720.00
+    },
+    {
+      "codigo": "03",
+      "concepto": "Replanteo previo, transporte a finca en Alaior e instalación en obra sobre pilares existentes",
+      "descripcion": "Visita técnica previa de comprobación de medidas reales y aplomado entre pilares en finca de Alaior. Transporte de los 4 conjuntos protegidos hasta pie de obra. Montaje completo en obra por equipo de 2 oficiales mediante presentación, nivelación, fijación de placas de bisagras con taco químico y varilla roscada inoxidable A4, instalación de topes de suelo, ajuste de holguras/fallebas y retoques finales de pintura poliuretano 2C. (Partida deducible en caso de recogida en taller / solo suministro).",
+      "dimensiones": "4 accesos (13,50 ml)",
+      "hojas": "Llave en mano",
+      "unidad": "ud",
+      "cantidad": 4.00,
+      "precio_unitario": 380.00,
+      "subtotal": 1520.00
+    }
+  ],
+  "opcionales": [
+    {
+      "codigo": "OPC-GALV",
+      "concepto": "Suplemento Alternativa B: Galvanizado en Caliente por Inmersión (UNE-EN ISO 1461) + Poliuretano 2C",
+      "descripcion": "Sustitución del sistema base epoxi por galvanizado en caliente en baño de zinc fundido (incluyendo porte marítimo ida y vuelta a planta galvanizadora en Península), seguido de imprimación especial de adherencia sobre zinc y acabado en esmalte poliuretano alifático 2C en color RAL a elegir. Recomendado si se busca vida útil superior a 20 años sin mantenimiento. Incrementa el plazo total en ~2 semanas.",
+      "unidad": "lote",
+      "cantidad": 1.00,
+      "precio_unitario": 1340.00,
+      "subtotal": 1340.00
+    }
+  ],
+  "totales": {
+    "subtotal_solo_suministro": 5100.00,
+    "subtotal_montaje_transporte": 1520.00,
+    "base_imponible": 6620.00,
+    "iva_importe": 1390.20,
+    "total_presupuesto": 8010.20,
+    "base_imponible_con_galvanizado": 7960.00,
+    "iva_con_galvanizado": 1671.60,
+    "total_con_galvanizado": 9631.60
+  },
+  "escandallo_interno": {
+    "fabricacion_y_tratamiento": {
+      "acero_tubular_kg_con_merma": 276.0,
+      "precio_acero_menorca_kg": 1.85,
+      "coste_acero_material": 510.60,
+      "coste_herrajes_bisagras_pasadores": 476.00,
+      "coste_anclajes_a4_quimico_consumibles": 235.00,
+      "horas_oficina_tecnica_plantillas": 4.0,
+      "tarifa_tecnica_h": 35.00,
+      "coste_oficina_tecnica": 140.00,
+      "horas_taller_fabricacion": 32.0,
+      "tarifa_taller_h": 35.00,
+      "coste_mo_taller": 1120.00,
+      "coste_tratamiento_c4_materiales": 240.00,
+      "horas_pintura_cabina": 16.0,
+      "tarifa_pintura_h": 30.00,
+      "coste_tratamiento_c4_total": 720.00,
+      "coste_directo_total": 3201.60,
+      "venta_total": 5100.00,
+      "margen_euros": 1898.40,
+      "margen_porcentaje": 37.22
+    },
+    "replanteo_transporte_montaje": {
+      "horas_replanteo_alaior": 2.0,
+      "tarifa_replanteo_h": 35.00,
+      "coste_replanteo": 70.00,
+      "coste_transporte_furgon_generador": 160.00,
+      "horas_montaje_obra": 32.0,
+      "tarifa_montaje_h": 35.00,
+      "coste_mo_montaje": 1120.00,
+      "coste_directo_total": 1350.00,
+      "venta_total": 1520.00,
+      "margen_euros": 170.00,
+      "margen_porcentaje": 11.18
+    },
+    "resumen_global": {
+      "coste_directo_total": 4551.60,
+      "venta_total": 6620.00,
+      "margen_bruto_total": 2068.40,
+      "margen_bruto_porcentaje": 31.24
+    }
+  },
+  "condiciones": {
+    "validez": "30 días naturales desde la fecha de emisión",
+    "forma_pago": "100% a la aceptación del presupuesto",
+    "plazo_entrega_base": "3 a 4 semanas de fabricación y acabado desde la aceptación del presupuesto y replanteo de huecos en finca (+ 2 jornadas de montaje en obra)",
+    "plazo_entrega_galvanizado": "5 a 6 semanas (con galvanizado en caliente en Península + pintado poliuretano 2C) + 2 jornadas de montaje",
+    "acabado_ham": "Tratamiento anticorrosivo C4 aplicado en taller mediante preparación mecánica, imprimación epoxídica rica en fosfato de zinc y esmalte poliuretano alifático 2C color RAL a elegir (secado al aire en cabina, nunca al horno)."
+  },
+  "exclusiones": [
+    "Obra civil: ejecución, reconstrucción, cimentación o refuerzo de pilares de marés/bloque, zunchos o soleras de hormigón bajo los pasos.",
+    "Retirada y gestión de residuos de cancelas antiguas existentes (si hubiese que desmontar puertas previas).",
+    "Cerradura de embutir con bombín y manilla (presupuestado pasador central portacandado + falleba al suelo; disponible cerradura con llave bajo suplemento).",
+    "Automatización / motorización de hojas, acometida eléctrica, fotocélulas y cuadro de maniobra (puede cotizarse aparte si se requiere).",
+    "Licencias municipales, tasas o permisos de obra."
+  ],
+  "riesgos_internos": [
+    "Pilares de marés o piedra seca existentes: confirmar en replanteo si los pilares tienen cohesión suficiente para taco químico o si requieren pletina envolvente / pilares metálicos auxiliares.",
+    "Desnivel del terreno en camino de finca: verificar rasante de apertura hacia el interior para asegurar luz libre en el giro de las hojas.",
+    "Falta de suministro eléctrico en finca: prever grupo electrógeno portátil en furgón para taladrado en pilares."
+  ]
+}
