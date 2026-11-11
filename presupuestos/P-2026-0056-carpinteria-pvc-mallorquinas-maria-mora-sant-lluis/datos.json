@@ -1,0 +1,162 @@
+{
+  "expediente": {
+    "codigo": "P-2026-0056",
+    "referencia_alufac": "PRE-56EADEB1-V2",
+    "referencia_origen": "PRE-56EADEB1",
+    "fecha_origen": "2026-10-02",
+    "fecha_emision": "2026-11-11",
+    "fecha_formateada": "11/11/2026",
+    "validez_dias": 30,
+    "plazo_entrega": "2 a 3 semanas a partir de la confirmación definitiva de medidas en obra y colores",
+    "garantia": "2 años de garantía oficial",
+    "forma_pago": "100% a la confirmación y aceptación del pedido",
+    "empresa": {
+      "marca": "ALUFAC",
+      "subtitulo": "Carpintería de aluminio y cerramientos · Menorca",
+      "razon_social": "Dixis Recursos y soluciones SL",
+      "cif": "ESB57825432",
+      "direccion": "Av. Circunval·lació, 11, 07710 Sant Lluís (Menorca)",
+      "telefono": "+34 669 769 541",
+      "email": "info@alufac.es",
+      "web": "www.alufac.es",
+      "logo_url": "https://www.alufac.es/assets/alufac-logo.svg"
+    }
+  },
+  "cliente": {
+    "nombre": "Maria Mora",
+    "proyecto": "tanca Sant Lluis",
+    "direccion_entrega": "Menorca"
+  },
+  "verificacion_tecnica_a70": {
+    "sistema": "CORTIZO A 70 Abisagrada (PVC 5 cámaras, marco 70 mm)",
+    "configuracion_solicitada": "Puerta abatible doble de hojas desiguales 800 + 1200 mm (hueco total 2000 × 2000 mm)",
+    "admisible": true,
+    "limites_oficiales_cortizo_a70": {
+      "puerta_ancho_hoja_mm": "700 - 1300",
+      "puerta_alto_hoja_mm": "600 - 2500",
+      "puerta_peso_max_kg_hoja": 160,
+      "balconera_ancho_hoja_mm": "360 - 1300",
+      "balconera_alto_hoja_mm": "600 - 2400",
+      "balconera_peso_max_kg_hoja": 130,
+      "acristalamiento_max_mm": 40
+    },
+    "calculo_hoja_mayor_1200x2000": {
+      "espesor_vidrio_mm": 28,
+      "composicion_vidrio": "4/16/4+4.1 Silence 4S (12 mm vidrio neto ≈ 30 kg/m²)",
+      "superficie_vidrio_aprox_m2": 1.94,
+      "peso_vidrio_aprox_kg": 58.2,
+      "peso_hoja_total_aprox_kg": 88.0,
+      "conclusion": "Apto técnicamente en serie A 70. Ambas hojas (800 mm y 1200 mm) quedan dentro del rango 700–1300 mm de ancho y 2000 mm ≤ 2500 mm de alto, con peso estimado ~88 kg < 130/160 kg. Requiere perfil inversor central, falleba en hoja pasiva (800 mm) y bisagras reforzadas para la hoja activa de 1200 mm; validar sentido de apertura y carga eólica con ábaco oficial Cortizo."
+    }
+  },
+  "partidas": [
+    {
+      "orden": 1,
+      "tipologia": "Puerta",
+      "tipo_apertura": "practicable_2_hojas_desiguales",
+      "titulo": "Puerta",
+      "descripcion": "Puerta abatible doble de hojas desiguales (800 + 1200 mm) · Serie Cortizo A 70 (PVC) · 2000 × 2000 mm · Acabado: Blanco · Vidrio: 4/16/4+4.1 Silence 4S · Con inversor central y bisagras reforzadas",
+      "tags": ["Cortizo · A 70", "2000 × 2000 mm", "Hojas 800 + 1200 mm", "Blanco", "4/16/4+4.1 Silence 4S"],
+      "unidades": 1,
+      "precio_original": 1914.42,
+      "precio_unitario": 1914.42,
+      "total": 1914.42,
+      "nota_interna": "Actualizada de hoja genérica a doble hoja desigual 800+1200 mm (verificado apto en A 70: máx 1300×2500 mm y 160 kg/hoja; hoja 1200×2000 con 4/16/4+4.1 ≈ 88 kg). Se mantiene importe base de V1 al conservar superficie total y vidrio."
+    },
+    {
+      "orden": 2,
+      "tipologia": "Ventana",
+      "tipo_apertura": "practicable_2_hojas",
+      "titulo": "Ventana",
+      "descripcion": "Ventana practicable 2 hojas apertura interior · Serie Cortizo A 70 (PVC) · 1500 × 1200 mm · Acabado: Blanco",
+      "tags": ["Cortizo · A 70", "1500 × 1200 mm", "Blanco"],
+      "unidades": 1,
+      "precio_original": 914.10,
+      "precio_unitario": 914.10,
+      "total": 914.10,
+      "nota_interna": "Sin cambios respecto a PRE-56EADEB1."
+    },
+    {
+      "orden": 3,
+      "tipologia": "Mallorquina",
+      "tipo_apertura": "mallorquina_4_hojas",
+      "titulo": "Mallorquina",
+      "descripcion": "Mallorquina abatible de 4 hojas con cerradura · Serie Cortizo MALLORQUINA · 2000 × 2000 mm · Acabado: Lacado RAL 6021 · Interior: Lamas de protección solar (sin vidrio)",
+      "tags": ["Cortizo · MALLORQUINA", "2000 × 2000 mm", "4 hojas", "Con cerradura", "RAL 6021"],
+      "unidades": 1,
+      "precio_original": 1216.80,
+      "precio_unitario": 1961.00,
+      "total": 1961.00,
+      "desglose_interno": {
+        "base_blanco_2_hojas": 1216.80,
+        "suplemento_4_hojas_blanco": 260.00,
+        "base_blanco_4_hojas": 1476.80,
+        "recargo_ral_6021_25_pct": 369.20,
+        "subtotal_4_hojas_ral_6021": 1846.00,
+        "cerradura_gesa_con_cilindro_e_instalacion": 115.00
+      },
+      "nota_interna": "Base 2 hojas blanco (1.216,80 €) + conversión a 4 hojas (+260,00 € en perfiles hoja/inversor, 4 bisagras, fallebas y ajuste) = 1.476,80 € × 1,25 (RAL 6021 +25%) = 1.846,00 € + cerradura GESA con bombín y mecanizado (+115,00 €) = 1.961,00 €."
+    },
+    {
+      "orden": 4,
+      "tipologia": "Ventana",
+      "tipo_apertura": "mallorquina_2_hojas",
+      "titulo": "Ventana Mallorquina",
+      "descripcion": "Ventana mallorquina abatible 2 hojas · Serie Cortizo MALLORQUINA · 1500 × 1200 mm · Acabado: Lacado RAL 6021 · Interior: Lamas de protección solar (sin vidrio)",
+      "tags": ["Cortizo · MALLORQUINA", "1500 × 1200 mm", "2 hojas", "RAL 6021"],
+      "unidades": 1,
+      "precio_original": 884.03,
+      "precio_unitario": 1105.04,
+      "total": 1105.04,
+      "desglose_interno": {
+        "base_blanco_2_hojas": 884.03,
+        "recargo_ral_6021_25_pct": 221.01
+      },
+      "nota_interna": "Base blanco PRE-56EADEB1 (884,03 €) × 1,25 (+25% lacado RAL 6021) = 1.105,04 €."
+    },
+    {
+      "orden": 5,
+      "tipologia": "Mallorquina",
+      "tipo_apertura": "mallorquina_2_hojas",
+      "titulo": "Mallorquina (Nueva)",
+      "descripcion": "Mallorquina abatible 2 hojas · Serie Cortizo MALLORQUINA · 1200 × 1200 mm · Acabado: Lacado RAL 6021 · Interior: Lamas de protección solar (sin vidrio)",
+      "tags": ["Cortizo · MALLORQUINA", "1200 × 1200 mm", "2 hojas", "RAL 6021"],
+      "unidades": 1,
+      "precio_original": 0.00,
+      "precio_unitario": 1036.98,
+      "total": 1036.98,
+      "desglose_interno": {
+        "base_blanco_2_hojas_interpolada": 829.58,
+        "recargo_ral_6021_25_pct": 207.40
+      },
+      "nota_interna": "Nueva unidad 1200×1200 mm (1,44 m²). Base blanco estimada según la curva tarifaria del presupuesto original entre 1,80 m² (884,03 €) y 4,00 m² (1.216,80 €): 611,76 + 1,44 × 151,26 = 829,58 € (coherente con escandallo ~587 € coste + 30% margen = 839 €). Con +25% RAL 6021: 829,58 × 1,25 = 1.036,98 €."
+    },
+    {
+      "orden": 6,
+      "tipologia": "Premarcos",
+      "tipo_apertura": "premarco",
+      "titulo": "Premarcos de obra",
+      "descripcion": "Suministro de premarcos tubulares metálicos con garras de fijación a obra para los 3 huecos de carpintería (1 ud 2000 × 2000 mm · 1 ud 1500 × 1200 mm · 1 ud 1200 × 1200 mm)",
+      "tags": ["3 huecos", "2000×2000 · 1500×1200 · 1200×1200", "Con garras de anclaje"],
+      "unidades": 1,
+      "precio_original": 0.00,
+      "precio_unitario": 390.00,
+      "total": 390.00,
+      "desglose_interno": {
+        "premarco_2000x2000": 165.00,
+        "premarco_1500x1200": 120.00,
+        "premarco_1200x1200": 105.00,
+        "nota_ampliacion_5_premarcos": "Si las mallorquinas en los huecos dobles (2000×2000 y 1500×1200) precisan premarco independiente separado del de PVC (+2 uds), suplemento estimado de 285,00 € (165 € + 120 €)."
+      },
+      "nota_interna": "Incluido por anotación manuscrita 'Premarcos ?? (SI)' en copia impresa. Valorado para 3 huecos (165 + 120 + 105 = 390 €). Confirmar en obra si los huecos dobles PVC+Mallorquina comparten premarco ancho o precisan 2 premarcos adicionales (+285 €)."
+    }
+  ],
+  "totales": {
+    "base_imponible_original": 4929.35,
+    "iva_original": 1035.16,
+    "total_original": 5964.51,
+    "base_imponible": 7321.54,
+    "iva_21": 1537.52,
+    "total_presupuesto": 8859.06
+  }
+}
