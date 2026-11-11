@@ -518,7 +518,7 @@ def generate_html_files():
       margin-bottom: 12px;
     }}
     .totals-box {{
-      width: 315px;
+      width: 350px;
       border: 1px solid #cbd5e1;
       border-radius: 6px;
       padding: 9px 12px;
@@ -527,9 +527,13 @@ def generate_html_files():
     .tot-row {{
       display: flex;
       justify-content: space-between;
+      gap: 12px;
       font-size: 8.4pt;
       padding: 2.5px 0;
       color: #334155;
+    }}
+    .tot-row span:last-child {{
+      white-space: nowrap;
     }}
     .tot-row.final {{
       border-top: 1.5px solid #0f172a;
@@ -709,7 +713,7 @@ def generate_html_files():
 
     <div class="totals-wrap">
       <div class="totals-box">
-        <div class="tot-row"><span>Subtotal carpinterías y premarcos:</span><span><strong>{fmt_eur(tot['base_imponible_suministro'])}</strong></span></div>
+        <div class="tot-row"><span>Subtotal suministro (carpinterías y premarcos):</span><span><strong>{fmt_eur(tot['base_imponible_suministro'])}</strong></span></div>
         <div class="tot-row"><span>Apartado montaje en obra:</span><span><strong>{fmt_eur(tot['base_imponible_montaje'])}</strong></span></div>
         <div class="tot-row"><span>Base imponible total:</span><span><strong>{fmt_eur(tot['base_imponible'])}</strong></span></div>
         <div class="tot-row"><span>IVA (21%):</span><span><strong>{fmt_eur(tot['iva_21'])}</strong></span></div>

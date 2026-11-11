@@ -59,9 +59,9 @@
       "tags": ["Cortizo · A 70", "2000 × 2000 mm", "Hojas 800 + 1200 mm", "Blanco", "4/16/4+4.1 Silence 4S"],
       "unidades": 1,
       "precio_original": 1914.42,
-      "precio_unitario": 1914.42,
-      "total": 1914.42,
-      "nota_interna": "Actualizada de hoja genérica a doble hoja desigual 800+1200 mm (verificado apto en A 70: máx 1300×2500 mm y 160 kg/hoja; hoja 1200×2000 con 4/16/4+4.1 ≈ 88 kg). Se mantiene importe base de V1 al conservar superficie total y vidrio."
+      "precio_unitario": 1689.42,
+      "total": 1689.42,
+      "nota_interna": "Actualizada de hoja genérica a doble hoja desigual 800+1200 mm (verificado apto en A 70: máx 1300×2500 mm y 160 kg/hoja; hoja 1200×2000 con 4/16/4+4.1 ≈ 88 kg). Descontado montaje M1 (-225,00 €) al pasar a apartado separado: 1.914,42 - 225,00 = 1.689,42 € solo suministro."
     },
     {
       "orden": 2,
@@ -72,9 +72,9 @@
       "tags": ["Cortizo · A 70", "1500 × 1200 mm", "Blanco"],
       "unidades": 1,
       "precio_original": 914.10,
-      "precio_unitario": 914.10,
-      "total": 914.10,
-      "nota_interna": "Sin cambios respecto a PRE-56EADEB1."
+      "precio_unitario": 784.10,
+      "total": 784.10,
+      "nota_interna": "Base V1 (914,10 €) menos montaje M2 (-130,00 €) al pasar a apartado separado = 784,10 € solo suministro."
     },
     {
       "orden": 3,
@@ -85,17 +85,18 @@
       "tags": ["Cortizo · MALLORQUINA", "2000 × 2000 mm", "4 hojas", "Con cerradura", "RAL 6021"],
       "unidades": 1,
       "precio_original": 1216.80,
-      "precio_unitario": 1961.00,
-      "total": 1961.00,
+      "precio_unitario": 1701.00,
+      "total": 1701.00,
       "desglose_interno": {
-        "base_blanco_2_hojas": 1216.80,
+        "base_blanco_2_hojas_con_montaje": 1216.80,
         "suplemento_4_hojas_blanco": 260.00,
-        "base_blanco_4_hojas": 1476.80,
+        "base_blanco_4_hojas_con_montaje": 1476.80,
         "recargo_ral_6021_25_pct": 369.20,
-        "subtotal_4_hojas_ral_6021": 1846.00,
-        "cerradura_gesa_con_cilindro_e_instalacion": 115.00
+        "subtotal_4_hojas_ral_6021_con_montaje": 1846.00,
+        "cerradura_gesa_con_cilindro_e_instalacion": 115.00,
+        "descuento_montaje_m3": -260.00
       },
-      "nota_interna": "Base 2 hojas blanco (1.216,80 €) + conversión a 4 hojas (+260,00 € en perfiles hoja/inversor, 4 bisagras, fallebas y ajuste) = 1.476,80 € × 1,25 (RAL 6021 +25%) = 1.846,00 € + cerradura GESA con bombín y mecanizado (+115,00 €) = 1.961,00 €."
+      "nota_interna": "Base 2h blanco (1.216,80 €) + 4 hojas (+260,00 €) = 1.476,80 € × 1,25 (RAL 6021 +25%) = 1.846,00 € + cerradura GESA (+115,00 €) = 1.961,00 € con montaje. Descontando montaje M3 (-260,00 €) = 1.701,00 € solo suministro."
     },
     {
       "orden": 4,
@@ -106,13 +107,14 @@
       "tags": ["Cortizo · MALLORQUINA", "1500 × 1200 mm", "2 hojas", "RAL 6021"],
       "unidades": 1,
       "precio_original": 884.03,
-      "precio_unitario": 1105.04,
-      "total": 1105.04,
+      "precio_unitario": 980.04,
+      "total": 980.04,
       "desglose_interno": {
-        "base_blanco_2_hojas": 884.03,
-        "recargo_ral_6021_25_pct": 221.01
+        "base_blanco_2_hojas_con_montaje": 884.03,
+        "recargo_ral_6021_25_pct": 221.01,
+        "descuento_montaje_m4": -125.00
       },
-      "nota_interna": "Base blanco PRE-56EADEB1 (884,03 €) × 1,25 (+25% lacado RAL 6021) = 1.105,04 €."
+      "nota_interna": "Base blanco PRE-56EADEB1 (884,03 €) × 1,25 (+25% RAL 6021) = 1.105,04 € con montaje. Descontando montaje M4 (-125,00 €) = 980,04 € solo suministro."
     },
     {
       "orden": 5,
@@ -123,13 +125,14 @@
       "tags": ["Cortizo · MALLORQUINA", "1200 × 1200 mm", "2 hojas", "RAL 6021"],
       "unidades": 1,
       "precio_original": 0.00,
-      "precio_unitario": 1036.98,
-      "total": 1036.98,
+      "precio_unitario": 916.98,
+      "total": 916.98,
       "desglose_interno": {
-        "base_blanco_2_hojas_interpolada": 829.58,
-        "recargo_ral_6021_25_pct": 207.40
+        "base_blanco_2_hojas_interpolada_con_montaje": 829.58,
+        "recargo_ral_6021_25_pct": 207.40,
+        "descuento_montaje_m5": -120.00
       },
-      "nota_interna": "Nueva unidad 1200×1200 mm (1,44 m²). Base blanco estimada según la curva tarifaria del presupuesto original entre 1,80 m² (884,03 €) y 4,00 m² (1.216,80 €): 611,76 + 1,44 × 151,26 = 829,58 € (coherente con escandallo ~587 € coste + 30% margen = 839 €). Con +25% RAL 6021: 829,58 × 1,25 = 1.036,98 €."
+      "nota_interna": "Nueva unidad 1200×1200 mm (1,44 m²). Base blanco interpolada (829,58 €) × 1,25 (+25% RAL 6021) = 1.036,98 € con montaje. Descontando montaje M5 (-120,00 €) = 916,98 € solo suministro."
     },
     {
       "orden": 6,
@@ -209,14 +212,14 @@
     "base_imponible_original": 4929.35,
     "iva_original": 1035.16,
     "total_original": 5964.51,
-    "base_imponible_suministro": 7321.54,
-    "iva_21_suministro": 1537.52,
-    "total_suministro": 8859.06,
+    "base_imponible_suministro": 6461.54,
+    "iva_21_suministro": 1356.92,
+    "total_suministro": 7818.46,
     "base_imponible_montaje": 860.00,
     "iva_21_montaje": 180.60,
     "total_montaje": 1040.60,
-    "base_imponible": 8181.54,
-    "iva_21": 1718.12,
-    "total_presupuesto": 9899.66
+    "base_imponible": 7321.54,
+    "iva_21": 1537.52,
+    "total_presupuesto": 8859.06
   }
 }
