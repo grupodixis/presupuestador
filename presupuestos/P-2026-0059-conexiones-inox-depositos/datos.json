@@ -26,7 +26,7 @@
   "proyecto": {
     "titulo": "Fabricación con Soldadura TIG en Taller e Instalación de Conexiones de Tubería de Acero Inoxidable AISI 316L (D110, D160 y D250) a Depósitos",
     "ubicacion": "Illes Balears",
-    "descripcion": "Suministro, fabricación en taller mediante soldadura TIG (sin empalmes en tramo recto, barras de 6 m cortadas a medida de hasta 5 m), decapado/pasivado de soldaduras e instalación en obra de 12 conexiones de subida a depósitos desde tubería de PVC-O (8 uds D110/DN100, 2 uds D160/DN150 y 2 uds D250/DN250). Cada unidad incluye codo de 90° soldado a TIG, bridas EN 1092-1 PN10/16, juntas planas EPDM, tornillería inox A4 y soportación completa."
+    "descripcion": "Suministro, fabricación en taller mediante soldadura TIG (sin empalmes en tramo recto, barras de 6 m cortadas a medida de hasta 5 m), decapado/pasivado de soldaduras y montaje completo en obra con bridas reforzadas a pared de 12 conexiones de subida a depósitos desde tubería de PVC-O (8 uds D110/DN100, 2 uds D160/DN150 y 2 uds D250/DN250). Cada unidad incluye codo de 90° soldado a TIG, bridas EN 1092-1 PN10/16, juntas planas EPDM, tornillería inox A4 y soportación mediante bridas reforzadas ancladas a pared."
   },
   "tarifas_mo": {
     "oficial_1_taller_tig": 40.00,
@@ -41,7 +41,7 @@
       "diametro_pvco": "D = 110 mm",
       "equivalencia_dn": "DN 100 (Ø 114,3 mm)",
       "concepto": "Conexión de tubería de acero inoxidable D = 110 mm",
-      "descripcion": "Suministro e instalación de tubería de acero inoxidable AISI 316L de diámetro 110 mm (DN 100) para formación de conexión de tubería de PVC-O a depósito, fabricada en taller con soldadura TIG sin empalmes (barra de 6 m cortada a medida de hasta 5 m) y decapado/pasivado de cordones. Incluye: toda la soportación necesaria en acero inoxidable para la correcta sujeción del tubo, un codo de acero inoxidable D110 de 90° para la realización de la entrada, hasta 5 metros de tubería de inox D110 en una sola pieza, bridas EN 1092-1 PN10/16, juntas EPDM y tornillería inox A4.",
+      "descripcion": "Suministro e instalación completa en obra de tubería de acero inoxidable AISI 316L de diámetro 110 mm (DN 100) para formación de conexión de tubería de PVC-O a depósito, fabricada en taller con soldadura TIG sin empalmes (barra de 6 m cortada a medida de hasta 5 m) y decapado/pasivado de cordones. Incluye: montaje en obra con fijación mediante bridas reforzadas a pared en acero inoxidable y anclajes A4, un codo de acero inoxidable D110 de 90° para la realización de la entrada, hasta 5 metros de tubería de inox D110 en una sola pieza, bridas EN 1092-1 PN10/16, juntas EPDM y tornillería inox A4.",
       "unidad": "ud",
       "cantidad": 8,
       "materiales_inox": [
@@ -67,10 +67,10 @@
           "estado": "PENDIENTE PROVEEDOR"
         },
         {
-          "concepto": "Abrazaderas / soportes inox DN100 (3 por subida)",
+          "concepto": "Bridas reforzadas de fijación a pared inox 316L DN100 + anclajes A4 (3 por subida)",
           "unidad": "ud",
           "cantidad": 24,
-          "coste_unitario_est": 18.00,
+          "coste_unitario_est": 32.00,
           "estado": "PENDIENTE PROVEEDOR"
         },
         {
@@ -86,14 +86,14 @@
       "mo_taller_horas_prep_por_ud": 1.0,
       "mo_obra_horas_equipo_por_ud": 3.0,
       "transporte_por_ud": 25.00,
-      "precio_cliente_unitario": 1090.00
+      "precio_cliente_unitario": 1140.00
     },
     {
       "id": "1.02",
       "diametro_pvco": "D = 160 mm",
       "equivalencia_dn": "DN 150 (Ø 168,3 mm)",
       "concepto": "Conexión de tubería de acero inoxidable D = 160 mm",
-      "descripcion": "Suministro e instalación de tubería de acero inoxidable AISI 316L de diámetro 160 mm (DN 150) para formación de conexión de tubería de PVC-O a depósito, fabricada en taller con soldadura TIG sin empalmes (barra de 6 m cortada a medida de hasta 5 m) y decapado/pasivado de cordones. Incluye: toda la soportación necesaria en acero inoxidable para la correcta sujeción del tubo, un codo de acero inoxidable D160 de 90° para la realización de la entrada, hasta 5 metros de tubería de inox D160 en una sola pieza, bridas EN 1092-1 PN10/16, juntas EPDM y tornillería inox A4.",
+      "descripcion": "Suministro e instalación completa en obra de tubería de acero inoxidable AISI 316L de diámetro 160 mm (DN 150) para formación de conexión de tubería de PVC-O a depósito, fabricada en taller con soldadura TIG sin empalmes (barra de 6 m cortada a medida de hasta 5 m) y decapado/pasivado de cordones. Incluye: montaje en obra con fijación mediante bridas reforzadas a pared en acero inoxidable y anclajes A4, un codo de acero inoxidable D160 de 90° para la realización de la entrada, hasta 5 metros de tubería de inox D160 en una sola pieza, bridas EN 1092-1 PN10/16, juntas EPDM y tornillería inox A4.",
       "unidad": "ud",
       "cantidad": 2,
       "materiales_inox": [
@@ -119,10 +119,10 @@
           "estado": "PENDIENTE PROVEEDOR"
         },
         {
-          "concepto": "Abrazaderas / soportes inox DN150 (3 por subida)",
+          "concepto": "Bridas reforzadas de fijación a pared inox 316L DN150 + anclajes A4 (3 por subida)",
           "unidad": "ud",
           "cantidad": 6,
-          "coste_unitario_est": 26.00,
+          "coste_unitario_est": 45.00,
           "estado": "PENDIENTE PROVEEDOR"
         },
         {
@@ -138,14 +138,14 @@
       "mo_taller_horas_prep_por_ud": 1.5,
       "mo_obra_horas_equipo_por_ud": 4.0,
       "transporte_por_ud": 35.00,
-      "precio_cliente_unitario": 1600.00
+      "precio_cliente_unitario": 1670.00
     },
     {
       "id": "1.03",
       "diametro_pvco": "D = 250 mm",
       "equivalencia_dn": "DN 250 (Ø 273,0 mm)",
       "concepto": "Conexión de tubería de acero inoxidable D = 250 mm",
-      "descripcion": "Suministro e instalación de tubería de acero inoxidable AISI 316L de diámetro 250 mm (DN 250) para formación de conexión de tubería de PVC-O a depósito, fabricada en taller con soldadura TIG sin empalmes (barra de 6 m cortada a medida de hasta 5 m) y decapado/pasivado de cordones. Incluye: toda la soportación necesaria en acero inoxidable para la correcta sujeción del tubo, un codo de acero inoxidable D250 de 90° para la realización de la entrada, hasta 5 metros de tubería de inox D250 en una sola pieza, bridas EN 1092-1 PN10/16, juntas EPDM y tornillería inox A4.",
+      "descripcion": "Suministro e instalación completa en obra de tubería de acero inoxidable AISI 316L de diámetro 250 mm (DN 250) para formación de conexión de tubería de PVC-O a depósito, fabricada en taller con soldadura TIG sin empalmes (barra de 6 m cortada a medida de hasta 5 m) y decapado/pasivado de cordones. Incluye: montaje en obra con fijación mediante bridas reforzadas a pared en acero inoxidable y anclajes A4, un codo de acero inoxidable D250 de 90° para la realización de la entrada, hasta 5 metros de tubería de inox D250 en una sola pieza, bridas EN 1092-1 PN10/16, juntas EPDM y tornillería inox A4.",
       "unidad": "ud",
       "cantidad": 2,
       "materiales_inox": [
@@ -171,10 +171,10 @@
           "estado": "PENDIENTE PROVEEDOR"
         },
         {
-          "concepto": "Abrazaderas / soportes inox DN250 (3 por subida)",
+          "concepto": "Bridas reforzadas de fijación a pared inox 316L DN250 + anclajes A4 (3 por subida)",
           "unidad": "ud",
           "cantidad": 6,
-          "coste_unitario_est": 42.00,
+          "coste_unitario_est": 68.00,
           "estado": "PENDIENTE PROVEEDOR"
         },
         {
@@ -190,7 +190,7 @@
       "mo_taller_horas_prep_por_ud": 2.0,
       "mo_obra_horas_equipo_por_ud": 5.0,
       "transporte_por_ud": 50.00,
-      "precio_cliente_unitario": 2620.00
+      "precio_cliente_unitario": 2720.00
     }
   ],
   "condiciones_comerciales": {
