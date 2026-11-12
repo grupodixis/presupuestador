@@ -1,0 +1,207 @@
+{
+  "codigo": "P-2026-0059",
+  "referencia": "PRE-2026-1112-CONEXIONES-INOX-DEPOSITOS",
+  "estado_presupuesto": "BORRADOR / PROVISIONAL — Pendiente actualizar costes reales de material inoxidable de proveedor",
+  "fecha": "12 de noviembre de 2026",
+  "validez_dias": 30,
+  "calidad_inox": "AISI 316L (EN 1.4404)",
+  "proceso_soldadura": "Soldadura TIG en taller con protección de argón, decapado y pasivado de cordones",
+  "cliente": {
+    "nombre": "Por confirmar",
+    "obra": "Subidas y conexiones de tubería de acero inoxidable a depósitos (PVC-O a depósito)",
+    "ubicacion": "Menorca / Illes Balears",
+    "telefono": null,
+    "email": null
+  },
+  "emisor": {
+    "razon_social": "Dixis Recursos y Soluciones S.L.",
+    "cif": "B57825432",
+    "nombre_comercial": "HAM Estructuras Metálicas Menorca",
+    "domicilio": "Av. Circunval·lació, 11, Polígono de Sant Lluís, 07710 Sant Lluís, Menorca",
+    "telefono": "+34 971 35 20 18",
+    "movil": "+34 669 769 541",
+    "email": "info@hamenorca.com",
+    "web": "https://www.hamenorca.com"
+  },
+  "proyecto": {
+    "titulo": "Fabricación con Soldadura TIG en Taller e Instalación de Conexiones de Tubería de Acero Inoxidable AISI 316L (D110, D160 y D250) a Depósitos",
+    "ubicacion": "Illes Balears",
+    "descripcion": "Suministro, fabricación en taller mediante soldadura TIG (sin empalmes en tramo recto, barras de 6 m cortadas a medida de hasta 5 m), decapado/pasivado de soldaduras e instalación en obra de 12 conexiones de subida a depósitos desde tubería de PVC-O (8 uds D110/DN100, 2 uds D160/DN150 y 2 uds D250/DN250). Cada unidad incluye codo de 90° soldado a TIG, bridas EN 1092-1 PN10/16, juntas planas EPDM, tornillería inox A4 y soportación completa."
+  },
+  "tarifas_mo": {
+    "oficial_1_taller_tig": 40.00,
+    "oficial_2_taller": 35.00,
+    "oficial_montaje_obra": 45.00,
+    "ayudante_montaje_obra": 35.00
+  },
+  "margen_objetivo_sobre_coste": 0.25,
+  "partidas": [
+    {
+      "id": "1.01",
+      "diametro_pvco": "D = 110 mm",
+      "equivalencia_dn": "DN 100 (Ø 114,3 mm)",
+      "concepto": "Conexión de tubería de acero inoxidable D = 110 mm",
+      "descripcion": "Suministro e instalación de tubería de acero inoxidable AISI 316L de diámetro 110 mm (DN 100) para formación de conexión de tubería de PVC-O a depósito, fabricada en taller con soldadura TIG sin empalmes (barra de 6 m cortada a medida de hasta 5 m) y decapado/pasivado de cordones. Incluye: toda la soportación necesaria en acero inoxidable para la correcta sujeción del tubo, un codo de acero inoxidable D110 de 90° para la realización de la entrada, hasta 5 metros de tubería de inox D110 en una sola pieza, bridas EN 1092-1 PN10/16, juntas EPDM y tornillería inox A4.",
+      "unidad": "ud",
+      "cantidad": 8,
+      "materiales_inox": [
+        {
+          "concepto": "Tubo inox 316L DN100 (Ø 114,3x2 mm) — Barra 6 m (sin empalme)",
+          "unidad": "barra (6 m)",
+          "cantidad": 8,
+          "coste_unitario_est": 195.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        },
+        {
+          "concepto": "Codo 90° inox 316L para soldar DN100",
+          "unidad": "ud",
+          "cantidad": 8,
+          "coste_unitario_est": 28.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        },
+        {
+          "concepto": "Brida inox 316L EN 1092-1 PN10/16 DN100",
+          "unidad": "ud",
+          "cantidad": 16,
+          "coste_unitario_est": 35.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        },
+        {
+          "concepto": "Abrazaderas / soportes inox DN100 (3 por subida)",
+          "unidad": "ud",
+          "cantidad": 24,
+          "coste_unitario_est": 18.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        },
+        {
+          "concepto": "Juntas planas EPDM + tornillería inox A4 DN100 (juego por brida)",
+          "unidad": "juego",
+          "cantidad": 16,
+          "coste_unitario_est": 9.50,
+          "estado": "PENDIENTE PROVEEDOR"
+        }
+      ],
+      "consumibles_tig_por_ud": 20.00,
+      "mo_taller_horas_tig_por_ud": 4.5,
+      "mo_taller_horas_prep_por_ud": 1.0,
+      "mo_obra_horas_equipo_por_ud": 3.0,
+      "transporte_por_ud": 25.00,
+      "precio_cliente_unitario": 1090.00
+    },
+    {
+      "id": "1.02",
+      "diametro_pvco": "D = 160 mm",
+      "equivalencia_dn": "DN 150 (Ø 168,3 mm)",
+      "concepto": "Conexión de tubería de acero inoxidable D = 160 mm",
+      "descripcion": "Suministro e instalación de tubería de acero inoxidable AISI 316L de diámetro 160 mm (DN 150) para formación de conexión de tubería de PVC-O a depósito, fabricada en taller con soldadura TIG sin empalmes (barra de 6 m cortada a medida de hasta 5 m) y decapado/pasivado de cordones. Incluye: toda la soportación necesaria en acero inoxidable para la correcta sujeción del tubo, un codo de acero inoxidable D160 de 90° para la realización de la entrada, hasta 5 metros de tubería de inox D160 en una sola pieza, bridas EN 1092-1 PN10/16, juntas EPDM y tornillería inox A4.",
+      "unidad": "ud",
+      "cantidad": 2,
+      "materiales_inox": [
+        {
+          "concepto": "Tubo inox 316L DN150 (Ø 168,3x2 mm) — Barra 6 m (sin empalme)",
+          "unidad": "barra (6 m)",
+          "cantidad": 2,
+          "coste_unitario_est": 310.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        },
+        {
+          "concepto": "Codo 90° inox 316L para soldar DN150",
+          "unidad": "ud",
+          "cantidad": 2,
+          "coste_unitario_est": 65.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        },
+        {
+          "concepto": "Brida inox 316L EN 1092-1 PN10/16 DN150",
+          "unidad": "ud",
+          "cantidad": 4,
+          "coste_unitario_est": 58.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        },
+        {
+          "concepto": "Abrazaderas / soportes inox DN150 (3 por subida)",
+          "unidad": "ud",
+          "cantidad": 6,
+          "coste_unitario_est": 26.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        },
+        {
+          "concepto": "Juntas planas EPDM + tornillería inox A4 DN150 (juego por brida)",
+          "unidad": "juego",
+          "cantidad": 4,
+          "coste_unitario_est": 15.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        }
+      ],
+      "consumibles_tig_por_ud": 30.00,
+      "mo_taller_horas_tig_por_ud": 6.0,
+      "mo_taller_horas_prep_por_ud": 1.5,
+      "mo_obra_horas_equipo_por_ud": 4.0,
+      "transporte_por_ud": 35.00,
+      "precio_cliente_unitario": 1600.00
+    },
+    {
+      "id": "1.03",
+      "diametro_pvco": "D = 250 mm",
+      "equivalencia_dn": "DN 250 (Ø 273,0 mm)",
+      "concepto": "Conexión de tubería de acero inoxidable D = 250 mm",
+      "descripcion": "Suministro e instalación de tubería de acero inoxidable AISI 316L de diámetro 250 mm (DN 250) para formación de conexión de tubería de PVC-O a depósito, fabricada en taller con soldadura TIG sin empalmes (barra de 6 m cortada a medida de hasta 5 m) y decapado/pasivado de cordones. Incluye: toda la soportación necesaria en acero inoxidable para la correcta sujeción del tubo, un codo de acero inoxidable D250 de 90° para la realización de la entrada, hasta 5 metros de tubería de inox D250 en una sola pieza, bridas EN 1092-1 PN10/16, juntas EPDM y tornillería inox A4.",
+      "unidad": "ud",
+      "cantidad": 2,
+      "materiales_inox": [
+        {
+          "concepto": "Tubo inox 316L DN250 (Ø 273,0x2-3 mm) — Barra 6 m (sin empalme)",
+          "unidad": "barra (6 m)",
+          "cantidad": 2,
+          "coste_unitario_est": 580.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        },
+        {
+          "concepto": "Codo 90° inox 316L para soldar DN250",
+          "unidad": "ud",
+          "cantidad": 2,
+          "coste_unitario_est": 180.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        },
+        {
+          "concepto": "Brida inox 316L EN 1092-1 PN10/16 DN250",
+          "unidad": "ud",
+          "cantidad": 4,
+          "coste_unitario_est": 115.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        },
+        {
+          "concepto": "Abrazaderas / soportes inox DN250 (3 por subida)",
+          "unidad": "ud",
+          "cantidad": 6,
+          "coste_unitario_est": 42.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        },
+        {
+          "concepto": "Juntas planas EPDM + tornillería inox A4 DN250 (juego por brida)",
+          "unidad": "juego",
+          "cantidad": 4,
+          "coste_unitario_est": 24.00,
+          "estado": "PENDIENTE PROVEEDOR"
+        }
+      ],
+      "consumibles_tig_por_ud": 50.00,
+      "mo_taller_horas_tig_por_ud": 9.0,
+      "mo_taller_horas_prep_por_ud": 2.0,
+      "mo_obra_horas_equipo_por_ud": 5.0,
+      "transporte_por_ud": 50.00,
+      "precio_cliente_unitario": 2620.00
+    }
+  ],
+  "condiciones_comerciales": {
+    "validez": "30 días naturales desde la fecha de emisión (sujeto a confirmación de precios de acero inoxidable).",
+    "forma_pago": "100% a la aceptación del presupuesto (o según acuerdo comercial).",
+    "plazo_entrega": "Fabricación en taller (soldadura TIG) tras recepción de material inoxidable (~7-10 días laborables) + montaje en obra (~5-6 jornadas).",
+    "no_incluido": [
+      "Obra civil, excavaciones, arquetas o bases de hormigón.",
+      "Tubería y accesorios de PVC-O previos a la brida de transición.",
+      "Medios de elevación especiales (grúa/plataforma) si la altura del depósito supera los medios manuales/andamio ligero.",
+      "IVA vigente (21%)."
+    ]
+  }
+}
