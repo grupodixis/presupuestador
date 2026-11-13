@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Estudio Técnico Interno P-2026-0060 — Manga Aeropuerto Menorca</title>
+  <style>
+    @page { size: A4 landscape; margin: 8mm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      color: #1e293b;
+      font-size: 8.5pt;
+      line-height: 1.35;
+      background: #f8fafc;
+    }
+    .document-page {
+      width: 280mm;
+      margin: 0 auto;
+      background: #fff;
+      padding: 8mm 10mm;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    @media print {
+      body { background: #fff; }
+      .document-page { width: 100%; padding: 0; box-shadow: none; }
+    }
+    header {
+      background: #0f172a;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      border-bottom: 3px solid #b45309;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h1 { margin: 0; font-size: 13pt; color: #fff; }
+    .alert-banner {
+      background: #fee2e2;
+      border-left: 4px solid #b91c1c;
+      padding: 6px 10px;
+      font-size: 8pt;
+      color: #7f1d1d;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .kpi-card {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-left: 3px solid #0f172a;
+      border-radius: 5px;
+      padding: 6px 8px;
+    }
+    .kpi-title { font-size: 7.5pt; text-transform: uppercase; color: #64748b; font-weight: 700; }
+    .kpi-val { font-size: 12pt; font-weight: 800; color: #0f172a; }
+    .kpi-val.green { color: #15803d; }
+    .kpi-val.gold { color: #b45309; }
+    h2 {
+      font-size: 9.5pt;
+      color: #0f172a;
+      margin: 10px 0 5px 0;
+      border-bottom: 2px solid #b45309;
+      padding-bottom: 2px;
+      text-transform: uppercase;
+    }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 8pt; }
+    th { background: #0f172a; color: #fff; padding: 5px; text-align: left; }
+    td { padding: 4.5px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+    .cap-row td { background: #e2e8f0; font-weight: 700; }
+    .center { text-align: center; }
+    .right { text-align: right; }
+    .bold { font-weight: 700; }
+    .green { color: #15803d; }
+    .tot { background: #fef3c7; font-weight: 800; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  </style>
+</head>
+<body>
+  <div class="document-page">
+    <header>
+      <div>
+        <h1>ESTUDIO TÉCNICO INTERNO Y ANÁLISIS DE COSTES — P-2026-0060</h1>
+        <div style="font-size: 8pt; color: #cbd5e1;">HAM Estructuras Metálicas · Obra: Reparación Manga de Pasarela (Pista Aeropuerto de Menorca)</div>
+      </div>
+      <div style="text-align: right; font-size: 8pt; color: #fbbf24; font-weight: 700;">
+        USO INTERNO EXCLUSIVO · NO ENTREGAR AL CLIENTE
+      </div>
+    </header>
+
+    <div class="alert-banner">
+      <strong>CRITERIOS DE ALTA COMPLEJIDAD Y SEGURIDAD:</strong> Trabajo en pista activa de aeronaves (zona aire AENA). Requiere acreditaciones ZRS, permiso de trabajo en caliente (cecop), protocolo FOD estricto de barrido magnético permanente y plataforma elevadora PEMP. Pintura bicomponente formulada para categoría marina C5-M aplicada estrictamente en obra (prohibida pintura al horno según regla HAM).
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-title">Coste Materiales</div>
+        <div class="kpi-val">256,00 €</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Coste Mano de Obra</div>
+        <div class="kpi-val">1.520,00 €</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Medios (PEMP) + Transp.</div>
+        <div class="kpi-val">364,00 €</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Coste Directo Total</div>
+        <div class="kpi-val gold">2.140,00 €</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Beneficio Estimado</div>
+        <div class="kpi-val green">1.100,00 € (34.0%)</div>
+      </div>
+    </div>
+
+    <h2>1. Resumen Económico por Partida</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 8%;" class="center">Cód.</th>
+          <th style="width: 44%;">Concepto</th>
+          <th style="width: 6%;" class="center">Ud.</th>
+          <th style="width: 6%;" class="right">Cant.</th>
+          <th style="width: 12%;" class="right">Coste Directo</th>
+          <th style="width: 12%;" class="right">Venta Cliente</th>
+          <th style="width: 12%;" class="right">Beneficio (Margen Vta.)</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr class="cap-row">
+          <td colspan="7"><strong>CAPÍTULO 01 — TRAMITACIONES ADMINISTRATIVAS, PERMISOS DE ZONA AIRE (ZRS) Y SEGURIDAD OPERACIONAL AENA</strong></td>
+        </tr>
+            <tr>
+              <td class="center code">01.01</td>
+              <td><strong>Tramitación administrativa de acreditaciones de seguridad ZRS, pases de vehículos y plan de seguridad aeroportuario</strong></td>
+              <td class="center">pa</td>
+              <td class="right">1</td>
+              <td class="right">220,00 €</td>
+              <td class="right bold">340,00 €</td>
+              <td class="right bold green">120,00 € (35.3%)</td>
+            </tr>
+            <tr>
+              <td class="center code">01.02</td>
+              <td><strong>Permiso especial de trabajos en caliente (Hot Work Permit) y coordinación operativa con CECOPS</strong></td>
+              <td class="center">pa</td>
+              <td class="right">1</td>
+              <td class="right">160,00 €</td>
+              <td class="right bold">220,00 €</td>
+              <td class="right bold green">60,00 € (27.3%)</td>
+            </tr>
+        <tr class="cap-row">
+          <td colspan="7"><strong>CAPÍTULO 02 — MEDIOS AUXILIARES EN PISTA, TRABAJO EN ALTURA Y PROTOCOLO DE SEGURIDAD FOD</strong></td>
+        </tr>
+            <tr>
+              <td class="center code">02.01</td>
+              <td><strong>Plataforma elevadora móvil de personal (PEMP) homologada para plataforma aeroportuaria</strong></td>
+              <td class="center">pa</td>
+              <td class="right">1</td>
+              <td class="right">320,00 €</td>
+              <td class="right bold">480,00 €</td>
+              <td class="right bold green">160,00 € (33.3%)</td>
+            </tr>
+            <tr>
+              <td class="center code">02.02</td>
+              <td><strong>Dispositivos de seguridad anticaídas, pantallas ignífugas y protocolo de contención FOD</strong></td>
+              <td class="center">pa</td>
+              <td class="right">1</td>
+              <td class="right">140,00 €</td>
+              <td class="right bold">200,00 €</td>
+              <td class="right bold green">60,00 € (30.0%)</td>
+            </tr>
+        <tr class="cap-row">
+          <td colspan="7"><strong>CAPÍTULO 03 — SUSTITUCIÓN DE TUBO ESTRUCTURAL 80X80X4 MM Y REPARACIÓN DE SOPORTE DE GUÍA INDUSTRIAL</strong></td>
+        </tr>
+            <tr>
+              <td class="center code">03.01</td>
+              <td><strong>Apeo provisional, corte y saneado de perfil dañado y desmontaje de soporte de guía</strong></td>
+              <td class="center">pa</td>
+              <td class="right">1</td>
+              <td class="right">280,00 €</td>
+              <td class="right bold">440,00 €</td>
+              <td class="right bold green">160,00 € (36.4%)</td>
+            </tr>
+            <tr>
+              <td class="center code">03.02</td>
+              <td><strong>Suministro, preparación y ajuste en taller de tubo estructural 80x80x4 mm y pletinas de refuerzo</strong></td>
+              <td class="center">pa</td>
+              <td class="right">1</td>
+              <td class="right">180,00 €</td>
+              <td class="right bold">280,00 €</td>
+              <td class="right bold green">100,00 € (35.7%)</td>
+            </tr>
+            <tr>
+              <td class="center code">03.03</td>
+              <td><strong>Montaje en obra, enderezado de soporte de guía y soldadura estructural en altura bajo manga</strong></td>
+              <td class="center">pa</td>
+              <td class="right">1</td>
+              <td class="right">560,00 €</td>
+              <td class="right bold">860,00 €</td>
+              <td class="right bold green">300,00 € (34.9%)</td>
+            </tr>
+        <tr class="cap-row">
+          <td colspan="7"><strong>CAPÍTULO 04 — TRATAMIENTO DE PROTECCIÓN ANTICORROSIVA MARINA Y ACABADO DE PINTURA BICOMPONENTE EN OBRA</strong></td>
+        </tr>
+            <tr>
+              <td class="center code">04.01</td>
+              <td><strong>Preparación superficial mecánica y saneado anticorrosivo grado St 3</strong></td>
+              <td class="center">pa</td>
+              <td class="right">1</td>
+              <td class="right">90,00 €</td>
+              <td class="right bold">150,00 €</td>
+              <td class="right bold green">60,00 € (40.0%)</td>
+            </tr>
+            <tr>
+              <td class="center code">04.02</td>
+              <td><strong>Aplicación de imprimación epoxi de alto espesor y esmalte de acabado poliuretano bicomponente en obra</strong></td>
+              <td class="center">pa</td>
+              <td class="right">1</td>
+              <td class="right">150,00 €</td>
+              <td class="right bold">270,00 €</td>
+              <td class="right bold green">120,00 € (44.4%)</td>
+            </tr>
+        <tr class="tot">
+          <td colspan="4" class="right">TOTALES GENERALES:</td>
+          <td class="right">2.140,00 €</td>
+          <td class="right">3.240,00 €</td>
+          <td class="right green">1.100,00 € (34.0%)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-2">
+      <div>
+        <h2>2. Desglose de Materiales e Insumos</h2>
+        <table>
+          <thead>
+            <tr><th>Material / Consumible</th><th class="center">Ud.</th><th class="right">Cant.</th><th class="right">Coste Ud.</th><th class="right">Total</th></tr>
+          </thead>
+          <tbody>
+        <tr>
+          <td>Tubo estructural 80x80x4 mm acero S275JR (L=1.300 mm + merma)</td>
+          <td class="center">ml</td>
+          <td class="right">1.5</td>
+          <td class="right">22,00 €</td>
+          <td class="right bold">33,00 €</td>
+        </tr>
+        <tr>
+          <td>Pletinas S275 y cartelas de refuerzo para soporte de guía (chapa 6 y 8 mm)</td>
+          <td class="center">kg</td>
+          <td class="right">15.0</td>
+          <td class="right">3,20 €</td>
+          <td class="right bold">48,00 €</td>
+        </tr>
+        <tr>
+          <td>Tornillería alta resistencia galvanizada 8.8 + arandelas y tuercas autoblocantes</td>
+          <td class="center">juego</td>
+          <td class="right">1</td>
+          <td class="right">25,00 €</td>
+          <td class="right bold">25,00 €</td>
+        </tr>
+        <tr>
+          <td>Consumibles de soldadura (electrodos básicos homologados, gas, discos de corte/desbaste)</td>
+          <td class="center">pa</td>
+          <td class="right">1</td>
+          <td class="right">50,00 €</td>
+          <td class="right bold">50,00 €</td>
+        </tr>
+        <tr>
+          <td>Pintura: Imprimación epoxi bicomponente + Esmalte poliuretano alifático C5-M + disolventes</td>
+          <td class="center">kit</td>
+          <td class="right">1</td>
+          <td class="right">65,00 €</td>
+          <td class="right bold">65,00 €</td>
+        </tr>
+        <tr>
+          <td>Consumibles de seguridad y FOD (mantas ignífugas, pantallas, cinta balizamiento)</td>
+          <td class="center">pa</td>
+          <td class="right">1</td>
+          <td class="right">35,00 €</td>
+          <td class="right bold">35,00 €</td>
+        </tr></tbody>
+        </table>
+
+        <h2>3. Medios de Elevación y Logística</h2>
+        <table>
+          <thead>
+            <tr><th>Concepto</th><th class="right">Unidades</th><th class="right">Coste Ud.</th><th class="right">Total</th></tr>
+          </thead>
+          <tbody>
+        <tr>
+          <td>Alquiler PEMP plataforma tijera/articulada para pista (2 días)</td>
+          <td class="right">2</td>
+          <td class="right">110,00 €</td>
+          <td class="right bold">220,00 €</td>
+        </tr>
+        <tr>
+          <td>Transporte de PEMP a filtro de seguridad del aeropuerto (ida y vuelta)</td>
+          <td class="right">2</td>
+          <td class="right">50,00 €</td>
+          <td class="right bold">100,00 €</td>
+        </tr>
+        <tr>
+          <td>Desplazamientos furgón taller acreditado a plataforma (2 días)</td>
+          <td class="right">2</td>
+          <td class="right">22,00 €</td>
+          <td class="right bold">44,00 €</td>
+        </tr></tbody>
+        </table>
+      </div>
+
+      <div>
+        <h2>4. Desglose de Mano de Obra y Supervisión Técnica</h2>
+        <table>
+          <thead>
+            <tr><th>Puesto / Operación</th><th class="right">Horas</th><th class="right">Tarifa</th><th class="right">Total</th></tr>
+          </thead>
+          <tbody>
+        <tr>
+          <td>Gestión técnica de permisos AENA, tramitación acreditaciones ZRS y plan PRL aeroportuario</td>
+          <td class="right">6.0 h</td>
+          <td class="right">40,00 €/h</td>
+          <td class="right bold">240,00 €</td>
+        </tr>
+        <tr>
+          <td>Oficial 1º soldador/montador (Taller preparación y corte piezas): 4 h x 40 €/h</td>
+          <td class="right">4.0 h</td>
+          <td class="right">40,00 €/h</td>
+          <td class="right bold">160,00 €</td>
+        </tr>
+        <tr>
+          <td>Oficial 1º soldador homologado en pista (trabajo en altura, corte, soldadura y ajuste): 14 h x 45 €/h</td>
+          <td class="right">14.0 h</td>
+          <td class="right">45,00 €/h</td>
+          <td class="right bold">630,00 €</td>
+        </tr>
+        <tr>
+          <td>Oficial 2º / Ayudante en pista (trabajo en altura, vigilancia de fuego FOD y pintura): 14 h x 35 €/h</td>
+          <td class="right">14.0 h</td>
+          <td class="right">35,00 €/h</td>
+          <td class="right bold">490,00 €</td>
+        </tr></tbody>
+        </table>
+
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px; margin-top: 15px;">
+          <h3 style="margin: 0 0 6px 0; font-size: 8.5pt; color: #0f172a; text-transform: uppercase;">Puntos Críticos de Ejecución Técnica</h3>
+          <ul style="margin: 0; padding-left: 16px; font-size: 7.8pt; color: #475569; line-height: 1.4;">
+            <li><strong>Apeo previo:</strong> La guía telescópica debe estar acuñada y sustentada para evitar que al cortar el tubo de 80x80x4 mm se altere la flecha o se desplace el eje de rodadura.</li>
+            <li><strong>Seguridad en caliente:</strong> Mantas ignífugas y presencia activa de vigilante con extintor durante el soldeo y amolado para evitar ignición de sellados de manga o cableados adyacentes.</li>
+            <li><strong>Barrido FOD estricto:</strong> Ningún resto metálico puede quedar en la plataforma; se utilizará barredora magnética manual al final de cada jornada.</li>
+            <li><strong>Pintura en obra:</strong> Aplicar imprimación epoxi rica en fosfato de zinc y acabado poliuretano bicomponente C5-M a brocha/rodillo respetando tiempos de repintado. Prohibida pintura al horno.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
