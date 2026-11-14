@@ -1,0 +1,195 @@
+{
+  "codigo": "P-2026-0060",
+  "referencia": "PRE-2026-1113-MANGA-AEROPUERTO-MENORCA",
+  "version": "1.0",
+  "fecha": "13 de noviembre de 2026",
+  "validez_dias": 30,
+  "forma_pago": "100% a la aceptación del presupuesto (o según condiciones contractuales acordadas)",
+  "plazo_ejecucion_estimado": "2 a 3 jornadas laborables en ventana horaria coordinada con CECOPS / AENA",
+  "cliente": {
+    "empresa": "AENA S.M.E., S.A. / Empresa de Mantenimiento de Pasarelas Telescópicas",
+    "atencion": "Dpto. Técnico de Mantenimiento e Infraestructuras Aeroportuarias",
+    "obra": "Reparación estructural de manga de embarque en plataforma de aeronaves",
+    "emplazamiento": "Aeropuerto de Menorca (MAH) - Plataforma Lado Aire (Pista / Apron)",
+    "direccion": "Carretera de Sant Climent, s/n",
+    "codigo_postal": "07712",
+    "poblacion": "Mahón",
+    "isla": "Menorca"
+  },
+  "emisor": {
+    "razon_social": "Dixis Recursos y Soluciones S.L.",
+    "cif": "B57825432",
+    "nombre_comercial": "HAM Estructuras Metálicas Menorca",
+    "domicilio": "Av. Circunval·lació, 11, Polígono Industrial de Sant Lluís, 07710 Sant Lluís, Menorca",
+    "telefono": "+34 971 35 20 18",
+    "movil": "+34 669 769 541",
+    "email": "info@hamenorca.com",
+    "web": "https://www.hamenorca.com"
+  },
+  "proyecto": {
+    "titulo": "Reparación Estructural de Manga/Pasarela de Acceso a Aeronaves: Sustitución de Tubo 80x80x4 (1.300 mm) y Reconstrucción de Soporte de Guía Industrial",
+    "descripcion": "Trabajos de reparación estructural y mecánica en el chasis inferior de la pasarela telescópica de acceso a aeronaves (manga) en el Aeropuerto de Menorca. Incluye sustitución completa del perfil tubular de acero laminado de 80x80x4 mm dañado y corroído (L=1.300 mm), reparación y refuerzo del soporte de guía industrial con reposición de pernería, trabajos en altura con plataforma elevadora móvil de personal (PEMP), tramitación y permisos administrativos de acceso a zona aire (ZRS) AENA, permiso de trabajos en caliente (Hot Work), protocolo estricto FOD (Foreign Object Debris) y tratamiento anticorrosivo mediante imprimación y acabado de poliuretano bicomponente aplicado en obra.",
+    "material_base": "Acero laminado estructural S275JR",
+    "clasificacion_dificultad": "Complejidad Muy Alta (Trabajo en altura sobre pista activa, requerimientos de seguridad AENA, soldadura bajo techo, prevención FOD y ventanas operativas restringidas)",
+    "sistema_pintura": "Preparación mecánica St 3 + Imprimación epoxídica anticorrosiva de alto espesor + Esmalte de poliuretano alifático bicomponente de exterior categoría C5-M (acabado en obra, nunca al horno)"
+  },
+  "tarifas_mo": {
+    "oficial_1_soldador_altura": 45.00,
+    "oficial_2_ayudante_montador": 35.00,
+    "tecnico_gestion_seguridad_prl": 40.00
+  },
+  "capitulos": [
+    {
+      "numero": "01",
+      "titulo": "Tramitaciones Administrativas, Permisos de Zona Aire (ZRS) y Seguridad Operacional AENA",
+      "descripcion": "Gestión técnica integral para acceso, permanencia y ejecución de trabajos en plataforma aeroportuaria según normativa de AENA.",
+      "partidas": [
+        {
+          "codigo": "01.01",
+          "concepto": "Tramitación administrativa de acreditaciones de seguridad ZRS, pases de vehículos y plan de seguridad aeroportuario",
+          "descripcion": "Elaboración y tramitación de la documentación requerida por la Dirección de Seguridad del Aeropuerto de Menorca (AENA): gestión de solicitudes de acreditación TMA / ZRS para el equipo de trabajo técnico, autorizaciones de acceso y circulación en plataforma para vehículo de asistencia y plataforma elevadora, verificación de seguros de RC aeroportuaria y elaboración de Evaluación de Riesgos Específica (EPR) para trabajos en plataforma.",
+          "unidad": "pa",
+          "cantidad": 1,
+          "coste_unitario": 220.00,
+          "precio_venta_unitario": 340.00
+        },
+        {
+          "codigo": "01.02",
+          "concepto": "Permiso especial de trabajos en caliente (Hot Work Permit) y coordinación operativa con CECOPS",
+          "descripcion": "Gestión y obtención del Permiso de Trabajos en Caliente (oxicorte, radial y soldadura eléctrica en zona aire) emitido por el servicio de seguridad de AENA. Coordinación con CECOPS / Operaciones para la reserva y fijación de ventanas horarias de trabajo sin vuelos en la manga asignada, protocolo de contingencia y vigilancia continua.",
+          "unidad": "pa",
+          "cantidad": 1,
+          "coste_unitario": 160.00,
+          "precio_venta_unitario": 220.00
+        }
+      ]
+    },
+    {
+      "numero": "02",
+      "titulo": "Medios Auxiliares en Pista, Trabajo en Altura y Protocolo de Seguridad FOD",
+      "descripcion": "Dotación de equipos de elevación certificados, medidas de protección contra caídas y protocolo estricto de prevención FOD (Foreign Object Debris).",
+      "partidas": [
+        {
+          "codigo": "02.01",
+          "concepto": "Plataforma elevadora móvil de personal (PEMP) homologada para plataforma aeroportuaria",
+          "descripcion": "Alquiler, flete de transporte hasta la puerta de acceso de seguridad del aeropuerto y posicionamiento en plataforma de plataforma elevadora móvil de personal (PEMP) tipo tijera o brazo articulado diésel/eléctrico con neumáticos que no marcan y documentación técnica en vigor, para una duración de 2 jornadas de trabajo en altura bajo la manga (altura operativa ~4-5 m).",
+          "unidad": "pa",
+          "cantidad": 1,
+          "coste_unitario": 320.00,
+          "precio_venta_unitario": 480.00
+        },
+        {
+          "codigo": "02.02",
+          "concepto": "Dispositivos de seguridad anticaídas, pantallas ignífugas y protocolo de contención FOD",
+          "descripcion": "Suministro e instalación temporal de pantallas ignífugas perimetrales de protección contra proyección de chispas de soldadura y corte en plataforma; dotación de equipos de extinción portátiles (extintor de polvo polivalente y CO2 con observador de fuego durante la ejecución); equipos EPIs para trabajos en altura (arneses anticaídas EN 361 y elementos de amarre); y aplicación de protocolo FOD mediante aspiración industrial y barrido magnético permanente de restos metálicos, virutas, chispas y electrodos en pista.",
+          "unidad": "pa",
+          "cantidad": 1,
+          "coste_unitario": 140.00,
+          "precio_venta_unitario": 200.00
+        }
+      ]
+    },
+    {
+      "numero": "03",
+      "titulo": "Sustitución de Tubo Estructural 80x80x4 mm y Reparación de Soporte de Guía Industrial",
+      "descripcion": "Corte de elementos dañados, suministro y montaje de nuevo tubo 80x80x4 (1.300 mm) en acero laminado S275JR, enderezado y refuerzo de soporte de guía y soldadura estructural en posición.",
+      "partidas": [
+        {
+          "codigo": "03.01",
+          "concepto": "Apeo provisional, corte y saneado de perfil dañado y desmontaje de soporte de guía",
+          "descripcion": "Trabajos previos consistentes en: apuntalamiento y sustentación provisional de la guía industrial para garantizar la invariabilidad de sus cotas y alineación geométrica de deslizamiento; corte controlado mediante amoladora angular del perfil tubular 80x80x4 mm colapsado y corroído en longitud de 1.300 mm; y desprendimiento controlado del soporte de guía industrial afectado.",
+          "unidad": "pa",
+          "cantidad": 1,
+          "coste_unitario": 280.00,
+          "precio_venta_unitario": 440.00
+        },
+        {
+          "codigo": "03.02",
+          "concepto": "Suministro, preparación y ajuste en taller de tubo estructural 80x80x4 mm y pletinas de refuerzo",
+          "descripcion": "Suministro de tubo de acero laminado estructural hueco cuadrado de 80x80x4 mm (calidad S275JR según UNE-EN 10210 / 10219) de longitud 1.300 mm cortado a escuadra, biselado y desbarbado; suministro de pletinas de acero laminado S275 de 8 mm y 6 mm de espesor para cartelas de empalme, refuerzos y bases de anclaje de la guía; y reposición de pernería de fijación mediante tornillería de alta resistencia galvanizada clase 8.8 e inoxidable A4.",
+          "unidad": "pa",
+          "cantidad": 1,
+          "coste_unitario": 180.00,
+          "precio_venta_unitario": 280.00
+        },
+        {
+          "codigo": "03.03",
+          "concepto": "Montaje en obra, enderezado de soporte de guía y soldadura estructural en altura bajo manga",
+          "descripcion": "Enderezado, conformado y reconstrucción del soporte de guía industrial deformado; presentación milimétrica del nuevo tubo de 80x80x4 mm en la estructura portante de la pasarela; verificación geométrica y de alineación con el carril de rodadura; ejecución de soldadura eléctrica corrida por arco con electrodo básico homologado en posición cornisa/bajo techo por oficial soldador homologado; soldado de pletinas de refuerzo estructural y reinstalación ajustada del soporte de la guía.",
+          "unidad": "pa",
+          "cantidad": 1,
+          "coste_unitario": 560.00,
+          "precio_venta_unitario": 860.00
+        }
+      ]
+    },
+    {
+      "numero": "04",
+      "titulo": "Tratamiento de Protección Anticorrosiva Marina y Acabado de Pintura Bicomponente en Obra",
+      "descripcion": "Preparación superficial mecánica St 3, imprimación epoxi anticorrosiva de alto espesor y esmalte de poliuretano alifático bicomponente para ambiente marino C5-M aplicado en obra (sin secado al horno).",
+      "partidas": [
+        {
+          "codigo": "04.01",
+          "concepto": "Preparación superficial mecánica y saneado anticorrosivo grado St 3",
+          "descripcion": "Desengrasado, limpieza mecánica profunda con disco de alambre y amolado de cordones de soldadura, tubo nuevo y áreas adyacentes de la estructura soporte de la manga, eliminando cascarillas de laminación, restos de herrumbre y pintura degradada hasta alcanzar grado St 3 según norma ISO 8501-1.",
+          "unidad": "pa",
+          "cantidad": 1,
+          "coste_unitario": 90.00,
+          "precio_venta_unitario": 150.00
+        },
+        {
+          "codigo": "04.02",
+          "concepto": "Aplicación de imprimación epoxi de alto espesor y esmalte de acabado poliuretano bicomponente en obra",
+          "descripcion": "Tratamiento anticorrosivo en obra conforme a la normativa estricta de HAM (nunca al horno): aplicación a brocha y rodillo de una capa de imprimación epoxídica de dos componentes de alta penetración y espesor (mínimo 80 µm de película seca) y posterior aplicación de dos capas de esmalte de acabado de poliuretano alifático bicomponente de alta resistencia química, rayos UV y niebla salina categoría C5-M, en tono gris industrial homologado coordinado con la manga existente.",
+          "unidad": "pa",
+          "cantidad": 1,
+          "coste_unitario": 150.00,
+          "precio_venta_unitario": 270.00
+        }
+      ]
+    }
+  ],
+  "desglose_costes_internos": {
+    "materiales": [
+      { "concepto": "Tubo estructural 80x80x4 mm acero S275JR (L=1.300 mm + merma)", "unidad": "ml", "cantidad": 1.5, "coste_unit": 22.00, "total": 33.00 },
+      { "concepto": "Pletinas S275 y cartelas de refuerzo para soporte de guía (chapa 6 y 8 mm)", "unidad": "kg", "cantidad": 15.0, "coste_unit": 3.20, "total": 48.00 },
+      { "concepto": "Tornillería alta resistencia galvanizada 8.8 + arandelas y tuercas autoblocantes", "unidad": "juego", "cantidad": 1, "coste_unit": 25.00, "total": 25.00 },
+      { "concepto": "Consumibles de soldadura (electrodos básicos homologados, gas, discos de corte/desbaste)", "unidad": "pa", "cantidad": 1, "coste_unit": 50.00, "total": 50.00 },
+      { "concepto": "Pintura: Imprimación epoxi bicomponente + Esmalte poliuretano alifático C5-M + disolventes", "unidad": "kit", "cantidad": 1, "coste_unit": 65.00, "total": 65.00 },
+      { "concepto": "Consumibles de seguridad y FOD (mantas ignífugas, pantallas, cinta balizamiento)", "unidad": "pa", "cantidad": 1, "coste_unit": 35.00, "total": 35.00 }
+    ],
+    "mano_de_obra": [
+      { "concepto": "Gestión técnica de permisos AENA, tramitación acreditaciones ZRS y plan PRL aeroportuario", "horas": 6.0, "tarifa": 40.00, "total": 240.00 },
+      { "concepto": "Oficial 1º soldador/montador (Taller preparación y corte piezas): 4 h x 40 €/h", "horas": 4.0, "tarifa": 40.00, "total": 160.00 },
+      { "concepto": "Oficial 1º soldador homologado en pista (trabajo en altura, corte, soldadura y ajuste): 14 h x 45 €/h", "horas": 14.0, "tarifa": 45.00, "total": 630.00 },
+      { "concepto": "Oficial 2º / Ayudante en pista (trabajo en altura, vigilancia de fuego FOD y pintura): 14 h x 35 €/h", "horas": 14.0, "tarifa": 35.00, "total": 490.00 }
+    ],
+    "medios_auxiliares_y_transporte": [
+      { "concepto": "Alquiler PEMP plataforma tijera/articulada para pista (2 días)", "dias": 2, "coste_unit": 110.00, "total": 220.00 },
+      { "concepto": "Transporte de PEMP a filtro de seguridad del aeropuerto (ida y vuelta)", "viajes": 2, "coste_unit": 50.00, "total": 100.00 },
+      { "concepto": "Desplazamientos furgón taller acreditado a plataforma (2 días)", "dias": 2, "coste_unit": 22.00, "total": 44.00 }
+    ]
+  },
+  "resumen_economico": {
+    "coste_materiales": 256.00,
+    "coste_mano_obra": 1520.00,
+    "coste_medios_y_transporte": 364.00,
+    "coste_directo_total": 2140.00,
+    "venta_base_imponible": 3240.00,
+    "beneficio_bruto": 1100.00,
+    "margen_sobre_venta_pct": 33.95,
+    "margen_sobre_coste_pct": 51.40,
+    "tipo_iva_pct": 21.0,
+    "importe_iva": 680.40,
+    "total_presupuesto_con_iva": 3920.40
+  },
+  "condiciones_generales": [
+    "Presupuesto emitido conforme a las condiciones de la pasarela y daños observados en la inspección visual.",
+    "Validez de la oferta: 30 días a partir de la fecha de emisión.",
+    "Forma de pago: 100% a la aceptación del presupuesto mediante transferencia bancaria (o según condiciones contractuales habituales con la entidad gestora).",
+    "Los plazos de ejecución están sujetos a la aprobación de las acreditaciones de seguridad ZRS por AENA y a la concesión de las ventanas de trabajo sin vuelos en la manga.",
+    "Incluye todas las herramientas, maquinaria de soldadura con equipos autónomos, plataforma elevadora, consumibles y equipos EPIs para trabajos en altura.",
+    "Se garantiza la total limpieza y retirada de cualquier resto metálico o desecho de soldadura conforme al protocolo de prevención FOD de AENA.",
+    "Acabado de pintura realizado en obra mediante sistema bicomponente marino de alta adherencia y esmalte de poliuretano, sin secado al horno conforme a las normas de fabricación de HAM."
+  ]
+}
