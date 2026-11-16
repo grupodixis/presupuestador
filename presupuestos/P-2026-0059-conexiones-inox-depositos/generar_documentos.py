@@ -101,30 +101,31 @@ def create_excel():
 
     meta_rows = [
         ("REFERENCIA:", DATA["referencia"]),
-        ("ESTADO:", DATA["estado_presupuesto"]),
-        ("CLIENTE / OBRA:", f"{DATA['cliente']['nombre']} — {DATA['cliente']['obra']}"),
+        ("CLIENTE:", f"{DATA['cliente']['nombre']} · CIF: {DATA['cliente']['cif']}"),
+        ("DOMICILIO:", f"{DATA['cliente']['domicilio']}"),
+        ("OBRA / UBICACIÓN:", f"{DATA['cliente']['obra']} · {DATA['cliente']['ubicacion']}"),
         ("FECHA / VALIDEZ:", f"{DATA['fecha']} • Validez: {DATA['validez_dias']} días naturales"),
-        ("PROCESO / CALIDAD:", f"{DATA['calidad_inox']} · {DATA['proceso_soldadura']}"),
+        ("CALIDAD / PROCESO:", f"{DATA['calidad_inox']} · {DATA['proceso_soldadura']}"),
     ]
     for idx, (k, v) in enumerate(meta_rows, start=5):
         ws1[f"B{idx}"] = k
         ws1[f"B{idx}"].font = font_bold
         ws1[f"C{idx}"] = v
-        ws1[f"C{idx}"].font = font_green if "DEFINITIVO" in v else font_reg
+        ws1[f"C{idx}"].font = font_reg
 
-    ws1["B11"] = "DESGLOSE DE PARTIDAS (SUMINISTRO, FABRICACIÓN TIG EN TALLER E INSTALACIÓN EN OBRA)"
-    ws1["B11"].font = font_sec
+    ws1["B12"] = "DESGLOSE DE PARTIDAS (SUMINISTRO, FABRICACIÓN TIG EN TALLER E INSTALACIÓN EN OBRA)"
+    ws1["B12"].font = font_sec
 
     headers_client = ["Nº", "Concepto y Descripción Técnica", "Ud.", "Cantidad", "Precio Unitario", "Subtotal"]
     for c_idx, h in enumerate(headers_client, start=2):
-        cell = ws1.cell(row=12, column=c_idx, value=h)
+        cell = ws1.cell(row=13, column=c_idx, value=h)
         cell.font = font_header
         cell.fill = fill_header
         cell.alignment = Alignment(horizontal="center", vertical="center")
         cell.border = border_thin
-    ws1.row_dimensions[12].height = 24
+    ws1.row_dimensions[13].height = 24
 
-    row_cur = 13
+    row_cur = 14
     for p in DATA["partidas"]:
         c_id = ws1.cell(row=row_cur, column=2, value=p["id"])
         c_id.font = font_bold
@@ -164,7 +165,7 @@ def create_excel():
     last_item_row = row_cur - 1
     row_base = row_cur + 1
     ws1.cell(row=row_base, column=6, value="BASE IMPONIBLE:").font = font_tot
-    c_base = ws1.cell(row=row_base, column=7, value=f"=SUM(G13:G{last_item_row})")
+    c_base = ws1.cell(row=row_base, column=7, value=f"=SUM(G14:G{last_item_row})")
     c_base.font = font_tot
     c_base.number_format = '#,##0.00 "€"'
     c_base.fill = fill_tot
@@ -286,7 +287,7 @@ def create_excel():
     for idx_p, p in enumerate(DATA["partidas"]):
         calc = calc_partida(p, tarifas)
         s_r, e_r = partida_mat_ranges[p["id"]]
-        client_row = 13 + idx_p
+        client_row = 14 + idx_p
 
         ws3.cell(row=r3, column=2, value=f"{p['id']} {p['diametro_pvco']}").font = font_bold
         ws3.cell(row=r3, column=3, value=p["cantidad"]).alignment = Alignment(horizontal="center")
@@ -418,8 +419,9 @@ def create_html_and_pdf():
   <div class="banner-def"><strong>PRESUPUESTO TÉCNICO:</strong> Precios calculados con material homologado en acero inoxidable AISI 316L, soldadura TIG en taller, decapado/pasivado y montaje completo en obra con fijación a pared.</div>
 
   <table class="meta">
-    <tr><td class="lbl">Referencia</td><td>{DATA['referencia']}</td><td class="lbl">Fecha</td><td>{DATA['fecha']}</td></tr>
-    <tr><td class="lbl">Cliente / Obra</td><td>{DATA['cliente']['nombre']} — {DATA['cliente']['obra']}</td><td class="lbl">Validez</td><td>{DATA['validez_dias']} días naturales</td></tr>
+    <tr><td class="lbl">Cliente</td><td><strong>{DATA['cliente']['nombre']}</strong> (CIF: {DATA['cliente']['cif']})</td><td class="lbl">Referencia</td><td>{DATA['referencia']}</td></tr>
+    <tr><td class="lbl">Domicilio</td><td>{DATA['cliente']['domicilio']}</td><td class="lbl">Fecha</td><td>{DATA['fecha']}</td></tr>
+    <tr><td class="lbl">Obra / Contacto</td><td>{DATA['cliente']['obra']} · Att: {DATA['cliente']['contacto']}</td><td class="lbl">Validez</td><td>{DATA['validez_dias']} días naturales</td></tr>
     <tr><td class="lbl">Calidad / Proceso</td><td colspan="3">{DATA['calidad_inox']} · {DATA['proceso_soldadura']}</td></tr>
   </table>
 

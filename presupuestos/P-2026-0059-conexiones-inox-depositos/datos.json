@@ -7,11 +7,14 @@
   "calidad_inox": "AISI 316L (EN 1.4404) para tubería y accesorios / A4 para tornillería",
   "proceso_soldadura": "Soldadura TIG en taller con protección de argón, decapado y pasivado de cordones",
   "cliente": {
-    "nombre": "Por confirmar",
+    "nombre": "ANTONIO Y DIEGO, S.A.",
+    "cif": "A07116122",
+    "domicilio": "Carrer des Cap Negre, 3 (Pol. Ind. POIMA), 07714 Mahón (Menorca)",
+    "contacto": "Guillermo Casanova Rosa",
     "obra": "Subidas y conexiones de tubería de acero inoxidable a depósitos (PVC-O a depósito)",
-    "ubicacion": "Menorca / Illes Balears",
-    "telefono": null,
-    "email": null
+    "ubicacion": "Menorca (Illes Balears)",
+    "telefono": "+34 971 36 05 05",
+    "email": "guillermo@antonioydiego.com / info@antonioydiego.com"
   },
   "emisor": {
     "razon_social": "Dixis Recursos y Soluciones S.L.",
