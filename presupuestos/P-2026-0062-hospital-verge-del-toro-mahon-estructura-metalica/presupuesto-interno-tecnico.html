@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Estudio Técnico Interno de Costes · P-2026-0062</title>
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
+    body {
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      font-size: 8pt;
+      line-height: 1.35;
+      background: #ffffff;
+    }
+    .header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      display: table;
+      width: 100%;
+    }
+    .header-left {
+      display: table-cell;
+      width: 60%;
+    }
+    .header-right {
+      display: table-cell;
+      width: 40%;
+      text-align: right;
+    }
+    .title {
+      font-size: 13pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0;
+    }
+    .confidential-tag {
+      display: inline-block;
+      background: #dc2626;
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 8pt;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .meta-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      display: table;
+      width: 100%;
+    }
+    .meta-cell {
+      display: table-cell;
+      width: 25%;
+      font-size: 7.5pt;
+    }
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #cbd5e1;
+      margin-bottom: 12px;
+    }
+    .cost-table th {
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 7pt;
+      font-weight: 700;
+      padding: 5px 6px;
+      text-transform: uppercase;
+    }
+    .cost-table td {
+      padding: 4px 6px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 7.5pt;
+    }
+    .sub-header {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .center { text-align: center; }
+    .right { text-align: right; }
+    .code { font-family: Consolas, monospace; font-size: 7pt; font-weight: 600; color: #475569; }
+    .desc { font-size: 7.5pt; color: #1e293b; }
+    .font-bold { font-weight: 700; }
+    .green { color: #15803d; }
+    .tot-row {
+      background: #fef3c7;
+      border-top: 2px solid #0f172a;
+      border-bottom: 2px solid #0f172a;
+      font-size: 8.5pt;
+      font-weight: 800;
+    }
+    .kpi-grid {
+      display: table;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .kpi-card {
+      display: table-cell;
+      width: 25%;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 8px 10px;
+      text-align: center;
+    }
+    .kpi-card:not(:last-child) {
+      margin-right: 8px;
+    }
+    .kpi-val {
+      font-size: 13pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 2px 0;
+    }
+    .kpi-lbl {
+      font-size: 7pt;
+      color: #64748b;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .notes-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 8px 10px;
+      margin-top: 10px;
+      font-size: 7.5pt;
+      border-radius: 0 4px 4px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <h1 class="title">HAM MENORCA · ESTUDIO TÉCNICO INTERNO Y RENTABILIDAD</h1>
+      <div style="font-size: 8pt; color: #0284c7; font-weight: 600; margin-top: 2px;">
+        EXPEDIENTE P-2026-0062 · Nou Hospital Verge del Toro (IB-SALUT)
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="confidential-tag">DOCUMENTO INTERNO CONFIDENCIAL</div>
+      <div style="font-size: 7.5pt; color: #64748b; margin-top: 3px;">Fecha: 16 de noviembre de 2026 · Destinatario: Cobra Edificación Singular</div>
+    </div>
+  </div>
+
+  <div class="meta-box">
+    <div class="meta-cell">
+      <strong>Acero Laminado Total:</strong> 407.475,00 kg (407,48 Tn)<br>
+      <strong>Forjados Colaborantes:</strong> 403,17 m²
+    </div>
+    <div class="meta-cell">
+      <strong>Coste Directo Total:</strong> 1.450.326,73 €<br>
+      <strong>Coste Medio Acero:</strong> 3,56 €/kg
+    </div>
+    <div class="meta-cell">
+      <strong>Venta Base Imponible:</strong> 2.018.072,81 €<br>
+      <strong>Precio Medio Venta Acero:</strong> 4,95 €/kg
+    </div>
+    <div class="meta-cell">
+      <strong>Margen Bruto Total:</strong> +567.746,08 €<br>
+      <strong>Rentabilidad s/ Venta:</strong> 28.13%
+    </div>
+  </div>
+
+  <table class="cost-table">
+    <thead>
+      <tr>
+        <th style="width: 10%;">Código</th>
+        <th style="width: 32%;">Partida Presupuestaria</th>
+        <th style="width: 4%; text-align: center;">Ud.</th>
+        <th style="width: 8%; text-align: right;">Cantidad</th>
+        <th style="width: 7%; text-align: right;">Coste Ud.</th>
+        <th style="width: 10%; text-align: right;">Coste Total</th>
+        <th style="width: 7%; text-align: right;">Venta Ud.</th>
+        <th style="width: 10%; text-align: right;">Venta Total</th>
+        <th style="width: 7%; text-align: right;">Margen (€)</th>
+        <th style="width: 5%; text-align: right;">% Marg.</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="sub-header">
+          <td colspan="5"><strong>SUBCAPÍTULO 06.01 - REHABILITACION</strong></td>
+          <td class="right"><strong>150.016,00 €</strong></td>
+          <td></td>
+          <td class="right font-bold"><strong>208.809,27 €</strong></td>
+          <td class="right green font-bold"><strong>+58.793,27 €</strong></td>
+          <td class="right green font-bold"><strong>28.16%</strong></td>
+        </tr>
+        
+            <tr>
+              <td class="code">PM.01.05.01.01.02</td>
+              <td class="desc">PLACA DE ANCLAJE INTERIOR ACERO S275JR - PLANCHA, TRABAJADO EN TALLER</td>
+              <td class="center">kg</td>
+              <td class="right">131,88</td>
+              <td class="right">4,75 €</td>
+              <td class="right">626,43 €</td>
+              <td class="right">6,80 €</td>
+              <td class="right font-bold">896,78 €</td>
+              <td class="right green font-bold">+270,35 €</td>
+              <td class="right green font-bold">30.15%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">PM.01.05.01.01.01</td>
+              <td class="desc">ESTRUCTURA VERTICAL INTERIOR ACERO S275JR - PERFILES IP,HE,UP, TRABAJADOS EN TALLER</td>
+              <td class="center">kg</td>
+              <td class="right">3.826,12</td>
+              <td class="right">3,55 €</td>
+              <td class="right">13.582,73 €</td>
+              <td class="right">4,95 €</td>
+              <td class="right font-bold">18.939,29 €</td>
+              <td class="right green font-bold">+5.356,56 €</td>
+              <td class="right green font-bold">28.28%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">P442-BA21PM</td>
+              <td class="desc">ESTRUCTURA HORIZONTAL INTERIOR ACERO S275JR - PERFILES IP,HE,UP, TRABAJADOS EN TALLER</td>
+              <td class="center">kg</td>
+              <td class="right">30.922,65</td>
+              <td class="right">3,45 €</td>
+              <td class="right">106.683,14 €</td>
+              <td class="right">4,80 €</td>
+              <td class="right font-bold">148.428,72 €</td>
+              <td class="right green font-bold">+41.745,58 €</td>
+              <td class="right green font-bold">28.13%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">PM.01.05.01.04.01</td>
+              <td class="desc">FORJADO COLABORANTE, E=16cm (6+10), HA-25/B/20/XC3, BAJO RASANTE</td>
+              <td class="center">m²</td>
+              <td class="right">66,01</td>
+              <td class="right">76,00 €</td>
+              <td class="right">5.016,76 €</td>
+              <td class="right">106,00 €</td>
+              <td class="right font-bold">6.997,06 €</td>
+              <td class="right green font-bold">+1.980,30 €</td>
+              <td class="right green font-bold">28.3%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">PM.01.05.01.04.02</td>
+              <td class="desc">FORJADO COLABORANTE, E=16cm (6+10), HA-25/B/20/XC1, SOBRE RASANTE</td>
+              <td class="center">m²</td>
+              <td class="right">337,16</td>
+              <td class="right">71,50 €</td>
+              <td class="right">24.106,94 €</td>
+              <td class="right">99,50 €</td>
+              <td class="right font-bold">33.547,42 €</td>
+              <td class="right green font-bold">+9.440,48 €</td>
+              <td class="right green font-bold">28.14%</td>
+            </tr>
+            
+        
+        <tr class="sub-header">
+          <td colspan="5"><strong>SUBCAPÍTULO 06.02 - OBRA NUEVA</strong></td>
+          <td class="right"><strong>4.062,05 €</strong></td>
+          <td></td>
+          <td class="right font-bold"><strong>5.718,94 €</strong></td>
+          <td class="right green font-bold"><strong>+1.656,89 €</strong></td>
+          <td class="right green font-bold"><strong>28.97%</strong></td>
+        </tr>
+        
+            <tr>
+              <td class="code">EESA.1baaaaa.ST0</td>
+              <td class="desc">Suministro y montaje acero S 275 JR soldado e/soportes, vigas</td>
+              <td class="center">kg</td>
+              <td class="right">1.068,96</td>
+              <td class="right">3,80 €</td>
+              <td class="right">4.062,05 €</td>
+              <td class="right">5,35 €</td>
+              <td class="right font-bold">5.718,94 €</td>
+              <td class="right green font-bold">+1.656,89 €</td>
+              <td class="right green font-bold">28.97%</td>
+            </tr>
+            
+        
+        <tr class="sub-header">
+          <td colspan="5"><strong>SUBCAPÍTULO 06.03 - REFUERZOS ESTRUCTURALES</strong></td>
+          <td class="right"><strong>1.296.248,68 €</strong></td>
+          <td></td>
+          <td class="right font-bold"><strong>1.803.544,60 €</strong></td>
+          <td class="right green font-bold"><strong>+507.295,92 €</strong></td>
+          <td class="right green font-bold"><strong>28.13%</strong></td>
+        </tr>
+        
+            <tr>
+              <td class="code">P442-BR01</td>
+              <td class="desc">SUSTITUCIÓN FUNCIONAL JÁCENAS HA MEDIANTE VIGAS DE ACERO S275JR CONECTADAS</td>
+              <td class="center">kg</td>
+              <td class="right">99.219,23</td>
+              <td class="right">3,30 €</td>
+              <td class="right">327.423,46 €</td>
+              <td class="right">4,60 €</td>
+              <td class="right font-bold">456.408,46 €</td>
+              <td class="right green font-bold">+128.985,00 €</td>
+              <td class="right green font-bold">28.26%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">P442-BA61</td>
+              <td class="desc">ESTRUCTURA HORIZONTAL INTERIOR SOPORTE PARTELUCES ACERO S275JR - PERFILES IP,HE,UP</td>
+              <td class="center">kg</td>
+              <td class="right">56.621,25</td>
+              <td class="right">3,25 €</td>
+              <td class="right">184.019,06 €</td>
+              <td class="right">4,50 €</td>
+              <td class="right font-bold">254.795,62 €</td>
+              <td class="right green font-bold">+70.776,56 €</td>
+              <td class="right green font-bold">27.78%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">P442-BR51</td>
+              <td class="desc">REFUERZO PARTELUCES ESTRUCTURA HORIZONTAL INTERIOR FORJ. UNIDIRECC. MEDIANTE VIGAS DE ACERO S275JR</td>
+              <td class="center">kg</td>
+              <td class="right">21.097,44</td>
+              <td class="right">3,35 €</td>
+              <td class="right">70.676,42 €</td>
+              <td class="right">4,65 €</td>
+              <td class="right font-bold">98.103,10 €</td>
+              <td class="right green font-bold">+27.426,68 €</td>
+              <td class="right green font-bold">27.96%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">P44C-BR01</td>
+              <td class="desc">REFUERZO PILARES HA MEDIANTE PERFILES DE ACERO S275JR CONECTADOS</td>
+              <td class="center">kg</td>
+              <td class="right">50.618,09</td>
+              <td class="right">3,50 €</td>
+              <td class="right">177.163,32 €</td>
+              <td class="right">4,85 €</td>
+              <td class="right font-bold">245.497,74 €</td>
+              <td class="right green font-bold">+68.334,42 €</td>
+              <td class="right green font-bold">27.84%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">P44C-BR02</td>
+              <td class="desc">REFUERZO PILARES HA MEDIANTE EMPRESILLADO DE PERFILES DE ACERO S275JR</td>
+              <td class="center">kg</td>
+              <td class="right">55.953,77</td>
+              <td class="right">3,65 €</td>
+              <td class="right">204.231,26 €</td>
+              <td class="right">5,10 €</td>
+              <td class="right font-bold">285.364,23 €</td>
+              <td class="right green font-bold">+81.132,97 €</td>
+              <td class="right green font-bold">28.43%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">P44C-BR21</td>
+              <td class="desc">CAPITEL DE ACERO DE 2 JÁCENAS MEDIANTE PERFILES DE ACERO S275JR RETACADOS Y/O CONECTADOS</td>
+              <td class="center">kg</td>
+              <td class="right">44.826,60</td>
+              <td class="right">3,70 €</td>
+              <td class="right">165.858,42 €</td>
+              <td class="right">5,15 €</td>
+              <td class="right font-bold">230.856,99 €</td>
+              <td class="right green font-bold">+64.998,57 €</td>
+              <td class="right green font-bold">28.16%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">P44C-BR22</td>
+              <td class="desc">CAPITEL DE ACERO DE 3 JÁCENAS MEDIANTE PERFILES DE ACERO S275JR RETACADOS Y/O CONECTADOS</td>
+              <td class="center">kg</td>
+              <td class="right">25.477,20</td>
+              <td class="right">3,80 €</td>
+              <td class="right">96.813,36 €</td>
+              <td class="right">5,30 €</td>
+              <td class="right font-bold">135.029,16 €</td>
+              <td class="right green font-bold">+38.215,80 €</td>
+              <td class="right green font-bold">28.3%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">P44C-BR23</td>
+              <td class="desc">CAPITEL DE ACERO DE 4 JÁCENAS MEDIANTE PERFILES DE ACERO S275JR RETACADOS Y/O CONECTADOS</td>
+              <td class="center">kg</td>
+              <td class="right">6.287,40</td>
+              <td class="right">3,90 €</td>
+              <td class="right">24.520,86 €</td>
+              <td class="right">5,45 €</td>
+              <td class="right font-bold">34.266,33 €</td>
+              <td class="right green font-bold">+9.745,47 €</td>
+              <td class="right green font-bold">28.44%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">P44C-BR31</td>
+              <td class="desc">PLACA DE ANCLAJE DE EMPRESILLADOS MEDIANTE PERFILES DE ACERO S275JR RETACADOS Y/O CONECTADOS</td>
+              <td class="center">kg</td>
+              <td class="right">6.640,70</td>
+              <td class="right">4,15 €</td>
+              <td class="right">27.558,91 €</td>
+              <td class="right">5,75 €</td>
+              <td class="right font-bold">38.184,03 €</td>
+              <td class="right green font-bold">+10.625,12 €</td>
+              <td class="right green font-bold">27.83%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">P44C-BR32</td>
+              <td class="desc">PLACA DE ANCLAJE DE EMPRESILLADOS A MURO DE FÁBRICA M/ PERFILES DE ACERO RETACADOS CONECTADOS</td>
+              <td class="center">kg</td>
+              <td class="right">2.080,80</td>
+              <td class="right">4,05 €</td>
+              <td class="right">8.427,24 €</td>
+              <td class="right">5,65 €</td>
+              <td class="right font-bold">11.756,52 €</td>
+              <td class="right green font-bold">+3.329,28 €</td>
+              <td class="right green font-bold">28.32%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">P442-BR21</td>
+              <td class="desc">REFUERZO PILARES DE ACERO INTERIORES MEDIANTE PLETINAS DE ACERO S275JR SOLDADAS</td>
+              <td class="center">kg</td>
+              <td class="right">257,04</td>
+              <td class="right">4,35 €</td>
+              <td class="right">1.118,12 €</td>
+              <td class="right">6,00 €</td>
+              <td class="right font-bold">1.542,24 €</td>
+              <td class="right green font-bold">+424,12 €</td>
+              <td class="right green font-bold">27.5%</td>
+            </tr>
+            
+            <tr>
+              <td class="code">01.04.20.03</td>
+              <td class="desc">REFUERZO NUEVOS NERVIOS HA FORJADO UNIDIRECCIONAL MEDIANTE VIGAS DE ACERO S275JR</td>
+              <td class="center">kg</td>
+              <td class="right">2.445,87</td>
+              <td class="right">3,45 €</td>
+              <td class="right">8.438,25 €</td>
+              <td class="right">4,80 €</td>
+              <td class="right font-bold">11.740,18 €</td>
+              <td class="right green font-bold">+3.301,93 €</td>
+              <td class="right green font-bold">28.13%</td>
+            </tr>
+            
+        
+      <tr class="tot-row">
+        <td colspan="5" style="text-align: right;">TOTALES CONSOLIDADOS DEL EXPEDIENTE:</td>
+        <td class="right">1.450.326,73 €</td>
+        <td></td>
+        <td class="right">2.018.072,81 €</td>
+        <td class="right green">+567.746,08 €</td>
+        <td class="right green">28.13%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-lbl">Venta Base Imponible</div>
+      <div class="kpi-val">2.018.072,81 €</div>
+    </div>
+    <div class="kpi-card" style="margin-left: 8px;">
+      <div class="kpi-lbl">Coste Directo Estimado</div>
+      <div class="kpi-val" style="color: #475569;">1.450.326,73 €</div>
+    </div>
+    <div class="kpi-card" style="margin-left: 8px;">
+      <div class="kpi-lbl">Margen Bruto de Operación</div>
+      <div class="kpi-val" style="color: #15803d;">+567.746,08 €</div>
+    </div>
+    <div class="kpi-card" style="margin-left: 8px;">
+      <div class="kpi-lbl">Rentabilidad sobre Venta</div>
+      <div class="kpi-val" style="color: #15803d;">28.13%</div>
+    </div>
+  </div>
+
+  <div class="notes-box">
+    <strong>Estrategia de Fabricación y Aprovisionamiento HAM:</strong>
+    <ul style="margin: 2px 0 0 0; padding-left: 14px;">
+      <li><strong>Acero Base S275JR:</strong> Compra directa agrupada a fábrica/almacén siderúrgico para optimizar precio de partida (~1,10 - 1,18 €/kg en perfiles pesados IPE, UPN y HEB; chapa en bobina/plancha a ~1,25 €/kg). Transporte marítimo en plataformas completas.</li>
+      <li><strong>Taller y Transformación:</strong> Oxicorte por plasma de cartelas y placas, sierra de cinta y taladro automatizado en taller HAM Sant Lluís. Soldaduras semiautomáticas MAG bajo control de producción en fábrica según UNE-EN 1090-2 (EXC3).</li>
+      <li><strong>Protección Superficial:</strong> Chorreado Sa 2½, imprimación epoxi fosfato de zinc 80 µm en taller. Esmalte de poliuretano 60 µm aplicado en obra tras montaje. (Nunca pintura al horno).</li>
+      <li><strong>Logística y Medios Auxiliares:</strong> Transporte insular por camión plataforma según secuencias de obra. En obra, maniobras mediante grúa telescópica para entradas en planta y carros mecánicos de transferencia interna.</li>
+    </ul>
+  </div>
+
+</body>
+</html>
