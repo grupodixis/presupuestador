@@ -624,15 +624,15 @@ def create_html_and_pdf():
     <div class="client-card">
       <div>
         <h3>Cliente / Razón Social:</h3>
-        <p>{DATA['cliente']['empresa']} <span style="font-size:7.4pt; font-weight:normal; color:#475569;">(NIF: {DATA['cliente']['cif']})</span></p>
+        <p style="font-size:7.6pt; line-height:1.2; margin-bottom:1px;"><strong>{DATA['cliente']['empresa']}</strong></p>
+        <div class="sub-info">{DATA['cliente']['nombre_comercial']} · NIF: <strong>{DATA['cliente']['cif']}</strong></div>
         <div class="sub-info">{DATA['cliente']['domicilio']}, {DATA['cliente']['codigo_postal']} {DATA['cliente']['poblacion']} · {DATA['cliente']['email']}</div>
-        <div class="sub-info">{DATA['cliente']['atencion']}</div>
       </div>
       <div>
         <h3>Emplazamiento Operativo:</h3>
         <p>{DATA['cliente']['emplazamiento']}</p>
         <div class="sub-info">{DATA['cliente']['direccion_obra']}</div>
-        <div class="sub-info">Régimen: Plataforma de Aeronaves (Lado Aire AENA)</div>
+        <div class="sub-info">{DATA['cliente']['atencion']}</div>
       </div>
     </div>
 
