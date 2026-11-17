@@ -7,14 +7,19 @@
   "forma_pago": "100% a la aceptación del presupuesto (o según condiciones contractuales acordadas)",
   "plazo_ejecucion_estimado": "2 jornadas de trabajo en ventana horaria coordinada sin vuelos",
   "cliente": {
-    "empresa": "AENA S.M.E., S.A. / Empresa de Mantenimiento de Pasarelas Telescópicas",
-    "atencion": "Dpto. Técnico de Mantenimiento e Infraestructuras Aeroportuarias",
+    "codigo_interno": "464",
+    "empresa": "EFS MANTENIMIENTO Y SERVICIOS TECNICOS SLU",
+    "cif": "U23847619",
+    "domicilio": "Josep Taradellas, 20",
+    "codigo_postal": "08029",
+    "poblacion": "Barcelona",
+    "provincia": "Barcelona",
+    "pais": "España",
+    "email": "ygarcia@adelte.com",
+    "atencion": "Att. Y. García (ygarcia@adelte.com)",
     "obra": "Reparación estructural de manga de embarque en plataforma de aeronaves",
     "emplazamiento": "Aeropuerto de Menorca (MAH) - Plataforma Lado Aire (Pista / Apron)",
-    "direccion": "Carretera de Sant Climent, s/n",
-    "codigo_postal": "07712",
-    "poblacion": "Mahón",
-    "isla": "Menorca"
+    "direccion_obra": "Carretera de Sant Climent, s/n, 07712 Mahón (Menorca)"
   },
   "emisor": {
     "razon_social": "Dixis Recursos y Soluciones S.L.",

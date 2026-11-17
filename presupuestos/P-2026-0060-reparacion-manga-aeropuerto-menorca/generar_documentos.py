@@ -72,12 +72,12 @@ def create_excel():
     ws_cli["A2"].font = font_sub
 
     ws_cli.cell(row=4, column=1, value="CLIENTE:").font = font_bold
-    ws_cli.cell(row=4, column=2, value=DATA["cliente"]["empresa"]).font = font_regular
+    ws_cli.cell(row=4, column=2, value=f"{DATA['cliente']['empresa']} (NIF: {DATA['cliente']['cif']})").font = font_regular
     ws_cli.cell(row=4, column=5, value="FECHA:").font = font_bold
     ws_cli.cell(row=4, column=6, value=DATA["fecha"]).font = font_regular
 
-    ws_cli.cell(row=5, column=1, value="OBRA / UBICACIÓN:").font = font_bold
-    ws_cli.cell(row=5, column=2, value=DATA["cliente"]["emplazamiento"]).font = font_regular
+    ws_cli.cell(row=5, column=1, value="DOMICILIO CLIENTE:").font = font_bold
+    ws_cli.cell(row=5, column=2, value=f"{DATA['cliente']['domicilio']}, {DATA['cliente']['codigo_postal']} {DATA['cliente']['poblacion']} · {DATA['cliente']['email']}").font = font_regular
     ws_cli.cell(row=5, column=5, value="VALIDEZ:").font = font_bold
     ws_cli.cell(row=5, column=6, value=f"{DATA['validez_dias']} días").font = font_regular
 
@@ -623,14 +623,16 @@ def create_html_and_pdf():
 
     <div class="client-card">
       <div>
-        <h3>Cliente / Entidad Promotora:</h3>
-        <p>{DATA['cliente']['empresa']}</p>
-        <div class="sub-info">{DATA['cliente']['atencion']} — {DATA['cliente']['obra']}</div>
+        <h3>Cliente / Razón Social:</h3>
+        <p>{DATA['cliente']['empresa']} <span style="font-size:7.4pt; font-weight:normal; color:#475569;">(NIF: {DATA['cliente']['cif']})</span></p>
+        <div class="sub-info">{DATA['cliente']['domicilio']}, {DATA['cliente']['codigo_postal']} {DATA['cliente']['poblacion']} · {DATA['cliente']['email']}</div>
+        <div class="sub-info">{DATA['cliente']['atencion']}</div>
       </div>
       <div>
         <h3>Emplazamiento Operativo:</h3>
         <p>{DATA['cliente']['emplazamiento']}</p>
-        <div class="sub-info">{DATA['cliente']['direccion']}, {DATA['cliente']['poblacion']} · Régimen: Pista Lado Aire AENA</div>
+        <div class="sub-info">{DATA['cliente']['direccion_obra']}</div>
+        <div class="sub-info">Régimen: Plataforma de Aeronaves (Lado Aire AENA)</div>
       </div>
     </div>
 
