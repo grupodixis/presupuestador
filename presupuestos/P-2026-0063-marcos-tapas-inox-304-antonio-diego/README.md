@@ -24,12 +24,12 @@ Fabricación en taller de herrería y cerrajería inoxidable mediante soldadura 
 
 | Concepto | Coste Directo | Venta Cliente (PVP) | Beneficio Bruto | Margen s/ Venta |
 |---|---:|---:|---:|---:|
-| **Por Unidad (ud)** | 423,45 € | 590,00 € | +166,55 € | 28,23% |
-| **Total 4 Unidades** | **1.693,80 €** | **2.360,00 €** | **+666,20 €** | **28,23%** |
+| **Por Unidad (ud)** | 423,45 € | 730,00 € | +306,55 € | 41.99% |
+| **Total 4 Unidades** | **1.693,80 €** | **2.920,00 €** | **+1.226,20 €** | **41.99%** |
 
-- **Base Imponible:** 2.360,00 €
-- **IVA (21%):** 495,60 €
-- **Total Presupuesto:** 2.855,60 €
+- **Base Imponible:** 2.920,00 €
+- **IVA (21%):** 613,20 €
+- **Total Presupuesto:** 3.533,20 €
 
 ## Archivos Generados
 - `presupuesto-cliente.html` / `presupuesto-cliente.pdf`: Documento comercial para entregar al cliente.

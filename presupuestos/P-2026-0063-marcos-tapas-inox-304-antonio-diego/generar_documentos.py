@@ -578,38 +578,38 @@ def create_html_and_pdf():
         <tbody>
           <tr>
             <td>Coste Directo Fabricación</td>
-            <td class="right">423,45 €</td>
-            <td class="right">1.693,80 €</td>
-            <td class="right">71,77%</td>
+            <td class="right">{eur(tot['coste_directo_total']/4)}</td>
+            <td class="right">{eur(tot['coste_directo_total'])}</td>
+            <td class="right">{(tot['coste_directo_total']/tot['base_imponible']*100):.2f}%</td>
           </tr>
           <tr class="bold">
             <td>Precio Venta Cliente (Base)</td>
-            <td class="right">590,00 €</td>
-            <td class="right">2.360,00 €</td>
+            <td class="right">{eur(p['precio_unitario'])}</td>
+            <td class="right">{eur(tot['base_imponible'])}</td>
             <td class="right">100,00%</td>
           </tr>
           <tr class="green">
             <td>BENEFICIO BRUTO COMERCIAL</td>
-            <td class="right">+166,55 €</td>
-            <td class="right">+666,20 €</td>
-            <td class="right"><strong>28,23%</strong></td>
+            <td class="right">+{eur(tot['beneficio_bruto']/4)}</td>
+            <td class="right">+{eur(tot['beneficio_bruto'])}</td>
+            <td class="right"><strong>{tot['margen_sobre_venta_pct']:.2f}%</strong></td>
           </tr>
           <tr>
             <td>Margen industrial s/ Coste</td>
-            <td class="right">+39,33%</td>
-            <td class="right">+39,33%</td>
+            <td class="right">+{tot['margen_sobre_coste_pct']:.2f}%</td>
+            <td class="right">+{tot['margen_sobre_coste_pct']:.2f}%</td>
             <td class="right">—</td>
           </tr>
           <tr>
             <td>IVA Repercutido (21%)</td>
-            <td class="right">123,90 €</td>
-            <td class="right">495,60 €</td>
+            <td class="right">{eur(tot['iva_importe']/4)}</td>
+            <td class="right">{eur(tot['iva_importe'])}</td>
             <td class="right">—</td>
           </tr>
           <tr class="tot">
             <td>TOTAL PRESUPUESTO CLIENTE</td>
-            <td class="right">713,90 €</td>
-            <td class="right">2.855,60 €</td>
+            <td class="right">{eur(tot['total_con_iva']/4)}</td>
+            <td class="right">{eur(tot['total_con_iva'])}</td>
             <td class="right">—</td>
           </tr>
         </tbody>
@@ -675,8 +675,8 @@ Fabricación en taller de herrería y cerrajería inoxidable mediante soldadura 
 
 | Concepto | Coste Directo | Venta Cliente (PVP) | Beneficio Bruto | Margen s/ Venta |
 |---|---:|---:|---:|---:|
-| **Por Unidad (ud)** | 423,45 € | 590,00 € | +166,55 € | 28,23% |
-| **Total 4 Unidades** | **1.693,80 €** | **2.360,00 €** | **+666,20 €** | **28,23%** |
+| **Por Unidad (ud)** | {eur(tot['coste_directo_total']/4)} | {eur(p['precio_unitario'])} | +{eur(tot['beneficio_bruto']/4)} | {tot['margen_sobre_venta_pct']:.2f}% |
+| **Total 4 Unidades** | **{eur(tot['coste_directo_total'])}** | **{eur(tot['base_imponible'])}** | **+{eur(tot['beneficio_bruto'])}** | **{tot['margen_sobre_venta_pct']:.2f}%** |
 
 - **Base Imponible:** {eur(tot['base_imponible'])}
 - **IVA (21%):** {eur(tot['iva_importe'])}

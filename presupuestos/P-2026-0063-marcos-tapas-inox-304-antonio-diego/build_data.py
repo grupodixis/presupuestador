@@ -96,18 +96,18 @@ DATA = {
         "unidad": "ud",
         "cantidad": 4,
         "coste_unitario": 423.45,
-        "precio_unitario": 590.00,
-        "subtotal": 2360.00
+        "precio_unitario": 730.00,
+        "subtotal": 2920.00
     },
     "totales": {
         "coste_directo_total": 1693.80,
-        "base_imponible": 2360.00,
+        "base_imponible": 2920.00,
         "iva_porcentaje": 21,
-        "iva_importe": 495.60,
-        "total_con_iva": 2855.60,
-        "beneficio_bruto": 666.20,
-        "margen_sobre_venta_pct": 28.23,
-        "margen_sobre_coste_pct": 39.33
+        "iva_importe": 613.20,
+        "total_con_iva": 3533.20,
+        "beneficio_bruto": 1226.20,
+        "margen_sobre_venta_pct": 41.99,
+        "margen_sobre_coste_pct": 72.39
     }
 }
 

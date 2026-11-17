@@ -86,17 +86,17 @@
     "unidad": "ud",
     "cantidad": 4,
     "coste_unitario": 423.45,
-    "precio_unitario": 590.0,
-    "subtotal": 2360.0
+    "precio_unitario": 730.0,
+    "subtotal": 2920.0
   },
   "totales": {
     "coste_directo_total": 1693.8,
-    "base_imponible": 2360.0,
+    "base_imponible": 2920.0,
     "iva_porcentaje": 21,
-    "iva_importe": 495.6,
-    "total_con_iva": 2855.6,
-    "beneficio_bruto": 666.2,
-    "margen_sobre_venta_pct": 28.23,
-    "margen_sobre_coste_pct": 39.33
+    "iva_importe": 613.2,
+    "total_con_iva": 3533.2,
+    "beneficio_bruto": 1226.2,
+    "margen_sobre_venta_pct": 41.99,
+    "margen_sobre_coste_pct": 72.39
   }
 }
