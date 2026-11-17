@@ -60,7 +60,7 @@ def create_excel():
 
     ws1["B2"] = "DIXIS RECURSOS Y SOLUCIONES S.L. | HAM ESTRUCTURAS METÁLICAS MENORCA"
     ws1["B2"].font = font_sub
-    ws1["B3"] = f"PRESUPUESTO {DATA['codigo']} • 4 MARCOS Y TAPAS ESTANCAS INOX AISI 304 (60x60 CM)"
+    ws1["B3"] = f"PRESUPUESTO {DATA['codigo']} • 4 MARCOS Y TAPAS INOX AISI 304 (60x60 CM)"
     ws1["B3"].font = font_title
 
     meta_rows = [
@@ -118,7 +118,7 @@ def create_excel():
 
     for col in range(2, 8):
         ws1.cell(row=row_cur, column=col).border = border_thin
-    ws1.row_dimensions[row_cur].height = 100
+    ws1.row_dimensions[row_cur].height = 90
 
     # Totales
     r_tot = 16
@@ -171,7 +171,7 @@ def create_excel():
     ws2["B2"] = f"ESTUDIO TÉCNICO Y ECONÓMICO INTERNO — {DATA['codigo']} (HAM ESTRUCTURAS METÁLICAS)"
     ws2["B2"].font = font_title
 
-    headers_int = ["Concepto de Coste", "Descripción Técnica / Operativa", "Ud.", "Cant. Ud", "Coste Ud", "Coste Total (4 uds)", "Origen / Justificación"]
+    headers_int = ["Concepto de Coste", "Descripción Técnica / Operativa", "Ud.", "Cant. Total", "Coste Unitario", "Coste Total (4 uds)", "Origen / Justificación"]
     for c_idx, h in enumerate(headers_int, start=2):
         cell = ws2.cell(row=4, column=c_idx, value=h)
         cell.font = font_header
@@ -184,10 +184,9 @@ def create_excel():
         ("Tapa chapa plegada", DATA["desglose_costes_unitario"]["tapa_chapa_plegada"]["concepto"], "ud", 4, 200.00, DATA["desglose_costes_unitario"]["tapa_chapa_plegada"]["origen"]),
         ("Marco angular L 40x40x4", DATA["desglose_costes_unitario"]["marco_angular_inox"]["concepto"], "conj", 4, 44.20, DATA["desglose_costes_unitario"]["marco_angular_inox"]["origen"]),
         ("Garras anclaje inox", DATA["desglose_costes_unitario"]["garras_anclaje_inox"]["concepto"], "juego", 4, 10.00, DATA["desglose_costes_unitario"]["garras_anclaje_inox"]["origen"]),
-        ("Junta estanqueidad EPDM", DATA["desglose_costes_unitario"]["junta_estanqueidad_epdm"]["concepto"], "juego", 4, 15.00, DATA["desglose_costes_unitario"]["junta_estanqueidad_epdm"]["origen"]),
-        ("Tornillería apriete + tirador", DATA["desglose_costes_unitario"]["apriete_estanco_tirador"]["concepto"], "juego", 4, 30.00, DATA["desglose_costes_unitario"]["apriete_estanco_tirador"]["origen"]),
+        ("Tirador escamoteable inox", DATA["desglose_costes_unitario"]["tirador_escamoteable_inox"]["concepto"], "juego", 4, 15.00, DATA["desglose_costes_unitario"]["tirador_escamoteable_inox"]["origen"]),
         ("Consumibles taller TIG", DATA["desglose_costes_unitario"]["consumibles_taller"]["concepto"], "lote", 4, 18.00, DATA["desglose_costes_unitario"]["consumibles_taller"]["origen"]),
-        ("Mano de obra taller TIG", DATA["desglose_costes_unitario"]["mo_taller_tig"]["concepto"], "h", 11.0, 35.00, DATA["desglose_costes_unitario"]["mo_taller_tig"]["origen"]),
+        ("Mano de obra taller TIG", DATA["desglose_costes_unitario"]["mo_taller_tig"]["concepto"], "h", 10.0, 35.00, DATA["desglose_costes_unitario"]["mo_taller_tig"]["origen"]),
         ("Transporte y entrega POIMA", DATA["desglose_costes_unitario"]["transporte_entrega"]["concepto"], "lote", 4, 10.00, DATA["desglose_costes_unitario"]["transporte_entrega"]["origen"]),
     ]
 
@@ -259,7 +258,7 @@ def create_html_and_pdf():
     p = DATA["partida"]
     tot = DATA["totales"]
 
-    # 1. HTML CLIENTE
+    # 1. HTML CLIENTE (Sin estanqueidad, sin apriete estanco, sin junta)
     html_cliente = f"""<!doctype html>
 <html lang="es">
 <head>
@@ -315,9 +314,9 @@ def create_html_and_pdf():
     </div>
   </div>
 
-  <h1>PRESUPUESTO {DATA['codigo']} — FABRICACIÓN DE 4 MARCOS ANGULARES Y TAPAS ESTANCAS EN ACERO INOXIDABLE AISI 304 (60x60 CM)</h1>
+  <h1>PRESUPUESTO {DATA['codigo']} — FABRICACIÓN DE 4 MARCOS ANGULARES Y TAPAS EN ACERO INOXIDABLE AISI 304 (60x60 CM)</h1>
   <div class="banner-def">
-    <strong>ALCANCE DEL SUMINISTRO:</strong> Conjuntos completos de arqueta/registro de 600x600 mm fabricados en taller mediante soldadura TIG, chapa plegada reforzada, junta elástica perimetral EPDM, sistema de apriete estanco perimetral y acabado decapado/pasivado.
+    <strong>ALCANCE DEL SUMINISTRO:</strong> Conjuntos completos de marco angular y tapa practicable de 600x600 mm fabricados en taller mediante soldadura TIG en acero inoxidable AISI 304, con tapa de chapa plegada reforzada, tirador escamoteable y acabado decapado/pasivado.
   </div>
 
   <table class="meta">
@@ -362,12 +361,11 @@ def create_html_and_pdf():
         <td>
           <strong>{p['concepto']}</strong>
           <span class="desc">
-            Suministro y fabricación a medida de conjunto de marco y tapa estanca de paso útil interior <strong>600 x 600 mm</strong> realizado íntegramente en acero inoxidable calidad AISI 304 (EN 1.4301).<br>
-            • <strong>Tapa superior:</strong> ejecutada en chapa de acero inoxidable AISI 304 plegada con pestañas perimetrales descendentes a 90°, esquinas soldadas a TIG y rigidizadores de refuerzo interior. Dotada de tirador/asa escamoteable de acero inoxidable embutido enrasado para facilitar su izado sin resaltes.<br>
+            Suministro y fabricación a medida de conjunto de marco y tapa practicable de paso útil interior <strong>600 x 600 mm</strong> realizado íntegramente en acero inoxidable calidad AISI 304 (EN 1.4301).<br>
+            • <strong>Tapa superior:</strong> ejecutada en chapa de acero inoxidable AISI 304 plegada con pestañas perimetrales descendentes a 90°, esquinas soldadas a TIG y rigidizadores de refuerzo interior. Provista de tirador/asa escamoteable de acero inoxidable embutido enrasado para facilitar su izado y manipulación.<br>
             • <strong>Marco angular perimetral:</strong> fabricado con perfil angular en L de 40x40x4 mm en acero inoxidable AISI 304, cortado a inglete a 45° y soldado a TIG, dotado exteriormente de 4 garras de anclaje en pletina inox para su perfecto empotramiento en obra civil.<br>
-            • <strong>Estanqueidad:</strong> garantizada mediante asiento perimetral continuo con junta de estanqueidad de caucho celular EPDM de alta recuperación elástica, impermeable y resistente a intemperie.<br>
-            • <strong>Sistema de apriete estanco:</strong> 4 puntos de apriete perimetral mediante tornillos de acero inoxidable A2 con arandela/junta elástica para asegurar una compresión uniforme y estanca.<br>
-            • <strong>Acabado superficial:</strong> totalmente desbarbado, aristas pulidas, con cordones de soldadura decapados y pasivados químicamente para máxima resistencia a la corrosión.
+            • <strong>Acabado superficial:</strong> totalmente desbarbado, aristas repasadas y pulidas, con cordones de soldadura decapados y pasivados químicamente para máxima resistencia a la corrosión y durabilidad.<br>
+            Completamente terminado y listo para su colocación en obra.
           </span>
         </td>
         <td class="center">{p['unidad']}</td>
@@ -411,7 +409,7 @@ def create_html_and_pdf():
         <ul>
           <li>No incluye trabajos de albañilería, demolición, vaciado ni recibido de marcos en obra.</li>
           <li>No incluye medios auxiliares especiales de izado distintos a transporte convencional.</li>
-          <li>Instalación y anclaje químico/mecánico en obra a cargo del cliente/instalador.</li>
+          <li>Instalación y anclaje en obra a cargo del cliente/instalador.</li>
           <li>IVA aplicable del 21% desglosado en el resumen económico superior.</li>
         </ul>
       </div>
@@ -460,9 +458,9 @@ def create_html_and_pdf():
     <div><span class="tag">USO INTERNO EXCLUSIVO</span> <span class="tag">{DATA['codigo']}</span></div>
   </div>
 
-  <h1>ESTUDIO ECONÓMICO Y TÉCNICO: 4 MARCOS Y TAPAS INOX AISI 304 (60x60 CM) ESTANCAS</h1>
+  <h1>ESTUDIO ECONÓMICO Y TÉCNICO: 4 MARCOS Y TAPAS INOX AISI 304 (60x60 CM)</h1>
   <div class="banner">
-    <strong>CLIENTE: ANTONIO Y DIEGO, S.A.</strong> | Coste unitario de tapa chapa plegada fijado en <strong>200,00 €/ud</strong> según prescripción. Se calculan perfiles angulares L 40x40x4 inox, juntas EPDM, apriete estanco, MO taller soldadura TIG y transporte.
+    <strong>CLIENTE: ANTONIO Y DIEGO, S.A.</strong> | Coste unitario de tapa chapa plegada fijado en <strong>200,00 €/ud</strong>. Marcos angulares L 40x40x4 inox con garras, tirador escamoteable, soldadura TIG y pasivado. Sin juntas perimetrales ni apriete estanco.
   </div>
 
   <div class="grid-2">
@@ -509,22 +507,13 @@ def create_html_and_pdf():
             <td>Taller inox HAM</td>
           </tr>
           <tr>
-            <td class="bold">Junta estanqueidad EPDM</td>
-            <td>Junta celular elástica EPDM resistente intemperie (2,40 m x 4 = 9,60 m)</td>
+            <td class="bold">Tirador escamoteable inox</td>
+            <td>Tirador/asa escamoteable embutido enrasado inox para izado de tapa</td>
             <td class="center">juego</td>
             <td class="right bold">4.00</td>
             <td class="right">15,00 €</td>
             <td class="right bold">60,00 €</td>
-            <td>Suministro técnico EPDM</td>
-          </tr>
-          <tr>
-            <td class="bold">Apriete estanco + tirador</td>
-            <td>4 tornillos inox A2 de apriete estanco + tirador escamoteable inox</td>
-            <td class="center">juego</td>
-            <td class="right bold">4.00</td>
-            <td class="right">30,00 €</td>
-            <td class="right bold">120,00 €</td>
-            <td>Tornillería A2 y herrajes</td>
+            <td>Herraje inoxidable</td>
           </tr>
           <tr>
             <td class="bold">Consumibles TIG / acabado</td>
@@ -537,11 +526,11 @@ def create_html_and_pdf():
           </tr>
           <tr>
             <td class="bold">MO Taller Soldador TIG</td>
-            <td>Corte ingletes, armado, soldadura TIG, roscado M8, ajuste y pasivado (11 h)</td>
+            <td>Corte ingletes, armado, soldadura TIG, ajuste y pasivado (10 h totales)</td>
             <td class="center">h</td>
-            <td class="right bold">11.00</td>
+            <td class="right bold">10.00</td>
             <td class="right">35,00 €</td>
-            <td class="right bold">385,00 €</td>
+            <td class="right bold">350,00 €</td>
             <td>Oficial 1ª Taller TIG</td>
           </tr>
           <tr>
@@ -617,9 +606,8 @@ def create_html_and_pdf():
 
       <div class="card">
         <h3>Observaciones para el Taller</h3>
-        <p>• <strong>Control de medidas:</strong> Verificar que la luz interior del marco terminado sea exactamente de 602x602 mm para permitir una holgura perimetral de 2 mm por lado respecto a la tapa plegada de 598x598 mm.<br>
-        • <strong>Estanqueidad:</strong> La junta de EPDM celular debe colocarse perimetralmente en el ala horizontal del ángulo, asegurando unión en inglete sin huecos en esquinas.<br>
-        • <strong>Pasivado:</strong> Aplicar gel decapante especial inox en todas las soldaduras TIG, dejar actuar 20 minutos y neutralizar con agua a presión antes de montar la junta y la tornillería.</p>
+        <p>• <strong>Control de medidas y holguras:</strong> Verificar que la luz interior del marco terminado sea exactamente de 602x602 mm para permitir una holgura perimetral limpia de 2 mm por lado respecto a la tapa plegada.<br>
+        • <strong>Pasivado:</strong> Aplicar gel decapante especial inox en todas las soldaduras TIG, dejar actuar 20 minutos y neutralizar con agua a presión antes de montar los tiradores y embalar.</p>
       </div>
     </div>
   </div>
@@ -649,7 +637,7 @@ def create_html_and_pdf():
 def create_readme():
     tot = DATA["totales"]
     p = DATA["partida"]
-    content = f"""# Presupuesto {DATA['codigo']} — 4 Marcos y Tapas Estancas Inox AISI 304 (60x60 cm)
+    content = f"""# Presupuesto {DATA['codigo']} — 4 Marcos y Tapas Inox AISI 304 (60x60 cm)
 
 ## Cliente y Datos Generales
 - **Código:** {DATA['codigo']}
@@ -663,11 +651,9 @@ def create_readme():
 - **Procedimiento:** {DATA['proceso_soldadura']}
 
 ## Resumen del Trabajo
-Fabricación en taller de herrería y cerrajería inoxidable mediante soldadura TIG con argón puro de **4 conjuntos de marco angular y tapa estanca de 600 x 600 mm útiles**.
+Fabricación en taller de herrería y cerrajería inoxidable mediante soldadura TIG con argón puro de **4 conjuntos de marco angular y tapa practicable de 600 x 600 mm útiles**.
 - **Tapas de chapa plegada:** Chapa de acero inoxidable AISI 304 con pestañas plegadas a 90°, refuerzos rigidizadores y tirador embutido escamoteable. Coste directo de las tapas de chapa plegada: **200,00 € / ud** (fijado por el cliente).
 - **Marcos angulares perimetrales:** Perfil angular en L de 40x40x4 mm en acero inoxidable AISI 304 cortado a inglete a 45° y soldado a TIG, dotado de 4 garras de anclaje de pletina inox por marco para empotramiento en obra civil.
-- **Estanqueidad:** Asiento perimetral con junta técnica de caucho celular EPDM de alta recuperación elástica.
-- **Sistema de apriete:** 4 tornillos de acero inoxidable A2 con junta elastomérica para cierre estanco a presión.
 - **Acabado:** Decapado y pasivado químico completo de todas las soldaduras.
 - **Entrega:** Incluido embalaje protector y transporte a las instalaciones de Antonio y Diego SA en el Polígono Industrial POIMA (Mahón).
 
