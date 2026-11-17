@@ -334,7 +334,7 @@ def create_html_and_pdf():
     desc_lines = p["descripcion"].replace("\n", "<br>")
     cond_html = "".join([f"<li>{c}</li>" for c in DATA["condiciones_generales"]])
 
-    # HTML CLIENTE (1 CONCEPTO)
+    # HTML CLIENTE (1 CONCEPTO - 1 SOLA PÁGINA A4)
     html_cliente = f"""<!doctype html>
 <html lang="es">
 <head>
@@ -344,32 +344,33 @@ def create_html_and_pdf():
   <style>
     @page {{
       size: A4 portrait;
-      margin: 8mm 9mm 8mm 9mm;
+      margin: 5mm 6mm 4mm 6mm;
     }}
     * {{ box-sizing: border-box; }}
     body {{
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       margin: 0;
       color: #1e293b;
-      font-size: 8.5pt;
-      line-height: 1.32;
+      font-size: 8.2pt;
+      line-height: 1.25;
       background: #f1f5f9;
     }}
     .document-page {{
-      width: 210mm;
-      min-height: 297mm;
+      width: 100%;
+      max-width: 210mm;
       margin: 0 auto;
       background: #fff;
-      padding: 9mm 11mm;
+      padding: 4mm 6mm;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       position: relative;
     }}
     @media print {{
-      body {{ background: #fff; }}
+      body {{ background: #fff; margin: 0; }}
       .document-page {{
         width: 100%;
-        min-height: auto;
+        max-width: none;
         padding: 0;
+        margin: 0;
         box-shadow: none;
       }}
     }}
@@ -379,22 +380,22 @@ def create_html_and_pdf():
       align-items: center;
       background: #0f172a;
       color: #fff;
-      padding: 9px 15px;
-      border-radius: 6px;
-      border-bottom: 3.5px solid #b45309;
-      margin-bottom: 10px;
+      padding: 6px 12px;
+      border-radius: 5px;
+      border-bottom: 3px solid #b45309;
+      margin-bottom: 6px;
     }}
     .brand-box {{
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }}
     .brand-logo {{
-      width: 42px;
-      height: 42px;
+      width: 36px;
+      height: 36px;
       background: rgba(255,255,255,0.1);
-      border-radius: 6px;
-      padding: 3px;
+      border-radius: 5px;
+      padding: 2px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -402,61 +403,62 @@ def create_html_and_pdf():
     .brand-logo svg {{ width: 100%; height: 100%; }}
     .brand-text h1 {{
       margin: 0;
-      font-size: 14pt;
+      font-size: 13pt;
       font-weight: 800;
       letter-spacing: -0.01em;
       color: #ffffff;
+      line-height: 1.1;
     }}
     .brand-text .sub {{
-      font-size: 7.8pt;
+      font-size: 7.2pt;
       color: #cbd5e1;
       margin-top: 1px;
     }}
     .meta-box {{
       text-align: right;
-      font-size: 8pt;
-      line-height: 1.35;
+      font-size: 7.5pt;
+      line-height: 1.25;
       color: #e2e8f0;
     }}
     .meta-box strong {{
-      font-size: 10.5pt;
+      font-size: 10pt;
       color: #fbbf24;
       display: block;
     }}
     .client-card {{
       display: grid;
       grid-template-columns: 1.35fr 1fr;
-      gap: 10px;
+      gap: 8px;
       background: #f8fafc;
       border: 1px solid #e2e8f0;
-      border-left: 4px solid #0f172a;
-      border-radius: 6px;
-      padding: 7px 11px;
-      margin-bottom: 10px;
+      border-left: 3.5px solid #0f172a;
+      border-radius: 5px;
+      padding: 5px 9px;
+      margin-bottom: 5px;
     }}
     .client-card h3 {{
-      margin: 0 0 3px 0;
-      font-size: 7.5pt;
+      margin: 0 0 2px 0;
+      font-size: 7pt;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: #64748b;
     }}
     .client-card p {{
       margin: 0;
-      font-size: 8.8pt;
+      font-size: 8.2pt;
       color: #0f172a;
       font-weight: 600;
     }}
     .client-card .sub-info {{
-      font-size: 7.8pt;
+      font-size: 7.4pt;
       color: #475569;
       font-weight: normal;
       margin-top: 1px;
     }}
     .badge-bar {{
       display: flex;
-      gap: 8px;
-      margin-bottom: 10px;
+      gap: 6px;
+      margin-bottom: 6px;
     }}
     .badge {{
       display: inline-flex;
@@ -464,8 +466,8 @@ def create_html_and_pdf():
       background: #eff6ff;
       border: 1px solid #bfdbfe;
       border-radius: 4px;
-      padding: 4px 8px;
-      font-size: 7.6pt;
+      padding: 2.5px 6px;
+      font-size: 7pt;
       color: #1e40af;
       font-weight: 600;
     }}
@@ -477,72 +479,73 @@ def create_html_and_pdf():
     .photos-grid {{
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 10px;
+      gap: 8px;
+      margin-bottom: 6px;
     }}
     .photo-card {{
       border: 1px solid #cbd5e1;
-      border-radius: 5px;
+      border-radius: 4px;
       overflow: hidden;
       background: #fff;
     }}
     .photo-card img {{
       width: 100%;
-      height: 105px;
+      height: 72px;
       object-fit: cover;
       display: block;
     }}
     .photo-caption {{
-      padding: 4px 7px;
-      font-size: 7.2pt;
+      padding: 2.5px 6px;
+      font-size: 6.8pt;
       color: #475569;
       background: #f8fafc;
       border-top: 1px solid #e2e8f0;
       font-weight: 500;
+      line-height: 1.15;
     }}
     table {{
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }}
     th {{
       background: #0f172a;
       color: #fff;
-      padding: 6px 8px;
-      font-size: 7.8pt;
+      padding: 4px 6px;
+      font-size: 7.2pt;
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }}
     td {{
-      padding: 7px 8px;
+      padding: 5px 6px;
       border-bottom: 1px solid #e2e8f0;
-      font-size: 8pt;
+      font-size: 7.6pt;
       vertical-align: top;
     }}
     .center {{ text-align: center; }}
     .right {{ text-align: right; }}
     .bold {{ font-weight: 700; }}
-    .code {{ font-family: Consolas, monospace; font-size: 8pt; color: #475569; }}
-    .item-title {{ font-weight: 700; color: #0f172a; font-size: 8.5pt; margin-bottom: 4px; }}
-    .item-desc {{ font-size: 7.6pt; color: #475569; line-height: 1.35; }}
+    .code {{ font-family: Consolas, monospace; font-size: 7.5pt; color: #475569; }}
+    .item-title {{ font-weight: 700; color: #0f172a; font-size: 8pt; margin-bottom: 2px; }}
+    .item-desc {{ font-size: 7.2pt; color: #475569; line-height: 1.25; }}
     .summary-box {{
-      width: 250px;
+      width: 240px;
       margin-left: auto;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       border: 1px solid #cbd5e1;
-      border-radius: 6px;
+      border-radius: 5px;
       overflow: hidden;
     }}
     .summary-row {{
       display: flex;
       justify-content: space-between;
-      padding: 5px 10px;
-      font-size: 8.3pt;
+      padding: 3.5px 8px;
+      font-size: 7.8pt;
       border-bottom: 1px solid #e2e8f0;
     }}
     .summary-row.total {{
       background: #fef3c7;
-      font-size: 10pt;
+      font-size: 9.5pt;
       font-weight: 800;
       color: #b45309;
       border-bottom: none;
@@ -550,46 +553,51 @@ def create_html_and_pdf():
     .conditions-box {{
       background: #f8fafc;
       border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 7px 11px;
-      margin-bottom: 10px;
+      border-radius: 5px;
+      padding: 5px 8px;
+      margin-bottom: 5px;
     }}
     .conditions-box h4 {{
-      margin: 0 0 3px 0;
-      font-size: 7.8pt;
+      margin: 0 0 2px 0;
+      font-size: 7.2pt;
       color: #0f172a;
       text-transform: uppercase;
+      letter-spacing: 0.04em;
     }}
     .conditions-box ul {{
       margin: 0;
-      padding-left: 15px;
-      font-size: 7.5pt;
+      padding-left: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 14px;
+      row-gap: 2px;
+      font-size: 6.9pt;
       color: #475569;
-      line-height: 1.32;
+      line-height: 1.2;
     }}
     .signature-grid {{
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-top: 8px;
-      padding-top: 6px;
+      gap: 12px;
+      margin-top: 4px;
+      padding-top: 4px;
       border-top: 1px solid #e2e8f0;
     }}
     .sig-box {{
       border: 1px dashed #cbd5e1;
-      border-radius: 5px;
-      padding: 6px 9px;
-      min-height: 58px;
+      border-radius: 4px;
+      padding: 4px 7px;
+      min-height: 42px;
       background: #fafafa;
     }}
     .sig-box h5 {{
-      margin: 0 0 2px 0;
-      font-size: 7.2pt;
+      margin: 0 0 1px 0;
+      font-size: 6.8pt;
       text-transform: uppercase;
       color: #64748b;
     }}
     .sig-box .sub {{
-      font-size: 6.8pt;
+      font-size: 6.4pt;
       color: #94a3b8;
     }}
   </style>
@@ -609,8 +617,7 @@ def create_html_and_pdf():
       <div class="meta-box">
         <strong>{DATA['codigo']}</strong>
         <div>Ref: {DATA['referencia']}</div>
-        <div>Fecha: {DATA['fecha']}</div>
-        <div>Validez: {DATA['validez_dias']} días</div>
+        <div>Fecha: {DATA['fecha']} · Validez: {DATA['validez_dias']}d</div>
       </div>
     </header>
 
@@ -618,31 +625,29 @@ def create_html_and_pdf():
       <div>
         <h3>Cliente / Entidad Promotora:</h3>
         <p>{DATA['cliente']['empresa']}</p>
-        <div class="sub-info">{DATA['cliente']['atencion']}</div>
-        <div class="sub-info">{DATA['cliente']['obra']}</div>
+        <div class="sub-info">{DATA['cliente']['atencion']} — {DATA['cliente']['obra']}</div>
       </div>
       <div>
         <h3>Emplazamiento Operativo:</h3>
         <p>{DATA['cliente']['emplazamiento']}</p>
-        <div class="sub-info">{DATA['cliente']['direccion']} — {DATA['cliente']['codigo_postal']} {DATA['cliente']['poblacion']}</div>
-        <div class="sub-info">Régimen: Plataforma de Aeronaves (Lado Aire AENA)</div>
+        <div class="sub-info">{DATA['cliente']['direccion']}, {DATA['cliente']['poblacion']} · Régimen: Pista Lado Aire AENA</div>
       </div>
     </div>
 
     <div class="badge-bar">
-      <div class="badge">✔ Plataforma Elevadora (PEMP): Aportada y prestada por el cliente</div>
-      <div class="badge amber">✔ Permisos y Acreditaciones ZRS: Por cuenta y gestión del cliente</div>
-      <div class="badge">✔ Acabado: Pintura bicomponente en obra (Norma HAM)</div>
+      <div class="badge">✔ Plataforma PEMP: Prestada por el cliente</div>
+      <div class="badge amber">✔ Permisos y ZRS: Gestión por el cliente</div>
+      <div class="badge">✔ Pintura: Bicomponente en obra (Norma HAM)</div>
     </div>
 
     <div class="photos-grid">
       <div class="photo-card">
         <img src="img/foto_dano_tubo_soporte.jpg" alt="Detalle de tubo dañado y soporte de guía">
-        <div class="photo-caption"><strong>Inspección visual:</strong> Tubo estructural 80x80x4 mm colapsado y soporte de guía industrial deformado bajo chasis de la manga.</div>
+        <div class="photo-caption"><strong>Inspección:</strong> Tubo 80x80x4 mm colapsado y soporte de guía deformado bajo chasis manga.</div>
       </div>
       <div class="photo-card">
         <img src="img/foto_perspectiva_manga_pista.jpg" alt="Perspectiva de la manga en plataforma aeroportuaria">
-        <div class="photo-caption"><strong>Entorno de trabajo en pista:</strong> Plataforma de aeronaves activa. Soldadura y corte bajo protocolo estricto FOD y pantallas ignífugas.</div>
+        <div class="photo-caption"><strong>Entorno en pista:</strong> Plataforma de aeronaves activa. Protocolo FOD y pantallas ignífugas.</div>
       </div>
     </div>
 
@@ -667,7 +672,7 @@ def create_html_and_pdf():
           <td class="center">{p['unidad']}</td>
           <td class="right bold">{p['cantidad']}</td>
           <td class="right bold">{eur(p['precio_venta_unitario'])}</td>
-          <td class="right bold" style="color:#0f172a; font-size:9pt;">{eur(p['subtotal'])}</td>
+          <td class="right bold" style="color:#0f172a; font-size:8.5pt;">{eur(p['subtotal'])}</td>
         </tr>
       </tbody>
     </table>
