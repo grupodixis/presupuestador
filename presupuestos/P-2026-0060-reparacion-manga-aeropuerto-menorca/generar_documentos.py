@@ -3,7 +3,6 @@ import json
 import subprocess
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
-from openpyxl.utils import get_column_letter
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(BASE_DIR, "datos.json"), "r", encoding="utf-8") as f:
@@ -26,7 +25,6 @@ def create_excel():
     ws_mat = wb.create_sheet(title="Desglose Costes Directos")
 
     NAVY = "0F172A"
-    SLATE = "334155"
     GOLD = "B45309"
     LIGHT_BG = "F8FAFC"
     SUB_BG = "E2E8F0"
@@ -38,12 +36,12 @@ def create_excel():
     fill_alt = PatternFill(start_color=LIGHT_BG, end_color=LIGHT_BG, fill_type="solid")
     fill_total = PatternFill(start_color=TOTAL_BG, end_color=TOTAL_BG, fill_type="solid")
 
-    font_title = Font(name="Segoe UI", size=14, bold=True, color=NAVY)
-    font_sub = Font(name="Segoe UI", size=10, bold=True, color=GOLD)
+    font_title = Font(name="Segoe UI", size=13.5, bold=True, color=NAVY)
+    font_sub = Font(name="Segoe UI", size=9.5, bold=True, color=GOLD)
     font_head = Font(name="Segoe UI", size=9.5, bold=True, color="FFFFFF")
     font_sec = Font(name="Segoe UI", size=10, bold=True, color=NAVY)
     font_bold = Font(name="Segoe UI", size=9, bold=True, color="000000")
-    font_regular = Font(name="Segoe UI", size=9, color="1E293B")
+    font_regular = Font(name="Segoe UI", size=8.8, color="1E293B")
     font_total = Font(name="Segoe UI", size=10.5, bold=True, color=NAVY)
     font_total_gold = Font(name="Segoe UI", size=11, bold=True, color=GOLD)
     font_green = Font(name="Segoe UI", size=9.5, bold=True, color=GREEN_TXT)
@@ -62,14 +60,14 @@ def create_excel():
     )
 
     # ==========================================
-    # SHEET 1: PRESUPUESTO CLIENTE
+    # SHEET 1: PRESUPUESTO CLIENTE (1 CONCEPTO)
     # ==========================================
     ws_cli.views.sheetView[0].showGridLines = True
-    ws_cli.merge_cells("A1:G1")
+    ws_cli.merge_cells("A1:F1")
     ws_cli["A1"] = f"{DATA['emisor']['nombre_comercial']} — {DATA['emisor']['razon_social']}"
     ws_cli["A1"].font = font_title
 
-    ws_cli.merge_cells("A2:G2")
+    ws_cli.merge_cells("A2:F2")
     ws_cli["A2"] = f"PRESUPUESTO TÉCNICO-COMERCIAL · Ref: {DATA['codigo']} ({DATA['referencia']})"
     ws_cli["A2"].font = font_sub
 
@@ -83,13 +81,13 @@ def create_excel():
     ws_cli.cell(row=5, column=5, value="VALIDEZ:").font = font_bold
     ws_cli.cell(row=5, column=6, value=f"{DATA['validez_dias']} días").font = font_regular
 
-    ws_cli.cell(row=6, column=1, value="ALCANCE RESUMIDO:").font = font_bold
-    ws_cli.merge_cells("B6:G6")
-    ws_cli["B6"] = DATA["proyecto"]["titulo"]
+    ws_cli.cell(row=6, column=1, value="CONDICIONES OPERATIVAS:").font = font_bold
+    ws_cli.merge_cells("B6:F6")
+    ws_cli["B6"] = "Plataforma elevadora (PEMP) prestada por el cliente · Permisos y acreditaciones de seguridad ZRS por cuenta del cliente"
     ws_cli["B6"].font = font_regular
 
     # Table Header
-    headers_cli = ["Cód.", "Concepto / Descripción de la Partida", "Ud.", "Cant.", "Precio Unitario", "Subtotal (€)"]
+    headers_cli = ["Cód.", "Concepto / Descripción del Trabajo Realizado", "Ud.", "Cant.", "Precio Unitario", "Subtotal (€)"]
     start_row = 8
     for col_idx, h in enumerate(headers_cli, start=1):
         cell = ws_cli.cell(row=start_row, column=col_idx, value=h)
@@ -98,72 +96,62 @@ def create_excel():
         cell.alignment = Alignment(horizontal="center" if col_idx in [1, 3] else ("right" if col_idx >= 4 else "left"), vertical="center")
         cell.border = border_thin
 
-    current_row = start_row + 1
-    subtotal_formulas = []
+    # Single Partida Row
+    p = DATA["partidas_cliente"][0]
+    row_p = start_row + 1
+    ws_cli.cell(row=row_p, column=1, value=p["codigo"]).font = font_bold
+    ws_cli.cell(row=row_p, column=1).alignment = Alignment(horizontal="center", vertical="top")
+    ws_cli.cell(row=row_p, column=1).border = border_thin
 
-    for cap in DATA["capitulos"]:
-        # Chapter header
-        ws_cli.merge_cells(start_row=current_row, start_column=1, end_row=current_row, end_column=6)
-        c_title = ws_cli.cell(row=current_row, column=1, value=f"CAPÍTULO {cap['numero']} — {cap['titulo'].upper()}")
-        c_title.font = font_sec
-        c_title.fill = fill_sub
-        c_title.border = border_thin
-        current_row += 1
+    ws_cli.cell(row=row_p, column=2, value=f"{p['concepto']}\n\n{p['descripcion']}").font = font_regular
+    ws_cli.cell(row=row_p, column=2).alignment = Alignment(wrap_text=True, vertical="top")
+    ws_cli.cell(row=row_p, column=2).border = border_thin
 
-        for p in cap["partidas"]:
-            ws_cli.cell(row=current_row, column=1, value=p["codigo"]).font = font_bold
-            ws_cli.cell(row=current_row, column=1).alignment = Alignment(horizontal="center")
-            ws_cli.cell(row=current_row, column=1).border = border_thin
+    ws_cli.cell(row=row_p, column=3, value=p["unidad"]).font = font_regular
+    ws_cli.cell(row=row_p, column=3).alignment = Alignment(horizontal="center", vertical="top")
+    ws_cli.cell(row=row_p, column=3).border = border_thin
 
-            ws_cli.cell(row=current_row, column=2, value=f"{p['concepto']}\n{p['descripcion']}").font = font_regular
-            ws_cli.cell(row=current_row, column=2).alignment = Alignment(wrap_text=True, vertical="top")
-            ws_cli.cell(row=current_row, column=2).border = border_thin
+    ws_cli.cell(row=row_p, column=4, value=p["cantidad"]).font = font_regular
+    ws_cli.cell(row=row_p, column=4).alignment = Alignment(horizontal="right", vertical="top")
+    ws_cli.cell(row=row_p, column=4).border = border_thin
 
-            ws_cli.cell(row=current_row, column=3, value=p["unidad"]).font = font_regular
-            ws_cli.cell(row=current_row, column=3).alignment = Alignment(horizontal="center", vertical="top")
-            ws_cli.cell(row=current_row, column=3).border = border_thin
+    c_unit = ws_cli.cell(row=row_p, column=5, value=p["precio_venta_unitario"])
+    c_unit.font = font_regular
+    c_unit.number_format = "#,##0.00 €"
+    c_unit.alignment = Alignment(horizontal="right", vertical="top")
+    c_unit.border = border_thin
 
-            ws_cli.cell(row=current_row, column=4, value=p["cantidad"]).font = font_regular
-            ws_cli.cell(row=current_row, column=4).alignment = Alignment(horizontal="right", vertical="top")
-            ws_cli.cell(row=current_row, column=4).border = border_thin
+    c_sub = ws_cli.cell(row=row_p, column=6, value=f"=D{row_p}*E{row_p}")
+    c_sub.font = font_bold
+    c_sub.number_format = "#,##0.00 €"
+    c_sub.alignment = Alignment(horizontal="right", vertical="top")
+    c_sub.border = border_thin
 
-            p_unit = ws_cli.cell(row=current_row, column=5, value=p["precio_venta_unitario"])
-            p_unit.font = font_regular
-            p_unit.number_format = "#,##0.00 €"
-            p_unit.alignment = Alignment(horizontal="right", vertical="top")
-            p_unit.border = border_thin
-
-            p_sub = ws_cli.cell(row=current_row, column=6, value=f"=D{current_row}*E{current_row}")
-            p_sub.font = font_bold
-            p_sub.number_format = "#,##0.00 €"
-            p_sub.alignment = Alignment(horizontal="right", vertical="top")
-            p_sub.border = border_thin
-            subtotal_formulas.append(f"F{current_row}")
-
-            current_row += 1
-
-    current_row += 1
+    current_row = row_p + 2
     # Totals
     ws_cli.cell(row=current_row, column=4, value="BASE IMPONIBLE:").font = font_sec
-    ws_cli.cell(row=current_row, column=6, value=f"=SUM({','.join(subtotal_formulas)})").font = font_total
-    ws_cli.cell(row=current_row, column=6).number_format = "#,##0.00 €"
-    ws_cli.cell(row=current_row, column=6).fill = fill_total
-    ws_cli.cell(row=current_row, column=6).border = border_thin
+    c_base = ws_cli.cell(row=current_row, column=6, value=f"=F{row_p}")
+    c_base.font = font_total
+    c_base.number_format = "#,##0.00 €"
+    c_base.fill = fill_total
+    c_base.border = border_thin
     base_row = current_row
 
     current_row += 1
     ws_cli.cell(row=current_row, column=4, value=f"I.V.A. ({DATA['resumen_economico']['tipo_iva_pct']:.0f}%):").font = font_regular
-    ws_cli.cell(row=current_row, column=6, value=f"=F{base_row}*{DATA['resumen_economico']['tipo_iva_pct']/100}").font = font_regular
-    ws_cli.cell(row=current_row, column=6).number_format = "#,##0.00 €"
-    ws_cli.cell(row=current_row, column=6).border = border_thin
+    c_iva = ws_cli.cell(row=current_row, column=6, value=f"=ROUND(F{base_row}*{DATA['resumen_economico']['tipo_iva_pct']/100}, 2)")
+    c_iva.font = font_regular
+    c_iva.number_format = "#,##0.00 €"
+    c_iva.border = border_thin
     iva_row = current_row
 
     current_row += 1
     ws_cli.cell(row=current_row, column=4, value="TOTAL PRESUPUESTO:").font = font_total_gold
-    ws_cli.cell(row=current_row, column=6, value=f"=F{base_row}+F{iva_row}").font = font_total_gold
-    ws_cli.cell(row=current_row, column=6).number_format = "#,##0.00 €"
-    ws_cli.cell(row=current_row, column=6).fill = fill_total
-    ws_cli.cell(row=current_row, column=6).border = border_double
+    c_tot = ws_cli.cell(row=current_row, column=6, value=f"=F{base_row}+F{iva_row}")
+    c_tot.font = font_total_gold
+    c_tot.number_format = "#,##0.00 €"
+    c_tot.fill = fill_total
+    c_tot.border = border_double
 
     # Conditions
     current_row += 2
@@ -176,15 +164,15 @@ def create_excel():
         current_row += 1
 
     # Column widths
-    ws_cli.column_dimensions["A"].width = 10
-    ws_cli.column_dimensions["B"].width = 65
+    ws_cli.column_dimensions["A"].width = 9
+    ws_cli.column_dimensions["B"].width = 72
     ws_cli.column_dimensions["C"].width = 8
     ws_cli.column_dimensions["D"].width = 8
     ws_cli.column_dimensions["E"].width = 16
     ws_cli.column_dimensions["F"].width = 18
 
     # ==========================================
-    # SHEET 2: ESTUDIO TÉCNICO INTERNO
+    # SHEET 2: ESTUDIO INTERNO Y MÁRGENES
     # ==========================================
     ws_int.views.sheetView[0].showGridLines = True
     ws_int.merge_cells("A1:G1")
@@ -204,50 +192,41 @@ def create_excel():
     ws_int.cell(row=3, column=6, value="Margen / Coste (%)").font = font_head
     ws_int.cell(row=3, column=6).fill = fill_navy
 
+    re = DATA["resumen_economico"]
     r_int = 4
-    for cap in DATA["capitulos"]:
-        for p in cap["partidas"]:
-            c_coste = p["coste_unitario"] * p["cantidad"]
-            c_venta = p["precio_venta_unitario"] * p["cantidad"]
-            c_ben = c_venta - c_coste
-            m_vta = (c_ben / c_venta * 100) if c_venta else 0
-            m_cst = (c_ben / c_coste * 100) if c_coste else 0
+    ws_int.cell(row=r_int, column=1, value=f"{p['codigo']} - {p['concepto'][:60]}...").font = font_regular
+    ws_int.cell(row=r_int, column=2, value=re["coste_directo_total"]).number_format = "#,##0.00 €"
+    ws_int.cell(row=r_int, column=3, value=re["venta_base_imponible"]).number_format = "#,##0.00 €"
+    ws_int.cell(row=r_int, column=4, value=re["beneficio_bruto"]).number_format = "#,##0.00 €"
+    ws_int.cell(row=r_int, column=5, value=re["margen_sobre_venta_pct"] / 100).number_format = "0.0%"
+    ws_int.cell(row=r_int, column=6, value=re["margen_sobre_coste_pct"] / 100).number_format = "0.0%"
+    for c in range(1, 7):
+        ws_int.cell(row=r_int, column=c).border = border_thin
 
-            ws_int.cell(row=r_int, column=1, value=f"{p['codigo']} - {p['concepto']}").font = font_regular
-            ws_int.cell(row=r_int, column=2, value=c_coste).number_format = "#,##0.00 €"
-            ws_int.cell(row=r_int, column=3, value=c_venta).number_format = "#,##0.00 €"
-            ws_int.cell(row=r_int, column=4, value=c_ben).number_format = "#,##0.00 €"
-            ws_int.cell(row=r_int, column=5, value=m_vta / 100).number_format = "0.0%"
-            ws_int.cell(row=r_int, column=6, value=m_cst / 100).number_format = "0.0%"
-
-            for c in range(1, 7):
-                ws_int.cell(row=r_int, column=c).border = border_thin
-            r_int += 1
-
-    # Total Row
+    r_int += 1
     ws_int.cell(row=r_int, column=1, value="TOTALES").font = font_total
-    ws_int.cell(row=r_int, column=2, value=DATA["resumen_economico"]["coste_directo_total"]).number_format = "#,##0.00 €"
-    ws_int.cell(row=r_int, column=3, value=DATA["resumen_economico"]["venta_base_imponible"]).number_format = "#,##0.00 €"
-    ws_int.cell(row=r_int, column=4, value=DATA["resumen_economico"]["beneficio_bruto"]).number_format = "#,##0.00 €"
-    ws_int.cell(row=r_int, column=5, value=DATA["resumen_economico"]["margen_sobre_venta_pct"] / 100).number_format = "0.0%"
-    ws_int.cell(row=r_int, column=6, value=DATA["resumen_economico"]["margen_sobre_coste_pct"] / 100).number_format = "0.0%"
-
+    ws_int.cell(row=r_int, column=2, value=re["coste_directo_total"]).number_format = "#,##0.00 €"
+    ws_int.cell(row=r_int, column=3, value=re["venta_base_imponible"]).number_format = "#,##0.00 €"
+    ws_int.cell(row=r_int, column=4, value=re["beneficio_bruto"]).number_format = "#,##0.00 €"
+    ws_int.cell(row=r_int, column=5, value=re["margen_sobre_venta_pct"] / 100).number_format = "0.0%"
+    ws_int.cell(row=r_int, column=6, value=re["margen_sobre_coste_pct"] / 100).number_format = "0.0%"
     for c in range(1, 7):
         ws_int.cell(row=r_int, column=c).font = font_total
         ws_int.cell(row=r_int, column=c).fill = fill_total
         ws_int.cell(row=r_int, column=c).border = border_double
 
-    # Breakdown by resource
+    # Breakdown by nature
     r_int += 3
-    ws_int.cell(row=r_int, column=1, value="RESUMEN POR NATURALEZA DE COSTE").font = font_sec
+    ws_int.cell(row=r_int, column=1, value="RESUMEN POR NATURALEZA DE RECURSOS").font = font_sec
     r_int += 1
-    re = DATA["resumen_economico"]
     nature = [
-        ("Materiales e Insumos", re["coste_materiales"]),
-        ("Mano de Obra y Gestión Técnica", re["coste_mano_obra"]),
-        ("Medios Auxiliares (PEMP) y Desplazamientos", re["coste_medios_y_transporte"]),
+        ("Materiales e Insumos (acero, consumibles, pintura C5)", re["coste_materiales"]),
+        ("Mano de Obra Especializada (Taller + Obra en Pista 2 oficiales)", re["coste_mano_obra"]),
+        ("Plataforma Elevadora PEMP (prestada por cliente)", 0.0),
+        ("Tramitaciones de Permisos AENA (por cuenta del cliente)", 0.0),
+        ("Desplazamientos furgón taller (2 días)", re["coste_medios_y_transporte"]),
         ("COSTE DIRECTO TOTAL", re["coste_directo_total"]),
-        ("PRECIO VENTA RECOMENDADO (BASE)", re["venta_base_imponible"]),
+        ("PRECIO VENTA OFERTADO (BASE IMPONIBLE 1 x 3.952,12 €)", re["venta_base_imponible"]),
         ("BENEFICIO BRUTO ESTIMADO", re["beneficio_bruto"])
     ]
     for lbl, val in nature:
@@ -259,7 +238,7 @@ def create_excel():
             c_val.font = font_green
         r_int += 1
 
-    ws_int.column_dimensions["A"].width = 50
+    ws_int.column_dimensions["A"].width = 55
     ws_int.column_dimensions["B"].width = 18
     ws_int.column_dimensions["C"].width = 18
     ws_int.column_dimensions["D"].width = 18
@@ -274,7 +253,6 @@ def create_excel():
     ws_mat["A1"] = f"DESGLOSE DE RECURSOS DIRECTOS — {DATA['codigo']}"
     ws_mat["A1"].font = font_title
 
-    # Table 1: Materiales
     r_mat = 3
     ws_mat.cell(row=r_mat, column=1, value="1. Materiales, Acero y Consumibles").font = font_sec
     r_mat += 1
@@ -295,12 +273,11 @@ def create_excel():
             ws_mat.cell(row=r_mat, column=i).border = border_thin
         r_mat += 1
 
-    # Table 2: Mano de Obra
     r_mat += 2
     ws_mat.cell(row=r_mat, column=1, value="2. Mano de Obra y Supervisión Técnica").font = font_sec
     r_mat += 1
-    mo_heads = ["Puesto / Tarea", "Horas", "Tarifa (€/h)", "Subtotal (€)", ""]
-    for i, h in enumerate(mo_heads[:4], start=1):
+    mo_heads = ["Puesto / Tarea", "Horas", "Tarifa (€/h)", "Subtotal (€)"]
+    for i, h in enumerate(mo_heads, start=1):
         cell = ws_mat.cell(row=r_mat, column=i, value=h)
         cell.font = font_head
         cell.fill = fill_navy
@@ -315,11 +292,10 @@ def create_excel():
             ws_mat.cell(row=r_mat, column=i).border = border_thin
         r_mat += 1
 
-    # Table 3: Maquinaria y Medios
     r_mat += 2
-    ws_mat.cell(row=r_mat, column=1, value="3. Medios de Elevación (PEMP) y Desplazamientos").font = font_sec
+    ws_mat.cell(row=r_mat, column=1, value="3. Medios y Logística").font = font_sec
     r_mat += 1
-    for i, h in enumerate(["Concepto", "Unidades/Días", "Coste Ud. (€)", "Subtotal (€)"], start=1):
+    for i, h in enumerate(["Concepto", "Días", "Coste Ud. (€)", "Subtotal (€)"], start=1):
         cell = ws_mat.cell(row=r_mat, column=i, value=h)
         cell.font = font_head
         cell.fill = fill_navy
@@ -327,8 +303,7 @@ def create_excel():
     r_mat += 1
     for med in DATA["desglose_costes_internos"]["medios_auxiliares_y_transporte"]:
         ws_mat.cell(row=r_mat, column=1, value=med["concepto"]).font = font_regular
-        cnt = med.get("dias", med.get("viajes", 1))
-        ws_mat.cell(row=r_mat, column=2, value=cnt).alignment = Alignment(horizontal="right")
+        ws_mat.cell(row=r_mat, column=2, value=med.get("dias", 1)).alignment = Alignment(horizontal="right")
         ws_mat.cell(row=r_mat, column=3, value=med["coste_unit"]).number_format = "#,##0.00 €"
         ws_mat.cell(row=r_mat, column=4, value=med["total"]).number_format = "#,##0.00 €"
         for i in range(1, 5):
@@ -347,40 +322,19 @@ def create_excel():
 
 
 def create_html_and_pdf():
-    # Load HAM Logo SVG
     svg_path = os.path.join(BASE_DIR, "logo-ham.svg")
     svg_content = ""
     if os.path.exists(svg_path):
         with open(svg_path, "r", encoding="utf-8") as f:
             svg_content = f.read()
 
-    # Partidas client table rows
-    rows_cliente = ""
-    for cap in DATA["capitulos"]:
-        rows_cliente += f"""
-        <tr class="cap-row">
-          <td colspan="6"><strong>CAPÍTULO {cap['numero']} — {cap['titulo'].upper()}</strong></td>
-        </tr>"""
-        for p in cap["partidas"]:
-            sub = p["cantidad"] * p["precio_venta_unitario"]
-            rows_cliente += f"""
-            <tr>
-              <td class="center code">{p['codigo']}</td>
-              <td>
-                <div class="item-title">{p['concepto']}</div>
-                <div class="item-desc">{p['descripcion']}</div>
-              </td>
-              <td class="center">{p['unidad']}</td>
-              <td class="right">{p['cantidad']}</td>
-              <td class="right bold">{eur(p['precio_venta_unitario'])}</td>
-              <td class="right bold total-cell">{eur(sub)}</td>
-            </tr>"""
-
+    p = DATA["partidas_cliente"][0]
     re = DATA["resumen_economico"]
 
+    desc_lines = p["descripcion"].replace("\n", "<br>")
     cond_html = "".join([f"<li>{c}</li>" for c in DATA["condiciones_generales"]])
 
-    # HTML CLIENTE
+    # HTML CLIENTE (1 CONCEPTO)
     html_cliente = f"""<!doctype html>
 <html lang="es">
 <head>
@@ -397,8 +351,8 @@ def create_html_and_pdf():
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       margin: 0;
       color: #1e293b;
-      font-size: 8.8pt;
-      line-height: 1.35;
+      font-size: 8.5pt;
+      line-height: 1.32;
       background: #f1f5f9;
     }}
     .document-page {{
@@ -406,7 +360,7 @@ def create_html_and_pdf():
       min-height: 297mm;
       margin: 0 auto;
       background: #fff;
-      padding: 10mm 12mm;
+      padding: 9mm 11mm;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       position: relative;
     }}
@@ -425,10 +379,10 @@ def create_html_and_pdf():
       align-items: center;
       background: #0f172a;
       color: #fff;
-      padding: 10px 16px;
+      padding: 9px 15px;
       border-radius: 6px;
-      border-bottom: 4px solid #b45309;
-      margin-bottom: 12px;
+      border-bottom: 3.5px solid #b45309;
+      margin-bottom: 10px;
     }}
     .brand-box {{
       display: flex;
@@ -436,8 +390,8 @@ def create_html_and_pdf():
       gap: 12px;
     }}
     .brand-logo {{
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       background: rgba(255,255,255,0.1);
       border-radius: 6px;
       padding: 3px;
@@ -448,99 +402,99 @@ def create_html_and_pdf():
     .brand-logo svg {{ width: 100%; height: 100%; }}
     .brand-text h1 {{
       margin: 0;
-      font-size: 15pt;
+      font-size: 14pt;
       font-weight: 800;
       letter-spacing: -0.01em;
       color: #ffffff;
     }}
     .brand-text .sub {{
-      font-size: 8pt;
+      font-size: 7.8pt;
       color: #cbd5e1;
       margin-top: 1px;
     }}
     .meta-box {{
       text-align: right;
-      font-size: 8.5pt;
+      font-size: 8pt;
       line-height: 1.35;
       color: #e2e8f0;
     }}
     .meta-box strong {{
-      font-size: 11pt;
+      font-size: 10.5pt;
       color: #fbbf24;
       display: block;
     }}
     .client-card {{
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
+      grid-template-columns: 1.35fr 1fr;
       gap: 10px;
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-left: 4px solid #0f172a;
       border-radius: 6px;
-      padding: 8px 12px;
-      margin-bottom: 12px;
+      padding: 7px 11px;
+      margin-bottom: 10px;
     }}
     .client-card h3 {{
-      margin: 0 0 4px 0;
-      font-size: 8pt;
+      margin: 0 0 3px 0;
+      font-size: 7.5pt;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: #64748b;
     }}
     .client-card p {{
       margin: 0;
-      font-size: 9pt;
+      font-size: 8.8pt;
       color: #0f172a;
       font-weight: 600;
     }}
     .client-card .sub-info {{
-      font-size: 8pt;
+      font-size: 7.8pt;
       color: #475569;
       font-weight: normal;
-      margin-top: 2px;
+      margin-top: 1px;
     }}
-    .scope-box {{
+    .badge-bar {{
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }}
+    .badge {{
+      display: inline-flex;
+      align-items: center;
       background: #eff6ff;
       border: 1px solid #bfdbfe;
-      border-left: 4px solid #2563eb;
-      border-radius: 6px;
-      padding: 8px 12px;
-      margin-bottom: 12px;
-    }}
-    .scope-box h4 {{
-      margin: 0 0 3px 0;
-      font-size: 8.5pt;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 7.6pt;
       color: #1e40af;
-      text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 600;
     }}
-    .scope-box p {{
-      margin: 0;
-      font-size: 8.3pt;
-      color: #1e3a8a;
-      line-height: 1.35;
+    .badge.amber {{
+      background: #fef3c7;
+      border-color: #fde68a;
+      color: #92400e;
     }}
     .photos-grid {{
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }}
     .photo-card {{
       border: 1px solid #cbd5e1;
-      border-radius: 6px;
+      border-radius: 5px;
       overflow: hidden;
       background: #fff;
     }}
     .photo-card img {{
       width: 100%;
-      height: 120px;
+      height: 105px;
       object-fit: cover;
       display: block;
     }}
     .photo-caption {{
-      padding: 4px 8px;
-      font-size: 7.5pt;
+      padding: 4px 7px;
+      font-size: 7.2pt;
       color: #475569;
       background: #f8fafc;
       border-top: 1px solid #e2e8f0;
@@ -549,41 +503,32 @@ def create_html_and_pdf():
     table {{
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }}
     th {{
       background: #0f172a;
       color: #fff;
       padding: 6px 8px;
-      font-size: 8pt;
+      font-size: 7.8pt;
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }}
     td {{
-      padding: 6px 8px;
+      padding: 7px 8px;
       border-bottom: 1px solid #e2e8f0;
-      font-size: 8.3pt;
+      font-size: 8pt;
       vertical-align: top;
-    }}
-    .cap-row td {{
-      background: #e2e8f0;
-      color: #0f172a;
-      font-size: 8.2pt;
-      border-top: 1px solid #cbd5e1;
-      border-bottom: 1px solid #cbd5e1;
-      padding: 5px 8px;
     }}
     .center {{ text-align: center; }}
     .right {{ text-align: right; }}
     .bold {{ font-weight: 700; }}
     .code {{ font-family: Consolas, monospace; font-size: 8pt; color: #475569; }}
-    .item-title {{ font-weight: 700; color: #0f172a; margin-bottom: 2px; }}
-    .item-desc {{ font-size: 7.8pt; color: #64748b; line-height: 1.3; }}
-    .total-cell {{ color: #0f172a; }}
+    .item-title {{ font-weight: 700; color: #0f172a; font-size: 8.5pt; margin-bottom: 4px; }}
+    .item-desc {{ font-size: 7.6pt; color: #475569; line-height: 1.35; }}
     .summary-box {{
       width: 250px;
       margin-left: auto;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       border: 1px solid #cbd5e1;
       border-radius: 6px;
       overflow: hidden;
@@ -592,7 +537,7 @@ def create_html_and_pdf():
       display: flex;
       justify-content: space-between;
       padding: 5px 10px;
-      font-size: 8.5pt;
+      font-size: 8.3pt;
       border-bottom: 1px solid #e2e8f0;
     }}
     .summary-row.total {{
@@ -606,45 +551,45 @@ def create_html_and_pdf():
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 6px;
-      padding: 8px 12px;
-      margin-bottom: 12px;
+      padding: 7px 11px;
+      margin-bottom: 10px;
     }}
     .conditions-box h4 {{
-      margin: 0 0 4px 0;
-      font-size: 8pt;
+      margin: 0 0 3px 0;
+      font-size: 7.8pt;
       color: #0f172a;
       text-transform: uppercase;
     }}
     .conditions-box ul {{
       margin: 0;
-      padding-left: 16px;
-      font-size: 7.8pt;
+      padding-left: 15px;
+      font-size: 7.5pt;
       color: #475569;
-      line-height: 1.35;
+      line-height: 1.32;
     }}
     .signature-grid {{
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 15px;
-      margin-top: 10px;
-      padding-top: 8px;
+      margin-top: 8px;
+      padding-top: 6px;
       border-top: 1px solid #e2e8f0;
     }}
     .sig-box {{
       border: 1px dashed #cbd5e1;
-      border-radius: 6px;
-      padding: 8px 10px;
-      min-height: 65px;
+      border-radius: 5px;
+      padding: 6px 9px;
+      min-height: 58px;
       background: #fafafa;
     }}
     .sig-box h5 {{
       margin: 0 0 2px 0;
-      font-size: 7.5pt;
+      font-size: 7.2pt;
       text-transform: uppercase;
       color: #64748b;
     }}
     .sig-box .sub {{
-      font-size: 7pt;
+      font-size: 6.8pt;
       color: #94a3b8;
     }}
   </style>
@@ -684,21 +629,20 @@ def create_html_and_pdf():
       </div>
     </div>
 
-    <div class="scope-box">
-      <h4>Alcance de los Trabajos y Especificaciones Principales</h4>
-      <p>
-        {DATA['proyecto']['descripcion']}
-      </p>
+    <div class="badge-bar">
+      <div class="badge">✔ Plataforma Elevadora (PEMP): Aportada y prestada por el cliente</div>
+      <div class="badge amber">✔ Permisos y Acreditaciones ZRS: Por cuenta y gestión del cliente</div>
+      <div class="badge">✔ Acabado: Pintura bicomponente en obra (Norma HAM)</div>
     </div>
 
     <div class="photos-grid">
       <div class="photo-card">
         <img src="img/foto_dano_tubo_soporte.jpg" alt="Detalle de tubo dañado y soporte de guía">
-        <div class="photo-caption"><strong>Inspección visual:</strong> Tubo estructural 80x80x4 mm colapsado y soporte de guía industrial con corrosión y deformación bajo el chasis de la manga.</div>
+        <div class="photo-caption"><strong>Inspección visual:</strong> Tubo estructural 80x80x4 mm colapsado y soporte de guía industrial deformado bajo chasis de la manga.</div>
       </div>
       <div class="photo-card">
         <img src="img/foto_perspectiva_manga_pista.jpg" alt="Perspectiva de la manga en plataforma aeroportuaria">
-        <div class="photo-caption"><strong>Entorno de trabajo:</strong> Plataforma activa de estacionamiento de aeronaves (apron). Requiere PEMP, protocolo FOD, acreditaciones AENA y hot work permit.</div>
+        <div class="photo-caption"><strong>Entorno de trabajo en pista:</strong> Plataforma de aeronaves activa. Soldadura y corte bajo protocolo estricto FOD y pantallas ignífugas.</div>
       </div>
     </div>
 
@@ -706,21 +650,31 @@ def create_html_and_pdf():
       <thead>
         <tr>
           <th style="width: 8%;">Cód.</th>
-          <th style="width: 52%;">Descripción de la Partida</th>
+          <th style="width: 54%;">Concepto y Alcance de la Actuación</th>
           <th style="width: 6%;" class="center">Ud.</th>
           <th style="width: 6%;" class="right">Cant.</th>
-          <th style="width: 14%;" class="right">Precio Unit.</th>
-          <th style="width: 14%;" class="right">Subtotal</th>
+          <th style="width: 13%;" class="right">Precio Unit.</th>
+          <th style="width: 13%;" class="right">Subtotal</th>
         </tr>
       </thead>
       <tbody>
-        {rows_cliente}
+        <tr>
+          <td class="center code">{p['codigo']}</td>
+          <td>
+            <div class="item-title">{p['concepto']}</div>
+            <div class="item-desc">{desc_lines}</div>
+          </td>
+          <td class="center">{p['unidad']}</td>
+          <td class="right bold">{p['cantidad']}</td>
+          <td class="right bold">{eur(p['precio_venta_unitario'])}</td>
+          <td class="right bold" style="color:#0f172a; font-size:9pt;">{eur(p['subtotal'])}</td>
+        </tr>
       </tbody>
     </table>
 
     <div class="summary-box">
       <div class="summary-row">
-        <span>BASE IMPONIBLE:</span>
+        <span>BASE IMPONIBLE (1 x {eur(p['precio_venta_unitario'])}):</span>
         <span class="bold">{eur(re['venta_base_imponible'])}</span>
       </div>
       <div class="summary-row">
@@ -755,28 +709,6 @@ def create_html_and_pdf():
 </html>"""
 
     # HTML INTERNO TÉCNICO
-    rows_int = ""
-    for cap in DATA["capitulos"]:
-        rows_int += f"""
-        <tr class="cap-row">
-          <td colspan="7"><strong>CAPÍTULO {cap['numero']} — {cap['titulo'].upper()}</strong></td>
-        </tr>"""
-        for p in cap["partidas"]:
-            c_cost = p["coste_unitario"] * p["cantidad"]
-            c_vent = p["precio_venta_unitario"] * p["cantidad"]
-            ben = c_vent - c_cost
-            mg = (ben / c_vent * 100) if c_vent else 0
-            rows_int += f"""
-            <tr>
-              <td class="center code">{p['codigo']}</td>
-              <td><strong>{p['concepto']}</strong></td>
-              <td class="center">{p['unidad']}</td>
-              <td class="right">{p['cantidad']}</td>
-              <td class="right">{eur(c_cost)}</td>
-              <td class="right bold">{eur(c_vent)}</td>
-              <td class="right bold green">{eur(ben)} ({mg:.1f}%)</td>
-            </tr>"""
-
     mat_rows = ""
     for m in DATA["desglose_costes_internos"]["materiales"]:
         mat_rows += f"""
@@ -800,11 +732,10 @@ def create_html_and_pdf():
 
     med_rows = ""
     for med in DATA["desglose_costes_internos"]["medios_auxiliares_y_transporte"]:
-        cnt = med.get("dias", med.get("viajes", 1))
         med_rows += f"""
         <tr>
           <td>{med['concepto']}</td>
-          <td class="right">{cnt}</td>
+          <td class="right">{med.get('dias', 1)}</td>
           <td class="right">{eur(med['coste_unit'])}</td>
           <td class="right bold">{eur(med['total'])}</td>
         </tr>"""
@@ -849,11 +780,11 @@ def create_html_and_pdf():
     }}
     h1 {{ margin: 0; font-size: 13pt; color: #fff; }}
     .alert-banner {{
-      background: #fee2e2;
-      border-left: 4px solid #b91c1c;
+      background: #ecfdf5;
+      border-left: 4px solid #059669;
       padding: 6px 10px;
       font-size: 8pt;
-      color: #7f1d1d;
+      color: #065f46;
       margin-bottom: 10px;
       border-radius: 4px;
     }}
@@ -885,7 +816,6 @@ def create_html_and_pdf():
     table {{ width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 8pt; }}
     th {{ background: #0f172a; color: #fff; padding: 5px; text-align: left; }}
     td {{ padding: 4.5px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }}
-    .cap-row td {{ background: #e2e8f0; font-weight: 700; }}
     .center {{ text-align: center; }}
     .right {{ text-align: right; }}
     .bold {{ font-weight: 700; }}
@@ -898,8 +828,8 @@ def create_html_and_pdf():
   <div class="document-page">
     <header>
       <div>
-        <h1>ESTUDIO TÉCNICO INTERNO Y ANÁLISIS DE COSTES — {DATA['codigo']}</h1>
-        <div style="font-size: 8pt; color: #cbd5e1;">HAM Estructuras Metálicas · Obra: Reparación Manga de Pasarela (Pista Aeropuerto de Menorca)</div>
+        <h1>ESTUDIO TÉCNICO INTERNO Y ANÁLISIS DE COSTES — {DATA['codigo']} (REV 2)</h1>
+        <div style="font-size: 8pt; color: #cbd5e1;">HAM Estructuras Metálicas · Obra: Reparación Manga Pasarela (Aeropuerto de Menorca) · Concepto Único Cerrado</div>
       </div>
       <div style="text-align: right; font-size: 8pt; color: #fbbf24; font-weight: 700;">
         USO INTERNO EXCLUSIVO · NO ENTREGAR AL CLIENTE
@@ -907,7 +837,11 @@ def create_html_and_pdf():
     </header>
 
     <div class="alert-banner">
-      <strong>CRITERIOS DE ALTA COMPLEJIDAD Y SEGURIDAD:</strong> Trabajo en pista activa de aeronaves (zona aire AENA). Requiere acreditaciones ZRS, permiso de trabajo en caliente (cecop), protocolo FOD estricto de barrido magnético permanente y plataforma elevadora PEMP. Pintura bicomponente formulada para categoría marina C5-M aplicada estrictamente en obra (prohibida pintura al horno según regla HAM).
+      <strong>CONDICIONES CONFIRMADAS POR CLIENTE:</strong>
+      1. Presupuesto comercial agrupado en <strong>partida única cerrada: 1 x 3.952,12 €</strong> (Base).
+      2. <strong>Plataforma elevadora (PEMP):</strong> provista y prestada por el cliente (coste imputado = 0,00 €).
+      3. <strong>Permisos y acreditaciones aeroportuarias:</strong> gestionados por el cliente (coste imputado = 0,00 €).
+      4. <strong>Pintura:</strong> sistema bicomponente marino C5-M aplicado estrictamente en obra (prohibida pintura al horno según regla HAM).
     </div>
 
     <div class="kpi-grid">
@@ -920,7 +854,7 @@ def create_html_and_pdf():
         <div class="kpi-val">{eur(re['coste_mano_obra'])}</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-title">Medios (PEMP) + Transp.</div>
+        <div class="kpi-title">Desplazamientos Taller</div>
         <div class="kpi-val">{eur(re['coste_medios_y_transporte'])}</div>
       </div>
       <div class="kpi-card">
@@ -928,12 +862,12 @@ def create_html_and_pdf():
         <div class="kpi-val gold">{eur(re['coste_directo_total'])}</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-title">Beneficio Estimado</div>
+        <div class="kpi-title">Beneficio Neto Estimado</div>
         <div class="kpi-val green">{eur(re['beneficio_bruto'])} ({re['margen_sobre_venta_pct']:.1f}%)</div>
       </div>
     </div>
 
-    <h2>1. Resumen Económico por Partida</h2>
+    <h2>1. Resumen Económico General (Concepto Único)</h2>
     <table>
       <thead>
         <tr>
@@ -947,7 +881,15 @@ def create_html_and_pdf():
         </tr>
       </thead>
       <tbody>
-        {rows_int}
+        <tr>
+          <td class="center bold">{p['codigo']}</td>
+          <td><strong>{p['concepto']}</strong></td>
+          <td class="center">{p['unidad']}</td>
+          <td class="right">{p['cantidad']}</td>
+          <td class="right">{eur(re['coste_directo_total'])}</td>
+          <td class="right bold">{eur(re['venta_base_imponible'])}</td>
+          <td class="right bold green">{eur(re['beneficio_bruto'])} ({re['margen_sobre_venta_pct']:.1f}%)</td>
+        </tr>
         <tr class="tot">
           <td colspan="4" class="right">TOTALES GENERALES:</td>
           <td class="right">{eur(re['coste_directo_total'])}</td>
@@ -967,17 +909,17 @@ def create_html_and_pdf():
           <tbody>{mat_rows}</tbody>
         </table>
 
-        <h2>3. Medios de Elevación y Logística</h2>
+        <h2>3. Medios Auxiliares y Logística</h2>
         <table>
           <thead>
-            <tr><th>Concepto</th><th class="right">Unidades</th><th class="right">Coste Ud.</th><th class="right">Total</th></tr>
+            <tr><th>Concepto</th><th class="right">Días</th><th class="right">Coste Ud.</th><th class="right">Total</th></tr>
           </thead>
           <tbody>{med_rows}</tbody>
         </table>
       </div>
 
       <div>
-        <h2>4. Desglose de Mano de Obra y Supervisión Técnica</h2>
+        <h2>4. Desglose de Mano de Obra (Taller + Obra en Pista)</h2>
         <table>
           <thead>
             <tr><th>Puesto / Operación</th><th class="right">Horas</th><th class="right">Tarifa</th><th class="right">Total</th></tr>
@@ -986,12 +928,12 @@ def create_html_and_pdf():
         </table>
 
         <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 10px; margin-top: 15px;">
-          <h3 style="margin: 0 0 6px 0; font-size: 8.5pt; color: #0f172a; text-transform: uppercase;">Puntos Críticos de Ejecución Técnica</h3>
+          <h3 style="margin: 0 0 6px 0; font-size: 8.5pt; color: #0f172a; text-transform: uppercase;">Puntos Clave de Ejecución y Rentabilidad</h3>
           <ul style="margin: 0; padding-left: 16px; font-size: 7.8pt; color: #475569; line-height: 1.4;">
-            <li><strong>Apeo previo:</strong> La guía telescópica debe estar acuñada y sustentada para evitar que al cortar el tubo de 80x80x4 mm se altere la flecha o se desplace el eje de rodadura.</li>
-            <li><strong>Seguridad en caliente:</strong> Mantas ignífugas y presencia activa de vigilante con extintor durante el soldeo y amolado para evitar ignición de sellados de manga o cableados adyacentes.</li>
-            <li><strong>Barrido FOD estricto:</strong> Ningún resto metálico puede quedar en la plataforma; se utilizará barredora magnética manual al final de cada jornada.</li>
-            <li><strong>Pintura en obra:</strong> Aplicar imprimación epoxi rica en fosfato de zinc y acabado poliuretano bicomponente C5-M a brocha/rodillo respetando tiempos de repintado. Prohibida pintura al horno.</li>
+            <li><strong>Margen excelente:</strong> Con precio base de 3.952,12 € y sin repercutir coste de PEMP ni gestión de permisos, el beneficio bruto directo estimado asciende a <strong>2.212,12 €</strong> (55,97% sobre venta).</li>
+            <li><strong>Apeo previo imprescindible:</strong> Sustentar la guía telescópica con puntales regulables antes de cortar el tubo 80x80x4 mm para no alterar el rodamiento.</li>
+            <li><strong>Vigilancia de chispas y FOD:</strong> Mantas ignífugas perimetrales y barredora magnética al concluir cada jornada de corte y soldadura.</li>
+            <li><strong>Pintura:</strong> Imprimación epoxi de alto espesor y esmalte poliuretano bicomponente aplicado en obra, nunca al horno.</li>
           </ul>
         </div>
       </div>
