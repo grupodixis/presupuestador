@@ -60,7 +60,7 @@ def create_excel():
 
     ws1["B2"] = "DIXIS RECURSOS Y SOLUCIONES S.L. | HAM ESTRUCTURAS METÁLICAS MENORCA"
     ws1["B2"].font = font_sub
-    ws1["B3"] = f"PRESUPUESTO {DATA['codigo']} • 4 MARCOS Y TAPAS INOX AISI 304 (60x60 CM)"
+    ws1["B3"] = f"PRESUPUESTO {DATA['codigo']} • 4 MARCOS L40x4 Y TAPAS CHAPA LISA 3 MM INOX AISI 304 (60x60 CM)"
     ws1["B3"].font = font_title
 
     meta_rows = [
@@ -148,7 +148,7 @@ def create_excel():
         ("Forma de pago:", "100% a la aceptación del presupuesto (o según condiciones habituales de cliente)."),
         ("Plazo de fabricación:", "Aprox. 4 a 6 días laborables desde confirmación de pedido y medidas definitivas."),
         ("Lugar de entrega:", "Instalaciones / almacén de Antonio y Diego S.A. en Pol. Ind. POIMA, Mahón (Menorca)."),
-        ("Garantía y Calidad:", "Acero Inoxidable AISI 304, soldadura TIG y decapado/pasivado de cordones según norma."),
+        ("Garantía y Calidad:", "Acero Inoxidable AISI 304, marco L 40x40x4, chapa 3 mm lisa, soldadura TIG y decapado/pasivado."),
         ("No incluye:", "Obra civil de colocación/recibido en albañilería, medios mecánicos especiales de descarga.")
     ]
     for c_i, (k_c, v_c) in enumerate(cond_items, start=r_cond+1):
@@ -181,12 +181,12 @@ def create_excel():
     ws2.row_dimensions[4].height = 24
 
     cost_items = [
-        ("Tapa chapa plegada", DATA["desglose_costes_unitario"]["tapa_chapa_plegada"]["concepto"], "ud", 4, 200.00, DATA["desglose_costes_unitario"]["tapa_chapa_plegada"]["origen"]),
+        ("Tapa chapa lisa 3 mm", DATA["desglose_costes_unitario"]["tapa_chapa_lisa_3mm"]["concepto"], "ud", 4, 55.00, DATA["desglose_costes_unitario"]["tapa_chapa_lisa_3mm"]["origen"]),
         ("Marco angular L 40x40x4", DATA["desglose_costes_unitario"]["marco_angular_inox"]["concepto"], "conj", 4, 44.20, DATA["desglose_costes_unitario"]["marco_angular_inox"]["origen"]),
         ("Garras anclaje inox", DATA["desglose_costes_unitario"]["garras_anclaje_inox"]["concepto"], "juego", 4, 10.00, DATA["desglose_costes_unitario"]["garras_anclaje_inox"]["origen"]),
         ("Tirador escamoteable inox", DATA["desglose_costes_unitario"]["tirador_escamoteable_inox"]["concepto"], "juego", 4, 15.00, DATA["desglose_costes_unitario"]["tirador_escamoteable_inox"]["origen"]),
-        ("Consumibles taller TIG", DATA["desglose_costes_unitario"]["consumibles_taller"]["concepto"], "lote", 4, 18.00, DATA["desglose_costes_unitario"]["consumibles_taller"]["origen"]),
-        ("Mano de obra taller TIG", DATA["desglose_costes_unitario"]["mo_taller_tig"]["concepto"], "h", 10.0, 35.00, DATA["desglose_costes_unitario"]["mo_taller_tig"]["origen"]),
+        ("Consumibles taller TIG", DATA["desglose_costes_unitario"]["consumibles_taller"]["concepto"], "lote", 4, 15.00, DATA["desglose_costes_unitario"]["consumibles_taller"]["origen"]),
+        ("Mano de obra taller TIG", DATA["desglose_costes_unitario"]["mo_taller_tig"]["concepto"], "h", 8.0, 35.00, DATA["desglose_costes_unitario"]["mo_taller_tig"]["origen"]),
         ("Transporte y entrega POIMA", DATA["desglose_costes_unitario"]["transporte_entrega"]["concepto"], "lote", 4, 10.00, DATA["desglose_costes_unitario"]["transporte_entrega"]["origen"]),
     ]
 
@@ -258,12 +258,12 @@ def create_html_and_pdf():
     p = DATA["partida"]
     tot = DATA["totales"]
 
-    # 1. HTML CLIENTE (Sin estanqueidad, sin apriete estanco, sin junta)
+    # 1. HTML CLIENTE
     html_cliente = f"""<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Presupuesto {DATA['codigo']} — Marcos y Tapas Inox AISI 304 (60x60 cm)</title>
+  <title>Presupuesto {DATA['codigo']} — Marcos L40x4 y Tapas Chapa Lisa 3 mm Inox AISI 304 (60x60 cm)</title>
   <style>
     @page {{ size: A4 portrait; margin: 10mm 12mm; }}
     * {{ box-sizing: border-box; }}
@@ -314,9 +314,9 @@ def create_html_and_pdf():
     </div>
   </div>
 
-  <h1>PRESUPUESTO {DATA['codigo']} — FABRICACIÓN DE 4 MARCOS ANGULARES Y TAPAS EN ACERO INOXIDABLE AISI 304 (60x60 CM)</h1>
+  <h1>PRESUPUESTO {DATA['codigo']} — FABRICACIÓN DE 4 MARCOS ANGULARES L40x4 Y TAPAS DE CHAPA LISA 3 MM EN ACERO INOXIDABLE AISI 304 (60x60 CM)</h1>
   <div class="banner-def">
-    <strong>ALCANCE DEL SUMINISTRO:</strong> Conjuntos completos de marco angular y tapa practicable de 600x600 mm fabricados en taller mediante soldadura TIG en acero inoxidable AISI 304, con tapa de chapa plegada reforzada, tirador escamoteable y acabado decapado/pasivado.
+    <strong>ALCANCE DEL SUMINISTRO:</strong> Conjuntos completos de marco angular L40x4 mm y tapa practicable en chapa lisa de 3 mm (600x600 mm) en acero inoxidable AISI 304, con tirador escamoteable embutido enrasado y acabado decapado/pasivado.
   </div>
 
   <table class="meta">
@@ -361,8 +361,8 @@ def create_html_and_pdf():
         <td>
           <strong>{p['concepto']}</strong>
           <span class="desc">
-            Suministro y fabricación a medida de conjunto de marco y tapa practicable de paso útil interior <strong>600 x 600 mm</strong> realizado íntegramente en acero inoxidable calidad AISI 304 (EN 1.4301).<br>
-            • <strong>Tapa superior:</strong> ejecutada en chapa de acero inoxidable AISI 304 plegada con pestañas perimetrales descendentes a 90°, esquinas soldadas a TIG y rigidizadores de refuerzo interior. Provista de tirador/asa escamoteable de acero inoxidable embutido enrasado para facilitar su izado y manipulación.<br>
+            Suministro y fabricación a medida de conjunto de marco perimetral y tapa practicable de paso útil interior <strong>600 x 600 mm</strong> realizado íntegramente en acero inoxidable calidad AISI 304 (EN 1.4301).<br>
+            • <strong>Tapa superior:</strong> ejecutada en chapa lisa de acero inoxidable AISI 304 de 3 mm de espesor, con esquinas y cantos desbarbados y pulidos. Provista de tirador/asa escamoteable de acero inoxidable embutido enrasado para facilitar su izado y manipulación sin resaltes.<br>
             • <strong>Marco angular perimetral:</strong> fabricado con perfil angular en L de 40x40x4 mm en acero inoxidable AISI 304, cortado a inglete a 45° y soldado a TIG, dotado exteriormente de 4 garras de anclaje en pletina inox para su perfecto empotramiento en obra civil.<br>
             • <strong>Acabado superficial:</strong> totalmente desbarbado, aristas repasadas y pulidas, con cordones de soldadura decapados y pasivados químicamente para máxima resistencia a la corrosión y durabilidad.<br>
             Completamente terminado y listo para su colocación en obra.
@@ -428,7 +428,7 @@ def create_html_and_pdf():
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Estudio Interno Técnico {DATA['codigo']} — Marcos y Tapas Inox AISI 304</title>
+  <title>Estudio Interno Técnico {DATA['codigo']} — Marcos L40x4 y Tapas Chapa Lisa 3 mm Inox AISI 304</title>
   <style>
     @page {{ size: A4 landscape; margin: 10mm; }}
     * {{ box-sizing: border-box; }}
@@ -458,9 +458,9 @@ def create_html_and_pdf():
     <div><span class="tag">USO INTERNO EXCLUSIVO</span> <span class="tag">{DATA['codigo']}</span></div>
   </div>
 
-  <h1>ESTUDIO ECONÓMICO Y TÉCNICO: 4 MARCOS Y TAPAS INOX AISI 304 (60x60 CM)</h1>
+  <h1>ESTUDIO ECONÓMICO Y TÉCNICO: 4 MARCOS ANGULARES L40x4 Y TAPAS DE CHAPA LISA 3 MM INOX AISI 304 (60x60 CM)</h1>
   <div class="banner">
-    <strong>CLIENTE: ANTONIO Y DIEGO, S.A.</strong> | Coste unitario de tapa chapa plegada fijado en <strong>200,00 €/ud</strong>. Marcos angulares L 40x40x4 inox con garras, tirador escamoteable, soldadura TIG y pasivado. Sin juntas perimetrales ni apriete estanco.
+    <strong>CLIENTE: ANTONIO Y DIEGO, S.A.</strong> | Tapa de chapa lisa de 3 mm en inox AISI 304 con tirador escamoteable y marcos angulares en perfil L 40x40x4 mm con garras de empotramiento. Venta fijada a <strong>495,00 € + IVA</strong> por arqueta.
   </div>
 
   <div class="grid-2">
@@ -480,13 +480,13 @@ def create_html_and_pdf():
         </thead>
         <tbody>
           <tr>
-            <td class="bold">Tapas chapa plegada</td>
-            <td>Chapa inox AISI 304 e=3 mm con pestañas a 90° y rigidización</td>
+            <td class="bold">Tapas chapa lisa 3 mm</td>
+            <td>Chapa inox AISI 304 e=3 mm cortada a medida (~595x595 mm)</td>
             <td class="center">ud</td>
             <td class="right bold">4.00</td>
-            <td class="right">200,00 €</td>
-            <td class="right bold">800,00 €</td>
-            <td class="green">Coste fijado por cliente</td>
+            <td class="right">55,00 €</td>
+            <td class="right bold">220,00 €</td>
+            <td>Chapa inox 304</td>
           </tr>
           <tr>
             <td class="bold">Marco angular L 40x40x4</td>
@@ -520,17 +520,17 @@ def create_html_and_pdf():
             <td>Argón puro, varilla TIG 304L, discos corte/repaso y gel decapante</td>
             <td class="center">lote</td>
             <td class="right bold">4.00</td>
-            <td class="right">18,00 €</td>
-            <td class="right bold">72,00 €</td>
+            <td class="right">15,00 €</td>
+            <td class="right bold">60,00 €</td>
             <td>Consumibles taller HAM</td>
           </tr>
           <tr>
             <td class="bold">MO Taller Soldador TIG</td>
-            <td>Corte ingletes, armado, soldadura TIG, ajuste y pasivado (10 h totales)</td>
+            <td>Corte ingletes, armado marco, soldadura TIG, ajuste y pasivado (8 h totales)</td>
             <td class="center">h</td>
-            <td class="right bold">10.00</td>
+            <td class="right bold">8.00</td>
             <td class="right">35,00 €</td>
-            <td class="right bold">350,00 €</td>
+            <td class="right bold">280,00 €</td>
             <td>Oficial 1ª Taller TIG</td>
           </tr>
           <tr>
@@ -606,7 +606,7 @@ def create_html_and_pdf():
 
       <div class="card">
         <h3>Observaciones para el Taller</h3>
-        <p>• <strong>Control de medidas y holguras:</strong> Verificar que la luz interior del marco terminado sea exactamente de 602x602 mm para permitir una holgura perimetral limpia de 2 mm por lado respecto a la tapa plegada.<br>
+        <p>• <strong>Control de medidas y holguras:</strong> Verificar que la luz interior del marco terminado sea exactamente de 602x602 mm para permitir una holgura perimetral limpia de 3-4 mm respecto a la chapa lisa de 3 mm.<br>
         • <strong>Pasivado:</strong> Aplicar gel decapante especial inox en todas las soldaduras TIG, dejar actuar 20 minutos y neutralizar con agua a presión antes de montar los tiradores y embalar.</p>
       </div>
     </div>
@@ -637,7 +637,7 @@ def create_html_and_pdf():
 def create_readme():
     tot = DATA["totales"]
     p = DATA["partida"]
-    content = f"""# Presupuesto {DATA['codigo']} — 4 Marcos y Tapas Inox AISI 304 (60x60 cm)
+    content = f"""# Presupuesto {DATA['codigo']} — 4 Marcos L40x4 y Tapas Chapa Lisa 3 mm Inox AISI 304 (60x60 cm)
 
 ## Cliente y Datos Generales
 - **Código:** {DATA['codigo']}
@@ -651,9 +651,9 @@ def create_readme():
 - **Procedimiento:** {DATA['proceso_soldadura']}
 
 ## Resumen del Trabajo
-Fabricación en taller de herrería y cerrajería inoxidable mediante soldadura TIG con argón puro de **4 conjuntos de marco angular y tapa practicable de 600 x 600 mm útiles**.
-- **Tapas de chapa plegada:** Chapa de acero inoxidable AISI 304 con pestañas plegadas a 90°, refuerzos rigidizadores y tirador embutido escamoteable. Coste directo de las tapas de chapa plegada: **200,00 € / ud** (fijado por el cliente).
-- **Marcos angulares perimetrales:** Perfil angular en L de 40x40x4 mm en acero inoxidable AISI 304 cortado a inglete a 45° y soldado a TIG, dotado de 4 garras de anclaje de pletina inox por marco para empotramiento en obra civil.
+Fabricación en taller de herrería y cerrajería inoxidable mediante soldadura TIG con argón puro de **4 conjuntos de marco angular L40x4 y tapa practicable en chapa lisa de 3 mm de medidas 600 x 600 mm útiles**.
+- **Tapas de chapa lisa 3 mm:** Chapa de acero inoxidable AISI 304 de 3 mm de espesor cortada a escuadra (~595x595 mm), cantos desbarbados y pulidos, con tirador embutido escamoteable de acero inoxidable.
+- **Marcos angulares perimetrales L 40x40x4:** Perfil angular en L de 40x40x4 mm en acero inoxidable AISI 304 cortado a inglete a 45° y soldado a TIG, dotado de 4 garras de anclaje de pletina inox por marco para empotramiento en obra civil.
 - **Acabado:** Decapado y pasivado químico completo de todas las soldaduras.
 - **Entrega:** Incluido embalaje protector y transporte a las instalaciones de Antonio y Diego SA en el Polígono Industrial POIMA (Mahón).
 
