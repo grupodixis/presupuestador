@@ -1,0 +1,161 @@
+{
+  "codigo": "P-2026-0064",
+  "referencia": "PRE-2026-1119-BOINDER-VELSAT2-MAHON",
+  "estado_presupuesto": "DEFINITIVO — Sustitución chapa de aluminio lacado verde en boínder con 2 días de cesta",
+  "fecha": "19 de noviembre de 2026",
+  "validez_dias": 30,
+  "cliente": {
+    "nombre": "COMUNIDAD DE PROPIETARIOS VELSAT 2",
+    "cif": "H57434565",
+    "administrador": "Advocats de Menorca (David Alzina Riera)",
+    "domicilio": "Camí des Castell, 255, 07702 Maó (Menorca)",
+    "contacto": "David Alzina Riera / Advocats de Menorca",
+    "obra": "Reparación y reposición de chapa desprendida en fachada de boínder",
+    "ubicacion": "Camí des Castell, 255, Maó (Menorca)",
+    "telefono": "+34 971 35 44 44",
+    "email": "info@advocatsmenorca.com"
+  },
+  "emisor": {
+    "razon_social": "Dixis Recursos y Soluciones S.L.",
+    "cif": "B57825432",
+    "nombre_comercial": "HAM Estructuras Metálicas Menorca",
+    "domicilio": "Av. Circunval·lació, 11, Polígono de Sant Lluís, 07710 Sant Lluís, Menorca",
+    "telefono": "+34 971 35 20 18",
+    "movil": "+34 669 769 541",
+    "email": "info@hamenorca.com",
+    "web": "https://www.hamenorca.com"
+  },
+  "proyecto": {
+    "titulo": "Sustitución de Chapa de Aluminio Verde en Fachada de Boínder (con 2 Días de Cesta) · Edificio Velsat II (Maó)",
+    "ubicacion": "Camí des Castell, 255, 07702 Maó (Menorca)",
+    "elemento": "Peto / entrepaño horizontal de fachada en boínder de vivienda (desprendido tras temporal)",
+    "dimensiones_estimadas": "Aprox. 3,30 - 3,50 m de longitud frontal x 0,50 - 0,60 m de altura de entrepaño",
+    "acabado": "Aluminio lacado calidad marina Qualicoat Seaside en color verde a tono con carpintería existente (RAL a definir en replanteo)",
+    "medios_auxiliares": "2 jornadas completas de camión cesta / PEMP homologada para trabajos en vía pública con operador y señalización vial"
+  },
+  "partidas": [
+    {
+      "numero": "1.01",
+      "codigo": "CHAPA-BOINDER",
+      "titulo": "Suministro, conformado en taller e instalación de chapa de aluminio lacado verde para fachada de boínder",
+      "descripcion": "Suministro, conformado a medida en taller e instalación en altura de panel/chapa de remate horizontal de fachada en boínder de vivienda, sustituyendo la pieza desprendida a causa de los temporales en el edificio Velsat II (Camí des Castell, 255, Maó). Comprende:\n• Visita de replanteo técnico en altura para toma milimétrica de cotas, comprobación de solapes, pestañas y concordancia exacta de color con la carpintería existente mediante carta normalizada de colores (verde carpintería boínder).\n• Saneado y preparación del soporte portante/rastrelado existente, limpieza de restos de masillas o adhesivos degradados y comprobación de solidez estructural frente al empuje del viento.\n• Fabricación a medida en chapa de aluminio de aleación de alta resistencia a la corrosión marina (espesor e=1,5 a 2,0 mm), cortada y conformada mediante plegado CNC en bandeja con rigidizadores perimetrales, doble pestaña superior/lateral de engatillado y goterón inferior antigoteo para evitar filtraciones de agua de escorrentía hacia la fachada inferior.\n• Tratamiento superficial de lacado termoendurecible calidad marina Qualicoat Seaside en tono verde a juego con el boínder.\n• Elevación, posicionamiento y anclaje mecánico firme mediante perfilería auxiliar de rastrelado y tornillería/remaches estancos de acero inoxidable calidad marina A2/A4 con arandelas de estanqueidad EPDM (garantizando aislamiento dieléctrico sin par galvánico con el aluminio).\n• Sellado elástico perimetral continuo con polímero MS de alta resistencia a la intemperie, radiación solar UV y cambios térmicos, asegurando total estanqueidad al agua y al viento.\n• Retirada de plásticos de protección, limpieza final del plano de fachada y gestión de residuos a centro autorizado.",
+      "unidad": "ud",
+      "cantidad": 1.0,
+      "precio_unitario": 1480.0,
+      "importe": 1480.0
+    },
+    {
+      "numero": "1.02",
+      "codigo": "CESTA-2DIAS",
+      "titulo": "Medios auxiliares de elevación para trabajos en altura: 2 jornadas de camión cesta / PEMP con señalización en vía pública",
+      "descripcion": "Puesta a disposición y uso de medios de elevación mecánica homologados para trabajos en altura en vía pública (camión cesta / plataforma elevadora articulada sobre camión PEMP) con alcance y cota suficientes para acceder de forma segura y directa a la fachada exterior del boínder (planta 2ª/3ª sobre rasante) en Camí des Castell, 255. Incluye:\n• 2 jornadas completas de camión cesta (Jornada 1: replanteo milimétrico de cotas, comprobación de base y saneado de soporte; Jornada 2: izado de chapa conformada, fijación mecánica estructural y sellado perimetral estanco).\n• Desplazamiento y posicionamiento del vehículo cesta en Maó, combustible y gastos operativos.\n• Operador / conductor de plataforma y medidas de balizamiento, vallas y señalización de seguridad para peatones y tráfico en la zona de afección de acera/vía pública durante los trabajos conforme a normativa de seguridad laboral y municipal.",
+      "unidad": "jornada",
+      "cantidad": 2.0,
+      "precio_unitario": 580.0,
+      "importe": 1160.0
+    }
+  ],
+  "desglose_costes_internos": {
+    "medios_auxiliares": [
+      {
+        "concepto": "Alquiler camión cesta / plataforma elevadora sobre camión (2 jornadas)",
+        "detalle": "Alquiler camión cesta homologado para vía pública (2 días x 320,00 €/día)",
+        "unidad": "día",
+        "cantidad": 2.0,
+        "coste_unitario": 320.0,
+        "coste_total": 640.0,
+        "proveedor": "Alquiler maquinaria elevación Menorca"
+      },
+      {
+        "concepto": "Portes / entrega de plataforma y combustible",
+        "detalle": "Transporte a Camí des Castell 255 (Maó) y combustible operativo cesta 2 jornadas",
+        "unidad": "global",
+        "cantidad": 1.0,
+        "coste_unitario": 60.0,
+        "coste_total": 60.0,
+        "proveedor": "Logística / Combustible"
+      }
+    ],
+    "materiales": [
+      {
+        "concepto": "Chapa de aluminio 1,5-2 mm lacado verde Qualicoat Seaside (corte y plegado CNC)",
+        "detalle": "Panel de chapa aluminio marino e=1,5/2 mm plegado tipo bandeja con pestañas y goterón",
+        "unidad": "ud",
+        "cantidad": 1.0,
+        "coste_unitario": 180.0,
+        "coste_total": 180.0,
+        "proveedor": "Proveedor corte y plegado aluminio"
+      },
+      {
+        "concepto": "Rastreles auxiliares, tornillería y remaches estancos acero inox A2/A4 con EPDM",
+        "detalle": "Perfiles de rastrelado aluminio/galvanizado + fijaciones inox marina con arandela de caucho EPDM",
+        "unidad": "lote",
+        "cantidad": 1.0,
+        "coste_unitario": 45.0,
+        "coste_total": 45.0,
+        "proveedor": "Fijaciones técnicas / Inox"
+      },
+      {
+        "concepto": "Polímero elástico MS sellador exterior intemperie UV y cintas de estanqueidad",
+        "detalle": "Cartuchos de sellador polímero MS alta resistencia UV verde/neutro y consumibles",
+        "unidad": "lote",
+        "cantidad": 1.0,
+        "coste_unitario": 35.0,
+        "coste_total": 35.0,
+        "proveedor": "Consumibles sellado químico"
+      }
+    ],
+    "mano_de_obra": [
+      {
+        "concepto": "Oficial 1ª cerrajero montador trabajos en altura (replanteo, taller y montaje en cesta)",
+        "detalle": "Día 1: 4h replanteo/saneado; Taller: 3h desarrollo/plegado; Día 2: 5h montaje/sellado (12 h @ 40 €/h)",
+        "unidad": "horas",
+        "cantidad": 12.0,
+        "coste_unitario": 40.0,
+        "coste_total": 480.0,
+        "proveedor": "Mano de obra directa HAM"
+      },
+      {
+        "concepto": "Oficial 2ª / Ayudante apoyo en altura, seguridad y señalización a pie de cesta",
+        "detalle": "Día 1: 4h apoyo y control vial; Día 2: 5h apoyo montaje y señalización acera (9 h @ 30 €/h)",
+        "unidad": "horas",
+        "cantidad": 9.0,
+        "coste_unitario": 30.0,
+        "coste_total": 270.0,
+        "proveedor": "Mano de obra directa HAM"
+      },
+      {
+        "concepto": "Desplazamientos furgón taller (Sant Lluís - Maó, Camí des Castell 255)",
+        "detalle": "2 jornadas completas de desplazamientos de equipo, herramienta y materiales",
+        "unidad": "viajes",
+        "cantidad": 2.0,
+        "coste_unitario": 25.0,
+        "coste_total": 50.0,
+        "proveedor": "Transporte furgón taller HAM"
+      }
+    ]
+  },
+  "totales": {
+    "coste_medios_auxiliares": 700.0,
+    "coste_materiales": 260.0,
+    "coste_mano_obra_transporte": 800.0,
+    "coste_directo_total": 1760.0,
+    "base_imponible": 2640.0,
+    "beneficio_bruto": 880.0,
+    "margen_sobre_venta_pct": 33.33,
+    "recargo_sobre_coste_pct": 50.0,
+    "iva_general_pct": 21.0,
+    "iva_importe_general": 554.40,
+    "total_con_iva_general": 3194.40,
+    "iva_reducido_pct": 10.0,
+    "iva_importe_reducido": 264.00,
+    "total_con_iva_reducido": 2904.00
+  },
+  "condiciones_comerciales": {
+    "forma_pago": "40% a la confirmación del presupuesto (acopio de materiales, reserva de cesta y replanteo) y 60% a la finalización de los trabajos",
+    "plazo_ejecucion": "A convenir con la administración de fincas. Fabricación de chapa en taller: 4-6 días laborables tras replanteo y confirmación de color; instalación en obra: 1 jornada con camión cesta",
+    "garantia": "Garantía de 3 años sobre materiales, fijaciones y estanqueidad de sellados según Ley de Ordenación de la Edificación",
+    "nota_iva_reducido": "En caso de que la Comunidad de Propietarios aporte el certificado de uso mayoritario residencial/vivienda habitual al amparo del Art. 91.Uno.2.10º de la Ley del IVA (al ser edificación de más de 2 años y no superar los materiales el 40% del coste total), resultará de aplicación el tipo reducido del 10% de IVA (Total con IVA 10%: 2.904,00 €).",
+    "licencias_permisos": "Incluye señalización y balizamiento de seguridad en acera. No se incluyen tasas municipales de ocupación de vía pública en caso de ser liquidadas por el Ayuntamiento de Maó, las cuales se tramitarán con la administración o se refacturarán a coste exacto según tasa municipal."
+  }
+}
