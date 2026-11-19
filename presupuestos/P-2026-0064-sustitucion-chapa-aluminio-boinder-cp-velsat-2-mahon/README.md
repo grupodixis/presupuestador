@@ -1,4 +1,4 @@
-# Presupuesto P-2026-0064 — Reposición de Chapa de Aluminio Verde en Boínder (Edificio Velsat II, Maó)
+# Presupuesto P-2026-0064 — Reposición de Chapa de Aluminio Verde en Boínder y Gestión de Permisos (Edificio Velsat II, Maó)
 
 ## Cliente y Datos Generales
 - **Código:** P-2026-0064
@@ -9,9 +9,11 @@
 - **Fecha:** 19 de noviembre de 2026
 - **Validez:** 30 días naturales
 - **Medios Auxiliares:** 2 jornadas completas de camión cesta / PEMP con operador y balizamiento vial en vía pública
+- **Permisos Municipales:** Tramitación completa y abono de tasas de OVP ante el Ajuntament de Maó y reserva de espacio con Policía Local
 
 ## Resumen del Trabajo
-Reparación de urgencia / reposición de la chapa frontal del entrepaño/peto del boínder de una vivienda del edificio Velsat II, desprendida por los temporales en Camí des Castell, 255 (Maó).
+Reparación de urgencia / reposición de la chapa frontal del entrepaño/peto del boínder de una vivienda del edificio Velsat II, desprendida por los temporales en Camí des Castell, 255 (Maó), incluyendo la gestión integral de permisos municipales.
+- **Fase Permisos (Ajuntament de Maó):** Tramitación telemática de licencia de ocupación de vía pública (OVP), memoria, croquis de balizamiento/paso peatonal, abono de tasas municipales y colocación de placas de prohibido estacionar 48h antes.
 - **Jornada 1 de Cesta:** Replanteo milimétrico en altura, toma de muestras de color RAL de carpintería existente (verde), saneado y adecuación del soporte y rastrelado.
 - **Taller HAM:** Conformado de nueva chapa de aluminio de alta resistencia marina e=1,5/2 mm mediante plegado CNC en bandeja con pestañas de rigidización, engatillado y goterón inferior, con lacado Qualicoat Seaside verde.
 - **Jornada 2 de Cesta:** Izado, montaje y anclaje mecánico firme con tornillería/remaches inoxidables A2/A4 y arandelas EPDM, más sellado perimetral estanco continuo con polímero MS de alta intemperie y resistencia UV.
@@ -22,11 +24,12 @@ Reparación de urgencia / reposición de la chapa frontal del entrepaño/peto de
 |---|---|---:|---:|---:|---:|
 | **1.01** | Suministro, conformado CNC e instalación de chapa aluminio verde boínder | 1.060,00 € | 1.480,00 € | +420,00 € | 28.38% |
 | **1.02** | Medios auxiliares de elevación: 2 jornadas de camión cesta / PEMP | 700,00 € | 1.160,00 € | +460,00 € | 39.66% |
-| **TOTAL** | **Presupuesto Completo (Base Imponible)** | **1.760,00 €** | **2.640,00 €** | **+880,00 €** | **33.33%** |
+| **1.03** | Gestión técnica, tramitación y abono de tasas de OVP en Ajuntament de Maó | 180,00 € | 290,00 € | +110,00 € | 37.93% |
+| **TOTAL** | **Presupuesto Completo (Base Imponible)** | **1.940,00 €** | **2.930,00 €** | **+990,00 €** | **33.79%** |
 
-- **Base Imponible:** 2.640,00 €
-- **IVA General (21%):** 554,40 € → **Total: 3.194,40 €**
-- **Opción IVA Reducido (10% - Comunidad):** 264,00 € → **Total: 2.904,00 €** *(al amparo del Art. 91.Uno.2.10º Ley IVA)*
+- **Base Imponible:** 2.930,00 €
+- **IVA General (21%):** 615,30 € → **Total: 3.545,30 €**
+- **Opción IVA Reducido (10% - Comunidad):** 293,00 € → **Total: 3.223,00 €** *(al amparo del Art. 91.Uno.2.10º Ley IVA)*
 
 ## Archivos Generados
 - `presupuesto-cliente.html` / `presupuesto-cliente.pdf`: Documento comercial para la Comunidad de Propietarios y Administrador.

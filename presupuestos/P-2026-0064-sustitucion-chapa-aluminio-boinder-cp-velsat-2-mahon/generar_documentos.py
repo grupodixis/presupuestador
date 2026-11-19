@@ -123,7 +123,13 @@ def create_excel():
         ws1[f"G{curr_row}"].number_format = "#,##0.00 €"
         ws1[f"G{curr_row}"].border = border_thin
 
-        ws1.row_dimensions[curr_row].height = 110 if item["numero"] == "1.01" else 85
+        if item["numero"] == "1.01":
+            ws1.row_dimensions[curr_row].height = 100
+        elif item["numero"] == "1.02":
+            ws1.row_dimensions[curr_row].height = 75
+        else:
+            ws1.row_dimensions[curr_row].height = 75
+            
         item_rows.append(curr_row)
         curr_row += 1
 
@@ -193,8 +199,14 @@ def create_excel():
     crow = start_c_row + 1
     cost_rows = []
 
-    # Iterar categorías de costes internos
-    for cat_key, cat_name in [("medios_auxiliares", "MEDIOS ELEVACIÓN"), ("materiales", "MATERIALES"), ("mano_de_obra", "MANO DE OBRA Y TRANS.")]:
+    categories = [
+        ("medios_auxiliares", "MEDIOS ELEVACIÓN"),
+        ("materiales", "MATERIALES"),
+        ("mano_de_obra", "MANO DE OBRA Y TRANS."),
+        ("gestion_permisos", "GESTIÓN PERMISOS Y TASAS")
+    ]
+
+    for cat_key, cat_name in categories:
         for entry in DATA["desglose_costes_internos"][cat_key]:
             ws2[f"B{crow}"] = cat_name
             ws2[f"B{crow}"].font = font_bold
@@ -289,14 +301,14 @@ def create_excel():
     ws1.column_dimensions["F"].width = 18
     ws1.column_dimensions["G"].width = 20
 
-    ws2.column_dimensions["B"].width = 22
-    ws2.column_dimensions["C"].width = 40
-    ws2.column_dimensions["D"].width = 46
+    ws2.column_dimensions["B"].width = 24
+    ws2.column_dimensions["C"].width = 42
+    ws2.column_dimensions["D"].width = 48
     ws2.column_dimensions["E"].width = 10
     ws2.column_dimensions["F"].width = 12
     ws2.column_dimensions["G"].width = 16
     ws2.column_dimensions["H"].width = 18
-    ws2.column_dimensions["I"].width = 30
+    ws2.column_dimensions["I"].width = 32
 
     xlsx_path = os.path.join(BASE_DIR, "Presupuesto_P2026_0064_Boinder_Velsat2_Mahon.xlsx")
     wb.save(xlsx_path)
@@ -309,7 +321,7 @@ def create_html_and_pdf():
     partidas_html_cli = ""
     for item in DATA["partidas"]:
         desc_lines = item["descripcion"].split("\n")
-        desc_formatted = f"<strong>{desc_lines[0]}</strong><ul style='margin:4px 0 0 16px; padding:0;'>"
+        desc_formatted = f"<strong>{desc_lines[0]}</strong><ul style='margin:3px 0 0 14px; padding:0;'>"
         for line in desc_lines[1:]:
             clean = line.strip().lstrip("•").strip()
             if clean:
@@ -336,41 +348,41 @@ def create_html_and_pdf():
   <meta charset="utf-8">
   <title>Presupuesto {DATA['codigo']} — Chapa Boínder Edificio Velsat II (Maó)</title>
   <style>
-    @page {{ size: A4 portrait; margin: 9mm 11mm; }}
+    @page {{ size: A4 portrait; margin: 8mm 10mm; }}
     * {{ box-sizing: border-box; }}
-    body {{ font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #1e293b; margin: 0; font-size: 8.8pt; line-height: 1.32; background: #fff; }}
-    .header {{ display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2.5px solid #0f172a; padding-bottom: 6px; margin-bottom: 8px; }}
+    body {{ font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #1e293b; margin: 0; font-size: 8.5pt; line-height: 1.28; background: #fff; }}
+    .header {{ display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2.5px solid #0f172a; padding-bottom: 5px; margin-bottom: 6px; }}
     .brand-group {{ display: flex; align-items: center; gap: 10px; }}
-    .logo {{ width: 42px; height: 42px; }}
-    .subbrand {{ font-size: 7.8pt; color: #b45309; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }}
-    .brand {{ font-size: 13pt; font-weight: 800; color: #0f172a; margin-top: 1px; }}
-    .company-info {{ text-align: right; font-size: 7.6pt; color: #475569; line-height: 1.25; }}
-    h1 {{ font-size: 10.8pt; color: #0f172a; margin: 0 0 5px 0; font-weight: 800; text-transform: uppercase; }}
-    .banner-def {{ background: #f0fdf4; border-left: 4px solid #16a34a; padding: 5px 8px; font-size: 8pt; margin-bottom: 8px; color: #166534; }}
-    table.meta {{ width: 100%; border-collapse: collapse; margin-bottom: 8px; font-size: 8pt; }}
-    table.meta td {{ padding: 3.5px 6px; border: 1px solid #cbd5e1; }}
+    .logo {{ width: 40px; height: 40px; }}
+    .subbrand {{ font-size: 7.5pt; color: #b45309; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }}
+    .brand {{ font-size: 12.5pt; font-weight: 800; color: #0f172a; margin-top: 1px; }}
+    .company-info {{ text-align: right; font-size: 7.4pt; color: #475569; line-height: 1.22; }}
+    h1 {{ font-size: 10.2pt; color: #0f172a; margin: 0 0 4px 0; font-weight: 800; text-transform: uppercase; }}
+    .banner-def {{ background: #f0fdf4; border-left: 4px solid #16a34a; padding: 4px 8px; font-size: 7.8pt; margin-bottom: 6px; color: #166534; }}
+    table.meta {{ width: 100%; border-collapse: collapse; margin-bottom: 6px; font-size: 7.8pt; }}
+    table.meta td {{ padding: 3px 5px; border: 1px solid #cbd5e1; }}
     table.meta td.lbl {{ background: #f1f5f9; font-weight: 700; width: 18%; color: #334155; }}
-    table.items {{ width: 100%; border-collapse: collapse; margin-bottom: 8px; }}
-    table.items th {{ background: #0f172a; color: #fff; padding: 5px 6px; font-size: 8pt; text-align: left; }}
-    table.items td {{ padding: 5.5px 6px; border-bottom: 1px solid #cbd5e1; vertical-align: top; font-size: 8pt; }}
-    .desc {{ font-size: 7.6pt; color: #475569; margin-top: 3px; line-height: 1.3; }}
+    table.items {{ width: 100%; border-collapse: collapse; margin-bottom: 6px; }}
+    table.items th {{ background: #0f172a; color: #fff; padding: 4px 6px; font-size: 7.8pt; text-align: left; }}
+    table.items td {{ padding: 4.5px 6px; border-bottom: 1px solid #cbd5e1; vertical-align: top; font-size: 7.8pt; }}
+    .desc {{ font-size: 7.4pt; color: #475569; margin-top: 2px; line-height: 1.25; }}
     .center {{ text-align: center; }}
     .right {{ text-align: right; }}
     .bold {{ font-weight: 700; }}
-    .totals-wrap {{ display: flex; justify-content: flex-end; margin-bottom: 8px; }}
-    table.totals {{ width: 48%; border-collapse: collapse; }}
-    table.totals td {{ padding: 3.5px 7px; border: 1px solid #cbd5e1; font-size: 8pt; }}
-    table.totals .grand {{ background: #fef3c7; font-weight: 800; font-size: 9.5pt; color: #0f172a; }}
+    .totals-wrap {{ display: flex; justify-content: flex-end; margin-bottom: 6px; }}
+    table.totals {{ width: 50%; border-collapse: collapse; }}
+    table.totals td {{ padding: 3px 6px; border: 1px solid #cbd5e1; font-size: 7.8pt; }}
+    table.totals .grand {{ background: #fef3c7; font-weight: 800; font-size: 9pt; color: #0f172a; }}
     table.totals .reducido {{ background: #f0fdf4; color: #166534; font-weight: 700; }}
-    .conds {{ background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 4px; padding: 6px 8px; font-size: 7.5pt; margin-top: 4px; }}
-    .conds h3 {{ margin: 0 0 3px 0; font-size: 8pt; color: #0f172a; text-transform: uppercase; letter-spacing: 0.04em; }}
+    .conds {{ background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 4px; padding: 5px 8px; font-size: 7.3pt; margin-top: 4px; }}
+    .conds h3 {{ margin: 0 0 2px 0; font-size: 7.8pt; color: #0f172a; text-transform: uppercase; letter-spacing: 0.04em; }}
     .conds-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }}
-    .conds ul {{ margin: 2px 0 0 14px; padding: 0; }}
+    .conds ul {{ margin: 2px 0 0 12px; padding: 0; }}
     .conds li {{ margin-bottom: 2px; }}
-    .photos-block {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; border: 1px solid #cbd5e1; padding: 6px; border-radius: 4px; background: #fff; }}
-    .photos-block img {{ width: 100%; height: 110px; object-fit: cover; border-radius: 3px; border: 1px solid #94a3b8; }}
-    .photos-block .caption {{ font-size: 7pt; color: #475569; text-align: center; margin-top: 2px; }}
-    .footer-note {{ margin-top: 6px; font-size: 7pt; color: #64748b; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 3px; }}
+    .photos-block {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 5px; border: 1px solid #cbd5e1; padding: 5px; border-radius: 4px; background: #fff; }}
+    .photos-block img {{ width: 100%; height: 95px; object-fit: cover; border-radius: 3px; border: 1px solid #94a3b8; }}
+    .photos-block .caption {{ font-size: 6.8pt; color: #475569; text-align: center; margin-top: 2px; }}
+    .footer-note {{ margin-top: 5px; font-size: 6.8pt; color: #64748b; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 3px; }}
   </style>
 </head>
 <body>
@@ -389,9 +401,9 @@ def create_html_and_pdf():
     </div>
   </div>
 
-  <h1>PRESUPUESTO {DATA['codigo']} — REPOSICIÓN Y SUSTITUCIÓN DE CHAPA DE ALUMINIO VERDE EN BOÍNDER · EDIFICIO VELSAT II (MAÓ)</h1>
+  <h1>PRESUPUESTO {DATA['codigo']} — REPOSICIÓN DE CHAPA DE ALUMINIO VERDE EN BOÍNDER Y GESTIÓN DE PERMISOS · EDIFICIO VELSAT II (MAÓ)</h1>
   <div class="banner-def">
-    <strong>OBJETO DE LOS TRABAJOS:</strong> Suministro, conformado a medida en taller e instalación en altura con <strong>2 días de camión cesta</strong> de nueva chapa de aluminio lacado verde para el entrepaño/peto del boínder de fachada desprendido por temporal en Camí des Castell, 255.
+    <strong>OBJETO DE LOS TRABAJOS:</strong> Suministro, conformado a medida en taller e instalación en altura con <strong>2 días de camión cesta</strong> y <strong>tramitación de permisos y tasas municipales (OVP) ante el Ajuntament de Maó</strong> para el entrepaño/peto del boínder en Camí des Castell, 255.
   </div>
 
   <table class="meta">
@@ -415,7 +427,7 @@ def create_html_and_pdf():
     </tr>
     <tr>
       <td class="lbl">Medios y Calidad</td>
-      <td colspan="3">Chapa aluminio conformada CNC con goterón y rigidizadores · Lacado Qualicoat Seaside marino · Tornillería y remaches inox A2/A4 · Sellador MS alta intemperie · 2 jornadas completas de camión cesta PEMP</td>
+      <td colspan="3">Chapa aluminio conformada CNC con goterón y rigidizadores · Lacado Qualicoat Seaside marino · Tornillería y remaches inox A2/A4 · Sellador MS alta intemperie · 2 jornadas de cesta PEMP · Tramitación OVP Ajuntament de Maó</td>
     </tr>
   </table>
 
@@ -457,7 +469,7 @@ def create_html_and_pdf():
   </div>
 
   <div class="conds">
-    <h3>Condiciones de Ejecución, Plazos y Régimen Fiscal</h3>
+    <h3>Condiciones de Ejecución, Permisos Municipales y Régimen Fiscal</h3>
     <div class="conds-grid">
       <div>
         <ul>
@@ -469,7 +481,7 @@ def create_html_and_pdf():
       <div>
         <ul>
           <li><strong>*Régimen IVA Reducido (10%):</strong> {cond['nota_iva_reducido']}</li>
-          <li><strong>Seguridad y Vía Pública:</strong> {cond['licencias_permisos']}</li>
+          <li><strong>Permisos y Vía Pública:</strong> {cond['licencias_permisos']}</li>
         </ul>
       </div>
     </div>
@@ -495,7 +507,13 @@ def create_html_and_pdf():
 
     # 2. HTML INTERNO TÉCNICO
     filas_costes = ""
-    for cat_key, cat_name in [("medios_auxiliares", "MEDIOS DE ELEVACIÓN (CESTA)"), ("materiales", "MATERIALES Y CONSUMIBLES"), ("mano_de_obra", "MANO DE OBRA Y LOGÍSTICA")]:
+    categories = [
+        ("medios_auxiliares", "MEDIOS DE ELEVACIÓN (CESTA)"),
+        ("materiales", "MATERIALES Y CONSUMIBLES"),
+        ("mano_de_obra", "MANO DE OBRA Y LOGÍSTICA"),
+        ("gestion_permisos", "GESTIÓN PERMISOS Y TASAS AYTO.")
+    ]
+    for cat_key, cat_name in categories:
         for c in DATA["desglose_costes_internos"][cat_key]:
             filas_costes += f"""
             <tr>
@@ -518,24 +536,24 @@ def create_html_and_pdf():
   <style>
     @page {{ size: A4 landscape; margin: 8mm; }}
     * {{ box-sizing: border-box; }}
-    body {{ font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; margin: 0; font-size: 8pt; line-height: 1.32; }}
-    .header {{ display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #0f172a; padding-bottom: 5px; margin-bottom: 6px; }}
+    body {{ font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; margin: 0; font-size: 8pt; line-height: 1.3; }}
+    .header {{ display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #0f172a; padding-bottom: 4px; margin-bottom: 5px; }}
     .brand {{ font-size: 10.5pt; font-weight: 800; color: #0f172a; }}
     .tag {{ background: #0f172a; color: #fff; padding: 2px 6px; font-size: 7.5pt; font-weight: 700; border-radius: 3px; }}
     h1 {{ font-size: 10.5pt; color: #0f172a; margin: 0 0 3px 0; }}
-    h2 {{ font-size: 8.5pt; color: #0f172a; margin: 8px 0 3px 0; border-bottom: 1.5px solid #b45309; padding-bottom: 2px; text-transform: uppercase; }}
-    .banner {{ background: #ecfdf5; border-left: 4px solid #10b981; padding: 4px 7px; font-size: 7.5pt; color: #065f46; margin-bottom: 6px; }}
-    table {{ width: 100%; border-collapse: collapse; margin-bottom: 6px; font-size: 7.5pt; }}
+    h2 {{ font-size: 8.5pt; color: #0f172a; margin: 6px 0 2px 0; border-bottom: 1.5px solid #b45309; padding-bottom: 2px; text-transform: uppercase; }}
+    .banner {{ background: #ecfdf5; border-left: 4px solid #10b981; padding: 4px 6px; font-size: 7.5pt; color: #065f46; margin-bottom: 5px; }}
+    table {{ width: 100%; border-collapse: collapse; margin-bottom: 5px; font-size: 7.4pt; }}
     th {{ background: #0f172a; color: #fff; padding: 4px 5px; font-size: 7.2pt; text-align: left; }}
-    td {{ padding: 3.5px 5px; border-bottom: 1px solid #cbd5e1; vertical-align: top; }}
+    td {{ padding: 3px 5px; border-bottom: 1px solid #cbd5e1; vertical-align: top; }}
     .right {{ text-align: right; }}
     .center {{ text-align: center; }}
     .bold {{ font-weight: 700; }}
     .green {{ color: #15803d; font-weight: 700; }}
     .tot {{ background: #fef3c7; font-weight: 800; }}
     .grid-2 {{ display: grid; grid-template-columns: 1.65fr 1fr; gap: 10px; }}
-    .card {{ background: #f8fafc; border: 1px solid #cbd5e1; padding: 6px 8px; font-size: 7.5pt; border-radius: 4px; margin-bottom: 6px; }}
-    .card h3 {{ margin: 0 0 3px 0; font-size: 7.8pt; color: #0f172a; text-transform: uppercase; }}
+    .card {{ background: #f8fafc; border: 1px solid #cbd5e1; padding: 5px 8px; font-size: 7.4pt; border-radius: 4px; margin-bottom: 5px; }}
+    .card h3 {{ margin: 0 0 2px 0; font-size: 7.6pt; color: #0f172a; text-transform: uppercase; }}
   </style>
 </head>
 <body>
@@ -546,7 +564,7 @@ def create_html_and_pdf():
 
   <h1>ESTUDIO ECONÓMICO Y TÉCNICO: REPOSICIÓN DE CHAPA EN BOÍNDER · CP VELSAT 2 (MAÓ)</h1>
   <div class="banner">
-    <strong>CLIENTE: COMUNIDAD DE PROPIETARIOS VELSAT 2 (Camí des Castell 255, Maó)</strong> | Administración: Advocats de Menorca (David Alzina Riera). Presupuesto con <strong>2 días de camión cesta</strong> y chapa de aluminio conformada en bandeja con lacado verde Qualicoat Seaside.
+    <strong>CLIENTE: COMUNIDAD DE PROPIETARIOS VELSAT 2 (Camí des Castell 255, Maó)</strong> | Administración: Advocats de Menorca (David Alzina Riera). Presupuesto con <strong>2 días de camión cesta</strong> y <strong>tramitación de permisos y tasas OVP en Ajuntament de Maó</strong>.
   </div>
 
   <div class="grid-2">
@@ -615,7 +633,8 @@ def create_html_and_pdf():
       <h2>3. Plan Operativo y Calendario de Trabajos</h2>
       <div class="card">
         <ul>
-          <li><strong>Jornada 1 (Cesta):</strong> Posicionamiento de camión cesta y balizamiento de acera en Camí des Castell 255. Subida de 2 oficiales para replanteo milimétrico de cotas, toma de muestra exacta de color RAL verde de carpintería, saneado y limpieza del soporte existente retirando restos de adhesivos antiguos.</li>
+          <li><strong>Fase 0 (Permisos Municipales):</strong> Tramitación telemática ante el Ajuntament de Maó y la Policía Local de la solicitud de Ocupación de Vía Pública (OVP) con camión cesta en Camí des Castell 255. Memoria, croquis de paso peatonal y abono de tasas. Colocación de placas R-308 con 48h de antelación.</li>
+          <li><strong>Jornada 1 (Cesta):</strong> Posicionamiento del camión cesta y balizamiento en Camí des Castell 255. Ascenso de 2 oficiales para replanteo milimétrico de cotas, toma de muestra exacta de color RAL verde de carpintería, saneado y limpieza del soporte existente retirando restos de adhesivos antiguos.</li>
           <li><strong>Intermedio Taller:</strong> Plegado CNC de chapa aluminio marino e=1,5-2 mm tipo bandeja con rigidizadores y goterón, lacado termoendurecible verde Qualicoat Seaside. Preparación de perfilería de rastrelado y fijaciones inox A2/A4.</li>
           <li><strong>Jornada 2 (Cesta):</strong> Retorno del camión cesta y corte/balizamiento vial. Izado de la chapa, anclaje mecánico firme sobre rastreles y sellado perimetral continuo con polímero MS de alta resistencia UV. Retirada de protecciones y limpieza.</li>
         </ul>
@@ -647,7 +666,7 @@ def create_html_and_pdf():
 
 def create_readme():
     tot = DATA["totales"]
-    content = f"""# Presupuesto {DATA['codigo']} — Reposición de Chapa de Aluminio Verde en Boínder (Edificio Velsat II, Maó)
+    content = f"""# Presupuesto {DATA['codigo']} — Reposición de Chapa de Aluminio Verde en Boínder y Gestión de Permisos (Edificio Velsat II, Maó)
 
 ## Cliente y Datos Generales
 - **Código:** {DATA['codigo']}
@@ -658,9 +677,11 @@ def create_readme():
 - **Fecha:** {DATA['fecha']}
 - **Validez:** {DATA['validez_dias']} días naturales
 - **Medios Auxiliares:** 2 jornadas completas de camión cesta / PEMP con operador y balizamiento vial en vía pública
+- **Permisos Municipales:** Tramitación completa y abono de tasas de OVP ante el Ajuntament de Maó y reserva de espacio con Policía Local
 
 ## Resumen del Trabajo
-Reparación de urgencia / reposición de la chapa frontal del entrepaño/peto del boínder de una vivienda del edificio Velsat II, desprendida por los temporales en Camí des Castell, 255 (Maó).
+Reparación de urgencia / reposición de la chapa frontal del entrepaño/peto del boínder de una vivienda del edificio Velsat II, desprendida por los temporales en Camí des Castell, 255 (Maó), incluyendo la gestión integral de permisos municipales.
+- **Fase Permisos (Ajuntament de Maó):** Tramitación telemática de licencia de ocupación de vía pública (OVP), memoria, croquis de balizamiento/paso peatonal, abono de tasas municipales y colocación de placas de prohibido estacionar 48h antes.
 - **Jornada 1 de Cesta:** Replanteo milimétrico en altura, toma de muestras de color RAL de carpintería existente (verde), saneado y adecuación del soporte y rastrelado.
 - **Taller HAM:** Conformado de nueva chapa de aluminio de alta resistencia marina e=1,5/2 mm mediante plegado CNC en bandeja con pestañas de rigidización, engatillado y goterón inferior, con lacado Qualicoat Seaside verde.
 - **Jornada 2 de Cesta:** Izado, montaje y anclaje mecánico firme con tornillería/remaches inoxidables A2/A4 y arandelas EPDM, más sellado perimetral estanco continuo con polímero MS de alta intemperie y resistencia UV.
@@ -671,6 +692,7 @@ Reparación de urgencia / reposición de la chapa frontal del entrepaño/peto de
 |---|---|---:|---:|---:|---:|
 | **1.01** | Suministro, conformado CNC e instalación de chapa aluminio verde boínder | 1.060,00 € | 1.480,00 € | +420,00 € | 28.38% |
 | **1.02** | Medios auxiliares de elevación: 2 jornadas de camión cesta / PEMP | 700,00 € | 1.160,00 € | +460,00 € | 39.66% |
+| **1.03** | Gestión técnica, tramitación y abono de tasas de OVP en Ajuntament de Maó | 180,00 € | 290,00 € | +110,00 € | 37.93% |
 | **TOTAL** | **Presupuesto Completo (Base Imponible)** | **{eur(tot['coste_directo_total'])}** | **{eur(tot['base_imponible'])}** | **+{eur(tot['beneficio_bruto'])}** | **{tot['margen_sobre_venta_pct']:.2f}%** |
 
 - **Base Imponible:** {eur(tot['base_imponible'])}

@@ -1,7 +1,7 @@
 {
   "codigo": "P-2026-0064",
   "referencia": "PRE-2026-1119-BOINDER-VELSAT2-MAHON",
-  "estado_presupuesto": "DEFINITIVO — Sustitución chapa de aluminio lacado verde en boínder con 2 días de cesta",
+  "estado_presupuesto": "DEFINITIVO — Sustitución chapa de aluminio lacado verde en boínder con 2 días de cesta y gestión de permisos municipales",
   "fecha": "19 de noviembre de 2026",
   "validez_dias": 30,
   "cliente": {
@@ -26,12 +26,13 @@
     "web": "https://www.hamenorca.com"
   },
   "proyecto": {
-    "titulo": "Sustitución de Chapa de Aluminio Verde en Fachada de Boínder (con 2 Días de Cesta) · Edificio Velsat II (Maó)",
+    "titulo": "Sustitución de Chapa de Aluminio Verde en Fachada de Boínder (con 2 Días de Cesta y Gestión de Permisos) · Edificio Velsat II (Maó)",
     "ubicacion": "Camí des Castell, 255, 07702 Maó (Menorca)",
     "elemento": "Peto / entrepaño horizontal de fachada en boínder de vivienda (desprendido tras temporal)",
     "dimensiones_estimadas": "Aprox. 3,30 - 3,50 m de longitud frontal x 0,50 - 0,60 m de altura de entrepaño",
     "acabado": "Aluminio lacado calidad marina Qualicoat Seaside en color verde a tono con carpintería existente (RAL a definir en replanteo)",
-    "medios_auxiliares": "2 jornadas completas de camión cesta / PEMP homologada para trabajos en vía pública con operador y señalización vial"
+    "medios_auxiliares": "2 jornadas completas de camión cesta / PEMP homologada para trabajos en vía pública con operador y señalización vial",
+    "permisos_municipales": "Gestión técnica, tramitación y tasas de ocupación de vía pública (OVP) ante el Ajuntament de Maó y Policía Local"
   },
   "partidas": [
     {
@@ -48,11 +49,21 @@
       "numero": "1.02",
       "codigo": "CESTA-2DIAS",
       "titulo": "Medios auxiliares de elevación para trabajos en altura: 2 jornadas de camión cesta / PEMP con señalización en vía pública",
-      "descripcion": "Puesta a disposición y uso de medios de elevación mecánica homologados para trabajos en altura en vía pública (camión cesta / plataforma elevadora articulada sobre camión PEMP) con alcance y cota suficientes para acceder de forma segura y directa a la fachada exterior del boínder (planta 2ª/3ª sobre rasante) en Camí des Castell, 255. Incluye:\n• 2 jornadas completas de camión cesta (Jornada 1: replanteo milimétrico de cotas, comprobación de base y saneado de soporte; Jornada 2: izado de chapa conformada, fijación mecánica estructural y sellado perimetral estanco).\n• Desplazamiento y posicionamiento del vehículo cesta en Maó, combustible y gastos operativos.\n• Operador / conductor de plataforma y medidas de balizamiento, vallas y señalización de seguridad para peatones y tráfico en la zona de afección de acera/vía pública durante los trabajos conforme a normativa de seguridad laboral y municipal.",
+      "descripcion": "Puesta a disposición y uso de medios de elevación mecánica homologados para trabajos en altura en vía pública (camión cesta / plataforma elevadora articulada sobre camión PEMP) con alcance y cota suficientes para acceder de forma segura y directa a la fachada exterior del boínder (planta 2ª/3ª sobre rasante) en Camí des Castell, 255. Incluye:\n• 2 jornadas completas de camión cesta (Jornada 1: replanteo milimétrico de cotas, comprobación de base y saneado de soporte; Jornada 2: izado de chapa conformada, fijación mecánica estructural y sellado perimetral estanco).\n• Desplazamiento y posicionamiento del vehículo cesta en Maó, combustible y gastos operativos.\n• Operador / conductor de plataforma y medidas de balizamiento, vallas y señalización de seguridad para peatones y tráfico en la zona de afección de acera/vía pública durante los trabajos conforme a normativa de seguridad laboral.",
       "unidad": "jornada",
       "cantidad": 2.0,
       "precio_unitario": 580.0,
       "importe": 1160.0
+    },
+    {
+      "numero": "1.03",
+      "codigo": "PERMISOS-AYTO",
+      "titulo": "Gestión técnica, tramitación y abono de tasas de ocupación de vía pública (OVP) ante el Ayuntamiento de Maó",
+      "descripcion": "Gestión técnica y administrativa integral para la obtención de la preceptiva autorización municipal de ocupación de vía pública (calzada y acera) con camión cesta en Camí des Castell, 255 (Maó). Comprende:\n• Redacción y registro telemático de la solicitud oficial y memoria descriptiva ante el Àrea de Mobilitat i Seguretat Ciutadana / Ajuntament de Maó.\n• Elaboración del croquis de implantación, posicionamiento del vehículo cesta, radio de acción y esquema de desvío y protección del paso peatonal conforme a las directrices de la Policía Local.\n• Liquidación y abono directo de las tasas municipales de ocupación de vía pública (OVP) del Ajuntament de Maó correspondientes a las 2 jornadas operativas.\n• Coordinación con la Policía Local para reserva previa de espacio, colocación reglamentaria de placas de señalización circunstancial / prohibido estacionar (R-308) con antelación mínima de 48-72 h y posterior retirada tras finalizar los trabajos.",
+      "unidad": "pa",
+      "cantidad": 1.0,
+      "precio_unitario": 290.0,
+      "importe": 290.0
     }
   ],
   "desglose_costes_internos": {
@@ -133,29 +144,50 @@
         "coste_total": 50.0,
         "proveedor": "Transporte furgón taller HAM"
       }
+    ],
+    "gestion_permisos": [
+      {
+        "concepto": "Tasas municipales de ocupación de vía pública (OVP Ajuntament de Maó)",
+        "detalle": "Abono directo de tasas municipales por ocupación de calzada/acera 2 jornadas con camión cesta",
+        "unidad": "tasa",
+        "cantidad": 1.0,
+        "coste_unitario": 75.0,
+        "coste_total": 75.0,
+        "proveedor": "Ajuntament de Maó (Ordenanza Fiscal OVP)"
+      },
+      {
+        "concepto": "Gestión técnica administrativa, croquis vial, memoria y colocación placas de reserva",
+        "detalle": "3 horas de oficina técnica para preparación de documentación, croquis y señalización previa",
+        "unidad": "horas",
+        "cantidad": 3.0,
+        "coste_unitario": 35.0,
+        "coste_total": 105.0,
+        "proveedor": "Oficina técnica HAM"
+      }
     ]
   },
   "totales": {
     "coste_medios_auxiliares": 700.0,
     "coste_materiales": 260.0,
     "coste_mano_obra_transporte": 800.0,
-    "coste_directo_total": 1760.0,
-    "base_imponible": 2640.0,
-    "beneficio_bruto": 880.0,
-    "margen_sobre_venta_pct": 33.33,
-    "recargo_sobre_coste_pct": 50.0,
+    "coste_gestion_permisos": 180.0,
+    "coste_directo_total": 1940.0,
+    "base_imponible": 2930.0,
+    "beneficio_bruto": 990.0,
+    "margen_sobre_venta_pct": 33.79,
+    "recargo_sobre_coste_pct": 51.03,
     "iva_general_pct": 21.0,
-    "iva_importe_general": 554.40,
-    "total_con_iva_general": 3194.40,
+    "iva_importe_general": 615.30,
+    "total_con_iva_general": 3545.30,
     "iva_reducido_pct": 10.0,
-    "iva_importe_reducido": 264.00,
-    "total_con_iva_reducido": 2904.00
+    "iva_importe_reducido": 293.00,
+    "total_con_iva_reducido": 3223.00
   },
   "condiciones_comerciales": {
-    "forma_pago": "40% a la confirmación del presupuesto (acopio de materiales, reserva de cesta y replanteo) y 60% a la finalización de los trabajos",
-    "plazo_ejecucion": "A convenir con la administración de fincas. Fabricación de chapa en taller: 4-6 días laborables tras replanteo y confirmación de color; instalación en obra: 1 jornada con camión cesta",
+    "forma_pago": "40% a la confirmación del presupuesto (acopio de materiales, tramitación de licencias y reserva de cesta) y 60% a la finalización de los trabajos",
+    "plazo_ejecucion": "A convenir con la administración de fincas. Tramitación de permisos en Ajuntament de Maó: aprox. 5-7 días laborables; Fabricación de chapa en taller: 4-6 días laborables; Ejecución in situ: 2 jornadas con camión cesta coordinadas",
     "garantia": "Garantía de 3 años sobre materiales, fijaciones y estanqueidad de sellados según Ley de Ordenación de la Edificación",
-    "nota_iva_reducido": "En caso de que la Comunidad de Propietarios aporte el certificado de uso mayoritario residencial/vivienda habitual al amparo del Art. 91.Uno.2.10º de la Ley del IVA (al ser edificación de más de 2 años y no superar los materiales el 40% del coste total), resultará de aplicación el tipo reducido del 10% de IVA (Total con IVA 10%: 2.904,00 €).",
-    "licencias_permisos": "Incluye señalización y balizamiento de seguridad en acera. No se incluyen tasas municipales de ocupación de vía pública en caso de ser liquidadas por el Ayuntamiento de Maó, las cuales se tramitarán con la administración o se refacturarán a coste exacto según tasa municipal."
+    "nota_iva_reducido": "En caso de que la Comunidad de Propietarios aporte el certificado de uso mayoritario residencial/vivienda habitual al amparo del Art. 91.Uno.2.10º de la Ley del IVA (al ser edificación de más de 2 años y no superar los materiales el 40% del coste total), resultará de aplicación el tipo reducido del 10% de IVA (Total con IVA 10%: 3.223,00 €).",
+    "licencias_permisos": "Incluye la gestión técnica y tramitación administrativa completa ante el Ajuntament de Maó y la Policía Local, la redacción de memoria y croquis de ocupación vial, la colocación reglamentaria de placas de reserva de espacio 48h antes y el abono de las tasas municipales de ocupación de vía pública (OVP)."
   }
 }
