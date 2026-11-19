@@ -24,8 +24,9 @@ def calc_partida(p, tarifas):
     )
     tarifa_equipo_obra = tarifas["oficial_montaje_obra"] + tarifas["ayudante_montaje_obra"]
     mo_obra = p["cantidad"] * p["mo_obra_horas_equipo_por_ud"] * tarifa_equipo_obra
+    portes = p["cantidad"] * p.get("portes_maritimos_por_ud", 0.0)
     transporte = p["cantidad"] * p["transporte_por_ud"]
-    coste_total = mat_total + cons_total + mo_taller + mo_obra + transporte
+    coste_total = mat_total + cons_total + mo_taller + mo_obra + portes + transporte
     venta_total = p["cantidad"] * p["precio_cliente_unitario"]
     beneficio = venta_total - coste_total
     margen_venta = (beneficio / venta_total * 100) if venta_total else 0.0
@@ -35,6 +36,7 @@ def calc_partida(p, tarifas):
         "cons_total": cons_total,
         "mo_taller": mo_taller,
         "mo_obra": mo_obra,
+        "portes": portes,
         "transporte": transporte,
         "coste_total": coste_total,
         "coste_unitario": coste_total / p["cantidad"],
@@ -99,30 +101,31 @@ def create_excel():
 
     meta_rows = [
         ("REFERENCIA:", DATA["referencia"]),
-        ("ESTADO:", DATA["estado_presupuesto"]),
-        ("CLIENTE / OBRA:", f"{DATA['cliente']['nombre']} — {DATA['cliente']['obra']}"),
+        ("CLIENTE:", f"{DATA['cliente']['nombre']} · CIF: {DATA['cliente']['cif']}"),
+        ("DOMICILIO:", f"{DATA['cliente']['domicilio']}"),
+        ("OBRA / UBICACIÓN:", f"{DATA['cliente']['obra']} · {DATA['cliente']['ubicacion']}"),
         ("FECHA / VALIDEZ:", f"{DATA['fecha']} • Validez: {DATA['validez_dias']} días naturales"),
-        ("PROCESO / CALIDAD:", f"{DATA['calidad_inox']} · {DATA['proceso_soldadura']}"),
+        ("CALIDAD / PROCESO:", f"{DATA['calidad_inox']} · {DATA['proceso_soldadura']}"),
     ]
     for idx, (k, v) in enumerate(meta_rows, start=5):
         ws1[f"B{idx}"] = k
         ws1[f"B{idx}"].font = font_bold
         ws1[f"C{idx}"] = v
-        ws1[f"C{idx}"].font = font_warn if k == "ESTADO:" else font_reg
+        ws1[f"C{idx}"].font = font_reg
 
-    ws1["B11"] = "DESGLOSE DE PARTIDAS (SUMINISTRO, FABRICACIÓN TIG EN TALLER E INSTALACIÓN EN OBRA)"
-    ws1["B11"].font = font_sec
+    ws1["B12"] = "DESGLOSE DE PARTIDAS (SUMINISTRO, FABRICACIÓN TIG EN TALLER E INSTALACIÓN EN OBRA)"
+    ws1["B12"].font = font_sec
 
     headers_client = ["Nº", "Concepto y Descripción Técnica", "Ud.", "Cantidad", "Precio Unitario", "Subtotal"]
     for c_idx, h in enumerate(headers_client, start=2):
-        cell = ws1.cell(row=12, column=c_idx, value=h)
+        cell = ws1.cell(row=13, column=c_idx, value=h)
         cell.font = font_header
         cell.fill = fill_header
         cell.alignment = Alignment(horizontal="center", vertical="center")
         cell.border = border_thin
-    ws1.row_dimensions[12].height = 24
+    ws1.row_dimensions[13].height = 24
 
-    row_cur = 13
+    row_cur = 14
     for p in DATA["partidas"]:
         c_id = ws1.cell(row=row_cur, column=2, value=p["id"])
         c_id.font = font_bold
@@ -162,7 +165,7 @@ def create_excel():
     last_item_row = row_cur - 1
     row_base = row_cur + 1
     ws1.cell(row=row_base, column=6, value="BASE IMPONIBLE:").font = font_tot
-    c_base = ws1.cell(row=row_base, column=7, value=f"=SUM(G13:G{last_item_row})")
+    c_base = ws1.cell(row=row_base, column=7, value=f"=SUM(G14:G{last_item_row})")
     c_base.font = font_tot
     c_base.number_format = '#,##0.00 "€"'
     c_base.fill = fill_tot
@@ -192,13 +195,13 @@ def create_excel():
     ws1.column_dimensions["G"].width = 16
 
     # ------------------------------------------------------------------
-    # HOJA 2: MATERIALES INOX (EDITABLE AL RECIBIR OFERTA PROVEEDOR)
+    # HOJA 2: MATERIALES INOX (OFERTA IRESTAL + TORNILLERIA A4)
     # ------------------------------------------------------------------
-    ws2 = wb.create_sheet("Materiales Inox (Proveedor)")
-    ws2["B2"] = f"LISTA DE MATERIALES INOX AISI 316L — {DATA['codigo']} (Celdas amarillas editables al recibir oferta)"
+    ws2 = wb.create_sheet("Materiales Inox (Irestal)")
+    ws2["B2"] = f"LISTA DE MATERIALES INOX AISI 316L — {DATA['codigo']} (Oferta Irestal + Portes 0,20 €/kg)"
     ws2["B2"].font = font_title
 
-    headers_mat = ["Partida", "Material Inoxidable (AISI 316L)", "Ud.", "Cantidad", "Coste Unit. Prov. (Est.)", "Coste Total", "Estado"]
+    headers_mat = ["Partida", "Material Inoxidable (AISI 316L)", "Ud.", "Cantidad", "Coste Unit. Prov.", "Coste Total", "Origen / Estado"]
     for c_idx, h in enumerate(headers_mat, start=2):
         cell = ws2.cell(row=4, column=c_idx, value=h)
         cell.font = font_header
@@ -224,7 +227,7 @@ def create_excel():
             c_tot_m.number_format = '#,##0.00 "€"'
             c_tot_m.font = font_bold
             c_est = ws2.cell(row=r2, column=8, value=m["estado"])
-            c_est.font = font_warn
+            c_est.font = font_green if "IRESTAL" in m["estado"] else font_reg
             for col in range(2, 9):
                 ws2.cell(row=r2, column=col).border = border_thin
             r2 += 1
@@ -238,14 +241,24 @@ def create_excel():
     c_mat_all.fill = fill_tot
     c_mat_all.border = border_total
 
+    # Sección informativa de portes
+    r_porte = r2 + 3
+    ws2.cell(row=r_porte, column=2, value="CÁLCULO DE PORTES MARÍTIMOS (IRESTAL / MENORCA):").font = font_bold
+    ws2.cell(row=r_porte + 1, column=2, value="Peso teórico total estimado:").font = font_reg
+    ws2.cell(row=r_porte + 1, column=3, value=f"{DATA['portes_maritimos']['peso_total_estimado_kg']:.2f} kg").font = font_bold
+    ws2.cell(row=r_porte + 2, column=2, value="Tarifa marítima por kg:").font = font_reg
+    ws2.cell(row=r_porte + 2, column=3, value=f"{DATA['portes_maritimos']['tarifa_por_kg']:.2f} €/kg").font = font_bold
+    ws2.cell(row=r_porte + 3, column=2, value="TOTAL PORTES MARÍTIMOS:").font = font_tot
+    ws2.cell(row=r_porte + 3, column=3, value=f"{DATA['portes_maritimos']['coste_total_portes']:.2f} €").font = font_tot
+
     ws2.column_dimensions["A"].width = 3
     ws2.column_dimensions["B"].width = 18
-    ws2.column_dimensions["C"].width = 52
+    ws2.column_dimensions["C"].width = 54
     ws2.column_dimensions["D"].width = 12
     ws2.column_dimensions["E"].width = 10
     ws2.column_dimensions["F"].width = 20
     ws2.column_dimensions["G"].width = 15
-    ws2.column_dimensions["H"].width = 22
+    ws2.column_dimensions["H"].width = 24
 
     # ------------------------------------------------------------------
     # HOJA 3: DESGLOSE INTERNO TÉCNICO
@@ -253,12 +266,12 @@ def create_excel():
     ws3 = wb.create_sheet("Desglose Interno Técnico")
     ws3["B2"] = f"ESTUDIO INTERNO DE COSTES Y MÁRGENES — {DATA['codigo']}"
     ws3["B2"].font = font_title
-    ws3["B3"] = "Tarifas MO: Oficial 1ª TIG 40 €/h · Oficial 2ª Prep. 35 €/h · Montaje Obra (2 op.) 80 €/h equipo"
+    ws3["B3"] = "Material: Oferta Irestal + Tornillería A4 · Portes: 0,20 €/kg · MO: Taller TIG 40 €/h, Obra 80 €/h equipo"
     ws3["B3"].font = font_sub
 
     headers_int = [
         "Partida", "Ud.", "Material Inox", "Consumibles TIG",
-        "MO Taller (TIG+Prep)", "MO Montaje Obra", "Transporte",
+        "MO Taller (TIG+Prep)", "MO Montaje Obra", "Portes Marít. (0,20€/kg)", "Transp. Local Obra",
         "Coste Directo Total", "Coste/Ud", "Venta Total", "Beneficio €", "Margen s/Venta"
     ]
     for c_idx, h in enumerate(headers_int, start=2):
@@ -274,23 +287,24 @@ def create_excel():
     for idx_p, p in enumerate(DATA["partidas"]):
         calc = calc_partida(p, tarifas)
         s_r, e_r = partida_mat_ranges[p["id"]]
-        client_row = 13 + idx_p
+        client_row = 14 + idx_p
 
         ws3.cell(row=r3, column=2, value=f"{p['id']} {p['diametro_pvco']}").font = font_bold
         ws3.cell(row=r3, column=3, value=p["cantidad"]).alignment = Alignment(horizontal="center")
 
-        c_mat = ws3.cell(row=r3, column=4, value=f"=SUM('Materiales Inox (Proveedor)'!G{s_r}:G{e_r})")
+        c_mat = ws3.cell(row=r3, column=4, value=f"=SUM('Materiales Inox (Irestal)'!G{s_r}:G{e_r})")
         c_cons = ws3.cell(row=r3, column=5, value=calc["cons_total"])
         c_mot = ws3.cell(row=r3, column=6, value=calc["mo_taller"])
         c_moo = ws3.cell(row=r3, column=7, value=calc["mo_obra"])
-        c_tra = ws3.cell(row=r3, column=8, value=calc["transporte"])
-        c_cd = ws3.cell(row=r3, column=9, value=f"=SUM(D{r3}:H{r3})")
-        c_cu = ws3.cell(row=r3, column=10, value=f"=I{r3}/C{r3}")
-        c_vt = ws3.cell(row=r3, column=11, value=f"='Presupuesto Cliente'!G{client_row}")
-        c_ben = ws3.cell(row=r3, column=12, value=f"=K{r3}-I{r3}")
-        c_mg = ws3.cell(row=r3, column=13, value=f"=L{r3}/K{r3}")
+        c_por = ws3.cell(row=r3, column=8, value=calc["portes"])
+        c_tra = ws3.cell(row=r3, column=9, value=calc["transporte"])
+        c_cd = ws3.cell(row=r3, column=10, value=f"=SUM(D{r3}:I{r3})")
+        c_cu = ws3.cell(row=r3, column=11, value=f"=J{r3}/C{r3}")
+        c_vt = ws3.cell(row=r3, column=12, value=f"='Presupuesto Cliente'!G{client_row}")
+        c_ben = ws3.cell(row=r3, column=13, value=f"=L{r3}-J{r3}")
+        c_mg = ws3.cell(row=r3, column=14, value=f"=M{r3}/L{r3}")
 
-        for col_c in [c_mat, c_cons, c_mot, c_moo, c_tra, c_cd, c_cu, c_vt, c_ben]:
+        for col_c in [c_mat, c_cons, c_mot, c_moo, c_por, c_tra, c_cd, c_cu, c_vt, c_ben]:
             col_c.number_format = '#,##0.00 "€"'
             col_c.font = font_reg
         c_cd.font = font_bold
@@ -299,13 +313,13 @@ def create_excel():
         c_mg.number_format = "0.0%"
         c_mg.font = font_green
 
-        for col in range(2, 14):
+        for col in range(2, 15):
             ws3.cell(row=r3, column=col).border = border_thin
         r3 += 1
 
     ws3.cell(row=r3, column=2, value="TOTALES").font = font_tot
-    for col in range(4, 13):
-        if col == 10:
+    for col in range(4, 14):
+        if col == 11:
             continue
         col_let = chr(64 + col)
         c_sum = ws3.cell(row=r3, column=col, value=f"=SUM({col_let}6:{col_let}{r3-1})")
@@ -313,13 +327,14 @@ def create_excel():
         c_sum.font = font_tot
         c_sum.fill = fill_tot
         c_sum.border = border_total
-    c_mg_tot = ws3.cell(row=r3, column=13, value=f"=L{r3}/K{r3}")
+    c_mg_tot = ws3.cell(row=r3, column=14, value=f"=M{r3}/L{r3}")
     c_mg_tot.number_format = "0.0%"
     c_mg_tot.font = font_tot_gold
     c_mg_tot.fill = fill_tot
     c_mg_tot.border = border_total
 
-    for col_idx, w in enumerate([3, 18, 7, 14, 14, 17, 16, 12, 16, 13, 15, 14, 14], start=1):
+    widths = [3, 18, 7, 14, 14, 17, 16, 16, 14, 16, 13, 15, 14, 14]
+    for col_idx, w in enumerate(widths, start=1):
         col_let = chr(64 + col_idx)
         ws3.column_dimensions[col_let].width = w
 
@@ -368,7 +383,7 @@ def create_html_and_pdf():
     .subbrand {{ font-size: 8.5pt; color: #b45309; font-weight: 700; text-transform: uppercase; }}
     .company-info {{ text-align: right; font-size: 8pt; color: #475569; }}
     h1 {{ font-size: 12.5pt; color: #0f172a; margin: 0 0 8px 0; }}
-    .banner-prov {{ background: #fef3c7; border-left: 4px solid #b45309; padding: 7px 10px; font-size: 8.5pt; margin-bottom: 12px; color: #78350f; }}
+    .banner-def {{ background: #ecfdf5; border-left: 4px solid #10b981; padding: 7px 10px; font-size: 8.5pt; margin-bottom: 12px; color: #065f46; }}
     .meta {{ width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 8.5pt; }}
     .meta td {{ padding: 4px 6px; border: 1px solid #cbd5e1; }}
     .meta td.lbl {{ background: #f1f5f9; font-weight: 700; width: 18%; }}
@@ -401,11 +416,12 @@ def create_html_and_pdf():
   </div>
 
   <h1>PRESUPUESTO {DATA['codigo']} — {DATA['proyecto']['titulo']}</h1>
-  <div class="banner-prov"><strong>BORRADOR PROVISIONAL:</strong> Importes sujetos a actualización con costes definitivos de material inoxidable de proveedor.</div>
+  <div class="banner-def"><strong>PRESUPUESTO TÉCNICO:</strong> Precios calculados con material homologado en acero inoxidable AISI 316L, soldadura TIG en taller, decapado/pasivado y montaje completo en obra con fijación a pared.</div>
 
   <table class="meta">
-    <tr><td class="lbl">Referencia</td><td>{DATA['referencia']}</td><td class="lbl">Fecha</td><td>{DATA['fecha']}</td></tr>
-    <tr><td class="lbl">Cliente / Obra</td><td>{DATA['cliente']['nombre']} — {DATA['cliente']['obra']}</td><td class="lbl">Validez</td><td>{DATA['validez_dias']} días naturales</td></tr>
+    <tr><td class="lbl">Cliente</td><td><strong>{DATA['cliente']['nombre']}</strong> (CIF: {DATA['cliente']['cif']})</td><td class="lbl">Referencia</td><td>{DATA['referencia']}</td></tr>
+    <tr><td class="lbl">Domicilio</td><td>{DATA['cliente']['domicilio']}</td><td class="lbl">Fecha</td><td>{DATA['fecha']}</td></tr>
+    <tr><td class="lbl">Obra / Contacto</td><td>{DATA['cliente']['obra']} · Att: {DATA['cliente']['contacto']}</td><td class="lbl">Validez</td><td>{DATA['validez_dias']} días naturales</td></tr>
     <tr><td class="lbl">Calidad / Proceso</td><td colspan="3">{DATA['calidad_inox']} · {DATA['proceso_soldadura']}</td></tr>
   </table>
 
@@ -444,12 +460,13 @@ def create_html_and_pdf():
     for p, c in zip(DATA["partidas"], calcs):
         rows_int += f"""
         <tr>
-          <td class="bold">{p['id']} {p['diametro_pvco']}<br><span class="desc">{p['equivalencia_dn']}</span></td>
+          <td class="bold">{p['id']} {p['diametro_pvco']}<br><span class="desc">{p['equivalencia_dn']} ({p.get('peso_estimado_kg_total',0):.1f} kg)</span></td>
           <td class="center">{p['cantidad']}</td>
           <td class="right">{eur(c['mat_total'])}</td>
           <td class="right">{eur(c['cons_total'])}</td>
           <td class="right">{eur(c['mo_taller'])}</td>
           <td class="right">{eur(c['mo_obra'])}</td>
+          <td class="right">{eur(c['portes'])}</td>
           <td class="right">{eur(c['transporte'])}</td>
           <td class="right bold">{eur(c['coste_total'])}</td>
           <td class="right bold">{eur(c['venta_total'])}</td>
@@ -466,22 +483,23 @@ def create_html_and_pdf():
               <td>{m['concepto']}</td>
               <td class="center">{m['unidad']}</td>
               <td class="right">{m['cantidad']}</td>
-              <td class="right warn">{eur(m['coste_unitario_est'])}</td>
+              <td class="right green">{eur(m['coste_unitario_est'])}</td>
               <td class="right bold">{eur(sub_m)}</td>
+              <td>{m['estado']}</td>
             </tr>"""
 
     html_interno = f"""<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Estudio Interno {DATA['codigo']} — Conexiones Inox TIG</title>
+  <title>Estudio Interno {DATA['codigo']} — Conexiones Inox Irestal</title>
   <style>
     @page {{ size: A4 landscape; margin: 10mm; }}
     * {{ box-sizing: border-box; }}
     body {{ font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; margin: 0; font-size: 8.5pt; line-height: 1.35; }}
     h1 {{ font-size: 12pt; color: #0f172a; margin: 0 0 4px 0; }}
     h2 {{ font-size: 10pt; color: #0f172a; margin: 12px 0 6px 0; border-bottom: 2px solid #b45309; padding-bottom: 2px; }}
-    .banner {{ background: #fee2e2; border-left: 4px solid #b91c1c; padding: 6px 10px; font-size: 8pt; color: #7f1d1d; margin-bottom: 10px; }}
+    .banner {{ background: #ecfdf5; border-left: 4px solid #10b981; padding: 6px 10px; font-size: 8pt; color: #065f46; margin-bottom: 10px; }}
     table {{ width: 100%; border-collapse: collapse; margin-bottom: 10px; }}
     th {{ background: #0f172a; color: #fff; padding: 5px; font-size: 8pt; text-align: left; }}
     td {{ padding: 5px; border-bottom: 1px solid #cbd5e1; vertical-align: top; }}
@@ -492,18 +510,19 @@ def create_html_and_pdf():
     .warn {{ color: #b45309; font-weight: 700; }}
     .tot {{ background: #fef3c7; font-weight: 800; }}
     .desc {{ font-size: 7.5pt; color: #64748b; }}
+    .card {{ background: #f8fafc; border: 1px solid #cbd5e1; padding: 8px 12px; margin-bottom: 10px; font-size: 8pt; }}
   </style>
 </head>
 <body>
   <h1>DOCUMENTO INTERNO TÉCNICO — {DATA['codigo']} · Conexiones Inox AISI 316L (Soldadura TIG en Taller)</h1>
-  <div class="banner"><strong>USO INTERNO EXCLUSIVO:</strong> Precios de material inoxidable marcados como <em>ESTIMADOS</em> pendientes de oferta real de proveedor. Sin empalmes en tubos (1 barra de 6 m por cada subida de hasta 5 m).</div>
+  <div class="banner"><strong>OFERTA OFICIAL IRESTAL + PORTES MARÍTIMOS (0,20 €/kg):</strong> Sin empalmes en tubos (1 barra de 6 m por subida). Peso total envío: {DATA['portes_maritimos']['peso_total_estimado_kg']:.2f} kg · Portes: {eur(DATA['portes_maritimos']['coste_total_portes'])}.</div>
 
   <h2>1. Resumen Económico por Partida</h2>
   <table>
     <thead>
       <tr>
-        <th>Partida</th><th class="center">Ud.</th><th class="right">Mat. Inox (Est.)</th><th class="right">Consum. TIG</th>
-        <th class="right">MO Taller TIG</th><th class="right">MO Obra</th><th class="right">Transp.</th>
+        <th>Partida</th><th class="center">Ud.</th><th class="right">Mat. Inox</th><th class="right">Consum. TIG</th>
+        <th class="right">MO Taller TIG</th><th class="right">MO Obra</th><th class="right">Portes Marít.</th><th class="right">Transp. Obra</th>
         <th class="right">Coste Directo</th><th class="right">Venta Cliente</th><th class="right">Beneficio (Margen)</th>
       </tr>
     </thead>
@@ -515,6 +534,7 @@ def create_html_and_pdf():
         <td class="right">{eur(sum(c['cons_total'] for c in calcs))}</td>
         <td class="right">{eur(sum(c['mo_taller'] for c in calcs))}</td>
         <td class="right">{eur(sum(c['mo_obra'] for c in calcs))}</td>
+        <td class="right">{eur(sum(c['portes'] for c in calcs))}</td>
         <td class="right">{eur(sum(c['transporte'] for c in calcs))}</td>
         <td class="right">{eur(coste_total_global)}</td>
         <td class="right">{eur(base_imponible)}</td>
@@ -523,10 +543,10 @@ def create_html_and_pdf():
     </tbody>
   </table>
 
-  <h2>2. Desglose de Materiales Inox a Confirmar con Proveedor</h2>
+  <h2>2. Desglose Detallado de Material Inox (Irestal + Tornillería A4)</h2>
   <table>
     <thead>
-      <tr><th>Partida</th><th>Concepto Material (AISI 316L)</th><th class="center">Ud.</th><th class="right">Cant.</th><th class="right">Coste Ud. (Est.)</th><th class="right">Subtotal</th></tr>
+      <tr><th>Partida</th><th>Concepto Material</th><th class="center">Ud.</th><th class="right">Cant.</th><th class="right">Coste Ud.</th><th class="right">Subtotal</th><th>Estado / Proveedor</th></tr>
     </thead>
     <tbody>{rows_mat}</tbody>
   </table>

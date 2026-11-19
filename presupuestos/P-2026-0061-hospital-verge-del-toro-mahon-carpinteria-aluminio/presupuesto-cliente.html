@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Presupuesto P-2026-0061 - Nou Hospital Verge del Toro (Mahón) - Cobra Edificación Singular</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 12mm 14mm 12mm 14mm;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-size: 8.5pt;
+    line-height: 1.35;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px solid #0f172a;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+  .logo-block h1 {
+    margin: 0;
+    font-size: 15pt;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+  }
+  .logo-block .sub {
+    font-size: 8pt;
+    font-weight: 600;
+    color: #0284c7;
+    margin-top: 2px;
+  }
+  .doc-ref {
+    text-align: right;
+  }
+  .doc-badge {
+    display: inline-block;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 3px 8px;
+    font-size: 8pt;
+    font-weight: 700;
+    border-radius: 3px;
+    margin-bottom: 4px;
+  }
+  .doc-ref p {
+    margin: 1px 0;
+    font-size: 7.5pt;
+    color: #64748b;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 8px 10px;
+  }
+  .card-title {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #0f172a;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .card p {
+    margin: 2px 0;
+    font-size: 8pt;
+  }
+  .card strong {
+    color: #0f172a;
+  }
+  .project-banner {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-left: 4px solid #0284c7;
+    padding: 7px 10px;
+    margin-bottom: 12px;
+    border-radius: 3px;
+  }
+  .project-banner h2 {
+    margin: 0 0 3px 0;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #0369a1;
+  }
+  .project-banner p {
+    margin: 2px 0;
+    font-size: 7.5pt;
+    color: #334155;
+  }
+  table.items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-size: 8pt;
+  }
+  table.items th {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 5px 6px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-align: left;
+    border: 1px solid #0f172a;
+  }
+  table.items th.num { text-align: right; }
+  table.items th.center { text-align: center; }
+  table.items td {
+    padding: 4px 6px;
+    border: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+  table.items tr.even {
+    background: #f8fafc;
+  }
+  table.items tr.head-partida {
+    background: #e2e8f0;
+    font-weight: 700;
+  }
+  table.items tr.meas {
+    font-size: 7pt;
+    color: #475569;
+    background: #ffffff;
+  }
+  table.items tr.meas td {
+    padding: 1px 6px;
+    border-top: none;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-weight: 700;
+    color: #0369a1;
+  }
+  .totals-block {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .totals-table {
+    width: 320px;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+  }
+  .totals-table td {
+    padding: 4px 8px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .totals-table td.label {
+    text-align: right;
+    font-weight: 600;
+    color: #475569;
+  }
+  .totals-table td.val {
+    text-align: right;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .totals-table tr.grand-total {
+    background: #fef3c7;
+    border-top: 2px solid #b45309;
+    border-bottom: 2px solid #b45309;
+  }
+  .totals-table tr.grand-total td {
+    font-size: 10.5pt;
+    color: #92400e;
+    font-weight: 800;
+    padding: 6px 8px;
+  }
+  .condiciones {
+    margin-top: 14px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 7.5pt;
+  }
+  .condiciones h3 {
+    margin: 0 0 4px 0;
+    font-size: 8pt;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+  }
+  .condiciones ul {
+    margin: 0;
+    padding-left: 14px;
+  }
+  .condiciones li {
+    margin-bottom: 2px;
+    color: #334155;
+  }
+  .footer-sig {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    font-size: 7.5pt;
+  }
+  .sig-box {
+    border: 1px dashed #cbd5e1;
+    border-radius: 4px;
+    height: 70px;
+    padding: 6px;
+    position: relative;
+  }
+  .sig-box .label {
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    font-size: 7pt;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+</style>
+</head>
+<body>
+
+  <!-- PÁGINA 1: PORTADA Y RESUMEN GENERAL -->
+  <div class="header">
+    <div class="logo-block">
+      <h1>DIXIS RECURSOS Y SOLUCIONES S.L.</h1>
+      <div class="sub">ALUFAC CARPINTERÍA DE ALUMINIO · HAM ESTRUCTURAS METÁLICAS MENORCA</div>
+    </div>
+    <div class="doc-ref">
+      <div class="doc-badge">OFERTA TÉCNICO-COMERCIAL</div>
+      <p><strong>Cód:</strong> P-2026-0061</p>
+      <p><strong>Ref:</strong> PRE-2026-1116-HOSPITAL-VERGE-DEL-TORO-MAHON</p>
+      <p><strong>Fecha:</strong> 16 de noviembre de 2026</p>
+      <p><strong>Validez:</strong> 30 días</p>
+    </div>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-title"><span>Cliente / Contratista Principal</span> <span>EXP. COBRA</span></div>
+      <p><strong>Empresa:</strong> Cobra Edificación Singular (Cobra Singular Building / Grupo Cobra)</p>
+      <p><strong>Atención:</strong> Fernando Sánchez Sánchez (Arquitecto Técnico · Departamento de Estudios)</p>
+      <p><strong>Teléfonos:</strong> (34) 914 569 500 / (34) 611 820 961</p>
+      <p><strong>Sede:</strong> C/ Cardenal Marcelo Spínola 14, 28016 Madrid</p>
+      <p><strong>Web:</strong> https://grupocobra.com/</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span>Emisor / Fabricante e Instalador</span> <span>MENORCA</span></div>
+      <p><strong>Razón Social:</strong> Dixis Recursos y Soluciones S.L. (CIF: B57825432)</p>
+      <p><strong>Instalaciones:</strong> Av. Circunval·lació, 11, Polígono Industrial de Sant Lluís, 07710 Sant Lluís, Menorca (Illes Balears)</p>
+      <p><strong>Contacto Técnico:</strong> Pablo Sebastián Sánchez Arnoletto</p>
+      <p><strong>Teléfono / Móvil:</strong> +34 971 35 20 18 / +34 669 769 541</p>
+      <p><strong>Email / Web:</strong> info@alufac.es / administracion@dixis.es · https://www.hamenorca.com</p>
+    </div>
+  </div>
+
+  <div class="project-banner">
+    <h2>Projecte Bàsic i d'Execució 2 de Reforma Interior i Ordenació de la Parcel·la del Nou Hospital Verge del Toro, Maó, Menorca</h2>
+    <p><strong>Promotor:</strong> IB-SALUT (Govern de les Illes Balears - Servei de Salut) &nbsp;|&nbsp; <strong>Emplazamiento:</strong> Carrer de Barcelona / Verge del Toro, 07701 Maó, Menorca (Illes Balears)</p>
+    <p><strong>Alcance Licitado:</strong> H25 CARPINTERIA ALUMINIO &nbsp;|&nbsp; <strong>Planos:</strong> AL.03.01 (Fusteries Exterior 1. Sèrie Portes i Finestres) y AL.03.02 (Fusteries Exterior 2. Sèrie Reixes)</p>
+    <p><strong>Acabado y Calidades:</strong> Lacado Qualicoat Seaside color RAL 7016 (Gris Antracita) apto para ambiente marino C4/C5, con ciclo de decapado profundo, oxidación controlada y polímeros de poliéster termoendurecidos (60-100 micras). Doble acristalamiento acústico y seguridad 4+4/12/4+4 bajo emisivo con control solar.</p>
+  </div>
+
+  <!-- TABLA RESUMEN GENERAL -->
+  <table class="items">
+    <thead>
+      <tr>
+        <th class="center" style="width: 25px;">#</th>
+        <th style="width: 80px;">Código</th>
+        <th>Descripción y Sistema de Carpintería</th>
+        <th class="center" style="width: 35px;">Ud</th>
+        <th class="num" style="width: 55px;">Medición</th>
+        <th class="num" style="width: 65px;">Precio Ud.</th>
+        <th class="num" style="width: 75px;">Importe (€)</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr class="">
+        <td class="center">1</td>
+        <td><span class="code">VMILLPLUS_1HF</span></td>
+        <td><strong>Pe2 - Cl1- Ventana fija 1 hoja</strong><br><span style="font-size: 7pt; color: #64748b;">Cortizo Millenium Plus 70 / Fijación Coplanaria · Fijo exterior RPT</span></td>
+        <td class="center">m²</td>
+        <td class="num">5,04</td>
+        <td class="num">650,00 €</td>
+        <td class="num"><strong>3.276,00 €</strong></td>
+      </tr>
+      <tr class="even">
+        <td class="center">2</td>
+        <td><span class="code">.MILL_PLUS</span></td>
+        <td><strong>Pe2 - Pe4 - Carpintería de aluminio 1 hoja practicable</strong><br><span style="font-size: 7pt; color: #64748b;">Cortizo Millenium Plus 70 · Puerta peatonal 1 hoja practicable de alta resistencia</span></td>
+        <td class="center">m²</td>
+        <td class="num">14,63</td>
+        <td class="num">985,00 €</td>
+        <td class="num"><strong>14.410,55 €</strong></td>
+      </tr>
+      <tr class="">
+        <td class="center">3</td>
+        <td><span class="code">.MILL_PLUS_2</span></td>
+        <td><strong>Pe1 - Carpintería de aluminio Millenium Plus 2 hojas practicables</strong><br><span style="font-size: 7pt; color: #64748b;">Cortizo Millenium Plus 70 · Puerta doble de acceso hospitalario tráfico intenso</span></td>
+        <td class="center">m²</td>
+        <td class="num">33,00</td>
+        <td class="num">1.020,00 €</td>
+        <td class="num"><strong>33.660,00 €</strong></td>
+      </tr>
+      <tr class="even">
+        <td class="center">4</td>
+        <td><span class="code">.B_4700FC</span></td>
+        <td><strong>Pe3 - Pe6 - Balconera de aluminio 4700 Corredera + Fijo</strong><br><span style="font-size: 7pt; color: #64748b;">Cortizo 4700 RPT · Balconera corredera gran formato con fijo</span></td>
+        <td class="center">m²</td>
+        <td class="num">26,33</td>
+        <td class="num">695,00 €</td>
+        <td class="num"><strong>18.299,35 €</strong></td>
+      </tr>
+      <tr class="">
+        <td class="center">5</td>
+        <td><span class="code">_V_60_HO_P</span></td>
+        <td><strong>V0 - V1 - Ventana de aluminio COR 60 hoja oculta 2 hojas practicables</strong><br><span style="font-size: 7pt; color: #64748b;">Cortizo COR 60 Hoja Oculta · Ventana practicable 2 hojas hoja oculta</span></td>
+        <td class="center">m²</td>
+        <td class="num">48,68</td>
+        <td class="num">560,00 €</td>
+        <td class="num"><strong>27.260,80 €</strong></td>
+      </tr>
+      <tr class="even">
+        <td class="center">6</td>
+        <td><span class="code">_V_60HO_1H_H</span></td>
+        <td><strong>V1-2-3-6-7 - Ventana de aluminio HOJA OCULTA fija 1 hoja</strong><br><span style="font-size: 7pt; color: #64748b;">Cortizo COR 60 Hoja Oculta · Módulo ventana fija hoja oculta</span></td>
+        <td class="center">m²</td>
+        <td class="num">20,78</td>
+        <td class="num">415,00 €</td>
+        <td class="num"><strong>8.623,70 €</strong></td>
+      </tr>
+      <tr class="">
+        <td class="center">7</td>
+        <td><span class="code">_B_60HO_1H_F</span></td>
+        <td><strong>V4-5-6-7 - Fijo de balconera de aluminio COR 60 HOJA OCULTA</strong><br><span style="font-size: 7pt; color: #64748b;">Cortizo COR 60 Hoja Oculta · Fijo de balconera hoja oculta</span></td>
+        <td class="center">m²</td>
+        <td class="num">42,71</td>
+        <td class="num">435,00 €</td>
+        <td class="num"><strong>18.578,85 €</strong></td>
+      </tr>
+      <tr class="even">
+        <td class="center">8</td>
+        <td><span class="code">.60_HO_B</span></td>
+        <td><strong>V2-4-5 - Balconera de aluminio COR 60 hoja oculta</strong><br><span style="font-size: 7pt; color: #64748b;">Cortizo COR 60 Hoja Oculta · Balconera practicable 1 hoja hoja oculta</span></td>
+        <td class="center">m²</td>
+        <td class="num">39,06</td>
+        <td class="num">595,00 €</td>
+        <td class="num"><strong>23.240,70 €</strong></td>
+      </tr>
+      <tr class="">
+        <td class="center">9</td>
+        <td><span class="code">.60_HO</span></td>
+        <td><strong>V3-6-7 - Carpinteria de aluminio HOJA OCULTA</strong><br><span style="font-size: 7pt; color: #64748b;">Cortizo COR 60 Hoja Oculta · Ventana practicable 1 hoja hoja oculta</span></td>
+        <td class="center">m²</td>
+        <td class="num">8,68</td>
+        <td class="num">545,00 €</td>
+        <td class="num"><strong>4.730,60 €</strong></td>
+      </tr>
+      <tr class="even">
+        <td class="center">10</td>
+        <td><span class="code">B_MEN_F</span></td>
+        <td><strong>PMR2-3- Balconera Menorquina Practicable lamas fijas</strong><br><span style="font-size: 7pt; color: #64748b;">Cortizo Menorquina Abatible · Persiana mallorquina/menorquina practicable lamas fijas</span></td>
+        <td class="center">m²</td>
+        <td class="num">22,91</td>
+        <td class="num">615,00 €</td>
+        <td class="num"><strong>14.089,65 €</strong></td>
+      </tr>
+      <tr class="">
+        <td class="center">11</td>
+        <td><span class="code">B_MEN_FF</span></td>
+        <td><strong>PMR3-4 - MR3 - Balconera Menorquina Fijo lamas fijas</strong><br><span style="font-size: 7pt; color: #64748b;">Cortizo Menorquina Fija · Persiana menorquina fija y rejillas de ventilación lamas fijas</span></td>
+        <td class="center">m²</td>
+        <td class="num">19,39</td>
+        <td class="num">455,00 €</td>
+        <td class="num"><strong>8.822,45 €</strong></td>
+      </tr>
+      <tr class="even">
+        <td class="center">12</td>
+        <td><span class="code">LAMA_TUBU</span></td>
+        <td><strong>Celosía fija Tubular Cortizo con sujeciones de aluminio</strong><br><span style="font-size: 7pt; color: #64748b;">Cortizo COR-2847 / Montantes COR-2845 · Celosía de fachada lamas tubulares gran formato</span></td>
+        <td class="center">m²</td>
+        <td class="num">389,50</td>
+        <td class="num">325,00 €</td>
+        <td class="num"><strong>126.587,50 €</strong></td>
+      </tr>
+      <tr class="">
+        <td class="center">13</td>
+        <td><span class="code">P_CORTIZ_PEGC</span></td>
+        <td><strong>Panel Composite PEGADO SOBRE CARPINTERÍA</strong><br><span style="font-size: 7pt; color: #64748b;">Panel Composite Al-PE 4 mm PVDF Kynar 500 · Revestimiento panel composite de aluminio 4 mm</span></td>
+        <td class="center">m²</td>
+        <td class="num">1,68</td>
+        <td class="num">245,00 €</td>
+        <td class="num"><strong>411,60 €</strong></td>
+      </tr>
+      <tr class="even">
+        <td class="center">14</td>
+        <td><span class="code">EFML.DIVV</span></td>
+        <td><strong>MC01 - Muro cortina acristalado interior 4+4/12/4+4</strong><br><span style="font-size: 7pt; color: #64748b;">Perfilería aluminio enrasada suelo/techo + vidrio acústico · Mampara divisoria interior acristalada acústica</span></td>
+        <td class="center">m²</td>
+        <td class="num">7,22</td>
+        <td class="num">365,00 €</td>
+        <td class="num"><strong>2.635,30 €</strong></td>
+      </tr>
+      <tr class="">
+        <td class="center">15</td>
+        <td><span class="code">EFML.DIVW</span></td>
+        <td><strong>MC02-03 - Muro cortina acristalado interior</strong><br><span style="font-size: 7pt; color: #64748b;">Perfilería aluminio enrasada suelo/techo + vidrio laminar · Mampara divisoria interior acristalada continua</span></td>
+        <td class="center">m²</td>
+        <td class="num">32,22</td>
+        <td class="num">350,00 €</td>
+        <td class="num"><strong>11.277,00 €</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="totals-block">
+    <table class="totals-table">
+      <tr>
+        <td class="label">Superficie Total Carpintería y Celosías:</td>
+        <td class="val">672,04 m²</td>
+      </tr>
+      <tr>
+        <td class="label">BASE IMPONIBLE (Capítulo H25):</td>
+        <td class="val">305.903,45 €</td>
+      </tr>
+      <tr>
+        <td class="label">I.V.A. Repercutido (21.0%):</td>
+        <td class="val">64.239,72 €</td>
+      </tr>
+      <tr class="grand-total">
+        <td class="label" style="color: #92400e;">TOTAL PRESUPUESTO:</td>
+        <td class="val">370.143,17 €</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="condiciones">
+    <h3>Condiciones de Suministro y Montaje Hospital Verge del Toro</h3>
+    <ul>
+      <li>Precios válidos para suministro, fabricación en taller y montaje completo en obra en Mahón (Menorca).</li>
+      <li>Tratamiento superficial de perfiles de aluminio: Lacado QUALICOAT SEASIDE RAL 7016 (Gris Antracita), garantizado para ambiente marino costero C4/C5.</li>
+      <li>Herrajes: Gama homologada STAC Cortizo para uso hospitalario intensivo, ensayada a 500.000 ciclos.</li>
+      <li>Vidrios: Doble acristalamiento acústico y de seguridad laminar 4+4 / 12 / 4+4 bajo emisivo con control solar (Planistar / Silence) según prescripción de proyecto.</li>
+      <li>Medios auxiliares: Incluye plataformas elevadoras móviles de personal (PEMP) para el montaje de celosías tubulares de fachada hasta 13,5 m de altura.</li>
+      <li>Premarcos y fijaciones: Incluidos premarcos de aluminio, garras de fijación, tornillería de acero inoxidable A2/A4 y sellado perimetral con silicona neutra.</li>
+      <li>Plazo de ejecución: Coordinado con el plan general de obra de la constructora principal (Cobra Edificación Singular).</li>
+      <li>Garantía oficial: 2 años sobre instalación y componentes según LOE; 10 años sobre perfiles y lacado según sello QUALICOAT SEASIDE.</li>
+
+    </ul>
+  </div>
+
+  <div class="footer-sig">
+    <div class="sig-box">
+      <div class="label">Por DIXIS Recursos y Soluciones S.L. / ALUFAC</div>
+      <div style="font-size: 7pt; margin-top: 35px; color: #475569;">Fdo.: Pablo Sebastián Sánchez Arnoletto · Dpto. Técnico Menorca</div>
+    </div>
+    <div class="sig-box">
+      <div class="label">Conforme el Cliente / Cobra Edificación Singular</div>
+      <div style="font-size: 7pt; margin-top: 35px; color: #475569;">Fdo.: Fernando Sánchez Sánchez · Arquitecto Técnico</div>
+    </div>
+  </div>
+
+  <!-- PÁGINA 2: DESGLOSE DETALLADO LÍNEA A LÍNEA DE MEDICIONES -->
+  <div class="page-break"></div>
+
+  <div class="header">
+    <div class="logo-block">
+      <h1>JUSTIFICACIÓN DETALLADA DE MEDICIONES Y PARTIDAS</h1>
+      <div class="sub">HOSPITAL VERGE DEL TORO (MAHÓN) · CAPÍTULO H25 CARPINTERIA ALUMINIO</div>
+    </div>
+    <div class="doc-ref">
+      <div class="doc-badge">ANEXO DE MEDICIONES</div>
+      <p><strong>Plano Ref:</strong> AL.03.01 / AL.03.02</p>
+    </div>
+  </div>
+
+  <table class="items" style="font-size: 7.5pt;">
+    <thead>
+      <tr>
+        <th style="width: 75px;">Código</th>
+        <th>Resumen / Concepto / Desglose de Huecos</th>
+        <th class="center" style="width: 25px;">Nº</th>
+        <th class="num" style="width: 40px;">Long.</th>
+        <th class="num" style="width: 40px;">Anch.</th>
+        <th class="num" style="width: 40px;">Alt.</th>
+        <th class="num" style="width: 50px;">Parcial</th>
+        <th class="num" style="width: 55px;">Total Partida</th>
+        <th class="num" style="width: 55px;">Precio Ud.</th>
+        <th class="num" style="width: 65px;">Importe (€)</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr class="head-partida">
+        <td><span class="code">VMILLPLUS_1HF</span></td>
+        <td><strong>Pe2 - Cl1- Ventana fija 1 hoja</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>5,04 m²</strong></td>
+        <td class="num"><strong>650,00 €</strong></td>
+        <td class="num"><strong>3.276,00 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y colocación de composición de fijos de dimensiones según documentación gráfica adjunta y con premarco, compuesto por perfiles de aleación de aluminio 6063-T5 con rotura de puente térmico mediante varillas de poliamida 6.6 de 24 mm reforzadas con 25% de fibra de vidrio. Marco de sección 70 mm con espesor medio de 2,0 mm, capacidad máxima de acristalamiento 62 mm. Vidrio doble laminar de seguridad y bajo emisivo 4+4/12/4+4. Estanqueidad por triple junta de EPDM. Sellado perimetral con cordón continuo de silicona neutra, garras de fijación y ajuste final en obra. Lacado QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; Pe2- Módulo 1h fija</td>
+        <td class="center">4</td>
+        <td class="num">0.40</td>
+        <td class="num">-</td>
+        <td class="num">2.75</td>
+        <td class="num">4.40</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; Cl1 (Claraboya de cubierta)</td>
+        <td class="center">1</td>
+        <td class="num">0.80</td>
+        <td class="num">-</td>
+        <td class="num">0.80</td>
+        <td class="num">0.64</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">.MILL_PLUS</span></td>
+        <td><strong>Pe2 - Pe4 - Carpintería de aluminio 1 hoja practicable</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>14,63 m²</strong></td>
+        <td class="num"><strong>985,00 €</strong></td>
+        <td class="num"><strong>14.410,55 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y colocación de composición de puerta abisagrada de 1 hoja apertura exterior/interior con premarco, perfiles aleación de aluminio 6063-T5 de 70 mm de sección y 2,0 mm de espesor medio. RPT con poliamidas de 24 mm. Bisagras mecánicas de tres palas para 220 kg, cerradura de seguridad, herrajes homologados STAC clasificados para 500.000 ciclos de apertura. Vidrio laminar de seguridad 4+4/12/4+4 bajo emisivo. Triple junta de estanqueidad de EPDM, premarco, ajuste en obra y sellado perimetral. Lacado QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; Pe2- Módulo puerta 1h practicable</td>
+        <td class="center">4</td>
+        <td class="num">1.10</td>
+        <td class="num">-</td>
+        <td class="num">2.75</td>
+        <td class="num">12.10</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; Pe4- Puerta 1h practicable</td>
+        <td class="center">1</td>
+        <td class="num">1.15</td>
+        <td class="num">-</td>
+        <td class="num">2.20</td>
+        <td class="num">2.53</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">.MILL_PLUS_2</span></td>
+        <td><strong>Pe1 - Carpintería de aluminio Millenium Plus 2 hojas practicables</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>33,00 m²</strong></td>
+        <td class="num"><strong>1.020,00 €</strong></td>
+        <td class="num"><strong>33.660,00 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y colocación de puertas abisagradas de 2 hojas practicables sistema CORTIZO MILLENIUM PLUS 70 con premarco, perfiles de aleación 6063-T5 coplanarios de 70 mm de profundidad y espesor 2,0 mm. RPT con varillas aislantes de poliamida 6.6 de 24 mm con fibra de vidrio. Bisagras mecánicas de 3 palas reforzadas para 220 kg por hoja, dispositivo de apertura antipánico homologado STAC, pasadores ocultos en hoja pasiva, triple junta perimetral EPDM. Acristalamiento con vidrio de seguridad laminar bajo emisivo 4+4/12/4+4. Totalmente montada, ajustada y sellada en obra. Lacado QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; Pe1 - Puerta 2h practicables</td>
+        <td class="center">8</td>
+        <td class="num">1.50</td>
+        <td class="num">-</td>
+        <td class="num">2.75</td>
+        <td class="num">33.00</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">.B_4700FC</span></td>
+        <td><strong>Pe3 - Pe6 - Balconera de aluminio 4700 Corredera + Fijo</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>26,33 m²</strong></td>
+        <td class="num"><strong>695,00 €</strong></td>
+        <td class="num"><strong>18.299,35 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y colocación de balconera corredera + fijo sistema CORTIZO 4700 RPT, compuesta por perfiles aleación 6063-T5 de 120/115 mm en marco y 50 mm en hojas, espesor medio 1,5 mm. Rotura de puente térmico tubular mediante poliamidas de 20 a 25 mm. Herrajes de corredera de alta resistencia con carros tándem regulables inox, rodamientos de agujas, cierres multipunto, juntas de felpa de alta densidad con lámina central de polietileno fin-seal y juntas EPDM. Vidrio de seguridad laminar 4+4/12/4+4 bajo emisivo. Incluye premarco, nivelación, fijación estructural y sellado. Lacado QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; Pe3 -Balconera 2h correderas con fijo central</td>
+        <td class="center">1</td>
+        <td class="num">7.40</td>
+        <td class="num">-</td>
+        <td class="num">3.00</td>
+        <td class="num">22.20</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; Pe6 - Balconera corredera</td>
+        <td class="center">1</td>
+        <td class="num">1.50</td>
+        <td class="num">-</td>
+        <td class="num">2.75</td>
+        <td class="num">4.13</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">_V_60_HO_P</span></td>
+        <td><strong>V0 - V1 - Ventana de aluminio COR 60 hoja oculta 2 hojas practicables</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>48,68 m²</strong></td>
+        <td class="num"><strong>560,00 €</strong></td>
+        <td class="num"><strong>27.260,80 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y colocación de ventanas de 2 hojas practicables/oscilobatientes sistema CORTIZO COR 60 HOJA OCULTA de canal europeo. Marco de 60 mm de profundidad y hoja oculta exterior que maximiza la entrada de luz diurna. Espesor medio 1,6 mm, RPT con poliamidas 6.6 de 24 mm. Estanqueidad por sistema de triple junta EPDM con junta central de gran cámara. Herrajes perimetrales STAC de hoja oculta homologados Clase 4 / 9A / C5. Vidrio doble laminar acústico bajo emisivo 4+4/12/4+4. Con premarco de aluminio, calzos, sellado de juntas con silicona neutra y ajuste final. Lacado QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V0 - Ventana 2h practicables</td>
+        <td class="center">3</td>
+        <td class="num">1.50</td>
+        <td class="num">-</td>
+        <td class="num">1.00</td>
+        <td class="num">4.50</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V1 - Módulo ventana 2h practicables</td>
+        <td class="center">19</td>
+        <td class="num">1.50</td>
+        <td class="num">-</td>
+        <td class="num">1.55</td>
+        <td class="num">44.18</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">_V_60HO_1H_H</span></td>
+        <td><strong>V1-2-3-6-7 - Ventana de aluminio HOJA OCULTA fija 1 hoja</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>20,78 m²</strong></td>
+        <td class="num"><strong>415,00 €</strong></td>
+        <td class="num"><strong>8.623,70 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y colocación de ventanas fijas sistema CORTIZO COR 60 HOJA OCULTA de canal europeo en composición modular con las aberturas contiguas. Marco de 60 mm, RPT con poliamidas de 24 mm, triple junta EPDM, junquillos clipados interiores. Vidrio doble bajo emisivo y de seguridad laminar 4+4/12/4+4 fijado sobre calzos de acuñado elásticos. Sellado perimetral con silicona neutra, premarco y anclaje a paramento. Lacado QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V1 - Módulo ventana 1h fija</td>
+        <td class="center">18</td>
+        <td class="num">1.50</td>
+        <td class="num">-</td>
+        <td class="num">0.40</td>
+        <td class="num">10.80</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V2 - Módulo ventana 1h fija</td>
+        <td class="center">6</td>
+        <td class="num">0.80</td>
+        <td class="num">-</td>
+        <td class="num">1.10</td>
+        <td class="num">5.28</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V3 - Módulo ventana 1h fija</td>
+        <td class="center">2</td>
+        <td class="num">0.80</td>
+        <td class="num">-</td>
+        <td class="num">1.10</td>
+        <td class="num">1.76</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V6 - Módulo ventana 1h fija</td>
+        <td class="center">1</td>
+        <td class="num">1.10</td>
+        <td class="num">-</td>
+        <td class="num">1.40</td>
+        <td class="num">1.54</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V7 - Módulo ventana 1h fija</td>
+        <td class="center">1</td>
+        <td class="num">1.00</td>
+        <td class="num">-</td>
+        <td class="num">1.40</td>
+        <td class="num">1.40</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">_B_60HO_1H_F</span></td>
+        <td><strong>V4-5-6-7 - Fijo de balconera de aluminio COR 60 HOJA OCULTA</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>42,71 m²</strong></td>
+        <td class="num"><strong>435,00 €</strong></td>
+        <td class="num"><strong>18.578,85 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y colocación de paño fijo de balconera sistema CORTIZO COR 60 HOJA OCULTA, marco de 60 mm, rotura de puente térmico por poliamidas tubulares de 24 mm. Vidrio de seguridad laminar acústico bajo emisivo 4+4/12/4+4 resistente al impacto Clase 5 UNE-EN 13049. Premarco de aluminio con garras, acuñado elástico perimetral, sellado hermético con cordón de silicona neutra y remates. Lacado QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V4 - Módulo balconera 1h fija</td>
+        <td class="center">3</td>
+        <td class="num">3.50</td>
+        <td class="num">-</td>
+        <td class="num">1.10</td>
+        <td class="num">11.55</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V4 - Módulo lateral/inferior fijo</td>
+        <td class="center">3</td>
+        <td class="num">1.10</td>
+        <td class="num">-</td>
+        <td class="num">2.10</td>
+        <td class="num">6.93</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V5 - Módulo balconera 1h fija</td>
+        <td class="center">3</td>
+        <td class="num">3.20</td>
+        <td class="num">-</td>
+        <td class="num">1.10</td>
+        <td class="num">10.56</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V5 - Módulo lateral/inferior fijo</td>
+        <td class="center">3</td>
+        <td class="num">1.00</td>
+        <td class="num">-</td>
+        <td class="num">2.10</td>
+        <td class="num">6.30</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V6 - Módulo balconera 1h fija</td>
+        <td class="center">1</td>
+        <td class="num">3.50</td>
+        <td class="num">-</td>
+        <td class="num">1.10</td>
+        <td class="num">3.85</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V7 - Módulo balconera 1h fija</td>
+        <td class="center">1</td>
+        <td class="num">3.20</td>
+        <td class="num">-</td>
+        <td class="num">1.10</td>
+        <td class="num">3.52</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">.60_HO_B</span></td>
+        <td><strong>V2-4-5 - Balconera de aluminio COR 60 hoja oculta</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>39,06 m²</strong></td>
+        <td class="num"><strong>595,00 €</strong></td>
+        <td class="num"><strong>23.240,70 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y montaje de balconeras abisagradas practicables sistema CORTIZO COR 60 HOJA OCULTA, marco de 60 mm, hoja oculta exterior con RPT de 24 mm. Herrajes ocultos perimetrales STAC de alta capacidad de carga, manilla ergonómica de diseño minimalista, triple junta de EPDM. Vidrio de seguridad laminar bajo emisivo 4+4/12/4+4. Incluye premarco, fijación mecánica regulable, sellado exterior e interior con polímero neutro y puesta a punto. Lacado QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V2 - Módulo balconera 1h practicable</td>
+        <td class="center">6</td>
+        <td class="num">0.80</td>
+        <td class="num">-</td>
+        <td class="num">2.10</td>
+        <td class="num">10.08</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V4 - Módulo balconera 1h practicable</td>
+        <td class="center">6</td>
+        <td class="num">1.20</td>
+        <td class="num">-</td>
+        <td class="num">2.10</td>
+        <td class="num">15.12</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V5 - Módulo balconera 1h practicable</td>
+        <td class="center">6</td>
+        <td class="num">1.10</td>
+        <td class="num">-</td>
+        <td class="num">2.10</td>
+        <td class="num">13.86</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">.60_HO</span></td>
+        <td><strong>V3-6-7 - Carpinteria de aluminio HOJA OCULTA</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>8,68 m²</strong></td>
+        <td class="num"><strong>545,00 €</strong></td>
+        <td class="num"><strong>4.730,60 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y colocación de ventanas abisagradas de 1 hoja practicable sistema CORTIZO COR 60 HOJA OCULTA de canal europeo. Marco 60 mm, hoja perimetral oculta con RPT de 24 mm, triple junta EPDM. Herrajes STAC homologados Clase 4 / 9A / C5. Acristalamiento con vidrio doble 4+4/12/4+4 bajo emisivo. Incluye premarco de aluminio, fijación, acuñado elástico y sellado con silicona neutra. Lacado QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V3 - Módulo 1h practicable</td>
+        <td class="center">2</td>
+        <td class="num">0.80</td>
+        <td class="num">-</td>
+        <td class="num">1.40</td>
+        <td class="num">2.24</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V6 - Módulo 1h practicable</td>
+        <td class="center">2</td>
+        <td class="num">1.20</td>
+        <td class="num">-</td>
+        <td class="num">1.40</td>
+        <td class="num">3.36</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; V7 - Módulo 1h practicable</td>
+        <td class="center">2</td>
+        <td class="num">1.10</td>
+        <td class="num">-</td>
+        <td class="num">1.40</td>
+        <td class="num">3.08</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">B_MEN_F</span></td>
+        <td><strong>PMR2-3- Balconera Menorquina Practicable lamas fijas</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>22,91 m²</strong></td>
+        <td class="num"><strong>615,00 €</strong></td>
+        <td class="num"><strong>14.089,65 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y colocación de puertas y balconeras abatibles practicables de protección solar sistema CORTIZO MENORQUINA con lamas fijas tubulares de extrusión troqueladas y engastadas de alta seguridad contra viento y salitre marino (Clase 5 de resistencia al viento UNE-EN 13659). Marco de 40 mm y hojas de 48 mm en aleación 6063-T5. Bisagras y goznes reforzados con pasivación marina, cerradura o fallebas de anclaje multipunto superior e inferior. Incluso premarco, colocación, aplomado y sellado perimetral. Lacado QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; PMR2 - Persiana 2h practicables</td>
+        <td class="center">1</td>
+        <td class="num">1.50</td>
+        <td class="num">-</td>
+        <td class="num">2.10</td>
+        <td class="num">3.15</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; PMR4 - Módulo persiana 1h practicable</td>
+        <td class="center">2</td>
+        <td class="num">0.90</td>
+        <td class="num">-</td>
+        <td class="num">1.70</td>
+        <td class="num">3.06</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; PMR5 - Persiana 2h practicables</td>
+        <td class="center">1</td>
+        <td class="num">3.30</td>
+        <td class="num">-</td>
+        <td class="num">2.10</td>
+        <td class="num">6.93</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; PMR6 - Persiana 2h practicables</td>
+        <td class="center">1</td>
+        <td class="num">4.65</td>
+        <td class="num">-</td>
+        <td class="num">2.10</td>
+        <td class="num">9.77</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">B_MEN_FF</span></td>
+        <td><strong>PMR3-4 - MR3 - Balconera Menorquina Fijo lamas fijas</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>19,39 m²</strong></td>
+        <td class="num"><strong>455,00 €</strong></td>
+        <td class="num"><strong>8.822,45 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y colocación de paños fijos de protección solar y rejillas de ventilación permanente de sótano y cocina sistema CORTIZO MENORQUINA con lamas fijas de extrusión de aluminio aleación 6063-T5. Marco de 40 mm de sección, lamas de seguridad orientadas para permitir flujo de ventilación con máxima protección frente a lluvia batiente y vientos costeros (Clase 5 UNE-EN 13659). Fijación mecánica oculta, premarco, remates y sellado elástico. Lacado QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; PMR4 - Módulo persiana 1h fija</td>
+        <td class="center">1</td>
+        <td class="num">2.65</td>
+        <td class="num">-</td>
+        <td class="num">1.10</td>
+        <td class="num">2.92</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; PMR3 - Persiana 4h fijas</td>
+        <td class="center">1</td>
+        <td class="num">4.00</td>
+        <td class="num">-</td>
+        <td class="num">2.10</td>
+        <td class="num">8.40</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; persiana ventilaciónes sotano</td>
+        <td class="center">2</td>
+        <td class="num">1.80</td>
+        <td class="num">-</td>
+        <td class="num">0.60</td>
+        <td class="num">2.16</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; persiana ventilaciones cocina</td>
+        <td class="center">1</td>
+        <td class="num">2.11</td>
+        <td class="num">-</td>
+        <td class="num">2.80</td>
+        <td class="num">5.91</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">LAMA_TUBU</span></td>
+        <td><strong>Celosía fija Tubular Cortizo con sujeciones de aluminio</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>389,50 m²</strong></td>
+        <td class="num"><strong>325,00 €</strong></td>
+        <td class="num"><strong>126.587,50 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y colocación de celosía fija exterior de lamas tubulares de aluminio extrusionado serie COR-2847 de Cortizo (aleación 6063-T5) sobre estructura portante de montantes verticales/horizontales tipo COR-2845 con perfiles de clipaje oculto y rastreles de soporte cada 1,00 m según detalle plano AL.03.02. Garantiza resistencia al viento Clase 6 (máx) según UNE-EN 13659:2004 / UNE 1932:2001. Incluye tapas laterales de extrusión cortadas por láser con acabado lacado, anclajes estructurales de aluminio, tornillería y pernería de acero inoxidable A2/A4 calidad marina, replanteo, montaje en fachada con medios auxiliares de elevación (PEMP) y pruebas de servicio. Lacado QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; pa1</td>
+        <td class="center">2</td>
+        <td class="num">6.00</td>
+        <td class="num">2.50</td>
+        <td class="num">-</td>
+        <td class="num">30.00</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; pa1 (módulo 2)</td>
+        <td class="center">2</td>
+        <td class="num">3.00</td>
+        <td class="num">2.50</td>
+        <td class="num">-</td>
+        <td class="num">15.00</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; pa2</td>
+        <td class="center">4</td>
+        <td class="num">6.00</td>
+        <td class="num">2.50</td>
+        <td class="num">-</td>
+        <td class="num">60.00</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; pa3</td>
+        <td class="center">3</td>
+        <td class="num">6.00</td>
+        <td class="num">2.50</td>
+        <td class="num">-</td>
+        <td class="num">45.00</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; pa3 (módulo 2)</td>
+        <td class="center">1</td>
+        <td class="num">4.00</td>
+        <td class="num">2.50</td>
+        <td class="num">-</td>
+        <td class="num">10.00</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; mr1 (módulo celosía h=13,5m)</td>
+        <td class="center">2</td>
+        <td class="num">3.50</td>
+        <td class="num">13.50</td>
+        <td class="num">-</td>
+        <td class="num">94.50</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; mr2 (módulo celosía h=13,5m)</td>
+        <td class="center">2</td>
+        <td class="num">5.00</td>
+        <td class="num">13.50</td>
+        <td class="num">-</td>
+        <td class="num">135.00</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">P_CORTIZ_PEGC</span></td>
+        <td><strong>Panel Composite PEGADO SOBRE CARPINTERÍA</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>1,68 m²</strong></td>
+        <td class="num"><strong>245,00 €</strong></td>
+        <td class="num"><strong>411,60 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Suministro y montaje de revestimiento en carpintería de escaleras mediante paneles composite de aluminio PE de 4 mm de espesor total (doble lámina exterior/interior de 0,5 mm en aleación 3005-H44 Al-Mg con núcleo termoplástico de 3 mm). Cara exterior lacada en PVDF Kynar 500 en color RAL 7016, cara interior con imprimación anticorrosiva. Incluye corte, cajeado y fresado perimetral, fijación sobre perfiles de hoja mediante cinta adhesiva técnica estructural biadhesiva de alta resistencia mecánica, imprimación activadora química y sellado perimetral estanco. QUALICOAT SEASIDE RAL 7016.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; escaleras</td>
+        <td class="center">6</td>
+        <td class="num">0.80</td>
+        <td class="num">0.35</td>
+        <td class="num">-</td>
+        <td class="num">1.68</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">EFML.DIVV</span></td>
+        <td><strong>MC01 - Muro cortina acristalado interior 4+4/12/4+4</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>7,22 m²</strong></td>
+        <td class="num"><strong>365,00 €</strong></td>
+        <td class="num"><strong>2.635,30 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Muro cortina interior acristalado MC01 para divisiones de espacios hospitalarios. Perfilería de aluminio extrusionado lacado de 60 micras enrasado a pavimento y falso techo según NTE/PML-13. Acristalamiento con vidrio laminar de seguridad y aislamiento acústico 4+4 / 12 / 4+4 fijado mediante calzos de acuñado elásticos perimetrales, junquillos clipados y sellado en frío con silicona neutra. Incluye p/p de encuentros, tapetas, remates y deducción íntegra de hueco de paso de puerta PV160d.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; mc01</td>
+        <td class="center">1</td>
+        <td class="num">3.75</td>
+        <td class="num">-</td>
+        <td class="num">2.80</td>
+        <td class="num">10.50</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; a descontar puerta PV160d</td>
+        <td class="center">-1</td>
+        <td class="num">1.60</td>
+        <td class="num">-</td>
+        <td class="num">2.05</td>
+        <td class="num">-3.28</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="head-partida">
+        <td><span class="code">EFML.DIVW</span></td>
+        <td><strong>MC02-03 - Muro cortina acristalado interior</strong></td>
+        <td colspan="5"></td>
+        <td class="num"><strong>32,22 m²</strong></td>
+        <td class="num"><strong>350,00 €</strong></td>
+        <td class="num"><strong>11.277,00 €</strong></td>
+      </tr>
+      <tr>
+        <td colspan="10" style="font-size: 6.8pt; color: #475569; background: #fafafa; padding: 3px 6px;">
+          <em>Muro cortina interior acristalado MC02 y MC03 para sectorización de zonas hospitalarias. Estructura portante de perfiles de aluminio lacado de 60 micras enrasados a suelo y techo, junquillos a presión, juntas de neopreno. Acristalamiento con vidrio de seguridad laminar (5+5 clasificado 2B2 según UNE-EN 12600), sellado neutro elástico, fijaciones ocultas y deducción neta de huecos de paso para puertas correderas automáticas PCoAuV160d y PCoAuV170d.</em>
+        </td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; mc03</td>
+        <td class="center">1</td>
+        <td class="num">4.03</td>
+        <td class="num">-</td>
+        <td class="num">2.10</td>
+        <td class="num">8.46</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; a deducir puerta PCoAuV160d</td>
+        <td class="center">-1</td>
+        <td class="num">1.60</td>
+        <td class="num">-</td>
+        <td class="num">2.10</td>
+        <td class="num">-3.36</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; mc02</td>
+        <td class="center">1</td>
+        <td class="num">10.96</td>
+        <td class="num">-</td>
+        <td class="num">2.80</td>
+        <td class="num">30.69</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="meas">
+        <td style="color: #94a3b8; font-size: 6.5pt;">Spc0010</td>
+        <td>&bull; a descontar puertas PCoAuV170d</td>
+        <td class="center">-1</td>
+        <td class="num">1.70</td>
+        <td class="num">-</td>
+        <td class="num">2.10</td>
+        <td class="num">-3.57</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr style="background: #fef3c7; font-weight: 800; border-top: 2px solid #0f172a;">
+        <td colspan="7" style="text-align: right; padding: 6px;">TOTAL BASE IMPONIBLE CAPÍTULO H25:</td>
+        <td class="num" style="padding: 6px;">672,04 m²</td>
+        <td class="num" style="padding: 6px;"></td>
+        <td class="num" style="padding: 6px; font-size: 9pt; color: #92400e;">305.903,45 €</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

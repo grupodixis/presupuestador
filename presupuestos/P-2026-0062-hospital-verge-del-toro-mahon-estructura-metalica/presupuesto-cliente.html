@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Presupuesto P-2026-0062 · Nou Hospital Verge del Toro</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 15mm 12mm 15mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      font-size: 9pt;
+      line-height: 1.4;
+      background: #ffffff;
+    }
+    .header-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 8px;
+    }
+    .brand-title {
+      font-size: 14pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      margin: 0;
+    }
+    .brand-sub {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #0284c7;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 2px 0 0 0;
+    }
+    .brand-contact {
+      font-size: 7.5pt;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .doc-badge {
+      text-align: right;
+    }
+    .badge-code {
+      display: inline-block;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .badge-ref {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .meta-grid {
+      display: table;
+      width: 100%;
+      margin-bottom: 14px;
+    }
+    .meta-col {
+      display: table-cell;
+      width: 50%;
+      vertical-align: top;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+    .meta-col:first-child {
+      margin-right: 8px;
+    }
+    .meta-col h4 {
+      margin: 0 0 6px 0;
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 3px;
+    }
+    .meta-line {
+      font-size: 8pt;
+      margin-bottom: 3px;
+    }
+    .meta-line strong {
+      color: #334155;
+    }
+    .scope-box {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      padding: 8px 12px;
+      margin-bottom: 14px;
+      font-size: 8pt;
+      border-radius: 0 4px 4px 0;
+    }
+    .scope-box strong {
+      color: #166534;
+    }
+    .subchapter-block {
+      margin-bottom: 16px;
+      page-break-inside: auto;
+    }
+    .subchapter-header {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 6px 10px;
+      border-radius: 4px 4px 0 0;
+      display: table;
+      width: 100%;
+    }
+    .subchapter-header h3 {
+      display: table-cell;
+      font-size: 9pt;
+      font-weight: 700;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .subchapter-total {
+      display: table-cell;
+      text-align: right;
+      font-size: 9pt;
+      font-weight: 700;
+      color: #fef08a;
+    }
+    .items-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #cbd5e1;
+      border-top: none;
+      margin-bottom: 4px;
+    }
+    .items-table th {
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 5px 8px;
+      border-bottom: 1px solid #cbd5e1;
+      text-transform: uppercase;
+    }
+    .items-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      font-size: 8pt;
+    }
+    .items-table tr:nth-child(even) {
+      background: #fafafa;
+    }
+    .items-table td.code {
+      font-family: Consolas, monospace;
+      font-size: 7.5pt;
+      color: #475569;
+      font-weight: 600;
+    }
+    .items-table td.desc strong {
+      color: #0f172a;
+      font-size: 8pt;
+    }
+    .partida-desc {
+      margin: 3px 0 0 0;
+      font-size: 7.5pt;
+      color: #475569;
+      line-height: 1.3;
+    }
+    .center { text-align: center; }
+    .right { text-align: right; }
+    .qty, .price { font-variant-numeric: tabular-nums; }
+    .amount { font-weight: 700; color: #0f172a; font-variant-numeric: tabular-nums; }
+
+    .summary-card {
+      margin-top: 14px;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 12px;
+      page-break-inside: avoid;
+    }
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .summary-table td {
+      padding: 4px 6px;
+      font-size: 8.5pt;
+    }
+    .summary-table td.total-label {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #0f172a;
+      border-top: 2px solid #0f172a;
+      padding-top: 8px;
+    }
+    .summary-table td.total-val {
+      font-size: 12pt;
+      font-weight: 800;
+      color: #b45309;
+      text-align: right;
+      border-top: 2px solid #0f172a;
+      padding-top: 8px;
+    }
+    .conditions-grid {
+      margin-top: 14px;
+      border-top: 1px solid #cbd5e1;
+      padding-top: 10px;
+      page-break-inside: avoid;
+    }
+    .cond-title {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .cond-list {
+      margin: 0;
+      padding-left: 14px;
+      font-size: 7.5pt;
+      color: #475569;
+    }
+    .cond-list li {
+      margin-bottom: 2px;
+    }
+    .signatures-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      page-break-inside: avoid;
+    }
+    .sig-col {
+      width: 50%;
+      border: 1px dashed #cbd5e1;
+      padding: 10px;
+      text-align: center;
+      background: #f8fafc;
+      border-radius: 4px;
+    }
+    .sig-box {
+      height: 45px;
+    }
+  </style>
+</head>
+<body>
+
+  <table class="header-table">
+    <tr>
+      <td style="width: 60%; vertical-align: top;">
+        <h1 class="brand-title">HAM MENORCA · ESTRUCTURAS METÁLICAS</h1>
+        <p class="brand-sub">Dixis Recursos y Soluciones S.L. · CIF B57825432</p>
+        <p class="brand-contact">Av. Circunval·lació 11, Pol. Ind. Sant Lluís, Menorca · Tel: +34 971 35 20 18 / 669 769 541 · info@dixis.es · www.hamenorca.com</p>
+      </td>
+      <td style="width: 40%; vertical-align: top;" class="doc-badge">
+        <div class="badge-code">OFERTA P-2026-0062</div>
+        <div class="badge-ref">REF: PRE-2026-1116-HOSPITAL-MAHON-ESTRUCTURA</div>
+        <div class="badge-ref">Fecha: 16 de noviembre de 2026 · Validez: 30 días</div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="meta-grid">
+    <div class="meta-col">
+      <h4>Destinatario / Cliente Licitador</h4>
+      <div class="meta-line"><strong>Empresa:</strong> Cobra Edificación Singular (Cobra Singular Building / Grupo Cobra)</div>
+      <div class="meta-line"><strong>Atención:</strong> Fernando Sánchez Sánchez (Arquitecto Técnico · Departamento de Estudios)</div>
+      <div class="meta-line"><strong>Teléfonos:</strong> (34) 914 569 500 / (34) 611 820 961</div>
+      <div class="meta-line"><strong>Sede Central:</strong> C/ Cardenal Marcelo Spínola 14, 28016 Madrid</div>
+    </div>
+    <div class="meta-col" style="margin-left: 10px;">
+      <h4>Datos del Proyecto y Emplazamiento</h4>
+      <div class="meta-line"><strong>Proyecto:</strong> Projecte Bàsic i d'Execució 2 de Reforma Interior i Ordenació de la Parcel·la del Nou Hospital Verge del Toro, Maó, Menorca</div>
+      <div class="meta-line"><strong>Promotor:</strong> IB-SALUT (Govern de les Illes Balears - Servei de Salut)</div>
+      <div class="meta-line"><strong>Ubicación:</strong> Carrer de Barcelona / Verge del Toro, 07701 Maó, Menorca (Illes Balears)</div>
+      <div class="meta-line"><strong>Capítulo:</strong> H06 ESTRUCTURA METALICA (EXC3 / EXC2)</div>
+    </div>
+  </div>
+
+  <div class="scope-box">
+    <strong>ALCANCE DE LA OFERTA ESTRUCTURAL HAM:</strong> Fabricación en taller y montaje en obra de <strong>347.475,00 kg (~347,48 Tn)</strong> de acero laminado S275JR y <strong>403,17 m²</strong> de forjado colaborante e=16 cm. Incluye sustitución funcional de jácenas de hormigón mediante perfiles UPN conectados, refuerzo perimetral de pilares con empresillados angulares y presillas cada 40 cm, capiteles de acero retacados de 2, 3 y 4 jácenas, vigas soporte de parteluces, forjados colaborantes bajo y sobre rasante, y zancas de Escaleras 1 y 2.
+    <br><strong>Tratamiento Anticorrosión:</strong> Imprimación anticorrosiva en taller y acabado en obra según ambiente C1/C4 (conforme a las directrices de HAM, en ningún caso se presupuesta pintura al horno).
+  </div>
+
+  
+        <div class="subchapter-block">
+          <div class="subchapter-header">
+            <h3>SUBCAPÍTULO 06.01 - REHABILITACION</h3>
+            <span class="subchapter-total">208.809,27 €</span>
+          </div>
+          <table class="items-table">
+            <thead>
+              <tr>
+                <th style="width: 14%;">Código</th>
+                <th style="width: 46%;">Descripción y Alcance</th>
+                <th style="width: 8%; text-align: center;">Ud.</th>
+                <th style="width: 10%; text-align: right;">Cantidad</th>
+                <th style="width: 11%; text-align: right;">Precio Ud.</th>
+                <th style="width: 11%; text-align: right;">Importe</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            <tr class="item-row">
+              <td class="code">PM.01.05.01.01.02</td>
+              <td class="desc">
+                <strong>PLACA DE ANCLAJE INTERIOR ACERO S275JR - PLANCHA, TRABAJADO EN TALLER</strong>
+                <p class="partida-desc">Placa de anclaje con acero S275JR según UNE-EN 10025-2, para elementos de anclaje formados por pieza simple, en perfiles laminados en caliente serie L, LD, T, redondo, cuadrado, rectangular y plancha, trabajado en taller, colocado en obra con soldadura y/o tornillos. Los elementos llegarán a obra con el tratamiento de durabilidad C1. Clase de ejecución EXC3 según Código Estructural. Incluye p.p. de rigidizadores, cartelas y pletinas, mortero sin retracción, varillas con resina epoxi de dos componentes y medios auxiliares.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">131,88</td>
+              <td class="right price">6,80 €</td>
+              <td class="right amount">896,78 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">PM.01.05.01.01.01</td>
+              <td class="desc">
+                <strong>ESTRUCTURA VERTICAL INTERIOR ACERO S275JR - PERFILES IP,HE,UP, TRABAJADOS EN TALLER</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para pilares formados por pieza simple y compuesta en perfiles laminados en caliente HEB y pletinas soldadas, trabajado en taller, colocado en obra con soldadura y/o tornillos. Elementos de interior C1 con imprimación antioxidante de taller y pintura de acabado en obra. Clase de ejecución EXC3 según Código Estructural. Incluye medios auxiliares, izado y apuntalamiento.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">3.826,12</td>
+              <td class="right price">4,95 €</td>
+              <td class="right amount">18.939,29 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">P442-BA21PM</td>
+              <td class="desc">
+                <strong>ESTRUCTURA HORIZONTAL INTERIOR ACERO S275JR - PERFILES IP,HE,UP, TRABAJADOS EN TALLER</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para vigas, viguetas y zancas de escalera formadas por pieza simple, en perfiles laminados en caliente serie IPE, HEB y UPN, trabajado en taller, colocado en obra con soldadura y tornillos de alta resistencia. Elementos de interior C1 con imprimación anticorrosiva en taller y pintura de acabado. Clase de ejecución EXC2 según Código Estructural. Incluye vigas de plantas TPSS a TP4 y zancas de Escalera 1 y Escalera 2.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">30.922,65</td>
+              <td class="right price">4,80 €</td>
+              <td class="right amount">148.428,72 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">PM.01.05.01.04.01</td>
+              <td class="desc">
+                <strong>FORJADO COLABORANTE, E=16cm (6+10), HA-25/B/20/XC3, BAJO RASANTE</strong>
+                <p class="partida-desc">Formación de forjado 16 cm de grueso total, con planchas colaborantes de acero galvanizado S320GD de espesor 1 mm. Incluye hormigón HA-25/B/20/XC3 fluido vertido con bomba, armadura AP500 S en barras B500S, mallazo electrosoldado AP500 T B500S, anclajes químicos con resinas epoxi sin disolventes y conectores tipo Nelson soldados a los perfiles metálicos.</p>
+              </td>
+              <td class="center unit">m²</td>
+              <td class="right qty">66,01</td>
+              <td class="right price">106,00 €</td>
+              <td class="right amount">6.997,06 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">PM.01.05.01.04.02</td>
+              <td class="desc">
+                <strong>FORJADO COLABORANTE, E=16cm (6+10), HA-25/B/20/XC1, SOBRE RASANTE</strong>
+                <p class="partida-desc">Formación de forjado 16 cm de grueso total, con planchas colaborantes de acero galvanizado S320GD de espesor 1 mm. Incluye hormigón HA-25/B/20/XC1 fluido vertido con bomba, armadura en barras corrugadas B500S, mallazo electrosoldado B500S, anclajes con resina epoxi y conectores tipo Nelson soldados a perfiles. Medición sobre rasante en plantas TPB, TP1, TP2, TP3, TP4 y mesetas de escaleras.</p>
+              </td>
+              <td class="center unit">m²</td>
+              <td class="right qty">337,16</td>
+              <td class="right price">99,50 €</td>
+              <td class="right amount">33.547,42 €</td>
+            </tr>
+            
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="subchapter-block">
+          <div class="subchapter-header">
+            <h3>SUBCAPÍTULO 06.02 - OBRA NUEVA</h3>
+            <span class="subchapter-total">5.718,94 €</span>
+          </div>
+          <table class="items-table">
+            <thead>
+              <tr>
+                <th style="width: 14%;">Código</th>
+                <th style="width: 46%;">Descripción y Alcance</th>
+                <th style="width: 8%; text-align: center;">Ud.</th>
+                <th style="width: 10%; text-align: right;">Cantidad</th>
+                <th style="width: 11%; text-align: right;">Precio Ud.</th>
+                <th style="width: 11%; text-align: right;">Importe</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            <tr class="item-row">
+              <td class="code">EESA.1baaaaa.ST0</td>
+              <td class="desc">
+                <strong>Suministro y montaje acero S 275 JR soldado e/soportes, vigas</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para perfiles formados por pieza simple en caliente serie UPN, L y T, trabajado en taller y con imprimación de taller + pintura de acabado en obra. Incluye placas de anclaje, conectores, retacado a estructura existente mediante mortero sin retracción y medios auxiliares. Aplicado en Cubierta P6 y Pasarela de acceso al ascensor.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">1.068,96</td>
+              <td class="right price">5,35 €</td>
+              <td class="right amount">5.718,94 €</td>
+            </tr>
+            
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="subchapter-block">
+          <div class="subchapter-header">
+            <h3>SUBCAPÍTULO 06.03 - REFUERZOS ESTRUCTURALES</h3>
+            <span class="subchapter-total">1.803.544,60 €</span>
+          </div>
+          <table class="items-table">
+            <thead>
+              <tr>
+                <th style="width: 14%;">Código</th>
+                <th style="width: 46%;">Descripción y Alcance</th>
+                <th style="width: 8%; text-align: center;">Ud.</th>
+                <th style="width: 10%; text-align: right;">Cantidad</th>
+                <th style="width: 11%; text-align: right;">Precio Ud.</th>
+                <th style="width: 11%; text-align: right;">Importe</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            <tr class="item-row">
+              <td class="code">P442-BR01</td>
+              <td class="desc">
+                <strong>SUSTITUCIÓN FUNCIONAL JÁCENAS HA MEDIANTE VIGAS DE ACERO S275JR CONECTADAS</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para vigas formadas por pieza simple, en perfiles UPN laminados en caliente y planchas, trabajado en taller, colocado en obra bajo jácena existente con soldadura y/o tornillos. Conexión a la jácena mediante conectores definidos en proyecto y retacado continuo con mortero sin retracción en toda su longitud. Protección C1 con imprimación y pintura de acabado. EXC3 según Código Estructural.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">99.219,23</td>
+              <td class="right price">4,60 €</td>
+              <td class="right amount">456.408,46 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">P442-BA61</td>
+              <td class="desc">
+                <strong>ESTRUCTURA HORIZONTAL INTERIOR SOPORTE PARTELUCES ACERO S275JR - PERFILES IP,HE,UP</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para vigas soporte de parteluces en plantas TPB a TP5, en perfiles IPE-200, 240, 270, 300 y HEB-220, trabajado en taller, colocado en obra con soldadura y tornillos. Tratamiento C1 de taller + acabado en obra. EXC3 según Código Estructural.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">56.621,25</td>
+              <td class="right price">4,50 €</td>
+              <td class="right amount">254.795,62 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">P442-BR51</td>
+              <td class="desc">
+                <strong>REFUERZO PARTELUCES ESTRUCTURA HORIZONTAL INTERIOR FORJ. UNIDIRECC. MEDIANTE VIGAS DE ACERO S275JR</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para vigas de refuerzo de parteluces en forjado unidireccional en perfiles IPE-200, colocado con soldadura/tornillos y retacado con mortero sin retracción en los apoyos de las viguetas existentes en plantas TPB a TP5. Clase EXC3.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">21.097,44</td>
+              <td class="right price">4,65 €</td>
+              <td class="right amount">98.103,10 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">P44C-BR01</td>
+              <td class="desc">
+                <strong>REFUERZO PILARES HA MEDIANTE PERFILES DE ACERO S275JR CONECTADOS</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para refuerzo de pilares de hormigón armado existentes mediante perfiles UPN (UPN 100 a UPN 260) conectados al fuste existente con conectores mecánicos y varillas roscadas M16 con resina epoxi de baja viscosidad y retacado perimetral con mortero sin retracción en toda su longitud. Ejecutado en plantas PS, PB, P1 a P5. Clase EXC3.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">50.618,09</td>
+              <td class="right price">4,85 €</td>
+              <td class="right amount">245.497,74 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">P44C-BR02</td>
+              <td class="desc">
+                <strong>REFUERZO PILARES HA MEDIANTE EMPRESILLADO DE PERFILES DE ACERO S275JR</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para refuerzo de fuste de pilares existentes mediante empresillado compuesto con 4 perfiles angulares (L 80.8, L100.10 y L120.12) soldados con pletinas intermedias cada 40 cm y retacado interior y continuo con mortero sin retracción. Con imprimación antioxidante de taller y pintura de acabado en obra. EXC3 según Código Estructural.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">55.953,77</td>
+              <td class="right price">5,10 €</td>
+              <td class="right amount">285.364,23 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">P44C-BR21</td>
+              <td class="desc">
+                <strong>CAPITEL DE ACERO DE 2 JÁCENAS MEDIANTE PERFILES DE ACERO S275JR RETACADOS Y/O CONECTADOS</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para capiteles de nudos pilar-viga con encuentro de 2 jácenas, formados por pieza compuesta en perfiles UPN, angulares L y planchas retacadas y conectadas a la estructura existente mediante varillas químicas M16/M20 y mortero sin retracción. Imprimación y pintura C1. Clase EXC3.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">44.826,60</td>
+              <td class="right price">5,15 €</td>
+              <td class="right amount">230.856,99 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">P44C-BR22</td>
+              <td class="desc">
+                <strong>CAPITEL DE ACERO DE 3 JÁCENAS MEDIANTE PERFILES DE ACERO S275JR RETACADOS Y/O CONECTADOS</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para capiteles de nudos pilar-viga con encuentro de 3 jácenas en perfiles UPN, planchas y angulares, conectado con varillas mecánicas y químicas y mortero sin retracción. En plantas PS a P5. Clase EXC3.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">25.477,20</td>
+              <td class="right price">5,30 €</td>
+              <td class="right amount">135.029,16 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">P44C-BR23</td>
+              <td class="desc">
+                <strong>CAPITEL DE ACERO DE 4 JÁCENAS MEDIANTE PERFILES DE ACERO S275JR RETACADOS Y/O CONECTADOS</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para capiteles de nudos pilar-viga centrales en cruz con encuentro de 4 jácenas, perfiles UPN, cartelas y planchas rigidizadoras conectadas y retacadas con mortero sin retracción. En plantas PS a P5. Clase EXC3.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">6.287,40</td>
+              <td class="right price">5,45 €</td>
+              <td class="right amount">34.266,33 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">P44C-BR31</td>
+              <td class="desc">
+                <strong>PLACA DE ANCLAJE DE EMPRESILLADOS MEDIANTE PERFILES DE ACERO S275JR RETACADOS Y/O CONECTADOS</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para collarines y placas de base de arranque de empresillados a cimentación existente (sección 2-2' de planos ER.05.01), formados por angulares LPN 120.12, conectores químicos M16 y retacado con mortero sin retracción. Protección C4 en elementos enterrados. Clase EXC3.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">6.640,70</td>
+              <td class="right price">5,75 €</td>
+              <td class="right amount">38.184,03 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">P44C-BR32</td>
+              <td class="desc">
+                <strong>PLACA DE ANCLAJE DE EMPRESILLADOS A MURO DE FÁBRICA M/ PERFILES DE ACERO RETACADOS CONECTADOS</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para placas y pletinas de conexión de empresillados a muros de fábrica existentes con conectores químicos, pernos pasantes y mortero sin retracción. En plantas PS a P5. Clase EXC3.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">2.080,80</td>
+              <td class="right price">5,65 €</td>
+              <td class="right amount">11.756,52 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">P442-BR21</td>
+              <td class="desc">
+                <strong>REFUERZO PILARES DE ACERO INTERIORES MEDIANTE PLETINAS DE ACERO S275JR SOLDADAS</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para refuerzo de pilares existentes de acero formados por pieza compuesta, en pletinas laminadas soldadas longitudinalmente al fuste de perfiles HEB-180 en Planta Semisótano (PS). Clase EXC2.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">257,04</td>
+              <td class="right price">6,00 €</td>
+              <td class="right amount">1.542,24 €</td>
+            </tr>
+            
+            <tr class="item-row">
+              <td class="code">01.04.20.03</td>
+              <td class="desc">
+                <strong>REFUERZO NUEVOS NERVIOS HA FORJADO UNIDIRECCIONAL MEDIANTE VIGAS DE ACERO S275JR</strong>
+                <p class="partida-desc">Acero S275JR según UNE-EN 10025-2, para vigas formadas por perfiles HEB-200 retacadas con mortero sin retracción en toda su longitud, colocadas en plantas TPSS y TPB para refuerzo de nuevos nervios de hormigón armado. Clase EXC3.</p>
+              </td>
+              <td class="center unit">kg</td>
+              <td class="right qty">2.445,87</td>
+              <td class="right price">4,80 €</td>
+              <td class="right amount">11.740,18 €</td>
+            </tr>
+            
+            </tbody>
+          </table>
+        </div>
+        
+
+  <div class="summary-card">
+    <table class="summary-table">
+      <tr>
+        <td style="width: 70%;"><strong>Subtotal 06.01 - REHABILITACIÓN</strong> (Acero vertical/horizontal, anclajes y forjados colaborantes)</td>
+        <td style="width: 30%; text-align: right; font-weight: 700;">208.809,27 €</td>
+      </tr>
+      <tr>
+        <td><strong>Subtotal 06.02 - OBRA NUEVA</strong> (Perfiles S275JR en cubierta P6 y pasarela ascensor)</td>
+        <td style="text-align: right; font-weight: 700;">5.718,94 €</td>
+      </tr>
+      <tr>
+        <td><strong>Subtotal 06.03 - REFUERZOS ESTRUCTURALES</strong> (Jácenas UPN, empresillados, capiteles y parteluces)</td>
+        <td style="text-align: right; font-weight: 700;">1.803.544,60 €</td>
+      </tr>
+      <tr>
+        <td class="total-label">BASE IMPONIBLE TOTAL (VENTA)</td>
+        <td class="total-val" style="color: #0f172a;">2.018.072,81 €</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 700; color: #475569;">I.V.A. Repercutible (21.0%)</td>
+        <td style="text-align: right; font-weight: 700; color: #475569;">423.795,29 €</td>
+      </tr>
+      <tr>
+        <td class="total-label" style="color: #b45309;">TOTAL OFERTA ECONÓMICA (CON I.V.A.)</td>
+        <td class="total-val">2.441.868,10 €</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="conditions-grid">
+    <div class="cond-title">Condiciones Técnicas y Contractuales</div>
+    <ul class="cond-list">
+      <li><strong>Normativa de Ejecución:</strong> Código Estructural (RD 470/2021) y UNE-EN 1090-2 clase EXC3 para refuerzos principales de fustes, jácenas y capiteles; clase EXC2 para vigas y zancas interiores. Marcado CE obligatorio de todos los componentes metálicos.</li>
+      <li><strong>Tratamiento de Acabado:</strong> Preparación de superficies, imprimación de adherencia antioxidante de alta durabilidad en taller y pintura de acabado en obra. No incluye termolacado ni pintura al horno.</li>
+      <li><strong>Conexiones y Rellenos:</strong> Incluye p.p. de varillas roscadas corrugadas B500S M16 y M20 con inyección continua de resina epoxi de dos componentes de baja viscosidad, y retacado perimetral con mortero sin retracción tipo Grout de alta fluidez y resistencia característica.</li>
+      <li><strong>Medios de Montaje:</strong> Incluye camión pluma para descarga a pie de tajo, polipastos mecánicos y medios de izado interior para manipulación en plantas existentes. La contrata principal garantizará accesos despejados y apuntalamiento previo según planos ER.02.</li>
+      <li><strong>Forma de Pago:</strong> Certificaciones mensuales de obra ejecutada y validada por la Dirección Facultativa, con abono mediante transferencia bancaria a 30 días fecha factura.</li>
+    </ul>
+  </div>
+
+  <table class="signatures-table">
+    <tr>
+      <td class="sig-col" style="margin-right: 10px;">
+        <div style="font-size: 8pt; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Por HAM MENORCA (Dixis Recursos y Soluciones S.L.)</div>
+        <div class="sig-box"></div>
+        <div style="font-size: 7.5pt; color: #64748b;">Pablo Sebastián Sánchez Arnoletto<br>Administrador Solidario · Dpto. Técnico</div>
+      </td>
+      <td class="sig-col">
+        <div style="font-size: 8pt; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Conforme Cliente (Cobra Edificación Singular)</div>
+        <div class="sig-box"></div>
+        <div style="font-size: 7.5pt; color: #64748b;">Firma y Sello de Aceptación<br>Fecha: _____ / _____ / 2026</div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

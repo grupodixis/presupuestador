@@ -1,17 +1,20 @@
 {
   "codigo": "P-2026-0059",
   "referencia": "PRE-2026-1112-CONEXIONES-INOX-DEPOSITOS",
-  "estado_presupuesto": "DEFINITIVO — Actualizado con costes reales de material inoxidable de proveedor",
-  "fecha": "13 de noviembre de 2026",
+  "estado_presupuesto": "DEFINITIVO — Actualizado con oferta oficial IRESTAL + tornillería A4 + Portes 0,20 €/kg",
+  "fecha": "16 de noviembre de 2026",
   "validez_dias": 30,
   "calidad_inox": "AISI 316L (EN 1.4404) para tubería y accesorios / A4 para tornillería",
   "proceso_soldadura": "Soldadura TIG en taller con protección de argón, decapado y pasivado de cordones",
   "cliente": {
-    "nombre": "Por confirmar",
+    "nombre": "ANTONIO Y DIEGO, S.A.",
+    "cif": "A07116122",
+    "domicilio": "Carrer des Cap Negre, 3 (Pol. Ind. POIMA), 07714 Mahón (Menorca)",
+    "contacto": "Guillermo Casanova Rosa",
     "obra": "Subidas y conexiones de tubería de acero inoxidable a depósitos (PVC-O a depósito)",
-    "ubicacion": "Menorca / Illes Balears",
-    "telefono": null,
-    "email": null
+    "ubicacion": "Menorca (Illes Balears)",
+    "telefono": "+34 971 36 05 05",
+    "email": "guillermo@antonioydiego.com / info@antonioydiego.com"
   },
   "emisor": {
     "razon_social": "Dixis Recursos y Soluciones S.L.",
@@ -34,57 +37,63 @@
     "oficial_montaje_obra": 45.00,
     "ayudante_montaje_obra": 35.00
   },
-  "margen_objetivo_sobre_coste": 0.25,
+  "portes_maritimos": {
+    "tarifa_por_kg": 0.20,
+    "peso_total_estimado_kg": 770.44,
+    "coste_total_portes": 154.09
+  },
   "partidas": [
     {
       "id": "1.01",
       "diametro_pvco": "D = 110 mm",
       "equivalencia_dn": "DN 100 (Ø 114,3 mm)",
+      "peso_estimado_kg_total": 365.40,
       "concepto": "Conexión de tubería de acero inoxidable D = 110 mm",
       "descripcion": "Suministro e instalación completa en obra de tubería de acero inoxidable AISI 316L de diámetro 110 mm (DN 100) para formación de conexión de tubería de PVC-O a depósito, fabricada en taller con soldadura TIG sin empalmes (barra de 6 m cortada a medida de hasta 5 m) y decapado/pasivado de cordones. Incluye: montaje en obra con fijación mediante bridas reforzadas a pared en acero inoxidable y anclajes A4, un codo de acero inoxidable D110 de 90° para la realización de la entrada, hasta 5 metros de tubería de inox D110 en una sola pieza, bridas EN 1092-1 PN10/16, juntas EPDM y tornillería inox A4.",
       "unidad": "ud",
       "cantidad": 8,
       "materiales_inox": [
         {
-          "concepto": "Tubo inox 316L DN100 (Ø 114,3x2 mm) — Barra 6 m (sin empalme a 36,50 €/m)",
+          "concepto": "Tubo inox 316L DN100 (Ø 114,3x2 mm) — Barra 6 m (Irestal 29,50 €/m)",
           "unidad": "barra (6 m)",
           "cantidad": 8,
-          "coste_unitario_est": 219.00,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 177.00,
+          "estado": "OFERTA IRESTAL"
         },
         {
           "concepto": "Codo 90° inox 316L para soldar DN100 (114,3x2 R=152 EN 10253)",
           "unidad": "ud",
           "cantidad": 8,
-          "coste_unitario_est": 19.08,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 18.25,
+          "estado": "OFERTA IRESTAL"
         },
         {
           "concepto": "Brida inox 316L EN 1092-1 PN10/16 DN100 (100/114.3)",
           "unidad": "ud",
           "cantidad": 16,
-          "coste_unitario_est": 45.90,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 40.25,
+          "estado": "OFERTA IRESTAL"
         },
         {
           "concepto": "Abrazaderas / soportes inox para tubo DN100 (3 por subida)",
           "unidad": "ud",
           "cantidad": 24,
-          "coste_unitario_est": 8.02,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 2.85,
+          "estado": "OFERTA IRESTAL"
         },
         {
-          "concepto": "Juntas planas EPDM + tornillería inox A4 DIN 933 M16x60 + tuercas DIN 934 A4",
+          "concepto": "Juntas planas EPDM (Irestal 1,55 €) + tornillería A4 (8x M16x60 + tuercas)",
           "unidad": "juego",
           "cantidad": 16,
-          "coste_unitario_est": 13.50,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 10.47,
+          "estado": "IRESTAL + TORNILLERIA A4"
         }
       ],
       "consumibles_tig_por_ud": 20.00,
       "mo_taller_horas_tig_por_ud": 4.5,
       "mo_taller_horas_prep_por_ud": 1.0,
       "mo_obra_horas_equipo_por_ud": 3.0,
+      "portes_maritimos_por_ud": 9.14,
       "transporte_por_ud": 25.00,
       "precio_cliente_unitario": 1150.00
     },
@@ -92,51 +101,53 @@
       "id": "1.02",
       "diametro_pvco": "D = 160 mm",
       "equivalencia_dn": "DN 150 (Ø 168,3 mm)",
+      "peso_estimado_kg_total": 139.10,
       "concepto": "Conexión de tubería de acero inoxidable D = 160 mm",
       "descripcion": "Suministro e instalación completa en obra de tubería de acero inoxidable AISI 316L de diámetro 160 mm (DN 150) para formación de conexión de tubería de PVC-O a depósito, fabricada en taller con soldadura TIG sin empalmes (barra de 6 m cortada a medida de hasta 5 m) y decapado/pasivado de cordones. Incluye: montaje en obra con fijación mediante bridas reforzadas a pared en acero inoxidable y anclajes A4, un codo de acero inoxidable D160 de 90° para la realización de la entrada, hasta 5 metros de tubería de inox D160 en una sola pieza, bridas EN 1092-1 PN10/16, juntas EPDM y tornillería inox A4.",
       "unidad": "ud",
       "cantidad": 2,
       "materiales_inox": [
         {
-          "concepto": "Tubo inox 316L DN150 (Ø 168,3x2 mm) — Barra 6 m (sin empalme a 54,10 €/m)",
+          "concepto": "Tubo inox 316L DN150 (Ø 168,3x2 mm) — Barra 6 m (Irestal 47,50 €/m)",
           "unidad": "barra (6 m)",
           "cantidad": 2,
-          "coste_unitario_est": 324.60,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 285.00,
+          "estado": "OFERTA IRESTAL"
         },
         {
           "concepto": "Codo 90° inox 316L para soldar DN150 (168,3x2 R=228.50 EN 10253)",
           "unidad": "ud",
           "cantidad": 2,
-          "coste_unitario_est": 48.00,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 39.50,
+          "estado": "OFERTA IRESTAL"
         },
         {
           "concepto": "Brida inox 316L EN 1092-1 PN10/16 DN150 (150/168.3)",
           "unidad": "ud",
           "cantidad": 4,
-          "coste_unitario_est": 72.10,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 68.90,
+          "estado": "OFERTA IRESTAL"
         },
         {
           "concepto": "Abrazaderas / soportes inox para tubo DN150 (3 por subida)",
           "unidad": "ud",
           "cantidad": 6,
-          "coste_unitario_est": 11.90,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 4.20,
+          "estado": "OFERTA IRESTAL"
         },
         {
-          "concepto": "Juntas planas EPDM + tornillería inox A4 DIN 933 M20x70 + tuercas DIN 934 A4",
+          "concepto": "Juntas planas EPDM (Irestal 2,75 €) + tornillería A4 (8x M20x70 + tuercas)",
           "unidad": "juego",
           "cantidad": 4,
-          "coste_unitario_est": 26.00,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 20.28,
+          "estado": "IRESTAL + TORNILLERIA A4"
         }
       ],
       "consumibles_tig_por_ud": 30.00,
       "mo_taller_horas_tig_por_ud": 6.0,
       "mo_taller_horas_prep_por_ud": 1.5,
       "mo_obra_horas_equipo_por_ud": 4.0,
+      "portes_maritimos_por_ud": 13.91,
       "transporte_por_ud": 35.00,
       "precio_cliente_unitario": 1680.00
     },
@@ -144,51 +155,53 @@
       "id": "1.03",
       "diametro_pvco": "D = 250 mm",
       "equivalencia_dn": "DN 250 (Ø 273,0 mm)",
+      "peso_estimado_kg_total": 265.94,
       "concepto": "Conexión de tubería de acero inoxidable D = 250 mm",
       "descripcion": "Suministro e instalación completa en obra de tubería de acero inoxidable AISI 316L de diámetro 250 mm (DN 250) para formación de conexión de tubería de PVC-O a depósito, fabricada en taller con soldadura TIG sin empalmes (barra de 6 m cortada a medida de hasta 5 m) y decapado/pasivado de cordones. Incluye: montaje en obra con fijación mediante bridas reforzadas a pared en acero inoxidable y anclajes A4, un codo de acero inoxidable D250 de 90° para la realización de la entrada, hasta 5 metros de tubería de inox D250 en una sola pieza, bridas EN 1092-1 PN10/16, juntas EPDM y tornillería inox A4.",
       "unidad": "ud",
       "cantidad": 2,
       "materiales_inox": [
         {
-          "concepto": "Tubo inox 316L DN250 (Ø 273,0x2 mm) — Barra 6 m (sin empalme a 89,10 €/m)",
+          "concepto": "Tubo inox 316L DN250 (Ø 273,0x2 mm) — Barra 6 m (89,10 €/m)",
           "unidad": "barra (6 m)",
           "cantidad": 2,
           "coste_unitario_est": 534.60,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "estado": "COTIZACION PREVIA"
         },
         {
           "concepto": "Codo 90° inox 316L para soldar DN250 (273x2 R=381 EN 10253)",
           "unidad": "ud",
           "cantidad": 2,
-          "coste_unitario_est": 146.25,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 140.95,
+          "estado": "OFERTA IRESTAL"
         },
         {
           "concepto": "Brida inox 316L EN 1092-1 PN10/16 DN250 (250/273.10)",
           "unidad": "ud",
           "cantidad": 4,
-          "coste_unitario_est": 136.50,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 111.40,
+          "estado": "OFERTA IRESTAL"
         },
         {
-          "concepto": "Abrazaderas / soportes inox para tubo DN250 (3 por subida)",
+          "concepto": "Abrazaderas / soportes inox para tubo DN250 (3 por subida, no stock Irestal)",
           "unidad": "ud",
           "cantidad": 6,
           "coste_unitario_est": 22.00,
-          "estado": "ESTIMADO MERCADO"
+          "estado": "MERCADO / ALTERNATIVO"
         },
         {
-          "concepto": "Juntas planas EPDM + tornillería inox A4 DIN 933 M20x80 + tuercas DIN 934 A4",
+          "concepto": "Juntas planas EPDM (Irestal 6,95 €) + tornillería A4 (12x M20x80 + tuercas)",
           "unidad": "juego",
           "cantidad": 4,
-          "coste_unitario_est": 42.00,
-          "estado": "CONFIRMADO PROVEEDOR"
+          "coste_unitario_est": 36.03,
+          "estado": "IRESTAL + TORNILLERIA A4"
         }
       ],
       "consumibles_tig_por_ud": 50.00,
       "mo_taller_horas_tig_por_ud": 9.0,
       "mo_taller_horas_prep_por_ud": 2.0,
       "mo_obra_horas_equipo_por_ud": 5.0,
+      "portes_maritimos_por_ud": 26.59,
       "transporte_por_ud": 50.00,
       "precio_cliente_unitario": 2680.00
     }
@@ -196,7 +209,7 @@
   "condiciones_comerciales": {
     "validez": "30 días naturales desde la fecha de emisión.",
     "forma_pago": "100% a la aceptación del presupuesto (o según acuerdo comercial).",
-    "plazo_entrega": "Fabricación en taller (soldadura TIG) tras recepción de material inoxidable (~7-10 días laborables) + montaje en obra (~5-6 jornadas).",
+    "plazo_entrega": "Plazo proveedor Irestal: 2-3 días stock. Fabricación en taller (soldadura TIG): ~5-7 días laborables + montaje en obra (~5-6 jornadas).",
     "no_incluido": [
       "Obra civil, excavaciones, arquetas o bases de hormigón.",
       "Tubería y accesorios de PVC-O previos a la brida de transición.",

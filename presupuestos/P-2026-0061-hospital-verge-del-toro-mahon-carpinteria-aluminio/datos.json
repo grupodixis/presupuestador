@@ -1,0 +1,356 @@
+{
+  "codigo": "P-2026-0061",
+  "referencia": "PRE-2026-1116-HOSPITAL-VERGE-DEL-TORO-MAHON",
+  "version": "1.0",
+  "fecha": "16 de noviembre de 2026",
+  "fecha_iso": "2026-11-16",
+  "validez_dias": 30,
+  "forma_pago": "Según condiciones contractuales de obra singular / Certificaciones mensuales de avance",
+  "plazo_ejecucion_estimado": "Coordinado con el plan de obra principal (fabricación escalonada en taller y montaje por fases)",
+  "cliente": {
+    "empresa": "Cobra Edificación Singular (Cobra Singular Building / Grupo Cobra)",
+    "contacto": "Fernando Sánchez Sánchez",
+    "cargo": "Arquitecto Técnico · Departamento de Estudios",
+    "telefono": "(34) 914 569 500 / (34) 611 820 961",
+    "direccion": "C/ Cardenal Marcelo Spínola 14",
+    "codigo_postal": "28016",
+    "poblacion": "Madrid",
+    "provincia": "Madrid",
+    "pais": "España",
+    "web": "https://grupocobra.com/"
+  },
+  "proyecto": {
+    "titulo": "Projecte Bàsic i d'Execució 2 de Reforma Interior i Ordenació de la Parcel·la del Nou Hospital Verge del Toro, Maó, Menorca",
+    "promotor": "IB-SALUT (Govern de les Illes Balears - Servei de Salut)",
+    "obra": "Nou Hospital Verge del Toro",
+    "emplazamiento": "Carrer de Barcelona / Verge del Toro, 07701 Maó, Menorca (Illes Balears)",
+    "capitulo_codigo": "H25",
+    "capitulo_nombre": "CARPINTERIA ALUMINIO",
+    "planos_referencia": "AL.03.01 (Fusteries Exterior 1. Sèrie Portes i Finestres) y AL.03.02 (Fusteries Exterior 2. Sèrie Reixes)",
+    "acabado_superficial": "Lacado Qualicoat Seaside color RAL 7016 (Gris Antracita) apto para ambiente marino C4/C5, con ciclo de decapado profundo, oxidación controlada y polímeros de poliéster termoendurecidos (60-100 micras)",
+    "vidrio_prescrito": "Doble acristalamiento acústico y de seguridad laminar bajo emisivo 4+4 / 12 / 4+4 con dos láminas de seguridad Planistar / Silence (según plano AL.03.01) y sellado perimetral con silicona neutra",
+    "ensayos_referencia": "Marcado CE UNE-EN 14351-1, permeabilidad aire Clase 4 (UNE-EN 12207), estanqueidad agua Clase 6A/9A (UNE-EN 12208), resistencia viento Clase C4/C5 (UNE-EN 12210), impacto cuerpo blando Clase 5 (UNE-EN 13049) y durabilidad 500.000 ciclos (UNE-EN 1191)"
+  },
+  "emisor": {
+    "razon_social": "Dixis Recursos y Soluciones S.L.",
+    "cif": "B57825432",
+    "nombre_comercial": "ALUFAC Carpintería de Aluminio / HAM Estructuras Metálicas Menorca",
+    "domicilio": "Av. Circunval·lació, 11, Polígono Industrial de Sant Lluís, 07710 Sant Lluís, Menorca (Illes Balears)",
+    "telefono": "+34 971 35 20 18",
+    "movil": "+34 669 769 541",
+    "email": "info@alufac.es / administracion@dixis.es",
+    "web": "https://www.hamenorca.com",
+    "representante": "Pablo Sebastián Sánchez Arnoletto"
+  },
+  "partidas": [
+    {
+      "orden": 1,
+      "codigo": "VMILLPLUS_1HF",
+      "resumen": "Pe2 - Cl1- Ventana fija 1 hoja",
+      "tipo": "Fijo exterior RPT",
+      "sistema": "Cortizo Millenium Plus 70 / Fijación Coplanaria",
+      "unidad": "m²",
+      "cantidad": 5.04,
+      "coste_unitario": 485.00,
+      "precio_venta_unitario": 650.00,
+      "subtotal": 3276.00,
+      "coste_subtotal": 2444.40,
+      "descripcion": "Suministro y colocación de composición de fijos de dimensiones según documentación gráfica adjunta y con premarco, compuesto por perfiles de aleación de aluminio 6063-T5 con rotura de puente térmico mediante varillas de poliamida 6.6 de 24 mm reforzadas con 25% de fibra de vidrio. Marco de sección 70 mm con espesor medio de 2,0 mm, capacidad máxima de acristalamiento 62 mm. Vidrio doble laminar de seguridad y bajo emisivo 4+4/12/4+4. Estanqueidad por triple junta de EPDM. Sellado perimetral con cordón continuo de silicona neutra, garras de fijación y ajuste final en obra. Lacado QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "Pe2- Módulo 1h fija", "n": 4, "longitud": 0.40, "anchura": 0.00, "altura": 2.75, "cantidad": 4.40},
+        {"etiqueta": "Cl1 (Claraboya de cubierta)", "n": 1, "longitud": 0.80, "anchura": 0.00, "altura": 0.80, "cantidad": 0.64}
+      ]
+    },
+    {
+      "orden": 2,
+      "codigo": ".MILL_PLUS",
+      "resumen": "Pe2 - Pe4 - Carpintería de aluminio 1 hoja practicable",
+      "tipo": "Puerta peatonal 1 hoja practicable de alta resistencia",
+      "sistema": "Cortizo Millenium Plus 70",
+      "unidad": "m²",
+      "cantidad": 14.63,
+      "coste_unitario": 735.00,
+      "precio_venta_unitario": 985.00,
+      "subtotal": 14410.55,
+      "coste_subtotal": 10753.05,
+      "descripcion": "Suministro y colocación de composición de puerta abisagrada de 1 hoja apertura exterior/interior con premarco, perfiles aleación de aluminio 6063-T5 de 70 mm de sección y 2,0 mm de espesor medio. RPT con poliamidas de 24 mm. Bisagras mecánicas de tres palas para 220 kg, cerradura de seguridad, herrajes homologados STAC clasificados para 500.000 ciclos de apertura. Vidrio laminar de seguridad 4+4/12/4+4 bajo emisivo. Triple junta de estanqueidad de EPDM, premarco, ajuste en obra y sellado perimetral. Lacado QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "Pe2- Módulo puerta 1h practicable", "n": 4, "longitud": 1.10, "anchura": 0.00, "altura": 2.75, "cantidad": 12.10},
+        {"etiqueta": "Pe4- Puerta 1h practicable", "n": 1, "longitud": 1.15, "anchura": 0.00, "altura": 2.20, "cantidad": 2.53}
+      ]
+    },
+    {
+      "orden": 3,
+      "codigo": ".MILL_PLUS_2",
+      "resumen": "Pe1 - Carpintería de aluminio Millenium Plus 2 hojas practicables",
+      "tipo": "Puerta doble de acceso hospitalario tráfico intenso",
+      "sistema": "Cortizo Millenium Plus 70",
+      "unidad": "m²",
+      "cantidad": 33.00,
+      "coste_unitario": 760.00,
+      "precio_venta_unitario": 1020.00,
+      "subtotal": 33660.00,
+      "coste_subtotal": 25080.00,
+      "descripcion": "Suministro y colocación de puertas abisagradas de 2 hojas practicables sistema CORTIZO MILLENIUM PLUS 70 con premarco, perfiles de aleación 6063-T5 coplanarios de 70 mm de profundidad y espesor 2,0 mm. RPT con varillas aislantes de poliamida 6.6 de 24 mm con fibra de vidrio. Bisagras mecánicas de 3 palas reforzadas para 220 kg por hoja, dispositivo de apertura antipánico homologado STAC, pasadores ocultos en hoja pasiva, triple junta perimetral EPDM. Acristalamiento con vidrio de seguridad laminar bajo emisivo 4+4/12/4+4. Totalmente montada, ajustada y sellada en obra. Lacado QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "Pe1 - Puerta 2h practicables", "n": 8, "longitud": 1.50, "anchura": 0.00, "altura": 2.75, "cantidad": 33.00}
+      ]
+    },
+    {
+      "orden": 4,
+      "codigo": ".B_4700FC",
+      "resumen": "Pe3 - Pe6 - Balconera de aluminio 4700 Corredera + Fijo",
+      "tipo": "Balconera corredera gran formato con fijo",
+      "sistema": "Cortizo 4700 RPT",
+      "unidad": "m²",
+      "cantidad": 26.33,
+      "coste_unitario": 515.00,
+      "precio_venta_unitario": 695.00,
+      "subtotal": 18299.35,
+      "coste_subtotal": 13559.95,
+      "descripcion": "Suministro y colocación de balconera corredera + fijo sistema CORTIZO 4700 RPT, compuesta por perfiles aleación 6063-T5 de 120/115 mm en marco y 50 mm en hojas, espesor medio 1,5 mm. Rotura de puente térmico tubular mediante poliamidas de 20 a 25 mm. Herrajes de corredera de alta resistencia con carros tándem regulables inox, rodamientos de agujas, cierres multipunto, juntas de felpa de alta densidad con lámina central de polietileno fin-seal y juntas EPDM. Vidrio de seguridad laminar 4+4/12/4+4 bajo emisivo. Incluye premarco, nivelación, fijación estructural y sellado. Lacado QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "Pe3 -Balconera 2h correderas con fijo central", "n": 1, "longitud": 7.40, "anchura": 0.00, "altura": 3.00, "cantidad": 22.20},
+        {"etiqueta": "Pe6 - Balconera corredera", "n": 1, "longitud": 1.50, "anchura": 0.00, "altura": 2.75, "cantidad": 4.13}
+      ]
+    },
+    {
+      "orden": 5,
+      "codigo": "_V_60_HO_P",
+      "resumen": "V0 - V1 - Ventana de aluminio COR 60 hoja oculta 2 hojas practicables",
+      "tipo": "Ventana practicable 2 hojas hoja oculta",
+      "sistema": "Cortizo COR 60 Hoja Oculta",
+      "unidad": "m²",
+      "cantidad": 48.68,
+      "coste_unitario": 415.00,
+      "precio_venta_unitario": 560.00,
+      "subtotal": 27260.80,
+      "coste_subtotal": 20202.20,
+      "descripcion": "Suministro y colocación de ventanas de 2 hojas practicables/oscilobatientes sistema CORTIZO COR 60 HOJA OCULTA de canal europeo. Marco de 60 mm de profundidad y hoja oculta exterior que maximiza la entrada de luz diurna. Espesor medio 1,6 mm, RPT con poliamidas 6.6 de 24 mm. Estanqueidad por sistema de triple junta EPDM con junta central de gran cámara. Herrajes perimetrales STAC de hoja oculta homologados Clase 4 / 9A / C5. Vidrio doble laminar acústico bajo emisivo 4+4/12/4+4. Con premarco de aluminio, calzos, sellado de juntas con silicona neutra y ajuste final. Lacado QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "V0 - Ventana 2h practicables", "n": 3, "longitud": 1.50, "anchura": 0.00, "altura": 1.00, "cantidad": 4.50},
+        {"etiqueta": "V1 - Módulo ventana 2h practicables", "n": 19, "longitud": 1.50, "anchura": 0.00, "altura": 1.55, "cantidad": 44.18}
+      ]
+    },
+    {
+      "orden": 6,
+      "codigo": "_V_60HO_1H_H",
+      "resumen": "V1-2-3-6-7 - Ventana de aluminio HOJA OCULTA fija 1 hoja",
+      "tipo": "Módulo ventana fija hoja oculta",
+      "sistema": "Cortizo COR 60 Hoja Oculta",
+      "unidad": "m²",
+      "cantidad": 20.78,
+      "coste_unitario": 310.00,
+      "precio_venta_unitario": 415.00,
+      "subtotal": 8623.70,
+      "coste_subtotal": 6441.80,
+      "descripcion": "Suministro y colocación de ventanas fijas sistema CORTIZO COR 60 HOJA OCULTA de canal europeo en composición modular con las aberturas contiguas. Marco de 60 mm, RPT con poliamidas de 24 mm, triple junta EPDM, junquillos clipados interiores. Vidrio doble bajo emisivo y de seguridad laminar 4+4/12/4+4 fijado sobre calzos de acuñado elásticos. Sellado perimetral con silicona neutra, premarco y anclaje a paramento. Lacado QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "V1 - Módulo ventana 1h fija", "n": 18, "longitud": 1.50, "anchura": 0.00, "altura": 0.40, "cantidad": 10.80},
+        {"etiqueta": "V2 - Módulo ventana 1h fija", "n": 6, "longitud": 0.80, "anchura": 0.00, "altura": 1.10, "cantidad": 5.28},
+        {"etiqueta": "V3 - Módulo ventana 1h fija", "n": 2, "longitud": 0.80, "anchura": 0.00, "altura": 1.10, "cantidad": 1.76},
+        {"etiqueta": "V6 - Módulo ventana 1h fija", "n": 1, "longitud": 1.10, "anchura": 0.00, "altura": 1.40, "cantidad": 1.54},
+        {"etiqueta": "V7 - Módulo ventana 1h fija", "n": 1, "longitud": 1.00, "anchura": 0.00, "altura": 1.40, "cantidad": 1.40}
+      ]
+    },
+    {
+      "orden": 7,
+      "codigo": "_B_60HO_1H_F",
+      "resumen": "V4-5-6-7 - Fijo de balconera de aluminio COR 60 HOJA OCULTA",
+      "tipo": "Fijo de balconera hoja oculta",
+      "sistema": "Cortizo COR 60 Hoja Oculta",
+      "unidad": "m²",
+      "cantidad": 42.71,
+      "coste_unitario": 320.00,
+      "precio_venta_unitario": 435.00,
+      "subtotal": 18578.85,
+      "coste_subtotal": 13667.20,
+      "descripcion": "Suministro y colocación de paño fijo de balconera sistema CORTIZO COR 60 HOJA OCULTA, marco de 60 mm, rotura de puente térmico por poliamidas tubulares de 24 mm. Vidrio de seguridad laminar acústico bajo emisivo 4+4/12/4+4 resistente al impacto Clase 5 UNE-EN 13049. Premarco de aluminio con garras, acuñado elástico perimetral, sellado hermético con cordón de silicona neutra y remates. Lacado QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "V4 - Módulo balconera 1h fija", "n": 3, "longitud": 3.50, "anchura": 0.00, "altura": 1.10, "cantidad": 11.55},
+        {"etiqueta": "V4 - Módulo lateral/inferior fijo", "n": 3, "longitud": 1.10, "anchura": 0.00, "altura": 2.10, "cantidad": 6.93},
+        {"etiqueta": "V5 - Módulo balconera 1h fija", "n": 3, "longitud": 3.20, "anchura": 0.00, "altura": 1.10, "cantidad": 10.56},
+        {"etiqueta": "V5 - Módulo lateral/inferior fijo", "n": 3, "longitud": 1.00, "anchura": 0.00, "altura": 2.10, "cantidad": 6.30},
+        {"etiqueta": "V6 - Módulo balconera 1h fija", "n": 1, "longitud": 3.50, "anchura": 0.00, "altura": 1.10, "cantidad": 3.85},
+        {"etiqueta": "V7 - Módulo balconera 1h fija", "n": 1, "longitud": 3.20, "anchura": 0.00, "altura": 1.10, "cantidad": 3.52}
+      ]
+    },
+    {
+      "orden": 8,
+      "codigo": ".60_HO_B",
+      "resumen": "V2-4-5 - Balconera de aluminio COR 60 hoja oculta",
+      "tipo": "Balconera practicable 1 hoja hoja oculta",
+      "sistema": "Cortizo COR 60 Hoja Oculta",
+      "unidad": "m²",
+      "cantidad": 39.06,
+      "coste_unitario": 440.00,
+      "precio_venta_unitario": 595.00,
+      "subtotal": 23240.70,
+      "coste_subtotal": 17186.40,
+      "descripcion": "Suministro y montaje de balconeras abisagradas practicables sistema CORTIZO COR 60 HOJA OCULTA, marco de 60 mm, hoja oculta exterior con RPT de 24 mm. Herrajes ocultos perimetrales STAC de alta capacidad de carga, manilla ergonómica de diseño minimalista, triple junta de EPDM. Vidrio de seguridad laminar bajo emisivo 4+4/12/4+4. Incluye premarco, fijación mecánica regulable, sellado exterior e interior con polímero neutro y puesta a punto. Lacado QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "V2 - Módulo balconera 1h practicable", "n": 6, "longitud": 0.80, "anchura": 0.00, "altura": 2.10, "cantidad": 10.08},
+        {"etiqueta": "V4 - Módulo balconera 1h practicable", "n": 6, "longitud": 1.20, "anchura": 0.00, "altura": 2.10, "cantidad": 15.12},
+        {"etiqueta": "V5 - Módulo balconera 1h practicable", "n": 6, "longitud": 1.10, "anchura": 0.00, "altura": 2.10, "cantidad": 13.86}
+      ]
+    },
+    {
+      "orden": 9,
+      "codigo": ".60_HO",
+      "resumen": "V3-6-7 - Carpinteria de aluminio HOJA OCULTA",
+      "tipo": "Ventana practicable 1 hoja hoja oculta",
+      "sistema": "Cortizo COR 60 Hoja Oculta",
+      "unidad": "m²",
+      "cantidad": 8.68,
+      "coste_unitario": 405.00,
+      "precio_venta_unitario": 545.00,
+      "subtotal": 4730.60,
+      "coste_subtotal": 3515.40,
+      "descripcion": "Suministro y colocación de ventanas abisagradas de 1 hoja practicable sistema CORTIZO COR 60 HOJA OCULTA de canal europeo. Marco 60 mm, hoja perimetral oculta con RPT de 24 mm, triple junta EPDM. Herrajes STAC homologados Clase 4 / 9A / C5. Acristalamiento con vidrio doble 4+4/12/4+4 bajo emisivo. Incluye premarco de aluminio, fijación, acuñado elástico y sellado con silicona neutra. Lacado QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "V3 - Módulo 1h practicable", "n": 2, "longitud": 0.80, "anchura": 0.00, "altura": 1.40, "cantidad": 2.24},
+        {"etiqueta": "V6 - Módulo 1h practicable", "n": 2, "longitud": 1.20, "anchura": 0.00, "altura": 1.40, "cantidad": 3.36},
+        {"etiqueta": "V7 - Módulo 1h practicable", "n": 2, "longitud": 1.10, "anchura": 0.00, "altura": 1.40, "cantidad": 3.08}
+      ]
+    },
+    {
+      "orden": 10,
+      "codigo": "B_MEN_F",
+      "resumen": "PMR2-3- Balconera Menorquina Practicable lamas fijas",
+      "tipo": "Persiana mallorquina/menorquina practicable lamas fijas",
+      "sistema": "Cortizo Menorquina Abatible",
+      "unidad": "m²",
+      "cantidad": 22.91,
+      "coste_unitario": 455.00,
+      "precio_venta_unitario": 615.00,
+      "subtotal": 14089.65,
+      "coste_subtotal": 10424.05,
+      "descripcion": "Suministro y colocación de puertas y balconeras abatibles practicables de protección solar sistema CORTIZO MENORQUINA con lamas fijas tubulares de extrusión troqueladas y engastadas de alta seguridad contra viento y salitre marino (Clase 5 de resistencia al viento UNE-EN 13659). Marco de 40 mm y hojas de 48 mm en aleación 6063-T5. Bisagras y goznes reforzados con pasivación marina, cerradura o fallebas de anclaje multipunto superior e inferior. Incluso premarco, colocación, aplomado y sellado perimetral. Lacado QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "PMR2 - Persiana 2h practicables", "n": 1, "longitud": 1.50, "anchura": 0.00, "altura": 2.10, "cantidad": 3.15},
+        {"etiqueta": "PMR4 - Módulo persiana 1h practicable", "n": 2, "longitud": 0.90, "anchura": 0.00, "altura": 1.70, "cantidad": 3.06},
+        {"etiqueta": "PMR5 - Persiana 2h practicables", "n": 1, "longitud": 3.30, "anchura": 0.00, "altura": 2.10, "cantidad": 6.93},
+        {"etiqueta": "PMR6 - Persiana 2h practicables", "n": 1, "longitud": 4.65, "anchura": 0.00, "altura": 2.10, "cantidad": 9.77}
+      ]
+    },
+    {
+      "orden": 11,
+      "codigo": "B_MEN_FF",
+      "resumen": "PMR3-4 - MR3 - Balconera Menorquina Fijo lamas fijas",
+      "tipo": "Persiana menorquina fija y rejillas de ventilación lamas fijas",
+      "sistema": "Cortizo Menorquina Fija",
+      "unidad": "m²",
+      "cantidad": 19.39,
+      "coste_unitario": 335.00,
+      "precio_venta_unitario": 455.00,
+      "subtotal": 8822.45,
+      "coste_subtotal": 6495.65,
+      "descripcion": "Suministro y colocación de paños fijos de protección solar y rejillas de ventilación permanente de sótano y cocina sistema CORTIZO MENORQUINA con lamas fijas de extrusión de aluminio aleación 6063-T5. Marco de 40 mm de sección, lamas de seguridad orientadas para permitir flujo de ventilación con máxima protección frente a lluvia batiente y vientos costeros (Clase 5 UNE-EN 13659). Fijación mecánica oculta, premarco, remates y sellado elástico. Lacado QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "PMR4 - Módulo persiana 1h fija", "n": 1, "longitud": 2.65, "anchura": 0.00, "altura": 1.10, "cantidad": 2.92},
+        {"etiqueta": "PMR3 - Persiana 4h fijas", "n": 1, "longitud": 4.00, "anchura": 0.00, "altura": 2.10, "cantidad": 8.40},
+        {"etiqueta": "persiana ventilaciónes sotano", "n": 2, "longitud": 1.80, "anchura": 0.00, "altura": 0.60, "cantidad": 2.16},
+        {"etiqueta": "persiana ventilaciones cocina", "n": 1, "longitud": 2.11, "anchura": 0.00, "altura": 2.80, "cantidad": 5.91}
+      ]
+    },
+    {
+      "orden": 12,
+      "codigo": "LAMA_TUBU",
+      "resumen": "Celosía fija Tubular Cortizo con sujeciones de aluminio",
+      "tipo": "Celosía de fachada lamas tubulares gran formato",
+      "sistema": "Cortizo COR-2847 / Montantes COR-2845",
+      "unidad": "m²",
+      "cantidad": 389.50,
+      "coste_unitario": 242.00,
+      "precio_venta_unitario": 325.00,
+      "subtotal": 126587.50,
+      "coste_subtotal": 94259.00,
+      "descripcion": "Suministro y colocación de celosía fija exterior de lamas tubulares de aluminio extrusionado serie COR-2847 de Cortizo (aleación 6063-T5) sobre estructura portante de montantes verticales/horizontales tipo COR-2845 con perfiles de clipaje oculto y rastreles de soporte cada 1,00 m según detalle plano AL.03.02. Garantiza resistencia al viento Clase 6 (máx) según UNE-EN 13659:2004 / UNE 1932:2001. Incluye tapas laterales de extrusión cortadas por láser con acabado lacado, anclajes estructurales de aluminio, tornillería y pernería de acero inoxidable A2/A4 calidad marina, replanteo, montaje en fachada con medios auxiliares de elevación (PEMP) y pruebas de servicio. Lacado QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "pa1", "n": 2, "longitud": 6.00, "anchura": 2.50, "altura": 0.00, "cantidad": 30.00},
+        {"etiqueta": "pa1 (módulo 2)", "n": 2, "longitud": 3.00, "anchura": 2.50, "altura": 0.00, "cantidad": 15.00},
+        {"etiqueta": "pa2", "n": 4, "longitud": 6.00, "anchura": 2.50, "altura": 0.00, "cantidad": 60.00},
+        {"etiqueta": "pa3", "n": 3, "longitud": 6.00, "anchura": 2.50, "altura": 0.00, "cantidad": 45.00},
+        {"etiqueta": "pa3 (módulo 2)", "n": 1, "longitud": 4.00, "anchura": 2.50, "altura": 0.00, "cantidad": 10.00},
+        {"etiqueta": "mr1 (módulo celosía h=13,5m)", "n": 2, "longitud": 3.50, "anchura": 13.50, "altura": 0.00, "cantidad": 94.50},
+        {"etiqueta": "mr2 (módulo celosía h=13,5m)", "n": 2, "longitud": 5.00, "anchura": 13.50, "altura": 0.00, "cantidad": 135.00}
+      ]
+    },
+    {
+      "orden": 13,
+      "codigo": "P_CORTIZ_PEGC",
+      "resumen": "Panel Composite PEGADO SOBRE CARPINTERÍA",
+      "tipo": "Revestimiento panel composite de aluminio 4 mm",
+      "sistema": "Panel Composite Al-PE 4 mm PVDF Kynar 500",
+      "unidad": "m²",
+      "cantidad": 1.68,
+      "coste_unitario": 178.00,
+      "precio_venta_unitario": 245.00,
+      "subtotal": 411.60,
+      "coste_subtotal": 299.04,
+      "descripcion": "Suministro y montaje de revestimiento en carpintería de escaleras mediante paneles composite de aluminio PE de 4 mm de espesor total (doble lámina exterior/interior de 0,5 mm en aleación 3005-H44 Al-Mg con núcleo termoplástico de 3 mm). Cara exterior lacada en PVDF Kynar 500 en color RAL 7016, cara interior con imprimación anticorrosiva. Incluye corte, cajeado y fresado perimetral, fijación sobre perfiles de hoja mediante cinta adhesiva técnica estructural biadhesiva de alta resistencia mecánica, imprimación activadora química y sellado perimetral estanco. QUALICOAT SEASIDE RAL 7016.",
+      "desglose_medicion": [
+        {"etiqueta": "escaleras", "n": 6, "longitud": 0.80, "anchura": 0.35, "altura": 0.00, "cantidad": 1.68}
+      ]
+    },
+    {
+      "orden": 14,
+      "codigo": "EFML.DIVV",
+      "resumen": "MC01 - Muro cortina acristalado interior 4+4/12/4+4",
+      "tipo": "Mampara divisoria interior acristalada acústica",
+      "sistema": "Perfilería aluminio enrasada suelo/techo + vidrio acústico",
+      "unidad": "m²",
+      "cantidad": 7.22,
+      "coste_unitario": 268.00,
+      "precio_venta_unitario": 365.00,
+      "subtotal": 2635.30,
+      "coste_subtotal": 1934.96,
+      "descripcion": "Muro cortina interior acristalado MC01 para divisiones de espacios hospitalarios. Perfilería de aluminio extrusionado lacado de 60 micras enrasado a pavimento y falso techo según NTE/PML-13. Acristalamiento con vidrio laminar de seguridad y aislamiento acústico 4+4 / 12 / 4+4 fijado mediante calzos de acuñado elásticos perimetrales, junquillos clipados y sellado en frío con silicona neutra. Incluye p/p de encuentros, tapetas, remates y deducción íntegra de hueco de paso de puerta PV160d.",
+      "desglose_medicion": [
+        {"etiqueta": "mc01", "n": 1, "longitud": 3.75, "anchura": 0.00, "altura": 2.80, "cantidad": 10.50},
+        {"etiqueta": "a descontar puerta PV160d", "n": -1, "longitud": 1.60, "anchura": 0.00, "altura": 2.05, "cantidad": -3.28}
+      ]
+    },
+    {
+      "orden": 15,
+      "codigo": "EFML.DIVW",
+      "resumen": "MC02-03 - Muro cortina acristalado interior",
+      "tipo": "Mampara divisoria interior acristalada continua",
+      "sistema": "Perfilería aluminio enrasada suelo/techo + vidrio laminar",
+      "unidad": "m²",
+      "cantidad": 32.22,
+      "coste_unitario": 258.00,
+      "precio_venta_unitario": 350.00,
+      "subtotal": 11277.00,
+      "coste_subtotal": 8312.76,
+      "descripcion": "Muro cortina interior acristalado MC02 y MC03 para sectorización de zonas hospitalarias. Estructura portante de perfiles de aluminio lacado de 60 micras enrasados a suelo y techo, junquillos a presión, juntas de neopreno. Acristalamiento con vidrio de seguridad laminar (5+5 clasificado 2B2 según UNE-EN 12600), sellado neutro elástico, fijaciones ocultas y deducción neta de huecos de paso para puertas correderas automáticas PCoAuV160d y PCoAuV170d.",
+      "desglose_medicion": [
+        {"etiqueta": "mc03", "n": 1, "longitud": 4.03, "anchura": 0.00, "altura": 2.10, "cantidad": 8.46},
+        {"etiqueta": "a deducir puerta PCoAuV160d", "n": -1, "longitud": 1.60, "anchura": 0.00, "altura": 2.10, "cantidad": -3.36},
+        {"etiqueta": "mc02", "n": 1, "longitud": 10.96, "anchura": 0.00, "altura": 2.80, "cantidad": 30.69},
+        {"etiqueta": "a descontar puertas PCoAuV170d", "n": -1, "longitud": 1.70, "anchura": 0.00, "altura": 2.10, "cantidad": -3.57}
+      ]
+    }
+  ],
+  "totales": {
+    "superficie_total_m2": 672.04,
+    "coste_directo_total": 226941.51,
+    "margen_bruto_total": 78961.94,
+    "margen_porcentaje_sobre_venta": 25.81,
+    "margen_porcentaje_sobre_coste": 34.80,
+    "base_imponible": 305903.45,
+    "iva_porcentaje": 21.0,
+    "iva_importe": 64239.72,
+    "total_con_iva": 370143.17
+  },
+  "condiciones_comerciales": [
+    "Precios válidos para suministro, fabricación en taller y montaje completo en obra en Mahón (Menorca).",
+    "Tratamiento superficial de perfiles de aluminio: Lacado QUALICOAT SEASIDE RAL 7016 (Gris Antracita), garantizado para ambiente marino costero C4/C5.",
+    "Herrajes: Gama homologada STAC Cortizo para uso hospitalario intensivo, ensayada a 500.000 ciclos.",
+    "Vidrios: Doble acristalamiento acústico y de seguridad laminar 4+4 / 12 / 4+4 bajo emisivo con control solar (Planistar / Silence) según prescripción de proyecto.",
+    "Medios auxiliares: Incluye plataformas elevadoras móviles de personal (PEMP) para el montaje de celosías tubulares de fachada hasta 13,5 m de altura.",
+    "Premarcos y fijaciones: Incluidos premarcos de aluminio, garras de fijación, tornillería de acero inoxidable A2/A4 y sellado perimetral con silicona neutra.",
+    "Plazo de ejecución: Coordinado con el plan general de obra de la constructora principal (Cobra Edificación Singular).",
+    "Garantía oficial: 2 años sobre instalación y componentes según LOE; 10 años sobre perfiles y lacado según sello QUALICOAT SEASIDE."
+  ]
+}
