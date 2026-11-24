@@ -1,0 +1,240 @@
+{
+  "proyecto": {
+    "codigo": "P-2026-0065",
+    "referencia": "PRE-2026-1124-DINT-REFORMARC-CARLOTA",
+    "titulo": "Suministro y Fabricación de 3 Dinteles Metálicos Compuestos en Perfiles Laminados IPE con Taladrado, Varillas Pasantes M12 e Imprimación Antioxidante",
+    "fecha": "24 de noviembre de 2026",
+    "validez_dias": 30,
+    "plazo_entrega": "4 - 6 días laborables desde confirmación de pedido",
+    "forma_pago": "100% a la confirmación / aceptación de presupuesto",
+    "lugar_entrega": "Recogida en taller HAM (Sant Lluís, Menorca) o porte a pie de obra a convenir"
+  },
+  "cliente": {
+    "codigo_factusol": "471",
+    "nombre_fiscal": "REFORMARC & REFORNILLES SL",
+    "nombre_comercial": "REFORMARC & REFORNILLES SL",
+    "nif": "B75550434",
+    "domicilio": "Calle de la Paleta, 2, Baja 1",
+    "codigo_postal": "46723",
+    "poblacion": "Almoines",
+    "provincia": "Valencia",
+    "pais": "España",
+    "email": "reformarcmenorca@gmail.com",
+    "referencia_contacto": "Solicitud Carlota",
+    "destino_obra": "Menorca (Illes Balears)"
+  },
+  "emisor": {
+    "razon_social": "Dixis Recursos y Soluciones S.L.",
+    "cif": "B57825432",
+    "marca_comercial": "HAM Estructuras Metálicas Menorca",
+    "domicilio": "Av. Circunval·lació, 11, Polígono Industrial de Sant Lluís",
+    "codigo_postal": "07710",
+    "localidad": "Sant Lluís",
+    "provincia": "Illes Balears",
+    "contacto": "Pablo Sebastián Sánchez Arnoletto",
+    "telefono": "+34 971 35 20 18",
+    "movil": "+34 669 769 541",
+    "email": "pablo@dixis.es",
+    "email_admon": "administracion@dixis.es",
+    "web": "https://www.hamenorca.com"
+  },
+  "especificaciones_tecnicas": {
+    "normativa_acero": "Acero estructural laminado en caliente S275JR según UNE-EN 10025-2",
+    "tratamiento_superficial": "Preparación mecánica superficial Grado St 3 / Sa 2 + Imprimación antioxidante de taller alifática/epoxi fosfatante de secado rápido (sin horno, según directriz de calidad HAM)",
+    "fijaciones_cosido": "Varillas roscadas M12 calidad 8.8 cincadas L=200 mm, arandelas anchas DIN 9021 y tuercas hexagonales DIN 934 para cosido estructural cada 50 cm",
+    "tolerancias_fabricacion": "UNE-EN 1090-2 (Clase de Ejecución EXC2)",
+    "perforaciones": "Taladro pasante de Ø14 mm en alma de perfiles a paso e=500 mm"
+  },
+  "elementos": [
+    {
+      "id": "DINTEL-01",
+      "descripcion": "Dintel laminado doble compuesto por 2 vigas IPE 160 de 2,00 m",
+      "longitud_viga_m": 2.0,
+      "unidades_vigas": 2,
+      "total_ml_perfil": 4.0,
+      "tipo_perfil": "IPE 160",
+      "peso_kg_m": 15.8,
+      "peso_total_kg": 63.2,
+      "superficie_m2_m": 0.623,
+      "superficie_total_m2": 2.492,
+      "paso_taladros_cm": 50,
+      "num_varillas_m12": 4,
+      "num_taladros_totales": 8,
+      "precio_unitario": 360.0,
+      "importe": 360.0
+    },
+    {
+      "id": "DINTEL-02",
+      "descripcion": "Dintel laminado doble compuesto por 2 vigas IPE 160 de 3,00 m",
+      "longitud_viga_m": 3.0,
+      "unidades_vigas": 2,
+      "total_ml_perfil": 6.0,
+      "tipo_perfil": "IPE 160",
+      "peso_kg_m": 15.8,
+      "peso_total_kg": 94.8,
+      "superficie_m2_m": 0.623,
+      "superficie_total_m2": 3.738,
+      "paso_taladros_cm": 50,
+      "num_varillas_m12": 6,
+      "num_taladros_totales": 12,
+      "precio_unitario": 520.0,
+      "importe": 520.0
+    },
+    {
+      "id": "DINTEL-03",
+      "descripcion": "Dintel laminado doble compuesto por 2 vigas IPE 240 de 2,00 m",
+      "longitud_viga_m": 2.0,
+      "unidades_vigas": 2,
+      "total_ml_perfil": 4.0,
+      "tipo_perfil": "IPE 240",
+      "peso_kg_m": 30.7,
+      "peso_total_kg": 122.8,
+      "superficie_m2_m": 0.922,
+      "superficie_total_m2": 3.688,
+      "paso_taladros_cm": 50,
+      "num_varillas_m12": 4,
+      "num_taladros_totales": 8,
+      "precio_unitario": 540.0,
+      "importe": 540.0
+    }
+  ],
+  "partidas_cliente": [
+    {
+      "num": "01",
+      "codigo_partida": "DIN-IPE160-2M",
+      "concepto": "Dintel laminado doble IPE 160 (L = 2,00 m) taladrado y atornillado con varilla M12",
+      "descripcion": "Suministro, corte a medida y mecanizado de dintel estructural compuesto por 2 vigas laminadas en caliente IPE 160 de 2,00 m de longitud (4,00 ml en total, peso 63,20 kg de acero S275JR según UNE-EN 10025-2). Incluye perforaciones pasantes de Ø14 mm en alma cada 50 cm (8 taladros en total), suministro y montaje de 4 varillas roscadas M12 x 200 mm en calidad 8.8 cincadas con sus respectivas arandelas anchas DIN 9021 y tuercas hexagonales DIN 934 para arriostramiento y cosido conjunto de ambas vigas. Tratamiento superficial en taller mediante desengrasado, limpieza mecánica profunda e imprimación antioxidante alifática de secado rápido (sin horno, norma HAM).",
+      "unidad": "ud",
+      "cantidad": 1.0,
+      "precio_unitario": 360.00,
+      "importe": 360.00
+    },
+    {
+      "num": "02",
+      "codigo_partida": "DIN-IPE160-3M",
+      "concepto": "Dintel laminado doble IPE 160 (L = 3,00 m) taladrado y atornillado con varilla M12",
+      "descripcion": "Suministro, corte a medida y mecanizado de dintel estructural compuesto por 2 vigas laminadas en caliente IPE 160 de 3,00 m de longitud (6,00 ml en total, peso 94,80 kg de acero S275JR según UNE-EN 10025-2). Incluye perforaciones pasantes de Ø14 mm en alma cada 50 cm (12 taladros en total), suministro y montaje de 6 varillas roscadas M12 x 200 mm en calidad 8.8 cincadas con sus correspondientes arandelas anchas DIN 9021 y tuercas hexagonales DIN 934 para unión y cosido estructural. Tratamiento superficial en taller mediante desengrasado, limpieza mecánica profunda e imprimación antioxidante alifática de secado rápido (sin horno, norma HAM).",
+      "unidad": "ud",
+      "cantidad": 1.0,
+      "precio_unitario": 520.00,
+      "importe": 520.00
+    },
+    {
+      "num": "03",
+      "codigo_partida": "DIN-IPE240-2M",
+      "concepto": "Dintel laminado doble reforzado IPE 240 (L = 2,00 m) taladrado y atornillado con varilla M12",
+      "descripcion": "Suministro, corte a medida y mecanizado de dintel estructural reforzado compuesto por 2 vigas laminadas en caliente IPE 240 de 2,00 m de longitud (4,00 ml en total, peso 122,80 kg de acero S275JR según UNE-EN 10025-2). Incluye perforaciones pasantes de Ø14 mm en alma cada 50 cm (8 taladros en total), suministro y montaje de 4 varillas roscadas M12 x 200 mm en calidad 8.8 cincadas con sus arandelas anchas DIN 9021 y tuercas hexagonales DIN 934 para cosido y unión solidaria. Tratamiento superficial en taller mediante desengrasado, limpieza mecánica profunda e imprimación antioxidante alifática de secado rápido (sin horno, norma HAM).",
+      "unidad": "ud",
+      "cantidad": 1.0,
+      "precio_unitario": 540.00,
+      "importe": 540.00
+    }
+  ],
+  "totales_economicos": {
+    "base_imponible": 1420.00,
+    "iva_porcentaje": 21,
+    "iva_importe": 298.20,
+    "total_presupuesto": 1718.20
+  },
+  "escandallo_interno": {
+    "resumen_materiales": [
+      {
+        "concepto": "Acero laminado IPE 160 S275JR (10,00 ml = 158,00 kg)",
+        "unidad": "kg",
+        "cantidad": 158.00,
+        "coste_unitario": 1.50,
+        "coste_total": 237.00
+      },
+      {
+        "concepto": "Acero laminado IPE 240 S275JR (4,00 ml = 122,80 kg)",
+        "unidad": "kg",
+        "cantidad": 122.80,
+        "coste_unitario": 1.50,
+        "coste_total": 184.20
+      },
+      {
+        "concepto": "Varillas roscadas M12 cal. 8.8 cincadas cortadas a 200 mm (14 uds)",
+        "unidad": "ud",
+        "cantidad": 14.00,
+        "coste_unitario": 0.85,
+        "coste_total": 11.90
+      },
+      {
+        "concepto": "Tuercas hexagonales DIN 934 M12 cincadas (28 uds)",
+        "unidad": "ud",
+        "cantidad": 28.00,
+        "coste_unitario": 0.12,
+        "coste_total": 3.36
+      },
+      {
+        "concepto": "Arandelas anchas DIN 9021 M12 cincadas (28 uds)",
+        "unidad": "ud",
+        "cantidad": 28.00,
+        "coste_unitario": 0.08,
+        "coste_total": 2.24
+      },
+      {
+        "concepto": "Imprimación antioxidante epoxi/fosfatante secado rápido (10 m²)",
+        "unidad": "m²",
+        "cantidad": 9.92,
+        "coste_unitario": 3.50,
+        "coste_total": 34.72
+      },
+      {
+        "concepto": "Consumibles de taller (discos de corte Ø230, brocas HSS Ø14, disolventes, limpieza)",
+        "unidad": "pa",
+        "cantidad": 1.00,
+        "coste_unitario": 25.00,
+        "coste_total": 25.00
+      },
+      {
+        "concepto": "Porte logístico y descarga de perfiles a taller HAM en Menorca",
+        "unidad": "pa",
+        "cantidad": 1.00,
+        "coste_unitario": 45.00,
+        "coste_total": 45.00
+      }
+    ],
+    "resumen_mano_obra": [
+      {
+        "concepto": "Oficial 1ª Taller - Corte y escuadrado de 6 vigas IPE",
+        "horas": 1.0,
+        "tarifa_hora": 30.00,
+        "coste_total": 30.00
+      },
+      {
+        "concepto": "Oficial 1ª Taller - Replanteo y taladrado de 28 perforaciones Ø14 mm en alma",
+        "horas": 1.5,
+        "tarifa_hora": 30.00,
+        "coste_total": 45.00
+      },
+      {
+        "concepto": "Oficial 1ª / Ayudante - Desbarbado, limpieza y preparación St 3",
+        "horas": 1.0,
+        "tarifa_hora": 30.00,
+        "coste_total": 30.00
+      },
+      {
+        "concepto": "Oficial 1ª Taller - Aplicación de imprimación antioxidante a pistola",
+        "horas": 1.5,
+        "tarifa_hora": 30.00,
+        "coste_total": 45.00
+      },
+      {
+        "concepto": "Oficial 1ª Taller - Corte de varillas M12, montaje de pasadores, roscado y comprobación",
+        "horas": 1.0,
+        "tarifa_hora": 30.00,
+        "coste_total": 30.00
+      }
+    ],
+    "totales_escandallo": {
+      "coste_materiales": 543.42,
+      "coste_mano_obra": 180.00,
+      "horas_totales": 6.0,
+      "coste_directo_total": 723.42,
+      "precio_venta": 1420.00,
+      "margen_bruto_euros": 696.58,
+      "margen_bruto_porcentaje": 49.05
+    }
+  }
+}
