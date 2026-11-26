@@ -1,0 +1,290 @@
+{
+  "codigo": "P-2026-0066",
+  "referencia": "PRE-2026-1126-JUZGADOS-CIUTADELLA-GRUPO-ORTIZ",
+  "version": "1.0",
+  "fecha": "26 de noviembre de 2026",
+  "fecha_iso": "2026-11-26",
+  "fecha_entrega_limite": "14 de diciembre de 2026",
+  "validez_dias": 60,
+  "forma_pago": "Según certificaciones mensuales de obra / acuerdo marco con constructora",
+  "plazo_ejecucion_estimado": "Según plan de obra de la constructora (Licitación EXPTE AOB/2026/135)",
+  "cliente": {
+    "empresa": "Grupo Ortiz (Delegación Baleares - Rehabilitación)",
+    "razon_social": "Grupo Ortiz",
+    "contacto": "Damià Melià Vives",
+    "cargo": "Delegación Baleares - Rehabilitación",
+    "telefono": "+34 695 63 09 53 / +34 913431600",
+    "email": "damia.melia@grupoortiz.com",
+    "direccion": "Avda. Ensanche de Vallecas, 44",
+    "codigo_postal": "28051",
+    "poblacion": "Madrid",
+    "provincia": "Madrid",
+    "pais": "España",
+    "web": "https://www.grupoortiz.com"
+  },
+  "emisor": {
+    "empresa": "Dixis Recursos y Soluciones S.L.",
+    "marca_comercial": "HAM Menorca (Herrería y Estructuras Metálicas)",
+    "cif": "B57825432",
+    "domicilio": "Avenida Circunval·lació, 11",
+    "codigo_postal": "07710",
+    "poblacion": "Sant Lluís",
+    "provincia": "Islas Baleares",
+    "telefono": "+34 669 769 541",
+    "email": "pablo@dixis.es",
+    "web": "https://www.hamenorca.com",
+    "representante_legal": "Pablo Sebastián Sánchez Arnoletto",
+    "cargo": "Administrador solidario",
+    "dni": "41513578G"
+  },
+  "proyecto": {
+    "titulo": "Construcción de Nuevo Edificio de Juzgados en Ciutadella de Menorca (Islas Baleares)",
+    "expediente": "EXPTE AOB/2026/135",
+    "promotor": "Ministerio de la Presidencia, Justicia y Relaciones con las Cortes / Gerencia Territorial de Justicia",
+    "emplazamiento": "Carrer d´Orient S/N, 07760 Ciutadella de Menorca (Illes Balears)",
+    "arquitectos": "E. BARDAJÍ Y ASOCIADOS, S.L.",
+    "documento_base": "E5. Mediciones y Presupuesto del Proyecto de Ejecución (Págs. 1035, 1090, 1106, 1123-1125, 1136-1137, 1346-1347)",
+    "normativa_aplicable": "CTE (DB-SE, DB-SE-A, DB-SUA, DB-SI, DB-HS), Código Estructural (RD 470/2021), UNE-EN 1090-2 (Clase EXC2/EXC3), Marcado CE según Reglamento (UE) 305/2011",
+    "criterio_pintura_ham": "Tratamiento anticorrosivo mediante preparación superficial, imprimación de adherencia antioxidante en taller y esmalte de poliuretano bicomponente para acabado de intemperie. Conforme al estándar estricto de HAM Menorca, en ningún caso se utiliza pintura al horno o termolacado."
+  },
+  "capitulos": [
+    {
+      "codigo": "CAP_05",
+      "titulo": "ESTRUCTURA METÁLICA",
+      "descripcion": "Perfiles tubulares y laminados para lucernarios, cuelgues de ascensor y refuerzos estructurales.",
+      "partidas": [
+        {
+          "codigo": "05.01",
+          "unidad": "kg",
+          "cantidad": 4425.95,
+          "descripcion_corta": "Acero laminado S275 JR en perfiles tubulares estructurales para lucernarios",
+          "descripcion_completa": "Acero laminado S275 JR en perfiles tubulares estructurales (SHS 100x5 y RHS 150x100x6) con una tensión de rotura de 410 N/mm2, unidas entre sí mediante uniones soldadas con electrodo básico, i/p.p. despuntes y dos manos de imprimación antioxidante totalmente montado, según UNE-EN 10025-1:2006, NTE-EAS, NTE-EAV, CTE DB-SE-A y Código Estructural. Trabajos por soldador cualificado. Marcado CE y DdP s/ Reglamento (UE) 305/2011.",
+          "coste_unitario": 3.45,
+          "precio_unitario_venta": 4.95,
+          "coste_total": 15269.53,
+          "importe_total_venta": 21908.45
+        },
+        {
+          "codigo": "05.02",
+          "unidad": "kg",
+          "cantidad": 1365.59,
+          "descripcion_corta": "Acero laminado S275 JR en perfiles laminados en caliente para forjados, tirantes y cuelgue ascensores",
+          "descripcion_completa": "Acero laminado S275JR, en perfiles laminados en caliente (IPE 140, IPE 160, IPE 180, IPE 200, tirantes Ø16 de atado de lucernario, piezas de unión y cuelgue de ascensores), mediante uniones soldadas/atornilladas; i/p.p. de soldaduras, cortes, piezas especiales, despuntes y dos manos de imprimación antioxidante, montado y colocado, según UNE-EN 10025-1:2006, NTE-EAS, NTE-EAV, CTE DB-SE-A y Código Estructural.",
+          "coste_unitario": 3.3,
+          "precio_unitario_venta": 4.75,
+          "coste_total": 4506.45,
+          "importe_total_venta": 6486.55
+        }
+      ]
+    },
+    {
+      "codigo": "CAP_10",
+      "titulo": "CERRAJERÍA",
+      "descripcion": "Cargaderos, remates de ventilación, caperuzas, barandillas tubulares de barrotes, pasamanos murales y barandillas de vidrio laminar.",
+      "partidas": [
+        {
+          "codigo": "10.01",
+          "unidad": "m",
+          "cantidad": 10.0,
+          "descripcion_corta": "Cargadero perfil angular L-60.6 mm (5,42 kg/m)",
+          "descripcion_completa": "Cargadero L-60.6 mm de 5,42 Kg/m, perfil normalizado de acero S275 JR, laminado en caliente según UNE-EN 10025-1:2006 y UNE-EN 10210-1:2007, trabajado, colocado en obra y pintado de imprimación antioxidante, según CTE DB-SE-A, incluso porcentaje de despuntes, recortes y tolerancias del 10%. Acero con marcado CE y DdP.",
+          "coste_unitario": 24.0,
+          "precio_unitario_venta": 38.0,
+          "coste_total": 240.0,
+          "importe_total_venta": 380.0
+        },
+        {
+          "codigo": "10.02",
+          "unidad": "ud",
+          "cantidad": 4.0,
+          "descripcion_corta": "Caperuza metálica chimenea 80x60 cm",
+          "descripcion_completa": "Caperuza metálica para remate de chimenea de medidas exteriores 80x60 cm elaborada en taller, formada por seis recercados con tubo hueco de acero laminado en frío de 50x20x1,50 mm, patillas de sujeción y recibido de tubo de 30x30x1,50 mm en esquinas, con chapa metálica de 1,50 mm de espesor soldada a parte superior, incluso imprimación antioxidante y montaje en obra. Conforme al CTE DB-HS-3.",
+          "coste_unitario": 175.0,
+          "precio_unitario_venta": 275.0,
+          "coste_total": 700.0,
+          "importe_total_venta": 1100.0
+        },
+        {
+          "codigo": "10.03",
+          "unidad": "ud",
+          "cantidad": 20.0,
+          "descripcion_corta": "Rejilla ventilación de cámara 20x20 cm en acero galvanizado",
+          "descripcion_completa": "Rejilla para ventilación de cámara de aire de 20x20 cm ejecutada con perfiles de acero galvanizado, bastidor de tubular 50x15x1,5 mm, lamas fijas de espesor mínimo 0,8 mm, patillas de fijación y ajuste en obra.",
+          "coste_unitario": 45.0,
+          "precio_unitario_venta": 78.0,
+          "coste_total": 900.0,
+          "importe_total_venta": 1560.0
+        },
+        {
+          "codigo": "10.04",
+          "unidad": "m",
+          "cantidad": 81.8,
+          "descripcion_corta": "Barandilla acero tubos verticales 20x20x1 mm h=110 cm en escaleras y accesos",
+          "descripcion_completa": "Barandilla de 110 cm de altura, construida con tubos huecos de acero laminado en frío, con pasamanos superior de 100x40x2 mm, inferior de 80x40x2 mm dispuestos horizontalmente y montantes verticales de tubo de 20x20x1 mm colocados cada 10 cm, soldados entre sí, incluso patillas de anclaje cada metro, elaborada en taller y montaje en obra (Escaleras 03, 04, 05 y acceso policía). Acabado con imprimación antioxidante y esmalte poliuretano bicomponente. Conforme a CTE DB-SUA-1 y DB-SE-AE.",
+          "coste_unitario": 125.0,
+          "precio_unitario_venta": 185.0,
+          "coste_total": 10225.0,
+          "importe_total_venta": 15133.0
+        },
+        {
+          "codigo": "10.05",
+          "unidad": "m",
+          "cantidad": 78.0,
+          "descripcion_corta": "Pasamanos mural tubo acero redondo Ø40 mm",
+          "descripcion_completa": "Pasamanos metálico mural formado por tubo hueco circular de acero laminado en frío de diámetro 40 mm, incluso parte proporcional de patillas de sujeción a base de redondo liso macizo de 16 mm separados cada 50 cm, anclajes mecánicos a paramento y montaje en obra (Escaleras 03, 04, 05 y acceso policía). Conforme al CTE DB-SUA-1.",
+          "coste_unitario": 50.0,
+          "precio_unitario_venta": 80.0,
+          "coste_total": 3900.0,
+          "importe_total_venta": 6240.0
+        },
+        {
+          "codigo": "10.06",
+          "unidad": "m",
+          "cantidad": 73.27,
+          "descripcion_corta": "Barandilla técnica de vidrio laminar de seguridad 10+10+2,5 mm con perfil inferior continuo",
+          "descripcion_completa": "Barandilla de vidrio de seguridad compuesta por acristalamiento laminar 10+10+2,5 mm con láminas de butiral de polivinilo incoloro, sistema de fijación continua sobre perfil/petaca inferior de aluminio extruido con calzos perimetrales, cuñas de nivelación y sellado en frío con silicona estructural. Totalmente instalada según UNE-EN 12488:2017 y CTE DB-SUA / DB-SE-AE (Escaleras patios 1 y 2, dobles alturas de patios y doble altura de acceso).",
+          "coste_unitario": 235.0,
+          "precio_unitario_venta": 335.0,
+          "coste_total": 17218.45,
+          "importe_total_venta": 24545.45
+        }
+      ]
+    },
+    {
+      "codigo": "CAP_07",
+      "titulo": "REVESTIMIENTOS Y FALSOS TECHOS",
+      "descripcion": "Entramado metálico tipo Tramex en falsos techos.",
+      "partidas": [
+        {
+          "codigo": "07.02.09",
+          "unidad": "m2",
+          "cantidad": 20.95,
+          "descripcion_corta": "Entramado metálico tipo Tramex 30x30/30x2 mm en acero galvanizado en caliente",
+          "descripcion_completa": "Entramado metálico formado por rejilla de pletina de acero galvanizado en caliente tipo tramex de 30x2 mm, formando cuadrícula de 30x30 mm y bastidor perimetral con uniones electrosoldadas, incluido sistema de suspensión, anclaje y subestructura metálica a elementos de forjado en falso techo de Planta 1. Marcado CE y DdP.",
+          "coste_unitario": 80.0,
+          "precio_unitario_venta": 128.0,
+          "coste_total": 1676.0,
+          "importe_total_venta": 2681.6
+        }
+      ]
+    },
+    {
+      "codigo": "CAP_08",
+      "titulo": "SOLADOS, ALICATADOS Y CHAPADOS",
+      "descripcion": "Albardillas de chapa metálica de coronación en cubierta.",
+      "partidas": [
+        {
+          "codigo": "08.03.03",
+          "unidad": "m",
+          "cantidad": 90.09,
+          "descripcion_corta": "Albardilla de chapa metálica lacada a=50 cm con goterón y junta estanca",
+          "descripcion_completa": "Albardilla de chapa plegada lacada en color a elegir por la D.F. en desarrollo de 50 cm, con goterones a ambos lados y sistema de junta estanca, recibida sobre petos y casetones de cubierta mediante fijación y cordón elástico de sellado, incluso piezas de esquina y remate. Conforme a CTE DB-HS.",
+          "coste_unitario": 28.0,
+          "precio_unitario_venta": 45.0,
+          "coste_total": 2522.52,
+          "importe_total_venta": 4054.05
+        }
+      ]
+    },
+    {
+      "codigo": "CAP_26",
+      "titulo": "URBANIZACIÓN - CERRAMIENTOS DE PARCELA",
+      "descripcion": "Vallado perimetral en chapa de 6 mm plegada efecto corten y cancelas automáticas correderas y abatible.",
+      "partidas": [
+        {
+          "codigo": "26.04.02",
+          "unidad": "m",
+          "cantidad": 112.36,
+          "descripcion_corta": "Vallado perimetral chapa 6 mm acero galvanizado plegado acabado efecto corten (h=2,25 m)",
+          "descripcion_completa": "Suministro y colocación de cerramiento perimetral de parcela de acero galvanizado plegado de 6 mm de espesor y acabado efecto corten según despiece y diseño arquitectónico de proyecto. Mecanizado mediante corte y soldadura, formado por pletinas verticales de 2,25 m de altura máxima, piezas de unión con altura variable soldadas a pletina inferior continua en su base de 50 cm de anchura según detalle constructivo. Incluido montaje, transporte a obra, medios auxiliares y anclaje a cimentación.",
+          "coste_unitario": 410.0,
+          "precio_unitario_venta": 595.0,
+          "coste_total": 46067.6,
+          "importe_total_venta": 66854.2
+        },
+        {
+          "codigo": "26.04.03",
+          "unidad": "ud",
+          "cantidad": 1.0,
+          "descripcion_corta": "Cancela automática corredera 350x210 cm chapa 6 mm acero galv. plegado efecto corten",
+          "descripcion_completa": "Puerta automática corredera sobre carril de medidas 3,50x2,10 m construida con chapa de acero galvanizado plegado de 6 mm con acabado efecto corten según diseño de proyecto. Formada por pletinas verticales y pletina base continua. Sistema de desplazamiento con guía inferior y carril de rodadura empotrado en pavimento, ruedas de rodadura, topes, guiado superior, cerradura de seguridad, motorización industrial de corredera con cuadro, fotocélulas, bandas de seguridad, receptores y mandos a distancia. Totalmente instalada.",
+          "coste_unitario": 3350.0,
+          "precio_unitario_venta": 4950.0,
+          "coste_total": 3350.0,
+          "importe_total_venta": 4950.0
+        },
+        {
+          "codigo": "26.04.04",
+          "unidad": "ud",
+          "cantidad": 1.0,
+          "descripcion_corta": "Cancela automática corredera 202x210 cm chapa 6 mm acero galv. plegado efecto corten",
+          "descripcion_completa": "Puerta automática corredera sobre carril de medidas 2,02x2,10 m construida con chapa de acero galvanizado plegado de 6 mm con acabado efecto corten según diseño de proyecto. Formada por pletinas verticales y pletina base continua. Sistema de desplazamiento con carril de rodadura empotrado, ruedas, topes, guía superior, motorización automática corredera completa con sistema de seguridad, fotocélulas y receptor. Totalmente instalada y ajustada.",
+          "coste_unitario": 2500.0,
+          "precio_unitario_venta": 3750.0,
+          "coste_total": 2500.0,
+          "importe_total_venta": 3750.0
+        },
+        {
+          "codigo": "26.04.05",
+          "unidad": "ud",
+          "cantidad": 1.0,
+          "descripcion_corta": "Cancela automática abatible 675x210 cm chapa 6 mm acero galv. plegado efecto corten",
+          "descripcion_completa": "Puerta automática abatible de grandes dimensiones (paso libre 6,75 m, altura 2,10 m) construida en chapa de acero galvanizado plegado de 6 mm con acabado efecto corten según diseño de proyecto. Estructura portante reforzada para gran vano, bisagras industriales para alta carga, columnas laterales de rigidización, motorización con brazos hidráulicos de alta potencia, cerradura electrohidráulica de enclavamiento, cuadro de control, fotocélulas y elementos de seguridad activa y pasiva según UNE-EN 13241. Totalmente montada.",
+          "coste_unitario": 6800.0,
+          "precio_unitario_venta": 10200.0,
+          "coste_total": 6800.0,
+          "importe_total_venta": 10200.0
+        }
+      ]
+    },
+    {
+      "codigo": "CAP_09",
+      "titulo": "CARPINTERÍA METÁLICA DE SEGURIDAD (CELDAS)",
+      "descripcion": "Puertas blindadas y correderas de celdas judiciales en chapa de 2 mm con mirilla y trampilla.",
+      "partidas": [
+        {
+          "codigo": "09.02.06",
+          "unidad": "ud",
+          "cantidad": 2.0,
+          "descripcion_corta": "Puerta metálica celda 2 chapas acero 2 mm abatible 96x210 cm (PI.11)",
+          "descripcion_completa": "Puerta para celda judicial abatible de una hoja de 96x210 cm, construida con dos chapas de acero de 2 mm de espesor y estructura interna de rigidización, acabado con imprimación antioxidante y esmalte poliuretano de alta resistencia (sin horno, según criterio HAM). Dotada de cerrojo de seguridad por el exterior, mirilla de 15x15 cm acristalada con vidrio Stadip antibala 3x6 mm con trampilla de cierre abatible. Cerradura carcelaria con plan de amaestramiento, garras de anclaje, elaborada en taller y montaje en obra. Conforme a NTE-FCA.",
+          "coste_unitario": 980.0,
+          "precio_unitario_venta": 1480.0,
+          "coste_total": 1960.0,
+          "importe_total_venta": 2960.0
+        },
+        {
+          "codigo": "09.02.07",
+          "unidad": "ud",
+          "cantidad": 4.0,
+          "descripcion_corta": "Puerta metálica celda 2 chapas acero 2 mm + trampilla abatible 96x210 cm (PI.6)",
+          "descripcion_completa": "Puerta para celda judicial abatible de una hoja de 96x210 cm, construida con dos chapas de acero de 2 mm de espesor, acabado con imprimación y esmalte poliuretano bicomponente. Dotada de cerrojo de seguridad exterior, mirilla de 15x15 cm acristalada con vidrio Stadip 3x6 mm y trampilla inferior de pase de alimentos/documentos con cerrojo de condena. Cerradura amaestrada, garras para recibir y ajuste en obra.",
+          "coste_unitario": 1120.0,
+          "precio_unitario_venta": 1680.0,
+          "coste_total": 4480.0,
+          "importe_total_venta": 6720.0
+        },
+        {
+          "codigo": "09.02.08",
+          "unidad": "ud",
+          "cantidad": 2.0,
+          "descripcion_corta": "Puerta metálica corredera celda 2 chapas 2 mm + trampilla y casoneto 96x220 cm (PI.7)",
+          "descripcion_completa": "Puerta corredera de una hoja de 96x220 cm para celda, construida con dos chapas de acero de 2 mm de espesor, acabado con imprimación y pintura de acabado. Dotada de cerrojo de seguridad exterior, mirilla acristalada 15x15 cm con vidrio Stadip y trampilla de cierre. Suministro y colocación de casoneto metálico empotrado en tabique, sistema de guiado superior reforzado, cerradura especial y montaje completo.",
+          "coste_unitario": 1480.0,
+          "precio_unitario_venta": 2240.0,
+          "coste_total": 2960.0,
+          "importe_total_venta": 4480.0
+        }
+      ]
+    }
+  ],
+  "totales": {
+    "total_coste_directo": 125275.55,
+    "base_imponible_venta": 184003.3,
+    "margen_bruto_euros": 58727.75,
+    "margen_bruto_porcentaje": 31.92,
+    "iva_tipo": 21.0,
+    "iva_importe": 38640.69,
+    "total_con_iva": 222643.99
+  }
+}
