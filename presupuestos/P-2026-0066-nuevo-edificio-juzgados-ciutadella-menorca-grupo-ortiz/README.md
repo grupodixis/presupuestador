@@ -25,10 +25,10 @@
 | **CAP_08** | Cubiertas (Albardilla chapa lacada desarrollo 50 cm) | 2.522,52 € | 4.054,05 € | +1.531,53 € | 37,78% |
 | **CAP_26** | Urbanización (Vallado chapa 6 mm efecto corten y cancelas automáticas) | 58.717,60 € | 85.754,20 € | +27.036,60 € | 31,53% |
 | **CAP_09** | Carpintería Seguridad (Puertas blindadas celdas abatibles y correderas) | 9.400,00 € | 14.160,00 € | +4.760,00 € | 33,62% |
-| **TOTALES** | **Conjunto de Partidas Especializadas HAM** | **125.275,55 €** | **184.003,30 €** | **+58.727,75 €** | **31.92%** |
+| **TOTALES** | **Conjunto de Partidas Especializadas HAM** | **155.197,10 €** | **229.244,43 €** | **+74.047,33 €** | **32.3%** |
 
-- **I.V.A. Repercutible (21.0%):** 38.640,69 €
-- **Total Presupuesto (con IVA):** **222.643,99 €**
+- **I.V.A. Repercutible (21.0%):** 48.141,33 €
+- **Total Presupuesto (con IVA):** **277.385,76 €**
 
 ---
 

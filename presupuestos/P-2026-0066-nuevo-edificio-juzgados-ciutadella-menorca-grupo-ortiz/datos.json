@@ -121,10 +121,10 @@
           "cantidad": 81.8,
           "descripcion_corta": "Barandilla acero tubos verticales 20x20x1 mm h=110 cm en escaleras y accesos",
           "descripcion_completa": "Barandilla de 110 cm de altura, construida con tubos huecos de acero laminado en frío, con pasamanos superior de 100x40x2 mm, inferior de 80x40x2 mm dispuestos horizontalmente y montantes verticales de tubo de 20x20x1 mm colocados cada 10 cm, soldados entre sí, incluso patillas de anclaje cada metro, elaborada en taller y montaje en obra (Escaleras 03, 04, 05 y acceso policía). Acabado con imprimación antioxidante y esmalte poliuretano bicomponente. Conforme a CTE DB-SUA-1 y DB-SE-AE.",
-          "coste_unitario": 125.0,
-          "precio_unitario_venta": 185.0,
-          "coste_total": 10225.0,
-          "importe_total_venta": 15133.0
+          "coste_unitario": 145.0,
+          "precio_unitario_venta": 220.0,
+          "coste_total": 11861.0,
+          "importe_total_venta": 17996.0
         },
         {
           "codigo": "10.05",
@@ -143,10 +143,10 @@
           "cantidad": 73.27,
           "descripcion_corta": "Barandilla técnica de vidrio laminar de seguridad 10+10+2,5 mm con perfil inferior continuo",
           "descripcion_completa": "Barandilla de vidrio de seguridad compuesta por acristalamiento laminar 10+10+2,5 mm con láminas de butiral de polivinilo incoloro, sistema de fijación continua sobre perfil/petaca inferior de aluminio extruido con calzos perimetrales, cuñas de nivelación y sellado en frío con silicona estructural. Totalmente instalada según UNE-EN 12488:2017 y CTE DB-SUA / DB-SE-AE (Escaleras patios 1 y 2, dobles alturas de patios y doble altura de acceso).",
-          "coste_unitario": 235.0,
-          "precio_unitario_venta": 335.0,
-          "coste_total": 17218.45,
-          "importe_total_venta": 24545.45
+          "coste_unitario": 440.0,
+          "precio_unitario_venta": 650.0,
+          "coste_total": 32238.8,
+          "importe_total_venta": 47625.5
         }
       ]
     },
@@ -195,45 +195,45 @@
           "codigo": "26.04.02",
           "unidad": "m",
           "cantidad": 112.36,
-          "descripcion_corta": "Vallado perimetral chapa 6 mm acero galvanizado plegado acabado efecto corten (h=2,25 m)",
-          "descripcion_completa": "Suministro y colocación de cerramiento perimetral de parcela de acero galvanizado plegado de 6 mm de espesor y acabado efecto corten según despiece y diseño arquitectónico de proyecto. Mecanizado mediante corte y soldadura, formado por pletinas verticales de 2,25 m de altura máxima, piezas de unión con altura variable soldadas a pletina inferior continua en su base de 50 cm de anchura según detalle constructivo. Incluido montaje, transporte a obra, medios auxiliares y anclaje a cimentación.",
-          "coste_unitario": 410.0,
-          "precio_unitario_venta": 595.0,
-          "coste_total": 46067.6,
-          "importe_total_venta": 66854.2
+          "descripcion_corta": "Vallado perimetral chapa 6 mm en acero corten (h=2,25 m)",
+          "descripcion_completa": "Suministro y colocación de cerramiento perimetral de parcela realizado íntegramente en chapa de acero corten de 6 mm de espesor según despiece y diseño arquitectónico de proyecto. Mecanizado mediante corte y soldadura, formado por pletinas verticales de 2,25 m de altura máxima, piezas de unión con altura variable soldadas a pletina inferior continua en su base de 50 cm de anchura según detalle constructivo. Incluido montaje, transporte a obra, medios auxiliares y anclaje a cimentación.",
+          "coste_unitario": 480.0,
+          "precio_unitario_venta": 698.0,
+          "coste_total": 53932.8,
+          "importe_total_venta": 78427.28
         },
         {
           "codigo": "26.04.03",
           "unidad": "ud",
           "cantidad": 1.0,
-          "descripcion_corta": "Cancela automática corredera 350x210 cm chapa 6 mm acero galv. plegado efecto corten",
-          "descripcion_completa": "Puerta automática corredera sobre carril de medidas 3,50x2,10 m construida con chapa de acero galvanizado plegado de 6 mm con acabado efecto corten según diseño de proyecto. Formada por pletinas verticales y pletina base continua. Sistema de desplazamiento con guía inferior y carril de rodadura empotrado en pavimento, ruedas de rodadura, topes, guiado superior, cerradura de seguridad, motorización industrial de corredera con cuadro, fotocélulas, bandas de seguridad, receptores y mandos a distancia. Totalmente instalada.",
-          "coste_unitario": 3350.0,
-          "precio_unitario_venta": 4950.0,
-          "coste_total": 3350.0,
-          "importe_total_venta": 4950.0
+          "descripcion_corta": "Cancela automática corredera 350x210 cm chapa 6 mm acero corten",
+          "descripcion_completa": "Puerta automática corredera sobre carril de medidas 3,50x2,10 m construida íntegramente con chapa de acero corten de 6 mm de espesor según diseño de proyecto. Formada por pletinas verticales y pletina base continua. Sistema de desplazamiento con guía inferior y carril de rodadura, ruedas, topes, guiado superior, cerradura de seguridad, motorización industrial de corredera con cuadro, fotocélulas, bandas de seguridad, receptores y mandos a distancia. Totalmente montada. No incluye obra civil ni instalación eléctrica.",
+          "coste_unitario": 4400.0,
+          "precio_unitario_venta": 6500.0,
+          "coste_total": 4400.0,
+          "importe_total_venta": 6500.0
         },
         {
           "codigo": "26.04.04",
           "unidad": "ud",
           "cantidad": 1.0,
-          "descripcion_corta": "Cancela automática corredera 202x210 cm chapa 6 mm acero galv. plegado efecto corten",
-          "descripcion_completa": "Puerta automática corredera sobre carril de medidas 2,02x2,10 m construida con chapa de acero galvanizado plegado de 6 mm con acabado efecto corten según diseño de proyecto. Formada por pletinas verticales y pletina base continua. Sistema de desplazamiento con carril de rodadura empotrado, ruedas, topes, guía superior, motorización automática corredera completa con sistema de seguridad, fotocélulas y receptor. Totalmente instalada y ajustada.",
-          "coste_unitario": 2500.0,
-          "precio_unitario_venta": 3750.0,
-          "coste_total": 2500.0,
-          "importe_total_venta": 3750.0
+          "descripcion_corta": "Cancela automática corredera 202x210 cm chapa 6 mm acero corten",
+          "descripcion_completa": "Puerta automática corredera sobre carril de medidas 2,02x2,10 m construida íntegramente con chapa de acero corten de 6 mm de espesor según diseño de proyecto. Formada por pletinas verticales y pletina base continua. Sistema de desplazamiento con carril de rodadura, ruedas, topes, guía superior, motorización automática corredera completa con sistema de seguridad, fotocélulas y receptor. Totalmente instalada y ajustada. No incluye obra civil ni instalación eléctrica.",
+          "coste_unitario": 3450.0,
+          "precio_unitario_venta": 5125.0,
+          "coste_total": 3450.0,
+          "importe_total_venta": 5125.0
         },
         {
           "codigo": "26.04.05",
           "unidad": "ud",
           "cantidad": 1.0,
-          "descripcion_corta": "Cancela automática abatible 675x210 cm chapa 6 mm acero galv. plegado efecto corten",
-          "descripcion_completa": "Puerta automática abatible de grandes dimensiones (paso libre 6,75 m, altura 2,10 m) construida en chapa de acero galvanizado plegado de 6 mm con acabado efecto corten según diseño de proyecto. Estructura portante reforzada para gran vano, bisagras industriales para alta carga, columnas laterales de rigidización, motorización con brazos hidráulicos de alta potencia, cerradura electrohidráulica de enclavamiento, cuadro de control, fotocélulas y elementos de seguridad activa y pasiva según UNE-EN 13241. Totalmente montada.",
-          "coste_unitario": 6800.0,
-          "precio_unitario_venta": 10200.0,
-          "coste_total": 6800.0,
-          "importe_total_venta": 10200.0
+          "descripcion_corta": "Cancela automática abatible 675x210 cm chapa 6 mm acero corten",
+          "descripcion_completa": "Puerta automática abatible de grandes dimensiones (paso libre 6,75 m, altura 2,10 m) construida íntegramente en chapa de acero corten de 6 mm de espesor según diseño de proyecto. Estructura portante reforzada para gran vano, bisagras industriales para alta carga, columnas laterales de rigidización, motorización con brazos hidráulicos de alta potencia, cerradura electrohidráulica de enclavamiento, cuadro de control, fotocélulas y elementos de seguridad activa y pasiva según UNE-EN 13241. Totalmente montada. No incluye obra civil ni instalación eléctrica.",
+          "coste_unitario": 10200.0,
+          "precio_unitario_venta": 15000.0,
+          "coste_total": 10200.0,
+          "importe_total_venta": 15000.0
         }
       ]
     },
@@ -279,12 +279,12 @@
     }
   ],
   "totales": {
-    "total_coste_directo": 125275.55,
-    "base_imponible_venta": 184003.3,
-    "margen_bruto_euros": 58727.75,
-    "margen_bruto_porcentaje": 31.92,
+    "total_coste_directo": 155197.1,
+    "base_imponible_venta": 229244.43,
+    "margen_bruto_euros": 74047.33,
+    "margen_bruto_porcentaje": 32.3,
     "iva_tipo": 21.0,
-    "iva_importe": 38640.69,
-    "total_con_iva": 222643.99
+    "iva_importe": 48141.33,
+    "total_con_iva": 277385.76
   }
 }
